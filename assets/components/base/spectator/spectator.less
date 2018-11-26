@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'DaimlerCS-Demi';
+  font-style: oblique;
+  font-weight: 400;
+  src: local('DaimlerCS-Demi'),
+  url(/fonts/DaimlerCS-Demi.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'DaimlerCS-ExtraBoldItalic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('DaimlerCS-ExtraBoldItalic'),
+  url(/fonts/DaimlerCS-ExtraBoldItalic.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'DaimlerCS-Light';
+  font-style: normal;
+  font-weight: 400;
+  src: local('DaimlerCS-Light'),
+  url(/fonts/DaimlerCS-Light.woff2) format('woff2');
+}
+
+
+.app-spectator {
+    .mercedes & {
+      font: 14px/1 'DaimlerCS-ExtraBoldItalic', verdana, arial, sans-serif;
+    }
+
+	.camera-fade {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: #000;
+		opacity: 0.01;
+		-webkit-transition: opacity 0.1s;
+		&.active {
+			opacity: 1;
+		}
+	}
+	.pit-window-information {
+		.onCreation(-webkit-transform, translate(-50%, -200px), translate(-50%, 0), 0.5s);
+		.onCreation(opacity, 0, 1, 0.2s);
+		font-family: Oswald;
+		position: fixed;
+		top: 120px;
+		left: 50%;
+		-webkit-transform: translate(-50%, 0);
+		font-size: 30px;
+		text-transform: uppercase;
+		.gradient(#000, #111111, #2e2d2d);
+		border-radius: 5px;
+		border: 1px solid #333;
+		color: #fff;
+		height: 50px;
+		padding: 0 20px;
+		line-height: 50px;
+		text-align: center;
+		display: inline-block;
+		-webkit-transition: opacity 1s;
+		.closing {
+			color: #a00;
+		}
+		&.removing {
+			opacity: 0;
+		}
+	}
+}

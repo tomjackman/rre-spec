@@ -1,0 +1,9 @@
+{
+	"elementName": "CurrentStandingsRotate",
+	"name": "Current Standing Rotate",
+	"buttonText": "Current Standings Rotate",
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"keepOnSessionChange": true,
+	"disableFlags": false,
+	"defaultActive": false
+}

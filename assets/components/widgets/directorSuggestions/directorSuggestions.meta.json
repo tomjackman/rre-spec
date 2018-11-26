@@ -1,0 +1,8 @@
+{
+	"elementName": "DirectorSuggestions",
+	"name": "Director suggestions",
+	"buttonText": "Director suggestions",
+	"keepOnSessionChange": true,
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"defaultActive": true
+}

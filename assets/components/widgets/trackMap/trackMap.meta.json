@@ -1,0 +1,8 @@
+{
+	"elementName": "TrackMap",
+	"name": "Track map",
+	"buttonText": "Track map",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"defaultActive": false
+}

@@ -1,0 +1,9 @@
+{
+	"elementName": "Results",
+	"name": "Results",
+	"buttonText": "Qualify Results",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Qualifying", "Race"],
+	"buttonClasses": ["warning"],
+	"defaultActive": false
+}

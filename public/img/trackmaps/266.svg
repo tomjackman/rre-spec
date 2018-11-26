@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="516" height="238">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-253.173,-109.529,506.346,219.058)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1,0,0,1,257.734,119.576)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M392,225 C351.452,225 309.95,214.449 272,200.91 C254.517,194.674 235.417,183.92 217,181.34 C205.252,179.695 202.433,194.982 191,195.907 C180.846,196.728 170.019,193.539 160,192.13 C141.319,189.505 122.569,187.52 104,184.59 C93.4299,182.922 78.5235,178.977 68,181.394 C61.1313,182.972 57.2174,189.823 51,192.697 C41.4372,197.117 21.6314,193.927 14.044,186.867 C1.84689,175.518 -0.0222168,131.701 17,123.969 C30.131,118.005 47.0783,123.644 61,123.985 C86.9105,124.62 121.571,117.034 140.572,97.7106 C156.791,81.2161 169.065,55.4075 179.745,35 C185.402,24.1893 191.907,10.3991 206,10.0548 C216.975,9.78662 226.469,16.3633 235,22.4421 C244.412,29.1489 254.971,35.832 262.181,45.0008 C267.391,51.6275 269.66,59.9931 274.359,67 C280.586,76.2865 289.414,82.5727 299,88.1242 C353.765,119.842 408.981,150.751 464,182 C476.684,189.204 491.084,194.805 502.985,203.221 C507.903,206.698 512.679,212.605 510.257,218.999 C505.774,230.837 490.98,229.004 481,229 C451.33,228.989 421.734,225 392,225 Z" style="stroke:#000000;stroke-opacity:1;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:2;stroke-linecap:butt;fill:none;"/>
+        </g>
+    </g>
+</svg>

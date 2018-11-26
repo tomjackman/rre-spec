@@ -1,0 +1,8 @@
+{
+	"elementName": "FocusedDriver",
+	"name": "Driver info",
+	"buttonText": "Driver info",
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"disableFlags": false,
+	"keepOnSessionChange": false
+}

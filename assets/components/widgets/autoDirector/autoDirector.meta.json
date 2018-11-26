@@ -1,0 +1,8 @@
+{
+	"elementName": "AutoDirector",
+	"name": "Auto Director",
+	"buttonText": "Auto Director",
+	"keepOnSessionChange": true,
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"defaultActive": false
+}

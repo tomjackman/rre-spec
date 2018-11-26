@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="516" height="251">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-252.563,-116.632,505.126,233.265)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1,0,0,1,258.437,126.471)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M314.094,243 L157,243 L115,243 C107.643,243 99.7404,243.909 93.0039,240.326 C79.8419,233.326 88.5555,216.034 77.8951,207.434 C70.4999,201.468 56.8746,207.133 48,205.535 C29.449,202.197 17.7733,190.563 10.3056,174 C4.85182,161.904 2.45055,152.433 15,143.649 C26.2353,135.785 44.0305,138.995 57,139 C62.6773,139.002 68.966,138.974 73.9992,142.008 C82.2902,147.007 88.0451,158.265 93.5725,166 C100.776,176.081 108.954,196.808 124,195.772 C134.592,195.042 146.112,182.947 144.15,172 C141.572,157.619 121.859,143.383 139.09,130.85 C141.142,129.358 143.572,128.301 146,127.598 C160.989,123.26 177.753,126.975 193,127 C225.666,127.053 258.333,127 291,127 C304.301,127 321.232,129.771 334,125.779 C361.737,117.108 343.075,90.8647 356.394,74.0046 C362.63,66.1096 377.821,69.8945 380.566,59.9961 C385.399,42.5706 368.117,19.5735 392,11.7492 C394.925,10.791 397.924,10.179 401,10.0394 C426.915,8.8629 463.873,12.4998 484,30.1844 C510.049,53.0731 511,80.7452 511,113 C511,153.709 511.151,186.207 481.829,217.985 C459.887,241.766 426.924,243 397,243 L314.094,243 Z" style="stroke:#000000;stroke-opacity:1;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:2;stroke-linecap:butt;fill:none;"/>
+        </g>
+    </g>
+</svg>

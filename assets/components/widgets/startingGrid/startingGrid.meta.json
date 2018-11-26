@@ -1,0 +1,10 @@
+{
+	"elementName": "StartingGrid",
+	"name": "Starting Grid",
+	"buttonText": "Starting Grid",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Race"],
+	"activeInPhases": ["Garage"],
+	"buttonClasses": [],
+	"defaultActive": false
+}

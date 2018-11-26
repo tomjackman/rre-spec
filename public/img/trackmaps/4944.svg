@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="207" height="493">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-98.6157,-241.608,197.231,483.215)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1,0,0,1,103.249,246.966)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M76.1566,414.47 C70.2133,411.49 61.4688,401.692 55.8302,396.576 C43.6586,385.53 31.604,374.307 19.0008,363.753 C13.2597,358.946 4.19146,352.464 4.64969,344 C5.20248,333.79 12.5649,324.388 17.6003,316 C26.7167,300.814 34.879,285.202 44,270 C74.1677,219.719 104.026,167.878 127.15,114 C139.448,85.3491 151.244,56.5156 163.86,28 C167.887,18.9 174.341,3.35602 187,5.57251 C197.674,7.44138 204.181,18.9374 201.096,29 C192.091,58.3705 175.669,88.3952 162.195,116 C139.667,162.154 119.542,209.535 97.6806,256 C89.2521,273.914 72.2117,298.427 74.1775,319 C75.3558,331.332 82.222,341.398 87.8102,352 C94.8475,365.352 101.355,378.871 108.85,392 C112.931,399.15 116.242,410.887 124.004,414.821 C130.706,418.218 138.282,414.266 145,413.3 C152.941,412.159 160.148,414.651 165.985,420.104 C177.931,431.264 177.556,456.138 174.338,471 C173.288,475.847 172.318,482.984 168.581,486.566 C160.942,493.886 149.179,479.17 144,474.729 C122.469,456.266 96.4196,434.315 76.1566,414.47 Z" style="stroke:#000000;stroke-opacity:1;stroke-width:4;stroke-linejoin:;stroke-miterlimit:2;stroke-linecap:butt;fill:none;"/>
+        </g>
+    </g>
+</svg>

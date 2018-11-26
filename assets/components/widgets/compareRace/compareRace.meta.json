@@ -1,0 +1,7 @@
+{
+	"elementName": "CompareRace",
+	"name": "Compare next car",
+	"buttonText": "Compare next car",
+	"activeInSessions": ["Race"],
+	"keepOnSessionChange": false
+}

@@ -1,0 +1,7 @@
+{
+	"elementName": "DamageCheck",
+	"name": "Damage check",
+	"buttonText": "Damage check",
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"keepOnSessionChange": false
+}

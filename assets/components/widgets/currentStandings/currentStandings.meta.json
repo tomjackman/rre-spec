@@ -1,0 +1,9 @@
+{
+	"elementName": "CurrentStandings",
+	"name": "Current standings",
+	"buttonText": "Current standings",
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"keepOnSessionChange": true,
+	"disableFlags": false,
+	"defaultActive": false
+}

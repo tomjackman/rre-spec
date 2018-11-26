@@ -1,0 +1,210 @@
+.clearfix() {
+	zoom: 1;
+	&:before {
+		content: '';
+		display: block;
+	}
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+.textOverflow() {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+	background: @color;
+	background: linear-gradient(bottom,@start,@stop);
+	background: -ms-linear-gradient(bottom,@start,@stop);
+	background: -moz-linear-gradient(center bottom, @start 0%, @stop 100%);
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, @start), color-stop(1, @stop));
+}
+
+.flash(@sec) {
+	.keyframes(@name; @arguments) {
+		@-moz-keyframes @name { @arguments(); }
+		@-webkit-keyframes @name { @arguments(); }
+		@keyframes @name { @arguments(); }
+	}
+
+	.animation(@arguments) {
+		-webkit-animation: @arguments;
+		-moz-animation: @arguments;
+		animation: @arguments;
+	}
+
+	.keyframes(fade-in; {
+		0% { opacity: 0; }
+		100% { opacity: 1; }
+	});
+
+	.animation(fade-in @sec linear infinite alternate)
+}
+
+// Simple fade in
+.fadeInElement(@sec) {
+	@-webkit-keyframes fadeInElement {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	-webkit-animation: fadeInElement @sec;
+}
+
+// Fade and scale in with easing
+.bounceInElement(@sec) {
+	@-webkit-keyframes bounceInElement {
+		0% {
+			opacity: 0;
+			-webkit-transform: scale3d(.9, .9, .9);
+		}
+		80% {
+			opacity: 1;
+		}
+	}
+	-webkit-animation: bounceInElement @sec;
+}
+
+// Spins the element around for inifinity
+.spinElement(@sec) {
+	@-webkit-keyframes rotate {
+		from {
+			-webkit-transform: rotate(0deg);
+		}
+		to { 
+			-webkit-transform: rotate(360deg);
+		}
+	}
+	-webkit-animation: rotate @sec linear infinite; 
+}
+
+// Portal page should bounce in and look similar to a modal
+.portalPageContainer() {
+	.c-ExternalResource {
+		width: auto;
+		bottom: 140px;
+		left: 30px;
+		right: 30px;
+		top: 30px;
+		height: auto;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+		position: absolute;
+		.bounceInElement(1s);
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.navigation {
+	}
+}
+
+// Used when swapping between dark/light skin
+.t(@property-name, @darkString, @lightString: invert(@darkString)) {
+	.skin-light & {
+		@{property-name}: @lightString;
+	}
+	.skin-dark & {
+		@{property-name}: @darkString;
+	}
+}
+
+// Dynamically setup animations that run on component creation
+@setup: `process.__aCount = 0`;
+.onCreation(@property-name, @from, @to, @time: 1s, @easing: ease) {
+	@setup: `process.__aCount += 1`;
+	@name: `"ani_"+process.__aCount`;
+	@-webkit-keyframes @name {
+		0% {
+			@{property-name}: @from;
+		}
+		100% {
+			@{property-name}: @to;
+		}
+	}
+	-webkit-animation+: @name @time @easing;
+}
+
+.customScrollbars() {
+	&::-webkit-scrollbar {
+		width: 20px;
+		height: 16px;
+	}
+	&::-webkit-scrollbar-button:vertical:start:increment,
+	&::-webkit-scrollbar-button:vertical:end:decrement {
+		display: none;
+	}
+	&::-webkit-scrollbar-track-piece:vertical:start {
+		.t(background,
+			#22211f
+		);
+	}
+	&::-webkit-scrollbar-track-piece:vertical:end {
+		.t(background,
+			#22211f
+		);
+	}
+	&::-webkit-scrollbar-thumb:vertical {
+		border: #22211f 2px solid;
+		.t(background,
+			#fff
+		);
+	}
+}
+
+
+.hudElement() {
+	position: absolute;
+	.t(background,
+		rgba(0, 0, 0, 0.8)
+	);
+	.t(color,
+		#fff
+	);
+	-webkit-transform: translate3d(0,0,0);
+}
+
+.button() {
+	text-decoration: none !important;
+	padding: 8px 12px;
+	outline: none;
+	text-align: center;
+
+	@navBarDarkBgColor: rgba(0, 0, 0, 0.9);
+	@navBarDarkBgColorHighlight: darken(@navBarDarkBgColor, 100%);
+
+	@navBarLightBgColor: rgba(255, 255, 255, 0.9);
+	@navBarLightBgColorHighlight: darken(@navBarLightBgColor, 10%);
+
+	.t(
+		background,
+		@navBarDarkBgColor,
+		@navBarLightBgColor
+	);
+	text-transform: uppercase;
+	.t(color,
+		#aaa
+	);
+	font-size: 22px;
+	-webkit-transition: color 0.4s, border 0.4s;
+
+	&:hover {
+		.t(color,
+			#fff
+		);
+		.t(
+			background,
+			@navBarDarkBgColorHighlight,
+			@navBarLightBgColorHighlight
+		);
+	}
+}

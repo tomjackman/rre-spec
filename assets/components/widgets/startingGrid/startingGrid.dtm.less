@@ -1,0 +1,77 @@
+.dtm .start-grid {
+	.onCreation(opacity, 0, 1, 1s);
+	.onCreation(-webkit-transform, translate(-50%, 50px), translate(-50%, -50%), 1s);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	z-index: -1;
+	padding: 0px;
+	color: #fff;
+	white-space: pre;
+	font-family: Hel;
+	width: 620px;
+	.title {
+		height: 69px;
+		text-align: right;
+		padding: 0 15px 0 0;
+		line-height: 85px;
+		font-size: 30px;
+		background: url(/raceResults/dtm/header.png);
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+	.start-grid-entry {
+		height: 37px;
+		line-height: 37px;
+		margin-bottom: 4px;
+		font-size: 20px;
+		background: url(/raceResults/dtm/entry-bg.png);
+		&.title {
+			display: none;
+		}
+		&.fastest {
+			.fastest-time {
+				color: #f500f5;
+			}
+		}
+		& > div {
+			outline: 1px solid rgba(255, 255, 255, 0);
+			float: left;
+			height: 37px;
+		}
+		.position {
+			width: 66px;
+			padding: 0 0 0 22px;
+		}
+		.manufacturer {
+			width: 38px;
+			position: relative;
+			img {
+				position: absolute;
+				top: 7px;
+				left: 8px;
+				width: 26px;
+				height: auto;
+			}
+		}
+		.name {
+			width: 425px;
+			padding: 0 0 0 20px;
+		}
+		.livery {
+			width: 90px;
+			position: relative;
+			img {
+				position: absolute;
+				height: 60px;
+				top: -10px;
+				right: 10px;
+			}
+		}
+		.fastest-time, .lap-time {
+			width: 161px;
+			padding: 0 0 0 20px;
+		}
+	}
+}

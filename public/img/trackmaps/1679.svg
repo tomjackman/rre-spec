@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="283" height="516">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-129.045,-248.541,258.089,497.082)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1,0,0,1,141.46,254.857)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M95.2883,205.453 C117.824,158.103 136.312,101.239 158.92,54 C165.615,40.0107 169.859,14.1339 186,7.9946 C202.476,1.72766 221.786,13.7371 220.895,32 C220.507,39.9602 216.109,46.8296 213.207,54 C206.312,71.035 197.066,87.4633 191.508,105 C184.117,128.323 189.861,152.966 182.956,176 C175.545,200.723 144.776,200.687 125,209.15 C114.253,213.75 103.36,220.962 104.044,234 C104.843,249.235 121.741,256.729 135,254.385 C170.686,248.077 201.724,230.099 239,231.015 C261.294,231.562 275.645,253.858 268.775,275 C262.465,294.423 233.05,305.468 216,313.003 C209.664,315.803 203.362,320.591 196.004,318.566 C188.401,316.474 186.376,307.352 181.671,302.093 C172.754,292.13 157.305,293.026 148.808,303.043 C138.309,315.421 145.628,333.421 147.729,348 C152.499,381.102 159.434,413.849 164,447 C166.048,461.866 170.278,477.273 158.867,489.985 C148.253,501.81 130.688,502.078 116,503.09 C71.6676,506.142 20.4029,486.713 13.3002,437 C8.28438,401.894 25.6174,367.003 39.3349,336 C57.6776,294.543 76.8423,246.871 95.2883,205.453 Z" style="stroke:#000000;stroke-opacity:1;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:2;stroke-linecap:butt;fill:none;"/>
+        </g>
+    </g>
+</svg>

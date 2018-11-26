@@ -1,0 +1,8 @@
+{
+	"elementName": "LogoOverlay",
+	"name": "Logo overlay",
+	"buttonText": "Logo overlay",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"defaultActive": true
+}

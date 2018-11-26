@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="516" height="125">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-253.122,-57.4056,506.244,114.811)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1,0,0,1,257.878,61.4105)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M338.662,43.5988 C304.284,53.2824 267.54,60.8029 233,69.8843 C216.72,74.1647 200.243,77.7582 184,82.1512 C175.693,84.3978 164.629,89.0921 156,88.6782 C151.621,88.4682 149.233,84.1368 145,83.6042 C135.479,82.4061 125.842,87.2754 116,85.5363 C94.8547,81.7999 74.9285,71.5985 54,66.6543 C41.0946,63.6056 26.447,65.9646 14.0008,61.1852 C4.52379,57.5459 0.896515,42.997 10.044,36.7276 C21.506,28.8719 39.791,36.0635 51,40.6042 C82.4076,53.3271 109.636,66.9649 144,69.8264 C158.453,71.0299 174.868,67.0258 189,64.1998 C231.868,55.6273 270.512,37.8544 312,25.0255 C337.784,17.0524 363.874,20.5249 390,16.2461 C416.107,11.9705 438.814,-1.5969 466,6.57022 C497.345,15.9867 510.998,53.2027 511,83 C511.001,95.0153 510.051,118.36 493,118.805 C463.364,119.578 476.715,79.8785 462.811,67.3935 C457.033,62.2054 448.418,63.0038 442.001,59.0054 C431.755,52.6214 429.199,39.3647 418,33.6836 C409.497,29.3703 399.923,31.2659 391,32.7531 C374.174,35.5574 355.344,40.1556 338.662,43.5988 Z" style="stroke:#000000;stroke-opacity:1;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:2;stroke-linecap:butt;fill:none;"/>
+        </g>
+    </g>
+</svg>

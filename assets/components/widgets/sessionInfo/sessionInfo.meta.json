@@ -1,0 +1,8 @@
+{
+	"elementName": "SessionInfo",
+	"name": "Session countdown",
+	"buttonText": "Session countdown",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"defaultActive": true
+}
