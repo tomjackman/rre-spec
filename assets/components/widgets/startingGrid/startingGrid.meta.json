@@ -3,7 +3,7 @@
 	"name": "Starting Grid",
 	"buttonText": "Starting Grid",
 	"keepOnSessionChange": false,
-	"activeInSessions": ["Race"],
+	"activeInSessions": ["Race", "Warmup"],
 	"activeInPhases": ["Garage"],
 	"buttonClasses": [],
 	"defaultActive": false

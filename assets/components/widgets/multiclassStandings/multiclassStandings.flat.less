@@ -1,4 +1,4 @@
-.tt .current-standings {
+.flat .current-standings {
 	&.hide-flags {
 		.driver .flag-container {
 			display: none;
@@ -8,7 +8,7 @@
 	position: fixed;
 	top: 97px;
 	font-family: Hel;
-	color: #000;
+	color: #fff;
 	left: 40px;
 	.onCreation(-webkit-transform, translate(-200px, 0), translate(0, 0), 0.5s);
 	.driver {
@@ -26,8 +26,7 @@
 		}
 
 		.inner {
-			background: url(/currentStandings/tt/entry-bg.png) no-repeat top right;
-			height: 100%;
+			height: 90%;
 			position: relative;
 			z-index: 11;
 			& > div {
@@ -43,12 +42,13 @@
 				line-height: 1;
 				top: 5px;
 				right:100%;
-				border-radius: 100%;
-				border: 2px solid rgba(0, 0, 0, 0.5);
 				margin-right: 5px;
+
 				&:after {
 					display: block;
 					content: "P";
+					font-size: 20px;
+					font-family: sans-serif;
 					width: 100%;
 					height: 100%;
 					text-align: center;
@@ -56,76 +56,89 @@
 				}
 			}
 			.pitted {
-				@color: #0a0;
-				background: -webkit-linear-gradient(top, @color 0%,lighten(@color, 5%) 50%,darken(@color, 5%) 51%,darken(@color, 0%) 100%); /* Chrome10-25,Safari5.1-6 */
+				border: 1px;
+				border-bottom-right-radius: 25%;
+				border-top-left-radius: 25%;
+				background: rgb(0, 200, 83);
 			}
 			.unpitted {
-				@color: red;
-				background: -webkit-linear-gradient(top, @color 0%,lighten(@color, 10%) 50%,darken(@color, 10%) 51%,darken(@color, 0%) 100%); /* Chrome10-25,Safari5.1-6 */
+				border: 1px;
+				border-bottom-right-radius: 25%;
+				border-top-left-radius: 25%;
+				background: rgb(183, 28, 28);
 			}
 		}
+		.position {
+			background-color: rgb(38, 50, 56);
+			display: inline-block;
+			color: #fff;
+			font-size: 20px;
+			text-align: center;
+			width: 40px;
+			text-shadow: 0 0 20px #000;
+			height: 80%;
 
+		}
 		.flag-container {
-			width: 35px;
-			height: 35px;
+			width: 40px;
+			height: 40px;
 			display: inline-block;
 			.flag {
-				background: #000;
-				width: 35px;
-				height: 35px;
-				position: absolute;
-				top: 1px;
-				left: 1px;
-			}
-			&:after {
 				display: block;
 				content: '';
 				width: 35px;
 				height: 35px;
 				position: absolute;
-				top: 0;
-				left: 0;
-				background: url(/currentStandings/tt/entry-bg.png) no-repeat;
-			}
-		}
-		.position {
-			display: inline-block;
-			color: #fff;
-			font-size: 25px;
-			text-align: center;
-			width: 64px;
-			text-shadow: 0 0 20px #000;
-			&:after {
-				content: '.';
+				top: 0px;
+				left: 2px;
+				right: 2px;
+				border-bottom-right-radius: 25%;
+				border-top-left-radius: 25%;
 			}
 		}
 		.manufacturer {
+			background-color: white;
 			display: inline-block;
-			width: 39px;
-			height: 100%;
-			padding: 8px;
+			width: 35px;
+			height: 30%;
+			padding: 3px;
 
 			img {
 				height: 100%;
 			}
 		}
-		.name {
+		.class {
+			background-color: orange;
 			display: inline-block;
-			color: #000;
-			width: 70px;
-			padding-left: 15px;
-			font-size: 25px;
+			min-width: 30px;
+			font-size: 16px;
+			height: 30%;
+			padding-left: 10px;
+			padding-right: 10px;
+			font-family: Arial;
+			font-style: italic;
+		}
+		.name {
+			background-color: rgb(183, 28, 28);
+			display: inline-block;
+			color: #fff;
+			width: 55px;
+			padding-left: 10px;
+			font-size: 20px;
 		}
 		.meta-info {
+			background-color: rgb(38, 50, 56);
 			position: absolute;
+			font-family: Arial;
+			font-style: italic;
 			left: 100%;
-			background: url(/currentStandings/tt/info-bg.png) no-repeat top right;
-			height: 37px;
+			height: 90%;
 			line-height: 37px;
-			font-size: 20px;
+			font-size: 17px;
 			padding: 0 15px 0 10px;
-			display: inline-block;
 			border-left: 1px solid rgba(255, 255, 255, 0.1);
+			border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
 			white-space: nowrap;
 			.onCreation(-webkit-transform, translate(-100%, 0), translate(0, 0), 0.7s);
 		}

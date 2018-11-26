@@ -29,15 +29,12 @@
 				float: left;
 				background: rgba(38, 50, 56, 0.8);
 				padding: 10px 10px;
-				margin-right: 10px;
-				margin-top: 10px;
 				border: 1px;
-				border-radius: 5%;
 				color: white;
 				height: 20px;
 				position: relative;
 				right: -65px;
-				top: -40px;
+				top: -100px;
 				-webkit-transition: top 0.5s;
 				&.active {
 					top: 0;
@@ -49,25 +46,45 @@
 						color: rgb(0, 200, 83);
 					}
 					&.global-best {
-						color: rgb(156, 39, 176);
+						color: rgba(213, 0, 249,1.0);
 					}
 				}
 			}
 		}
 	}
 	.best-time {
-		font-size: 20px;
-		background: rgb(56, 142, 60);
+		font-size: 18px;
+		background: rgba(56, 142, 60, 0.7);
 		padding: 10px 10px;
 		margin-right: 10px;
 		border-radius: 10px 10px 0 0;
 		color: white;
 		height: 35px;
-		font-family: Hel;
+		width: 140px;
+		font-family: HEL;
+		font-style: italic;
 		z-index: 0;
 		margin-bottom: 0px;
 		position: absolute;
-		right: 21px;
+		left: 150px;
+		bottom: 100%;
+		-webkit-transition: top 0.5s;
+	}
+	.positionInClass {
+		font-size: 18px;
+		background: rgba(69, 90, 255, 0.7);
+		padding: 10px 10px;
+		margin-right: 10px;
+		border-radius: 10px 10px 0 0;
+		color: white;
+		height: 35px;
+		width: 140px;
+		font-family: HEL;
+		font-style: italic;
+		z-index: 0;
+		margin-bottom: 0px;
+		position: absolute;
+		left: 300px;
 		bottom: 100%;
 		-webkit-transition: top 0.5s;
 	}
@@ -78,7 +95,7 @@
 		line-height: 75px;
 	}
 	.position {
-		background-color: rgba(153, 28, 28, 0.9);
+		background: rgba(56, 142, 60, 0.7);
 		width: 65px;
 		font-size: 50px;
 		text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);

@@ -180,17 +180,7 @@ UI.widgets.FocusedDriver = React.createClass({
 	},
 	getExtraInfo: function() {
 		var self = this;
-		if (UI.state.sessionInfo.type.match(/^race/i)) {
-			return <div className="extra-info">
-				<ul className="info">
-					<li className="active">{self.state.vehicleInfo.speed}KM/h</li>
-					<li className="active">Gear: {self.state.vehicleInfo.gear}</li>
-					<li className="active">RPM: {self.state.vehicleInfo.rpm}</li>
-				</ul>
-			</div>
-		}
-
-		if (UI.state.sessionInfo.type.match(/^(qualify|practice)/i)) {
+		if (UI.state.sessionInfo.type.match(/^(qualify|practice|race)/i)) {
 			return <div className="extra-info">
 				<ul className="sectors">
 					{self.getSectorItem('sector1')}
@@ -221,6 +211,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			<div className={focusedDriverClasses}>
 				<div className="inner">
 					<div className="position">{driverInfo.scoreInfo.positionOverall}</div>
+					<div className="positionInClass">Class - P{driverInfo.scoreInfo.positionClass}</div>
 					<div className="flag-container">
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					</div>
@@ -245,9 +236,9 @@ UI.widgets.FocusedDriver = React.createClass({
 						<div className="icon"></div>
 					</div>
 					{self.getExtraInfo()}
-					{UI.state.sessionInfo.type.match(/^race/i) && driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ?
+					{driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ?
 						<div className="best-time">
-							{UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
+							PB - {UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
 						</div>
 						:
 						null

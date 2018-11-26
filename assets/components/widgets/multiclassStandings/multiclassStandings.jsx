@@ -1,4 +1,4 @@
-UI.widgets.CurrentStandingsRotate = React.createClass({
+UI.widgets.MulticlassStandings = React.createClass({
 	componentWillMount: function() {
 		var self = this;
 
@@ -113,6 +113,13 @@ UI.widgets.CurrentStandingsRotate = React.createClass({
 		}
 		return driver.scoreInfo.bestLapInfo.valid || driver.scoreInfo.timeDiff != -1;
 	},
+	getClassName: function(classId) {
+		var className = "";
+		if (r3eData.classes[classId] != null) {
+			className = r3eData.classes[classId].Name;
+		}
+		return className;
+	},
 	looper: Array.apply(null, Array(UI.maxDriverCount)),
 	render: function() {
 		// On end phase user portalId is not sent anymore so do not show
@@ -134,19 +141,19 @@ UI.widgets.CurrentStandingsRotate = React.createClass({
 		});
 
 
-		var currentStandingsRotateClasses = cx({
-			'hide-flags': UI.state.activeWidgets.CurrentStandingsRotate.disableFlags
+		var multiclassStandingsClasses = cx({
+			'hide-flags': UI.state.activeWidgets.MulticlassStandings.disableFlags
 			, 'current-standings': true
 		});
 
 		// Need to clone it to keep the base array sorted by slotId
 		return (
-			<div className={currentStandingsRotateClasses}>
+			<div className={multiclassStandingsClasses}>
 				{self.looper.map(function(non, i) {
 					return <div key={i}>
 						{self.shouldShow(driversLookup[i]) ?
 							<div className={cx({'driver': true, 'active': (driversLookup[i].slotId === UI.state.focusedSlot)})} key={driversLookup[i].slotId} style={self.getDriverStyle(driversLookup[i])}>
-								{self.getMetaInfo(driversLookup[i], drivers)}
+
 								<div className="inner">
 									<div className="flag-container">
 										<img className="flag" src={'/img/flags/'+UI.getUserInfo(driversLookup[i].portalId).country+'.svg'} />
@@ -156,6 +163,8 @@ UI.widgets.CurrentStandingsRotate = React.createClass({
 									<div className="manufacturer">
 										<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.webp'} />
 									</div>
+									{self.getMetaInfo(driversLookup[i], drivers)}
+									<div className="class">{self.getClassName(driversLookup[i].classId)}</div>
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?
 											<div className="pitted" />

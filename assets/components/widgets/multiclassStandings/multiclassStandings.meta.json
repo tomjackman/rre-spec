@@ -1,7 +1,7 @@
 {
-	"elementName": "CurrentStandingsRotate",
-	"name": "Current Standing Rotate",
-	"buttonText": "Current Standings Rotate",
+	"elementName": "MulticlassStandings",
+	"name": "Multiclass Standings",
+	"buttonText": "Multiclass Standings",
 	"activeInSessions": ["Practice", "Qualifying", "Race"],
 	"keepOnSessionChange": true,
 	"disableFlags": false,

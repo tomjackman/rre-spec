@@ -384,179 +384,205 @@ window.addEventListener('message', function(event) {
 		console.error('Got window message error', event.data, e);
 	}
 });
-UI.widgets.StartingGrid = React.createClass({
-	displayName: 'StartingGrid',
+UI.widgets.TrackMap = React.createClass({
+	displayName: 'TrackMap',
 
+	componentDidMount: function () {
+		var self = this;
+		// self.refs is = {} at first
+		(function tick() {
+			if (!self.refs.svg) {
+				return setTimeout(tick, 100);
+			}
+			self.setupSvg();
+		})();
+	},
+	setupSvg: function () {
+		var self = this;
+		var svg = self.refs.svg;
+		var svgDoc = svg.contentDocument;
+		var svgEl = svgDoc.querySelector('svg');
+		var path = svgDoc.querySelector('path');
+		if (!path || !path.style) {
+			return;
+		}
+		path.style.stroke = '#fff';
+		path.style.strokeWidth = '2px';
+		self.refs.container.classList.add('loaded');
+
+		self.state.svg.loaded = true;
+		self.state.svg.path = path;
+		self.state.svg.el = svgEl;
+		self.setState(self.state);
+		self.resizeToFill();
+	},
+	windowResize: null,
 	componentWillMount: function () {
+		window.addEventListener('resize', this.resizeToFill, false);
 		var self = this;
 
-		// Hide all other overlays besides logo
-		Object.keys(UI.state.activeWidgets).forEach(function (key) {
-			if (key.match(/(StartingGrid|LogoOverlay|AutoDirector)/)) {
-				return;
-			}
-
-			UI.state.activeWidgets[key].active = false;
-		});
-		io.emit('setState', UI.state);
-
 		function updateInfo() {
-			if (UI.state.sessionInfo.phase !== 'GARAGE') {
-				if (UI.state.activeWidgets.StartingGrid.active) {
-					UI.state.activeWidgets.StartingGrid.active = false;
-					io.emit('setState', UI.state);
-				}
-				return;
-			}
-			UI.batch({
-				'driversInfo': r3e.getDriversInfo
-			}, self.setState.bind(self));
+			r3e.getDriversInfo(function (driversInfo) {
+				var jobs = [];
+				var driverData = driversInfo.driversInfo;
+				driverData.forEach(function (driver) {
+					jobs.push(function (done) {
+						r3e.getVehicleInfo({
+							'slotId': driver.slotId
+						}, function (vehicleInfo) {
+							driver.vehicleInfo = vehicleInfo;
+							done(driver);
+						});
+					});
+				});
+				UI.batch(jobs, function (data) {
+					self.setState({
+						'driversInfo': data
+					});
+				});
+			});
 		}
 		updateInfo();
 
 		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
-
-		(function checkRefs() {
-			if (!self.refs['entries-outer']) {
-				return setTimeout(checkRefs, 100);
-			}
-
-			var diff = self.refs['entries-outer'].clientHeight - self.refs['entries-inner'].clientHeight;
-			setTimeout(function () {
-				if (!self.refs['entries-inner']) {
-					return;
-				}
-				self.refs['entries-inner'].style.top = diff + 'px';
-			}, 10 * 1000);
-		})();
 	},
 	componentWillUnmount: function () {
+		window.removeEventListener('resize', this.resizeToFill, false);
 		clearInterval(this.updateInterval);
+	},
+	resizeToFill: function () {
+		var self = this;
+		if (!self.state.svg.el) {
+			// Hide widgets if we fail loading
+			UI.state.activeWidgets.TrackMap.active = false;
+			io.emit('setState', UI.state);
+			return;
+		}
+
+		var width = self.state.svg.el.getAttribute('width');
+		var height = self.state.svg.el.getAttribute('height');
+
+		var widthRatio = window.innerWidth / width;
+		var heightRatio = window.innerHeight / height;
+
+		var ratio = Math.min(widthRatio, heightRatio) * 0.95;
+
+		var containerEl = self.refs.container;
+		containerEl.style.width = width + 'px';
+		containerEl.style.height = height + 'px';
+		containerEl.style.webkitTransform = 'scale(' + ratio + ') translate(-50%, -50%)';
 	},
 	getInitialState: function () {
 		return {
-			'driversInfo': {
-				'driversInfo': []
+			'svg': {
+				'path': null,
+				'el': null,
+				'loaded': false
 			}
 		};
 	},
-	sortFunctionPosition: function (a, b) {
-		if (a.scoreInfo.positionOverall > b.scoreInfo.positionOverall) {
-			return 1;
-		} else if (a.scoreInfo.positionOverall === b.scoreInfo.positionOverall) {
-			return 0;
-		} else {
-			return -1;
+	getTimeTrapStyle: function (progress) {
+		var svg = this.state.svg;
+		if (!svg.path) {
+			return {
+				'display': 'none'
+			};
 		}
+
+		var totalLength = svg.path.getTotalLength();
+		var point = svg.path.getPointAtLength(totalLength * progress);
+		return {
+			'WebkitTransform': 'translate(' + point.x + 'px, ' + point.y + 'px) scale(0.4)'
+		};
+	},
+	looper: Array.apply(null, Array(UI.maxDriverCount)).map(function () {}),
+	render: function () {
+		var self = this;
+		var p = this.state;
+		if (!this.state.driversInfo) {
+			return null;
+		}
+
+		var drivers = this.state.driversInfo;
+		var driversLookup = {};
+		drivers.forEach(function (driver) {
+			driversLookup[driver.slotId] = driver;
+		});
+
+		return React.createElement(
+			'div',
+			{ className: 'track-map-bg' },
+			React.createElement(
+				'div',
+				{ className: 'track-map', ref: 'container' },
+				React.createElement('object', { data: '/img/trackmaps/' + UI.state.eventInfo.layoutId + '.svg', type: 'image/svg+xml', ref: 'svg', id: 'svgObject', width: '512px', height: '512px' }),
+				self.looper.map(function (non, i) {
+					if (self.state.svg.loaded && driversLookup[i]) {
+						return React.createElement(TrackMapDot, { key: i, svg: self.state.svg, driver: driversLookup[i] });
+					} else {
+						return null;
+					}
+				}),
+				React.createElement(
+					'div',
+					{
+						onClick: self.onClick,
+						className: 'dot start',
+						style: self.getTimeTrapStyle(0) },
+					React.createElement(
+						'span',
+						{ className: 'name' },
+						'Start/Finish line'
+					)
+				)
+			)
+		);
+	}
+});
+var TrackMapDot = React.createClass({
+	displayName: 'TrackMapDot',
+
+	getStyles: function (driver) {
+		return cx({
+			'dot': true,
+			'active': driver.slotId === UI.state.focusedSlot,
+			'leader': driver.scoreInfo.positionOverall === 1,
+			'idle': driver.vehicleInfo.speed < 5
+		});
+	},
+	getDriverStyle: function (driver) {
+		var svg = this.props.svg;
+		var width = svg.el.clientWidth;
+		var height = svg.el.clientHeight;
+
+		var widthRatio = window.innerWidth / width;
+		var heightRatio = window.innerHeight / height;
+
+		var trackLength = UI.state.eventInfo.length;
+		var totalLength = svg.path.getTotalLength();
+
+		var progress = driver.scoreInfo.distanceTravelled % trackLength / trackLength;
+
+		var point = svg.path.getPointAtLength(totalLength * progress);
+
+		return {
+			'WebkitTransform': 'translate(' + point.x + 'px, ' + point.y + 'px) scale(0.3)'
+		};
 	},
 	render: function () {
 		var self = this;
-		if (this.state.driversInfo.driversInfo.length === 0) {
-			return null;
-		}
-		var drivers = this.state.driversInfo.driversInfo;
-
-		var fastestTime = 99999;
-		var fastestTimeIndex = null;
-		drivers.forEach(function (entry, i) {
-			if (entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
-				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
-				fastestTimeIndex = i;
-			}
-		});
-		if (drivers[fastestTimeIndex]) {
-			drivers[fastestTimeIndex].isFastest = true;
-		}
-
+		var driver = this.props.driver;
 		return React.createElement(
 			'div',
-			{ className: 'start-grid' },
-			React.createElement(
-				'div',
-				{ className: 'title' },
-				'Starting Grid'
-			),
-			React.createElement(
-				'div',
-				{ className: 'start-grid-entry title' },
-				React.createElement(
-					'div',
-					{ className: 'position' },
-					'Position'
-				),
-				React.createElement('div', { className: 'livery' }),
-				React.createElement('div', { className: 'manufacturer' }),
-				React.createElement(
-					'div',
-					{ className: 'name' },
-					'Name'
-				)
-			),
-			React.createElement(
-				'div',
-				{ className: 'entries-outer', ref: 'entries-outer' },
-				React.createElement(
-					'div',
-					{ className: 'entries-inner', ref: 'entries-inner' },
-					drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
-						return React.createElement(StartingGridEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
-					})
-				)
-			)
+			{
+				className: self.getStyles(driver),
+				style: self.getDriverStyle(driver) },
+			driver.scoreInfo.positionOverall
 		);
 	}
 });
-
-var StartingGridEntry = React.createClass({
-	displayName: 'StartingGridEntry',
-
-	render: function () {
-		var self = this;
-		var entry = self.props.entry;
-		var lapTime = null;
-
-		if (this.props.index === 0) {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'fastest-time' },
-				'-'
-			);
-		} else {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'fastest-time' },
-				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3 - self.props.firstEntry.scoreInfo.bestLapInfo.sector3)
-			);
-		}
-		return React.createElement(
-			'div',
-			{ className: cx({ 'fastest': entry.isFastest, 'start-grid-entry': true }) },
-			React.createElement(
-				'div',
-				{ className: 'position' },
-				entry.scoreInfo.positionOverall,
-				'.'
-			),
-			React.createElement(
-				'div',
-				{ className: 'manufacturer' },
-				React.createElement('img', { src: '/img/manufacturers/' + entry.manufacturerId + '.webp' })
-			),
-			React.createElement(
-				'div',
-				{ className: 'name' },
-				UI.fixName(entry.name)
-			),
-			React.createElement(
-				'div',
-				{ className: 'livery' },
-				React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
-			)
-		);
-	}
-});
-UI.widgets.CurrentStandingsRotate = React.createClass({
-	displayName: 'CurrentStandingsRotate',
+UI.widgets.CurrentStandings = React.createClass({
+	displayName: 'CurrentStandings',
 
 	componentWillMount: function () {
 		var self = this;
@@ -720,15 +746,15 @@ UI.widgets.CurrentStandingsRotate = React.createClass({
 			driversLookup[driver.slotId] = driver;
 		});
 
-		var currentStandingsRotateClasses = cx({
-			'hide-flags': UI.state.activeWidgets.CurrentStandingsRotate.disableFlags,
+		var currentStandingsClasses = cx({
+			'hide-flags': UI.state.activeWidgets.CurrentStandings.disableFlags,
 			'current-standings': true
 		});
 
 		// Need to clone it to keep the base array sorted by slotId
 		return React.createElement(
 			'div',
-			{ className: currentStandingsRotateClasses },
+			{ className: currentStandingsClasses },
 			self.looper.map(function (non, i) {
 				return React.createElement(
 					'div',
@@ -770,64 +796,6 @@ UI.widgets.CurrentStandingsRotate = React.createClass({
 					) : null
 				);
 			})
-		);
-	}
-});
-UI.widgets.DamageCheck = React.createClass({
-	displayName: 'DamageCheck',
-
-	componentWillMount: function () {
-		var self = this;
-
-		// Hide widgets that use the same screen space
-		UI.state.activeWidgets.CompareRace.active = false;
-		io.emit('setState', UI.state);
-
-		function updateInfo() {
-			UI.batch({
-				'pitInfo': function (done) {
-					r3e.getPitInfo({
-						'slotId': UI.state.focusedSlot
-					}, done);
-				}
-			}, self.setState.bind(self));
-		}
-		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
-	},
-	componentWillUnmount: function () {
-		clearInterval(this.updateInterval);
-	},
-	getInitialState: function () {
-		return {
-			'pitInfo': {}
-		};
-	},
-	render: function () {
-		var self = this;
-		var info = self.state.pitInfo;
-		if (!info.tyreType) {
-			return null;
-		}
-
-		return React.createElement(
-			'div',
-			{ className: 'damage-check' },
-			React.createElement(
-				'div',
-				{ className: 'part engine' },
-				'Engine: ',
-				100 - info.damage.engine,
-				'%'
-			),
-			React.createElement(
-				'div',
-				{ className: 'part transmission' },
-				'Transmission: ',
-				100 - info.damage.transmission,
-				'%'
-			)
 		);
 	}
 });
@@ -1111,36 +1079,7 @@ UI.widgets.FocusedDriver = React.createClass({
 	},
 	getExtraInfo: function () {
 		var self = this;
-		if (UI.state.sessionInfo.type.match(/^race/i)) {
-			return React.createElement(
-				'div',
-				{ className: 'extra-info' },
-				React.createElement(
-					'ul',
-					{ className: 'info' },
-					React.createElement(
-						'li',
-						{ className: 'active' },
-						self.state.vehicleInfo.speed,
-						'KM/h'
-					),
-					React.createElement(
-						'li',
-						{ className: 'active' },
-						'Gear: ',
-						self.state.vehicleInfo.gear
-					),
-					React.createElement(
-						'li',
-						{ className: 'active' },
-						'RPM: ',
-						self.state.vehicleInfo.rpm
-					)
-				)
-			);
-		}
-
-		if (UI.state.sessionInfo.type.match(/^(qualify|practice)/i)) {
+		if (UI.state.sessionInfo.type.match(/^(qualify|practice|race)/i)) {
 			return React.createElement(
 				'div',
 				{ className: 'extra-info' },
@@ -1184,6 +1123,12 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				React.createElement(
 					'div',
+					{ className: 'positionInClass' },
+					'Class - P',
+					driverInfo.scoreInfo.positionClass
+				),
+				React.createElement(
+					'div',
 					{ className: 'flag-container' },
 					React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
 				),
@@ -1222,13 +1167,22 @@ UI.widgets.FocusedDriver = React.createClass({
 					React.createElement('div', { className: 'icon' })
 				),
 				self.getExtraInfo(),
-				UI.state.sessionInfo.type.match(/^race/i) && driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
+				driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
 					'div',
 					{ className: 'best-time' },
+					'PB - ',
 					UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
 				) : null
 			)
 		);
+	}
+});
+UI.widgets.LogoOverlay = React.createClass({
+	displayName: "LogoOverlay",
+
+	render: function () {
+		var self = this;
+		return React.createElement("div", { className: "logo-overlay" });
 	}
 });
 (function reload() {
@@ -1546,15 +1500,83 @@ var RaceResultEntry = React.createClass({
 		);
 	}
 });
-UI.widgets.Results = React.createClass({
-	displayName: 'Results',
+UI.widgets.SessionInfo = React.createClass({
+	displayName: 'SessionInfo',
+
+	componentWillMount: function () {
+		var self = this;
+
+		function updateInfo() {
+			UI.batch({
+				'sessionInfo': r3e.getSessionInfo
+			}, self.setState.bind(self));
+		}
+		updateInfo();
+
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+	},
+	componentWillUnmount: function () {
+		clearInterval(this.updateInterval);
+	},
+	getInitialState: function () {
+		return {
+			'sessionInfo': {}
+		};
+	},
+	render: function () {
+		var self = this;
+		var p = this.state;
+
+		var nameLookup = {
+			'QUALIFYING': 'Qualifying',
+			'PRACTICE': 'Practice',
+			'RACE 1': 'Race',
+			'RACE 2': 'Race 2',
+			'RACE 3': 'Race 3',
+			'GARAGE': 'Garage',
+			'WARMUP': 'Warmup'
+		};
+
+		if (!p.sessionInfo.type || p.sessionInfo.type === 'EVENT RESULTS') {
+			return null;
+		}
+
+		if (p.sessionInfo.phase === 'CHECKERED') {
+			p.sessionInfo.timeLeft = 0;
+		}
+
+		return React.createElement(
+			'div',
+			{ className: 'session-info' },
+			React.createElement(
+				'div',
+				{ className: 'inner' },
+				p.sessionInfo.phase === 'GARAGE' ? React.createElement(
+					'span',
+					null,
+					nameLookup[p.sessionInfo.phase],
+					': ',
+					UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
+				) : React.createElement(
+					'span',
+					null,
+					nameLookup[p.sessionInfo.type],
+					': ',
+					UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
+				)
+			)
+		);
+	}
+});
+UI.widgets.StartingGrid = React.createClass({
+	displayName: 'StartingGrid',
 
 	componentWillMount: function () {
 		var self = this;
 
 		// Hide all other overlays besides logo
 		Object.keys(UI.state.activeWidgets).forEach(function (key) {
-			if (key.match(/(Results|LogoOverlay|AutoDirector)/)) {
+			if (key.match(/(StartingGrid|LogoOverlay|AutoDirector)/)) {
 				return;
 			}
 
@@ -1563,6 +1585,13 @@ UI.widgets.Results = React.createClass({
 		io.emit('setState', UI.state);
 
 		function updateInfo() {
+			if (UI.state.sessionInfo.phase !== 'GARAGE') {
+				if (UI.state.activeWidgets.StartingGrid.active) {
+					UI.state.activeWidgets.StartingGrid.active = false;
+					io.emit('setState', UI.state);
+				}
+				return;
+			}
 			UI.batch({
 				'driversInfo': r3e.getDriversInfo
 			}, self.setState.bind(self));
@@ -1610,11 +1639,6 @@ UI.widgets.Results = React.createClass({
 			return null;
 		}
 		var drivers = this.state.driversInfo.driversInfo;
-		if (drivers.filter(function (entry) {
-			return entry.scoreInfo.bestLapInfo.sector3 !== -1;
-		}).length === 0) {
-			return null;
-		}
 
 		var fastestTime = 99999;
 		var fastestTimeIndex = null;
@@ -1630,15 +1654,15 @@ UI.widgets.Results = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'qualify-results' },
+			{ className: 'start-grid' },
 			React.createElement(
 				'div',
 				{ className: 'title' },
-				'Qualification results'
+				'Starting Grid'
 			),
 			React.createElement(
 				'div',
-				{ className: 'qualify-results-entry title' },
+				{ className: 'start-grid-entry title' },
 				React.createElement(
 					'div',
 					{ className: 'position' },
@@ -1650,16 +1674,6 @@ UI.widgets.Results = React.createClass({
 					'div',
 					{ className: 'name' },
 					'Name'
-				),
-				React.createElement(
-					'div',
-					{ className: 'fastest-time' },
-					'Delta'
-				),
-				React.createElement(
-					'div',
-					{ className: 'lap-time' },
-					'Best lap time'
 				)
 			),
 			React.createElement(
@@ -1669,7 +1683,7 @@ UI.widgets.Results = React.createClass({
 					'div',
 					{ className: 'entries-inner', ref: 'entries-inner' },
 					drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
-						return React.createElement(ResultEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
+						return React.createElement(StartingGridEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
 					})
 				)
 			)
@@ -1677,16 +1691,14 @@ UI.widgets.Results = React.createClass({
 	}
 });
 
-var ResultEntry = React.createClass({
-	displayName: 'ResultEntry',
+var StartingGridEntry = React.createClass({
+	displayName: 'StartingGridEntry',
 
 	render: function () {
 		var self = this;
 		var entry = self.props.entry;
 		var lapTime = null;
-		if (entry.scoreInfo.bestLapInfo.sector3 === -1) {
-			return null;
-		}
+
 		if (this.props.index === 0) {
 			lapTime = React.createElement(
 				'div',
@@ -1702,7 +1714,7 @@ var ResultEntry = React.createClass({
 		}
 		return React.createElement(
 			'div',
-			{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
+			{ className: cx({ 'fastest': entry.isFastest, 'start-grid-entry': true }) },
 			React.createElement(
 				'div',
 				{ className: 'position' },
@@ -1723,495 +1735,65 @@ var ResultEntry = React.createClass({
 				'div',
 				{ className: 'livery' },
 				React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
-			),
-			lapTime,
-			React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
 			)
 		);
 	}
 });
-UI.widgets.SessionInfo = React.createClass({
-	displayName: 'SessionInfo',
+UI.widgets.DamageCheck = React.createClass({
+	displayName: 'DamageCheck',
 
 	componentWillMount: function () {
 		var self = this;
 
-		function updateInfo() {
-			UI.batch({
-				'sessionInfo': r3e.getSessionInfo
-			}, self.setState.bind(self));
-		}
-		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
-	},
-	componentWillUnmount: function () {
-		clearInterval(this.updateInterval);
-	},
-	getInitialState: function () {
-		return {
-			'sessionInfo': {}
-		};
-	},
-	render: function () {
-		var self = this;
-		var p = this.state;
-
-		var nameLookup = {
-			'QUALIFYING': 'Qualifying',
-			'PRACTICE': 'Practice',
-			'RACE 1': 'Race',
-			'RACE 2': 'Race 2',
-			'RACE 3': 'Race 3',
-			'GARAGE': 'Garage'
-		};
-
-		if (!p.sessionInfo.type || p.sessionInfo.type === 'EVENT RESULTS') {
-			return null;
-		}
-
-		if (p.sessionInfo.phase === 'CHECKERED') {
-			p.sessionInfo.timeLeft = 0;
-		}
-
-		return React.createElement(
-			'div',
-			{ className: 'session-info' },
-			React.createElement(
-				'div',
-				{ className: 'inner' },
-				p.sessionInfo.phase === 'GARAGE' ? React.createElement(
-					'span',
-					null,
-					nameLookup[p.sessionInfo.phase],
-					': ',
-					UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
-				) : React.createElement(
-					'span',
-					null,
-					nameLookup[p.sessionInfo.type],
-					': ',
-					UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
-				)
-			)
-		);
-	}
-});
-UI.widgets.CurrentStandings = React.createClass({
-	displayName: 'CurrentStandings',
-
-	componentWillMount: function () {
-		var self = this;
-
+		// Hide widgets that use the same screen space
 		UI.state.activeWidgets.CompareRace.active = false;
 		io.emit('setState', UI.state);
 
 		function updateInfo() {
 			UI.batch({
-				'driversInfo': r3e.getDriversInfo
+				'pitInfo': function (done) {
+					r3e.getPitInfo({
+						'slotId': UI.state.focusedSlot
+					}, done);
+				}
 			}, self.setState.bind(self));
 		}
 		updateInfo();
 
 		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
-		self.updateLooperInterval = setInterval(this.updateLooperBasedOnPlayerCount, 1000);
-	},
-	updateLooperBasedOnPlayerCount: function () {
-		var maxSlotIndex = 0;
-		var drivers = this.state.driversInfo.driversInfo;
-		drivers.forEach(function (driver) {
-			maxSlotIndex = Math.max(maxSlotIndex, driver.slotId);
-		});
-		this.looper = Array.apply(null, Array(maxSlotIndex + 3));
 	},
 	componentWillUnmount: function () {
 		clearInterval(this.updateInterval);
-		clearInterval(this.updateLooperInterval);
 	},
 	getInitialState: function () {
 		return {
-			'driversInfo': {
-				'driversInfo': []
-			}
+			'pitInfo': {}
 		};
 	},
-	getDriverStyle: function (driver) {
-		return {
-			'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)'
-		};
-	},
-	formatTime: UI.formatTime,
-	getMetaInfo: function (driver, sortedByPosition) {
-		var self = this;
-		// Race
-		if (UI.state.sessionInfo.type.match(/^race/i)) {
-			// Leader should show current best
-			if (driver.scoreInfo.positionOverall === 1) {
-				if (driver.scoreInfo.currentLapTime !== -1) {
-					return React.createElement(
-						'div',
-						{ className: 'meta-info' },
-						self.formatTime(driver.scoreInfo.currentLapTime, { ignoreSign: true })
-					);
-				} else {
-					return React.createElement('div', { className: 'meta-info' });
-				}
-			} else {
-				if (sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps > 1) {
-					return React.createElement(
-						'div',
-						{ className: 'meta-info' },
-						'+',
-						sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps - 1,
-						' laps'
-					);
-				} else {
-					var sortedIndex = 0;
-					sortedByPosition.forEach(function (sortedDriver, i) {
-						if (sortedDriver.slotId === driver.slotId) {
-							sortedIndex = i;
-						}
-					});
-					var timeDifference = sortedByPosition.slice(1, sortedIndex + 1).map(function (driver) {
-						return Math.max(0, driver.scoreInfo.timeDiff);
-					}).reduce(function (p, c) {
-						return p + c;
-					});
-					return React.createElement(
-						'div',
-						{ className: 'meta-info' },
-						self.formatTime(timeDifference)
-					);
-				}
-			}
-			// Qualify and Practice
-		} else if (UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') {
-				if (driver.scoreInfo.positionOverall === 1) {
-					if (driver.scoreInfo.bestLapInfo.sector3 !== -1) {
-						return React.createElement(
-							'div',
-							{ className: 'meta-info' },
-							self.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-						);
-					} else {
-						return React.createElement('div', { className: 'meta-info' });
-					}
-				} else {
-					if (driver.scoreInfo.bestLapInfo.valid) {
-						return React.createElement(
-							'div',
-							{ className: 'meta-info' },
-							self.formatTime(driver.scoreInfo.bestLapInfo.sector3 - sortedByPosition[0].scoreInfo.bestLapInfo.sector3)
-						);
-					} else if (driver.scoreInfo.laps !== sortedByPosition[0].scoreInfo.laps) {
-						return React.createElement(
-							'div',
-							{ className: 'meta-info' },
-							'+',
-							sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps,
-							' laps'
-						);
-					} else {
-						return React.createElement('div', { className: 'meta-info' });
-					}
-				}
-			}
-	},
-	sortFunctionPosition: function (a, b) {
-		if (a.scoreInfo.positionOverall > b.scoreInfo.positionOverall) {
-			return 1;
-		} else if (a.scoreInfo.positionOverall === b.scoreInfo.positionOverall) {
-			return 0;
-		} else {
-			return -1;
-		}
-	},
-	fixName: function (name) {
-		var parts = name.split(' ');
-		return parts[parts.length - 1].substr(0, 3).toUpperCase();
-	},
-	shouldShow: function (driver) {
-		if (!driver) {
-			return false;
-		}
-		if (UI.state.sessionInfo.type.match(/^RACE/)) {
-			return true;
-		}
-		if (UI.state.sessionInfo.type === 'PRACTICE' && !driver.scoreInfo.bestLapInfo.valid) {
-			return false;
-		}
-		return driver.scoreInfo.bestLapInfo.valid || driver.scoreInfo.timeDiff != -1;
-	},
-	looper: Array.apply(null, Array(UI.maxDriverCount)),
-	render: function () {
-		// On end phase user portalId is not sent anymore so do not show
-		if (UI.state.sessionInfo.phase === 'END') {
-			return null;
-		}
-
-		var self = this;
-		var p = this.state;
-
-		var drivers = this.state.driversInfo.driversInfo;
-		if (!drivers.length) {
-			return null;
-		}
-
-		var driversLookup = {};
-		drivers.forEach(function (driver) {
-			driversLookup[driver.slotId] = driver;
-		});
-
-		var currentStandingsClasses = cx({
-			'hide-flags': UI.state.activeWidgets.CurrentStandings.disableFlags,
-			'current-standings': true
-		});
-
-		// Need to clone it to keep the base array sorted by slotId
-		return React.createElement(
-			'div',
-			{ className: currentStandingsClasses },
-			self.looper.map(function (non, i) {
-				return React.createElement(
-					'div',
-					{ key: i },
-					self.shouldShow(driversLookup[i]) ? React.createElement(
-						'div',
-						{ className: cx({ 'driver': true, 'active': driversLookup[i].slotId === UI.state.focusedSlot }), key: driversLookup[i].slotId, style: self.getDriverStyle(driversLookup[i]) },
-						self.getMetaInfo(driversLookup[i], drivers),
-						React.createElement(
-							'div',
-							{ className: 'inner' },
-							React.createElement(
-								'div',
-								{ className: 'flag-container' },
-								React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driversLookup[i].portalId).country + '.svg' })
-							),
-							React.createElement(
-								'div',
-								{ className: 'position' },
-								driversLookup[i].scoreInfo.positionOverall
-							),
-							React.createElement(
-								'div',
-								{ className: 'name' },
-								self.fixName(driversLookup[i].name)
-							),
-							React.createElement(
-								'div',
-								{ className: 'manufacturer' },
-								React.createElement('img', { src: '/img/manufacturers/' + driversLookup[i].manufacturerId + '.webp' })
-							),
-							React.createElement(
-								'div',
-								{ className: 'pit-info' },
-								driversLookup[i].mandatoryPitstopPerformed === 1 ? React.createElement('div', { className: 'pitted' }) : null,
-								driversLookup[i].mandatoryPitstopPerformed === 0 ? React.createElement('div', { className: 'unpitted' }) : null
-							)
-						)
-					) : null
-				);
-			})
-		);
-	}
-});
-UI.widgets.TrackMap = React.createClass({
-	displayName: 'TrackMap',
-
-	componentDidMount: function () {
-		var self = this;
-		// self.refs is = {} at first
-		(function tick() {
-			if (!self.refs.svg) {
-				return setTimeout(tick, 100);
-			}
-			self.setupSvg();
-		})();
-	},
-	setupSvg: function () {
-		var self = this;
-		var svg = self.refs.svg;
-		var svgDoc = svg.contentDocument;
-		var svgEl = svgDoc.querySelector('svg');
-		var path = svgDoc.querySelector('path');
-		if (!path || !path.style) {
-			return;
-		}
-		path.style.stroke = '#fff';
-		path.style.strokeWidth = '2px';
-		self.refs.container.classList.add('loaded');
-
-		self.state.svg.loaded = true;
-		self.state.svg.path = path;
-		self.state.svg.el = svgEl;
-		self.setState(self.state);
-		self.resizeToFill();
-	},
-	windowResize: null,
-	componentWillMount: function () {
-		window.addEventListener('resize', this.resizeToFill, false);
-		var self = this;
-
-		function updateInfo() {
-			r3e.getDriversInfo(function (driversInfo) {
-				var jobs = [];
-				var driverData = driversInfo.driversInfo;
-				driverData.forEach(function (driver) {
-					jobs.push(function (done) {
-						r3e.getVehicleInfo({
-							'slotId': driver.slotId
-						}, function (vehicleInfo) {
-							driver.vehicleInfo = vehicleInfo;
-							done(driver);
-						});
-					});
-				});
-				UI.batch(jobs, function (data) {
-					self.setState({
-						'driversInfo': data
-					});
-				});
-			});
-		}
-		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
-	},
-	componentWillUnmount: function () {
-		window.removeEventListener('resize', this.resizeToFill, false);
-		clearInterval(this.updateInterval);
-	},
-	resizeToFill: function () {
-		var self = this;
-		if (!self.state.svg.el) {
-			// Hide widgets if we fail loading
-			UI.state.activeWidgets.TrackMap.active = false;
-			io.emit('setState', UI.state);
-			return;
-		}
-
-		var width = self.state.svg.el.getAttribute('width');
-		var height = self.state.svg.el.getAttribute('height');
-
-		var widthRatio = window.innerWidth / width;
-		var heightRatio = window.innerHeight / height;
-
-		var ratio = Math.min(widthRatio, heightRatio) * 0.95;
-
-		var containerEl = self.refs.container;
-		containerEl.style.width = width + 'px';
-		containerEl.style.height = height + 'px';
-		containerEl.style.webkitTransform = 'scale(' + ratio + ') translate(-50%, -50%)';
-	},
-	getInitialState: function () {
-		return {
-			'svg': {
-				'path': null,
-				'el': null,
-				'loaded': false
-			}
-		};
-	},
-	getTimeTrapStyle: function (progress) {
-		var svg = this.state.svg;
-		if (!svg.path) {
-			return {
-				'display': 'none'
-			};
-		}
-
-		var totalLength = svg.path.getTotalLength();
-		var point = svg.path.getPointAtLength(totalLength * progress);
-		return {
-			'WebkitTransform': 'translate(' + point.x + 'px, ' + point.y + 'px) scale(0.4)'
-		};
-	},
-	looper: Array.apply(null, Array(UI.maxDriverCount)).map(function () {}),
 	render: function () {
 		var self = this;
-		var p = this.state;
-		if (!this.state.driversInfo) {
+		var info = self.state.pitInfo;
+		if (!info.tyreType) {
 			return null;
 		}
-
-		var drivers = this.state.driversInfo;
-		var driversLookup = {};
-		drivers.forEach(function (driver) {
-			driversLookup[driver.slotId] = driver;
-		});
 
 		return React.createElement(
 			'div',
-			{ className: 'track-map-bg' },
+			{ className: 'damage-check' },
 			React.createElement(
 				'div',
-				{ className: 'track-map', ref: 'container' },
-				React.createElement('object', { data: '/img/trackmaps/' + UI.state.eventInfo.layoutId + '.svg', type: 'image/svg+xml', ref: 'svg', id: 'svgObject', width: '512px', height: '512px' }),
-				self.looper.map(function (non, i) {
-					if (self.state.svg.loaded && driversLookup[i]) {
-						return React.createElement(TrackMapDot, { key: i, svg: self.state.svg, driver: driversLookup[i] });
-					} else {
-						return null;
-					}
-				}),
-				React.createElement(
-					'div',
-					{
-						onClick: self.onClick,
-						className: 'dot start',
-						style: self.getTimeTrapStyle(0) },
-					React.createElement(
-						'span',
-						{ className: 'name' },
-						'Start/Finish line'
-					)
-				)
+				{ className: 'part engine' },
+				'Engine: ',
+				100 - info.damage.engine,
+				'%'
+			),
+			React.createElement(
+				'div',
+				{ className: 'part transmission' },
+				'Transmission: ',
+				100 - info.damage.transmission,
+				'%'
 			)
-		);
-	}
-});
-var TrackMapDot = React.createClass({
-	displayName: 'TrackMapDot',
-
-	getStyles: function (driver) {
-		return cx({
-			'dot': true,
-			'active': driver.slotId === UI.state.focusedSlot,
-			'leader': driver.scoreInfo.positionOverall === 1,
-			'idle': driver.vehicleInfo.speed < 5
-		});
-	},
-	getDriverStyle: function (driver) {
-		var svg = this.props.svg;
-		var width = svg.el.clientWidth;
-		var height = svg.el.clientHeight;
-
-		var widthRatio = window.innerWidth / width;
-		var heightRatio = window.innerHeight / height;
-
-		var trackLength = UI.state.eventInfo.length;
-		var totalLength = svg.path.getTotalLength();
-
-		var progress = driver.scoreInfo.distanceTravelled % trackLength / trackLength;
-
-		var point = svg.path.getPointAtLength(totalLength * progress);
-
-		return {
-			'WebkitTransform': 'translate(' + point.x + 'px, ' + point.y + 'px) scale(0.3)'
-		};
-	},
-	render: function () {
-		var self = this;
-		var driver = this.props.driver;
-		return React.createElement(
-			'div',
-			{
-				className: self.getStyles(driver),
-				style: self.getDriverStyle(driver) },
-			driver.scoreInfo.positionOverall
 		);
 	}
 });
@@ -3693,11 +3275,233 @@ function cx() {
 }
 
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-UI.widgets.LogoOverlay = React.createClass({
-	displayName: "LogoOverlay",
+UI.widgets.MulticlassStandings = React.createClass({
+	displayName: 'MulticlassStandings',
 
-	render: function () {
+	componentWillMount: function () {
 		var self = this;
-		return React.createElement("div", { className: "logo-overlay" });
+
+		UI.state.activeWidgets.CompareRace.active = false;
+		io.emit('setState', UI.state);
+
+		function updateInfo() {
+			UI.batch({
+				'driversInfo': r3e.getDriversInfo
+			}, self.setState.bind(self));
+		}
+		updateInfo();
+
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+		self.updateLooperInterval = setInterval(this.updateLooperBasedOnPlayerCount, 1000);
+	},
+	updateLooperBasedOnPlayerCount: function () {
+		var maxSlotIndex = 0;
+		var drivers = this.state.driversInfo.driversInfo;
+		drivers.forEach(function (driver) {
+			maxSlotIndex = Math.max(maxSlotIndex, driver.slotId);
+		});
+		this.looper = Array.apply(null, Array(maxSlotIndex + 3));
+	},
+	componentWillUnmount: function () {
+		clearInterval(this.updateInterval);
+		clearInterval(this.updateLooperInterval);
+	},
+	getInitialState: function () {
+		return {
+			'driversInfo': {
+				'driversInfo': []
+			}
+		};
+	},
+	getDriverStyle: function (driver) {
+		return {
+			'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)'
+		};
+	},
+	formatTime: UI.formatTime,
+	getMetaInfo: function (driver, sortedByPosition) {
+		var self = this;
+		// Race
+		if (UI.state.sessionInfo.type.match(/^race/i)) {
+			// Leader should show current best
+			if (driver.scoreInfo.positionOverall === 1) {
+				if (driver.scoreInfo.currentLapTime !== -1) {
+					return React.createElement(
+						'div',
+						{ className: 'meta-info' },
+						self.formatTime(driver.scoreInfo.currentLapTime, { ignoreSign: true })
+					);
+				} else {
+					return React.createElement('div', { className: 'meta-info' });
+				}
+			} else {
+				if (sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps > 1) {
+					return React.createElement(
+						'div',
+						{ className: 'meta-info' },
+						'+',
+						sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps - 1,
+						' laps'
+					);
+				} else {
+					var sortedIndex = 0;
+					sortedByPosition.forEach(function (sortedDriver, i) {
+						if (sortedDriver.slotId === driver.slotId) {
+							sortedIndex = i;
+						}
+					});
+					var timeDifference = sortedByPosition.slice(1, sortedIndex + 1).map(function (driver) {
+						return Math.max(0, driver.scoreInfo.timeDiff);
+					}).reduce(function (p, c) {
+						return p + c;
+					});
+					return React.createElement(
+						'div',
+						{ className: 'meta-info' },
+						self.formatTime(timeDifference)
+					);
+				}
+			}
+			// Qualify and Practice
+		} else if (UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') {
+				if (driver.scoreInfo.positionOverall === 1) {
+					if (driver.scoreInfo.bestLapInfo.sector3 !== -1) {
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							self.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+						);
+					} else {
+						return React.createElement('div', { className: 'meta-info' });
+					}
+				} else {
+					if (driver.scoreInfo.bestLapInfo.valid) {
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							self.formatTime(driver.scoreInfo.bestLapInfo.sector3 - sortedByPosition[0].scoreInfo.bestLapInfo.sector3)
+						);
+					} else if (driver.scoreInfo.laps !== sortedByPosition[0].scoreInfo.laps) {
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							'+',
+							sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps,
+							' laps'
+						);
+					} else {
+						return React.createElement('div', { className: 'meta-info' });
+					}
+				}
+			}
+	},
+	sortFunctionPosition: function (a, b) {
+		if (a.scoreInfo.positionOverall > b.scoreInfo.positionOverall) {
+			return 1;
+		} else if (a.scoreInfo.positionOverall === b.scoreInfo.positionOverall) {
+			return 0;
+		} else {
+			return -1;
+		}
+	},
+	fixName: function (name) {
+		var parts = name.split(' ');
+		return parts[parts.length - 1].substr(0, 3).toUpperCase();
+	},
+	shouldShow: function (driver) {
+		if (!driver) {
+			return false;
+		}
+		if (UI.state.sessionInfo.type.match(/^RACE/)) {
+			return true;
+		}
+		if (UI.state.sessionInfo.type === 'PRACTICE' && !driver.scoreInfo.bestLapInfo.valid) {
+			return false;
+		}
+		return driver.scoreInfo.bestLapInfo.valid || driver.scoreInfo.timeDiff != -1;
+	},
+	getClassName: function (classId) {
+		var className = "";
+		if (r3eData.classes[classId] != null) {
+			className = r3eData.classes[classId].Name;
+		}
+		return className;
+	},
+	looper: Array.apply(null, Array(UI.maxDriverCount)),
+	render: function () {
+		// On end phase user portalId is not sent anymore so do not show
+		if (UI.state.sessionInfo.phase === 'END') {
+			return null;
+		}
+
+		var self = this;
+		var p = this.state;
+
+		var drivers = this.state.driversInfo.driversInfo;
+		if (!drivers.length) {
+			return null;
+		}
+
+		var driversLookup = {};
+		drivers.forEach(function (driver) {
+			driversLookup[driver.slotId] = driver;
+		});
+
+		var multiclassStandingsClasses = cx({
+			'hide-flags': UI.state.activeWidgets.MulticlassStandings.disableFlags,
+			'current-standings': true
+		});
+
+		// Need to clone it to keep the base array sorted by slotId
+		return React.createElement(
+			'div',
+			{ className: multiclassStandingsClasses },
+			self.looper.map(function (non, i) {
+				return React.createElement(
+					'div',
+					{ key: i },
+					self.shouldShow(driversLookup[i]) ? React.createElement(
+						'div',
+						{ className: cx({ 'driver': true, 'active': driversLookup[i].slotId === UI.state.focusedSlot }), key: driversLookup[i].slotId, style: self.getDriverStyle(driversLookup[i]) },
+						React.createElement(
+							'div',
+							{ className: 'inner' },
+							React.createElement(
+								'div',
+								{ className: 'flag-container' },
+								React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driversLookup[i].portalId).country + '.svg' })
+							),
+							React.createElement(
+								'div',
+								{ className: 'position' },
+								driversLookup[i].scoreInfo.positionOverall
+							),
+							React.createElement(
+								'div',
+								{ className: 'name' },
+								self.fixName(driversLookup[i].name)
+							),
+							React.createElement(
+								'div',
+								{ className: 'manufacturer' },
+								React.createElement('img', { src: '/img/manufacturers/' + driversLookup[i].manufacturerId + '.webp' })
+							),
+							self.getMetaInfo(driversLookup[i], drivers),
+							React.createElement(
+								'div',
+								{ className: 'class' },
+								self.getClassName(driversLookup[i].classId)
+							),
+							React.createElement(
+								'div',
+								{ className: 'pit-info' },
+								driversLookup[i].mandatoryPitstopPerformed === 1 ? React.createElement('div', { className: 'pitted' }) : null,
+								driversLookup[i].mandatoryPitstopPerformed === 0 ? React.createElement('div', { className: 'unpitted' }) : null
+							)
+						)
+					) : null
+				);
+			})
+		);
 	}
 });

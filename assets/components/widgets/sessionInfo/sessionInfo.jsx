@@ -29,7 +29,8 @@ UI.widgets.SessionInfo = React.createClass({
 			'RACE 1': 'Race',
 			'RACE 2': 'Race 2',
 			'RACE 3': 'Race 3',
-			'GARAGE': 'Garage'
+			'GARAGE': 'Garage',
+			'WARMUP': 'Warmup'
 		};
 
 		if (!p.sessionInfo.type || p.sessionInfo.type === 'EVENT RESULTS') {
