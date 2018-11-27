@@ -130,7 +130,7 @@ UI.widgets.TrackMap = React.createClass({
 							return <TrackMapDot key={i} svg={self.state.svg} driver={driversLookup[i]}/>
 						}
 						else {
-							return null;						
+							return null;
 						}
 					})}
 					<div
@@ -179,6 +179,7 @@ var TrackMapDot = React.createClass({
 			<div
 			className={self.getStyles(driver)}
 			style={self.getDriverStyle(driver)}>
+			<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} height="120px" width="200px" />
 				{driver.scoreInfo.positionOverall}
 			</div>
 		);

@@ -144,7 +144,7 @@ a {
   text-align: center;
   font-family: Oswald;
   color: #fff;
-  -webkit-animation: "ani_4" 0.5s ease;
+  -webkit-animation: "ani_NaN" 0.5s ease;
   position: fixed;
   bottom: 60px;
   left: 0;
@@ -153,7 +153,7 @@ a {
 .flat .focused-driver-info.hide-flags .flag-container {
   display: none;
 }
-@-webkit-keyframes "ani_4" {
+@-webkit-keyframes "ani_NaN" {
   0% {
     -webkit-transform: translate(0, 120px);
   }
@@ -164,31 +164,32 @@ a {
 .flat .focused-driver-info .inner {
   height: 71px;
   display: inline-block;
-  position: relative;
+  position: absolute;
+  left: 30%;
+  bottom: 20%;
 }
 .flat .focused-driver-info .extra-info {
   position: absolute;
-  top: 100%;
-  left: 125px;
+  top: 85px;
+  left: 75px;
   z-index: -1;
-  margin-top: -5px;
+  margin-top: 0px;
   font-family: Hel;
 }
 .flat .focused-driver-info .extra-info ul {
   margin: 0;
-  padding: 0;
+  padding: 5px;
 }
 .flat .focused-driver-info .extra-info ul li {
   font-size: 20px;
   float: left;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 10px 10px;
+  background: rgba(38, 50, 56, 0.7);
+  padding: 8px;
+  margin-right: 10px;
   border: 1px;
+  border-radius: 50px;
   color: white;
-  height: 20px;
   position: relative;
-  right: -65px;
-  top: -100px;
   -webkit-transition: top 0.5s;
 }
 .flat .focused-driver-info .extra-info ul li.active {
@@ -205,7 +206,7 @@ a {
 }
 .flat .focused-driver-info .best-time {
   font-size: 18px;
-  background: rgba(56, 142, 60, 0.7);
+  background-color: rgba(38, 50, 56, 0.5);
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 10px 10px 0 0;
@@ -217,13 +218,13 @@ a {
   z-index: 0;
   margin-bottom: 0px;
   position: absolute;
-  left: 150px;
+  left: 160px;
   bottom: 100%;
   -webkit-transition: top 0.5s;
 }
 .flat .focused-driver-info .positionInClass {
   font-size: 18px;
-  background: rgba(69, 90, 255, 0.7);
+  background-color: rgba(38, 50, 56, 0.5);
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 10px 10px 0 0;
@@ -235,37 +236,61 @@ a {
   z-index: 0;
   margin-bottom: 0px;
   position: absolute;
-  left: 300px;
+  left: 310px;
   bottom: 100%;
   -webkit-transition: top 0.5s;
 }
 .flat .focused-driver-info .position,
 .flat .focused-driver-info .name,
 .flat .focused-driver-info .vehicle,
+.flat .focused-driver-info .team,
 .flat .focused-driver-info .manufacturer,
 .flat .focused-driver-info .flag-container {
   vertical-align: top;
   display: inline-block;
-  height: 71px;
-  line-height: 75px;
+  height: 85px;
+  line-height: 65px;
 }
 .flat .focused-driver-info .position {
-  background: rgba(56, 142, 60, 0.7);
+  background-color: rgba(38, 50, 56, 0.3);
   width: 65px;
-  font-size: 50px;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  font-size: 60px;
   text-align: center;
   padding-left: 0px;
-  line-height: 70px;
+  line-height: 80px;
+  right: 300px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
 .flat .focused-driver-info .name {
   background-color: rgba(38, 50, 56, 0.8);
-  font-size: 35px;
+  font-size: 30px;
   text-transform: uppercase;
   padding: 0px 20px;
   min-width: 525px;
+}
+.flat .focused-driver-info .team {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  left: 20%;
+  right: 13%;
+  top: 35px;
+}
+.flat .focused-driver-info .vehicle {
+  background-color: rgba(38, 50, 56, 0.8);
+  background-position: -442px 0;
+  width: 36px;
+  position: absolute;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.flat .focused-driver-info .vehicle img {
+  position: absolute;
+  top: -80px;
+  left: -170px;
+  height: 110px;
 }
 .flat .focused-driver-info .manufacturer {
   background-color: white;
@@ -278,33 +303,12 @@ a {
 }
 .flat .focused-driver-info .manufacturer img {
   position: absolute;
-  top: 5px;
+  top: 15px;
   left: 7px;
-  height: 60px;
-}
-.flat .focused-driver-info .vehicle {
-  background-color: rgba(38, 50, 56, 0.8);
-  background-position: -442px 0;
-  width: 36px;
-  position: relative;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-.flat .focused-driver-info .vehicle img {
-  position: absolute;
-  top: -72px;
-  left: -130px;
-  height: 100px;
+  height: 62px;
 }
 .flat .focused-driver-info .class {
-  background-color: #263238;
-  font-size: 35px;
-  text-transform: uppercase;
-  padding: 0px 20px;
-  min-width: 25px;
-}
-.flat .focused-driver-info .team {
-  background-color: #263238;
+  background-color: rgba(38, 50, 56, 0.3);
   font-size: 35px;
   text-transform: uppercase;
   padding: 0px 20px;
@@ -318,11 +322,10 @@ a {
 }
 .flat .focused-driver-info .flag-container .flag {
   width: 71px;
-  height: 61px;
+  height: 81px;
   display: block;
-  content: '';
-  width: 80px;
-  height: 80px;
+  width: 95px;
+  height: 95px;
   background: #000;
   position: absolute;
   top: -8px;
@@ -2821,14 +2824,13 @@ pre.preview {
   height: 100%;
 }
 .flat .current-standings .driver .class {
-  background-color: orange;
   display: inline-block;
   min-width: 30px;
-  font-size: 16px;
+  font-size: 18px;
   height: 30%;
   padding-left: 10px;
   padding-right: 10px;
-  font-family: Arial;
+  font-family: Hel;
   font-style: italic;
 }
 .flat .current-standings .driver .name {
@@ -3154,7 +3156,7 @@ pre.preview {
   padding: 0 15px 0 0;
   line-height: 85px;
   font-size: 30px;
-  background-color: #b71c1c;
+  background-color: rgba(183, 28, 28, 0.9);
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -3163,7 +3165,7 @@ pre.preview {
   line-height: 37px;
   margin-bottom: 4px;
   font-size: 20px;
-  background-color: #263238;
+  background-color: rgba(38, 50, 56, 0.8);
 }
 .flat .race-results .race-results-entry.title {
   display: none;
@@ -3360,10 +3362,9 @@ pre.preview {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   font-size: 20px;
-  background-color: #263238;
+  background-color: rgba(38, 50, 56, 0.6);
   text-transform: uppercase;
   border-radius: 5px;
-  border: 1px solid #333;
   color: #fff;
   height: 40px;
   padding: 0px 4px;

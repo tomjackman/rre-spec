@@ -118,7 +118,12 @@ UI.widgets.MulticlassStandings = React.createClass({
 		if (r3eData.classes[classId] != null) {
 			className = r3eData.classes[classId].Name;
 		}
-		return className;
+
+		const divStyle = {
+		    backgroundColor: '#00' + classId
+		};
+
+		return <div className="class" style={divStyle}>{className}</div>
 	},
 	looper: Array.apply(null, Array(UI.maxDriverCount)),
 	render: function() {
@@ -164,7 +169,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 										<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.webp'} />
 									</div>
 									{self.getMetaInfo(driversLookup[i], drivers)}
-									<div className="class">{self.getClassName(driversLookup[i].classId)}</div>
+									{self.getClassName(driversLookup[i].classId)}
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?
 											<div className="pitted" />

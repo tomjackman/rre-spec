@@ -577,6 +577,7 @@ var TrackMapDot = React.createClass({
 			{
 				className: self.getStyles(driver),
 				style: self.getDriverStyle(driver) },
+			React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small', height: '120px', width: '200px' }),
 			driver.scoreInfo.positionOverall
 		);
 	}
@@ -1093,6 +1094,15 @@ UI.widgets.FocusedDriver = React.createClass({
 			);
 		}
 	},
+	getTeamName: function (teamId) {
+		var teamName = "";
+
+		if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+
+		return teamName;
+	},
 	render: function () {
 		var self = this;
 		var driverInfo = self.state.driverInfo;
@@ -1136,6 +1146,11 @@ UI.widgets.FocusedDriver = React.createClass({
 					'div',
 					{ className: 'name' },
 					self.fixName(driverInfo.name)
+				),
+				React.createElement(
+					'div',
+					{ className: 'team' },
+					self.getTeamName(driverInfo.teamId)
 				),
 				React.createElement(
 					'div',
@@ -3425,7 +3440,16 @@ UI.widgets.MulticlassStandings = React.createClass({
 		if (r3eData.classes[classId] != null) {
 			className = r3eData.classes[classId].Name;
 		}
-		return className;
+
+		const divStyle = {
+			backgroundColor: '#00' + classId
+		};
+
+		return React.createElement(
+			'div',
+			{ className: 'class', style: divStyle },
+			className
+		);
 	},
 	looper: Array.apply(null, Array(UI.maxDriverCount)),
 	render: function () {
@@ -3487,11 +3511,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 								React.createElement('img', { src: '/img/manufacturers/' + driversLookup[i].manufacturerId + '.webp' })
 							),
 							self.getMetaInfo(driversLookup[i], drivers),
-							React.createElement(
-								'div',
-								{ className: 'class' },
-								self.getClassName(driversLookup[i].classId)
-							),
+							self.getClassName(driversLookup[i].classId),
 							React.createElement(
 								'div',
 								{ className: 'pit-info' },

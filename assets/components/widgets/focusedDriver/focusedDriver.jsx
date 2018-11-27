@@ -190,6 +190,15 @@ UI.widgets.FocusedDriver = React.createClass({
 			</div>
 		}
 	},
+	getTeamName: function(teamId) {
+		var teamName = "";
+
+		if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+
+		return teamName;
+	},
 	render: function() {
 		var self = this;
 		var driverInfo = self.state.driverInfo;
@@ -216,6 +225,7 @@ UI.widgets.FocusedDriver = React.createClass({
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					</div>
 					<div className="name">{self.fixName(driverInfo.name)}</div>
+					<div className="team">{self.getTeamName(driverInfo.teamId)}</div>
 					<div className="vehicle">
 						<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
 					</div>

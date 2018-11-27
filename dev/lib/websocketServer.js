@@ -79,9 +79,9 @@ module.exports = function(io) {
 		'themes': {
 			'generic': true
 		},
-		'activeTheme': 'generic'
+		'activeTheme': 'flat'
 	};
-	
+
 	var widgetsPath = __dirname+'/../../assets/components/widgets';
 	chokidar.watch(widgetsPath, {
 		'persistent': true
