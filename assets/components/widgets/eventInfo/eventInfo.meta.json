@@ -1,0 +1,7 @@
+{
+	"elementName": "EventInfo",
+	"name": "Event Info",
+	"buttonText": "Event Info",
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"keepOnSessionChange": false
+}

@@ -1,0 +1,56 @@
+@import '../theme/theme';
+
+.event-info-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.0);
+	.onCreation(opacity, 0, 1, 1s);
+}
+
+.flat .event-info {
+	.onCreation(opacity, 0, 1, 1s);
+  background-color: @background1;
+	position: fixed;
+	top: 50%;
+	left: 25%;
+	right: 25%;
+	-webkit-transform: translate(0, -50%);
+	z-index: -1;
+	padding: 0px;
+	color: #fff;
+	white-space: pre;
+	font-family: Oswald;
+	width: 944px;
+  border-radius: 10px;
+
+  .serverName {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    padding: 10px;
+  }
+  .serverTrackName {
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-size: 20px;
+    padding: 20px 10px;
+  }
+  .trackImage {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+  }
+  .weather {
+
+    .weatherIcons {
+      display: flex;
+      justify-content:space-around;
+      padding: 15px;
+    }
+  }
+}
