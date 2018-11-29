@@ -27,6 +27,7 @@ module.exports = function generateJs(files, fileChange) {
 		'react-dom.js': 7,
 		'jquery-2.1.3.min.js': 6,
 		'eventemitter2.js': 5,
+		'classColours.js': 4,
 		'r3e-data.min.js': 4,
 		'r3e.min.js': 3,
 		'ui.js': 2,
@@ -74,7 +75,7 @@ module.exports = function generateJs(files, fileChange) {
 		var indexAfterDeps = Object.keys(order).length - 1;
 		function finalize(err, fileContent) {
 			// Pass commonly used objects so we can minify
-			var jsContent = 
+			var jsContent =
 				// Make sure all code runs as strict
 				fileContent.map(function(item) {
 					if (item.path && item.path.match(/components/)) {

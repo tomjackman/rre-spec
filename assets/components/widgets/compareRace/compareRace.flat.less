@@ -1,3 +1,5 @@
+@import '../theme/theme';
+
 .driverInfoFlatCompareFlat() {
 	left: 0;
 	right: 0;
@@ -8,60 +10,37 @@
 	.inner {
 		white-space: nowrap;
 		width: auto;
-		height: 71px;
+		height: 81px;
 		display: inline-block;
 		position: relative;
 	}
 	.extra-info {
-		position: absolute;
-		top: 100%;
-		left: 125px;
-		z-index: -1;
-		margin-top: -5px;
-		ul {
-			margin: 0;
-			padding: 0;
-			li {
-				font-family: Hel;
-				font-size: 20px;
-				float: left;
-				background: #000;
-				padding: 10px 10px;
-				padding: 10px 10px;
-				margin-right: 10px;
-				margin-top: 10px;
-				background: rgb(38, 50, 56);
-				border-radius: 5%;
-				color: white;
-				height: 20px;
-				position: relative;
-				-webkit-transform: translate(0, -40px);
-				-webkit-transition: -webkit-transform 0.5s;
-				&.active {
-					-webkit-transform: translate(0, 0);
-				}
-				&.finished {
-					color: rgba(255, 255, 255, 1);
-
-					&.personal-best {
-						color: rgb(0, 200, 83);
-					}
-					&.global-best {
-						color: rgb(156, 39, 176);
-					}
-				}
-			}
-		}
+display:none;
 	}
-	.position, .name, .manufacturer, .flag-container .drs {
+	.position, .name, .vehicle, .team, .manufacturer, .flag-container {
 		vertical-align: top;
 		display: inline-block;
 		height: 71px;
 		line-height: 75px;
-
+	}
+	.best-time {
+		font-size: 18px;
+		background-color: @background2;
+		padding: 10px 10px;
+		margin-right: 10px;
+		border-radius: 10px 10px 0 0;
+		color: white;
+		height: 35px;
+		width: 130px;
+		z-index: 0;
+		margin-bottom: 0px;
+		position: absolute;
+		left: 150px;
+		bottom: 100%;
+		-webkit-transition: top 0.5s;
 	}
 	.position {
-		background-color: rgb(183, 28, 28);
+		background-color: @background2;
 		width: 65px;
 		font-size: 50px;
 		text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -72,11 +51,38 @@
 		border-bottom-left-radius: 20px;
 	}
 	.name {
-  	background-color: rgb(38, 50, 56);
-    background-position: -126px 0;
+  	background-color: @background1;
 		font-size: 30px;
 		padding: 0 20px;
 		min-width: 320px;
+	}
+	.team {
+		position: absolute;
+		background-color: @background2;
+		color: white;
+		height: 30px;
+		font-size: 20px;
+		text-transform: uppercase;
+		left: 20%;
+		right: 13%;
+		top: 71px;
+		line-height: 30px;
+		border: 1px;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+	}
+	.vehicle {
+		background-position: -442px 0;
+		width: 36px;
+		position: absolute;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+		img {
+			position: absolute;
+			top: -80px;
+			left: -170px;
+			height: 110px;
+		}
 	}
 	.manufacturer {
 		background-color: white;
@@ -96,17 +102,10 @@
 		width: 104px;
 		background-position: -518px 0;
 		position: relative;
-		.icon {
-			background: url(/focusedDriver/dtm/drs-off.png) center center no-repeat;
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 10px;
-			bottom: 0;
-		}
+
 		&.active {
 			.icon {
-				background-image: url(/focusedDriver/dtm/drs-on.png);
+				background-image: url(/focusedDriver/flat/drs-on.png);
 			}
 		}
 	}
@@ -115,24 +114,7 @@
 		background-position: -518px 0;
 		position: relative;
 		.icon {
-			background: url(/focusedDriver/tt/ptp-off.png) center center no-repeat;
-			width: 88px;
-			height: 43px;
-			position: absolute;
-			top: 30px;
-			left: 0px;
-			right: 10px;
-			bottom: 0;
-			.text {
-				position: absolute;
-				bottom: 95%;
-				text-align: center;
-				left: -8px;
-				width: 100px;
-				line-height: 20px;
-				white-space: nowrap;
-				font-size: 20px;
-			}
+
 		}
 		&.active {
 			.icon {
@@ -156,7 +138,7 @@
 			height: 80px;
 			background: #000;
 			position: absolute;
-			top: -8px;
+			top: -9px;
 			left: -5px;
 			border-bottom-right-radius: 20%;
 			border-top-left-radius: 20%;
@@ -176,10 +158,10 @@
 
 	.delta {
 		font-family: Hel;
-		font-size: 30px;
+		font-size: 20px;
 		text-transform: uppercase;
-		background-color: rgb(1, 87, 155);
-		border-radius: 5px;
+		background-color: @background2;
+		border-radius: 20px;
 		color: #fff;
 		padding: 5px 10px;
 		display: inline-block;

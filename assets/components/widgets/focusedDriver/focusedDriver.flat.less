@@ -1,3 +1,5 @@
+@import '../theme/theme';
+
 .driverInfoFocusedDriverFlat()  {
 	&.hide-flags {
 		.flag-container {
@@ -8,7 +10,7 @@
 	text-align: center;
 	font-family: Oswald;
 	color: #fff;
-	.onCreation(-webkit-transform, translate(0, 120px), translate(0, 0), 0.5s);
+	.onCreation(-webkit-transform, translate(0, 120px), translate(0, 0), 0.3s);
 	.inner {
 		height: 71px;
 		display: inline-block;
@@ -18,8 +20,7 @@
 	}
 	.extra-info {
 		position: absolute;
-		top: 85px;
-		left: 75px;
+		top: 90px;
 		z-index: -1;
 		margin-top: 0px;
 		font-family: Hel;
@@ -29,13 +30,15 @@
 			li {
 				font-size: 20px;
 				float: left;
-				background: rgba(38, 50, 56, 0.7);
+				background: @background1;
 				padding: 8px;
 				margin-right: 10px;
 				border: 1px;
-				border-radius: 50px;
+				border-radius: 10px;
 				color: white;
 				position: relative;
+				left: 20%;
+				right: 13%;
 
 				-webkit-transition: top 0.5s;
 				&.active {
@@ -56,15 +59,13 @@
 	}
 	.best-time {
 		font-size: 18px;
-		background-color: rgba(38, 50, 56, 0.5);
+		background-color: @background2;
 		padding: 10px 10px;
 		margin-right: 10px;
 		border-radius: 10px 10px 0 0;
 		color: white;
 		height: 35px;
 		width: 140px;
-		font-family: HEL;
-		font-style: italic;
 		z-index: 0;
 		margin-bottom: 0px;
 		position: absolute;
@@ -74,15 +75,13 @@
 	}
 	.positionInClass {
 		font-size: 18px;
-		background-color: rgba(38, 50, 56, 0.5);
+		background-color: @background2;
 		padding: 10px 10px;
 		margin-right: 10px;
 		border-radius: 10px 10px 0 0;
 		color: white;
 		height: 35px;
 		width: 140px;
-		font-family: HEL;
-		font-style: italic;
 		z-index: 0;
 		margin-bottom: 0px;
 		position: absolute;
@@ -97,7 +96,7 @@
 		line-height: 65px;
 	}
 	.position {
-		background-color: rgba(38, 50, 56, 0.3);
+		background-color: @background1;
 		width: 65px;
 		font-size: 60px;
 		text-align: center;
@@ -108,7 +107,7 @@
 		border-bottom-left-radius: 20px;
 	}
 	.name {
-  	background-color: rgba(38, 50, 56, 0.8);
+  	background-color: @background1;
 		font-size: 30px;
 		text-transform: uppercase;
 		padding: 0px 20px;
@@ -124,7 +123,6 @@
 		top: 35px;
 	}
 	.vehicle {
-		background-color: rgba(38, 50, 56, 0.8);
 		background-position: -442px 0;
 		width: 36px;
 		position: absolute;
@@ -153,7 +151,7 @@
 		}
 	}
 	.class {
-		background-color: rgba(38, 50, 56, 0.3);
+		background-color: @background2;
 		font-size: 35px;
 		text-transform: uppercase;
 		padding: 0px 20px;
@@ -224,7 +222,7 @@
 .flat .focused-driver-info {
 	.driverInfoFocusedDriverFlat;
 	position: fixed;
-	bottom: 60px;
+	bottom: 70px;
 	left: 0;
 	right: 0;
 }

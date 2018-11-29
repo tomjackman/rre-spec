@@ -190,6 +190,21 @@ UI.widgets.FocusedDriver = React.createClass({
 			</div>
 		}
 	},
+	getClassPosition: function(classId) {
+		var self = this;
+		var classColour = "rgba(38, 50, 56, 0.8)";
+		var driverInfo = self.state.driverInfo;
+
+		if (r3eData.classes[classId] != null) {
+			classColour = r3eClassColours.classes[classId].colour;
+		}
+
+		const divStyle = {
+				backgroundColor: classColour
+		};
+
+		return <div className="positionInClass" style={divStyle}>P{driverInfo.scoreInfo.positionClass} IN CLASS</div>
+	},
 	getTeamName: function(teamId) {
 		var teamName = "";
 
@@ -220,7 +235,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			<div className={focusedDriverClasses}>
 				<div className="inner">
 					<div className="position">{driverInfo.scoreInfo.positionOverall}</div>
-					<div className="positionInClass">Class - P{driverInfo.scoreInfo.positionClass}</div>
+					{self.getClassPosition(driverInfo.classId)}
 					<div className="flag-container">
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					</div>

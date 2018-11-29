@@ -1,3 +1,5 @@
+@import '../theme/theme';
+
 .flat .current-standings {
 	&.hide-flags {
 		.driver .flag-container {
@@ -6,7 +8,7 @@
 	}
 
 	position: fixed;
-	top: 97px;
+	top: 50px;
 	font-family: Hel;
 	color: #fff;
 	left: 40px;
@@ -69,7 +71,10 @@
 			}
 		}
 		.position {
-			background-color: rgb(38, 50, 56);
+			background-color: @background1;
+			border-left: 1px solid rgba(255, 255, 255, 0.1);
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
 			display: inline-block;
 			color: #fff;
 			font-size: 20px;
@@ -80,21 +85,7 @@
 
 		}
 		.flag-container {
-			width: 40px;
-			height: 40px;
-			display: inline-block;
-			.flag {
-				display: block;
-				content: '';
-				width: 35px;
-				height: 35px;
-				position: absolute;
-				top: 0px;
-				left: 2px;
-				right: 2px;
-				border-bottom-right-radius: 25%;
-				border-top-left-radius: 25%;
-			}
+			display: none;
 		}
 		.manufacturer {
 			background-color: white;
@@ -126,7 +117,7 @@
 			font-size: 20px;
 		}
 		.meta-info {
-			background-color: rgb(38, 50, 56);
+			background-color: @background2;
 			position: absolute;
 			font-family: Arial;
 			font-style: italic;

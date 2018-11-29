@@ -2,6 +2,9 @@ UI.widgets.CompareRace = React.createClass({
 	componentWillMount: function() {
 		var self = this;
 
+		// Hide widgets that use the same screen space
+		UI.state.activeWidgets.FocusedDriver.active = false;
+
 		function updateInfo() {
 			r3e.getDriversInfo(function(data) {
 				var drivers = [];
@@ -109,6 +112,15 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		var parts = str.split(' ');
 		return parts[0][0]+'. '+parts[parts.length-1].toUpperCase();
 	},
+	getTeamName: function(teamId) {
+		var teamName = "";
+
+		if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+
+		return teamName;
+	},
 	getExtraInfo: function(driver) {
 		var self = this;
 		return <div className="extra-info">
@@ -133,9 +145,20 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
 				</div>
 				<div className="name">{self.fixName(driver.name)}</div>
+				<div className="team">{self.getTeamName(driver.teamId)}</div>
+				<div className="vehicle">
+					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} />
+				</div>
 				<div className="manufacturer">
 					<img src={'/img/manufacturers/'+driver.manufacturerId+'.webp'} />
 				</div>
+				{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
+					<div className="best-time">
+						PB - {UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
+					</div>
+					:
+					null
+				}
 
 				<div className="drs">
 					<div className={cx({'icon': true, 'active': driver.vehicleInfo.drsEnabled})}></div>

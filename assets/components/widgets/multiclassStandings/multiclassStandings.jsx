@@ -97,9 +97,21 @@ UI.widgets.MulticlassStandings = React.createClass({
 			return -1;
 		}
 	},
-	fixName: function(name) {
+	renderName: function(name, classId) {
 		var parts = name.split(' ');
-		return parts[parts.length-1].substr(0, 3).toUpperCase();
+		var name = parts[parts.length-1].substr(0, 3).toUpperCase();
+
+		var classColour = "rgba(38, 50, 56, 0.8)";
+
+		if (r3eData.classes[classId] != null) {
+			classColour = r3eClassColours.classes[classId].colour;
+		}
+
+		const divStyle = {
+		    backgroundColor: classColour
+		};
+
+		return <div className="name" style={divStyle}>{name}</div>
 	},
 	shouldShow: function(driver) {
 		if (!driver) {
@@ -112,18 +124,6 @@ UI.widgets.MulticlassStandings = React.createClass({
 			return false;
 		}
 		return driver.scoreInfo.bestLapInfo.valid || driver.scoreInfo.timeDiff != -1;
-	},
-	getClassName: function(classId) {
-		var className = "";
-		if (r3eData.classes[classId] != null) {
-			className = r3eData.classes[classId].Name;
-		}
-
-		const divStyle = {
-		    backgroundColor: '#00' + classId
-		};
-
-		return <div className="class" style={divStyle}>{className}</div>
 	},
 	looper: Array.apply(null, Array(UI.maxDriverCount)),
 	render: function() {
@@ -164,12 +164,11 @@ UI.widgets.MulticlassStandings = React.createClass({
 										<img className="flag" src={'/img/flags/'+UI.getUserInfo(driversLookup[i].portalId).country+'.svg'} />
 									</div>
 									<div className="position">{driversLookup[i].scoreInfo.positionOverall}</div>
-									<div className="name">{self.fixName(driversLookup[i].name)}</div>
+									{self.renderName(driversLookup[i].name, driversLookup[i].classId)}
 									<div className="manufacturer">
 										<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.webp'} />
 									</div>
 									{self.getMetaInfo(driversLookup[i], drivers)}
-									{self.getClassName(driversLookup[i].classId)}
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?
 											<div className="pitted" />
