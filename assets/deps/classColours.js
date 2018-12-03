@@ -172,7 +172,7 @@ var r3eClassColours = {
     },
     5634: {
       Name: "Mercedes-AMG Motorsport",
-      colour: "rgba(35, 131, 169, 0.8);",
+      colour: "rgba(35, 131, 169, 0.8)",
       Id: 5634
     },
     5652: {
@@ -189,6 +189,11 @@ var r3eClassColours = {
       Name: "FR X-17 Cup",
       colour: "rgba(232, 0, 0, 0.8)",
       Id: 5824
+    },
+    5825: {
+			Name: "GTR 4",
+			colour: "rgba(243, 146, 0, 0.8)",
+			Id: 5825
     },
     6036: {
       Name: "WTCC 2016",
@@ -209,6 +214,56 @@ var r3eClassColours = {
       Name: "BMW M235i Racing Cup",
       colour: "rgba(109, 162, 212, 0.8)",
       Id: 6344
+    },
+    6345: {
+      Name: "Porsche 911 GT3 Cup",
+      colour: "rgba(60, 65, 71, 0.8)",
+      Id: 6345
+    },
+    6648: {
+      Name: "Cayman GT4 Trophy by Manthey-Racing",
+      colour: "rgba(119, 134, 138, 0.8)",
+      Id: 6648
+    },
+    6783: {
+      Name: "Esports WTCR Prologue",
+      colour: "rgba(30, 21, 21, 0.8)",
+      Id: 6783
+    },
+    6794: {
+      Name: "Mercedes-AMG Motorsport 30 Years of DTM",
+      colour: "rgba(35, 131, 169, 0.8)",
+      Id: 6794
+    },
+    7009: {
+      Name: "WTCR 2018",
+      colour: "rgba(30, 21, 21, 0.8)",
+      Id: 7009
+    },
+    7041: {
+      Name: "Super Racer",
+      colour: "rgba(234, 91, 36, 0.8)",
+      Id: 7041
+    },
+    7075: {
+      Name: "C-Klasse DTM 1995",
+      colour: "rgba(35, 131, 169, 0.8)",
+      Id: 7075
+    },
+    7110: {
+      Name: "Zonda R Cup",
+      colour: "rgba(127, 103, 77, 0.8)",
+      Id: 7110
+    },
+    7167: {
+      Name: "CLK DTM 2003",
+      colour: "rgba(35, 131, 169, 0.8)",
+      Id: 7167
+    },
+    7168: {
+      Name: "C-Klasse DTM 2005",
+      colour: "rgba(35, 131, 169, 0.8)",
+      Id: 7168
     }
   }
 }

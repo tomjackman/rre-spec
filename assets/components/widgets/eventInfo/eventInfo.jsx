@@ -51,7 +51,7 @@ UI.widgets.EventInfo = React.createClass({
               <div className="weatherInfoWindSpeedImage"><img height="50px" width="50px" src={'/img/weather/wind.png'} /> {info.weatherInfo.windSpeed} {speedMeasurement}</div>
               <div className="weatherInfoConditionsImage"><img height="50px" width="50px" src={'/img/weather/conditions.png'} />{info.weatherInfo.conditions}</div>
               </div>
-              
+
               <div className="weatherData">
                 <div className="weatherInfoAmbientTemp"> </div>
                 <div className="weatherInfoTrackTemp"> </div>

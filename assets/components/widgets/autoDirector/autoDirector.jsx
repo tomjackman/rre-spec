@@ -176,7 +176,7 @@ UI.widgets.AutoDirector = React.createClass({
 	// These rules are checked top to bottom, must return score
 	rules: UI.scoringRules,
 	activateDefaultWidgets: function() {
-		UI.state.activeWidgets.CurrentStandings.active = true;
+		UI.state.activeWidgets.MulticlassStandings.active = true;
 		UI.state.activeWidgets.LogoOverlay.active = true;
 		UI.state.activeWidgets.FocusedDriver.active = true;
 		UI.state.activeWidgets.SessionInfo.active = true;

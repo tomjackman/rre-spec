@@ -12,9 +12,9 @@
 	font-family: Hel;
 	color: #fff;
 	left: 40px;
-	.onCreation(-webkit-transform, translate(-200px, 0), translate(0, 0), 0.5s);
+	.onCreation(-webkit-transform, translate(-200px, 0), translate(0, 0), 0.2s);
 	.driver {
-		.onCreation(opacity, 0, 1, 0.5s);
+		.onCreation(opacity, 0, 1, 0.2s);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -22,10 +22,6 @@
 		z-index: 1;
 		-webkit-transition: -webkit-transform 0.5s linear, left 0.2s linear;
 		white-space: nowrap;
-
-		&.active {
-			left: 10px;
-		}
 
 		.inner {
 			height: 90%;

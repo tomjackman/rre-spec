@@ -103,7 +103,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 		var classColour = "rgba(38, 50, 56, 0.8)";
 
-		if (r3eData.classes[classId] != null) {
+		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
 			classColour = r3eClassColours.classes[classId].colour;
 		}
 
@@ -160,9 +160,6 @@ UI.widgets.MulticlassStandings = React.createClass({
 							<div className={cx({'driver': true, 'active': (driversLookup[i].slotId === UI.state.focusedSlot)})} key={driversLookup[i].slotId} style={self.getDriverStyle(driversLookup[i])}>
 
 								<div className="inner">
-									<div className="flag-container">
-										<img className="flag" src={'/img/flags/'+UI.getUserInfo(driversLookup[i].portalId).country+'.svg'} />
-									</div>
 									<div className="position">{driversLookup[i].scoreInfo.positionOverall}</div>
 									{self.renderName(driversLookup[i].name, driversLookup[i].classId)}
 									<div className="manufacturer">
