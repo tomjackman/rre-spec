@@ -148,7 +148,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 		var multiclassStandingsClasses = cx({
 			'hide-flags': UI.state.activeWidgets.MulticlassStandings.disableFlags
-			, 'current-standings': true
+			, 'multiclass-standings': true
 		});
 
 		// Need to clone it to keep the base array sorted by slotId

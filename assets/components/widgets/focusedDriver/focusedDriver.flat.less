@@ -23,12 +23,12 @@
 		top: 90px;
 		z-index: -1;
 		margin-top: 0px;
-		font-family: Hel;
+		font-family: Arial;
 		ul {
 			margin: 0;
 			padding: 5px;
 			li {
-				font-size: 20px;
+				font-size: 17px;
 				float: left;
 				background: @background1;
 				padding: 8px;
@@ -48,10 +48,12 @@
 					color: rgba(255, 255, 255, 1);
 
 					&.personal-best {
-						color: rgb(0, 200, 83);
+						color: white;
+						background-color: rgba(76, 175, 80, 0.8);
 					}
 					&.global-best {
-						color: rgba(213, 0, 249,1.0);
+						background-color: rgba(224, 64, 251, 0.8);
+						color: white;
 					}
 				}
 			}
@@ -111,7 +113,7 @@
 		font-size: 30px;
 		text-transform: uppercase;
 		padding: 0px 20px;
-		min-width: 525px;
+		min-width: 625px;
 	}
 	.team {
 		position: absolute;
@@ -193,7 +195,7 @@
 			background: url(/focusedDriver/flat/drs-on.png) center center no-repeat;
 			position: absolute;
 			top: -140px;
-			left: -230px;
+			left: -240px;
 			right: 10px;
 			bottom: 0;
 		}
@@ -201,22 +203,53 @@
 }
 .ptp {
 	height: 71px;
-	line-height: 75px;
-	width: 104px;
+	width: 140px;
 	background-position: -518px 0;
 	position: relative;
 	.icon {
-
+		.text {
+			font-size: 18px;
+			background-color: rgba(66, 165, 245, 0.8);
+			padding: 10px 10px;
+			margin-right: 10px;
+			border-radius: 10px 10px 0 0;
+			color: white;
+			height: 35px;
+			width: 140px;
+			z-index: 0;
+			margin-bottom: 0px;
+			position: absolute;
+			left: 700px;
+			bottom: 156px;
+			-webkit-transition: top 0.5s;
+		}
 	}
 	&.active {
 		.icon {
 			background: url(/focusedDriver/flat/ptp-on.png) center center no-repeat;
 			position: absolute;
 			top: -140px;
-			left: -230px;
+			left: -240px;
 			right: 10px;
 			bottom: 0;
+			.text {
+				font-size: 18px;
+				background-color: rgba(66, 165, 245, 0.8);
+				padding: 10px 10px;
+				margin-right: 10px;
+				border-radius: 10px 10px 0 0;
+				color: white;
+				height: 35px;
+				width: 140px;
+				z-index: 0;
+				margin-bottom: 0px;
+				position: absolute;
+				left: 700px;
+				bottom: 156px;
+				-webkit-transition: top 0.5s;
+			}
 		}
+
 	}
 }
 .flat .focused-driver-info {
