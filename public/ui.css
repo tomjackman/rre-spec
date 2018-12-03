@@ -1740,7 +1740,7 @@ body {
   z-index: 0;
   margin-bottom: 0px;
   position: absolute;
-  left: 700px;
+  left: 460px;
   bottom: 156px;
   -webkit-transition: top 0.5s;
 }
@@ -1880,7 +1880,7 @@ body {
 }
 .flat .focused-driver-info .position {
   background-color: rgba(38, 50, 56, 0.8);
-  width: 65px;
+  width: 85px;
   font-size: 60px;
   text-align: center;
   padding-left: 0px;
