@@ -1,3 +1,5 @@
+@import '../theme/theme';
+
 .race-results {
 	.entries-outer {
 		max-height: 820px;
@@ -42,7 +44,7 @@
 		line-height: 37px;
 		margin-bottom: 4px;
 		font-size: 20px;
-		background-color: @background2;
+		background-color: @background1;
 		&.title {
 			display: none;
 		}
@@ -57,8 +59,15 @@
 			height: 37px;
 		}
 		.position {
-			width: 66px;
-			padding: 0 0 0 22px;
+			width: 40px;
+			font-size: 22px;
+			padding: 0 0 0 10px;
+		}
+		.classPosition {
+			width: 100px;
+			font-size: 18px;
+			text-align: center;
+			padding: 0 0 0 10px;
 		}
 		.manufacturer {
 			width: 38px;
@@ -72,7 +81,7 @@
 			}
 		}
 		.name {
-			width: 428px;
+			width: 350px;
 			padding: 0 0 0 20px;
 		}
 		.livery {

@@ -10,20 +10,6 @@
 	.onCreation(opacity, 0, 1, 1s);
 }
 
-.ui.table {
-  width: 100%;
-  background: #FFFFFF;
-  margin: 1em 0em;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border-radius: 0.28571429rem;
-  text-align: left;
-  color: rgba(0, 0, 0, 0.87);
-  border-collapse: separate;
-  border-spacing: 0px;
-}
-
 .flat .event-info {
 	.onCreation(opacity, 0, 1, 1s);
   background-color: @background1;
@@ -39,6 +25,8 @@
 	font-family: Oswald;
 	width: 944px;
   border-radius: 10px;
+	border-top: 10px solid @widgetBorder;
+	border-bottom: 5px solid @widgetBorder;
 
   .serverName {
     color: white;
@@ -50,7 +38,7 @@
     color: white;
     text-align: center;
     font-style: italic;
-    font-size: 20px;
+    font-size: 25px;
     padding: 20px 10px;
   }
   .trackImage {
@@ -63,7 +51,9 @@
     .weatherIcons {
       display: flex;
       justify-content:space-around;
-      padding: 15px;
+      padding-top: 25px;
+			padding-bottom: 25px;
+			font-size: 30px;
     }
   }
 }

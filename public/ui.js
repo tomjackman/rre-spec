@@ -1182,6 +1182,15 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		return teamName;
 	},
+	playDrsAudio() {
+		// var self = this;
+		// if (self.state.vehicleInfo.drsEnabled) {
+		// 	var audio = new Audio('/audio/dtm.ogg');
+		// 	audio.loop = false;
+		// 	audio.volume = 0.5;
+		// 	audio.play();
+		// }
+	},
 	render: function () {
 		var self = this;
 		var driverInfo = self.state.driverInfo;
@@ -1238,21 +1247,19 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				self.state.pushToPassInfo.allowed ? React.createElement(
 					'div',
-					{ className: cx({ 'ptp': true, 'active': self.state.pushToPassInfo.active }) },
+					{ className: cx({ 'ptp animated infinite flash delay-1s': true, 'active': self.state.pushToPassInfo.active }) },
+					React.createElement('div', { className: 'icon' }),
 					React.createElement(
 						'div',
-						{ className: 'icon' },
-						React.createElement(
-							'span',
-							{ className: 'text' },
-							'PTP: ',
-							self.state.pushToPassInfo.amountLeft
-						)
+						{ className: 'text' },
+						'PTP Remaining: ',
+						self.state.pushToPassInfo.amountLeft
 					)
 				) : null,
 				React.createElement(
 					'div',
-					{ className: cx({ 'drs': true, 'active': self.state.vehicleInfo.drsEnabled }) },
+					{ className: cx({ 'drs animated infinite flash delay-1s': true, 'active': self.state.vehicleInfo.drsEnabled }) },
+					self.playDrsAudio(),
 					React.createElement('div', { className: 'icon' })
 				),
 				self.getExtraInfo(),
@@ -1755,7 +1762,7 @@ UI.widgets.Results = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'title' },
-				'Qualification results'
+				'Qualification Results'
 			),
 			React.createElement(
 				'div',
@@ -2182,6 +2189,7 @@ UI.widgets.EventInfo = React.createClass({
 							'div',
 							{ className: 'weatherInfoAmbientTempImage' },
 							React.createElement('img', { height: '50px', width: '50px', src: '/img/weather/ambient-temp.png' }),
+							' ',
 							info.weatherInfo.ambientTemp,
 							temperatureMeasurement
 						),
@@ -2189,6 +2197,7 @@ UI.widgets.EventInfo = React.createClass({
 							'div',
 							{ className: 'weatherInfoTrackTempImage' },
 							React.createElement('img', { height: '50px', width: '50px', src: '/img/weather/track-temp.png' }),
+							' ',
 							info.weatherInfo.trackTemp,
 							temperatureMeasurement
 						),
@@ -2205,28 +2214,9 @@ UI.widgets.EventInfo = React.createClass({
 							'div',
 							{ className: 'weatherInfoConditionsImage' },
 							React.createElement('img', { height: '50px', width: '50px', src: '/img/weather/conditions.png' }),
+							' ',
 							info.weatherInfo.conditions
 						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'weatherData' },
-						React.createElement(
-							'div',
-							{ className: 'weatherInfoAmbientTemp' },
-							' '
-						),
-						React.createElement(
-							'div',
-							{ className: 'weatherInfoTrackTemp' },
-							' '
-						),
-						React.createElement(
-							'div',
-							{ className: 'weatherInfoWindSpeed' },
-							' '
-						),
-						React.createElement('div', { className: 'weatherInfoConditions' })
 					)
 				)
 			)
@@ -2506,7 +2496,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			) : null,
 			React.createElement(
 				'div',
-				{ className: 'drs' },
+				{ className: 'drs animated infinite flash delay-1s' },
 				React.createElement('div', { className: cx({ 'icon': true, 'active': driver.vehicleInfo.drsEnabled }) })
 			),
 			self.getExtraInfo(driver)
@@ -3883,6 +3873,17 @@ UI.widgets.RaceResults = React.createClass({
 var RaceResultEntry = React.createClass({
 	displayName: 'RaceResultEntry',
 
+	getClassColour: function (classId) {
+		var classColour = "rgba(38, 50, 56, 0.8)";
+		var className = "";
+
+		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
+			classColour = r3eClassColours.classes[classId].colour;
+			className = r3eData.classes[classId].Name;
+		}
+
+		return { 'backgroundColor': classColour };
+	},
 	render: function () {
 		var self = this;
 		var entry = self.props.entry;
@@ -3914,6 +3915,13 @@ var RaceResultEntry = React.createClass({
 				'div',
 				{ className: 'position' },
 				entry.positionOverall,
+				'.'
+			),
+			React.createElement(
+				'div',
+				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
+				'Class P',
+				entry.positionClass,
 				'.'
 			),
 			React.createElement(

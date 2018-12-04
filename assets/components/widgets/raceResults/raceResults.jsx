@@ -54,7 +54,18 @@ UI.widgets.RaceResults = React.createClass({
 });
 
 var RaceResultEntry = React.createClass({
-	render: function() {
+	getClassColour: function(classId) {
+		var classColour = "rgba(38, 50, 56, 0.8)";
+		var className = "";
+
+		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
+			classColour = r3eClassColours.classes[classId].colour;
+			className = r3eData.classes[classId].Name;
+		}
+
+		return {	'backgroundColor': classColour };
+	},
+		render: function() {
 		var self = this;
 		var entry = self.props.entry;
 		var lapTime = null;
@@ -68,7 +79,8 @@ var RaceResultEntry = React.createClass({
 
 		return (
 			<div className={cx({'fastest': entry.isFastest, 'race-results-entry': true})}>
-				<div className="position">{entry.positionOverall}.</div>
+			<div className="position">{entry.positionOverall}.</div>
+			<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.positionClass}.</div>
 				<div className="manufacturer">
 					<img src={'/img/manufacturers/'+entry.manufacturerId+'.webp'} />
 				</div>

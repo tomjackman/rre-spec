@@ -80,7 +80,7 @@ UI.widgets.Results = React.createClass({
 
 		return (
 			<div className="qualify-results">
-				<div className="title">Qualification results</div>
+				<div className="title">Qualification Results</div>
 				<div className="qualify-results-entry title">
 					<div className="position">Position</div>
 					<div className="livery"/>

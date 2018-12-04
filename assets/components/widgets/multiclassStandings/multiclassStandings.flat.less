@@ -8,7 +8,7 @@
 	}
 
 	position: fixed;
-	top: 50px;
+	top: 30px;
 	font-family: Hel;
 	color: #fff;
 	left: 40px;
@@ -18,7 +18,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		height: 40px;
+		height: 35px;
 		z-index: 1;
 		-webkit-transition: -webkit-transform 0.5s linear, left 0.2s linear;
 		white-space: nowrap;
@@ -30,16 +30,16 @@
 			& > div {
 				vertical-align: top;
 				height: 100%;
-				line-height: 40px;
+				line-height: 35px;
 			}
 
 			.pitted, .unpitted {
 				width: 27px;
-				height: 27px;
+				height: 25px;
 				position: absolute;
 				line-height: 1;
-				top: 5px;
-				right:100%;
+				top: 3px;
+				right: 100%;
 				margin-right: 5px;
 
 				&:after {
@@ -57,13 +57,13 @@
 				border: 1px;
 				border-bottom-right-radius: 25%;
 				border-top-left-radius: 25%;
-				background: rgb(0, 200, 83);
+				background: @pitted;
 			}
 			.unpitted {
 				border: 1px;
 				border-bottom-right-radius: 25%;
 				border-top-left-radius: 25%;
-				background: rgb(183, 28, 28);
+				background: @unpitted;
 			}
 		}
 		.position {
@@ -86,8 +86,8 @@
 		.manufacturer {
 			background-color: white;
 			display: inline-block;
-			width: 35px;
-			height: 30%;
+			width: 30px;
+			height: 35%;
 			padding: 3px;
 
 			img {
@@ -111,16 +111,17 @@
 			width: 55px;
 			padding-left: 10px;
 			font-size: 20px;
+			line-height: inherit;
 		}
 		.meta-info {
 			background-color: @background2;
 			position: absolute;
 			font-family: Arial;
 			font-style: italic;
-			display: inline-block; 
+			display: inline-block;
 			left: 100%;
 			height: 90%;
-			line-height: 37px;
+			line-height: 50px;
 			font-size: 17px;
 			padding: 0 15px 0 10px;
 			border-left: 1px solid rgba(255, 255, 255, 0.1);

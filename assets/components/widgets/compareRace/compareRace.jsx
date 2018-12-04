@@ -160,7 +160,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					null
 				}
 
-				<div className="drs">
+				<div className="drs animated infinite flash delay-1s">
 					<div className={cx({'icon': true, 'active': driver.vehicleInfo.drsEnabled})}></div>
 				</div>
 

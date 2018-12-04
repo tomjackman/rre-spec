@@ -214,6 +214,15 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		return teamName;
 	},
+	playDrsAudio() {
+		// var self = this;
+		// if (self.state.vehicleInfo.drsEnabled) {
+		// 	var audio = new Audio('/audio/dtm.ogg');
+		// 	audio.loop = false;
+		// 	audio.volume = 0.5;
+		// 	audio.play();
+		// }
+	},
 	render: function() {
 		var self = this;
 		var driverInfo = self.state.driverInfo;
@@ -249,15 +258,15 @@ UI.widgets.FocusedDriver = React.createClass({
 					</div>
 
 					{self.state.pushToPassInfo.allowed ?
-						<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active})}>
-							<div className="icon">
-								<span className="text">PTP: {self.state.pushToPassInfo.amountLeft}</span>
-							</div>
+						<div className={cx({'ptp animated infinite flash delay-1s': true, 'active': self.state.pushToPassInfo.active})}>
+							<div className="icon"></div>
+							<div className="text">PTP Remaining: {self.state.pushToPassInfo.amountLeft}</div>
 						</div>
 						:
 						null
 					}
-					<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled})}>
+					<div className={cx({'drs animated infinite flash delay-1s': true, 'active': self.state.vehicleInfo.drsEnabled})}>
+						{self.playDrsAudio()}
 						<div className="icon"></div>
 					</div>
 					{self.getExtraInfo()}

@@ -1,3 +1,5 @@
+@import '../theme/theme';
+
 .track-map-bg {
 	position: fixed;
 	top: 0;
@@ -23,17 +25,16 @@
 	.dot {
 		position: absolute;
 		top: 0;
-		font-family: hel;
 		left: 0;
 		-webkit-transition: -webkit-transform 0.5s linear;
-		width: 40px;
-		height: 40px;
-		font-size: 30px;
-		margin: -20px 0 0 -20px;
+		width: 20px;
+		height: 20px;
+		font-size: 40px;
+		margin: -10px 0 0 -10px;
 		font-weight: bold;
 		line-height: 43px;
 		text-align: center;
-		background: rgba(96, 125, 139,1.0);
+		background: rgba(0, 230, 118,1.0);
 		color: #fff;
 		border-radius: 100%;
 		z-index: 2;
@@ -52,9 +53,8 @@
 			-webkit-transform: translate(-50%, 0);
 			font-size: 14px;
 			line-height: 1;
-			background: rgba(0, 0, 0, 0.8);
+			background: @background1;
 			padding: 5px;
-			font-family: Inconsolata;
 			color: #fff;
 			white-space: nowrap;
 			border-radius: 5px;
@@ -62,12 +62,13 @@
 			margin: 0 0 5px 0;
 		}
 		&.leader {
-			background: rgba(76, 175, 80,1.0);
+			background: rgba(255, 152, 0,1.0);
+			color: rgba(255, 152, 0,1.0);
 			z-index: 1;
 		}
 		&.active {
-			background: rgba(255, 152, 0,1.0);
-			color: #000;
+			background: rgba(76, 175, 80,1.0);
+			color: rgba(76, 175, 80,1.0);
 			z-index: 2;
 		}
 	}
