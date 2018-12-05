@@ -503,11 +503,6 @@ UI.components.Controller = React.createClass({
 					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control bottomLeft" data-value="wing">Rear wing</div>
 				</div>
 				<div className="widgets-list">
-					<select value={UI.state.activeTheme} onChange={self.changeTheme}>
-						{Object.keys(UI.state.themes).map(function(key) {
-							return <option key={key} value={key}>{key.toUpperCase()}</option>
-						})}
-					</select>
 					<div className="widget-buttons">
 						{Object.keys(UI.state.activeWidgets).sort().map(function(key) {
 							return <WidgetManager widget={UI.state.activeWidgets[key]} key={key}/>

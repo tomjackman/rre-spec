@@ -1246,10 +1246,10 @@ pre.preview {
 }
 .flat .focused-driver-info .extra-info ul li.finished.personal-best {
   color: white;
-  background-color: rgba(76, 175, 80, 0.8);
+  background-image: linear-gradient(#4caf50, rgba(76, 175, 80, 0.5));
 }
 .flat .focused-driver-info .extra-info ul li.finished.global-best {
-  background-color: rgba(224, 64, 251, 0.7);
+  background-image: linear-gradient(#9c27b0, rgba(156, 39, 176, 0.5));
   color: white;
 }
 .flat .focused-driver-info .best-time {
@@ -1310,6 +1310,7 @@ pre.preview {
 .flat .focused-driver-info .name {
   background-color: rgba(38, 50, 56, 0.8);
   font-size: 30px;
+  line-height: 60px;
   text-transform: uppercase;
   padding: 0px 20px;
   min-width: 500px;
@@ -1319,6 +1320,7 @@ pre.preview {
   position: absolute;
   color: white;
   font-size: 20px;
+  line-height: 60px;
   text-transform: uppercase;
   left: 25%;
   right: 13%;
@@ -1365,7 +1367,7 @@ pre.preview {
   width: 61px;
   background-position: -65px 0;
   position: relative;
-  background-color: rgba(38, 50, 56, 0.5);
+  background-color: rgba(38, 50, 56, 0.8);
   border-bottom: 2px solid #ff5252;
 }
 .flat .focused-driver-info .flag-container .flag {
@@ -1597,9 +1599,9 @@ pre.preview {
   padding: 0 15px 0 0;
   line-height: 85px;
   font-size: 30px;
+  background-color: rgba(38, 50, 56, 0.8);
   text-transform: uppercase;
   margin-bottom: 10px;
-  background-color: rgba(38, 50, 56, 0.8);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-top: 5px solid #ff5252;

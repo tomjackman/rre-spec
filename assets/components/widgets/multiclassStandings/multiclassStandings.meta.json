@@ -5,5 +5,5 @@
 	"activeInSessions": ["Practice", "Qualifying", "Race"],
 	"keepOnSessionChange": true,
 	"disableFlags": false,
-	"defaultActive": false
+	"defaultActive": true
 }

@@ -3671,17 +3671,6 @@ UI.components.Controller = React.createClass({
 				'div',
 				{ className: 'widgets-list' },
 				React.createElement(
-					'select',
-					{ value: UI.state.activeTheme, onChange: self.changeTheme },
-					Object.keys(UI.state.themes).map(function (key) {
-						return React.createElement(
-							'option',
-							{ key: key, value: key },
-							key.toUpperCase()
-						);
-					})
-				),
-				React.createElement(
 					'div',
 					{ className: 'widget-buttons' },
 					Object.keys(UI.state.activeWidgets).sort().map(function (key) {
