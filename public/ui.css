@@ -117,9 +117,9 @@ a {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0);
-  -webkit-animation: "ani_NaN" 1s ease;
+  -webkit-animation: "ani_2" 1s ease;
 }
-@-webkit-keyframes "ani_NaN" {
+@-webkit-keyframes "ani_2" {
   0% {
     opacity: 0;
   }
@@ -128,7 +128,7 @@ a {
   }
 }
 .flat .event-info {
-  -webkit-animation: "ani_NaN" 1s ease;
+  -webkit-animation: "ani_3" 1s ease;
   background-color: rgba(38, 50, 56, 0.8);
   position: fixed;
   top: 50%;
@@ -145,7 +145,7 @@ a {
   border-top: 10px solid #ff5252;
   border-bottom: 5px solid #ff5252;
 }
-@-webkit-keyframes "ani_NaN" {
+@-webkit-keyframes "ani_3" {
   0% {
     opacity: 0;
   }
@@ -1006,6 +1006,7 @@ body {
   left: -5px;
   border-bottom-right-radius: 20%;
   border-top-left-radius: 20%;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .flat .damage-check {
   -webkit-animation: "ani_10" 0.5s ease, "ani_11" 0.2s ease;
@@ -1068,76 +1069,121 @@ pre.preview {
   font-family: 'Inconsolata';
   padding: 20px;
 }
-.drs {
-  height: 71px;
-  line-height: 75px;
-  width: 104px;
-  background-position: -518px 0;
-  position: relative;
+.drs .icon {
+  background: rgba(76, 175, 80, 0.2);
+  position: absolute;
+  top: -10px;
+  left: -240px;
+  right: 10px;
+  height: 1px;
+  line-height: 50px;
+  font-family: Oswald;
+  font-size: 0px;
+  width: 1px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  bottom: 0;
+}
+.drs .text {
+  background-color: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: 40px;
+  left: -240px;
+  right: 10px;
+  height: 1px;
+  width: 1px;
+  line-height: 50px;
+  font-size: 0px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  bottom: 0;
 }
 .drs.active .icon {
-  background: url(/focusedDriver/flat/drs-on.png) center center no-repeat;
+  background: rgba(76, 175, 80, 0.7);
   position: absolute;
-  top: -140px;
+  top: -10px;
   left: -240px;
   right: 10px;
+  height: 50px;
+  line-height: 50px;
+  font-family: Oswald;
+  font-size: 30px;
+  width: 150px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   bottom: 0;
 }
-.ptp {
-  height: 71px;
-  width: 140px;
-  background-position: -518px 0;
-  position: relative;
+.drs.active .text {
+  background-color: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: 40px;
+  left: -240px;
+  right: 10px;
+  height: 50px;
+  width: 150px;
+  line-height: 50px;
+  font-size: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  bottom: 0;
+}
+.ptp .text {
+  background-color: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: 40px;
+  left: -240px;
+  right: 10px;
+  height: 50px;
+  width: 150px;
+  line-height: 50px;
+  font-size: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  bottom: 0;
 }
 .ptp .icon {
-  background-color: red;
-  height: 20px;
-  width: 20px;
+  background: rgba(183, 28, 28, 0.7);
   position: absolute;
-  top: -140px;
+  top: -10px;
   left: -240px;
   right: 10px;
+  height: 50px;
+  line-height: 50px;
+  font-family: Oswald;
+  font-size: 30px;
+  width: 150px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   bottom: 0;
-}
-.ptp .icon .text {
-  font-size: 18px;
-  background-color: rgba(66, 165, 245, 0.8);
-  padding: 10px 10px;
-  margin-right: 10px;
-  border-radius: 10px 10px 0 0;
-  color: white;
-  height: 35px;
-  width: 140px;
-  z-index: 0;
-  margin-bottom: 0px;
-  position: absolute;
-  left: 470px;
-  bottom: 156px;
-  -webkit-transition: top 0.5s;
 }
 .ptp.active .icon {
-  background: url(/focusedDriver/flat/ptp-on.png) center center no-repeat;
+  background: rgba(66, 165, 245, 0.7);
   position: absolute;
-  top: -140px;
+  top: -10px;
   left: -240px;
   right: 10px;
+  height: 50px;
+  line-height: 50px;
+  font-family: Oswald;
+  font-size: 30px;
+  width: 150px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   bottom: 0;
 }
-.ptp.active .icon .text {
-  font-size: 18px;
-  background-color: rgba(66, 165, 245, 0.8);
-  padding: 10px 10px;
-  margin-right: 10px;
-  border-radius: 10px 10px 0 0;
-  color: white;
-  height: 35px;
-  width: 140px;
-  z-index: 0;
-  margin-bottom: 0px;
+.ptp.active .text {
+  background-color: rgba(38, 50, 56, 0.8);
   position: absolute;
-  left: 710px;
-  bottom: 156px;
-  -webkit-transition: top 0.5s;
+  top: 40px;
+  left: -240px;
+  right: 10px;
+  height: 50px;
+  width: 150px;
+  line-height: 50px;
+  font-size: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  bottom: 0;
 }
 .flat .focused-driver-info {
   text-align: center;
@@ -1287,9 +1333,10 @@ pre.preview {
 }
 .flat .focused-driver-info .vehicle img {
   position: absolute;
-  top: -80px;
+  top: -82px;
   left: -170px;
   height: 110px;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .flat .focused-driver-info .manufacturer {
   background-color: white;
@@ -1331,6 +1378,7 @@ pre.preview {
   left: -10px;
   border-bottom-right-radius: 20%;
   border-top-left-radius: 20%;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .flat .logo-overlay {
   position: fixed;
@@ -1549,9 +1597,12 @@ pre.preview {
   padding: 0 15px 0 0;
   line-height: 85px;
   font-size: 30px;
-  background-color: rgba(38, 50, 56, 0.8);
   text-transform: uppercase;
   margin-bottom: 10px;
+  background-color: rgba(38, 50, 56, 0.8);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 5px solid #ff5252;
 }
 .flat .race-results .race-results-entry {
   height: 37px;
@@ -1559,6 +1610,7 @@ pre.preview {
   margin-bottom: 4px;
   font-size: 20px;
   background-color: rgba(38, 50, 56, 0.8);
+  border-bottom: 1px solid #ff5252;
 }
 .flat .race-results .race-results-entry.title {
   display: none;
@@ -1661,6 +1713,9 @@ pre.preview {
   line-height: 85px;
   font-size: 30px;
   background-color: rgba(38, 50, 56, 0.8);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 5px solid #ff5252;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -1670,6 +1725,7 @@ pre.preview {
   margin-bottom: 4px;
   font-size: 20px;
   background-color: rgba(38, 50, 56, 0.8);
+  border-bottom: 1px solid #ff5252;
 }
 .flat .qualify-results .qualify-results-entry.title {
   display: none;

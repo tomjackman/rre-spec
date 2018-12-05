@@ -9,7 +9,6 @@ var chokidar = require('chokidar');
 // Read out an error. Obnoxious but should happen seldomly so not a big deal
 process.addListener('uncaughtException', function (err) {
 	console.log(new Date());
-	exec('say "'+err.message+'"');
 	console.log(('Caught exception: '+err+'\n'+err.stack).red);
 	console.log('\u0007'); // Terminal bell
 });

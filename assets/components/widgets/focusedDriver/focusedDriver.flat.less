@@ -134,9 +134,10 @@
 		border-bottom-right-radius: 20px;
 		img {
 			position: absolute;
-			top: -80px;
+			top: -82px;
 			left: -170px;
 			height: 110px;
+			filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.9));
 		}
 	}
 	.manufacturer {
@@ -179,86 +180,132 @@
 			left: -10px;
 			border-bottom-right-radius: 20%;
 			border-top-left-radius: 20%;
+			filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.9));
 		}
 	}
 }
 .drs {
-	height: 71px;
-	line-height: 75px;
-	width: 104px;
-	background-position: -518px 0;
-	position: relative;
-	.icon {
-
-	}
+.icon {
+	background: rgba(76, 175, 80, 0.2);
+	position: absolute;
+	top: -10px;
+	left: -240px;
+	right: 10px;
+	height: 1px;
+	line-height: 50px;
+	font-family: Oswald;
+	font-size: 0px;
+	width: 1px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	bottom: 0;
+}
+.text {
+	background-color: @background1;
+	position: absolute;
+	top: 40px;
+	left: -240px;
+	right: 10px;
+	height: 1px;
+	width: 1px;
+	line-height: 50px;
+	font-size: 0px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	bottom: 0;
+}
 	&.active {
 		.icon {
-			background: url(/focusedDriver/flat/drs-on.png) center center no-repeat;
+			background: rgba(76, 175, 80, 0.7);
 			position: absolute;
-			top: -140px;
+			top: -10px;
 			left: -240px;
 			right: 10px;
+			height: 50px;
+			line-height: 50px;
+			font-family: Oswald;
+			font-size: 30px;
+			width: 150px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+			bottom: 0;
+		}
+		.text {
+			background-color: @background1;
+			position: absolute;
+			top: 40px;
+			left: -240px;
+			right: 10px;
+			height: 50px;
+			width: 150px;
+			line-height: 50px;
+			font-size: 20px;
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
 			bottom: 0;
 		}
 	}
 }
 .ptp {
-	height: 71px;
-	width: 140px;
-	background-position: -518px 0;
-	position: relative;
-	.icon {
-		background-color: red;
-		height: 20px;
-		width: 20px;
+	.text {
+		background-color: @background1;
 		position: absolute;
-		top: -140px;
+		top: 40px;
 		left: -240px;
 		right: 10px;
+		height: 50px;
+		width: 150px;
+		line-height: 50px;
+		font-size: 20px;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
 		bottom: 0;
-		.text {
-			font-size: 18px;
-			background-color: rgba(66, 165, 245, 0.8);
-			padding: 10px 10px;
-			margin-right: 10px;
-			border-radius: 10px 10px 0 0;
-			color: white;
-			height: 35px;
-			width: 140px;
-			z-index: 0;
-			margin-bottom: 0px;
-			position: absolute;
-			left: 470px;
-			bottom: 156px;
-			-webkit-transition: top 0.5s;
-		}
+	}
+	.icon {
+		background: rgba(183, 28, 28, 0.7);
+		position: absolute;
+		top: -10px;
+		left: -240px;
+		right: 10px;
+		height: 50px;
+		line-height: 50px;
+		font-family: Oswald;
+		font-size: 30px;
+		width: 150px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		bottom: 0;
 	}
 	&.active {
 		.icon {
-			background: url(/focusedDriver/flat/ptp-on.png) center center no-repeat;
+			background: rgba(66, 165, 245, 0.7);
 			position: absolute;
-			top: -140px;
+			top: -10px;
 			left: -240px;
 			right: 10px;
+			height: 50px;
+			line-height: 50px;
+			font-family: Oswald;
+			font-size: 30px;
+			width: 150px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
 			bottom: 0;
-			.text {
-				font-size: 18px;
-				background-color: rgba(66, 165, 245, 0.8);
-				padding: 10px 10px;
-				margin-right: 10px;
-				border-radius: 10px 10px 0 0;
-				color: white;
-				height: 35px;
-				width: 140px;
-				z-index: 0;
-				margin-bottom: 0px;
-				position: absolute;
-				left: 710px;
-				bottom: 156px;
-				-webkit-transition: top 0.5s;
-			}
 		}
-
+		.text {
+			background-color: @background1;
+			position: absolute;
+			top: 40px;
+			left: -240px;
+			right: 10px;
+			height: 50px;
+			width: 150px;
+			line-height: 50px;
+			font-size: 20px;
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
+			bottom: 0;
+		}
 	}
 }
 .flat .focused-driver-info {
