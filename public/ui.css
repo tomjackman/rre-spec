@@ -117,9 +117,9 @@ a {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0);
-  -webkit-animation: "ani_4" 1s ease;
+  -webkit-animation: "ani_NaN" 1s ease;
 }
-@-webkit-keyframes "ani_4" {
+@-webkit-keyframes "ani_NaN" {
   0% {
     opacity: 0;
   }
@@ -128,7 +128,7 @@ a {
   }
 }
 .flat .event-info {
-  -webkit-animation: "ani_5" 1s ease;
+  -webkit-animation: "ani_NaN" 1s ease;
   background: rgba(38, 50, 56, 0.8);
   position: fixed;
   top: 50%;
@@ -145,7 +145,7 @@ a {
   border-top: 10px solid #ff5252;
   border-bottom: 5px solid #ff5252;
 }
-@-webkit-keyframes "ani_5" {
+@-webkit-keyframes "ani_NaN" {
   0% {
     opacity: 0;
   }
@@ -174,6 +174,7 @@ a {
 }
 .flat .event-info .weather .weatherIcons {
   display: flex;
+  color: white;
   justify-content: space-around;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -1343,7 +1344,6 @@ pre.preview {
   top: -82px;
   left: -170px;
   height: 110px;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .flat .focused-driver-info .manufacturer {
   background: white;
@@ -1497,7 +1497,6 @@ pre.preview {
   font-size: 20px;
   text-align: center;
   width: 40px;
-  text-shadow: 0 0 20px #000;
   height: 80%;
 }
 .flat .multiclass-standings .driver .flag-container {
