@@ -48,12 +48,12 @@
 					color: rgba(255, 255, 255, 1);
 
 					&.personal-best {
-						color: white;
+						color: @DriverInfoPersonalBestSplitText;
 						background-image: @DriverInfoPersonalBestSplitBackground;
 					}
 					&.global-best {
 						background-image: @DriverInfoGlobalBestSplitBackground;
-						color: white;
+						color: @DriverInfoGlobalBestSplitText;
 					}
 				}
 			}
@@ -81,7 +81,7 @@
 		padding: 10px 10px;
 		margin-right: 10px;
 		border-radius: 10px 10px 0 0;
-		color: white;
+		color: @DriverInfoBestTimeText;
 		height: 35px;
 		width: 140px;
 		z-index: 0;
@@ -99,6 +99,7 @@
 	}
 	.position {
 		background-color: @DriverInfoPositionBackground;
+		color: @DriverInfoPositionText;
 		width: 100px;
 		font-size: 60px;
 		text-align: center;
@@ -111,6 +112,7 @@
 	}
 	.name {
   	background-color: @DriverInfoNameBackground;
+		color: @DriverInfoNameText;
 		font-size: 30px;
 		line-height: 60px;
 		text-transform: uppercase;
@@ -120,7 +122,7 @@
 	}
 	.team {
 		position: absolute;
-		color: white;
+		color: @DriverInfoTeamNameText;
 		font-size: 20px;
 		line-height: 60px;
 		text-transform: uppercase;
@@ -143,7 +145,7 @@
 		}
 	}
 	.manufacturer {
-		background-color: white;
+		background-color: @DriverInfoManufacturerBackground;
 		background-position: -442px 0;
 		width: 76px;
 		left: -25px;
@@ -186,6 +188,7 @@
 		}
 	}
 }
+/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 .drs {
 .icon {
 	background: rgba(76, 175, 80, 0.2);

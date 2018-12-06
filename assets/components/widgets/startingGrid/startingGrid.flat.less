@@ -1,3 +1,5 @@
+@import '../theme/theme';
+
 .start-grid {
 	.entries-outer {
 		max-height: 820px;
@@ -32,7 +34,8 @@
 		padding: 0 15px 0 0;
 		line-height: 85px;
 		font-size: 30px;
-		background-color: @background1;
+		color: @StartingGridTitleColour;
+		background-color: @StartingGridTitleBackground;
 		text-transform: uppercase;
 		margin-bottom: 10px;
 	}
@@ -41,13 +44,14 @@
 		line-height: 37px;
 		margin-bottom: 4px;
 		font-size: 20px;
-		background-color: @background1;
+		color: @StartingGridEntryColour;
+		background-color: @StartingGridEntryBackground;
 		&.title {
 			display: none;
 		}
 		&.fastest {
 			.fastest-time {
-				color: #f500f5;
+				color: @StartingGridFastestTime;
 			}
 		}
 		& > div {

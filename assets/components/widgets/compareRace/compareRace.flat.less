@@ -25,7 +25,7 @@ display:none;
 	}
 	.best-time {
 		font-size: 18px;
-		background-color: @background2;
+		background-color: @CompareRaceBestTimeBackground;
 		padding: 10px 10px;
 		margin-right: 10px;
 		border-radius: 10px 10px 0 0;
@@ -41,6 +41,7 @@ display:none;
 	}
 	.position {
 		background-color: @background2;
+		color: @CompareRacePositionText;
 		width: 65px;
 		font-size: 50px;
 		text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -52,16 +53,17 @@ display:none;
 		border-bottom: 1px solid @widgetBorder;
 	}
 	.name {
-  	background-color: @background1;
+  	background-color: @CompareRaceNameBackground;
+		color: @CompareRaceNameText;
 		font-size: 30px;
 		padding: 0 20px;
 		min-width: 320px;
-		border-bottom: 1px solid @widgetBorder;
+		border-bottom: 1px solid @CompareRacePositionBorder;
 	}
 	.team {
 		position: absolute;
-		background-color: @background2;
-		color: white;
+		background-color: @CompareRaceNameBackground;
+		color: @CompareRaceNameText;
 		height: 30px;
 		font-size: 20px;
 		text-transform: uppercase;
@@ -87,13 +89,13 @@ display:none;
 		}
 	}
 	.manufacturer {
-		background-color: white;
+		background-color: @CompareRaceManufacturerBackground;
 		background-position: -442px 0;
 		width: 76px;
 		position: relative;
 		border-top-right-radius: 20px;
 		border-bottom-right-radius: 20px;
-		border-bottom: 1px solid @widgetBorder;
+		border-bottom: 1px solid @CompareRaceManufacturerBorder;
 		img {
 			position: absolute;
 			top: 5px;
@@ -164,9 +166,9 @@ display:none;
 		font-family: Hel;
 		font-size: 20px;
 		text-transform: uppercase;
-		background-color: @background2;
+		background-color: @CompareRaceDeltaBackground;
 		border-radius: 20px;
-		color: #fff;
+		color: @CompareRaceDeltaText;
 		padding: 5px 10px;
 		display: inline-block;
 		display: inline-block;

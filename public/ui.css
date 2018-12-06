@@ -117,9 +117,9 @@ a {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0);
-  -webkit-animation: "ani_2" 1s ease;
+  -webkit-animation: "ani_NaN" 1s ease;
 }
-@-webkit-keyframes "ani_2" {
+@-webkit-keyframes "ani_NaN" {
   0% {
     opacity: 0;
   }
@@ -128,7 +128,7 @@ a {
   }
 }
 .flat .event-info {
-  -webkit-animation: "ani_3" 1s ease;
+  -webkit-animation: "ani_NaN" 1s ease;
   background-color: rgba(38, 50, 56, 0.8);
   position: fixed;
   top: 50%;
@@ -145,7 +145,7 @@ a {
   border-top: 10px solid #ff5252;
   border-bottom: 5px solid #ff5252;
 }
-@-webkit-keyframes "ani_3" {
+@-webkit-keyframes "ani_NaN" {
   0% {
     opacity: 0;
   }
@@ -836,7 +836,7 @@ body {
   text-transform: uppercase;
   background-color: rgba(38, 50, 56, 0.5);
   border-radius: 20px;
-  color: #fff;
+  color: white;
   padding: 5px 10px;
   display: inline-block;
   position: relative;
@@ -911,6 +911,7 @@ body {
 }
 .flat .compare-race .inner .position {
   background-color: rgba(38, 50, 56, 0.5);
+  color: white;
   width: 65px;
   font-size: 50px;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -922,7 +923,8 @@ body {
   border-bottom: 1px solid #ff5252;
 }
 .flat .compare-race .inner .name {
-  background-color: rgba(38, 50, 56, 0.8);
+  background-color: rgba(38, 50, 56, 0.5);
+  color: white;
   font-size: 30px;
   padding: 0 20px;
   min-width: 320px;
@@ -1015,10 +1017,10 @@ body {
   bottom: 40px;
   right: 40px;
   font-size: 30px;
-  background-color: #263238;
+  background-color: rgba(38, 50, 56, 0.8);
   border-radius: 5px;
   border: 1px solid #333;
-  color: #fff;
+  color: white;
   padding: 10px 20px;
   display: inline-block;
   transition: width 500ms ease-in-out;
@@ -1069,6 +1071,7 @@ pre.preview {
   font-family: 'Inconsolata';
   padding: 20px;
 }
+/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 .drs .icon {
   background: rgba(76, 175, 80, 0.2);
   position: absolute;
@@ -1297,6 +1300,7 @@ pre.preview {
 }
 .flat .focused-driver-info .position {
   background-color: rgba(38, 50, 56, 0.8);
+  color: white;
   width: 100px;
   font-size: 60px;
   text-align: center;
@@ -1309,6 +1313,7 @@ pre.preview {
 }
 .flat .focused-driver-info .name {
   background-color: rgba(38, 50, 56, 0.8);
+  color: white;
   font-size: 30px;
   line-height: 60px;
   text-transform: uppercase;
@@ -1461,6 +1466,7 @@ pre.preview {
 .flat .multiclass-standings .driver .inner .pitted:after,
 .flat .multiclass-standings .driver .inner .unpitted:after {
   display: block;
+  color: white;
   content: "P";
   font-size: 20px;
   font-family: sans-serif;
@@ -1487,7 +1493,7 @@ pre.preview {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   display: inline-block;
-  color: #fff;
+  color: white;
   font-size: 20px;
   text-align: center;
   width: 40px;
@@ -1520,7 +1526,7 @@ pre.preview {
 .flat .multiclass-standings .driver .name {
   background-color: #b71c1c;
   display: inline-block;
-  color: #fff;
+  color: white;
   width: 55px;
   padding-left: 10px;
   font-size: 20px;
@@ -1528,6 +1534,7 @@ pre.preview {
 }
 .flat .multiclass-standings .driver .meta-info {
   background-color: rgba(38, 50, 56, 0.5);
+  color: white;
   position: absolute;
   font-family: Arial;
   font-style: italic;
@@ -1599,6 +1606,7 @@ pre.preview {
   padding: 0 15px 0 0;
   line-height: 85px;
   font-size: 30px;
+  color: white;
   background-color: rgba(38, 50, 56, 0.8);
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -1611,6 +1619,7 @@ pre.preview {
   line-height: 37px;
   margin-bottom: 4px;
   font-size: 20px;
+  color: white;
   background-color: rgba(38, 50, 56, 0.8);
   border-bottom: 1px solid #ff5252;
 }
@@ -1792,7 +1801,7 @@ pre.preview {
   background-color: rgba(38, 50, 56, 0.6);
   text-transform: uppercase;
   border-radius: 5px;
-  color: #fff;
+  color: white;
   height: 40px;
   padding: 0px 4px;
   line-height: 40px;
@@ -1862,6 +1871,7 @@ pre.preview {
   padding: 0 15px 0 0;
   line-height: 85px;
   font-size: 30px;
+  color: white;
   background-color: rgba(38, 50, 56, 0.8);
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -1871,13 +1881,14 @@ pre.preview {
   line-height: 37px;
   margin-bottom: 4px;
   font-size: 20px;
+  color: white;
   background-color: rgba(38, 50, 56, 0.8);
 }
 .flat .start-grid .start-grid-entry.title {
   display: none;
 }
 .flat .start-grid .start-grid-entry.fastest .fastest-time {
-  color: #f500f5;
+  color: #4caf50;
 }
 .flat .start-grid .start-grid-entry > div {
   outline: 1px solid rgba(255, 255, 255, 0);
