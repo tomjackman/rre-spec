@@ -48,11 +48,11 @@
 					color: rgba(255, 255, 255, 1);
 
 					&.personal-best {
+						background: @DriverInfoPersonalBestSplitBackground;
 						color: @DriverInfoPersonalBestSplitText;
-						background-image: @DriverInfoPersonalBestSplitBackground;
 					}
 					&.global-best {
-						background-image: @DriverInfoGlobalBestSplitBackground;
+						background: @DriverInfoGlobalBestSplitBackground;
 						color: @DriverInfoGlobalBestSplitText;
 					}
 				}
@@ -61,7 +61,7 @@
 	}
 	.best-time {
 		font-size: 18px;
-		background-color: @DriverInfoBestTimeBackground;
+		background: @DriverInfoBestTimeBackground;
 		padding: 10px 10px;
 		margin-right: 10px;
 		border-radius: 10px 10px 0 0;
@@ -71,23 +71,23 @@
 		z-index: 0;
 		margin-bottom: 0px;
 		position: absolute;
-		left: 195px;
+		left: 210px;
 		bottom: 100%;
 		-webkit-transition: top 0.5s;
 	}
 	.positionInClass {
 		font-size: 18px;
-		background-color: @DriverInfoPositionClassBackground;
+		background: @DriverInfoPositionClassBackground;
 		padding: 10px 10px;
 		margin-right: 10px;
 		border-radius: 10px 10px 0 0;
-		color: @DriverInfoBestTimeText;
+		color: @DriverInfoPositionClassText;
 		height: 35px;
 		width: 140px;
 		z-index: 0;
 		margin-bottom: 0px;
 		position: absolute;
-		left: 345px;
+		left: 360px;
 		bottom: 100%;
 		-webkit-transition: top 0.5s;
 	}
@@ -98,7 +98,7 @@
 		line-height: 65px;
 	}
 	.position {
-		background-color: @DriverInfoPositionBackground;
+		background: @DriverInfoPositionBackground;
 		color: @DriverInfoPositionText;
 		width: 100px;
 		font-size: 60px;
@@ -111,7 +111,7 @@
 		border-bottom: 2px solid @DriverInfoPositionBorder;
 	}
 	.name {
-  	background-color: @DriverInfoNameBackground;
+  	background: @DriverInfoNameBackground;
 		color: @DriverInfoNameText;
 		font-size: 30px;
 		line-height: 60px;
@@ -145,7 +145,7 @@
 		}
 	}
 	.manufacturer {
-		background-color: @DriverInfoManufacturerBackground;
+		background: @DriverInfoManufacturerBackground;
 		background-position: -442px 0;
 		width: 76px;
 		left: -25px;
@@ -161,7 +161,7 @@
 		}
 	}
 	.class {
-		background-color: @DriverInfoClassBackground;
+		background: @DriverInfoClassBackground;
 		font-size: 35px;
 		text-transform: uppercase;
 		padding: 0px 20px;
@@ -171,7 +171,7 @@
 		width: 61px;
 		background-position: -65px 0;
 		position: relative;
-		background-color: @DriverInfoFlagBackground;
+		background: @DriverInfoFlagBackground;
 		border-bottom: 2px solid @DriverInfoFlagBorder;
 		.flag {
 			position: absolute;
@@ -206,7 +206,7 @@
 	bottom: 0;
 }
 .text {
-	background-color: @background1;
+	background: @backgroundDark;
 	position: absolute;
 	top: 40px;
 	left: -240px;
@@ -236,7 +236,7 @@
 			bottom: 0;
 		}
 		.text {
-			background-color: @DriverInfoDrsRemainingBackground;
+			background: @DriverInfoDrsRemainingBackground;
 			position: absolute;
 			top: 40px;
 			left: -240px;
@@ -253,7 +253,7 @@
 }
 .ptp {
 	.text {
-		background-color: @background1;
+		background: @backgroundDark;
 		position: absolute;
 		top: 40px;
 		left: -240px;
@@ -298,7 +298,7 @@
 			bottom: 0;
 		}
 		.text {
-			background-color: @background1;
+			background: @backgroundDark;
 			position: absolute;
 			top: 40px;
 			left: -240px;

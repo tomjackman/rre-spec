@@ -25,7 +25,7 @@ display:none;
 	}
 	.best-time {
 		font-size: 18px;
-		background-color: @CompareRaceBestTimeBackground;
+		background: @CompareRaceBestTimeBackground;
 		padding: 10px 10px;
 		margin-right: 10px;
 		border-radius: 10px 10px 0 0;
@@ -40,7 +40,7 @@ display:none;
 		-webkit-transition: top 0.5s;
 	}
 	.position {
-		background-color: @background2;
+		background: @CompareRacePositionBackground;
 		color: @CompareRacePositionText;
 		width: 65px;
 		font-size: 50px;
@@ -50,20 +50,20 @@ display:none;
 		line-height: 70px;
 		border-top-left-radius: 20px;
 		border-bottom-left-radius: 20px;
-		border-bottom: 1px solid @widgetBorder;
+		border-bottom: 1px solid @CompareRacePositionBorder;
 	}
 	.name {
-  	background-color: @CompareRaceNameBackground;
+  	background: @CompareRaceNameBackground;
 		color: @CompareRaceNameText;
 		font-size: 30px;
 		padding: 0 20px;
 		min-width: 320px;
-		border-bottom: 1px solid @CompareRacePositionBorder;
+		border-bottom: 1px solid @CompareRaceNameBorder;
 	}
 	.team {
 		position: absolute;
-		background-color: @CompareRaceNameBackground;
-		color: @CompareRaceNameText;
+		background: @CompareRaceTeamNameBackground;
+		color: @CompareRaceTeamNameText;
 		height: 30px;
 		font-size: 20px;
 		text-transform: uppercase;
@@ -89,7 +89,7 @@ display:none;
 		}
 	}
 	.manufacturer {
-		background-color: @CompareRaceManufacturerBackground;
+		background: @CompareRaceManufacturerBackground;
 		background-position: -442px 0;
 		width: 76px;
 		position: relative;
@@ -166,7 +166,7 @@ display:none;
 		font-family: Hel;
 		font-size: 20px;
 		text-transform: uppercase;
-		background-color: @CompareRaceDeltaBackground;
+		background: @CompareRaceDeltaBackground;
 		border-radius: 20px;
 		color: @CompareRaceDeltaText;
 		padding: 5px 10px;
