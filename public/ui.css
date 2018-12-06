@@ -117,9 +117,9 @@ a {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0);
-  -webkit-animation: "ani_1" 1s ease;
+  -webkit-animation: "ani_4" 1s ease;
 }
-@-webkit-keyframes "ani_1" {
+@-webkit-keyframes "ani_4" {
   0% {
     opacity: 0;
   }
@@ -128,8 +128,8 @@ a {
   }
 }
 .flat .event-info {
-  -webkit-animation: "ani_2" 1s ease;
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  -webkit-animation: "ani_5" 1s ease;
+  background: rgba(38, 50, 56, 0.8);
   position: fixed;
   top: 50%;
   left: 25%;
@@ -142,10 +142,10 @@ a {
   font-family: Oswald;
   width: 944px;
   border-radius: 10px;
-  border-top: 10px solid #263238;
-  border-bottom: 5px solid cyan;
+  border-top: 10px solid #ff5252;
+  border-bottom: 5px solid #ff5252;
 }
-@-webkit-keyframes "ani_2" {
+@-webkit-keyframes "ani_5" {
   0% {
     opacity: 0;
   }
@@ -834,7 +834,7 @@ body {
   font-family: Hel;
   font-size: 20px;
   text-transform: uppercase;
-  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.5);
   border-radius: 20px;
   color: white;
   padding: 5px 10px;
@@ -895,7 +895,7 @@ body {
 }
 .flat .compare-race .inner .best-time {
   font-size: 18px;
-  background: rgba(0, 45, 68, 0.8);
+  background: rgba(38, 50, 56, 0.5);
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 10px 10px 0 0;
@@ -910,7 +910,7 @@ body {
   -webkit-transition: top 0.5s;
 }
 .flat .compare-race .inner .position {
-  background: linear-gradient(190deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.5);
   color: white;
   width: 65px;
   font-size: 50px;
@@ -920,19 +920,19 @@ body {
   line-height: 70px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  border-bottom: 1px solid cyan;
+  border-bottom: 1px solid #ff5252;
 }
 .flat .compare-race .inner .name {
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.5);
   color: white;
   font-size: 30px;
   padding: 0 20px;
   min-width: 320px;
-  border-bottom: 1px solid cyan;
+  border-bottom: 1px solid #ff5252;
 }
 .flat .compare-race .inner .team {
   position: absolute;
-  background: rgba(0, 45, 68, 0.8);
+  background: rgba(38, 50, 56, 0.5);
   color: white;
   height: 30px;
   font-size: 20px;
@@ -965,7 +965,7 @@ body {
   position: relative;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-bottom: 1px solid cyan;
+  border-bottom: 1px solid #ff5252;
 }
 .flat .compare-race .inner .manufacturer img {
   position: absolute;
@@ -1017,7 +1017,7 @@ body {
   bottom: 40px;
   right: 40px;
   font-size: 30px;
-  background: linear-gradient(190deg, rgba(0, 45, 68, 0.6), rgba(0, 188, 212, 0.6));
+  background: rgba(38, 50, 56, 0.8);
   border-radius: 5px;
   border: 1px solid #333;
   color: white;
@@ -1257,7 +1257,7 @@ pre.preview {
 }
 .flat .focused-driver-info .best-time {
   font-size: 18px;
-  background: rgba(0, 45, 68, 0.8);
+  background: rgba(38, 50, 56, 0.5);
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 10px 10px 0 0;
@@ -1299,7 +1299,7 @@ pre.preview {
   line-height: 65px;
 }
 .flat .focused-driver-info .position {
-  background: linear-gradient(190deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.8);
   color: white;
   width: 100px;
   font-size: 60px;
@@ -1309,17 +1309,17 @@ pre.preview {
   right: 300px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  border-bottom: 2px solid cyan;
+  border-bottom: 2px solid #ff5252;
 }
 .flat .focused-driver-info .name {
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.8);
   color: white;
   font-size: 30px;
   line-height: 60px;
   text-transform: uppercase;
   padding: 0px 20px;
   min-width: 500px;
-  border-bottom: 2px solid cyan;
+  border-bottom: 2px solid #ff5252;
 }
 .flat .focused-driver-info .team {
   position: absolute;
@@ -1353,7 +1353,7 @@ pre.preview {
   position: relative;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-bottom: 2px solid cyan;
+  border-bottom: 2px solid #ff5252;
 }
 .flat .focused-driver-info .manufacturer img {
   position: absolute;
@@ -1488,7 +1488,7 @@ pre.preview {
   background: rgba(255, 82, 82, 0.8);
 }
 .flat .multiclass-standings .driver .position {
-  background: linear-gradient(190deg, rgba(0, 45, 68, 0.6), rgba(0, 188, 212, 0.6));
+  background: rgba(38, 50, 56, 0.8);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -1533,7 +1533,7 @@ pre.preview {
   line-height: inherit;
 }
 .flat .multiclass-standings .driver .meta-info {
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.6), rgba(0, 188, 212, 0.6));
+  background: rgba(38, 50, 56, 0.5);
   color: white;
   position: absolute;
   font-family: Arial;
@@ -1607,12 +1607,12 @@ pre.preview {
   line-height: 85px;
   font-size: 30px;
   color: white;
-  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.8);
   text-transform: uppercase;
   margin-bottom: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-top: 5px solid cyan;
+  border-top: 5px solid #ff5252;
 }
 .flat .race-results .race-results-entry {
   height: 37px;
@@ -1620,7 +1620,7 @@ pre.preview {
   margin-bottom: 4px;
   font-size: 20px;
   color: white;
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.8);
 }
 .flat .race-results .race-results-entry.title {
   display: none;
@@ -1722,10 +1722,10 @@ pre.preview {
   padding: 0 15px 0 0;
   line-height: 85px;
   font-size: 30px;
-  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.8);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-top: 5px solid cyan;
+  border-top: 5px solid #ff5252;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -1734,7 +1734,7 @@ pre.preview {
   line-height: 37px;
   margin-bottom: 4px;
   font-size: 20px;
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.8);
 }
 .flat .qualify-results .qualify-results-entry.title {
   display: none;
@@ -1796,7 +1796,7 @@ pre.preview {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   font-size: 20px;
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: rgba(38, 50, 56, 0.6);
   text-transform: uppercase;
   border-radius: 5px;
   color: white;
