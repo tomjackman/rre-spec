@@ -117,9 +117,9 @@ a {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0);
-  -webkit-animation: "ani_NaN" 1s ease;
+  -webkit-animation: "ani_2" 1s ease;
 }
-@-webkit-keyframes "ani_NaN" {
+@-webkit-keyframes "ani_2" {
   0% {
     opacity: 0;
   }
@@ -128,7 +128,7 @@ a {
   }
 }
 .flat .event-info {
-  -webkit-animation: "ani_NaN" 1s ease;
+  -webkit-animation: "ani_3" 1s ease;
   background: rgba(38, 50, 56, 0.8);
   position: fixed;
   top: 50%;
@@ -145,7 +145,7 @@ a {
   border-top: 10px solid #ff5252;
   border-bottom: 5px solid #ff5252;
 }
-@-webkit-keyframes "ani_NaN" {
+@-webkit-keyframes "ani_3" {
   0% {
     opacity: 0;
   }
@@ -1969,10 +1969,56 @@ pre.preview {
   font-weight: bold;
   line-height: 43px;
   text-align: center;
-  background: #00e676;
   color: #fff;
   border-radius: 100%;
   z-index: 2;
+}
+.track-map .dot .dot .vehicle .position .driverName,
+.track-map .dot .manufacturer {
+  vertical-align: top;
+  display: inline-block;
+  height: 85px;
+  line-height: 85px;
+}
+.track-map .dot .vehicle {
+  position: relative;
+  left: 50px;
+}
+.track-map .dot .position {
+  position: relative;
+  left: -50px;
+  width: 50px;
+  top: -30px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: white;
+  background-color: rgba(38, 50, 56, 0.8);
+  font-size: 20px;
+}
+.track-map .dot .driverName {
+  position: relative;
+  top: -73px;
+  background-color: rgba(38, 50, 56, 0.8);
+  width: 300px;
+  font-size: 25px;
+}
+.track-map .dot .manufacturer {
+  position: relative;
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  left: 283px;
+  width: 50px;
+  height: 42px;
+  top: -115px;
+}
+.track-map .dot .manufacturer img {
+  position: absolute;
+  background-color: white;
+  top: 5px;
+  left: 5px;
+  height: 35px;
+  width: 35px;
 }
 .track-map .dot.idle {
   opacity: 0.3;

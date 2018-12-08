@@ -2105,15 +2105,26 @@ UI.widgets.TrackMap = React.createClass({
 var TrackMapDot = React.createClass({
 	displayName: 'TrackMapDot',
 
+	getClassColor: function (classId) {
+		var self = this;
+		var classColour = "rgba(38, 50, 56, 0.8)";
+
+		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
+			classColour = r3eClassColours.classes[classId].colour;
+		}
+
+		return classColour;
+	},
 	getStyles: function (driver) {
 		return cx({
 			'dot': true,
 			'active': driver.slotId === UI.state.focusedSlot,
-			'leader': driver.scoreInfo.positionOverall === 1,
+			'leader': driver.scoreInfo.positionClass === 1,
 			'idle': driver.vehicleInfo.speed < 5
 		});
 	},
 	getDriverStyle: function (driver) {
+		var self = this;
 		var svg = this.props.svg;
 		var width = svg.el.clientWidth;
 		var height = svg.el.clientHeight;
@@ -2129,7 +2140,14 @@ var TrackMapDot = React.createClass({
 		var point = svg.path.getPointAtLength(totalLength * progress);
 
 		return {
-			'WebkitTransform': 'translate(' + point.x + 'px, ' + point.y + 'px) scale(0.3)'
+			'WebkitTransform': 'translate(' + point.x + 'px, ' + point.y + 'px) scale(0.3)',
+			'background': self.getClassColor(driver.classId)
+		};
+	},
+	getClass: function (driver) {
+		var self = this;
+		return {
+			'background': self.getClassColor(driver.classId)
 		};
 	},
 	render: function () {
@@ -2140,8 +2158,26 @@ var TrackMapDot = React.createClass({
 			{
 				className: self.getStyles(driver),
 				style: self.getDriverStyle(driver) },
-			React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small', height: '120px', width: '220px' }),
-			driver.scoreInfo.positionOverall
+			React.createElement(
+				'div',
+				{ className: 'vehicle' },
+				React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small', height: '120px', width: '220px' })
+			),
+			React.createElement(
+				'div',
+				{ className: 'position', style: self.getClass(driver) },
+				driver.scoreInfo.positionClass
+			),
+			React.createElement(
+				'div',
+				{ className: 'driverName' },
+				driver.name
+			),
+			React.createElement(
+				'div',
+				{ className: 'manufacturer' },
+				React.createElement('img', { src: '/img/manufacturers/' + driver.manufacturerId + '.webp' })
+			)
 		);
 	}
 });

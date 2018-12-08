@@ -34,10 +34,54 @@
 		font-weight: bold;
 		line-height: 43px;
 		text-align: center;
-		background: @TrackMapNormalDotBackground;
 		color: #fff;
 		border-radius: 100%;
 		z-index: 2;
+		.dot .vehicle .position .driverName, .manufacturer {
+			vertical-align: top;
+			display: inline-block;
+			height: 85px;
+			line-height: 85px;
+		}
+		.vehicle {
+			position: relative;
+			left: 50px;
+		}
+		.position {
+			position: relative;
+			left: -50px;
+			width: 50px;
+		  top: -30px;
+			border-top-left-radius: 20px;
+			border-bottom-left-radius: 20px;
+			color: @TrackMapDriverPositionText;
+			font-size: 20px;
+		}
+		.driverName {
+			position: relative;
+			top: -73px;
+			background-color: @TrackMapDriverNameBackground;
+			width: 300px;
+			font-size: 25px;
+		}
+		.manufacturer {
+			position: relative;
+			background-color: @TrackMapManufacturerBackground;
+			border-top-right-radius: 20px;
+			border-bottom-right-radius: 20px;
+			left: 283px;
+			width: 50px;
+			height: 42px;
+			top: -115px;
+			img {
+				position: absolute;
+				background-color: @TrackMapManufacturerBackground;
+				top: 5px;
+				left: 5px;
+				height: 35px;
+				width: 35px;
+			}
+		}
 		&.idle {
 			opacity: 0.3;
 		}
