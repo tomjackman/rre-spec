@@ -2218,7 +2218,8 @@ UI.widgets.EventInfo = React.createClass({
 							React.createElement('img', { height: '50px', width: '50px', src: '/img/weather/ambient-temp.png' }),
 							' ',
 							info.weatherInfo.ambientTemp,
-							temperatureMeasurement
+							temperatureMeasurement,
+							' Air'
 						),
 						React.createElement(
 							'div',
@@ -2226,7 +2227,8 @@ UI.widgets.EventInfo = React.createClass({
 							React.createElement('img', { height: '50px', width: '50px', src: '/img/weather/track-temp.png' }),
 							' ',
 							info.weatherInfo.trackTemp,
-							temperatureMeasurement
+							temperatureMeasurement,
+							' Track'
 						),
 						React.createElement(
 							'div',

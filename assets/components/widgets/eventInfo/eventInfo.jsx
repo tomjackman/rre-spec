@@ -46,8 +46,8 @@ UI.widgets.EventInfo = React.createClass({
           <img className="trackImage" src={'http://game.raceroom.com/store/image_redirect?id='+info.trackId+'&size=big'} />
             <div className="weather">
               <div className="weatherIcons">
-              <div className="weatherInfoAmbientTempImage"><img height="50px" width="50px" src={'/img/weather/ambient-temp.png'} /> {info.weatherInfo.ambientTemp}{temperatureMeasurement}</div>
-              <div className="weatherInfoTrackTempImage"><img height="50px" width="50px" src={'/img/weather/track-temp.png'} /> {info.weatherInfo.trackTemp}{temperatureMeasurement}</div>
+              <div className="weatherInfoAmbientTempImage"><img height="50px" width="50px" src={'/img/weather/ambient-temp.png'} /> {info.weatherInfo.ambientTemp}{temperatureMeasurement} Air</div>
+              <div className="weatherInfoTrackTempImage"><img height="50px" width="50px" src={'/img/weather/track-temp.png'} /> {info.weatherInfo.trackTemp}{temperatureMeasurement} Track</div>
               <div className="weatherInfoWindSpeedImage"><img height="50px" width="50px" src={'/img/weather/wind.png'} /> {info.weatherInfo.windSpeed} {speedMeasurement}</div>
               <div className="weatherInfoConditionsImage"><img height="50px" width="50px" src={'/img/weather/conditions.png'} /> {info.weatherInfo.conditions}</div>
               </div>
