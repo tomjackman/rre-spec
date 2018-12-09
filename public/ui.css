@@ -117,9 +117,9 @@ a {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0);
-  -webkit-animation: "ani_2" 1s ease;
+  -webkit-animation: "ani_NaN" 1s ease;
 }
-@-webkit-keyframes "ani_2" {
+@-webkit-keyframes "ani_NaN" {
   0% {
     opacity: 0;
   }
@@ -128,7 +128,7 @@ a {
   }
 }
 .flat .event-info {
-  -webkit-animation: "ani_3" 1s ease;
+  -webkit-animation: "ani_NaN" 1s ease;
   background: rgba(38, 50, 56, 0.8);
   position: fixed;
   top: 50%;
@@ -145,7 +145,7 @@ a {
   border-top: 10px solid #ff5252;
   border-bottom: 5px solid #ff5252;
 }
-@-webkit-keyframes "ani_3" {
+@-webkit-keyframes "ani_NaN" {
   0% {
     opacity: 0;
   }
@@ -1291,8 +1291,9 @@ pre.preview {
 .flat .focused-driver-info .position,
 .flat .focused-driver-info .flag-container,
 .flat .focused-driver-info .name,
-.flat .focused-driver-info .vehicle,
 .flat .focused-driver-info .team,
+.flat .focused-driver-info .vehicle,
+.flat .focused-driver-info .tyre,
 .flat .focused-driver-info .manufacturer {
   vertical-align: top;
   display: inline-block;
@@ -1342,8 +1343,24 @@ pre.preview {
 .flat .focused-driver-info .vehicle img {
   position: absolute;
   top: -82px;
-  left: -170px;
+  left: -150px;
   height: 110px;
+}
+.flat .focused-driver-info .tyre {
+  background-position: -442px 0;
+  width: 36px;
+  position: absolute;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.flat .focused-driver-info .tyre img {
+  width: 0px;
+}
+.flat .focused-driver-info .tyre.active img {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  height: 60px;
 }
 .flat .focused-driver-info .manufacturer {
   background: white;
@@ -1357,7 +1374,7 @@ pre.preview {
 }
 .flat .focused-driver-info .manufacturer img {
   position: absolute;
-  top: 15px;
+  top: 10px;
   left: 7px;
   height: 62px;
 }
@@ -1510,6 +1527,16 @@ pre.preview {
   padding: 3px;
 }
 .flat .multiclass-standings .driver .manufacturer img {
+  height: 100%;
+}
+.flat .multiclass-standings .driver .tyre {
+  background: rgba(38, 50, 56, 0.5);
+  display: inline-block;
+  width: 30px;
+  height: 35%;
+  padding: 4px;
+}
+.flat .multiclass-standings .driver .tyre img {
   height: 100%;
 }
 .flat .multiclass-standings .driver .class {
@@ -1992,7 +2019,6 @@ pre.preview {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   color: white;
-  background-color: rgba(38, 50, 56, 0.8);
   font-size: 20px;
 }
 .track-map .dot .driverName {

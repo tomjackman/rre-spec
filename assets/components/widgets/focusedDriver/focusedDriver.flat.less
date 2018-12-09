@@ -91,7 +91,7 @@
 		bottom: 100%;
 		-webkit-transition: top 0.5s;
 	}
-	.position, .flag-container, .name, .vehicle, .team, .manufacturer {
+	.position, .flag-container, .name, .team, .vehicle, .tyre, .manufacturer {
 		vertical-align: top;
 		display: inline-block;
 		height: 85px;
@@ -139,8 +139,26 @@
 		img {
 			position: absolute;
 			top: -82px;
-			left: -170px;
+			left: -150px;
 			height: 110px;
+		}
+	}
+	.tyre {
+		background-position: -442px 0;
+		width: 36px;
+		position: absolute;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+		img {
+			width: 0px;
+		}
+		&.active {
+			img {
+				position: absolute;
+				top: -40px;
+				left: 10px;
+				height: 60px;
+			}
 		}
 	}
 	.manufacturer {
@@ -154,7 +172,7 @@
 		border-bottom: 2px solid @DriverInfoManufacturerBorder;
 		img {
 			position: absolute;
-			top: 15px;
+			top: 10px;
 			left: 7px;
 			height: 62px;
 		}

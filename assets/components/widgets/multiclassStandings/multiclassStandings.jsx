@@ -165,6 +165,9 @@ UI.widgets.MulticlassStandings = React.createClass({
 									<div className="manufacturer">
 										<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.webp'} />
 									</div>
+									<div className="tyre">
+										<img src={'/img/tyres/soft.png'} />
+									</div>
 									{self.getMetaInfo(driversLookup[i], drivers)}
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?

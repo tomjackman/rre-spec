@@ -25,6 +25,11 @@ UI.widgets.FocusedDriver = React.createClass({
 						'slotId': UI.state.focusedSlot
 					}, done)
 				},
+				'pitInfo': function(done) {
+					r3e.getPitInfo({
+						'slotId': UI.state.focusedSlot
+					}, done);
+				},
 				'extendedInfo': function(done) {
 					r3e.getExtendedInfo({
 						'slotId': UI.state.focusedSlot
@@ -214,7 +219,7 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		return teamName;
 	},
-	playDrsAudio() {
+	playDrsAudio: function() {
 		// var self = this;
 		// if (self.state.vehicleInfo.drsEnabled) {
 		// 	var audio = new Audio('/audio/dtm.ogg');
@@ -223,7 +228,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		// 	audio.play();
 		// }
 	},
-	getPtpState() {
+	getPtpState: function() {
 		var self = this;
 		if (self.state.pushToPassInfo.active) {
 			return <div className="icon animated infinite flash delay-1s">PTP</div>
@@ -231,8 +236,16 @@ UI.widgets.FocusedDriver = React.createClass({
 			return <div className="icon">PTP</div>
 		}
 	},
+	hasTyreChoice: function(classId) {
+		var hasTyreChoice = false;
+		if (r3eTyreDB.classes[classId] != null) {
+			hasTyreChoice = true;
+		}
+		return hasTyreChoice;
+	},
 	render: function() {
 		var self = this;
+		var pitInfo = self.state.pitInfo;
 		var driverInfo = self.state.driverInfo;
 		if (!driverInfo.name) {
 			return null;
@@ -260,6 +273,9 @@ UI.widgets.FocusedDriver = React.createClass({
 					<div className="team">{self.getTeamName(driverInfo.teamId)}</div>
 					<div className="vehicle">
 						<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
+					</div>
+					<div className={cx({'tyre': true, 'active': self.hasTyreChoice(driverInfo.classId)})}>
+						<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
 					</div>
 					<div className="manufacturer">
 						<img src={'/img/manufacturers/'+driverInfo.manufacturerId+'.webp'} />
