@@ -7,6 +7,11 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 		function updateInfo() {
 			UI.batch({
+				'pitInfo': function(done) {
+				r3e.getPitInfo({
+				'slotId': UI.state.focusedSlot
+				}, done)
+				},
 				'driversInfo': r3e.getDriversInfo
 			}, self.setState.bind(self));
 		}
@@ -29,6 +34,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 	},
 	getInitialState: function() {
 		return {
+			'pitInfo': {},
 			'driversInfo': {
 				'driversInfo': []
 			}
@@ -134,6 +140,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 		var self = this;
 		var p = this.state;
+		var pitInfo = self.state.pitInfo;
 
 		var drivers = this.state.driversInfo.driversInfo;
         if (!drivers.length) {
@@ -165,9 +172,13 @@ UI.widgets.MulticlassStandings = React.createClass({
 									<div className="manufacturer">
 										<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.webp'} />
 									</div>
+									{r3eTyreDB.classes[driverInfo.classId] != null ?
 									<div className="tyre">
-										<img src={'/img/tyres/soft.png'} />
+										<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
 									</div>
+										:
+										null
+									}
 									{self.getMetaInfo(driversLookup[i], drivers)}
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?

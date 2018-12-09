@@ -1354,12 +1354,9 @@ pre.preview {
   border-bottom-right-radius: 20px;
 }
 .flat .focused-driver-info .tyre img {
-  width: 0px;
-}
-.flat .focused-driver-info .tyre.active img {
   position: absolute;
-  top: -40px;
-  left: 10px;
+  top: 17px;
+  left: -95px;
   height: 60px;
 }
 .flat .focused-driver-info .manufacturer {

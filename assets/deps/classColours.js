@@ -266,4 +266,4 @@ var r3eClassColours = {
       Id: 7168
     }
   }
-}
+};

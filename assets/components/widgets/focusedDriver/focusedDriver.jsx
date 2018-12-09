@@ -220,15 +220,6 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		return teamName;
 	},
-	playDrsAudio: function() {
-		// var self = this;
-		// if (self.state.vehicleInfo.drsEnabled) {
-		// 	var audio = new Audio('/audio/dtm.ogg');
-		// 	audio.loop = false;
-		// 	audio.volume = 0.5;
-		// 	audio.play();
-		// }
-	},
 	getPtpState: function() {
 		var self = this;
 		if (self.state.pushToPassInfo.active) {
@@ -236,17 +227,6 @@ UI.widgets.FocusedDriver = React.createClass({
 		} else {
 			return <div className="icon">PTP</div>
 		}
-	},
-	hasTyreChoice: function(classId) {
-		var hasTyreChoice = false;
-		if (r3eTyreDB.classes[classId] != null) {
-			hasTyreChoice = true;
-		}
-
-		return cx({
-			'tyre': true,
-			'active': hasTyreChoice
-		});
 	},
 	render: function() {
 		var self = this;
@@ -279,9 +259,13 @@ UI.widgets.FocusedDriver = React.createClass({
 					<div className="vehicle">
 						<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
 					</div>
-					<div className={self.hasTyreChoice(driverInfo.classId)}>
+					{r3eTyreDB.classes[driverInfo.classId] != null ?
+					<div className="tyre">
 						<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
 					</div>
+						:
+						null
+					}
 					<div className="manufacturer">
 						<img src={'/img/manufacturers/'+driverInfo.manufacturerId+'.webp'} />
 					</div>
