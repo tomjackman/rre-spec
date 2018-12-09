@@ -121,6 +121,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		return {
 			'driverInfo': {},
 			'driversInfo': {},
+			'pitInfo': {},
 			'vehicleInfo': {},
 			'currentSlot': -1,
 			'bufferedCurrentLapInfo': JSON.parse(JSON.stringify(this.defaultSectorValues))
@@ -241,7 +242,11 @@ UI.widgets.FocusedDriver = React.createClass({
 		if (r3eTyreDB.classes[classId] != null) {
 			hasTyreChoice = true;
 		}
-		return hasTyreChoice;
+
+		return cx({
+			'tyre': true,
+			'active': hasTyreChoice
+		});
 	},
 	render: function() {
 		var self = this;
@@ -274,7 +279,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					<div className="vehicle">
 						<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
 					</div>
-					<div className={cx({'tyre': true, 'active': self.hasTyreChoice(driverInfo.classId)})}>
+					<div className={self.hasTyreChoice(driverInfo.classId)}>
 						<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
 					</div>
 					<div className="manufacturer">

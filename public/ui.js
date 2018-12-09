@@ -976,6 +976,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		return {
 			'driverInfo': {},
 			'driversInfo': {},
+			'pitInfo': {},
 			'vehicleInfo': {},
 			'currentSlot': -1,
 			'bufferedCurrentLapInfo': JSON.parse(JSON.stringify(this.defaultSectorValues))
@@ -1126,7 +1127,11 @@ UI.widgets.FocusedDriver = React.createClass({
 		if (r3eTyreDB.classes[classId] != null) {
 			hasTyreChoice = true;
 		}
-		return hasTyreChoice;
+
+		return cx({
+			'tyre': true,
+			'active': hasTyreChoice
+		});
 	},
 	render: function () {
 		var self = this;
@@ -1180,7 +1185,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				React.createElement(
 					'div',
-					{ className: cx({ 'tyre': true, 'active': self.hasTyreChoice(driverInfo.classId) }) },
+					{ className: self.hasTyreChoice(driverInfo.classId) },
 					React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
 				),
 				React.createElement(
