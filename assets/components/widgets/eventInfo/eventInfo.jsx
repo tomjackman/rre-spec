@@ -12,11 +12,9 @@ UI.widgets.EventInfo = React.createClass({
 			}, self.setState.bind(self));
 		}
 		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
 	},
 	componentWillUnmount: function() {
-		clearInterval(this.updateInterval);
+
 	},
 	getInitialState: function() {
 		return {
@@ -39,7 +37,7 @@ UI.widgets.EventInfo = React.createClass({
     }
 
 		return (
-      <div className="event-info-bg">
+      <div className="event-info-bg animated fadeIn">
   			<div className="event-info">
   				<div className="serverName">{info.serverName}</div>
   				<div className="serverTrackName">{info.trackName} {info.layoutName}</div>

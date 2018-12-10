@@ -3,7 +3,6 @@ UI.widgets.DamageCheck = React.createClass({
 		var self = this;
 
 		// Hide widgets that use the same screen space
-		UI.state.activeWidgets.CompareRace.active = false;
 		io.emit('setState', UI.state);
 
 

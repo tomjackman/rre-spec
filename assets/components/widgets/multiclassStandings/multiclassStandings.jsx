@@ -2,7 +2,6 @@ UI.widgets.MulticlassStandings = React.createClass({
 	componentWillMount: function() {
 		var self = this;
 
-		UI.state.activeWidgets.CompareRace.active = false;
 		io.emit('setState', UI.state);
 
 		function updateInfo() {
@@ -172,7 +171,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 									<div className="manufacturer">
 										<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.webp'} />
 									</div>
-									{r3eTyreDB.classes[driverInfo.classId] != null ?
+									{r3eTyreDB.classes[driversLookup[i].classId] != null ?
 									<div className="tyre">
 										<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
 									</div>

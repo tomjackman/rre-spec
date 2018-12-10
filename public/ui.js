@@ -761,12 +761,8 @@ UI.widgets.EventInfo = React.createClass({
 			}, self.setState.bind(self));
 		}
 		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
 	},
-	componentWillUnmount: function () {
-		clearInterval(this.updateInterval);
-	},
+	componentWillUnmount: function () {},
 	getInitialState: function () {
 		return {
 			'eventInfo': {}
@@ -789,7 +785,7 @@ UI.widgets.EventInfo = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'event-info-bg' },
+			{ className: 'event-info-bg animated fadeIn' },
 			React.createElement(
 				'div',
 				{ className: 'event-info' },
@@ -1127,7 +1123,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
-		if (UI.state.sessionInfo.phase === 'END') {
+		if (UI.state.sessionInfo.phase === 'END' || UI.state.activeWidgets.CompareRace.active) {
 			return null;
 		}
 
@@ -1224,7 +1220,6 @@ UI.widgets.MulticlassStandings = React.createClass({
 	componentWillMount: function () {
 		var self = this;
 
-		UI.state.activeWidgets.CompareRace.active = false;
 		io.emit('setState', UI.state);
 
 		function updateInfo() {
@@ -1436,7 +1431,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 								{ className: 'manufacturer' },
 								React.createElement('img', { src: '/img/manufacturers/' + driversLookup[i].manufacturerId + '.webp' })
 							),
-							r3eTyreDB.classes[driverInfo.classId] != null ? React.createElement(
+							r3eTyreDB.classes[driversLookup[i].classId] != null ? React.createElement(
 								'div',
 								{ className: 'tyre' },
 								React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
@@ -3783,7 +3778,6 @@ UI.widgets.DamageCheck = React.createClass({
 		var self = this;
 
 		// Hide widgets that use the same screen space
-		UI.state.activeWidgets.CompareRace.active = false;
 		io.emit('setState', UI.state);
 
 		function updateInfo() {

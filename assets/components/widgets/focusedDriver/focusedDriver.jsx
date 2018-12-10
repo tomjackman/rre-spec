@@ -242,7 +242,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
-		if (UI.state.sessionInfo.phase === 'END') {
+		if (UI.state.sessionInfo.phase === 'END' || UI.state.activeWidgets.CompareRace.active) {
 			return null;
 		}
 
