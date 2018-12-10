@@ -1120,9 +1120,9 @@ pre.preview {
   left: -240px;
   right: 10px;
   height: 50px;
-  width: 150px;
+  width: 0px;
   line-height: 50px;
-  font-size: 20px;
+  font-size: 0px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   bottom: 0;
@@ -1136,8 +1136,8 @@ pre.preview {
   height: 50px;
   line-height: 50px;
   font-family: Oswald;
-  font-size: 30px;
-  width: 150px;
+  font-size: 0px;
+  width: 0px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   bottom: 0;
@@ -1475,13 +1475,13 @@ pre.preview {
   border: 1px;
   border-bottom-right-radius: 25%;
   border-top-left-radius: 25%;
-  background: rgba(102, 187, 106, 0.8);
+  background: #66bb6a;
 }
 .flat .multiclass-standings .driver .inner .unpitted {
   border: 1px;
   border-bottom-right-radius: 25%;
   border-top-left-radius: 25%;
-  background: rgba(255, 82, 82, 0.8);
+  background: #ff5252;
 }
 .flat .multiclass-standings .driver .position {
   background: rgba(38, 50, 56, 0.8);
@@ -2004,7 +2004,7 @@ pre.preview {
   position: relative;
   top: -73px;
   background-color: rgba(38, 50, 56, 0.8);
-  width: 300px;
+  min-width: 300px;
   font-size: 25px;
 }
 .track-map .dot .manufacturer {
