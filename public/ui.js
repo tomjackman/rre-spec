@@ -1154,11 +1154,6 @@ UI.widgets.FocusedDriver = React.createClass({
 					{ className: 'team' },
 					self.getTeamName(driverInfo.teamId)
 				),
-				React.createElement(
-					'div',
-					{ className: 'vehicle' },
-					React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driverInfo.liveryId + '&size=small' })
-				),
 				r3eTyreDB.classes[driverInfo.classId] != null ? React.createElement(
 					'div',
 					{ className: 'tyre' },
@@ -1168,6 +1163,11 @@ UI.widgets.FocusedDriver = React.createClass({
 					'div',
 					{ className: 'manufacturer' },
 					React.createElement('img', { src: '/img/manufacturers/' + driverInfo.manufacturerId + '.webp' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'vehicle' },
+					React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driverInfo.liveryId + '&size=small' })
 				),
 				self.state.pushToPassInfo.allowed ? React.createElement(
 					'div',
@@ -1351,6 +1351,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 	renderName: function (name, classId) {
 		var parts = name.split(' ');
 		var name = parts[parts.length - 1].substr(0, 3).toUpperCase();
+		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
 
 		var classColour = "rgba(38, 50, 56, 0.8)";
 
@@ -1365,6 +1366,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'name', style: divStyle },
+			firstInitial,
 			name
 		);
 	},
@@ -2219,6 +2221,12 @@ var TrackMapDot = React.createClass({
 			'background': self.getClassColor(driver.classId)
 		};
 	},
+	shortenDriverName: function (name) {
+		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
+		var parts = name.split(' ');
+		var name = firstInitial + parts[parts.length - 1].substr(0, 3).toUpperCase();
+		return name;
+	},
 	getClass: function (driver) {
 		var self = this;
 		return {
@@ -2235,23 +2243,23 @@ var TrackMapDot = React.createClass({
 				style: self.getDriverStyle(driver) },
 			React.createElement(
 				'div',
-				{ className: 'vehicle' },
-				React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small', height: '120px', width: '220px' })
-			),
-			React.createElement(
-				'div',
 				{ className: 'position', style: self.getClass(driver) },
 				driver.scoreInfo.positionClass
 			),
 			React.createElement(
 				'div',
 				{ className: 'driverName' },
-				driver.name
+				self.shortenDriverName(driver.name)
 			),
 			React.createElement(
 				'div',
 				{ className: 'manufacturer' },
 				React.createElement('img', { src: '/img/manufacturers/' + driver.manufacturerId + '.webp' })
+			),
+			React.createElement(
+				'div',
+				{ className: 'vehicle' },
+				React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small', height: '120px', width: '220px' })
 			)
 		);
 	}
@@ -3574,6 +3582,7 @@ UI.widgets.CompareRace = React.createClass({
 						}, function (data) {
 							driver.vehicleInfo = data.vehicleInfo;
 							driver.extendedInfo = data.extendedInfo;
+							driver.pushToPassInfo = data.pushToPassInfo;
 							done(driver);
 						});
 					});
@@ -3738,10 +3747,19 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				'PB - ',
 				UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
 			) : null,
+			driver.pushToPassInfo.allowed ? React.createElement(
+				'div',
+				{ className: cx({ 'ptp': true, 'active': driver.pushToPassInfo.active }) },
+				self.getPtpState()
+			) : null,
 			React.createElement(
 				'div',
-				{ className: 'drs animated infinite flash delay-1s' },
-				React.createElement('div', { className: cx({ 'icon': true, 'active': driver.vehicleInfo.drsEnabled }) })
+				{ className: cx({ 'drs': true, 'active': driver.vehicleInfo.drsEnabled }) },
+				React.createElement(
+					'div',
+					{ className: cx({ 'icon animated infinite flash delay-1s': true, 'active': driver.vehicleInfo.drsEnabled }) },
+					'DRS'
+				)
 			),
 			self.getExtraInfo(driver)
 		);

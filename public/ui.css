@@ -814,13 +814,13 @@ body {
   }
 }
 .flat .compare-race .delta {
-  font-family: Hel;
   font-size: 20px;
   text-transform: uppercase;
   background: rgba(38, 50, 56, 0.5);
   border-radius: 20px;
   color: white;
-  padding: 5px 10px;
+  padding: 6px 10px;
+  min-width: 130px;
   display: inline-block;
   position: relative;
 }
@@ -845,6 +845,7 @@ body {
   font-family: Oswald;
   color: #fff;
   -webkit-animation: "ani_9" 0.5s ease;
+  /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
   position: absolute !important;
 }
 @-webkit-keyframes "ani_9" {
@@ -878,7 +879,7 @@ body {
 }
 .flat .compare-race .inner .best-time {
   font-size: 18px;
-  background: rgba(38, 50, 56, 0.5);
+  background: rgba(38, 50, 56, 0.8);
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 10px 10px 0 0;
@@ -956,21 +957,41 @@ body {
   left: 8px;
   height: 60px;
 }
-.flat .compare-race .inner .drs {
-  width: 104px;
-  background-position: -518px 0;
-  position: relative;
+.flat .compare-race .inner .drs .icon {
+  width: 0px;
 }
 .flat .compare-race .inner .drs.active .icon {
-  background-image: url(/focusedDriver/flat/drs-on.png);
+  background: rgba(76, 175, 80, 0.7);
+  position: absolute;
+  top: -30px;
+  left: 15px;
+  right: 10px;
+  height: 30px;
+  line-height: 35px;
+  font-family: Oswald;
+  font-size: 20px;
+  width: 47px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  bottom: 0;
 }
-.flat .compare-race .inner .ptp {
-  width: 104px;
-  background-position: -518px 0;
-  position: relative;
+.flat .compare-race .inner .ptp .icon {
+  width: 0px;
 }
 .flat .compare-race .inner .ptp.active .icon {
-  background-image: url(/focusedDriver/tt/ptp-on.png);
+  background: rgba(76, 175, 80, 0.7);
+  position: absolute;
+  top: -35px;
+  left: 10px;
+  right: 10px;
+  height: 35px;
+  line-height: 35px;
+  font-family: Oswald;
+  font-size: 20px;
+  width: 52px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  bottom: 0;
 }
 .flat .compare-race .inner .flag-container {
   width: 61px;
@@ -1274,9 +1295,9 @@ pre.preview {
 .flat .focused-driver-info .flag-container,
 .flat .focused-driver-info .name,
 .flat .focused-driver-info .team,
-.flat .focused-driver-info .vehicle,
 .flat .focused-driver-info .tyre,
-.flat .focused-driver-info .manufacturer {
+.flat .focused-driver-info .manufacturer,
+.flat .focused-driver-info .vehicle {
   vertical-align: top;
   display: inline-block;
   height: 85px;
@@ -1325,7 +1346,7 @@ pre.preview {
 .flat .focused-driver-info .vehicle img {
   position: absolute;
   top: -82px;
-  left: -150px;
+  left: -230px;
   height: 110px;
 }
 .flat .focused-driver-info .tyre {
@@ -1518,23 +1539,13 @@ pre.preview {
 .flat .multiclass-standings .driver .tyre img {
   height: 100%;
 }
-.flat .multiclass-standings .driver .class {
-  display: inline-block;
-  min-width: 30px;
-  font-size: 18px;
-  height: 30%;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-family: Hel;
-  font-style: italic;
-}
 .flat .multiclass-standings .driver .name {
   background-color: #b71c1c;
   display: inline-block;
   color: white;
-  width: 55px;
+  width: 75px;
   padding-left: 10px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: inherit;
 }
 .flat .multiclass-standings .driver .meta-info {
@@ -1800,7 +1811,7 @@ pre.preview {
   top: 40px;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-  font-size: 20px;
+  font-size: 22px;
   background: rgba(38, 50, 56, 0.6);
   text-transform: uppercase;
   border-radius: 5px;
@@ -1979,8 +1990,8 @@ pre.preview {
   border-radius: 100%;
   z-index: 2;
 }
-.track-map .dot .dot .vehicle .position .driverName,
-.track-map .dot .manufacturer {
+.track-map .dot .dot .position .driverName,
+.track-map .dot .manufacturer .vehicle {
   vertical-align: top;
   display: inline-block;
   height: 85px;
@@ -1990,6 +2001,13 @@ pre.preview {
   position: relative;
   left: 50px;
 }
+.track-map .dot .vehicle img {
+  position: absolute;
+  top: -190px;
+  left: -250px;
+  height: 100px;
+  width: 0px;
+}
 .track-map .dot .position {
   position: relative;
   left: -50px;
@@ -1998,21 +2016,21 @@ pre.preview {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   color: white;
-  font-size: 20px;
+  font-size: 23px;
 }
 .track-map .dot .driverName {
   position: relative;
   top: -73px;
   background-color: rgba(38, 50, 56, 0.8);
-  min-width: 300px;
-  font-size: 25px;
+  width: 120px;
+  font-size: 23px;
 }
 .track-map .dot .manufacturer {
   position: relative;
   background-color: white;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  left: 283px;
+  left: 110px;
   width: 50px;
   height: 42px;
   top: -115px;

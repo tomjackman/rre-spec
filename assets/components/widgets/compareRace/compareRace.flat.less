@@ -103,27 +103,48 @@ display:none;
 			height: 60px;
 		}
 	}
+	/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 	.drs {
-		width: 104px;
-		background-position: -518px 0;
-		position: relative;
-
+	.icon {
+		width: 0px;
+	}
 		&.active {
 			.icon {
-				background-image: url(/focusedDriver/flat/drs-on.png);
+				background: @CompareRaceDRSActiveBackground;
+				position: absolute;
+				top: -30px;
+				left: 15px;
+				right: 10px;
+				height: 30px;
+				line-height: 35px;
+				font-family: Oswald;
+				font-size: 20px;
+				width: 47px;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				bottom: 0;
 			}
 		}
 	}
 	.ptp {
-		width: 104px;
-		background-position: -518px 0;
-		position: relative;
 		.icon {
-
+			width: 0px;
 		}
 		&.active {
 			.icon {
-				background-image: url(/focusedDriver/tt/ptp-on.png);
+				background: @CompareRaceDRSActiveBackground;
+				position: absolute;
+				top: -35px;
+				left: 10px;
+				right: 10px;
+				height: 35px;
+				line-height: 35px;
+				font-family: Oswald;
+				font-size: 20px;
+				width: 52px;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				bottom: 0;
 			}
 		}
 	}
@@ -163,13 +184,13 @@ display:none;
 	text-align: center;
 
 	.delta {
-		font-family: Hel;
 		font-size: 20px;
 		text-transform: uppercase;
 		background: @CompareRaceDeltaBackground;
 		border-radius: 20px;
 		color: @CompareRaceDeltaText;
-		padding: 5px 10px;
+		padding: 6px 10px;
+		min-width: 130px;
 		display: inline-block;
 		display: inline-block;
 		position: relative;

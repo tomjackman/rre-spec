@@ -30,11 +30,11 @@ UI.widgets.CompareRace = React.createClass({
 									'slotId': driver.slotId
 								}, done);
 							},
-                            'pushToPassInfo': function(done) {
-                                r3e.getPushToPassInfo({
-                                    'slotId': UI.state.focusedSlot
-                                }, done)
-                            },
+              'pushToPassInfo': function(done) {
+                  r3e.getPushToPassInfo({
+                      'slotId': UI.state.focusedSlot
+                  }, done)
+              },
 							'extendedInfo': function(done) {
 								r3e.getExtendedInfo({
 									'slotId': driver.slotId
@@ -43,6 +43,7 @@ UI.widgets.CompareRace = React.createClass({
 						}, function(data) {
 							driver.vehicleInfo = data.vehicleInfo;
 							driver.extendedInfo = data.extendedInfo;
+							driver.pushToPassInfo = data.pushToPassInfo;
 							done(driver);
 						});
 
@@ -160,9 +161,18 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					null
 				}
 
-				<div className="drs animated infinite flash delay-1s">
-					<div className={cx({'icon': true, 'active': driver.vehicleInfo.drsEnabled})}></div>
+				{driver.pushToPassInfo.allowed ?
+					<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})}>
+						{self.getPtpState()}
+					</div>
+					:
+					null
+				}
+
+				<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})}>
+					<div className={cx({'icon animated infinite flash delay-1s': true, 'active': driver.vehicleInfo.drsEnabled})}>DRS</div>
 				</div>
+
 
 				{self.getExtraInfo(driver)}
 			</div>

@@ -105,6 +105,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 	renderName: function(name, classId) {
 		var parts = name.split(' ');
 		var name = parts[parts.length-1].substr(0, 3).toUpperCase();
+		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
 
 		var classColour = "rgba(38, 50, 56, 0.8)";
 
@@ -116,7 +117,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		    backgroundColor: classColour
 		};
 
-		return <div className="name" style={divStyle}>{name}</div>
+		return <div className="name" style={divStyle}>{firstInitial}{name}</div>
 	},
 	shouldShow: function(driver) {
 		if (!driver) {

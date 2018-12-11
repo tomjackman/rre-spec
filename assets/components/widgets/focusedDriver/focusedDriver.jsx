@@ -256,9 +256,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					</div>
 					<div className="name">{self.fixName(driverInfo.name)}</div>
 					<div className="team">{self.getTeamName(driverInfo.teamId)}</div>
-					<div className="vehicle">
-						<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
-					</div>
+
 					{r3eTyreDB.classes[driverInfo.classId] != null ?
 					<div className="tyre">
 						<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
@@ -268,6 +266,10 @@ UI.widgets.FocusedDriver = React.createClass({
 					}
 					<div className="manufacturer">
 						<img src={'/img/manufacturers/'+driverInfo.manufacturerId+'.webp'} />
+					</div>
+
+					<div className="vehicle">
+						<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
 					</div>
 
 					{self.state.pushToPassInfo.allowed ?

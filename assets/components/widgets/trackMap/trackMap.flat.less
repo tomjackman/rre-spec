@@ -37,7 +37,7 @@
 		color: #fff;
 		border-radius: 100%;
 		z-index: 2;
-		.dot .vehicle .position .driverName, .manufacturer {
+		.dot .position .driverName, .manufacturer .vehicle  {
 			vertical-align: top;
 			display: inline-block;
 			height: 85px;
@@ -46,6 +46,13 @@
 		.vehicle {
 			position: relative;
 			left: 50px;
+			img {
+				position: absolute;
+				top: -190px;
+				left: -250px;
+				height: 100px;
+				width: 0px;
+			}
 		}
 		.position {
 			position: relative;
@@ -55,21 +62,21 @@
 			border-top-left-radius: 20px;
 			border-bottom-left-radius: 20px;
 			color: @TrackMapDriverPositionText;
-			font-size: 20px;
+			font-size: 23px;
 		}
 		.driverName {
 			position: relative;
 			top: -73px;
 			background-color: @TrackMapDriverNameBackground;
-			min-width: 300px;
-			font-size: 25px;
+			width: 120px;
+			font-size: 23px;
 		}
 		.manufacturer {
 			position: relative;
 			background-color: @TrackMapManufacturerBackground;
 			border-top-right-radius: 20px;
 			border-bottom-right-radius: 20px;
-			left: 283px;
+			left: 110px;
 			width: 50px;
 			height: 42px;
 			top: -115px;

@@ -184,6 +184,12 @@ var TrackMapDot = React.createClass({
 			'background': self.getClassColor(driver.classId)
 		};
 	},
+	shortenDriverName: function(name) {
+		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
+		var parts = name.split(' ');
+		var name = firstInitial + parts[parts.length-1].substr(0, 3).toUpperCase();
+		return name;
+	},
 	getClass: function(driver) {
 		var self = this;
 		return {
@@ -197,18 +203,19 @@ var TrackMapDot = React.createClass({
 			<div
 			className={self.getStyles(driver)}
 			style={self.getDriverStyle(driver)}>
-			<div className="vehicle">
-				<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} height="120px" width="220px" />
-			</div>
 
 				<div className="position" style={self.getClass(driver)}>
 				{driver.scoreInfo.positionClass}
 				</div>
 
-				<div className="driverName">{driver.name}</div>
+				<div className="driverName">{self.shortenDriverName(driver.name)}</div>
 
 				<div className="manufacturer">
 					<img src={'/img/manufacturers/'+driver.manufacturerId+'.webp'} />
+				</div>
+
+				<div className="vehicle">
+					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} height="120px" width="220px" />
 				</div>
 			</div>
 
