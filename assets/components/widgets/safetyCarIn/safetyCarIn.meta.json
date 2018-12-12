@@ -1,0 +1,8 @@
+{
+	"elementName": "SafetyCarIn",
+	"name": "Safety Car In",
+	"buttonText": "Safety Car In This Lap",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Race"],
+	"defaultActive": false
+}
