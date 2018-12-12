@@ -1,0 +1,8 @@
+{
+	"elementName": "Alert",
+	"name": "Alert",
+	"buttonText": "Alerts (Race Control)",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Race"],
+	"defaultActive": true
+}

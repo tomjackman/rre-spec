@@ -103,9 +103,9 @@ UI.widgets.MulticlassStandings = React.createClass({
 		}
 	},
 	renderName: function(name, classId) {
+		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
 		var parts = name.split(' ');
 		var name = parts[parts.length-1].substr(0, 3).toUpperCase();
-		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
 
 		var classColour = "rgba(38, 50, 56, 0.8)";
 
@@ -172,6 +172,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 									<div className="manufacturer">
 										<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.webp'} />
 									</div>
+									{self.getMetaInfo(driversLookup[i], drivers)}
 									{r3eTyreDB.classes[driversLookup[i].classId] != null ?
 									<div className="tyre">
 										<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
@@ -179,7 +180,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 										:
 										null
 									}
-									{self.getMetaInfo(driversLookup[i], drivers)}
+
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?
 											<div className="pitted" />

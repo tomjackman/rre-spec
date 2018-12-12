@@ -330,136 +330,251 @@ Name:"#980",Team:7268,Car:6568,Id:7264,Class:6648,TeamName:"Teichmann Racing",dr
 Name:"Blackdog Racing",Id:3769},3770:{Type:"CarTeam",Name:"Best It Bondurant",Id:3770},3771:{Type:"CarTeam",Name:"Stevenson Motorsports",Id:3771},3772:{Type:"CarTeam",Name:"Autohaus Motorsports",Id:3772},3794:{Type:"CarTeam",Name:"Team Martini",Id:3794},3795:{Type:"CarTeam",Name:"Bob Akin Motor Racing",Id:3795},3806:{Type:"CarTeam",Name:"Team Albert Rodenstock",Id:3806},3807:{Type:"CarTeam",Name:"Team Jägermeister",Id:3807},3809:{Type:"CarTeam",Name:"Team Warsteiner",Id:3809},3810:{Type:"CarTeam",Name:"Würth HAT Team",Id:3810},3814:{Type:"CarTeam",Name:"Liqui Moly Equipe",Id:3814},3815:{Type:"CarTeam",Name:"D&W Zakspeed",Id:3815},3816:{Type:"CarTeam",Name:"SACHS Zakspeed",Id:3816},3821:{Type:"CarTeam",Name:"Larbre Competition",Id:3821},3828:{Type:"CarTeam",Name:"BMW Ring Taxi",Id:3828},3841:{Type:"CarTeam",Name:"Team Valliant",Id:3841},3843:{Type:"CarTeam",Name:"Ruch Motorsport",Id:3843},3844:{Type:"CarTeam",Name:"Buffalo Boots",Id:3844},3875:{Type:"CarTeam",Name:"Irmscher Motorsport",Id:3875},3900:{Type:"CarTeam",Name:"Citroen Total WTCC",Id:3900},3915:{Type:"CarTeam",Name:"Marc VDS Racing",Id:3915},3916:{Type:"CarTeam",Name:"Sunred",Id:3916},3917:{Type:"CarTeam",Name:"Matech Racing",Id:3917},3926:{Type:"CarTeam",Name:"Swiss Racing Team",Id:3926},3927:{Type:"CarTeam",Name:"JRM Racing",Id:3927},3932:{Type:"CarTeam",Name:"Rolf Goring",Id:3932},3933:{Type:"CarTeam",Name:"Giovanni Rossi",Id:3933},3936:{Type:"CarTeam",Name:"Christian Debias",Id:3936},3937:{Type:"CarTeam",Name:"Claude Francois Jeanneret",Id:3937},3938:{Type:"CarTeam",Name:"Maurice Girard",Id:3938},3942:{Type:"CarTeam",Name:"Eric Pernot",Id:3942},3943:{Type:"CarTeam",Name:"Daniel Bassora",Id:3943},3944:{Type:"CarTeam",Name:"Rolf Goring",Id:3944},3945:{Type:"CarTeam",Name:"Francis Dosieres",Id:3945},3946:{Type:"CarTeam",Name:"Joszef Cserkuti",Id:3946},3952:{Type:"CarTeam",Name:"Watsons",Id:3952},3953:{Type:"CarTeam",Name:"Pilot-Motul",Id:3953},3954:{Type:"CarTeam",Name:"Benson and Hedges Racing",Id:3954},3955:{Type:"CarTeam",Name:"Labatt's Sports",Id:3955},3956:{Type:"CarTeam",Name:"Mobil",Id:3956},3957:{Type:"CarTeam",Name:"JPS Racing",Id:3957},3965:{Type:"CarTeam",Name:"Gibson Motorsport",Id:3965},3967:{Type:"CarTeam",Name:"Team Taisan",Id:3967},3969:{Type:"CarTeam",Name:"Hasemi Motorsport",Id:3969},3971:{Type:"CarTeam",Name:"Team Impul",Id:3971},3974:{Type:"CarTeam",Name:"FPS BMW Italia",Id:3974},3975:{Type:"CarTeam",Name:"Wurth BMW Italia",Id:3975},3976:{Type:"CarTeam",Name:"Schnitzer BMW M Technic",Id:3976},3977:{Type:"CarTeam",Name:"Brun Motorsport",Id:3977},3978:{Type:"CarTeam",Name:"Bastos Juma Racing",Id:3978},3979:{Type:"CarTeam",Name:"Waterloo Motor Racing",Id:3979},3980:{Type:"CarTeam",Name:"Philippe Leclerc",Id:3980},3981:{Type:"CarTeam",Name:"Francis Dosieres",Id:3981},3982:{Type:"CarTeam",Name:"Michel Pignard",Id:3982},3992:{Type:"CarTeam",Name:"Eggenberger Motorsport",Id:3992},3993:{Type:"CarTeam",Name:"IPS Racing",Id:3993},3994:{Type:"CarTeam",Name:"TL Racing",Id:3994},3995:{Type:"CarTeam",Name:"Magnum Racing",Id:3995},3996:{Type:"CarTeam",Name:"Robert Kvist",Id:3996},3997:{Type:"CarTeam",Name:"Sportpromotion",Id:3997},4004:{Type:"CarTeam",Name:"Flying Lizard",Id:4004},4005:{Type:"CarTeam",Name:"Team Felbermayr-Proton",Id:4005},4006:{Type:"CarTeam",Name:"IMSA Performance Matmut",Id:4006},4007:{Type:"CarTeam",Name:"Prospeed Competition",Id:4007},4008:{Type:"CarTeam",Name:"Team Proton Competition",Id:4008},4009:{Type:"CarTeam",Name:"James Watt Automotive",Id:4009},4016:{Type:"CarTeam",Name:"Fanatec Racing",Id:4016},4025:{Type:"CarTeam",Name:"Mass-Schons",Id:4025},4034:{Type:"CarTeam",Name:"Zakspeed",Id:4034},4035:{Type:"CarTeam",Name:"Schmidt Motorsport Technik",Id:4035},4047:{Type:"CarTeam",Name:"ROAL Motorsport",Id:4047},4050:{Type:"CarTeam",Name:"Campos Racing",Id:4050},4052:{Type:"CarTeam",Name:"All-Inkl.com Munnich Motorsport",Id:4052},4055:{Type:"CarTeam",Name:"NIS Petrol by Campos Racing",Id:4055},4060:{Type:"CarTeam",Name:"Nissan Motorsport",Id:4060},4068:{Type:"CarTeam",Name:"LADA Sport Lukoil",Id:4068},4076:{Type:"CarTeam",Name:"John Greenwood Racing",Id:4076},4077:{Type:"CarTeam",Name:"Old Blue",Id:4077},4078:{Type:"CarTeam",Name:"Mancuso Racing",Id:4078},4104:{Type:"CarTeam",Name:"Team Brasil",Id:4104},4107:{Type:"CarTeam",Name:"K-Pax Racing",Id:4107},4108:{Type:"CarTeam",Name:"VIP Petfood",Id:4108},4146:{Type:"CarTeam",Name:"Dekon Engineering",Id:4146},4155:{Type:"CarTeam",Name:"Kenwood",Id:4155},4156:{Type:"CarTeam",Name:"Eagle Vision",Id:4156},4157:{Type:"CarTeam",Name:"Bose",Id:4157},4158:{Type:"CarTeam",Name:"GoPro",Id:4158},4159:{Type:"CarTeam",Name:"Wix Filters",Id:4159},4160:{Type:"CarTeam",Name:"Cobalt",Id:4160},4161:{Type:"CarTeam",Name:"Ice Watch",Id:4161},4162:{Type:"CarTeam",Name:"Bremont",Id:4162},4167:{Type:"CarTeam",Name:"Shell",Id:4167},4168:{Type:"CarTeam",Name:"Hexis Energy",Id:4168},4169:{Type:"CarTeam",Name:"Nokia",Id:4169},4170:{Type:"CarTeam",Name:"Monster Energy",Id:4170},4171:{Type:"CarTeam",Name:"Matsuda",Id:4171},4181:{Type:"CarTeam",Name:"Audi Sport",Id:4181},4182:{Type:"CarTeam",Name:"Quattro Sport",Id:4182},4185:{Type:"CarTeam",Name:"Newman-Sharp Racing",Id:4185},4186:{Type:"CarTeam",Name:"Leitzinger Racing",Id:4186},4189:{Type:"CarTeam",Name:"Joest Racing",Id:4189},4191:{Type:"CarTeam",Name:"Pentosin Zakspeed",Id:4191},4193:{Type:"CarTeam",Name:"BMW Team PTG",Id:4193},4198:{Type:"CarTeam",Name:"Castrol Honda World Touring Car Team",Id:4198},4262:{Type:"CarTeam",Name:"Audi Sport Team Phoenix",Id:4262},4268:{Type:"CarTeam",Name:"BMW Team Schnitzer",Id:4268},4270:{Type:"CarTeam",Name:"Executive Industries",Id:4270},4271:{Type:"CarTeam",Name:"Dickenson Racing",Id:4271},4272:{Type:"CarTeam",Name:"Chris Cord Racing",Id:4272},4273:{Type:"CarTeam",Name:"Theodoracopulos",Id:4273},4300:{Type:"CarTeam",Name:"Raeder Motorsport",Id:4300},4306:{Type:"CarTeam",Name:" Zengo Motorsport",Id:4306},4307:{Type:"CarTeam",Name:"Proteam Racing",Id:4307},4309:{Type:"CarTeam",Name:"Audi Sport Team Joest",Id:4309},4313:{Type:"CarTeam",Name:"BMW Team MTEK",Id:4313},4314:{Type:"CarTeam",Name:"BMW Team RBM",Id:4314},4315:{Type:"CarTeam",Name:"BMW Team RMG",Id:4315},4322:{Type:"CarTeam",Name:"Audi Sport Team Abt Sportsline",Id:4322},4323:{Type:"CarTeam",Name:"Audi Sport Team Abt",Id:4323},4324:{Type:"CarTeam",Name:"Audi Sport Team Rosberg",Id:4324},4333:{Type:"CarTeam",Name:"Electrodyne Racing",Id:4333},4334:{Type:"CarTeam",Name:"Max Moritz",Id:4334},4335:{Type:"CarTeam",Name:"Dick Barbour",Id:4335},4336:{Type:"CarTeam",Name:"Kremer Racing",Id:4336},4338:{Type:"CarTeam",Name:"Team Go Pro",Id:4338},4343:{Type:"CarTeam",Name:"FTS Racing",Id:4343},4348:{Type:"CarTeam",Name:"Gulf Racing",Id:4348},4354:{Type:"CarTeam",Name:"Emirates",Id:4354},4360:{Type:"CarTeam",Name:"GreyMatter Racing",Id:4360},4375:{Type:"CarTeam",Name:"EURONICS/BWT Mercedes-AMG",Id:4375},4376:{Type:"CarTeam",Name:"gooix/Original-Teile Mercedes-AMG",Id:4376},4377:{Type:"CarTeam",Name:"PETRONAS Mercedes-AMG (Mücke Motorsport)",Id:4377},4387:{Type:"CarTeam",Name:"Roush Racing",Id:4387},4416:{Type:"CarTeam",Name:"JBL ",Id:4416},4417:{Type:"CarTeam",Name:"Motul",Id:4417},4418:{Type:"CarTeam",Name:"DeWalt",Id:4418},4419:{Type:"CarTeam",Name:"Petronas",Id:4419},4420:{Type:"CarTeam",Name:"Burn Intense Racing",Id:4420},4421:{Type:"CarTeam",Name:"Samsung Performance",Id:4421},4422:{Type:"CarTeam",Name:"Tag Heuer",Id:4422},4423:{Type:"CarTeam",Name:"Greddy Racing",Id:4423},4424:{Type:"CarTeam",Name:"BlackBerry",Id:4424},4425:{Type:"CarTeam",Name:"After Eight",Id:4425},4426:{Type:"CarTeam",Name:"Ice Watch",Id:4426},4427:{Type:"CarTeam",Name:"Castrol Edge",Id:4427},4428:{Type:"CarTeam",Name:"Shell V-Power",Id:4428},4429:{Type:"CarTeam",Name:"Mobil 1",Id:4429},4430:{Type:"CarTeam",Name:"Crowne Plaza",Id:4430},4431:{Type:"CarTeam",Name:"Alitalia",Id:4431},4432:{Type:"CarTeam",Name:"Total",Id:4432},4433:{Type:"CarTeam",Name:"Evosport Racing",Id:4433},4434:{Type:"CarTeam",Name:"GoPro",Id:4434},4435:{Type:"CarTeam",Name:"Pakelo Lubricants",Id:4435},4436:{Type:"CarTeam",Name:"Hella",Id:4436},4437:{Type:"CarTeam",Name:"RedBull Racing",Id:4437},4438:{Type:"CarTeam",Name:"Gulf Racing",Id:4438},4439:{Type:"CarTeam",Name:"Mad-Croc",Id:4439},4494:{Type:"CarTeam",Name:"Team Athina",Id:4494},4495:{Type:"CarTeam",Name:"e-Position Racing",Id:4495},4496:{Type:"CarTeam",Name:"Gillis Motor",Id:4496},4497:{Type:"CarTeam",Name:"Audi Sport North America",Id:4497},4519:{Type:"CarTeam",Name:"C. Abt Racing",Id:4519},4541:{Type:"CarTeam",Name:"Thrustmaster",Id:4541},4545:{Type:"CarTeam",Name:"Team Schubert",Id:4545},4547:{Type:"CarTeam",Name:"Sidney Industries",Id:4547},4552:{Type:"CarTeam",Name:"Rowe Racing",Id:4552},4555:{Type:"CarTeam",Name:"Honda Racing Team JAS",Id:4555},4558:{Type:"CarTeam",Name:"MRS GT-Racing",Id:4558},4560:{Type:"CarTeam",Name:"MS Racing",Id:4560},4565:{Type:"CarTeam",Name:"Senkyr Motorsport",Id:4565},4569:{Type:"CarTeam",Name:"YACO Racing",Id:4569},4571:{Type:"CarTeam",Name:"Callaway Competition",Id:4571},4573:{Type:"CarTeam",Name:"Martini Racing",Id:4573},4574:{Type:"CarTeam",Name:"FlexiCarb Sports",Id:4574},4575:{Type:"CarTeam",Name:"Sublime Motorsports",Id:4575},4576:{Type:"CarTeam",Name:"CT Dummies",Id:4576},4577:{Type:"CarTeam",Name:"Kadoma Sports",Id:4577},4578:{Type:"CarTeam",Name:"Lynchburg Motors",Id:4578},4580:{Type:"CarTeam",Name:"Roal Motorsport",Id:4580},4583:{Type:"CarTeam",Name:"Reiter Engineering",Id:4583},4586:{Type:"CarTeam",Name:"Citroen Total WTCC",Id:4586},4589:{Type:"CarTeam",Name:"RWT Racing Team",Id:4589},4591:{Type:"CarTeam",Name:"Team Zakspeed",Id:4591},4592:{Type:"CarTeam",Name:"HP Racing",Id:4592},4599:{Type:"CarTeam",Name:"RedBull Racing",Id:4599},4635:{Type:"CarTeam",Name:"DHL",Id:4635},4636:{Type:"CarTeam",Name:"Momo Racing",Id:4636},4637:{Type:"CarTeam",Name:"Clarion",Id:4637},4638:{Type:"CarTeam",Name:"Totor Racing",Id:4638},4639:{Type:"CarTeam",Name:"Puma",Id:4639},4640:{Type:"CarTeam",Name:"Koni",Id:4640},4641:{Type:"CarTeam",Name:"Deutsche Post Rennteam",Id:4641},4642:{Type:"CarTeam",Name:"Samsung Motorsports",Id:4642},4643:{Type:"CarTeam",Name:"Puma Racing",Id:4643},4644:{Type:"CarTeam",Name:"ICE Watch Racing Team",Id:4644},4646:{Type:"CarTeam",Name:"Kingfisher Motorsport",Id:4646},4647:{Type:"CarTeam",Name:"Sparco Racing",Id:4647},4648:{Type:"CarTeam",Name:"GoPro Heroes",Id:4648},4649:{Type:"CarTeam",Name:"JVC Racing Team",Id:4649},4650:{Type:"CarTeam",Name:"Schaeffler Racing",Id:4650},4651:{Type:"CarTeam",Name:"Castrol Edge Motorsports",Id:4651},4652:{Type:"CarTeam",Name:"Raceroom Racing",Id:4652},4676:{Type:"CarTeam",Name:"Porsche Motorsport",Id:4676},4682:{Type:"CarTeam",Name:"Audi Sport",Id:4682},4686:{Type:"CarTeam",Name:"Masters Motorsport",Id:4686},4688:{Type:"CarTeam",Name:"RedBull Racing",Id:4688},4690:{Type:"CarTeam",Name:"Team Omega",Id:4690},4692:{Type:"CarTeam",Name:"Mobil 1 Racing",Id:4692},4694:{Type:"CarTeam",Name:"Samsung Motorsports",Id:4694},4696:{Type:"CarTeam",Name:"Team Etihad",Id:4696},4698:{Type:"CarTeam",Name:"Puma Racing",Id:4698},4700:{Type:"CarTeam",Name:"Elf Sport",Id:4700},4703:{Type:"CarTeam",Name:"BP Motorsports",Id:4703},4705:{Type:"CarTeam",Name:"Elf Sport",Id:4705},4707:{Type:"CarTeam",Name:"Edge Racing",Id:4707},4709:{Type:"CarTeam",Name:"Dunlop Motorsport",Id:4709},4711:{Type:"CarTeam",Name:"Castrol Racing",Id:4711},4713:{Type:"CarTeam",Name:"Sparco Racing",Id:4713},4715:{Type:"CarTeam",Name:"Team Mont Blanc",Id:4715},4717:{Type:"CarTeam",Name:"Burn Motorsports",Id:4717},4721:{Type:"CarTeam",Name:"Lada Sport Rosneft",Id:4721},4725:{Type:"CarTeam",Name:"YLH Motorsports",Id:4725},4791:{Type:"CarTeam",Name:"KW Automotive",Id:4791},4811:{Type:"CarTeam",Name:"Diggleton Racing",Id:4811},4820:{Type:"CarTeam",Name:"Campos Racing",Id:4820},4821:{Type:"CarTeam",Name:"Munnich Motorsport",Id:4821},4822:{Type:"CarTeam",Name:"Craft Bamboo",Id:4822},4834:{Type:"CarTeam",Name:"Zengo Motorsport",Id:4834},4835:{Type:"CarTeam",Name:"Honda Racing Team Sweden",Id:4835},4866:{Type:"CarTeam",Name:"Motorcats Racing",Id:4866},4872:{Type:"CarTeam",Name:"SILBERPFEIL Energy Mercedes-AMG",Id:4872},4886:{Type:"CarTeam",Name:"RaceRoom",Id:4886},4893:{Type:"CarTeam",Name:"RaceRoom",Id:4893},4894:{Type:"CarTeam",Name:"RaceRoom",Id:4894},4896:{Type:"CarTeam",Name:"ST Suspensions",Id:4896},4897:{Type:"CarTeam",Name:"RaceRoom",Id:4897},4901:{Type:"CarTeam",Name:"KW Suspensions",Id:4901},4912:{Type:"CarTeam",Name:"ST Suspensions",Id:4912},4913:{Type:"CarTeam",Name:"RaceRoom",Id:4913},4914:{Type:"CarTeam",Name:"KW Suspensions",Id:4914},4915:{Type:"CarTeam",Name:"KW Suspensions",Id:4915},4995:{Type:"CarTeam",Name:"Marc CL Racing",Id:4995},4996:{Type:"CarTeam",Name:"Jägerbomb Motor",Id:4996},4997:{Type:"CarTeam",Name:"Bergmeister KG",Id:4997},4998:{Type:"CarTeam",Name:"Spiess Tuning",Id:4998},4999:{Type:"CarTeam",Name:"TMU Group",Id:4999},5000:{Type:"CarTeam",Name:"Randstad Team",Id:5e3},5001:{Type:"CarTeam",Name:"Blue Checks Motor",Id:5001},5002:{Type:"CarTeam",Name:"Error 500 ",Id:5002},5003:{Type:"CarTeam",Name:"Gulf Racing",Id:5003},5004:{Type:"CarTeam",Name:"Castrol Racing",Id:5004},5015:{Type:"CarTeam",Name:"Tolles Autohaus",Id:5015},5016:{Type:"CarTeam",Name:"Revell Team",Id:5016},5017:{Type:"CarTeam",Name:"Bartolome Racing",Id:5017},5018:{Type:"CarTeam",Name:"Recaro",Id:5018},5019:{Type:"CarTeam",Name:"Classic Orange",Id:5019},5020:{Type:"CarTeam",Name:"Horizon 75",Id:5020},5021:{Type:"CarTeam",Name:"Friedmann",Id:5021},5022:{Type:"CarTeam",Name:"Raiffeisen Racing",Id:5022},5023:{Type:"CarTeam",Name:"Kvantum Team",Id:5023},5024:{Type:"CarTeam",Name:"TNT Farben",Id:5024},5025:{Type:"CarTeam",Name:"Sekurit-Glas Union",Id:5025},5052:{Type:"CarTeam",Name:"Belltech Racing",Id:5052},5055:{Type:"CarTeam",Name:"Breitling Motorsports",Id:5055},5056:{Type:"CarTeam",Name:"Team Samsung",Id:5056},5057:{Type:"CarTeam",Name:"Mountaintop Racing",Id:5057},5058:{Type:"CarTeam",Name:"Deutsche Post Team",Id:5058},5059:{Type:"CarTeam",Name:"Castrol Edge Racing",Id:5059},5060:{Type:"CarTeam",Name:"Recaro Motorsports",Id:5060},5061:{Type:"CarTeam",Name:"Etihad Racing",Id:5061},5062:{Type:"CarTeam",Name:"RedBull Racing",Id:5062},5063:{Type:"CarTeam",Name:"Shell Powered",Id:5063},5064:{Type:"CarTeam",Name:"Mobil 1",Id:5064},5065:{Type:"CarTeam",Name:"Orange Sports",Id:5065},5066:{Type:"CarTeam",Name:"BJS Racing",Id:5066},5067:{Type:"CarTeam",Name:"Gulf Racing",Id:5067},5068:{Type:"CarTeam",Name:"Blue Arrow Team",Id:5068},5069:{Type:"CarTeam",Name:"Sparco Racing",Id:5069},5070:{Type:"CarTeam",Name:"Team Schaeffler",Id:5070},5071:{Type:"CarTeam",Name:"JVC Racing",Id:5071},5072:{Type:"CarTeam",Name:"Hero Racing",Id:5072},5073:{Type:"CarTeam",Name:"Snap-On Team",Id:5073},5153:{Type:"CarTeam",Name:"Bentley Team HTP",Id:5153},5158:{Type:"CarTeam",Name:"Endgegner",Id:5158},5171:{Type:"CarTeam",Name:"M-Sport Bentley",Id:5171},5172:{Type:"CarTeam",Name:"HTP Motorsport",Id:5172},5173:{Type:"CarTeam",Name:"Bentley Motorsport",Id:5173},5174:{Type:"CarTeam",Name:"Generation Bentley Racing",Id:5174},5176:{Type:"CarTeam",Name:"Trackspeed",Id:5176},5177:{Type:"CarTeam",Name:"Prospeed Competition",Id:5177},5178:{Type:"CarTeam",Name:"SMG Challenge",Id:5178},5195:{Type:"CarTeam",Name:"Deutsche Post Rennteam",Id:5195},5196:{Type:"CarTeam",Name:"JVC Racing Team",Id:5196},5197:{Type:"CarTeam",Name:"Samsung Motorsports",Id:5197},5198:{Type:"CarTeam",Name:"KW Automotive",Id:5198},5199:{Type:"CarTeam",Name:"ST Suspensions Team",Id:5199},5200:{Type:"CarTeam",Name:"ST Suspensions Racing",Id:5200},5201:{Type:"CarTeam",Name:"Orange Racing",Id:5201},5202:{Type:"CarTeam",Name:"Monster Racing",Id:5202},5203:{Type:"CarTeam",Name:"3M Motorsports",Id:5203},5204:{Type:"CarTeam",Name:"Boss Racing",Id:5204},5205:{Type:"CarTeam",Name:"Castrol Edge Motorsports",Id:5205},5206:{Type:"CarTeam",Name:"Dekra Automobile",Id:5206},5207:{Type:"CarTeam",Name:"AkzoNobel Racing",Id:5207},5208:{Type:"CarTeam",Name:"Autobild.de",Id:5208},5209:{Type:"CarTeam",Name:"Evosport",Id:5209},5210:{Type:"CarTeam",Name:"Panasonic Team",Id:5210},5211:{Type:"CarTeam",Name:"Festina Racing Team",Id:5211},5212:{Type:"CarTeam",Name:"Finnair",Id:5212},5213:{Type:"CarTeam",Name:"Exide Batteries",Id:5213},5215:{Type:"CarTeam",Name:"Puma",Id:5215},5216:{Type:"CarTeam",Name:"Tissot",Id:5216},5217:{Type:"CarTeam",Name:"Agfa",Id:5217},5218:{Type:"CarTeam",Name:"John Player Special",Id:5218},5243:{Type:"CarTeam",Name:"Scuderia Colonia e.V",Id:5243},5244:{Type:"CarTeam",Name:"LMS Engineering",Id:5244},5245:{Type:"CarTeam",Name:"Race and event Team",Id:5245},5246:{Type:"CarTeam",Name:"Moller Bil",Id:5246},5247:{Type:"CarTeam",Name:"MSC Sinzig e.V.i. ADAC",Id:5247},5248:{Type:"CarTeam",Name:"Rotek Racing",Id:5248},5249:{Type:"CarTeam",Name:"Pro handicap e. V.",Id:5249},5260:{Type:"CarTeam",Name:"Mercedes-AMG Motorsport BWT",Id:5260},5343:{Type:"CarTeam",Name:"RaceRoom",Id:5343},5345:{Type:"CarTeam",Name:"Bentley Team HTP",Id:5345},5346:{Type:"CarTeam",Name:"Bentley Team Absolute",Id:5346},5347:{Type:"CarTeam",Name:"Rowe Racing",Id:5347},5349:{Type:"CarTeam",Name:"RaceRoom Racing",Id:5349},5362:{Type:"CarTeam",Name:"Sintez",Id:5362},5363:{Type:"CarTeam",Name:"Hamilton",Id:5363},5364:{Type:"CarTeam",Name:"Ford Racing",Id:5364},5365:{Type:"CarTeam",Name:"US Robotics",Id:5365},5366:{Type:"CarTeam",Name:"Phoenix Perfomance",Id:5366},5367:{Type:"CarTeam",Name:"Lucas Oil Production Inc.",Id:5367},5368:{Type:"CarTeam",Name:"Insii Thai House",Id:5368},5369:{Type:"CarTeam",Name:"Marc VDS Racing",Id:5369},5374:{Type:"CarTeam",Name:"Koni Racing",Id:5374},5376:{Type:"CarTeam",Name:"Target Racing",Id:5376},5377:{Type:"CarTeam",Name:"Airgas Motorsport",Id:5377},5378:{Type:"CarTeam",Name:"Mobil 1 Racing",Id:5378},5379:{Type:"CarTeam",Name:"Dewalt Motorsport",Id:5379},5380:{Type:"CarTeam",Name:"Sebring Team",Id:5380},5381:{Type:"CarTeam",Name:"Behr Competition",Id:5381},5395:{Type:"CarTeam",Name:"Sébastien Loeb Racing",Id:5395},5397:{Type:"CarTeam",Name:"Team Astana",Id:5397},5400:{Type:"CarTeam",Name:"BMW Team MTEK",Id:5400},5403:{Type:"CarTeam",Name:"Mercedes-AMG DTM Team ART",Id:5403},5406:{Type:"CarTeam",Name:"Dörr-Motorsport",Id:5406},5410:{Type:"CarTeam",Name:"Audi Racing Experience",Id:5410},5412:{Type:"CarTeam",Name:"Audi Sport Team Abt Sportsline",Id:5412},5413:{Type:"CarTeam",Name:"Twin Busch Motorsport",Id:5413},5419:{Type:"CarTeam",Name:"AH Racing",Id:5419},5423:{Type:"CarTeam",Name:"Kissling Motorsport",Id:5423},5425:{Type:"CarTeam",Name:"Alzen Motorsports",Id:5425},5459:{Type:"CarTeam",Name:"Firefigher-Racing",Id:5459},5461:{Type:"CarTeam",Name:"Cavalieri Scaltri",Id:5461},5462:{Type:"CarTeam",Name:"True Racing",Id:5462},5463:{Type:"CarTeam",Name:"Gendarmerie - Racing",Id:5463},5464:{Type:"CarTeam",Name:"Pluscity",Id:5464},5465:{Type:"CarTeam",Name:"X-Bow-Battle.at",Id:5465},5466:{Type:"CarTeam",Name:"CCS - Racing",Id:5466},5467:{Type:"CarTeam",Name:"Martini Racing",Id:5467},5468:{Type:"CarTeam",Name:"KTM",Id:5468},5469:{Type:"CarTeam",Name:"DVB Racing",Id:5469},5470:{Type:"CarTeam",Name:"Black Flag Motorsport",Id:5470},5471:{Type:"CarTeam",Name:"RedBull",Id:5471},5472:{Type:"CarTeam",Name:"RTR-Projects",Id:5472},5473:{Type:"CarTeam",Name:"MP Racing",Id:5473},5474:{Type:"CarTeam",Name:"MLS-Racing",Id:5474},5487:{Type:"CarTeam",Name:"X-Bow-Battle.at",Id:5487},5491:{Type:"CarTeam",Name:"Alzen Motorsport",Id:5491},5492:{Type:"CarTeam",Name:"Hybrid Racing Team",Id:5492},5494:{Type:"CarTeam",Name:"Gemballa Racing",Id:5494},5497:{Type:"CarTeam",Name:"Haribo Racing",Id:5497},5498:{Type:"CarTeam",Name:"Car Collection",Id:5498},5503:{Type:"CarTeam",Name:"Schulze Motorsport",Id:5503},5507:{Type:"CarTeam",Name:"Falken Motorsport",Id:5507},5508:{Type:"CarTeam",Name:"Haribo Racing",Id:5508},5509:{Type:"CarTeam",Name:"Manthey Racing",Id:5509},5510:{Type:"CarTeam",Name:"Frikadelli Racing Team",Id:5510},5511:{Type:"CarTeam",Name:"Wochenspiegel Manthey Racing",Id:5511},5524:{Type:"CarTeam",Name:"TRB All Stars",Id:5524},5525:{Type:"CarTeam",Name:"Roomvibes",Id:5525},5529:{Type:"CarTeam",Name:"Promo Racing",Id:5529},5532:{Type:"CarTeam",Name:"Marioschopper.com",Id:5532},5557:{Type:"CarTeam",Name:"Audi Sport Team Phoenix",Id:5557},5558:{Type:"CarTeam",Name:"Audi Sport Team Rosberg",Id:5558},5559:{Type:"CarTeam",Name:"BMW Team RBM",Id:5559},5560:{Type:"CarTeam",Name:"BMW Team RMG",Id:5560},5561:{Type:"CarTeam",Name:"BMW Team Schnitzer",Id:5561},5562:{Type:"CarTeam",Name:"Mercedes-AMG DTM Team HWA",Id:5562},5563:{Type:"CarTeam",Name:"Mercedes-AMG DTM Team Mücke",Id:5563},5589:{Type:"CarTeam",Name:"Audi Sport",Id:5589},5592:{Type:"CarTeam",Name:"Mercedes-AMG Motorsport SILBERPFEIL Energy",Id:5592},5593:{Type:"CarTeam",Name:"Mercedes-AMG Motorsport Mercedes me",Id:5593},5604:{Type:"CarTeam",Name:"ST Suspensions",Id:5604},5605:{Type:"CarTeam",Name:"Belltech Sport",Id:5605},5606:{Type:"CarTeam",Name:"KW Suspensions",Id:5606},5623:{Type:"CarTeam",Name:"ST Suspensions",Id:5623},5635:{Type:"CarTeam",Name:"034 Motorsport",Id:5635},5636:{Type:"CarTeam",Name:"S.Pace Racing",Id:5636},5637:{Type:"CarTeam",Name:"LMS Engineering 2016",Id:5637},5638:{Type:"CarTeam",Name:"Besaplest Racing Team",Id:5638},5639:{Type:"CarTeam",Name:"FH Köln Motorsport",Id:5639},5640:{Type:"CarTeam",Name:"MSC Odenkirchen 2012",Id:5640},5668:{Type:"CarTeam",Name:"Jade Eng.",Id:5668},5739:{Type:"CarTeam",Name:"Thrustmaster",Id:5739},5768:{Type:"CarTeam",Name:"RYS Team KTM",Id:5768},5787:{Type:"CarTeam",Name:"McLaren Automotive Ltd",Id:5787},5819:{Type:"CarTeam",Name:"BMW Motorsport",Id:5819},5822:{Type:"CarTeam",Name:"Hanergy",Id:5822},5877:{Type:"CarTeam",Name:"Audi Sport Team Abt Sportsline 2",Id:5877},5878:{Type:"CarTeam",Name:"Mercedes-AMG DTM Team HWA 2",Id:5878},5895:{Type:"CarTeam",Name:"RedBull Racing",Id:5895},5896:{Type:"CarTeam",Name:"Team Samsung",Id:5896},5897:{Type:"CarTeam",Name:"TengTools",Id:5897},5898:{Type:"CarTeam",Name:"Team Festina",Id:5898},5899:{Type:"CarTeam",Name:"G-Energy Team",Id:5899},5900:{Type:"CarTeam",Name:"Cobalt Racing Brakes",Id:5900},5901:{Type:"CarTeam",Name:"Team Endless",Id:5901},5902:{Type:"CarTeam",Name:"Harman Racing",Id:5902},5903:{Type:"CarTeam",Name:"Replay Racing",Id:5903},5904:{Type:"CarTeam",Name:"Breitling Racing",Id:5904},5905:{Type:"CarTeam",Name:"AutoBild Sportscars",Id:5905},5906:{Type:"CarTeam",Name:"Puma Racing",Id:5906},5907:{Type:"CarTeam",Name:"Team Porta!",Id:5907},5908:{Type:"CarTeam",Name:"Snap-On Racing",Id:5908},5909:{Type:"CarTeam",Name:"Deutsche Post",Id:5909},5910:{Type:"CarTeam",Name:"Worms Racing",Id:5910},5911:{Type:"CarTeam",Name:"JBL Racing",Id:5911},5912:{Type:"CarTeam",Name:"Orange Racing",Id:5912},5913:{Type:"CarTeam",Name:"Team Marelli",Id:5913},5914:{Type:"CarTeam",Name:"Team Schiaparelli",Id:5914},5915:{Type:"CarTeam",Name:"RaceRoom",Id:5915},5916:{Type:"CarTeam",Name:"Team kfzteile24",Id:5916},5917:{Type:"CarTeam",Name:"Ergo Racing",Id:5917},5918:{Type:"CarTeam",Name:"Team Hitachi",Id:5918},5919:{Type:"CarTeam",Name:"Racing Steps Foundation",Id:5919},5943:{Type:"CarTeam",Name:"Teo Martin Motorsport",Id:5943},5946:{Type:"CarTeam",Name:"Clearwater Racing",Id:5946},5948:{Type:"CarTeam",Name:"K-Pax Racing",Id:5948},5950:{Type:"CarTeam",Name:"Von Ryan Racing",Id:5950},5952:{Type:"CarTeam",Name:"Objective Racing",Id:5952},5954:{Type:"CarTeam",Name:"Balfe Motorsport",Id:5954},5957:{Type:"CarTeam",Name:"Attempto Racing",Id:5957},5958:{Type:"CarTeam",Name:"Garage 59",Id:5958},5961:{Type:"CarTeam",Name:"Tekno Mclaren",Id:5961},5963:{Type:"CarTeam",Name:"Ecurie Ecosse",Id:5963},5966:{Type:"CarTeam",Name:"Gainsco",Id:5966},5984:{Type:"CarTeam",Name:"BMW Team Studie",Id:5984},5985:{Type:"CarTeam",Name:"Boutsen Ginion Racing",Id:5985},5986:{Type:"CarTeam",Name:"BMW Team Italia",Id:5986},5993:{Type:"CarTeam",Name:"BMW Team RLL",Id:5993},5994:{Type:"CarTeam",Name:"Schubert Motorsport",Id:5994},5995:{Type:"CarTeam",Name:"Walkenhorst Motorsport",Id:5995},5996:{Type:"CarTeam",Name:"Arta",Id:5996},5997:{Type:"CarTeam",Name:"Turner Motorsport",Id:5997},5998:{Type:"CarTeam",Name:"Rowe Racing",Id:5998},5999:{Type:"CarTeam",Name:"BMW Team SRM",Id:5999},6000:{Type:"CarTeam",Name:"RaceRoom",Id:6e3},6003:{Type:"CarTeam",Name:"Polestar Cyan Racing",Id:6003},6012:{Type:"CarTeam",Name:"Roal Motorsport",Id:6012},6018:{Type:"CarTeam",Name:"Sébastien Loeb Racing",Id:6018},6025:{Type:"CarTeam",Name:"Honda Racing Team JAS",Id:6025},6032:{Type:"CarTeam",Name:"LADA Sport Rosneft",Id:6032},6037:{Type:"CarTeam",Name:"All-Inkl.com Münnich Motorsport",Id:6037},6038:{Type:"CarTeam",Name:"Campos Racing",Id:6038},6039:{Type:"CarTeam",Name:"Nika International",Id:6039},6040:{Type:"CarTeam",Name:"Citroën Total WTCC",Id:6040},6041:{Type:"CarTeam",Name:"Zengö Motorsport",Id:6041},6058:{Type:"CarTeam",Name:"Audi Sport Team WRT",Id:6058},6060:{Type:"CarTeam",Name:"KW",Id:6060},6061:{Type:"CarTeam",Name:"KW",Id:6061},6108:{Type:"CarTeam",Name:"Sharp",Id:6108},6109:{Type:"CarTeam",Name:"Panasonic",Id:6109},6110:{Type:"CarTeam",Name:"HRM - Optima",Id:6110},6111:{Type:"CarTeam",Name:"Bott Racing",Id:6111},6112:{Type:"CarTeam",Name:"Shell",Id:6112},6113:{Type:"CarTeam",Name:"Aspen Dental",Id:6113},6114:{Type:"CarTeam",Name:"Firestone",Id:6114},6115:{Type:"CarTeam",Name:"TaxAct",Id:6115},6116:{Type:"CarTeam",Name:"Cobalt Racing",Id:6116},6117:{Type:"CarTeam",Name:"Rolex",Id:6117},6118:{Type:"CarTeam",Name:"Aegon",Id:6118},6119:{Type:"CarTeam",Name:"King",Id:6119},6120:{Type:"CarTeam",Name:"GoPro",Id:6120},6121:{Type:"CarTeam",Name:"Hitachi",Id:6121},6122:{Type:"CarTeam",Name:"Monster Energy",Id:6122},6123:{Type:"CarTeam",Name:"Pennzoil",Id:6123},6124:{Type:"CarTeam",Name:"UPS",Id:6124},6125:{Type:"CarTeam",Name:"Sunoco",Id:6125},6126:{Type:"CarTeam",Name:"Shell",Id:6126},6127:{Type:"CarTeam",Name:"GoPro",Id:6127},6128:{Type:"CarTeam",Name:"Virgin",Id:6128},6129:{Type:"CarTeam",Name:"Etihad",Id:6129},6130:{Type:"CarTeam",Name:"Samsung",Id:6130},6131:{Type:"CarTeam",Name:"Castrol",Id:6131},6132:{Type:"CarTeam",Name:"Snap-On",Id:6132},6133:{Type:"CarTeam",Name:"Mobil1",Id:6133},6134:{Type:"CarTeam",Name:"Monster Energy",Id:6134},6169:{Type:"CarTeam",Name:"Mercedes-AMG",Id:6169},6175:{Type:"CarTeam",Name:"Callaway Competition",Id:6175},6178:{Type:"CarTeam",Name:"Roal Motorsport",Id:6178},6179:{Type:"CarTeam",Name:"All-Inkl.com Münnich Motorsport",Id:6179},6180:{Type:"CarTeam",Name:"Campos Racing",Id:6180},6181:{Type:"CarTeam",Name:"Nika International",Id:6181},6188:{Type:"CarTeam",Name:"Sébastien Loeb Racing",Id:6188},6189:{Type:"CarTeam",Name:"Citroën Total WTCC",Id:6189},6196:{Type:"CarTeam",Name:"Honda Racing Team JAS",Id:6196},6197:{Type:"CarTeam",Name:"Zengö Motorsport",Id:6197},6204:{Type:"CarTeam",Name:"LADA Sport Rosneft",Id:6204},6209:{Type:"CarTeam",Name:"Polestar Cyan Racing",Id:6209},6263:{Type:"CarTeam",Name:"QSR Racing Team",Id:6263},6308:{Type:"CarTeam",Name:"ALL-INKL.COM Münnich Motorsport",Id:6308},6311:{Type:"CarTeam",Name:"Roal Motorsport",Id:6311},6315:{Type:"CarTeam",Name:"Sébastien Loeb Racing",Id:6315},6318:{Type:"CarTeam",Name:"ALL-INKL.COM Münnich Motorsport",Id:6318},6322:{Type:"CarTeam",Name:"Honda Racing Team JAS",Id:6322},6323:{Type:"CarTeam",Name:"Zengö Motorsport",Id:6323},6330:{Type:"CarTeam",Name:"RC Motorsport",Id:6330},6331:{Type:"CarTeam",Name:"RC Motorsport",Id:6331},6335:{Type:"CarTeam",Name:"Polestar Cyan Racing",Id:6335},6339:{Type:"CarTeam",Name:"Campos Racing",Id:6339},6350:{Type:"CarTeam",Name:"Porsche Motorsport",Id:6350},6420:{Type:"CarTeam",Name:"Sorg Rennsport",Id:6420},6421:{Type:"CarTeam",Name:"Duwo Racing",Id:6421},6422:{Type:"CarTeam",Name:"Walkenhorst Motorsport",Id:6422},6423:{Type:"CarTeam",Name:"Team Scheid-Honert Motorsport",Id:6423},6424:{Type:"CarTeam",Name:"Bonk motorsport",Id:6424},6425:{Type:"CarTeam",Name:"Pixum Team Adrenalin Motorsport",Id:6425},6426:{Type:"CarTeam",Name:"Mathol Racing",Id:6426},6427:{Type:"CarTeam",Name:"Ehret Motorsport",Id:6427},6428:{Type:"CarTeam",Name:"Race-House Motorsport",Id:6428},6429:{Type:"CarTeam",Name:"FK Performance",Id:6429},6430:{Type:"CarTeam",Name:"TKS Motorsport",Id:6430},6431:{Type:"CarTeam",Name:"Racing One",Id:6431},6462:{Type:"CarTeam",Name:"Team ASR",Id:6462},6463:{Type:"CarTeam",Name:"Stevenson Motorsports",Id:6463},6464:{Type:"CarTeam",Name:"Twin Busch Motorsport",Id:6464},6465:{Type:"CarTeam",Name:"Audi Team Hitotsuyama",Id:6465},6466:{Type:"CarTeam",Name:"Team Taisan SARD",Id:6466},6467:{Type:"CarTeam",Name:"Phoenix Racing Asia",Id:6467},6468:{Type:"CarTeam",Name:"Belgian Audi Club Team WRT",Id:6468},6469:{Type:"CarTeam",Name:"Supabarn",Id:6469},6470:{Type:"CarTeam",Name:"Castrol Racing Team",Id:6470},6471:{Type:"CarTeam",Name:"kfzteile24 APR Motorsport",Id:6471},6472:{Type:"CarTeam",Name:"Car Collection Motorsport",Id:6472},6473:{Type:"CarTeam",Name:"Montaplast by Land-Motorsport",Id:6473},6474:{Type:"CarTeam",Name:"YACO Racing",Id:6474},6475:{Type:"CarTeam",Name:"Aust Motorsport",Id:6475},6476:{Type:"CarTeam",Name:"Phoenix Racing",Id:6476},6477:{Type:"CarTeam",Name:"Audi Sport Team Land",Id:6477},6492:{Type:"CarTeam",Name:"Black Falcon",Id:6492},6493:{Type:"CarTeam",Name:"CRP Racing",Id:6493},6494:{Type:"CarTeam",Name:"Haribo Racing Team",Id:6494},6495:{Type:"CarTeam",Name:"Mercedes-AMG Team HTP Motorsport",Id:6495},6496:{Type:"CarTeam",Name:"Ram Racing",Id:6496},6497:{Type:"CarTeam",Name:"HTP Motorsport",Id:6497},6498:{Type:"CarTeam",Name:"Riley Motorsports",Id:6498},6499:{Type:"CarTeam",Name:"Kornely Motorsport",Id:6499},6500:{Type:"CarTeam",Name:"Team AKKA ASP",Id:6500},6501:{Type:"CarTeam",Name:"Team Zakspeed",Id:6501},6502:{Type:"CarTeam",Name:"BWT Mücke Motorsport",Id:6502},6505:{Type:"CarTeam",Name:"BMW Motorsport",Id:6505},6511:{Type:"CarTeam",Name:"MARC Cars Australia",Id:6511},6513:{Type:"CarTeam",Name:"Falken Motorsport",Id:6513},6521:{Type:"CarTeam",Name:"FunCompany",Id:6521},6523:{Type:"CarTeam",Name:"RWT Racing",Id:6523},6569:{Type:"CarTeam",Name:"Porsche Motorsport",Id:6569},6582:{Type:"CarTeam",Name:"Petronas",Id:6582},6589:{Type:"CarTeam",Name:"Audi Sport",Id:6589},6624:{Type:"CarTeam",Name:"Porsche Motorsport",Id:6624},6641:{Type:"CarTeam",Name:"RaceRoom",Id:6641},6733:{Type:"CarTeam",Name:"Mühlner Motorsport",Id:6733},6734:{Type:"CarTeam",Name:"KW Automotive",Id:6734},6735:{Type:"CarTeam",Name:"Belltech Sport",Id:6735},6736:{Type:"CarTeam",Name:"Red Bull Racing",Id:6736},6737:{Type:"CarTeam",Name:"NVIDIA",Id:6737},6738:{Type:"CarTeam",Name:"Samsung",Id:6738},6739:{Type:"CarTeam",Name:"Team Deutsche Post",Id:6739},6740:{Type:"CarTeam",Name:"Intel",Id:6740},6741:{Type:"CarTeam",Name:"Raceunion Huber Racing",Id:6741},6742:{Type:"CarTeam",Name:"AMD",Id:6742},6743:{Type:"CarTeam",Name:"AUTO BILD motorsport",Id:6743},6744:{Type:"CarTeam",Name:"Monster Energy",Id:6744},6745:{Type:"CarTeam",Name:"GoPro Motorsports",Id:6745},6746:{Type:"CarTeam",Name:"MOMO Italy",Id:6746},6747:{Type:"CarTeam",Name:"Hertz",Id:6747},6748:{Type:"CarTeam",Name:"Locht Auto Tech",Id:6748},6749:{Type:"CarTeam",Name:"Paradoxx Racing",Id:6749},6750:{Type:"CarTeam",Name:"Zola Racing",Id:6750},6751:{Type:"CarTeam",Name:"TK Racing",Id:6751},6752:{Type:"CarTeam",Name:"Meier Racing",Id:6752},6753:{Type:"CarTeam",Name:"ST Suspensions",Id:6753},6754:{Type:"CarTeam",Name:"Team Logitech",Id:6754},6755:{Type:"CarTeam",Name:"Falken Team Motorsports",Id:6755},6756:{Type:"CarTeam",Name:"Team Castrol",Id:6756},6757:{Type:"CarTeam",Name:"Team kfzteile24",Id:6757},6759:{Type:"CarTeam",Name:"Team Falken Motorsport",Id:6759},6760:{Type:"CarTeam",Name:"Gulf Racing JP",Id:6760},6761:{Type:"CarTeam",Name:"Competition Motorsports",Id:6761},6762:{Type:"CarTeam",Name:"Manthey Racing",Id:6762},6763:{Type:"CarTeam",Name:"Alex Job Racing",Id:6763},6764:{Type:"CarTeam",Name:"Frikadelli Racing Team",Id:6764},6765:{Type:"CarTeam",Name:"D'station Racing",Id:6765},6766:{Type:"CarTeam",Name:"CORE autosport",Id:6766},6767:{Type:"CarTeam",Name:"Park Place Motorsports",Id:6767},6768:{Type:"CarTeam",Name:"Craft-Bamboo Racing",Id:6768},6769:{Type:"CarTeam",Name:"Herberth Motorsport",Id:6769
 },6770:{Type:"CarTeam",Name:"The Racers Group",Id:6770},6771:{Type:"CarTeam",Name:"GMG Racing",Id:6771},6772:{Type:"CarTeam",Name:"Walkinshaw GT3",Id:6772},6773:{Type:"CarTeam",Name:"BLACK FALCON",Id:6773},6792:{Type:"CarTeam",Name:"HWA Team",Id:6792},6797:{Type:"CarTeam",Name:"Mantella Autosport Inc.",Id:6797},6802:{Type:"CarTeam",Name:"ANSA Motorsports",Id:6802},6834:{Type:"CarTeam",Name:"ZaWotec",Id:6834},6835:{Type:"CarTeam",Name:"RYS Team Holinger",Id:6835},6836:{Type:"CarTeam",Name:"Reiter Engineering",Id:6836},6837:{Type:"CarTeam",Name:"Isert Motorsport",Id:6837},6838:{Type:"CarTeam",Name:"RYS Team Kiska",Id:6838},6839:{Type:"CarTeam",Name:"RYS Team WP",Id:6839},6840:{Type:"CarTeam",Name:"RYS Team Pankl",Id:6840},6841:{Type:"CarTeam",Name:"RTR Project",Id:6841},6844:{Type:"CarTeam",Name:"Fanatec Podium Series",Id:6844},6846:{Type:"CarTeam",Name:"Fanatec Podium Series",Id:6846},6850:{Type:"CarTeam",Name:"HWA Team",Id:6850},6855:{Type:"CarTeam",Name:"Eurosport Events",Id:6855},6861:{Type:"CarTeam",Name:"AMG-Mercedes",Id:6861},6862:{Type:"CarTeam",Name:"Mass-Schons",Id:6862},6863:{Type:"CarTeam",Name:"Zakspeed",Id:6863},6883:{Type:"CarTeam",Name:"Team Rosberg",Id:6883},6887:{Type:"CarTeam",Name:"Persson Motorsport",Id:6887},6888:{Type:"CarTeam",Name:"Persson Motorsport",Id:6888},6890:{Type:"CarTeam",Name:"Mücke Motorsport",Id:6890},6950:{Type:"CarTeam",Name:"EURONICS/BWT Mercedes-AMG",Id:6950},6951:{Type:"CarTeam",Name:"gooix/Original-Teile Mercedes-AMG",Id:6951},6952:{Type:"CarTeam",Name:"PETRONAS Mercedes-AMG (Mücke Motorsport)",Id:6952},6953:{Type:"CarTeam",Name:"SILBERPFEIL Energy Mercedes-AMG",Id:6953},6979:{Type:"CarTeam",Name:"D2 AMG-Mercedes",Id:6979},6986:{Type:"CarTeam",Name:"AMG-Mercedes",Id:6986},6987:{Type:"CarTeam",Name:"Zakspeed Mercedes",Id:6987},6998:{Type:"CarTeam",Name:"Persson Motorsport",Id:6998},7004:{Type:"CarTeam",Name:"Porsche Russia",Id:7004},7006:{Type:"CarTeam",Name:"Zengő Motorsport",Id:7006},7012:{Type:"CarTeam",Name:"Audi Sport Leopard Lukoil Team",Id:7012},7013:{Type:"CarTeam",Name:"Audi Sport Team Comtoyou",Id:7013},7014:{Type:"CarTeam",Name:"Comtoyou Racing",Id:7014},7015:{Type:"CarTeam",Name:"Bas Koeten Racing",Id:7015},7030:{Type:"CarTeam",Name:"Team Mulsanne",Id:7030},7037:{Type:"CarTeam",Name:"DG Sport Competition",Id:7037},7043:{Type:"CarTeam",Name:"Super Racer",Id:7043},7044:{Type:"CarTeam",Name:"Super Racer",Id:7044},7073:{Type:"CarTeam",Name:"Team OSCARO by Campos Racing",Id:7073},7077:{Type:"CarTeam",Name:"D2 AMG-Mercedes",Id:7077},7078:{Type:"CarTeam",Name:"AMG-Mercedes",Id:7078},7079:{Type:"CarTeam",Name:"Zakspeed Mercedes",Id:7079},7080:{Type:"CarTeam",Name:"Persson Motorsport",Id:7080},7106:{Type:"CarTeam",Name:"Sébastien Loeb Racing",Id:7106},7118:{Type:"CarTeam",Name:"MRacing - YMR",Id:7118},7124:{Type:"CarTeam",Name:"BRC Racing Team",Id:7124},7126:{Type:"CarTeam",Name:"Boutsen Ginion Racing",Id:7126},7134:{Type:"CarTeam",Name:"ALL-INKL.COM Münnich Motorsport",Id:7134},7161:{Type:"CarTeam",Name:"AVIA Racing",Id:7161},7163:{Type:"CarTeam",Name:"Lotus Cyan Racing",Id:7163},7170:{Type:"CarTeam",Name:"HWA Team",Id:7170},7171:{Type:"CarTeam",Name:"Team Rosberg",Id:7171},7172:{Type:"CarTeam",Name:"Persson Motorsport",Id:7172},7184:{Type:"CarTeam",Name:"HWA Team",Id:7184},7185:{Type:"CarTeam",Name:"Persson Motorsport",Id:7185},7186:{Type:"CarTeam",Name:"Mücke Motorsport",Id:7186},7225:{Type:"CarTeam",Name:"AVIA Racing",Id:7225},7228:{Type:"CarTeam",Name:"Lotus Driving Academy",Id:7228},7229:{Type:"CarTeam",Name:"Lotus Sport UK",Id:7229},7231:{Type:"CarTeam",Name:"Lotus Cars",Id:7231},7242:{Type:"CarTeam",Name:"Mathilda Racing",Id:7242},7243:{Type:"CarTeam",Name:"Bodymotion Racing",Id:7243},7244:{Type:"CarTeam",Name:"Rennsport-one RS1",Id:7244},7245:{Type:"CarTeam",Name:"BGB Motorsport",Id:7245},7246:{Type:"CarTeam",Name:"Team TGM",Id:7246},7247:{Type:"CarTeam",Name:"GMG Racing",Id:7247},7265:{Type:"CarTeam",Name:"GIGASPEED Team GetSpeed Performance",Id:7265},7266:{Type:"CarTeam",Name:"ESBA-Racing",Id:7266},7267:{Type:"CarTeam",Name:"Schmickler Performance",Id:7267},7268:{Type:"CarTeam",Name:"Teichmann Racing",Id:7268},7269:{Type:"CarTeam",Name:"Fanclub Mathol Racing e.V",Id:7269},7270:{Type:"CarTeam",Name:"Mühlner Motorsport",Id:7270},7271:{Type:"CarTeam",Name:"KKrämer Racing",Id:7271},7277:{Type:"CarTeam",Name:"Cor Euser Racing",Id:7277},7374:{Type:"CarTeam",Name:"RYS Team True Racing",Id:7374},7375:{Type:"CarTeam",Name:"RYS Team H&A",Id:7375},7376:{Type:"CarTeam",Name:"RaceRoom",Id:7376},7377:{Type:"CarTeam",Name:"True-Racing.at",Id:7377},7378:{Type:"CarTeam",Name:"M-Motorsport",Id:7378},7380:{Type:"CarTeam",Name:"Wochenspiegel Team",Id:7380},7381:{Type:"CarTeam",Name:"SAINTéLOC Racing",Id:7381},7382:{Type:"CarTeam",Name:"CD Sport",Id:7382},7383:{Type:"CarTeam",Name:"Vic'TEAM",Id:7383},7384:{Type:"CarTeam",Name:"MOMO Megatron Team Partrax",Id:7384},7385:{Type:"CarTeam",Name:"Schwede Motorsport",Id:7385},7386:{Type:"CarTeam",Name:"Pit Lane",Id:7386},7387:{Type:"CarTeam",Name:"Besagroup Racing Team",Id:7387},7388:{Type:"CarTeam",Name:"Winward Racing",Id:7388},7389:{Type:"CarTeam",Name:"Allied Racing",Id:7389},7390:{Type:"CarTeam",Name:"RN Vision STS",Id:7390},7391:{Type:"CarTeam",Name:"Case.It Racing",Id:7391},7392:{Type:"CarTeam",Name:"TFT Racing",Id:7392},7393:{Type:"CarTeam",Name:"Martinet by Alméras",Id:7393},7394:{Type:"CarTeam",Name:"Riviera Motorsport",Id:7394},7395:{Type:"CarTeam",Name:"ISSY Racing",Id:7395}}};
 
-window.r3e = function () {
-	function n(n) {
-		return function (e, o) {
-			var r = {};
-			if (n.requiresArguments) {
-				if (r = e, !o) throw new Error("Callback is not set: " + n.call)
-			} else o = e;
-			if ("function" != typeof o) throw new Error("Callback is not a function: " + n.call);
-			var i = t[n.pool](r);
-			if (i.push(o), !(i.length > 1)) {
-				var f = {};
-				f[n.call] = r;
-				var l = JSON.stringify(f);
-				window.r3e.gameClient(null, l)
-			}
-		}
+window.r3e = (function r3eBridge() {
+	if (!window.gameClient) {
+		return console.warn('This depends on the R3E game client');
 	}
-	
-	function e(n) {
-		return function (e) {
-			if ("undefined" == typeof e && !n.noArgs) throw new Error("Args are not set: " + n.call);
-			var o = {};
-			o[n.call] = e || {};
-			var r = JSON.stringify(o);
-			window.r3e.gameClient(null, r)
-		}
-	}
-	
-	function o(n) {
-		return function (e) {
-			if (!Number.isInteger(e)) throw new Error("slotId is not an integer");
-			window.r3e.gameClient(null, JSON.stringify({ChangeCamera: {slotId: e, camera: n}}))
-		}
-	}
-	
-	function r(n) {
-		return function (e) {
-			var o = t[n.pool]();
-			o.persistent = !0, o.push(e)
-		}
-	}
-	
-	if (!window.gameClient) return console.warn("This depends on the R3E game client");
-	var t = function () {
-		var n = {
-			vehicleInfo: {},
-			pitInfo: {},
-			ptpInfo: {},
-			extendedInfo: {},
-			driverInfo: {},
-			driversInfo: [],
-			sessionInfo: [],
-			eventInfo: [],
-			resultsUpdate: [],
-			results: [],
+
+	var getRequestPool = (function() {
+		var requestPool = {
+			'vehicleInfo': {},
+			'pitInfo': {},
+			'ptpInfo': {},
+			'extendedInfo': {},
+			'driverInfo': {},
+			'driversInfo': [],
+			'sessionInfo': [],
+			'eventInfo': [],
+			'resultsUpdate': [],
+			'eventOccurred': []
 		};
+
 		return {
-			driverInfo: function (e) {
-				return n.driverInfo[e.slotId] || (n.driverInfo[e.slotId] = []), n.driverInfo[e.slotId]
-			}, vehicleInfo: function (e) {
-				return n.vehicleInfo[e.slotId] || (n.vehicleInfo[e.slotId] = []), n.vehicleInfo[e.slotId]
-			}, pitInfo: function (e) {
-				return n.pitInfo[e.slotId] || (n.pitInfo[e.slotId] = []), n.pitInfo[e.slotId]
-			}, ptPInfo: function (e) {
-				return n.ptpInfo[e.slotId] || (n.ptpInfo[e.slotId] = []), n.ptpInfo[e.slotId]
-			}, extendedInfo: function (e) {
-				return n.extendedInfo[e.slotId] || (n.extendedInfo[e.slotId] = []), n.extendedInfo[e.slotId]
-			}, driversInfo: function () {
-				return n.driversInfo
-			}, sessionInfo: function () {
-				return n.sessionInfo
-			}, eventInfo: function () {
-				return n.eventInfo
-			}, resultsUpdate: function () {
-				return n.resultsUpdate
-			}, results: function () {
-				return n.results
+			'driverInfo': function getdriverInfoPool(data) {
+				if (!requestPool.driverInfo[data.slotId]) {
+					requestPool.driverInfo[data.slotId] = [];
+				}
+				return requestPool.driverInfo[data.slotId];
+			},
+			'vehicleInfo': function getVehicleInfoPool(data) {
+				if (!requestPool.vehicleInfo[data.slotId]) {
+					requestPool.vehicleInfo[data.slotId] = [];
+				}
+				return requestPool.vehicleInfo[data.slotId];
+			},
+			'pitInfo': function getPitInfoPool(data) {
+				if (!requestPool.pitInfo[data.slotId]) {
+					requestPool.pitInfo[data.slotId] = [];
+				}
+				return requestPool.pitInfo[data.slotId];
+			},
+			'ptPInfo': function getPtpInfoPool(data) {
+				if (!requestPool.ptpInfo[data.slotId]) {
+					requestPool.ptpInfo[data.slotId] = [];
+				}
+				return requestPool.ptpInfo[data.slotId];
+			},
+			'extendedInfo': function getExtendedInfo(data) {
+				if (!requestPool.extendedInfo[data.slotId]) {
+					requestPool.extendedInfo[data.slotId] = [];
+				}
+				return requestPool.extendedInfo[data.slotId];
+			},
+			'driversInfo': function getDriversInfoPool() {
+				return requestPool.driversInfo;
+			},
+			'sessionInfo': function getSessionInfoPool() {
+				return requestPool.sessionInfo;
+			},
+			'eventInfo': function getEventInfoPool() {
+				return requestPool.eventInfo;
+			},
+			'resultsUpdate': function getResultsUpdatePool() {
+				return requestPool.resultsUpdate;
+			},
+			'eventOccurred': function getEventOccurredPool() {
+				return requestPool.eventOccurred;
 			}
+		};
+	})();
+
+	window.communicator = function(type, data) {
+		var poolFetcher = getRequestPool[type];
+		if (!poolFetcher) {
+			return;
 		}
-	}();
-	return window.communicator = function (n, e) {
-		var o = t[n];
-		if (o) {
-			var r = o(e), i = [];
-			r.forEach(function (n) {
-				i.push(n)
-			}), r.persistent || (r.length = 0), i.forEach(function (n) {
-				n(e)
-			})
+
+		var pool = poolFetcher(data);
+
+		var callbacksToTrigger = [];
+		pool.forEach(function(callback) {
+			callbacksToTrigger.push(callback);
+		});
+
+		// Reset pool
+		if (!pool.persistent) {
+			pool.length = 0;
 		}
-	}, {
-		getVehicleInfo: n({call: "GetVehicleInfo", pool: "vehicleInfo", requiresArguments: !0}),
-		getPitInfo: n({call: "GetPitInfo", pool: "pitInfo", requiresArguments: !0}),
-		getPushToPassInfo: n({call: "GetPtPInfo", pool: "ptPInfo", requiresArguments: !0}),
-		getExtendedInfo: n({call: "GetExtendedInfo", pool: "extendedInfo", requiresArguments: !0}),
-		getDriverInfo: n({call: "GetDriverInfo", pool: "driverInfo", requiresArguments: !0}),
-		getDriversInfo: n({call: "GetDriversInfo", pool: "driversInfo"}),
-		getSessionInfo: n({call: "GetSessionInfo", pool: "sessionInfo"}),
-		getEventInfo: n({call: "GetEventInfo", pool: "eventInfo"}),
-		showCursor: e({call: "ShowCursor"}),
-		waitOnResults: e({call: "WaitForMe"}),
-		goToNextEvent: e({call: "Proceed", noArgs: !0}),
-		exit: e({call: "Exit", noArgs: !0}),
-		setCamera: {
-			nosecam: o("nosecam"),
-			cockpit: o("cockpit"),
-			swingman: o("swingman"),
-			onboard: o("onboard"),
-			trackside: o("trackside1"),
-			onboard1: o("onboard_1"),
-			onboard2: o("onboard_2"),
-			frontCam: o("front_cam"),
-			rearCam: o("rear_cam"),
-			flFront: o("fl_front"),
-			frFront: o("fr_front"),
-			rlRear: o("rl_rear"),
-			rrRear: o("rr_rear"),
-			rlFront: o("rl_front"),
-			rrFront: o("rr_front"),
-			exhaust: o("exhaust"),
-			wing: o("wing")
-		},
-		on: {
-			resultsUpdate: r({pool: "resultsUpdate"}),
-			results: r({pool: "results"})
-		},
-		gameClient: window.gameClient
+
+		callbacksToTrigger.forEach(function runCallback(callback) {
+			callback(data);
+		});
+	};
+
+	function get(opts) {
+		return function getter(argsOrCallback, callback) {
+			var args = {};
+			if (opts.requiresArguments) {
+				args = argsOrCallback;
+				if (!callback) {
+					throw new Error('Callback is not set: '+opts.call);
+				}
+			} else {
+				callback = argsOrCallback;
+			}
+
+			if (typeof callback !== 'function') {
+				throw new Error('Callback is not a function: '+opts.call);
+			}
+
+			var pool = getRequestPool[opts.pool](args);
+			pool.push(callback);
+
+			if (pool.length > 1) {
+				return;
+			}
+
+			var gameClientData = {};
+			gameClientData[opts.call] = args;
+
+			var jsonStr = JSON.stringify(gameClientData);
+
+			window.r3e.gameClient(null, jsonStr);
+		};
 	}
-}();
-//# sourceMappingURL=r3e.min.js.map
+
+	function set(opts) {
+		return function seter(args) {
+			if (typeof args === 'undefined' && !opts.noArgs) {
+				throw new Error('Args are not set: '+opts.call);
+			}
+
+			var gameClientData = {};
+			gameClientData[opts.call] = args || {};
+
+			var jsonStr = JSON.stringify(gameClientData);
+			window.r3e.gameClient(null, jsonStr);
+		};
+	}
+
+	function cameraChanger(cameraId) {
+		return function cameraChangers(slotId) {
+			if (!Number.isInteger(slotId)) {
+				throw new Error('slotId is not an integer');
+			}
+
+			window.r3e.gameClient(null, JSON.stringify({
+				'ChangeCamera': {
+					'slotId': slotId,
+					'camera': cameraId
+				}
+			}));
+		};
+	}
+
+	function listener(opts) {
+		return function listeners(callback) {
+			var pool = getRequestPool[opts.pool]();
+
+			// Set property on array so it doesn't get cleared
+			pool.persistent = true;
+			pool.push(callback);
+		};
+	}
+
+	return {
+		'getVehicleInfo': get({
+			'call': 'GetVehicleInfo',
+			'pool': 'vehicleInfo',
+			'requiresArguments': true
+		}),
+		'getPitInfo': get({
+			'call': 'GetPitInfo',
+			'pool': 'pitInfo',
+			'requiresArguments': true
+		}),
+		'getPushToPassInfo': get({
+			'call': 'GetPtPInfo',
+			'pool': 'ptPInfo',
+			'requiresArguments': true
+		}),
+		'getExtendedInfo': get({
+			'call': 'GetExtendedInfo',
+			'pool': 'extendedInfo',
+			'requiresArguments': true
+		}),
+		'getDriverInfo': get({
+			'call': 'GetDriverInfo',
+			'pool': 'driverInfo',
+			'requiresArguments': true
+		}),
+		'getDriversInfo': get({
+			'call': 'GetDriversInfo',
+			'pool': 'driversInfo'
+		}),
+		'getSessionInfo': get({
+			'call': 'GetSessionInfo',
+			'pool': 'sessionInfo'
+		}),
+		'getEventInfo': get({
+			'call': 'GetEventInfo',
+			'pool': 'eventInfo'
+		}),
+		'showCursor': set({
+			'call': 'ShowCursor'
+		}),
+		'waitOnResults': set({
+			'call': 'WaitForMe'
+		}),
+		'goToNextEvent': set({
+			'call': 'Proceed',
+			'noArgs': true
+		}),
+		'exit': set({
+			'call': 'Exit',
+			'noArgs': true
+		}),
+		'setCamera': {
+			'nosecam': cameraChanger('nosecam'),
+			'cockpit': cameraChanger('cockpit'),
+			'swingman': cameraChanger('swingman'),
+			'onboard': cameraChanger('onboard'),
+			'trackside': cameraChanger('trackside1'),
+			'onboard1': cameraChanger('onboard_1'),
+			'onboard2': cameraChanger('onboard_2'),
+			'frontCam': cameraChanger('front_cam'),
+			'rearCam': cameraChanger('rear_cam'),
+			'flFront': cameraChanger('fl_front'),
+			'frFront': cameraChanger('fr_front'),
+			'rlRear': cameraChanger('rl_rear'),
+			'rrRear': cameraChanger('rr_rear'),
+			'rlFront': cameraChanger('rl_front'),
+			'rrFront': cameraChanger('rr_front'),
+			'exhaust': cameraChanger('exhaust'),
+			'wing': cameraChanger('wing')
+		},
+		'on': {
+			'resultsUpdate': listener({
+				'pool': 'resultsUpdate'
+			}),
+			'eventOccurred': listener({
+				pool: 'eventOccurred'
+			})
+		},
+		'gameClient': window.gameClient
+	};
+})();
+
 var UI = {
 	'baseEl': document.querySelector('#content'),
 	'components': {}, // Base components
@@ -660,6 +775,63 @@ window.addEventListener('message', function(event) {
 		console.error('Got window message error', event.data, e);
 	}
 });
+UI.widgets.DamageCheck = React.createClass({
+	displayName: 'DamageCheck',
+
+	componentWillMount: function () {
+		var self = this;
+
+		// Hide widgets that use the same screen space
+		io.emit('setState', UI.state);
+
+		function updateInfo() {
+			UI.batch({
+				'pitInfo': function (done) {
+					r3e.getPitInfo({
+						'slotId': UI.state.focusedSlot
+					}, done);
+				}
+			}, self.setState.bind(self));
+		}
+		updateInfo();
+
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+	},
+	componentWillUnmount: function () {
+		clearInterval(this.updateInterval);
+	},
+	getInitialState: function () {
+		return {
+			'pitInfo': {}
+		};
+	},
+	render: function () {
+		var self = this;
+		var info = self.state.pitInfo;
+		if (!info.tyreType) {
+			return null;
+		}
+
+		return React.createElement(
+			'div',
+			{ className: 'damage-check' },
+			React.createElement(
+				'div',
+				{ className: 'part engine' },
+				'Engine: ',
+				100 - info.damage.engine,
+				'%'
+			),
+			React.createElement(
+				'div',
+				{ className: 'part transmission' },
+				'Transmission: ',
+				100 - info.damage.transmission,
+				'%'
+			)
+		);
+	}
+});
 UI.widgets.DirectorSuggestions = React.createClass({
 	displayName: 'DirectorSuggestions',
 
@@ -768,6 +940,15 @@ UI.widgets.EventInfo = React.createClass({
 			'eventInfo': {}
 		};
 	},
+	getCountryCode: function (trackId) {
+		var countryCode = "";
+
+		if (r3eTracks.tracks[trackId] != null) {
+			countryCode = r3eTracks.tracks[trackId].countryCode;
+		}
+
+		return countryCode;
+	},
 	render: function () {
 		var self = this;
 		var info = self.state.eventInfo;
@@ -843,6 +1024,11 @@ UI.widgets.EventInfo = React.createClass({
 							info.weatherInfo.conditions
 						)
 					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'countryFlag' },
+					React.createElement('img', { src: '/img/flags/' + self.getCountryCode(info.trackId) + '.svg' })
 				)
 			)
 		);
@@ -1349,9 +1535,9 @@ UI.widgets.MulticlassStandings = React.createClass({
 		}
 	},
 	renderName: function (name, classId) {
+		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
 		var parts = name.split(' ');
 		var name = parts[parts.length - 1].substr(0, 3).toUpperCase();
-		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
 
 		var classColour = "rgba(38, 50, 56, 0.8)";
 
@@ -1433,12 +1619,12 @@ UI.widgets.MulticlassStandings = React.createClass({
 								{ className: 'manufacturer' },
 								React.createElement('img', { src: '/img/manufacturers/' + driversLookup[i].manufacturerId + '.webp' })
 							),
+							self.getMetaInfo(driversLookup[i], drivers),
 							r3eTyreDB.classes[driversLookup[i].classId] != null ? React.createElement(
 								'div',
 								{ className: 'tyre' },
 								React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
 							) : null,
-							self.getMetaInfo(driversLookup[i], drivers),
 							React.createElement(
 								'div',
 								{ className: 'pit-info' },
@@ -1617,6 +1803,211 @@ var RaceResultEntry = React.createClass({
 		);
 	}
 });
+UI.widgets.Results = React.createClass({
+	displayName: 'Results',
+
+	componentWillMount: function () {
+		var self = this;
+
+		// Hide all other overlays besides logo
+		Object.keys(UI.state.activeWidgets).forEach(function (key) {
+			if (key.match(/(Results|LogoOverlay|AutoDirector)/)) {
+				return;
+			}
+
+			UI.state.activeWidgets[key].active = false;
+		});
+		io.emit('setState', UI.state);
+
+		function updateInfo() {
+			UI.batch({
+				'driversInfo': r3e.getDriversInfo
+			}, self.setState.bind(self));
+		}
+		updateInfo();
+
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+
+		(function checkRefs() {
+			if (!self.refs['entries-outer']) {
+				return setTimeout(checkRefs, 100);
+			}
+
+			var diff = self.refs['entries-outer'].clientHeight - self.refs['entries-inner'].clientHeight;
+			setTimeout(function () {
+				if (!self.refs['entries-inner']) {
+					return;
+				}
+				self.refs['entries-inner'].style.top = diff + 'px';
+			}, 10 * 1000);
+		})();
+	},
+	componentWillUnmount: function () {
+		clearInterval(this.updateInterval);
+	},
+	getInitialState: function () {
+		return {
+			'driversInfo': {
+				'driversInfo': []
+			}
+		};
+	},
+	sortFunctionPosition: function (a, b) {
+		if (a.scoreInfo.positionOverall > b.scoreInfo.positionOverall) {
+			return 1;
+		} else if (a.scoreInfo.positionOverall === b.scoreInfo.positionOverall) {
+			return 0;
+		} else {
+			return -1;
+		}
+	},
+	render: function () {
+		var self = this;
+		if (this.state.driversInfo.driversInfo.length === 0) {
+			return null;
+		}
+		var drivers = this.state.driversInfo.driversInfo;
+		if (drivers.filter(function (entry) {
+			return entry.scoreInfo.bestLapInfo.sector3 !== -1;
+		}).length === 0) {
+			return null;
+		}
+
+		var fastestTime = 99999;
+		var fastestTimeIndex = null;
+		drivers.forEach(function (entry, i) {
+			if (entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
+				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
+				fastestTimeIndex = i;
+			}
+		});
+		if (drivers[fastestTimeIndex]) {
+			drivers[fastestTimeIndex].isFastest = true;
+		}
+
+		return React.createElement(
+			'div',
+			{ className: 'qualify-results' },
+			React.createElement(
+				'div',
+				{ className: 'title' },
+				'Qualification Results'
+			),
+			React.createElement(
+				'div',
+				{ className: 'qualify-results-entry title' },
+				React.createElement(
+					'div',
+					{ className: 'position' },
+					'Position'
+				),
+				React.createElement('div', { className: 'livery' }),
+				React.createElement('div', { className: 'manufacturer' }),
+				React.createElement(
+					'div',
+					{ className: 'name' },
+					'Name'
+				),
+				React.createElement(
+					'div',
+					{ className: 'fastest-time' },
+					'Delta'
+				),
+				React.createElement(
+					'div',
+					{ className: 'lap-time' },
+					'Best lap time'
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'entries-outer', ref: 'entries-outer' },
+				React.createElement(
+					'div',
+					{ className: 'entries-inner', ref: 'entries-inner' },
+					drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
+						return React.createElement(ResultEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
+					})
+				)
+			)
+		);
+	}
+});
+
+var ResultEntry = React.createClass({
+	displayName: 'ResultEntry',
+
+	getClassColour: function (classId) {
+		var classColour = "rgba(38, 50, 56, 0.8)";
+		var className = "";
+
+		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
+			classColour = r3eClassColours.classes[classId].colour;
+			className = r3eData.classes[classId].Name;
+		}
+
+		return { 'backgroundColor': classColour };
+	},
+	render: function () {
+		var self = this;
+		var entry = self.props.entry;
+		var lapTime = null;
+		if (entry.scoreInfo.bestLapInfo.sector3 === -1) {
+			return null;
+		}
+		if (this.props.index === 0) {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'fastest-time' },
+				'-'
+			);
+		} else {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'fastest-time' },
+				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3 - self.props.firstEntry.scoreInfo.bestLapInfo.sector3)
+			);
+		}
+		return React.createElement(
+			'div',
+			{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
+			React.createElement(
+				'div',
+				{ className: 'position' },
+				entry.scoreInfo.positionOverall,
+				'.'
+			),
+			React.createElement(
+				'div',
+				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
+				'Class P',
+				entry.scoreInfo.positionClass,
+				'.'
+			),
+			React.createElement(
+				'div',
+				{ className: 'manufacturer' },
+				React.createElement('img', { src: '/img/manufacturers/' + entry.manufacturerId + '.webp' })
+			),
+			React.createElement(
+				'div',
+				{ className: 'name' },
+				UI.fixName(entry.name)
+			),
+			React.createElement(
+				'div',
+				{ className: 'livery' },
+				React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
+			),
+			lapTime,
+			React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+			)
+		);
+	}
+});
 (function reload() {
 	// When a Less file has been updated
 	window.io.on('css', function(path, content) {
@@ -1785,6 +2176,31 @@ $(document).keyup(function(e) {
 		});
 	}
 });
+UI.widgets.SafetyCarIn = React.createClass({
+  displayName: "SafetyCarIn",
+
+  componentWillUnmount: function () {
+    // hide safety car indicator when dismounting
+    UI.state.activeWidgets.SafetyCarDeployed.active = false;
+  },
+  render: function () {
+    var self = this;
+    return React.createElement(
+      "div",
+      { className: "safetyAlert animated slideInRight" },
+      React.createElement(
+        "div",
+        { className: "raceControl" },
+        "Race Control"
+      ),
+      React.createElement(
+        "div",
+        { className: "safetyCarIn" },
+        "Safety Car in this lap"
+      )
+    );
+  }
+});
 UI.widgets.SessionInfo = React.createClass({
 	displayName: 'SessionInfo',
 
@@ -1793,6 +2209,7 @@ UI.widgets.SessionInfo = React.createClass({
 
 		function updateInfo() {
 			UI.batch({
+				'eventInfo': r3e.getEventInfo,
 				'sessionInfo': r3e.getSessionInfo
 			}, self.setState.bind(self));
 		}
@@ -1805,8 +2222,18 @@ UI.widgets.SessionInfo = React.createClass({
 	},
 	getInitialState: function () {
 		return {
-			'sessionInfo': {}
+			'sessionInfo': {},
+			'eventInfo': {}
 		};
+	},
+	getCountryCode: function (trackId) {
+		var countryCode = "";
+
+		if (r3eTracks.tracks[trackId] != null) {
+			countryCode = r3eTracks.tracks[trackId].countryCode;
+		}
+
+		return countryCode;
 	},
 	render: function () {
 		var self = this;
@@ -1832,22 +2259,46 @@ UI.widgets.SessionInfo = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'session-info' },
+			{ className: 'session-info animated fadeIn' },
 			React.createElement(
 				'div',
 				{ className: 'inner' },
 				p.sessionInfo.phase === 'GARAGE' ? React.createElement(
-					'span',
+					'div',
 					null,
-					nameLookup[p.sessionInfo.phase],
-					': ',
-					UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
+					React.createElement(
+						'div',
+						{ className: 'sessionName' },
+						nameLookup[p.sessionInfo.phase]
+					),
+					React.createElement(
+						'div',
+						{ className: 'timer' },
+						UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
+					),
+					React.createElement(
+						'div',
+						{ className: 'flag' },
+						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
+					)
 				) : React.createElement(
-					'span',
+					'div',
 					null,
-					nameLookup[p.sessionInfo.type],
-					': ',
-					UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
+					React.createElement(
+						'div',
+						{ className: 'sessionName' },
+						nameLookup[p.sessionInfo.type]
+					),
+					React.createElement(
+						'div',
+						{ className: 'timer' },
+						UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
+					),
+					React.createElement(
+						'div',
+						{ className: 'flag' },
+						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
+					)
 				)
 			)
 		);
@@ -3018,7 +3469,7 @@ UI.components.Spectator = React.createClass({
 
 		// MEGA HACK START ---------------------------
 
-		r3e.on.results(function (results) {
+		r3e.on.resultsUpdate(function (results) {
 			console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! results', JSON.stringify(results));
 			function findDriverResult(id) {
 				for (var i = 0; i < results.grid.length; i++) {
@@ -3105,8 +3556,7 @@ UI.components.Spectator = React.createClass({
         	driverData: driverData,
         	sessionInfo: sessionInfo,
         	eventInfo: eventInfo
-        	
-        }))*/
+        		}))*/
 							});
 						});
 					});
@@ -3115,6 +3565,32 @@ UI.components.Spectator = React.createClass({
 		});
 
 		// --------------------------- MEGA HACK END
+
+		var eventTimeout;
+		r3e.on.eventOccurred(function (event) {
+
+			r3e.getDriverInfo({ 'slotId': event.slotId
+			}, function (driverInfo) {
+
+				event.driverName = driverInfo.name;
+				self.setState({
+					'event': event
+				});
+			});
+
+			eventTimeout = setTimeout(function () {
+				event.removing = true;
+				self.setState({
+					'event': event
+				});
+
+				eventTimeout = setTimeout(function () {
+					self.setState({
+						'event': null
+					});
+				}, 3000);
+			}, 13 * 1000);
+		});
 
 		r3e.on.resultsUpdate(function (results) {
 			//console.log("resultsUpdate", results)
@@ -3158,7 +3634,8 @@ UI.components.Spectator = React.createClass({
 	getInitialState: function () {
 		return {
 			'results': null,
-			'pitWindowInfo': null
+			'pitWindowInfo': null,
+			'event': null
 		};
 	},
 	componentWillUnmount: function () {
@@ -3197,6 +3674,7 @@ UI.components.Spectator = React.createClass({
 					return !self.state.results && UI.state.activeWidgets[type].active ? React.createElement(UI.widgets[type], { 'key': type }) : null;
 				}),
 				self.state.results ? React.createElement(UI.widgets.RaceResults, { results: self.state.results }) : null,
+				self.state.event ? React.createElement(UI.widgets.Alert, { event: self.state.event }) : null,
 				self.state.pitWindowInfo ? React.createElement(
 					'div',
 					{ className: "pit-window-information " + (self.state.pitWindowInfo.removing ? 'removing' : '') },
@@ -3218,6 +3696,107 @@ UI.components.Spectator = React.createClass({
 			)
 		);
 	}
+});
+UI.widgets.Alert = React.createClass({
+  displayName: "Alert",
+
+  componentWillMount: function () {
+    var self = this;
+  },
+  render: function () {
+    var self = this;
+    var event = self.props.event;
+
+    var driveThroughPenalty = "a Drive Through Penalty has been awarded for ";
+
+    var stopAndGoPenalty = "a Stop & Go Penalty has been awarded for ";
+
+    var penaltyMeanings = {
+      // Drive Through
+      '0': {
+        '1': {
+          text: driveThroughPenalty + "Track Limits Abuse"
+        },
+        '2': {
+          text: driveThroughPenalty + "Speeding in the Pitlane"
+        },
+        '3': {
+          text: driveThroughPenalty + "a False Start"
+        },
+        '4': {
+          text: driveThroughPenalty + "Ignoring Blue Flags"
+        },
+        '5': {
+          text: driveThroughPenalty + "Driving Too Slow"
+        },
+        '6': {
+          text: driveThroughPenalty + "Illegally Passing Before Green"
+        },
+        '7': {
+          text: driveThroughPenalty + "Illegally Passing Before the Finish"
+        },
+        '8': {
+          text: driveThroughPenalty + "Illegally Passing Before the Pit Entrance"
+        },
+        '9': {
+          text: driveThroughPenalty + "Ignoring Slow Down Warnings"
+        },
+        '10': {
+          text: driveThroughPenalty + "Accumulating the Maximum Number of Penalties Permitted"
+        }
+      },
+      // Stop and Go
+      '1': {
+        '2': {
+          text: stopAndGoPenalty + "Track Limits Abuse"
+        },
+        '3': {
+          text: stopAndGoPenalty + "Overtaking Under Yellows"
+        }
+      },
+      // Pitstop
+      '2': {
+        '1': {
+          text: "a Mandatory Pit was not taken within the Pitstop Window"
+        }
+      },
+      // Time Penalty
+      '3': {},
+      // Slowdown Penalty
+      '4': {
+        '1': {
+          text: "a Slow Down Penalty has been awarded for track limits abuse"
+        },
+        '2': {
+          text: "a Slow Down Penalty has been awarded for continuing abuse track limits"
+        }
+      },
+      // Disqualified
+      '5': {}
+    };
+
+    return React.createElement(
+      "div",
+      null,
+      event != null && event.driverName != null && penaltyMeanings[event.type] != null && penaltyMeanings[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null ? React.createElement(
+        "div",
+        { className: "alert animated slideInRight " + (event.removing ? 'removing' : '') },
+        React.createElement(
+          "div",
+          { className: "raceControlAlert" },
+          "Race Control"
+        ),
+        React.createElement(
+          "div",
+          { className: "alertMessage" },
+          "Incident involving ",
+          event.driverName,
+          ", ",
+          penaltyMeanings[event.type][event.reason].text
+        )
+      ) : null
+    );
+  }
 });
 UI.scoringRules = {
 	// Give a small intial edge to leaders
@@ -3535,6 +4114,30 @@ UI.widgets.AutoDirector = React.createClass({
 		return null;
 	}
 });
+function cx() {
+	var args = arguments;
+	var classes = [];
+
+	for (var i = 0; i < args.length; i++) {
+		var arg = args[i];
+		if (!arg) {
+			continue;
+		}
+
+		if ('string' === typeof arg || 'number' === typeof arg) {
+			classes.push(arg);
+		} else if ('object' === typeof arg) {
+			for (var key in arg) {
+				if (arg.hasOwnProperty(key) && arg[key]) {
+					classes.push(key);
+				}
+			}
+		}
+	}
+	return classes.join(' ');
+}
+
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 UI.widgets.CompareRace = React.createClass({
 	displayName: 'CompareRace',
 
@@ -3672,35 +4275,6 @@ UI.widgets.CompareRaceDriver = React.createClass({
 
 		return teamName;
 	},
-	getExtraInfo: function (driver) {
-		var self = this;
-		return React.createElement(
-			'div',
-			{ className: 'extra-info' },
-			React.createElement(
-				'ul',
-				{ className: 'info' },
-				React.createElement(
-					'li',
-					{ className: 'active' },
-					driver.vehicleInfo.speed,
-					'KM/h'
-				),
-				React.createElement(
-					'li',
-					{ className: 'active' },
-					'Gear: ',
-					driver.vehicleInfo.gear
-				),
-				React.createElement(
-					'li',
-					{ className: 'active' },
-					'RPM: ',
-					driver.vehicleInfo.rpm
-				)
-			)
-		);
-	},
 	render: function () {
 		var self = this;
 		var driver = self.props.driver;
@@ -3760,294 +4334,196 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					{ className: cx({ 'icon animated infinite flash delay-1s': true, 'active': driver.vehicleInfo.drsEnabled }) },
 					'DRS'
 				)
-			),
-			self.getExtraInfo(driver)
-		);
-	}
-});
-function cx() {
-	var args = arguments;
-	var classes = [];
-
-	for (var i = 0; i < args.length; i++) {
-		var arg = args[i];
-		if (!arg) {
-			continue;
-		}
-
-		if ('string' === typeof arg || 'number' === typeof arg) {
-			classes.push(arg);
-		} else if ('object' === typeof arg) {
-			for (var key in arg) {
-				if (arg.hasOwnProperty(key) && arg[key]) {
-					classes.push(key);
-				}
-			}
-		}
-	}
-	return classes.join(' ');
-}
-
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-UI.widgets.DamageCheck = React.createClass({
-	displayName: 'DamageCheck',
-
-	componentWillMount: function () {
-		var self = this;
-
-		// Hide widgets that use the same screen space
-		io.emit('setState', UI.state);
-
-		function updateInfo() {
-			UI.batch({
-				'pitInfo': function (done) {
-					r3e.getPitInfo({
-						'slotId': UI.state.focusedSlot
-					}, done);
-				}
-			}, self.setState.bind(self));
-		}
-		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
-	},
-	componentWillUnmount: function () {
-		clearInterval(this.updateInterval);
-	},
-	getInitialState: function () {
-		return {
-			'pitInfo': {}
-		};
-	},
-	render: function () {
-		var self = this;
-		var info = self.state.pitInfo;
-		if (!info.tyreType) {
-			return null;
-		}
-
-		return React.createElement(
-			'div',
-			{ className: 'damage-check' },
-			React.createElement(
-				'div',
-				{ className: 'part engine' },
-				'Engine: ',
-				100 - info.damage.engine,
-				'%'
-			),
-			React.createElement(
-				'div',
-				{ className: 'part transmission' },
-				'Transmission: ',
-				100 - info.damage.transmission,
-				'%'
 			)
 		);
 	}
 });
-UI.widgets.Results = React.createClass({
-	displayName: 'Results',
+var r3eTracks = {
+  tracks: {
+    '262': {
+      Name: 'RaceRoom Raceway',
+      countryCode: "fr"
+    },
+    '1670': {
+      Name: 'Monza Circuit',
+      countryCode: "it"
+    },
+    '1673': {
+      Name: 'Mid Ohio',
+      countryCode: "us"
+    },
+    '1677': {
+      Name: 'Circuit Zandvoort',
+      countryCode: "nl"
+    },
+    '1681': {
+      Name: 'Lakeview Hillclimb',
+      countryCode: "se"
+    },
+    '1683': {
+      Name: 'Circuit Zolder',
+      countryCode: "be"
+    },
+    '1690': {
+      Name: 'Nürburgring',
+      countryCode: "de"
+    },
+    '1692': {
+      Name: 'Hockenheimring',
+      countryCode: "de"
+    },
+    '1705': {
+      Name: 'RaceRoom Hillclimb',
+      countryCode: "fr"
+    },
+    '1771': {
+      Name: 'Portimao Circuit',
+      countryCode: "pt"
+    },
+    '1840': {
+      Name: 'Suzuka Circuit',
+      countryCode: "jp"
+    },
+    '1845': {
+      Name: 'Bathurst Circuit',
+      countryCode: "au"
+    },
+    '1849': {
+      Name: 'Imola',
+      countryCode: "it"
+    },
+    '1851': {
+      Name: 'Indianapolis',
+      countryCode: "us"
+    },
+    '1853': {
+      Name: 'Sonoma Raceway',
+      countryCode: "us"
+    },
+    '1855': {
+      Name: 'Mazda Laguna Seca',
+      countryCode: "us"
+    },
+    '1865': {
+      Name: 'Hungaroring',
+      countryCode: "hu"
+    },
+    '2020': {
+      Name: 'Salzburgring',
+      countryCode: "at"
+    },
+    '2021': {
+      Name: 'Shanghai Circuit',
+      countryCode: "cn"
+    },
+    '2029': {
+      Name: 'Slovakia Ring',
+      countryCode: "sk"
+    },
+    '2122': {
+      Name: 'Macau',
+      countryCode: "mo"
+    },
+    '2383': {
+      Name: 'Motorsport Arena Oschersleben',
+      countryCode: "de"
+    },
+    '2467': {
+      Name: 'EuroSpeedway Lausitz',
+      countryCode: "de"
+    },
+    '2472': {
+      Name: 'Moscow Raceway',
+      countryCode: "ru"
+    },
+    '2517': {
+      Name: 'Norisring',
+      countryCode: "de"
+    },
+    '2519': {
+      Name: 'Brands Hatch',
+      countryCode: "gb"
+    },
+    '2521': {
+      Name: 'Red Bull Ring Spielberg',
+      countryCode: "at"
+    },
+    '2812': {
+      Name: 'Nordschleife',
+      countryCode: "de"
+    },
+    '2866': {
+      Name: 'Paul Ricard',
+      countryCode: "fr"
+    },
+    '3463': {
+      Name: 'Zhuhai Circuit',
+      countryCode: "cn"
+    },
+    '3537': {
+      Name: 'Sachsenring',
+      countryCode: "de"
+    },
+    '3869': {
+      Name: 'Spa-Francorchamps',
+      countryCode: "be"
+    },
+    '4038': {
+      Name: 'Silverstone Circuit',
+      countryCode: "gb"
+    },
+    '4252': {
+      Name: 'Chang International Circuit',
+      countryCode: "th"
+    },
+    '5275': {
+      Name: 'Road America',
+      countryCode: "us"
+    },
+    '5300': {
+      Name: 'Anderstorp',
+      countryCode: "se"
+    },
+    '5924': {
+      Name: 'Gelleråsen - Karlskoga Motorstadion',
+      countryCode: "se"
+    },
+    '6009': {
+      Name: 'Mantorp Park',
+      countryCode: "se"
+    },
+    '6053': {
+      Name: 'Stowe Circuit',
+      countryCode: "gb"
+    },
+    '6136': {
+      Name: 'Knutstorp Ring',
+      countryCode: "se"
+    },
+    '6139': {
+      Name: 'Falkenberg Motorbana',
+      countryCode: "se"
+    },
+    '6340': {
+      Name: 'Sepang',
+      countryCode: "my"
+    },
+    '6657': {
+      Name: 'Twin Ring Motegi',
+      countryCode: "jp"
+    }
+  }
+};
 
-	componentWillMount: function () {
-		var self = this;
+UI.widgets.SafetyCarDeployed = React.createClass({
+	displayName: "SafetyCarDeployed",
 
-		// Hide all other overlays besides logo
-		Object.keys(UI.state.activeWidgets).forEach(function (key) {
-			if (key.match(/(Results|LogoOverlay|AutoDirector)/)) {
-				return;
-			}
-
-			UI.state.activeWidgets[key].active = false;
-		});
-		io.emit('setState', UI.state);
-
-		function updateInfo() {
-			UI.batch({
-				'driversInfo': r3e.getDriversInfo
-			}, self.setState.bind(self));
-		}
-		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
-
-		(function checkRefs() {
-			if (!self.refs['entries-outer']) {
-				return setTimeout(checkRefs, 100);
-			}
-
-			var diff = self.refs['entries-outer'].clientHeight - self.refs['entries-inner'].clientHeight;
-			setTimeout(function () {
-				if (!self.refs['entries-inner']) {
-					return;
-				}
-				self.refs['entries-inner'].style.top = diff + 'px';
-			}, 10 * 1000);
-		})();
-	},
-	componentWillUnmount: function () {
-		clearInterval(this.updateInterval);
-	},
-	getInitialState: function () {
-		return {
-			'driversInfo': {
-				'driversInfo': []
-			}
-		};
-	},
-	sortFunctionPosition: function (a, b) {
-		if (a.scoreInfo.positionOverall > b.scoreInfo.positionOverall) {
-			return 1;
-		} else if (a.scoreInfo.positionOverall === b.scoreInfo.positionOverall) {
-			return 0;
-		} else {
-			return -1;
-		}
-	},
 	render: function () {
 		var self = this;
-		if (this.state.driversInfo.driversInfo.length === 0) {
-			return null;
-		}
-		var drivers = this.state.driversInfo.driversInfo;
-		if (drivers.filter(function (entry) {
-			return entry.scoreInfo.bestLapInfo.sector3 !== -1;
-		}).length === 0) {
-			return null;
-		}
-
-		var fastestTime = 99999;
-		var fastestTimeIndex = null;
-		drivers.forEach(function (entry, i) {
-			if (entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
-				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
-				fastestTimeIndex = i;
-			}
-		});
-		if (drivers[fastestTimeIndex]) {
-			drivers[fastestTimeIndex].isFastest = true;
-		}
-
 		return React.createElement(
-			'div',
-			{ className: 'qualify-results' },
-			React.createElement(
-				'div',
-				{ className: 'title' },
-				'Qualification Results'
-			),
-			React.createElement(
-				'div',
-				{ className: 'qualify-results-entry title' },
-				React.createElement(
-					'div',
-					{ className: 'position' },
-					'Position'
-				),
-				React.createElement('div', { className: 'livery' }),
-				React.createElement('div', { className: 'manufacturer' }),
-				React.createElement(
-					'div',
-					{ className: 'name' },
-					'Name'
-				),
-				React.createElement(
-					'div',
-					{ className: 'fastest-time' },
-					'Delta'
-				),
-				React.createElement(
-					'div',
-					{ className: 'lap-time' },
-					'Best lap time'
-				)
-			),
-			React.createElement(
-				'div',
-				{ className: 'entries-outer', ref: 'entries-outer' },
-				React.createElement(
-					'div',
-					{ className: 'entries-inner', ref: 'entries-inner' },
-					drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
-						return React.createElement(ResultEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
-					})
-				)
-			)
-		);
-	}
-});
-
-var ResultEntry = React.createClass({
-	displayName: 'ResultEntry',
-
-	getClassColour: function (classId) {
-		var classColour = "rgba(38, 50, 56, 0.8)";
-		var className = "";
-
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
-			className = r3eData.classes[classId].Name;
-		}
-
-		return { 'backgroundColor': classColour };
-	},
-	render: function () {
-		var self = this;
-		var entry = self.props.entry;
-		var lapTime = null;
-		if (entry.scoreInfo.bestLapInfo.sector3 === -1) {
-			return null;
-		}
-		if (this.props.index === 0) {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'fastest-time' },
-				'-'
-			);
-		} else {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'fastest-time' },
-				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3 - self.props.firstEntry.scoreInfo.bestLapInfo.sector3)
-			);
-		}
-		return React.createElement(
-			'div',
-			{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
-			React.createElement(
-				'div',
-				{ className: 'position' },
-				entry.scoreInfo.positionOverall,
-				'.'
-			),
-			React.createElement(
-				'div',
-				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
-				'Class P',
-				entry.scoreInfo.positionClass,
-				'.'
-			),
-			React.createElement(
-				'div',
-				{ className: 'manufacturer' },
-				React.createElement('img', { src: '/img/manufacturers/' + entry.manufacturerId + '.webp' })
-			),
-			React.createElement(
-				'div',
-				{ className: 'name' },
-				UI.fixName(entry.name)
-			),
-			React.createElement(
-				'div',
-				{ className: 'livery' },
-				React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
-			),
-			lapTime,
-			React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-			)
+			"div",
+			{ className: "safetyCarDeployed animated flash infinite delay-1s" },
+			"Safety Car"
 		);
 	}
 });

@@ -135,13 +135,26 @@ a {
   border-top: 10px solid #ff5252;
   border-bottom: 5px solid #ff5252;
 }
+.flat .event-info .countryFlag img {
+  top: 360px;
+  left: 20px;
+  position: absolute;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  opacity: 0.8;
+  height: 80px;
+  width: 120px;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
+}
 .flat .event-info .serverName {
   color: white;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   text-align: center;
   font-size: 40px;
   padding: 10px;
 }
 .flat .event-info .serverTrackName {
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   color: white;
   text-align: center;
   font-style: italic;
@@ -156,6 +169,7 @@ a {
 }
 .flat .event-info .weather .weatherIcons {
   display: flex;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   color: white;
   justify-content: space-around;
   padding-top: 25px;
@@ -787,6 +801,37 @@ body {
 }
 .app-spectator .pit-window-information.removing {
   opacity: 0;
+}
+.flat .alert {
+  font-family: Oswald;
+  position: fixed;
+  top: 300px;
+  right: 50px;
+  font-size: 22px;
+  background: rgba(38, 50, 56, 0.6);
+  text-transform: uppercase;
+  border-top: 3px solid #ff5252;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: white;
+  min-height: 25px;
+  width: 300px;
+  line-height: 33px;
+  text-align: center;
+  display: inline-block;
+}
+.flat .alert.removing {
+  opacity: 0;
+}
+.flat .alert .raceControlAlert {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: rgba(38, 50, 56, 0.8);
+}
+.flat .alert .alertMessage {
+  font-size: 20px;
 }
 .flat .compare-race {
   -webkit-animation: "ani_7" 0.2s ease, "ani_8" 0.2s ease;
@@ -1804,39 +1849,101 @@ pre.preview {
   width: 161px;
   padding: 0 0 0 20px;
 }
-.flat .session-info {
-  -webkit-animation: "ani_21" 0.5s ease, "ani_22" 0.2s ease;
+.flat .safetyCarDeployed {
+  font-family: Oswald;
+  position: fixed;
+  top: 110px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  font-size: 20px;
+  background: rgba(255, 152, 0, 0.7);
+  text-transform: uppercase;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: white;
+  height: 30px;
+  width: 140px;
+  line-height: 30px;
+  text-align: center;
+  display: inline-block;
+}
+.flat .safetyAlert {
+  font-family: Oswald;
+  position: fixed;
+  top: 200px;
+  right: 50px;
+  font-size: 22px;
+  background: rgba(38, 50, 56, 0.6);
+  text-transform: uppercase;
+  border-top: 3px solid #ff5252;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: white;
+  min-height: 25px;
+  width: 300px;
+  line-height: 33px;
+  text-align: center;
+  display: inline-block;
+}
+.flat .safetyAlert .raceControl {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: rgba(38, 50, 56, 0.8);
+}
+.flat .safetyAlert .safetyCarIn {
+  font-size: 20px;
+}
+.flat .sessionName {
   font-family: Oswald;
   position: fixed;
   top: 40px;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-  font-size: 22px;
-  background: rgba(38, 50, 56, 0.6);
+  font-size: 21px;
+  background: rgba(38, 50, 56, 0.8);
   text-transform: uppercase;
-  border-radius: 5px;
+  border-top: 3px solid #ff5252;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   color: white;
-  height: 40px;
+  width: 180px;
+  height: 35px;
   padding: 0px 4px;
-  line-height: 40px;
+  line-height: 32px;
   text-align: center;
   display: inline-block;
 }
-@-webkit-keyframes "ani_21" {
-  0% {
-    -webkit-transform: translate(-50%, -200px);
-  }
-  100% {
-    -webkit-transform: translate(-50%, 0);
-  }
+.timer {
+  font-family: Oswald;
+  position: fixed;
+  top: 75px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  font-size: 22px;
+  background: rgba(38, 50, 56, 0.6);
+  text-transform: uppercase;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: white;
+  height: 35px;
+  width: 180px;
+  padding-left: 35px;
+  line-height: 33px;
+  text-align: center;
+  display: inline-block;
 }
-@-webkit-keyframes "ani_22" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.flag img {
+  position: absolute;
+  top: 77px;
+  left: 875px;
+  height: 28px;
+  width: 40px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  opacity: 0.8;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .start-grid .entries-outer {
   max-height: 820px;
@@ -1851,7 +1958,7 @@ pre.preview {
   -webkit-transform: translate3d(0, 0, 0);
 }
 .flat .start-grid {
-  -webkit-animation: "ani_23" 1s ease, "ani_24" 1s ease;
+  -webkit-animation: "ani_21" 1s ease, "ani_22" 1s ease;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -1863,7 +1970,7 @@ pre.preview {
   font-family: Oswald;
   width: 620px;
 }
-@-webkit-keyframes "ani_23" {
+@-webkit-keyframes "ani_21" {
   0% {
     opacity: 0;
   }
@@ -1871,7 +1978,7 @@ pre.preview {
     opacity: 1;
   }
 }
-@-webkit-keyframes "ani_24" {
+@-webkit-keyframes "ani_22" {
   0% {
     -webkit-transform: translate(-50%, 50px);
   }
@@ -1950,9 +2057,9 @@ pre.preview {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  -webkit-animation: "ani_25" 1s ease;
+  -webkit-animation: "ani_23" 1s ease;
 }
-@-webkit-keyframes "ani_25" {
+@-webkit-keyframes "ani_23" {
   0% {
     opacity: 0;
   }

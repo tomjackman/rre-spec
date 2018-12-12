@@ -122,16 +122,6 @@ UI.widgets.CompareRaceDriver = React.createClass({
 
 		return teamName;
 	},
-	getExtraInfo: function(driver) {
-		var self = this;
-		return <div className="extra-info">
-			<ul className="info">
-				<li className="active">{driver.vehicleInfo.speed}KM/h</li>
-				<li className="active">Gear: {driver.vehicleInfo.gear}</li>
-				<li className="active">RPM: {driver.vehicleInfo.rpm}</li>
-			</ul>
-		</div>
-	},
 	render: function() {
 		var self = this;
 		var driver = self.props.driver;
@@ -173,8 +163,6 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					<div className={cx({'icon animated infinite flash delay-1s': true, 'active': driver.vehicleInfo.drsEnabled})}>DRS</div>
 				</div>
 
-
-				{self.getExtraInfo(driver)}
 			</div>
 		);
 	}

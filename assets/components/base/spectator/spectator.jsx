@@ -28,10 +28,10 @@ UI.components.Spectator = React.createClass({
 		}, UI.controllerUpdateRate);
 
 		r3e.waitOnResults({'wait': true})
-		
+
 		// MEGA HACK START ---------------------------
-		
-		r3e.on.results(function(results) {
+
+		r3e.on.resultsUpdate(function(results) {
 			console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! results', JSON.stringify(results))
 			function findDriverResult(id) {
 				for (var i = 0; i < results.grid.length; i++) {
@@ -40,9 +40,9 @@ UI.components.Spectator = React.createClass({
 						return data
 				}
 			}
-			
+
 			if (results.live === 0) {
-				
+
 				/*
 				{
 					"name": driver.name,
@@ -59,7 +59,7 @@ UI.components.Spectator = React.createClass({
 					"penaltyWeight": ,
 					"bestLapInfo": driver.scoreInfo.bestLapInfo
 				},*/
-				
+
 				r3e.getDriversInfo(function(driversInfo) {
 					var jobs = [];
 					var driverData = driversInfo.driversInfo;
@@ -84,11 +84,11 @@ UI.components.Spectator = React.createClass({
 					UI.batch(jobs, function(data) {
 						r3e.getSessionInfo(function(sessionInfo) {
 							r3e.getEventInfo(function(eventInfo) {
-								
+
 								if (sessionInfo.type.indexOf("RACE") !== -1) {
-									
+
 									var results = []
-									
+
 									driverData.forEach(function (driver, i) {
 										var data = findDriverResult(driver.portalId)
 										results.push({
@@ -107,12 +107,12 @@ UI.components.Spectator = React.createClass({
 											"bestLapInfo": driver.scoreInfo.bestLapInfo
 										})
 									})
-									
-									
+
+
 									self.setState({
 										'results': results
 									});
-									
+
 								}
 								/*console.log('driversInfo', driverData);
 								console.log('sessionInfo', sessionInfo);
@@ -121,18 +121,44 @@ UI.components.Spectator = React.createClass({
 									driverData: driverData,
 									sessionInfo: sessionInfo,
 									eventInfo: eventInfo
-									
+
 								}))*/
 							});
 						});
 					});
 				});
 			}
-			
+
 		})
-		
+
 		// --------------------------- MEGA HACK END
-		
+
+		var eventTimeout;
+		r3e.on.eventOccurred(function(event) {
+
+			r3e.getDriverInfo({'slotId': event.slotId
+			}, function(driverInfo) {
+
+				event.driverName = driverInfo.name;
+				self.setState({
+					'event': event
+				});
+			});
+
+			eventTimeout = setTimeout(function() {
+				event.removing = true;
+				self.setState({
+					'event': event
+				});
+
+				eventTimeout = setTimeout(function() {
+					self.setState({
+						'event': null
+					});
+				}, 3000)
+			}, 13*1000);
+		});
+
 		r3e.on.resultsUpdate(function(results) {
 			//console.log("resultsUpdate", results)
 			self.setState({
@@ -175,7 +201,8 @@ UI.components.Spectator = React.createClass({
 	getInitialState: function() {
 		return {
 			'results': null,
-			'pitWindowInfo': null
+			'pitWindowInfo': null,
+			'event': null
 		}
 	},
 	componentWillUnmount: function() {
@@ -212,6 +239,11 @@ UI.components.Spectator = React.createClass({
 				})}
 				{self.state.results ?
 					<UI.widgets.RaceResults results={self.state.results}/>
+					:
+					null
+				}
+				{self.state.event ?
+					<UI.widgets.Alert event={self.state.event}/>
 					:
 					null
 				}
