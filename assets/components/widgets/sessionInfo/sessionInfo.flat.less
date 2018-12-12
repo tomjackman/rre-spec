@@ -1,19 +1,57 @@
-.flat .session-info {
-	.onCreation(-webkit-transform, translate(-50%, -200px), translate(-50%, 0), 0.5s);
-	.onCreation(opacity, 0, 1, 0.2s);
+@import '../theme/theme';
+
+
+.flat .sessionName {
 	font-family: Oswald;
 	position: fixed;
 	top: 40px;
 	left: 50%;
 	-webkit-transform: translate(-50%, 0);
+	font-size: 21px;
+	background: @backgroundDark;
+	text-transform: uppercase;
+	border-top: 3px solid @EventInfoBorderTop;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	color: @SessionInfoTextColor;
+	width: 180px;
+	height: 35px;
+	padding: 0px 4px;
+	line-height: 32px;
+	text-align: center;
+	display: inline-block;
+}
+
+.timer {
+	font-family: Oswald;
+	position: fixed;
+	top: 75px;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0);
 	font-size: 22px;
 	background: @SessionInfoBackground;
 	text-transform: uppercase;
-	border-radius: 5px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 	color: @SessionInfoTextColor;
-	height: 40px;
-	padding: 0px 4px;
-	line-height: 40px;
+	height: 35px;
+	width: 180px;
+	padding-left: 35px;
+	line-height: 33px;
 	text-align: center;
 	display: inline-block;
+}
+
+.flag {
+	img {
+		position: absolute;
+		top: 77px;
+		left: 875px;
+		height: 28px;
+		width: 40px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		opacity: 0.8;
+		filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.9));
+	}
 }

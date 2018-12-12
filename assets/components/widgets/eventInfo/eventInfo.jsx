@@ -21,6 +21,15 @@ UI.widgets.EventInfo = React.createClass({
 			'eventInfo': {}
 		};
 	},
+	getCountryCode: function(trackId) {
+		var countryCode = "";
+
+		if (r3eTracks.tracks[trackId] != null) {
+			countryCode = r3eTracks.tracks[trackId].countryCode;
+		}
+
+		return countryCode;
+	},
 	render: function() {
 		var self = this;
 		var info = self.state.eventInfo;
@@ -50,6 +59,9 @@ UI.widgets.EventInfo = React.createClass({
               <div className="weatherInfoConditionsImage"><img height="50px" width="50px" src={'/img/weather/conditions.png'} /> {info.weatherInfo.conditions}</div>
               </div>
             </div>
+						<div className="countryFlag">
+							<img src={'/img/flags/'+self.getCountryCode(info.trackId)+'.svg'} />
+						</div>
   			</div>
       </div>
 		);

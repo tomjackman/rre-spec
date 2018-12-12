@@ -4,6 +4,7 @@ UI.widgets.SessionInfo = React.createClass({
 
 		function updateInfo() {
 			UI.batch({
+				'eventInfo': r3e.getEventInfo,
 				'sessionInfo': r3e.getSessionInfo
 			}, self.setState.bind(self));
 		}
@@ -16,8 +17,18 @@ UI.widgets.SessionInfo = React.createClass({
 	},
 	getInitialState: function() {
 		return {
-			'sessionInfo': {}
+			'sessionInfo': {},
+			'eventInfo': {}
 		};
+	},
+	getCountryCode: function(trackId) {
+		var countryCode = "";
+
+		if (r3eTracks.tracks[trackId] != null) {
+			countryCode = r3eTracks.tracks[trackId].countryCode;
+		}
+
+		return countryCode;
 	},
 	render: function() {
 		var self = this;
@@ -42,12 +53,24 @@ UI.widgets.SessionInfo = React.createClass({
 		}
 
 		return (
-			<div className="session-info">
+			<div className="session-info animated fadeIn">
 				<div className="inner">
 					{p.sessionInfo.phase === 'GARAGE' ?
-						<span>{nameLookup[p.sessionInfo.phase]}: {UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</span>
+						<div>
+							<div className="sessionName">{nameLookup[p.sessionInfo.phase]}</div>
+							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
+							<div className="flag">
+								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
+							</div>
+						</div>
 						:
-						<span>{nameLookup[p.sessionInfo.type]}: {UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</span>
+						<div>
+							<div className="sessionName">{nameLookup[p.sessionInfo.type]}</div>
+							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
+							<div className="flag">
+								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
+							</div>
+						</div>
 					}
 				</div>
 			</div>
