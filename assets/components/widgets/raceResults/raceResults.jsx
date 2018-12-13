@@ -80,7 +80,7 @@ var RaceResultEntry = React.createClass({
 
 		var penaltyTime = <div className="timePenalty"> No Penalties </div>
 		if (entry.penaltyTime) {
-			penaltyTime = <div className="timePenalty"> (entry.penaltyTime/1000)s Penalty </div>
+			penaltyTime = <div className="timePenalty"> {(entry.penaltyTime/1000)}s Penalty </div>
 		}
 
 		return (

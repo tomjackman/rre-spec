@@ -835,6 +835,7 @@ body {
   font-size: 18px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  padding: 5px;
 }
 .flat .compare-race {
   -webkit-animation: "ani_7" 0.2s ease, "ani_8" 0.2s ease;
@@ -1273,7 +1274,7 @@ pre.preview {
   top: 90px;
   z-index: -1;
   margin-top: 0px;
-  font-family: Arial;
+  font-family: Oswald;
 }
 .flat .focused-driver-info .extra-info ul {
   margin: 0;
@@ -1285,6 +1286,7 @@ pre.preview {
   background: rgba(38, 50, 56, 0.8);
   padding: 8px;
   margin-right: 10px;
+  min-width: 100px;
   border: 1px;
   border-radius: 10px;
   color: white;
@@ -1598,10 +1600,10 @@ pre.preview {
   height: 90%;
   line-height: 50px;
   font-size: 18px;
-  padding: 0 15px 0 10px;
+  padding: 0 10px 0 10px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  min-width: 80px;
+  min-width: 100px;
   white-space: nowrap;
   -webkit-animation: "ani_16" 0.7s ease;
 }
@@ -1721,8 +1723,8 @@ pre.preview {
   height: auto;
 }
 .flat .race-results .race-results-entry .timePenalty {
-  width: 7px;
-  font-size: 22px;
+  width: 120px;
+  font-size: 19px;
   padding: 0 0 0 10px;
 }
 .flat .race-results .race-results-entry .name {
@@ -1741,7 +1743,7 @@ pre.preview {
 }
 .flat .race-results .race-results-entry .fastest-time,
 .flat .race-results .race-results-entry .lap-time {
-  width: 161px;
+  width: 101px;
   padding: 0 0 0 20px;
 }
 .qualify-results .entries-outer {
@@ -1956,6 +1958,15 @@ pre.preview {
   border-bottom-left-radius: 10px;
   opacity: 0.9;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
+}
+.checkered img {
+  position: fixed;
+  top: 75px;
+  left: 870px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 35px;
+  width: 180px;
 }
 .start-grid .entries-outer {
   max-height: 820px;

@@ -48,6 +48,8 @@ UI.widgets.SessionInfo = React.createClass({
 			return null;
 		}
 
+		var showCheckered = null;
+
 		if (p.sessionInfo.phase === 'CHECKERED') {
 			p.sessionInfo.timeLeft = 0;
 		}
@@ -70,8 +72,16 @@ UI.widgets.SessionInfo = React.createClass({
 							<div className="flag">
 								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
 							</div>
+								{p.sessionInfo.phase === 'CHECKERED' ?
+								<div className="checkered">
+									<img src={'/img/checkered.jpg'} />
+								</div>
+								:
+								null
+							}
 						</div>
 					}
+
 				</div>
 			</div>
 		);

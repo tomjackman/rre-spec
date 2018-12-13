@@ -4,6 +4,6 @@
 	"buttonText": "Qualify Results",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Qualifying", "Race"],
-	"buttonClasses": ["warning"],
+	"activeInPhases": ["Garage"],
 	"defaultActive": false
 }

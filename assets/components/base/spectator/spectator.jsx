@@ -155,8 +155,8 @@ UI.components.Spectator = React.createClass({
 					self.setState({
 						'event': null
 					});
-				}, 3000)
-			}, 13*1000);
+				}, 2000)
+			}, 20*1000);
 		});
 
 		r3e.on.resultsUpdate(function(results) {

@@ -1773,7 +1773,9 @@ var RaceResultEntry = React.createClass({
 			penaltyTime = React.createElement(
 				'div',
 				{ className: 'timePenalty' },
-				' (entry.penaltyTime/1000)s Penalty '
+				' ',
+				entry.penaltyTime / 1000,
+				's Penalty '
 			);
 		}
 
@@ -2272,6 +2274,8 @@ UI.widgets.SessionInfo = React.createClass({
 			return null;
 		}
 
+		var showCheckered = null;
+
 		if (p.sessionInfo.phase === 'CHECKERED') {
 			p.sessionInfo.timeLeft = 0;
 		}
@@ -2317,7 +2321,12 @@ UI.widgets.SessionInfo = React.createClass({
 						'div',
 						{ className: 'flag' },
 						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
-					)
+					),
+					p.sessionInfo.phase === 'CHECKERED' ? React.createElement(
+						'div',
+						{ className: 'checkered' },
+						React.createElement('img', { src: '/img/checkered.jpg' })
+					) : null
 				)
 			)
 		);
@@ -3607,8 +3616,8 @@ UI.components.Spectator = React.createClass({
 					self.setState({
 						'event': null
 					});
-				}, 3000);
-			}, 13 * 1000);
+				}, 2000);
+			}, 20 * 1000);
 		});
 
 		r3e.on.resultsUpdate(function (results) {
@@ -3990,6 +3999,7 @@ UI.widgets.AutoDirector = React.createClass({
 		UI.state.activeWidgets.LogoOverlay.active = true;
 		UI.state.activeWidgets.FocusedDriver.active = true;
 		UI.state.activeWidgets.SessionInfo.active = true;
+		UI.state.activeWidgets.Alert.active = true;
 	},
 	usedCockpitCam: false,
 	usedCockpitTimeout: null,
