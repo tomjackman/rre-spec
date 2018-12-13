@@ -4522,7 +4522,7 @@ UI.widgets.SafetyCarDeployed = React.createClass({
 		var self = this;
 		return React.createElement(
 			"div",
-			{ className: "safetyCarDeployed animated flash infinite delay-1s" },
+			{ className: "safetyCarDeployed animated flash infinite" },
 			"Safety Car"
 		);
 	}

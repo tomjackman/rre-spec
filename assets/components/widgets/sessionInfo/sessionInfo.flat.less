@@ -1,6 +1,5 @@
 @import '../theme/theme';
 
-
 .flat .sessionName {
 	font-family: Oswald;
 	position: fixed;
@@ -8,12 +7,12 @@
 	left: 50%;
 	-webkit-transform: translate(-50%, 0);
 	font-size: 21px;
-	background: @backgroundDark;
+	background: @SessionInfoPhaseBackground;
 	text-transform: uppercase;
-	border-top: 3px solid @EventInfoBorderTop;
+	border-top: 3px solid @SessionInfoPhaseBorderTop;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
-	color: @SessionInfoTextColor;
+	color: @SessionInfoPhaseTextColor;
 	width: 180px;
 	height: 35px;
 	padding: 0px 4px;
@@ -29,11 +28,11 @@
 	left: 50%;
 	-webkit-transform: translate(-50%, 0);
 	font-size: 22px;
-	background: @SessionInfoBackground;
+	background: @SessionInfoTimerBackground;
 	text-transform: uppercase;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-	color: @SessionInfoTextColor;
+	color: @SessionInfoTimerTextColor;
 	height: 35px;
 	width: 180px;
 	padding-left: 35px;
@@ -51,7 +50,7 @@
 		width: 40px;
 		border-top-right-radius: 10px;
 		border-bottom-left-radius: 10px;
-		opacity: 0.8;
+		opacity: 0.9;
 		filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.9));
 	}
 }

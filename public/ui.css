@@ -808,14 +808,12 @@ body {
   top: 300px;
   right: 50px;
   font-size: 22px;
-  background: rgba(38, 50, 56, 0.6);
   text-transform: uppercase;
   border-top: 3px solid #ff5252;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  color: white;
   min-height: 25px;
   width: 300px;
   line-height: 33px;
@@ -829,9 +827,14 @@ body {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background: rgba(38, 50, 56, 0.8);
+  color: white;
 }
 .flat .alert .alertMessage {
+  background: rgba(38, 50, 56, 0.6);
+  color: white;
   font-size: 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 .flat .compare-race {
   -webkit-animation: "ani_7" 0.2s ease, "ani_8" 0.2s ease;
@@ -1873,14 +1876,12 @@ pre.preview {
   top: 200px;
   right: 50px;
   font-size: 22px;
-  background: rgba(38, 50, 56, 0.6);
   text-transform: uppercase;
   border-top: 3px solid #ff5252;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  color: white;
   min-height: 25px;
   width: 300px;
   line-height: 33px;
@@ -1891,9 +1892,14 @@ pre.preview {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background: rgba(38, 50, 56, 0.8);
+  color: white;
 }
 .flat .safetyAlert .safetyCarIn {
+  background: rgba(38, 50, 56, 0.6);
+  color: white;
   font-size: 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 .flat .sessionName {
   font-family: Oswald;
@@ -1942,7 +1948,7 @@ pre.preview {
   width: 40px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  opacity: 0.8;
+  opacity: 0.9;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .start-grid .entries-outer {

@@ -1,7 +1,7 @@
 {
 	"elementName": "SafetyCarDeployed",
 	"name": "Safety Car Deploy",
-	"buttonText": "Safety Deploy",
+	"buttonText": "Safety Car Deploy",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Race"],
 	"defaultActive": false
