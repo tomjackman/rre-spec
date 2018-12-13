@@ -1697,6 +1697,11 @@ UI.widgets.RaceResults = React.createClass({
 				),
 				React.createElement(
 					'div',
+					{ className: 'penaltyTime' },
+					'Penalties'
+				),
+				React.createElement(
+					'div',
 					{ className: 'lap-time' },
 					'Finish time'
 				),
@@ -1759,20 +1764,33 @@ var RaceResultEntry = React.createClass({
 			);
 		}
 
+		var penaltyTime = React.createElement(
+			'div',
+			{ className: 'timePenalty' },
+			' No Penalties '
+		);
+		if (entry.penaltyTime) {
+			penaltyTime = React.createElement(
+				'div',
+				{ className: 'timePenalty' },
+				' (entry.penaltyTime/1000)s Penalty '
+			);
+		}
+
 		return React.createElement(
 			'div',
 			{ className: cx({ 'fastest': entry.isFastest, 'race-results-entry': true }) },
 			React.createElement(
 				'div',
-				{ className: 'position' },
-				entry.positionOverall,
+				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
+				'Class P',
+				entry.positionClass,
 				'.'
 			),
 			React.createElement(
 				'div',
-				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
-				'Class P',
-				entry.positionClass,
+				{ className: 'position' },
+				entry.positionOverall,
 				'.'
 			),
 			React.createElement(
@@ -1790,6 +1808,7 @@ var RaceResultEntry = React.createClass({
 				{ className: 'livery' },
 				React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
 			),
+			penaltyTime,
 			lapTime,
 			entry.bestLapInfo.sector3 !== -1 ? React.createElement(
 				'div',
@@ -1973,15 +1992,15 @@ var ResultEntry = React.createClass({
 			{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
 			React.createElement(
 				'div',
-				{ className: 'position' },
-				entry.scoreInfo.positionOverall,
+				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
+				'Class P',
+				entry.scoreInfo.positionClass,
 				'.'
 			),
 			React.createElement(
 				'div',
-				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
-				'Class P',
-				entry.scoreInfo.positionClass,
+				{ className: 'position' },
+				entry.scoreInfo.positionOverall,
 				'.'
 			),
 			React.createElement(

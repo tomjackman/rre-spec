@@ -127,8 +127,8 @@ var ResultEntry = React.createClass({
 		}
 		return (
 			<div className={cx({'fastest': entry.isFastest, 'qualify-results-entry': true})}>
-			<div className="position">{entry.scoreInfo.positionOverall}.</div>
 			<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
+			<div className="position">{entry.scoreInfo.positionOverall}.</div>
 				<div className="manufacturer">
 					<img src={'/img/manufacturers/'+entry.manufacturerId+'.webp'} />
 				</div>

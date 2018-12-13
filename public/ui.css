@@ -807,7 +807,6 @@ body {
   position: fixed;
   top: 300px;
   right: 50px;
-  font-size: 22px;
   text-transform: uppercase;
   border-top: 3px solid #ff5252;
   border-top-left-radius: 15px;
@@ -824,6 +823,7 @@ body {
   opacity: 0;
 }
 .flat .alert .raceControlAlert {
+  font-size: 23px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background: rgba(38, 50, 56, 0.8);
@@ -832,7 +832,7 @@ body {
 .flat .alert .alertMessage {
   background: rgba(38, 50, 56, 0.6);
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -1393,7 +1393,7 @@ pre.preview {
 }
 .flat .focused-driver-info .vehicle img {
   position: absolute;
-  top: -82px;
+  top: -80px;
   left: -230px;
   height: 110px;
 }
@@ -1406,8 +1406,8 @@ pre.preview {
 }
 .flat .focused-driver-info .tyre img {
   position: absolute;
-  top: 17px;
-  left: -95px;
+  top: 15px;
+  left: -92px;
   height: 60px;
 }
 .flat .focused-driver-info .manufacturer {
@@ -1578,16 +1578,6 @@ pre.preview {
 .flat .multiclass-standings .driver .manufacturer img {
   height: 100%;
 }
-.flat .multiclass-standings .driver .tyre {
-  background: rgba(38, 50, 56, 0.5);
-  display: inline-block;
-  width: 30px;
-  height: 35%;
-  padding: 4px;
-}
-.flat .multiclass-standings .driver .tyre img {
-  height: 100%;
-}
 .flat .multiclass-standings .driver .name {
   background-color: #b71c1c;
   font-family: Oswald;
@@ -1607,11 +1597,11 @@ pre.preview {
   left: 100%;
   height: 90%;
   line-height: 50px;
-  font-size: 17px;
+  font-size: 18px;
   padding: 0 15px 0 10px;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  min-width: 80px;
   white-space: nowrap;
   -webkit-animation: "ani_16" 0.7s ease;
 }
@@ -1622,6 +1612,16 @@ pre.preview {
   100% {
     -webkit-transform: translate(0, 0);
   }
+}
+.flat .multiclass-standings .driver .tyre {
+  background: rgba(38, 50, 56, 0.5);
+  display: inline-block;
+  width: 30px;
+  height: 35%;
+  padding: 4px;
+}
+.flat .multiclass-standings .driver .tyre img {
+  height: 100%;
 }
 .race-results .entries-outer {
   max-height: 820px;
@@ -1647,7 +1647,7 @@ pre.preview {
   color: #fff;
   white-space: pre;
   font-family: Oswald;
-  width: 944px;
+  width: 995px;
 }
 @-webkit-keyframes "ani_17" {
   0% {
@@ -1720,8 +1720,13 @@ pre.preview {
   width: 26px;
   height: auto;
 }
+.flat .race-results .race-results-entry .timePenalty {
+  width: 7px;
+  font-size: 22px;
+  padding: 0 0 0 10px;
+}
 .flat .race-results .race-results-entry .name {
-  width: 350px;
+  width: 320px;
   padding: 0 0 0 20px;
 }
 .flat .race-results .race-results-entry .livery {
@@ -1876,7 +1881,7 @@ pre.preview {
   position: fixed;
   top: 200px;
   right: 50px;
-  font-size: 22px;
+  font-size: 23px;
   text-transform: uppercase;
   border-top: 3px solid #ff5252;
   border-top-left-radius: 15px;
@@ -1898,7 +1903,7 @@ pre.preview {
 .flat .safetyAlert .safetyCarIn {
   background: rgba(38, 50, 56, 0.6);
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }

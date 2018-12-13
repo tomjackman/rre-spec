@@ -38,6 +38,7 @@ UI.widgets.RaceResults = React.createClass({
 					<div className="livery"/>
 					<div className="manufacturer"/>
 					<div className="name">Name</div>
+					<div className="penaltyTime">Penalties</div>
 					<div className="lap-time">Finish time</div>
 					<div className="fastest-time">Best lap time</div>
 				</div>
@@ -77,10 +78,15 @@ var RaceResultEntry = React.createClass({
 			lapTime = <div className="lap-time">{UI.formatTime(entry.totalTime-self.props.firstEntry.totalTime)}</div>
 		}
 
+		var penaltyTime = <div className="timePenalty"> No Penalties </div>
+		if (entry.penaltyTime) {
+			penaltyTime = <div className="timePenalty"> (entry.penaltyTime/1000)s Penalty </div>
+		}
+
 		return (
 			<div className={cx({'fastest': entry.isFastest, 'race-results-entry': true})}>
-			<div className="position">{entry.positionOverall}.</div>
 			<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.positionClass}.</div>
+			<div className="position">{entry.positionOverall}.</div>
 				<div className="manufacturer">
 					<img src={'/img/manufacturers/'+entry.manufacturerId+'.webp'} />
 				</div>
@@ -88,6 +94,7 @@ var RaceResultEntry = React.createClass({
 				<div className="livery">
 					<img src={'/render/'+entry.liveryId+'/small/'}/>
 				</div>
+				{penaltyTime}
 				{lapTime}
 				{entry.bestLapInfo.sector3 !== -1 ?
 					<div className="fastest-time">{UI.formatTime(entry.bestLapInfo.sector3, {ignoreSign: true})}</div>
