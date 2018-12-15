@@ -22,6 +22,14 @@ UI.scoringRules = {
 
 		return score;
 	},
+	// people in yellow flag zones may be interesting, particulary those who might be cuasing it
+	'causingYellowFlag': function(score, driver, drivers) {
+		if (UI.state.sessionInfo.type.match(/^race/i) && driver.scoreInfo.flagInfo.yellow > 0 && driver.vehicleInfo.speed > 10 && driver.vehicleInfo.speed < 50) {
+			score += 10;
+		}
+
+		return score;
+	},
 	// Interesting if they don't have a time already in non race
 	'noBestTime': function(score, driver, drivers) {
 		if (UI.state.sessionInfo.type.match(/^race/i)) {

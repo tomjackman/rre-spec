@@ -932,7 +932,7 @@ body {
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 10px 10px 0 0;
-  color: white;
+  color: #69f0ae;
   height: 35px;
   width: 130px;
   z-index: 0;
@@ -1275,6 +1275,7 @@ pre.preview {
   z-index: -1;
   margin-top: 0px;
   font-family: Oswald;
+  left: 30%;
 }
 .flat .focused-driver-info .extra-info ul {
   margin: 0;
@@ -1286,13 +1287,10 @@ pre.preview {
   background: rgba(38, 50, 56, 0.8);
   padding: 8px;
   margin-right: 10px;
-  min-width: 100px;
   border: 1px;
   border-radius: 10px;
   color: white;
   position: relative;
-  left: 30%;
-  right: 30%;
   -webkit-transition: top 0.5s;
 }
 .flat .focused-driver-info .extra-info ul li.active {
@@ -1315,7 +1313,7 @@ pre.preview {
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 10px 10px 0 0;
-  color: white;
+  color: #69f0ae;
   height: 35px;
   width: 140px;
   z-index: 0;
@@ -1947,6 +1945,16 @@ pre.preview {
   line-height: 33px;
   text-align: center;
   display: inline-block;
+}
+.yellowFlag {
+  position: fixed;
+  background-color: yellow;
+  top: 75px;
+  left: 970px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 35px;
+  width: 180px;
 }
 .flag img {
   position: absolute;

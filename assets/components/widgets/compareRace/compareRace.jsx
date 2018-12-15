@@ -4,6 +4,7 @@ UI.widgets.CompareRace = React.createClass({
 
 		// Hide widgets that use the same screen space
 		UI.state.activeWidgets.FocusedDriver.active = false;
+		io.emit('setState', UI.state);
 
 		function updateInfo() {
 			r3e.getDriversInfo(function(data) {
@@ -125,6 +126,8 @@ UI.widgets.CompareRaceDriver = React.createClass({
 	render: function() {
 		var self = this;
 		var driver = self.props.driver;
+
+
 		var classes = {
 			'inner': true
 		};
@@ -153,14 +156,14 @@ UI.widgets.CompareRaceDriver = React.createClass({
 
 				{driver.pushToPassInfo.allowed ?
 					<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})}>
-						{self.getPtpState()}
+						<div className={cx({'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active})}>PTP</div>
 					</div>
 					:
 					null
 				}
 
 				<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})}>
-					<div className={cx({'icon animated infinite flash delay-1s': true, 'active': driver.vehicleInfo.drsEnabled})}>DRS</div>
+					<div className={cx({'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled})}>DRS</div>
 				</div>
 
 			</div>

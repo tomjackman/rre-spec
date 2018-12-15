@@ -7,9 +7,9 @@ UI.widgets.MulticlassStandings = React.createClass({
 		function updateInfo() {
 			UI.batch({
 				'pitInfo': function(done) {
-				r3e.getPitInfo({
-				'slotId': UI.state.focusedSlot
-				}, done)
+					r3e.getPitInfo({
+					'slotId': UI.state.focusedSlot
+					}, done)
 				},
 				'driversInfo': r3e.getDriversInfo
 			}, self.setState.bind(self));
@@ -165,7 +165,6 @@ UI.widgets.MulticlassStandings = React.createClass({
 					return <div key={i}>
 						{self.shouldShow(driversLookup[i]) ?
 							<div className={cx({'driver': true, 'active': (driversLookup[i].slotId === UI.state.focusedSlot)})} key={driversLookup[i].slotId} style={self.getDriverStyle(driversLookup[i])}>
-
 								<div className="inner">
 									<div className="position">{driversLookup[i].scoreInfo.positionOverall}</div>
 									{self.renderName(driversLookup[i].name, driversLookup[i].classId)}

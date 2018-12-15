@@ -223,7 +223,7 @@ UI.widgets.FocusedDriver = React.createClass({
 	getPtpState: function() {
 		var self = this;
 		if (self.state.pushToPassInfo.active) {
-			return <div className="icon animated infinite flash delay-1s">PTP</div>
+			return <div className="icon animated infinite flash">PTP</div>
 		} else {
 			return <div className="icon">PTP</div>
 		}
@@ -282,7 +282,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					}
 
 					<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled})}>
-						<div className={cx({'icon animated infinite flash delay-1s': true, 'active': self.state.vehicleInfo.drsEnabled})}>DRS</div>
+						<div className={cx({'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled})}>DRS</div>
 						<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>Remaining - {self.state.vehicleInfo.drsLeft}</div>
 					</div>
 

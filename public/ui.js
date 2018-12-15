@@ -1284,7 +1284,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		if (self.state.pushToPassInfo.active) {
 			return React.createElement(
 				'div',
-				{ className: 'icon animated infinite flash delay-1s' },
+				{ className: 'icon animated infinite flash' },
 				'PTP'
 			);
 		} else {
@@ -1371,7 +1371,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					{ className: cx({ 'drs': true, 'active': self.state.vehicleInfo.drsEnabled }) },
 					React.createElement(
 						'div',
-						{ className: cx({ 'icon animated infinite flash delay-1s': true, 'active': self.state.vehicleInfo.drsEnabled }) },
+						{ className: cx({ 'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled }) },
 						'DRS'
 					),
 					React.createElement(
@@ -1625,6 +1625,11 @@ UI.widgets.MulticlassStandings = React.createClass({
 								{ className: 'tyre' },
 								React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
 							) : null,
+							React.createElement(
+								'div',
+								{ className: 'yellows' },
+								driversLookup[i].scoreInfo.flagInfo.yellow
+							),
 							React.createElement(
 								'div',
 								{ className: 'pit-info' },
@@ -2208,7 +2213,7 @@ UI.widgets.SafetyCarIn = React.createClass({
     var self = this;
     return React.createElement(
       "div",
-      { className: "safetyAlert animated slideInRight" },
+      { className: "safetyAlert animated fadeInRight" },
       React.createElement(
         "div",
         { className: "raceControl" },
@@ -2227,24 +2232,47 @@ UI.widgets.SessionInfo = React.createClass({
 
 	componentWillMount: function () {
 		var self = this;
+		var yellowFlagOnTrack = false;
 
 		function updateInfo() {
 			UI.batch({
 				'eventInfo': r3e.getEventInfo,
-				'sessionInfo': r3e.getSessionInfo
+				'sessionInfo': r3e.getSessionInfo,
+				'driversInfo': r3e.getDriversInfo
 			}, self.setState.bind(self));
 		}
 		updateInfo();
 
 		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+		self.updateLooperInterval = setInterval(this.updateLooperBasedOnPlayerCount, 1000);
+	},
+	updateLooperBasedOnPlayerCount: function () {
+		var maxSlotIndex = 0;
+		var isYellowFlag = false;
+		var drivers = this.state.driversInfo.driversInfo;
+		drivers.forEach(function (driver) {
+			if (driver.scoreInfo.flagInfo.yellow > 0) {
+				isYellowFlag = true;
+				this.yellowFlagOnTrack = true;
+			}
+			maxSlotIndex = Math.max(maxSlotIndex, driver.slotId);
+		});
+		if (!isYellowFlag) {
+			this.yellowFlagOnTrack = false;
+		}
+		this.looper = Array.apply(null, Array(maxSlotIndex + 3));
 	},
 	componentWillUnmount: function () {
 		clearInterval(this.updateInterval);
+		clearInterval(this.updateLooperInterval);
 	},
 	getInitialState: function () {
 		return {
 			'sessionInfo': {},
-			'eventInfo': {}
+			'eventInfo': {},
+			'driversInfo': {
+				'driversInfo': []
+			}
 		};
 	},
 	getCountryCode: function (trackId) {
@@ -2317,6 +2345,7 @@ UI.widgets.SessionInfo = React.createClass({
 						{ className: 'timer' },
 						UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
 					),
+					p.sessionInfo.type.match(/^race/i) && self.yellowFlagOnTrack ? React.createElement('div', { className: 'yellowFlag animated flash infinite' }) : null,
 					React.createElement(
 						'div',
 						{ className: 'flag' },
@@ -3617,7 +3646,7 @@ UI.components.Spectator = React.createClass({
 						'event': null
 					});
 				}, 2000);
-			}, 20 * 1000);
+			}, 10 * 1000);
 		});
 
 		r3e.on.resultsUpdate(function (results) {
@@ -3808,7 +3837,7 @@ UI.widgets.Alert = React.createClass({
       null,
       event != null && event.driverName != null && penaltyMeanings[event.type] != null && penaltyMeanings[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null ? React.createElement(
         "div",
-        { className: "alert animated slideInRight " + (event.removing ? 'removing' : '') },
+        { className: "alert animated fadeInRight " + (event.removing ? 'removing' : '') },
         React.createElement(
           "div",
           { className: "raceControlAlert" },
@@ -3846,6 +3875,14 @@ UI.scoringRules = {
 		//console.log(driver.name, driver.extendedInfo.currentLapInfo.sector1);
 		if (driver.extendedInfo.currentLapInfo.valid === false) {
 			score += -2;
+		}
+
+		return score;
+	},
+	// people in yellow flag zones may be interesting, particulary those who might be cuasing it
+	'causingYellowFlag': function (score, driver, drivers) {
+		if (UI.state.sessionInfo.type.match(/^race/i) && driver.scoreInfo.flagInfo.yellow > 0 && driver.vehicleInfo.speed > 10 && driver.vehicleInfo.speed < 50) {
+			score += 10;
 		}
 
 		return score;
@@ -4175,6 +4212,7 @@ UI.widgets.CompareRace = React.createClass({
 
 		// Hide widgets that use the same screen space
 		UI.state.activeWidgets.FocusedDriver.active = false;
+		io.emit('setState', UI.state);
 
 		function updateInfo() {
 			r3e.getDriversInfo(function (data) {
@@ -4307,6 +4345,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 	render: function () {
 		var self = this;
 		var driver = self.props.driver;
+
 		var classes = {
 			'inner': true
 		};
@@ -4353,14 +4392,18 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			driver.pushToPassInfo.allowed ? React.createElement(
 				'div',
 				{ className: cx({ 'ptp': true, 'active': driver.pushToPassInfo.active }) },
-				self.getPtpState()
+				React.createElement(
+					'div',
+					{ className: cx({ 'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active }) },
+					'PTP'
+				)
 			) : null,
 			React.createElement(
 				'div',
 				{ className: cx({ 'drs': true, 'active': driver.vehicleInfo.drsEnabled }) },
 				React.createElement(
 					'div',
-					{ className: cx({ 'icon animated infinite flash delay-1s': true, 'active': driver.vehicleInfo.drsEnabled }) },
+					{ className: cx({ 'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled }) },
 					'DRS'
 				)
 			)
