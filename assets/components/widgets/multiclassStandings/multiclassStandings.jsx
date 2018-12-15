@@ -49,13 +49,9 @@ UI.widgets.MulticlassStandings = React.createClass({
 		var self = this;
 		// Race
 		if (UI.state.sessionInfo.type.match(/^race/i)) {
-			// Leader should show current best
+			// Leader should show lap count
 			if (driver.scoreInfo.positionOverall === 1) {
-				if (driver.scoreInfo.currentLapTime !== -1) {
-					return <div className="meta-info">{self.formatTime(driver.scoreInfo.currentLapTime, {ignoreSign: true})}</div>
-				} else {
-					return <div className="meta-info"></div>;
-				}
+					return <div className="meta-info">{driver.scoreInfo.laps} Lap(s)</div>;
 			} else {
 				if (sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps > 1) {
 					return <div className="meta-info">+{(sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps)-1} laps</div>
@@ -172,14 +168,6 @@ UI.widgets.MulticlassStandings = React.createClass({
 										<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.webp'} />
 									</div>
 									{self.getMetaInfo(driversLookup[i], drivers)}
-									{r3eTyreDB.classes[driversLookup[i].classId] != null ?
-									<div className="tyre">
-										<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
-									</div>
-										:
-										null
-									}
-
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?
 											<div className="pitted" />

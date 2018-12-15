@@ -4,7 +4,7 @@ UI.widgets.CompareRace = React.createClass({
 
 		// Hide widgets that use the same screen space
 		UI.state.activeWidgets.FocusedDriver.active = false;
-		io.emit('setState', UI.state);
+		//io.emit('setState', UI.state);
 
 		function updateInfo() {
 			r3e.getDriversInfo(function(data) {

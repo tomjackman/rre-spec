@@ -1397,7 +1397,7 @@ UI.widgets.LogoOverlay = React.createClass({
 
 	render: function () {
 		var self = this;
-		return React.createElement("div", { className: "logo-overlay" });
+		return React.createElement("div", { className: "logo-overlay animated flipInY" });
 	}
 });
 UI.widgets.MulticlassStandings = React.createClass({
@@ -1453,17 +1453,14 @@ UI.widgets.MulticlassStandings = React.createClass({
 		var self = this;
 		// Race
 		if (UI.state.sessionInfo.type.match(/^race/i)) {
-			// Leader should show current best
+			// Leader should show lap count
 			if (driver.scoreInfo.positionOverall === 1) {
-				if (driver.scoreInfo.currentLapTime !== -1) {
-					return React.createElement(
-						'div',
-						{ className: 'meta-info' },
-						self.formatTime(driver.scoreInfo.currentLapTime, { ignoreSign: true })
-					);
-				} else {
-					return React.createElement('div', { className: 'meta-info' });
-				}
+				return React.createElement(
+					'div',
+					{ className: 'meta-info' },
+					driver.scoreInfo.laps,
+					' Lap(s)'
+				);
 			} else {
 				if (sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps > 1) {
 					return React.createElement(
@@ -1620,16 +1617,6 @@ UI.widgets.MulticlassStandings = React.createClass({
 								React.createElement('img', { src: '/img/manufacturers/' + driversLookup[i].manufacturerId + '.webp' })
 							),
 							self.getMetaInfo(driversLookup[i], drivers),
-							r3eTyreDB.classes[driversLookup[i].classId] != null ? React.createElement(
-								'div',
-								{ className: 'tyre' },
-								React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
-							) : null,
-							React.createElement(
-								'div',
-								{ className: 'yellows' },
-								driversLookup[i].scoreInfo.flagInfo.yellow
-							),
 							React.createElement(
 								'div',
 								{ className: 'pit-info' },
@@ -3645,7 +3632,7 @@ UI.components.Spectator = React.createClass({
 					self.setState({
 						'event': null
 					});
-				}, 2000);
+				}, 100);
 			}, 10 * 1000);
 		});
 
@@ -4212,7 +4199,7 @@ UI.widgets.CompareRace = React.createClass({
 
 		// Hide widgets that use the same screen space
 		UI.state.activeWidgets.FocusedDriver.active = false;
-		io.emit('setState', UI.state);
+		//io.emit('setState', UI.state);
 
 		function updateInfo() {
 			r3e.getDriversInfo(function (data) {

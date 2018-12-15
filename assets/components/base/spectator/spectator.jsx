@@ -155,7 +155,7 @@ UI.components.Spectator = React.createClass({
 					self.setState({
 						'event': null
 					});
-				}, 2000)
+				}, 100)
 			}, 10*1000);
 		});
 
