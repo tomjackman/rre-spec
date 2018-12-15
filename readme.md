@@ -7,6 +7,15 @@
 4. Open http://localhost:9090 in a browser
 5. Join a MP Server
 
+## New Features
+### Event Info
+The Event Info widget shows the server name and track layout, along with weather condition, track image and the countries flag.
+
+### Safety Car
+For leagues that run a form of safety car, 2 new UI elements have been added. The first one is a flashing amber Safety Car alert that shows under the timer that can be turned on when the safety car is on track. The second is an alert to show when the Safety Car will be returning to the pits on the current lap for improved realism. Both of these are toggled on and off by clicking on the button in the widget list. The Safety Car widgets are only active during race sessions.
+
+### Race Control Alerts
+Active by default, the race control alerts will show driver infringements such as stop & go penalties, slow downs, drive through penalties and disqualifications.
 
 ## Changing Themes
 Themes are created using themes files written using LESS variables. The active theme file is located under `theme/theme.less`.
