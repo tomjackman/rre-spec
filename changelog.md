@@ -5,6 +5,7 @@
 * Added audi theme.
 * Added KTM theme.
 * Added porsche theme.
+* Removed PNG based themes.
 * Added event info widget.
 * Added race control alerts widget.
 * Added safety car on track widget.

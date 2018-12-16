@@ -454,6 +454,43 @@ UI.components.Controller = React.createClass({
 		}
 		var session = UI.state.sessionInfo;
 
+		// TODO - Add update checker.
+		// // get the current version number and compare to the local package.json
+		// var showUpdateBanner = false;
+		// let base64Url = 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RvbWphY2ttYW4vcnJlLXNwZWMtdmVyc2lvbi9tYXN0ZXIvdmVyc2lvbi5qc29u';
+		// fetch(atob(base64Url))
+		// .then(res => res.json())
+		// .then((json) => {
+		//   var version = json.version;
+		//
+		// 	// fetch package.json version
+		// 	console.log(window.location);
+		// 	fetch('dev/package.json')
+		// 	.then(result => result.json())
+		// 	.then((jsonA) => {
+		// 			console.log(jsonA);
+		// 	})
+		// 	.catch(e => {
+		// 		console.log(e);
+		// 	});
+		//
+		//
+		// 	console.log(packageJsonVersion);
+		// 	if (version > packageJsonVersion) {
+		// 		showUpdateBanner = true;
+		// 	}
+		// })
+		// .catch(err => {
+		// 	console.log(err);
+		// 	// not important
+		// });
+		//
+		// { showUpdateBanner ?
+		// <div className="updateAvailable animated bounceInDown delay-3s"><p>A New update is now Available in the <a href='https://forum.sector3studios.com/index.php?threads/r3e-reality-modern-broadcast-overlay.12061/' target="_blank">Sector 3 Forum</a>.</p></div>
+		// :
+		// 	null
+		// }
+
 		return (
 			<div className={classes}>
 				<div className="title">

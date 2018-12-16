@@ -13,3 +13,10 @@
 
 #### New Manufacturer
 * Add the new manufacturer logo to `public\img\manufacturers` named after the Manufacturer ID in `webp` format.
+
+
+### Dev Updates
+* Bump the version of the widget.
+* Bump the package.json version.
+* Bump the rre-spec-version version.
+* Export to Zip and upload to forum.

@@ -1,2 +1,2 @@
 cd dev
-node app.js
+npm start
