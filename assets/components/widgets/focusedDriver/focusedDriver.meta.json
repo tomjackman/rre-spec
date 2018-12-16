@@ -1,4 +1,5 @@
 {
+	"version": "1.0.0",
 	"elementName": "FocusedDriver",
 	"name": "Driver info",
 	"buttonText": "Driver info",

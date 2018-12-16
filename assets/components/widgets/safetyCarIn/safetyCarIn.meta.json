@@ -1,4 +1,5 @@
 {
+	"version": "1.0.0",
 	"elementName": "SafetyCarIn",
 	"name": "Safety Car In",
 	"buttonText": "Safety Car In This Lap",
