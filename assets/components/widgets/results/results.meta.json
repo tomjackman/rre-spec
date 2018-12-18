@@ -2,9 +2,8 @@
 	"version": "1.0.0",
 	"elementName": "Results",
 	"name": "Results",
-	"buttonText": "Qualify Results",
+	"buttonText": "Show Results on End of Qualifying",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Qualifying", "Race"],
-	"activeInPhases": ["Garage"],
-	"defaultActive": false
+	"defaultActive": true
 }

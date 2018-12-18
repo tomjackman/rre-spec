@@ -4,7 +4,7 @@ UI.widgets.Results = React.createClass({
 
 		// Hide all other overlays besides logo
 		Object.keys(UI.state.activeWidgets).forEach(function(key) {
-			if (key.match(/(Results|LogoOverlay|AutoDirector)/)) {
+			if (key.match(/(Results|LogoOverlay|SessionInfo|AutoDirector)/)) {
 				return;
 			}
 
@@ -78,7 +78,11 @@ UI.widgets.Results = React.createClass({
 			drivers[fastestTimeIndex].isFastest = true
 		}
 
+	var session = UI.state.sessionInfo;
+
 		return (
+			<div className="overallQuai">
+			{ session.type === 'QUALIFYING' && (session.phase === 'CHECKERED' || session.phase === 'END') ?
 			<div className="qualify-results">
 				<div className="title">Qualification Results</div>
 				<div className="qualify-results-entry title">
@@ -96,6 +100,10 @@ UI.widgets.Results = React.createClass({
 						})}
 					</div>
 				</div>
+			</div>
+				:
+				null
+				}
 			</div>
 		);
 	}
@@ -125,7 +133,12 @@ var ResultEntry = React.createClass({
 		} else {
 			lapTime = <div className="fastest-time">{UI.formatTime(entry.scoreInfo.bestLapInfo.sector3-self.props.firstEntry.scoreInfo.bestLapInfo.sector3)}</div>
 		}
+
+		var session = UI.state.sessionInfo;
+
 		return (
+			<div className="overall">
+			{ session.type === 'QUALIFYING' && (session.phase === 'CHECKERED' || session.phase === 'END') ?
 			<div className={cx({'fastest': entry.isFastest, 'qualify-results-entry': true})}>
 			<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
 			<div className="position">{entry.scoreInfo.positionOverall}.</div>
@@ -138,6 +151,10 @@ var ResultEntry = React.createClass({
 				</div>
 				{lapTime}
 				<div className="lap-time">{UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
+			</div>
+			:
+			null
+			}
 			</div>
 		);
 	}
