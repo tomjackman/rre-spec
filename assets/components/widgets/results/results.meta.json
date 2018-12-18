@@ -4,6 +4,6 @@
 	"name": "Results",
 	"buttonText": "Show Results on End of Qualifying",
 	"keepOnSessionChange": false,
-	"activeInSessions": ["Qualifying", "Race"],
+	"activeInSessions": ["Qualifying"],
 	"defaultActive": true
 }

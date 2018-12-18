@@ -1847,7 +1847,7 @@ UI.widgets.Results = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'overallQuai' },
-			session.type === 'QUALIFYING' && (session.phase === 'CHECKERED' || session.phase === 'END') ? React.createElement(
+			session.type === 'QUALIFYING' && session.timeLeft < 20 ? React.createElement(
 				'div',
 				{ className: 'qualify-results' },
 				React.createElement(
@@ -1937,7 +1937,7 @@ var ResultEntry = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'overall' },
-			session.type === 'QUALIFYING' && (session.phase === 'CHECKERED' || session.phase === 'END') ? React.createElement(
+			session.type === 'QUALIFYING' && session.timeLeft < 20 ? React.createElement(
 				'div',
 				{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
 				React.createElement(

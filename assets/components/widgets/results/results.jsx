@@ -82,7 +82,7 @@ UI.widgets.Results = React.createClass({
 
 		return (
 			<div className="overallQuai">
-			{ session.type === 'QUALIFYING' && (session.phase === 'CHECKERED' || session.phase === 'END') ?
+			{ session.type === 'QUALIFYING' && session.timeLeft < 20 ?
 			<div className="qualify-results">
 				<div className="title">Qualification Results</div>
 				<div className="qualify-results-entry title">
@@ -138,7 +138,7 @@ var ResultEntry = React.createClass({
 
 		return (
 			<div className="overall">
-			{ session.type === 'QUALIFYING' && (session.phase === 'CHECKERED' || session.phase === 'END') ?
+			{ session.type === 'QUALIFYING' && session.timeLeft < 20 ?
 			<div className={cx({'fastest': entry.isFastest, 'qualify-results-entry': true})}>
 			<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
 			<div className="position">{entry.scoreInfo.positionOverall}.</div>
