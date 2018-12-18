@@ -160,7 +160,6 @@ UI.components.Spectator = React.createClass({
 		});
 
 		r3e.on.resultsUpdate(function(results) {
-			//console.log("resultsUpdate", results)
 			self.setState({
 				'results': results.Results
 			});

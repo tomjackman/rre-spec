@@ -28,7 +28,7 @@ A number of built in themes have been created and can be found in the `theme` fo
 * Mercedes
 * KTM
 
-To use one of these themes, just copy & paste the content of the theme into the `theme/theme.less` file to make it active. Then restart the tool.
+To use one of these themes, just copy & paste the content of the theme into the `theme/theme.less` file to make it active. Then restart the tool. All the sample themes support all widgets and DRS/PTP indicators. 
 
 ### Creating Your Own Theme
 To create your own theme, its recommended to create a copy of the `base.less` file and work from there.

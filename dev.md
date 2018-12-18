@@ -20,3 +20,4 @@
 * Bump the package.json version.
 * Bump the rre-spec-version version.
 * Export to Zip and upload to forum.
+* Bump the version.json file in the public folder.

@@ -139,22 +139,17 @@ a {
   top: 360px;
   left: 20px;
   position: absolute;
-  border-top-right-radius: 25px;
-  border-bottom-left-radius: 25px;
   opacity: 0.8;
   height: 80px;
   width: 120px;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .flat .event-info .serverName {
   color: white;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   text-align: center;
   font-size: 40px;
   padding: 10px;
 }
 .flat .event-info .serverTrackName {
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   color: white;
   text-align: center;
   font-style: italic;
@@ -169,7 +164,6 @@ a {
 }
 .flat .event-info .weather .weatherIcons {
   display: flex;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   color: white;
   justify-content: space-around;
   padding-top: 25px;
@@ -941,7 +935,7 @@ body {
 }
 .flat .compare-race .inner .best-time {
   font-size: 18px;
-  background: rgba(38, 50, 56, 0.8);
+  background: rgba(38, 50, 56, 0.5);
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 10px 10px 0 0;
@@ -1286,12 +1280,13 @@ pre.preview {
   color: white;
 }
 .flat .focused-driver-info .best-time {
+  line-height: 17px;
   font-size: 18px;
-  background: rgba(38, 50, 56, 0.5);
+  background: rgba(38, 50, 56, 0.8);
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 10px 10px 0 0;
-  color: #69f0ae;
+  color: #00c853;
   height: 35px;
   width: 140px;
   z-index: 0;
@@ -1302,6 +1297,7 @@ pre.preview {
   -webkit-transition: top 0.5s;
 }
 .flat .focused-driver-info .positionInClass {
+  line-height: 17px;
   font-size: 18px;
   background: rgba(38, 50, 56, 0.5);
   padding: 10px 10px;
@@ -1423,7 +1419,6 @@ pre.preview {
   width: 100px;
   height: 100px;
   position: absolute;
-  opacity: 0.95;
   top: -15px;
   left: -10px;
   border-bottom-right-radius: 20%;
@@ -1494,7 +1489,7 @@ pre.preview {
 .flat .multiclass-standings .driver .inner > div {
   vertical-align: top;
   height: 100%;
-  line-height: 35px;
+  line-height: 30px;
 }
 .flat .multiclass-standings .driver .inner .pitted,
 .flat .multiclass-standings .driver .inner .unpitted {
@@ -1781,6 +1776,7 @@ pre.preview {
   line-height: 37px;
   margin-bottom: 4px;
   font-size: 20px;
+  color: white;
   background: rgba(38, 50, 56, 0.8);
 }
 .flat .qualify-results .qualify-results-entry.title {
@@ -1804,6 +1800,7 @@ pre.preview {
   font-size: 18px;
   text-align: center;
   padding: 0 0 0 10px;
+  color: white;
 }
 .flat .qualify-results .qualify-results-entry .manufacturer {
   width: 38px;
@@ -1927,7 +1924,7 @@ pre.preview {
   position: fixed;
   background-color: yellow;
   top: 75px;
-  left: 970px;
+  left: 870px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   height: 35px;
@@ -1947,7 +1944,7 @@ pre.preview {
 .checkered img {
   position: fixed;
   top: 75px;
-  left: 970px;
+  left: 870px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   height: 35px;

@@ -1768,7 +1768,7 @@ UI.widgets.Results = React.createClass({
 
 		// Hide all other overlays besides logo
 		Object.keys(UI.state.activeWidgets).forEach(function (key) {
-			if (key.match(/(Results|LogoOverlay|AutoDirector)/)) {
+			if (key.match(/(Results|LogoOverlay|SessionInfo|AutoDirector)/)) {
 				return;
 			}
 
@@ -1842,51 +1842,57 @@ UI.widgets.Results = React.createClass({
 			drivers[fastestTimeIndex].isFastest = true;
 		}
 
+		var session = UI.state.sessionInfo;
+
 		return React.createElement(
 			'div',
-			{ className: 'qualify-results' },
-			React.createElement(
+			{ className: 'overallQuai' },
+			session.type === 'QUALIFYING' && (session.phase === 'CHECKERED' || session.phase === 'END') ? React.createElement(
 				'div',
-				{ className: 'title' },
-				'Qualification Results'
-			),
-			React.createElement(
-				'div',
-				{ className: 'qualify-results-entry title' },
+				{ className: 'qualify-results' },
 				React.createElement(
 					'div',
-					{ className: 'position' },
-					'Position'
-				),
-				React.createElement('div', { className: 'livery' }),
-				React.createElement('div', { className: 'manufacturer' }),
-				React.createElement(
-					'div',
-					{ className: 'name' },
-					'Name'
+					{ className: 'title' },
+					'Qualification Results'
 				),
 				React.createElement(
 					'div',
-					{ className: 'fastest-time' },
-					'Delta'
+					{ className: 'qualify-results-entry title' },
+					React.createElement(
+						'div',
+						{ className: 'position' },
+						'Position'
+					),
+					React.createElement('div', { className: 'livery' }),
+					React.createElement('div', { className: 'manufacturer' }),
+					React.createElement(
+						'div',
+						{ className: 'name' },
+						'Name'
+					),
+					React.createElement(
+						'div',
+						{ className: 'fastest-time' },
+						'Delta'
+					),
+					React.createElement(
+						'div',
+						{ className: 'lap-time' },
+						'Best lap time'
+					)
 				),
 				React.createElement(
 					'div',
-					{ className: 'lap-time' },
-					'Best lap time'
+					{ className: 'entries-outer', ref: 'entries-outer' },
+					React.createElement(
+						'div',
+						{ className: 'entries-inner', ref: 'entries-inner' },
+						drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
+							return React.createElement(ResultEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
+						})
+					)
 				)
-			),
-			React.createElement(
-				'div',
-				{ className: 'entries-outer', ref: 'entries-outer' },
-				React.createElement(
-					'div',
-					{ className: 'entries-inner', ref: 'entries-inner' },
-					drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
-						return React.createElement(ResultEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
-					})
-				)
-			)
+			) : null
 		);
 	}
 });
@@ -1925,43 +1931,50 @@ var ResultEntry = React.createClass({
 				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3 - self.props.firstEntry.scoreInfo.bestLapInfo.sector3)
 			);
 		}
+
+		var session = UI.state.sessionInfo;
+
 		return React.createElement(
 			'div',
-			{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
-			React.createElement(
+			{ className: 'overall' },
+			session.type === 'QUALIFYING' && (session.phase === 'CHECKERED' || session.phase === 'END') ? React.createElement(
 				'div',
-				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
-				'Class P',
-				entry.scoreInfo.positionClass,
-				'.'
-			),
-			React.createElement(
-				'div',
-				{ className: 'position' },
-				entry.scoreInfo.positionOverall,
-				'.'
-			),
-			React.createElement(
-				'div',
-				{ className: 'manufacturer' },
-				React.createElement('img', { src: '/img/manufacturers/' + entry.manufacturerId + '.webp' })
-			),
-			React.createElement(
-				'div',
-				{ className: 'name' },
-				UI.fixName(entry.name)
-			),
-			React.createElement(
-				'div',
-				{ className: 'livery' },
-				React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
-			),
-			lapTime,
-			React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-			)
+				{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
+				React.createElement(
+					'div',
+					{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
+					'Class P',
+					entry.scoreInfo.positionClass,
+					'.'
+				),
+				React.createElement(
+					'div',
+					{ className: 'position' },
+					entry.scoreInfo.positionOverall,
+					'.'
+				),
+				React.createElement(
+					'div',
+					{ className: 'manufacturer' },
+					React.createElement('img', { src: '/img/manufacturers/' + entry.manufacturerId + '.webp' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'name' },
+					UI.fixName(entry.name)
+				),
+				React.createElement(
+					'div',
+					{ className: 'livery' },
+					React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
+				),
+				lapTime,
+				React.createElement(
+					'div',
+					{ className: 'lap-time' },
+					UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+				)
+			) : null
 		);
 	}
 });
@@ -3447,7 +3460,6 @@ UI.components.Spectator = React.createClass({
 		});
 
 		r3e.on.resultsUpdate(function (results) {
-			//console.log("resultsUpdate", results)
 			self.setState({
 				'results': results.Results
 			});
