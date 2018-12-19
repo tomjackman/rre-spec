@@ -14,6 +14,8 @@
 #### New Manufacturer
 * Add the new manufacturer logo to `public\img\manufacturers` named after the Manufacturer ID in `webp` format.
 
+### New Content
+* Update `r3e-data.min.js` with the new data.
 
 ### Dev Updates
 * Bump the version of the widget.

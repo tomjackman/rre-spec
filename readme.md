@@ -1,11 +1,11 @@
 # R3E Reality UI
 
 ## Getting Started
-1. Install http://nodejs.org/
-2. Run `start.bat`
-3. Add `-broadcastUrl=http://localhost:9090` in Steam Game launch
-4. Open http://localhost:9090 in a browser
-5. Join a MP Server
+1. Install http://nodejs.org/.
+2. Run `start.bat`.
+3. Add `-broadcastUrl=http://localhost:9090` in Steam Game launch options.
+4. Open http://localhost:9090 in a browser.
+5. Start RaceRoom and join a multiplayer server.
 
 ## New Features
 ### Event Info
@@ -28,7 +28,7 @@ A number of built in themes have been created and can be found in the `theme` fo
 * Mercedes
 * KTM
 
-To use one of these themes, just copy & paste the content of the theme into the `theme/theme.less` file to make it active. Then restart the tool. All the sample themes support all widgets and DRS/PTP indicators. 
+To use one of these themes, just copy & paste the content of the theme into the `theme/theme.less` file to make it active. Then restart the tool. All the sample themes support all widgets and DRS/PTP indicators.
 
 ### Creating Your Own Theme
 To create your own theme, its recommended to create a copy of the `base.less` file and work from there.
