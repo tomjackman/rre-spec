@@ -6,6 +6,7 @@
 * Added KTM theme.
 * Added porsche theme.
 * Removed PNG based themes.
+* Fixed a UI glitching issue when switching between the driver info and compare race widget.
 * Added event info widget.
 * Added race control alerts widget.
 * Added safety car on track widget.
