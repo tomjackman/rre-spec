@@ -37,7 +37,7 @@ var r3eClassColours = {
     },
     1708: {
       Name: "Group 5",
-      colour: "rgba(62, 176, 228, 0.8)",
+      colour: "rgba(30, 77, 116, 0.8)",
       Id: 1708
     },
     1710: {
@@ -264,6 +264,11 @@ var r3eClassColours = {
       Name: "C-Klasse DTM 2005",
       colour: "rgba(35, 131, 169, 0.8)",
       Id: 7168
+    },
+    7304: {
+      Name: "Group 4",
+      colour: "rgba(193, 62, 54, 0.8)",
+      Id: 7304
     }
   }
 };
