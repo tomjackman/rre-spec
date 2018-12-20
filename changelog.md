@@ -49,3 +49,4 @@
 * [Tooling] Added version numbers to widgets.
 * [Feature] Added auto director weightings to focus on yellow flag offenders.
 * [Feature] Added yellow flag indicator to session info timer.
+* [Feature] Added Group 4 class.
