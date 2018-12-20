@@ -186,7 +186,6 @@ UI.widgets.AutoDirector = React.createClass({
 	activateDefaultWidgets: function() {
 		UI.state.activeWidgets.MulticlassStandings.active = true;
 		UI.state.activeWidgets.LogoOverlay.active = true;
-		UI.state.activeWidgets.FocusedDriver.active = true;
 		UI.state.activeWidgets.SessionInfo.active = true;
 		UI.state.activeWidgets.Alert.active = true;
 	},
