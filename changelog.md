@@ -49,4 +49,5 @@
 * [Tooling] Added version numbers to widgets.
 * [Feature] Added auto director weightings to focus on yellow flag offenders.
 * [Feature] Added yellow flag indicator to session info timer.
-* [Feature] Added Group 4 class.
+* [Feature] Modified qualifying results widget to be an on/off trigger instead of always showing.
+* [Feature] Added group 4 class.
