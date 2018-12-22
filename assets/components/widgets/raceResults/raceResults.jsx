@@ -12,7 +12,7 @@ UI.widgets.RaceResults = React.createClass({
 					return;
 				}
 				self.refs['entries-inner'].style.top = diff+'px';
-			}, 10 * 1000);
+			}, 25 * 1000);
 		})();
 	},
 	render: function() {
