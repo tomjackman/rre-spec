@@ -1,5 +1,6 @@
 ### Version 1.1.0
-* [Feature] Increase race control alerts from 10 to 15 seconds.
+* [Feature] Increase race control alerts display time from 10 to 15 seconds.
+* [Feature] Added tool update checker to notify you if a new version is available in the forum.
 
 ### Version 1.0.0
 * [Feature] Added global LESS variable definitions for themes.
