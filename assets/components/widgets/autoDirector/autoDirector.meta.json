@@ -5,5 +5,6 @@
 	"buttonText": "Auto Director",
 	"keepOnSessionChange": true,
 	"activeInSessions": ["Practice", "Qualifying", "Race"],
-	"defaultActive": false
+	"defaultActive": false,
+	"description": "Allow the tool to automatically switch between drivers on the grid that are producing the most action."
 }

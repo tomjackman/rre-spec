@@ -5,5 +5,6 @@
 	"buttonText": "Show Results on End of Qualifying",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Qualifying"],
-	"defaultActive": true
+	"defaultActive": true,
+	"description": "Allows the Qualifying results to be shown automatically on screen at the end of a session."
 }

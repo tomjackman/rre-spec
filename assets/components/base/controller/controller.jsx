@@ -221,7 +221,7 @@ var WidgetManager = React.createClass({
 
 		return (
 			<div className={cx(classes)} onClick={this.onClickDriver}>
-				<span className="text">{this.props.widget.buttonText}</span>
+				<span className="text" data-title={this.props.widget.description}>{this.props.widget.buttonText}</span>
 			</div>
 		);
 	}
@@ -255,9 +255,24 @@ var Driver = React.createClass({
 		};
 
 		if (timeDiff > 0 && timeDiff < 1000) {
-			classes['close'] = true;
+			classes['close animated flash infinite'] = true;
 		}
 		return cx(classes);
+	},
+	renderPostion: function(position, classId) {
+		var classColour = "rgba(38, 50, 56, 0.8)";
+
+		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
+			classColour = r3eClassColours.classes[classId].colour;
+		}
+
+		const divStyle = {
+				backgroundColor: classColour,
+				position: "absolute",
+				padding: "10px"
+		};
+
+		return <div className="position" style={divStyle}>Class P{position}</div>
 	},
 	render: function() {
 		var self = this;
@@ -289,7 +304,7 @@ var Driver = React.createClass({
 						:
 						null
 					}
-					<div className="current-position">{driver.scoreInfo.positionOverall}</div>
+					{self.renderPostion(driver.scoreInfo.positionClass, driver.classId)}
 				</div>
 			</div>
 		);
@@ -453,43 +468,6 @@ UI.components.Controller = React.createClass({
 			return null;
 		}
 		var session = UI.state.sessionInfo;
-
-		// TODO - Add update checker.
-		// // get the current version number and compare to the local package.json
-		// var showUpdateBanner = false;
-		// let base64Url = 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RvbWphY2ttYW4vcnJlLXNwZWMtdmVyc2lvbi9tYXN0ZXIvdmVyc2lvbi5qc29u';
-		// fetch(atob(base64Url))
-		// .then(res => res.json())
-		// .then((json) => {
-		//   var version = json.version;
-		//
-		// 	// fetch package.json version
-		// 	console.log(window.location);
-		// 	fetch('dev/package.json')
-		// 	.then(result => result.json())
-		// 	.then((jsonA) => {
-		// 			console.log(jsonA);
-		// 	})
-		// 	.catch(e => {
-		// 		console.log(e);
-		// 	});
-		//
-		//
-		// 	console.log(packageJsonVersion);
-		// 	if (version > packageJsonVersion) {
-		// 		showUpdateBanner = true;
-		// 	}
-		// })
-		// .catch(err => {
-		// 	console.log(err);
-		// 	// not important
-		// });
-		//
-		// { showUpdateBanner ?
-		// <div className="updateAvailable animated bounceInDown delay-3s"><p>A New update is now Available in the <a href='https://forum.sector3studios.com/index.php?threads/r3e-reality-modern-broadcast-overlay.12061/' target="_blank">Sector 3 Forum</a>.</p></div>
-		// :
-		// 	null
-		// }
 
 		return (
 			<div className={classes}>

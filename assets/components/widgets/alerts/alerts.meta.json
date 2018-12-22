@@ -5,5 +5,6 @@
 	"buttonText": "Alerts (Race Control)",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Race"],
-	"defaultActive": true
+	"defaultActive": true,
+	"description": "Display penalty and disqualification alerts on screen during race sessions."
 }

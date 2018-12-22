@@ -259,18 +259,34 @@ body {
   src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(/fonts/Inconsolata-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-.updateAvailable {
-  position: absolute;
-  top: 0px;
-  height: 30px;
-  font-size: 18px;
-  text-align: center;
-  padding: 5px;
-  background-color: #26A69A;
-  border-bottom: 1px solid white;
-  font-family: Oswald;
+[data-title]:hover:after {
+  opacity: 1;
+  transition: all 0.1s ease 0.5s;
+  visibility: visible;
+}
+[data-title]:after {
+  content: attr(data-title);
+  background-color: #263238;
   color: white;
-  width: 100%;
+  font-size: 19px;
+  position: absolute;
+  padding: 15px;
+  min-height: 50px;
+  min-width: 250px;
+  right: 120%;
+  top: -140%;
+  white-space: normal;
+  border-radius: 25px;
+  border-top: 5px solid;
+  border-top-color: #ff5252;
+  box-shadow: 1px 1px 3px #222222;
+  opacity: 0;
+  z-index: 99999;
+  visibility: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6) inset;
+}
+[data-title] {
+  position: relative;
 }
 .app-controller {
   position: fixed;
@@ -278,7 +294,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #222;
+  background: #263238;
   font-family: Abel;
 }
 .app-controller .title {
@@ -287,20 +303,18 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
   height: 70px;
   left: 0px;
   right: 0;
-  color: #fff;
   padding: 20px;
   font-size: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
-  background: rgba(0, 0, 0, 0.4);
-  background: linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-  background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-  background: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.2)), color-stop(1, rgba(0, 0, 0, 0.4)));
-  color: #ffc;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border-bottom: 5px solid #ff5252;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background: #263238;
 }
 .app-controller .title .toggle-track-map {
   float: right;
@@ -332,7 +346,7 @@ body {
 .app-controller .drivers-container .driver-entry {
   float: left;
   position: relative;
-  opacity: 0.4;
+  opacity: 0.5;
   border-left: 5px solid rgba(0, 0, 0, 0);
   margin-right: -5px;
 }
@@ -366,15 +380,12 @@ body {
   position: absolute;
   bottom: 25%;
   left: 0;
-  background: #ffffff;
-  background: linear-gradient(bottom, #ffff1a, #ffff66);
-  background: -ms-linear-gradient(bottom, #ffff1a, #ffff66);
-  background: -moz-linear-gradient(center bottom, #ffff1a 0%, #ffff66 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffff1a), color-stop(1, #ffff66));
-  padding: 5px;
+  padding: 8px;
   border-radius: 5px;
-  font-size: 25px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  border-radius: 100px;
+  color: white;
+  background: #4CAF50;
 }
 @-webkit-keyframes "ani_3" {
   0% {
@@ -386,35 +397,28 @@ body {
 }
 .app-controller .drivers-container .driver-entry .interesting {
   position: absolute;
-  bottom: 75%;
+  bottom: 80%;
   left: 0;
-  padding: 5px;
+  padding: 8px;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 20px;
   color: #fff;
   background: #333;
+  border-radius: 100px;
 }
 .app-controller .drivers-container .driver-entry .interesting.close {
-  background: #ffffff;
-  background: linear-gradient(bottom, #009a00, #00e600);
-  background: -ms-linear-gradient(bottom, #009a00, #00e600);
-  background: -moz-linear-gradient(center bottom, #009a00 0%, #00e600 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #009a00), color-stop(1, #00e600));
+  background: #00E676;
+  border-radius: 100px;
 }
-.app-controller .drivers-container .driver-entry .current-position {
+.app-controller .drivers-container .driver-entry .position {
   -webkit-animation: "ani_4" 1s ease;
   position: absolute;
-  bottom: 50%;
   left: 0;
   color: #fff;
-  background: #ffffff;
-  background: linear-gradient(bottom, #0d0d0d, #333333);
-  background: -ms-linear-gradient(bottom, #0d0d0d, #333333);
-  background: -moz-linear-gradient(center bottom, #0d0d0d 0%, #333333 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0d0d0d), color-stop(1, #333333));
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 25px;
+  padding: 10px;
+  border-radius: 100px;
+  bottom: 50%;
+  font-size: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 @-webkit-keyframes "ani_4" {
@@ -424,9 +428,6 @@ body {
   100% {
     opacity: 1;
   }
-}
-.app-controller .drivers-container .driver-entry .current-position:after {
-  content: '.';
 }
 .app-controller .drivers-container .driver-entry img.livery {
   width: 100%;
@@ -438,11 +439,11 @@ body {
   position: fixed;
   top: 70px;
   width: 240px;
-  background: #444;
+  color: white;
   bottom: 0;
-  border-left: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   font-size: 16px;
+  background: #263238;
 }
 .app-controller .widgets-list select,
 .app-controller .suggestions select {
@@ -477,12 +478,12 @@ body {
   opacity: 1;
   background: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
-  color: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   position: relative;
   text-align: center;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  border-top: 5px solid;
+  box-shadow: 1px 1px 3px #222222;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager .text,
 .app-controller .suggestions .widget-buttons .widget-manager .text,
@@ -527,6 +528,7 @@ body {
   background: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.6)), color-stop(1, rgba(0, 0, 0, 0.4)));
   color: #ffc;
+  border-top-color: #4CAF50;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager.inactive,
 .app-controller .suggestions .widget-buttons .widget-manager.inactive,
@@ -541,6 +543,7 @@ body {
   background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
   background: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.2)), color-stop(1, rgba(0, 0, 0, 0.4)));
+  border-top-color: #F44336;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager.inactive.warning,
 .app-controller .suggestions .widget-buttons .widget-manager.inactive.warning,
