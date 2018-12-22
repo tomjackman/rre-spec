@@ -3,6 +3,7 @@
 * [Feature] Added tool update checker to notify you if a new version is available in the forum.
 * [Feature] Increase trigger time to scroll race results from 10 seconds to 25 seconds.
 * [Bug Fix] Prevent the Driver Info widget overlapping the qualifying results at session end.
+* [Tooling] Render Manufacturer logos from the portal instead of locally. 
 
 ### Version 1.0.0
 * [Feature] Added global LESS variable definitions for themes.

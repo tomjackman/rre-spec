@@ -165,7 +165,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 									<div className="position">{driversLookup[i].scoreInfo.positionOverall}</div>
 									{self.renderName(driversLookup[i].name, driversLookup[i].classId)}
 									<div className="manufacturer">
-										<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.webp'} />
+										<img src={'/render/'+driversLookup[i].manufacturerId+'/small/'}/>
 									</div>
 									{self.getMetaInfo(driversLookup[i], drivers)}
 									<div className="pit-info">

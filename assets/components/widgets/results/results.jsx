@@ -148,7 +148,7 @@ var ResultEntry = React.createClass({
 			<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
 			<div className="position">{entry.scoreInfo.positionOverall}.</div>
 				<div className="manufacturer">
-					<img src={'/img/manufacturers/'+entry.manufacturerId+'.webp'} />
+					<img src={'/render/'+entry.manufacturerId+'/small/'}/>
 				</div>
 				<div className="name">{UI.fixName(entry.name)}</div>
 				<div className="livery">

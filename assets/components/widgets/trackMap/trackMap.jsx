@@ -203,25 +203,14 @@ var TrackMapDot = React.createClass({
 			<div
 			className={self.getStyles(driver)}
 			style={self.getDriverStyle(driver)}>
-
 				<div className="position" style={self.getClass(driver)}>
 				{driver.scoreInfo.positionClass}
 				</div>
-
 				<div className="driverName">{self.shortenDriverName(driver.name)}</div>
-
 				<div className="manufacturer">
-					<img src={'/img/manufacturers/'+driver.manufacturerId+'.webp'} />
-				</div>
-
-				<div className="vehicle">
-					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} height="120px" width="220px" />
+					<img src={'/render/'+driver.manufacturerId+'/small/'}/>
 				</div>
 			</div>
-
-
-
-
 		);
 	}
 });

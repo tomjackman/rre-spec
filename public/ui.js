@@ -1297,7 +1297,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'manufacturer' },
-					React.createElement('img', { src: '/img/manufacturers/' + driverInfo.manufacturerId + '.webp' })
+					React.createElement('img', { src: '/render/' + driverInfo.manufacturerId + '/small/' })
 				),
 				React.createElement(
 					'div',
@@ -1563,7 +1563,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 							React.createElement(
 								'div',
 								{ className: 'manufacturer' },
-								React.createElement('img', { src: '/img/manufacturers/' + driversLookup[i].manufacturerId + '.webp' })
+								React.createElement('img', { src: '/render/' + driversLookup[i].manufacturerId + '/small/' })
 							),
 							self.getMetaInfo(driversLookup[i], drivers),
 							React.createElement(
@@ -1739,7 +1739,7 @@ var RaceResultEntry = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'manufacturer' },
-				React.createElement('img', { src: '/img/manufacturers/' + entry.manufacturerId + '.webp' })
+				React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/' })
 			),
 			React.createElement(
 				'div',
@@ -1966,7 +1966,7 @@ var ResultEntry = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'manufacturer' },
-					React.createElement('img', { src: '/img/manufacturers/' + entry.manufacturerId + '.webp' })
+					React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/' })
 				),
 				React.createElement(
 					'div',
@@ -2545,12 +2545,7 @@ var TrackMapDot = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'manufacturer' },
-				React.createElement('img', { src: '/img/manufacturers/' + driver.manufacturerId + '.webp' })
-			),
-			React.createElement(
-				'div',
-				{ className: 'vehicle' },
-				React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small', height: '120px', width: '220px' })
+				React.createElement('img', { src: '/render/' + driver.manufacturerId + '/small/' })
 			)
 		);
 	}
@@ -4234,7 +4229,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'manufacturer' },
-				React.createElement('img', { src: '/img/manufacturers/' + driver.manufacturerId + '.webp' })
+				React.createElement('img', { src: '/render/' + driver.manufacturerId + '/small/' })
 			),
 			driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
 				'div',

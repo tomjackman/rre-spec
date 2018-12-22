@@ -144,7 +144,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} />
 				</div>
 				<div className="manufacturer">
-					<img src={'/img/manufacturers/'+driver.manufacturerId+'.webp'} />
+					<img src={'/render/'+driver.manufacturerId+'/small/'}/>
 				</div>
 				{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 					<div className="best-time">

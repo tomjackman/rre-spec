@@ -265,7 +265,7 @@ UI.widgets.FocusedDriver = React.createClass({
 						null
 					}
 					<div className="manufacturer">
-						<img src={'/img/manufacturers/'+driverInfo.manufacturerId+'.webp'} />
+						<img src={'/render/'+driverInfo.manufacturerId+'/small/'}/>
 					</div>
 
 					<div className="vehicle">
