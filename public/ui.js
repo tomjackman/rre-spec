@@ -1595,7 +1595,7 @@ UI.widgets.RaceResults = React.createClass({
 					return;
 				}
 				self.refs['entries-inner'].style.top = diff + 'px';
-			}, 10 * 1000);
+			}, 25 * 1000);
 		})();
 	},
 	render: function () {
@@ -1848,6 +1848,11 @@ UI.widgets.Results = React.createClass({
 		}
 
 		var session = UI.state.sessionInfo;
+
+		if (session.type === 'QUALIFYING' && session.timeLeft < 20) {
+			// Hide widgets that use the same screen space
+			UI.state.activeWidgets.FocusedDriver.active = false;
+		}
 
 		return React.createElement(
 			'div',

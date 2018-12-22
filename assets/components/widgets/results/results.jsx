@@ -80,6 +80,11 @@ UI.widgets.Results = React.createClass({
 
 	var session = UI.state.sessionInfo;
 
+	if (session.type === 'QUALIFYING' && session.timeLeft < 20) {
+		// Hide widgets that use the same screen space
+		UI.state.activeWidgets.FocusedDriver.active = false;
+	}
+
 		return (
 			<div className="overallQuai">
 			{ session.type === 'QUALIFYING' && session.timeLeft < 20 ?
