@@ -1,4 +1,7 @@
-### Version 1.0
+### Version 1.1.0
+* [Feature] Increase race control alerts from 10 to 15 seconds.
+
+### Version 1.0.0
 * [Feature] Added global LESS variable definitions for themes.
 * [Feature] Added base theme.
 * [Feature] Added mercedes theme.

@@ -133,6 +133,7 @@ UI.components.Spectator = React.createClass({
 
 		// --------------------------- MEGA HACK END
 
+		// Race control alerts
 		var eventTimeout;
 		r3e.on.eventOccurred(function(event) {
 
@@ -156,7 +157,7 @@ UI.components.Spectator = React.createClass({
 						'event': null
 					});
 				}, 100)
-			}, 10*1000);
+			}, 15*1000);
 		});
 
 		r3e.on.resultsUpdate(function(results) {
