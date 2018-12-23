@@ -1,3 +1,7 @@
+### Version 1.1.1
+* [Bug Fix] Fixed opposite metric/imperial units showing on the event info screen.
+* [Bug Fix] Added correct conversions for metric units.
+
 ### Version 1.1.0
 * [Feature] Increase race control alerts display time from 10 to 15 seconds.
 * [Feature] Increase trigger time to scroll race results from 10 seconds to 25 seconds.

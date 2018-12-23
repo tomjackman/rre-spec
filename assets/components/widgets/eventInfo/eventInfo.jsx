@@ -30,6 +30,9 @@ UI.widgets.EventInfo = React.createClass({
 
 		return countryCode;
 	},
+	formatMeasurement: function(value) {
+		return Math.round(value * 100) / 100;
+	},
 	render: function() {
 		var self = this;
 		var info = self.state.eventInfo;
@@ -37,10 +40,17 @@ UI.widgets.EventInfo = React.createClass({
 			return null;
 		}
 
+		var ambientTemp = info.weatherInfo.ambientTemp;
+		var trackTemp = info.weatherInfo.trackTemp;
+		var windSpeed = info.weatherInfo.windSpeed;
+
     var temperatureMeasurement = "°C";
     var speedMeasurement = "MPH";
 
-    if (!info.metric) {
+    if (info.metric) {
+			windSpeed = self.formatMeasurement(windSpeed * 1.609);
+			trackTemp = self.formatMeasurement((trackTemp * 9/5) + 32);
+			ambientTemp = self.formatMeasurement((ambientTemp * 9/5) + 32);
       temperatureMeasurement = "°F";
       speedMeasurement = "km/h"
     }
@@ -53,9 +63,9 @@ UI.widgets.EventInfo = React.createClass({
           <img className="trackImage" src={'http://game.raceroom.com/store/image_redirect?id='+info.trackId+'&size=big'} />
             <div className="weather">
               <div className="weatherIcons">
-              <div className="weatherInfoAmbientTempImage"><img height="50px" width="50px" src={'/img/weather/ambient-temp.png'} /> {info.weatherInfo.ambientTemp}{temperatureMeasurement} Air</div>
-              <div className="weatherInfoTrackTempImage"><img height="50px" width="50px" src={'/img/weather/track-temp.png'} /> {info.weatherInfo.trackTemp}{temperatureMeasurement} Track</div>
-              <div className="weatherInfoWindSpeedImage"><img height="50px" width="50px" src={'/img/weather/wind.png'} /> {info.weatherInfo.windSpeed} {speedMeasurement}</div>
+              <div className="weatherInfoAmbientTempImage"><img height="50px" width="50px" src={'/img/weather/ambient-temp.png'} /> {ambientTemp}{temperatureMeasurement} Air</div>
+              <div className="weatherInfoTrackTempImage"><img height="50px" width="50px" src={'/img/weather/track-temp.png'} /> {trackTemp}{temperatureMeasurement} Track</div>
+              <div className="weatherInfoWindSpeedImage"><img height="50px" width="50px" src={'/img/weather/wind.png'} /> {windSpeed} {speedMeasurement}</div>
               <div className="weatherInfoConditionsImage"><img height="50px" width="50px" src={'/img/weather/conditions.png'} /> {info.weatherInfo.conditions}</div>
               </div>
             </div>

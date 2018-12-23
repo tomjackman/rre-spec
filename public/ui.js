@@ -898,6 +898,9 @@ UI.widgets.EventInfo = React.createClass({
 
 		return countryCode;
 	},
+	formatMeasurement: function (value) {
+		return Math.round(value * 100) / 100;
+	},
 	render: function () {
 		var self = this;
 		var info = self.state.eventInfo;
@@ -905,10 +908,17 @@ UI.widgets.EventInfo = React.createClass({
 			return null;
 		}
 
+		var ambientTemp = info.weatherInfo.ambientTemp;
+		var trackTemp = info.weatherInfo.trackTemp;
+		var windSpeed = info.weatherInfo.windSpeed;
+
 		var temperatureMeasurement = "°C";
 		var speedMeasurement = "MPH";
 
-		if (!info.metric) {
+		if (info.metric) {
+			windSpeed = self.formatMeasurement(windSpeed * 1.609);
+			trackTemp = self.formatMeasurement(trackTemp * 9 / 5 + 32);
+			ambientTemp = self.formatMeasurement(ambientTemp * 9 / 5 + 32);
 			temperatureMeasurement = "°F";
 			speedMeasurement = "km/h";
 		}
@@ -943,7 +953,7 @@ UI.widgets.EventInfo = React.createClass({
 							{ className: 'weatherInfoAmbientTempImage' },
 							React.createElement('img', { height: '50px', width: '50px', src: '/img/weather/ambient-temp.png' }),
 							' ',
-							info.weatherInfo.ambientTemp,
+							ambientTemp,
 							temperatureMeasurement,
 							' Air'
 						),
@@ -952,7 +962,7 @@ UI.widgets.EventInfo = React.createClass({
 							{ className: 'weatherInfoTrackTempImage' },
 							React.createElement('img', { height: '50px', width: '50px', src: '/img/weather/track-temp.png' }),
 							' ',
-							info.weatherInfo.trackTemp,
+							trackTemp,
 							temperatureMeasurement,
 							' Track'
 						),
@@ -961,7 +971,7 @@ UI.widgets.EventInfo = React.createClass({
 							{ className: 'weatherInfoWindSpeedImage' },
 							React.createElement('img', { height: '50px', width: '50px', src: '/img/weather/wind.png' }),
 							' ',
-							info.weatherInfo.windSpeed,
+							windSpeed,
 							' ',
 							speedMeasurement
 						),
