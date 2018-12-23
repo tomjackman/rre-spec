@@ -913,14 +913,14 @@ UI.widgets.EventInfo = React.createClass({
 		var windSpeed = info.weatherInfo.windSpeed;
 
 		var temperatureMeasurement = "°C";
-		var speedMeasurement = "MPH";
+		var speedMeasurement = "km/h";
 
-		if (info.metric) {
+		if (!info.metric) {
 			windSpeed = self.formatMeasurement(windSpeed * 1.609);
 			trackTemp = self.formatMeasurement(trackTemp * 9 / 5 + 32);
 			ambientTemp = self.formatMeasurement(ambientTemp * 9 / 5 + 32);
 			temperatureMeasurement = "°F";
-			speedMeasurement = "km/h";
+			speedMeasurement = "MPH";
 		}
 
 		return React.createElement(
