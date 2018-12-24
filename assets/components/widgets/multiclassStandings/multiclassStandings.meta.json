@@ -2,7 +2,7 @@
 	"version": "1.0.0",
 	"elementName": "MulticlassStandings",
 	"name": "Multiclass Standings",
-	"buttonText": "Multiclass Standings",
+	"buttonText": "Standings",
 	"activeInSessions": ["Practice", "Qualifying", "Race"],
 	"keepOnSessionChange": true,
 	"disableFlags": false,

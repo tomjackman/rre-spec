@@ -1,10 +1,10 @@
 UI.widgets.FocusedDriver = React.createClass({
-	componentWillMount: function() {
+	componentDidMount: function() {
 		var self = this;
 
 		// Hide widgets that use the same screen space
-		UI.state.activeWidgets.CompareRace.active = false;
-		io.emit('setState', UI.state);
+		// UI.state.activeWidgets.CompareRace.active = false;
+		// io.emit('setState', UI.state);
 
 		function updateInfo() {
 			var initialState = {};
@@ -242,7 +242,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
-		if (UI.state.sessionInfo.phase === 'END' || UI.state.activeWidgets.CompareRace.active) {
+		if (UI.state.sessionInfo.phase === 'END') {
 			return null;
 		}
 

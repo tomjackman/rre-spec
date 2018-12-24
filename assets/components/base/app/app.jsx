@@ -23,16 +23,7 @@ UI.components.App = React.createClass({
 			console.log("Current Version is up to date");
 		}
 	},
-	openInNewTab: function() {
-
-	},
-	async isNewVersionAvailable() {
-
-	},
 	render: function() {
-		var self = this;
-		// check if new version is available in the sector 3 forums.
-
 		if (window.gameClient) {
 			return <UI.components.Spectator></UI.components.Spectator>
 		} else {

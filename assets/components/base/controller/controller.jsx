@@ -311,6 +311,65 @@ var Driver = React.createClass({
 	}
 });
 
+
+// control options
+var ControlOption = React.createClass({
+	async componentWillMount() {
+		// LOAD STATE FROM JSON FILE
+		this.state = {
+			isGoing: true,
+			numberOfGuests: 2
+		};
+
+
+
+		this.handleInputChange = this.handleInputChange.bind(this);
+	},
+	handleInputChange(event) {
+		// RECIEVE UPDATED VALUE
+		// SAVE TO JSON FILE
+		// UPDATE STATE
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  },
+	render: function() {
+		var self = this;
+
+		var classes = cx({
+			'controlPanelOption': true
+		});
+
+		// <div className="controlPanel">
+		// 	<ControlOption/>
+		// </div>
+
+		return (
+			<div className={classes}>
+					<form>
+							<div className="option">
+				        <label>
+				          Is going:
+				          <input
+				            name="isGoing"
+				            type="checkbox"
+				            checked={this.state.isGoing}
+				            onChange={this.handleInputChange} />
+				        </label>
+							</div>
+			   </form>
+		</div>
+		);
+	}
+});
+
+
+
+
 UI.components.Controller = React.createClass({
 	componentWillMount: function() {
 		io.on('driversInfo', this.setDriversInfo);
@@ -378,7 +437,7 @@ UI.components.Controller = React.createClass({
 			'showCameraController': false
 		};
 	},
-	componentDidMount: function() {
+	async componentDidMount() {
 		var self = this;
 		$(document).on('touchend', '.drivers-container', function(event) {
 			var endTarget = document.elementFromPoint(
@@ -399,6 +458,14 @@ UI.components.Controller = React.createClass({
 				$('.control').removeClass('active');
 				$control.addClass('active');
 			}
+		});
+
+		// control panel
+		let configFile = 'config.json';
+		const configFileContent = await fetch(configFile);
+		const options = await configFileContent.json();
+		await self.setState({
+			'controlOptions': options
 		});
 	},
 	toggleValue: function(e) {
@@ -501,6 +568,7 @@ UI.components.Controller = React.createClass({
 							null
 						}
 						<div className={cx({'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length})}>
+
 							<div className="drivers">
 								{self.state.driversInfo.sort(self.sortFunctionPosition).map(function(driver, i){
 									return <Driver key={driver.slotId} focused={driver.slotId === UI.state.focusedSlot} imageSize="big" position={i} driver={driver}></Driver>

@@ -1010,12 +1010,12 @@ UI.widgets.EventInfo = React.createClass({
 UI.widgets.FocusedDriver = React.createClass({
 	displayName: 'FocusedDriver',
 
-	componentWillMount: function () {
+	componentDidMount: function () {
 		var self = this;
 
 		// Hide widgets that use the same screen space
-		UI.state.activeWidgets.CompareRace.active = false;
-		io.emit('setState', UI.state);
+		// UI.state.activeWidgets.CompareRace.active = false;
+		// io.emit('setState', UI.state);
 
 		function updateInfo() {
 			var initialState = {};
@@ -1282,7 +1282,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
-		if (UI.state.sessionInfo.phase === 'END' || UI.state.activeWidgets.CompareRace.active) {
+		if (UI.state.sessionInfo.phase === 'END') {
 			return null;
 		}
 
@@ -4117,12 +4117,12 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 UI.widgets.CompareRace = React.createClass({
 	displayName: 'CompareRace',
 
-	componentWillMount: function () {
+	componentDidMount: function () {
 		var self = this;
 
 		// Hide widgets that use the same screen space
-		UI.state.activeWidgets.FocusedDriver.active = false;
-		io.emit('setState', UI.state);
+		// UI.state.activeWidgets.FocusedDriver.active = false;
+		// io.emit('setState', UI.state);
 
 		function updateInfo() {
 			r3e.getDriversInfo(function (data) {
