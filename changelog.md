@@ -1,3 +1,6 @@
+### Version 1.2.0
+* [Feature] Added track Logo and description on the event info screen. 
+
 ### Version 1.1.1
 * [Bug Fix] Fixed opposite metric/imperial units showing on the event info screen.
 * [Bug Fix] Added correct conversions for metric units.

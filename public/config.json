@@ -1,0 +1,11 @@
+{
+  "options": [
+    {
+      "name": "Multiclass",
+      "value": true,
+      "tooltip": "Enable Multiclass UI",
+      "type": "checkbox"
+    }
+  ]
+
+}

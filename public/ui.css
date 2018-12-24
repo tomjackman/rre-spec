@@ -135,32 +135,55 @@ a {
   border-top: 10px solid #ff5252;
   border-bottom: 5px solid #ff5252;
 }
-.flat .event-info .countryFlag img {
-  top: 360px;
-  left: 20px;
-  position: absolute;
-  opacity: 0.8;
-  height: 80px;
-  width: 120px;
-}
 .flat .event-info .serverName {
   color: white;
   text-align: center;
   font-size: 40px;
-  padding: 10px;
+  padding: 20px;
 }
 .flat .event-info .serverTrackName {
   color: white;
   text-align: center;
-  font-style: italic;
-  font-size: 25px;
-  padding: 20px 10px;
+  font-size: 30px;
+  padding: 15px 10px;
 }
-.flat .event-info .trackImage {
+.flat .event-info .trackImage img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+}
+.flat .event-info .trackImage .countryFlag {
+  position: relative;
+}
+.flat .event-info .trackImage .countryFlag img {
+  top: -80px;
+  left: 20px;
+  position: absolute;
+  opacity: 0.8;
+  height: 60px;
+  width: 100px;
+}
+.flat .event-info .trackImage .trackLogo {
+  position: relative;
+}
+.flat .event-info .trackImage .trackLogo img {
+  top: -330px;
+  right: 10px;
+  position: absolute;
+  opacity: 0.8;
+  height: 120px;
+  width: 120px;
+}
+.flat .event-info .trackDescription {
+  display: block;
+  width: 100%;
+  font-size: 21px;
+  padding: 5px 10px;
+  min-height: 100px;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.5;
 }
 .flat .event-info .weather .weatherIcons {
   display: flex;
@@ -337,6 +360,22 @@ body {
 }
 .app-controller .drivers-container.has-suggestions {
   left: 270px;
+}
+.app-controller .drivers-container .controlPanel {
+  top: 100px;
+  height: 200px;
+  background-color: grey;
+  width: 100%;
+}
+.app-controller .drivers-container .controlPanel .controlPanelOption {
+  float: left;
+  position: relative;
+  opacity: 0.5;
+  border-left: 5px solid rgba(0, 0, 0, 0);
+  margin-right: -5px;
+}
+.app-controller .drivers-container .controlPanel .controlPanelOption .option {
+  padding: 20px;
 }
 .app-controller .drivers-container .drivers {
   position: absolute;

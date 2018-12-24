@@ -59,9 +59,18 @@ UI.widgets.EventInfo = React.createClass({
       <div className="event-info-bg animated fadeIn">
   			<div className="event-info">
   				<div className="serverName">{info.serverName}</div>
-  				<div className="serverTrackName">{info.trackName} {info.layoutName}</div>
-          <img className="trackImage" src={'http://game.raceroom.com/store/image_redirect?id='+info.trackId+'&size=big'} />
-            <div className="weather">
+          <div className="trackImage">
+						<img src={'http://game.raceroom.com/store/image_redirect?id='+info.trackId+'&size=big'} />
+						<div className="countryFlag">
+							<img src={'/img/flags/'+self.getCountryCode(info.trackId)+'.svg'} />
+						</div>
+						<div className="trackLogo">
+							<img src={r3eTracks.tracks[info.trackId].trackLogoUrl} />
+						</div>
+					</div>
+					<div className="serverTrackName">{info.trackName} {info.layoutName}</div>
+					<div className="trackDescription">{r3eTracks.tracks[info.trackId].description}</div>
+					  <div className="weather">
               <div className="weatherIcons">
               <div className="weatherInfoAmbientTempImage"><img height="50px" width="50px" src={'/img/weather/ambient-temp.png'} /> {ambientTemp}{temperatureMeasurement} Air</div>
               <div className="weatherInfoTrackTempImage"><img height="50px" width="50px" src={'/img/weather/track-temp.png'} /> {trackTemp}{temperatureMeasurement} Track</div>
@@ -69,9 +78,6 @@ UI.widgets.EventInfo = React.createClass({
               <div className="weatherInfoConditionsImage"><img height="50px" width="50px" src={'/img/weather/conditions.png'} /> {info.weatherInfo.conditions}</div>
               </div>
             </div>
-						<div className="countryFlag">
-							<img src={'/img/flags/'+self.getCountryCode(info.trackId)+'.svg'} />
-						</div>
   			</div>
       </div>
 		);
