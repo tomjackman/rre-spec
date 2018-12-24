@@ -80,16 +80,18 @@ UI.widgets.Results = React.createClass({
 
 	var session = UI.state.sessionInfo;
 
-	if (session.type === 'QUALIFYING' && session.timeLeft < 20) {
+	if (session.type === 'QUALIFYING' && session.timeLeft < 26) {
 		// Hide widgets that use the same screen space
 		UI.state.activeWidgets.FocusedDriver.active = false;
 	}
 
 		return (
 			<div className="overallQuai">
-			{ session.type === 'QUALIFYING' && session.timeLeft < 20 ?
+			{ session.type === 'QUALIFYING' && session.timeLeft < 26 ?
 			<div className="qualify-results">
-				<div className="title">Qualification Results</div>
+				<div className="title">
+					<div className="text">Qualifying Results<div className="logo"></div></div>
+				</div>
 				<div className="qualify-results-entry title">
 					<div className="position">Position</div>
 					<div className="livery"/>
@@ -143,7 +145,7 @@ var ResultEntry = React.createClass({
 
 		return (
 			<div className="overall">
-			{ session.type === 'QUALIFYING' && session.timeLeft < 20 ?
+			{ session.type === 'QUALIFYING' && session.timeLeft < 26 ?
 			<div className={cx({'fastest': entry.isFastest, 'qualify-results-entry': true})}>
 			<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
 			<div className="position">{entry.scoreInfo.positionOverall}.</div>

@@ -25,23 +25,34 @@
 	-webkit-transform: translate(0, -50%);
 	z-index: -1;
 	padding: 0px;
-	color: #fff;
+	color: @RaceResultTitleTextColor;
 	white-space: pre;
 	font-family: Oswald;
 	width: 995px;
 	.title {
-		height: 69px;
-		text-align: right;
-		padding: 0 15px 0 0;
-		line-height: 85px;
-		font-size: 30px;
-		color: @RaceResultTitleTextColor;
-		background: @RaceResultTitleBackground;
-		text-transform: uppercase;
-		margin-bottom: 10px;
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
-		border-top: 5px solid @RaceResultTitleBorderTop;
+		.text {
+			position: inherit;
+			height: 69px;
+			text-align: right;
+			padding: 0 15px 0 0;
+			line-height: 85px;
+			font-size: 30px;
+			background: @QualiResultTitleBackground;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-top: 5px solid @QualiResultTitleBorderTop;
+			text-transform: uppercase;
+			margin-bottom: 10px;
+			z-index: 0;
+			.logo {
+				position: absolute;
+				content: @RaceResultTitleLogo;
+				height: 55px;
+				top: 10px;
+				left: 20px;
+				z-index: 1;
+			}
+		}
 	}
 	.race-results-entry {
 		height: 37px;

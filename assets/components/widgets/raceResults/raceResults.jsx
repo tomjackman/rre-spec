@@ -32,7 +32,9 @@ UI.widgets.RaceResults = React.createClass({
 		var self = this;
 		return (
 			<div className="race-results">
-				<div className="title">Race results</div>
+			<div className="title">
+				<div className="text">Qualifying Results<div className="logo"></div></div>
+			</div>
 				<div className="race-results-entry title">
 					<div className="position">Position</div>
 					<div className="livery"/>
