@@ -10,4 +10,4 @@ var r3eTyreDB = {
       name: "FR X-17 Cup"
     }
   }
-}
+};
