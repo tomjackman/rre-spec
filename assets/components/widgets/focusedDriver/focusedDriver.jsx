@@ -245,7 +245,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		if (UI.state.sessionInfo.phase === 'END') {
 			return null;
 		}
-
+		
 		return (
 			<div className={focusedDriverClasses}>
 				<div className="inner">
