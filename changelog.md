@@ -6,6 +6,7 @@
 * [Feature] Small restyle and positioning of session info widget timer.
 * [Feature] Added logo to quali/race results.
 * [Feature] Small UI updates to themes with new variable definitions.
+* [Feature] Added portal team name to the driver info and compare widgets if there is one defined. 
 
 ### Version 1.1.1
 * [Bug Fix] Fixed opposite metric/imperial units showing on the event info screen.
