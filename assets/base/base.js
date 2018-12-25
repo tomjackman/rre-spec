@@ -25,14 +25,15 @@ UI.getUserInfo = (function() {
 
 		userCache[id] = {
 			country: 'zz', // default to neutral country
-			avatar: '/img/placeholder-avatar.png'
+			avatar: '/img/placeholder-avatar.png',
+			team: ""
 		};
 
 		$.getJSON('/user-info/' + id, function(data) {
 			if (data.error) {
 				return;
 			}
-
+			
 			userCache[id] = data;
 		});
 

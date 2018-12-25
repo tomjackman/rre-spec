@@ -84,7 +84,8 @@ module.exports = function(assetsDir) {
 			var userInfo = json.context.c;
 			userInfoCache[id] = {
                 country: userInfo.overview.country.code,
-                avatar: userInfo.avatar
+                avatar: userInfo.avatar,
+								team: userInfo.team
             };
             waitingFor--;
             console.log('Fetch done for', id, ', in que: ' + waitingFor);

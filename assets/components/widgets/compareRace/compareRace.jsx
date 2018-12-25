@@ -114,13 +114,16 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		var parts = str.split(' ');
 		return parts[0][0]+'. '+parts[parts.length-1].toUpperCase();
 	},
-	getTeamName: function(teamId) {
+	getTeamName: function(teamId, portalId) {
+		var self = this;
 		var teamName = "";
-
-		if (r3eData.teams[teamId] != null) {
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "★ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
-
 		return teamName;
 	},
 	render: function() {
@@ -139,7 +142,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
 				</div>
 				<div className="name">{self.fixName(driver.name)}</div>
-				<div className="team">{self.getTeamName(driver.teamId)}</div>
+				<div className="team">{self.getTeamName(driver.teamId, driver.portalId)}</div>
 				<div className="vehicle">
 					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} />
 				</div>

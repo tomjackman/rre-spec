@@ -615,14 +615,15 @@ UI.getUserInfo = (function() {
 
 		userCache[id] = {
 			country: 'zz', // default to neutral country
-			avatar: '/img/placeholder-avatar.png'
+			avatar: '/img/placeholder-avatar.png',
+			team: ""
 		};
 
 		$.getJSON('/user-info/' + id, function(data) {
 			if (data.error) {
 				return;
 			}
-
+			
 			userCache[id] = data;
 		});
 
@@ -781,6 +782,7 @@ window.addEventListener('message', function(event) {
 		console.error('Got window message error', event.data, e);
 	}
 });
+
 UI.widgets.DirectorSuggestions = React.createClass({
 	displayName: 'DirectorSuggestions',
 
@@ -1243,13 +1245,16 @@ UI.widgets.FocusedDriver = React.createClass({
 			' IN CLASS'
 		);
 	},
-	getTeamName: function (teamId) {
+	getTeamName: function (teamId, portalId) {
+		var self = this;
 		var teamName = "";
-
-		if (r3eData.teams[teamId] != null) {
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "★ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
-
 		return teamName;
 	},
 	getPtpState: function () {
@@ -1311,7 +1316,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'team' },
-					self.getTeamName(driverInfo.teamId)
+					self.getTeamName(driverInfo.teamId, driverInfo.portalId)
 				),
 				r3eTyreDB.classes[driverInfo.classId] != null ? React.createElement(
 					'div',
@@ -2609,7 +2614,7 @@ var r3eOverlaySettings = {
 UI.components.App = React.createClass({
 	displayName: 'App',
 
-	async componentWillMount() {
+	async componentDidMount() {
 		var self = this;
 		// github repo with version.json
 		let base64PublishedVersionUrl = 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RvbWphY2ttYW4vcnJlLXNwZWMvbWFzdGVyL3B1YmxpYy92ZXJzaW9uLmpzb24=';
@@ -4253,13 +4258,16 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		var parts = str.split(' ');
 		return parts[0][0] + '. ' + parts[parts.length - 1].toUpperCase();
 	},
-	getTeamName: function (teamId) {
+	getTeamName: function (teamId, portalId) {
+		var self = this;
 		var teamName = "";
-
-		if (r3eData.teams[teamId] != null) {
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "★ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
-
 		return teamName;
 	},
 	render: function () {
@@ -4291,7 +4299,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'team' },
-				self.getTeamName(driver.teamId)
+				self.getTeamName(driver.teamId, driver.portalId)
 			),
 			React.createElement(
 				'div',

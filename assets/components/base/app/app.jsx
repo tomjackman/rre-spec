@@ -1,5 +1,5 @@
 UI.components.App = React.createClass({
-	async componentWillMount() {
+	async componentDidMount() {
 		var self = this;
 		// github repo with version.json
 		let base64PublishedVersionUrl = 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RvbWphY2ttYW4vcnJlLXNwZWMvbWFzdGVyL3B1YmxpYy92ZXJzaW9uLmpzb24=';

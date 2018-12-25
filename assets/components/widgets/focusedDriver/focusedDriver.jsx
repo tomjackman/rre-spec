@@ -211,13 +211,16 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		return <div className="positionInClass" style={divStyle}>P{driverInfo.scoreInfo.positionClass} IN CLASS</div>
 	},
-	getTeamName: function(teamId) {
+	getTeamName: function(teamId, portalId) {
+		var self = this;
 		var teamName = "";
-
-		if (r3eData.teams[teamId] != null) {
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "★ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
-
 		return teamName;
 	},
 	getPtpState: function() {
@@ -245,7 +248,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		if (UI.state.sessionInfo.phase === 'END') {
 			return null;
 		}
-		
+
 		return (
 			<div className={focusedDriverClasses}>
 				<div className="inner">
@@ -255,7 +258,7 @@ UI.widgets.FocusedDriver = React.createClass({
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					</div>
 					<div className="name">{self.fixName(driverInfo.name)}</div>
-					<div className="team">{self.getTeamName(driverInfo.teamId)}</div>
+					<div className="team">{self.getTeamName(driverInfo.teamId, driverInfo.portalId)}</div>
 
 					{r3eTyreDB.classes[driverInfo.classId] != null ?
 					<div className="tyre">

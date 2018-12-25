@@ -1998,10 +1998,10 @@ pre.preview {
 }
 .flag img {
   position: absolute;
-  top: 40px;
-  left: 860px;
-  height: 30px;
-  width: 30px;
+  top: 35px;
+  left: 852px;
+  height: 40px;
+  width: 40px;
   border-radius: 30px;
   opacity: 1;
   z-index: 2;
