@@ -10,6 +10,8 @@ UI.widgets.Alert = React.createClass({
 
     var stopAndGoPenalty = "a Stop & Go Penalty has been awarded for ";
 
+    var stopAndGoPenalty = "has been disqualified for ";
+
     var penaltyMeanings = {
       // Drive Through
       '0': {
@@ -74,7 +76,39 @@ UI.widgets.Alert = React.createClass({
       },
       // Disqualified
       '5': {
-
+        '0': {
+          text: "a false start"
+        },
+        '1': {
+          text: "speeding in the pitlane"
+        },
+        '2': {
+          text: "driving the wrong way on track"
+        },
+        '3': {
+          text: "entering the pits under red"
+        },
+        '4': {
+          text: "exiting the pits under red"
+        },
+        '8': {
+          text: "ignoring a drive through penalty"
+        },
+        '9': {
+          text: "ignoring a stop & go penalty"
+        },
+        '10': {
+          text: "ignoring a pitstop penalty"
+        },
+        '11': {
+          text: "ignoring a time penalty"
+        },
+        '12': {
+          text: "excessive cutting"
+        },
+        '13': {
+          text: "ignoring blue flags"
+        }
       }
     };
 

@@ -10,6 +10,7 @@
 * [Feature] Adjusted slow down penalty alert text for repeated track limit warnings.
 * [Bug Fix] Changed incident alerts title from race control to stewards for incidents.
 * [Feature] Added new animations to the driver info & compare info widgets.
+* [Feature] Add disqualification alerts in race sessions.
 
 ### Version 1.1.1
 * [Bug Fix] Fixed opposite metric/imperial units showing on the event info screen.
