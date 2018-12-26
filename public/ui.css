@@ -132,7 +132,7 @@ a {
   font-family: Oswald;
   width: 944px;
   border-radius: 10px;
-  border-top: 10px solid #ba1d0d;
+  border-top: 10px solid #ed1c24;
   border-bottom: 5px solid #f0cc3a;
 }
 .flat .event-info .serverName {
@@ -861,7 +861,7 @@ body {
   top: 300px;
   right: 50px;
   text-transform: uppercase;
-  border-top: 3px solid #ba1d0d;
+  border-top: 3px solid #f0cc3a;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -879,41 +879,24 @@ body {
   font-size: 23px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background: white;
-  color: #ba1d0d;
+  background: linear-gradient(386deg, #ed1c24, rgba(237, 28, 36, 0.7));
+  color: white;
 }
 .flat .alert .alertMessage {
-  background: #323433;
-  color: #f0cc3a;
+  background: white;
+  color: #323433;
   font-size: 18px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   padding: 5px;
 }
 .flat .compare-race {
-  -webkit-animation: "ani_7" 0.2s ease, "ani_8" 0.2s ease;
   position: fixed;
   bottom: 80px;
   height: 70px;
   left: 0;
   right: 0;
   text-align: center;
-}
-@-webkit-keyframes "ani_7" {
-  0% {
-    -webkit-transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-  }
-}
-@-webkit-keyframes "ani_8" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 .flat .compare-race .delta {
   font-size: 20px;
@@ -946,17 +929,8 @@ body {
   text-align: center;
   font-family: Oswald;
   color: #fff;
-  -webkit-animation: "ani_9" 0.5s ease;
   /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
   position: absolute !important;
-}
-@-webkit-keyframes "ani_9" {
-  0% {
-    -webkit-transform: translate(0, 120px);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
 }
 .flat .compare-race .inner .inner {
   white-space: nowrap;
@@ -981,11 +955,11 @@ body {
 }
 .flat .compare-race .inner .best-time {
   font-size: 18px;
-  background: #323433;
+  background: linear-gradient(386deg, #0eaf58, rgba(14, 175, 88, 0.7));
   padding: 10px 10px;
   margin-right: 10px;
-  border-radius: 10px 10px 0 0;
-  color: #00c853;
+  border-radius: 15px 15px 0 0;
+  color: white;
   height: 35px;
   width: 130px;
   z-index: 0;
@@ -996,8 +970,8 @@ body {
   -webkit-transition: top 0.5s;
 }
 .flat .compare-race .inner .position {
-  background: #323433;
-  color: #f0cc3a;
+  background: linear-gradient(386deg, #ed1c24, rgba(237, 28, 36, 0.7));
+  color: white;
   width: 65px;
   font-size: 50px;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -1018,8 +992,8 @@ body {
 }
 .flat .compare-race .inner .team {
   position: absolute;
-  background: #323433;
-  color: #f0cc3a;
+  background: linear-gradient(386deg, #ed1c24, rgba(237, 28, 36, 0.7));
+  color: white;
   height: 30px;
   font-size: 20px;
   text-transform: uppercase;
@@ -1102,8 +1076,8 @@ body {
   margin-right: 5px;
 }
 .flat .compare-race .inner .flag-container .flag {
-  width: 71px;
-  height: 61px;
+  width: 81px;
+  height: 71px;
   display: block;
   content: '';
   width: 80px;
@@ -1115,6 +1089,7 @@ body {
   border-bottom-right-radius: 20%;
   border-top-left-radius: 20%;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
+  z-index: 1;
 }
 .error-screen {
   z-index: 2147483627;
@@ -1263,7 +1238,6 @@ pre.preview {
   text-align: center;
   font-family: Oswald;
   color: #fff;
-  -webkit-animation: "ani_10" 0.3s ease;
   position: fixed;
   bottom: 70px;
   left: 0;
@@ -1271,14 +1245,6 @@ pre.preview {
 }
 .flat .focused-driver-info.hide-flags .flag-container {
   display: none;
-}
-@-webkit-keyframes "ani_10" {
-  0% {
-    -webkit-transform: translate(0, 120px);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
 }
 .flat .focused-driver-info .inner {
   height: 71px;
@@ -1328,11 +1294,11 @@ pre.preview {
 .flat .focused-driver-info .best-time {
   line-height: 17px;
   font-size: 18px;
-  background: #323433;
+  background: linear-gradient(386deg, #0eaf58, rgba(14, 175, 88, 0.7));
   padding: 10px 10px;
   margin-right: 10px;
-  border-radius: 10px 10px 0 0;
-  color: #00c853;
+  border-radius: 15px 15px 0 0;
+  color: white;
   height: 35px;
   width: 140px;
   z-index: 0;
@@ -1348,7 +1314,7 @@ pre.preview {
   background: rgba(38, 50, 56, 0.5);
   padding: 10px 10px;
   margin-right: 10px;
-  border-radius: 10px 10px 0 0;
+  border-radius: 15px 15px 0 0;
   color: white;
   height: 35px;
   width: 140px;
@@ -1372,8 +1338,8 @@ pre.preview {
   line-height: 65px;
 }
 .flat .focused-driver-info .position {
-  background: #323433;
-  color: #f0cc3a;
+  background: linear-gradient(386deg, #ed1c24, rgba(237, 28, 36, 0.7));
+  color: white;
   width: 100px;
   font-size: 60px;
   text-align: center;
@@ -1392,11 +1358,11 @@ pre.preview {
   text-transform: uppercase;
   padding: 0px 20px;
   min-width: 500px;
-  border-bottom: 2px solid #323433;
+  border-bottom: 2px solid #ed1c24;
 }
 .flat .focused-driver-info .team {
   position: absolute;
-  color: #ba1d0d;
+  color: #ed1c24;
   font-size: 20px;
   line-height: 60px;
   text-transform: uppercase;
@@ -1438,7 +1404,7 @@ pre.preview {
   position: relative;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-bottom: 2px solid #323433;
+  border-bottom: 2px solid #ed1c24;
 }
 .flat .focused-driver-info .manufacturer img {
   position: absolute;
@@ -1480,9 +1446,9 @@ pre.preview {
   z-index: -1;
   background: url(/logoOverlay/flat/logo-overlay.png) no-repeat;
   background-size: contain;
-  -webkit-animation: "ani_11" 0.5s ease;
+  -webkit-animation: "ani_7" 0.5s ease;
 }
-@-webkit-keyframes "ani_11" {
+@-webkit-keyframes "ani_7" {
   0% {
     opacity: 0;
   }
@@ -1496,12 +1462,12 @@ pre.preview {
   font-family: Hel;
   color: #fff;
   left: 40px;
-  -webkit-animation: "ani_12" 0.2s ease;
+  -webkit-animation: "ani_8" 0.2s ease;
 }
 .flat .multiclass-standings.hide-flags .driver .flag-container {
   display: none;
 }
-@-webkit-keyframes "ani_12" {
+@-webkit-keyframes "ani_8" {
   0% {
     -webkit-transform: translate(-200px, 0);
   }
@@ -1510,7 +1476,7 @@ pre.preview {
   }
 }
 .flat .multiclass-standings .driver {
-  -webkit-animation: "ani_13" 0.2s ease;
+  -webkit-animation: "ani_9" 0.2s ease;
   position: absolute;
   top: 0;
   left: 0;
@@ -1519,7 +1485,7 @@ pre.preview {
   -webkit-transition: -webkit-transform 0.5s linear, left 0.2s linear;
   white-space: nowrap;
 }
-@-webkit-keyframes "ani_13" {
+@-webkit-keyframes "ani_9" {
   0% {
     opacity: 0;
   }
@@ -1563,21 +1529,21 @@ pre.preview {
   border: 1px;
   border-bottom-right-radius: 25%;
   border-top-left-radius: 25%;
-  background: #66bb6a;
+  background: linear-gradient(386deg, #ed1c24, rgba(237, 28, 36, 0.7));
 }
 .flat .multiclass-standings .driver .inner .unpitted {
   border: 1px;
   border-bottom-right-radius: 25%;
   border-top-left-radius: 25%;
-  background: #ff5252;
+  background: linear-gradient(386deg, #ed1c24, rgba(237, 28, 36, 0.7));
 }
 .flat .multiclass-standings .driver .position {
-  background: #323433;
+  background: linear-gradient(386deg, #ed1c24, rgba(237, 28, 36, 0.7));
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   display: inline-block;
-  color: #f0cc3a;
+  color: white;
   font-size: 20px;
   text-align: center;
   width: 40px;
@@ -1608,7 +1574,7 @@ pre.preview {
   line-height: inherit;
 }
 .flat .multiclass-standings .driver .meta-info {
-  background: #323433;
+  background: linear-gradient(186deg, #ff1c24, rgba(237, 28, 36, 0.5));
   color: white;
   position: absolute;
   font-family: Oswald;
@@ -1622,9 +1588,9 @@ pre.preview {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   min-width: 95px;
-  -webkit-animation: "ani_14" 0.7s ease;
+  -webkit-animation: "ani_10" 0.7s ease;
 }
-@-webkit-keyframes "ani_14" {
+@-webkit-keyframes "ani_10" {
   0% {
     -webkit-transform: translate(-100%, 0);
   }
@@ -1655,7 +1621,7 @@ pre.preview {
   -webkit-transform: translate3d(0, 0, 0);
 }
 .flat .race-results {
-  -webkit-animation: "ani_15" 1s ease, "ani_16" 1s ease;
+  -webkit-animation: "ani_11" 1s ease, "ani_12" 1s ease;
   position: fixed;
   top: 50%;
   left: 25%;
@@ -1663,12 +1629,12 @@ pre.preview {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: #ba1d0d;
+  color: #ed1c24;
   white-space: pre;
   font-family: Oswald;
   width: 995px;
 }
-@-webkit-keyframes "ani_15" {
+@-webkit-keyframes "ani_11" {
   0% {
     opacity: 0;
   }
@@ -1676,7 +1642,7 @@ pre.preview {
     opacity: 1;
   }
 }
-@-webkit-keyframes "ani_16" {
+@-webkit-keyframes "ani_12" {
   0% {
     -webkit-transform: translate(0, 50px);
   }
@@ -1694,7 +1660,7 @@ pre.preview {
   background: white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-top: 5px solid #ba1d0d;
+  border-top: 5px solid #ed1c24;
   text-transform: uppercase;
   margin-bottom: 10px;
   z-index: 0;
@@ -1785,7 +1751,7 @@ pre.preview {
   -webkit-transform: translate3d(0, 0, 0);
 }
 .flat .qualify-results {
-  -webkit-animation: "ani_17" 1s ease, "ani_18" 1s ease;
+  -webkit-animation: "ani_13" 1s ease, "ani_14" 1s ease;
   position: fixed;
   top: 50%;
   left: 25%;
@@ -1793,12 +1759,12 @@ pre.preview {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: #ba1d0d;
+  color: #ed1c24;
   white-space: pre;
   font-family: Oswald;
   width: 944px;
 }
-@-webkit-keyframes "ani_17" {
+@-webkit-keyframes "ani_13" {
   0% {
     opacity: 0;
   }
@@ -1806,7 +1772,7 @@ pre.preview {
     opacity: 1;
   }
 }
-@-webkit-keyframes "ani_18" {
+@-webkit-keyframes "ani_14" {
   0% {
     -webkit-transform: translate(0, 50px);
   }
@@ -1824,7 +1790,7 @@ pre.preview {
   background: white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-top: 5px solid #ba1d0d;
+  border-top: 5px solid #ed1c24;
   text-transform: uppercase;
   margin-bottom: 10px;
   z-index: 0;
@@ -1924,7 +1890,7 @@ pre.preview {
   right: 50px;
   font-size: 23px;
   text-transform: uppercase;
-  border-top: 3px solid #ba1d0d;
+  border-top: 3px solid #f0cc3a;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -1938,12 +1904,12 @@ pre.preview {
 .flat .safetyAlert .raceControl {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background: white;
-  color: #ba1d0d;
+  background: linear-gradient(386deg, #ed1c24, rgba(237, 28, 36, 0.7));
+  color: white;
 }
 .flat .safetyAlert .safetyCarIn {
-  background: #323433;
-  color: #f0cc3a;
+  background: white;
+  color: #323433;
   font-size: 18px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -1955,12 +1921,12 @@ pre.preview {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   font-size: 21px;
-  background: white;
+  background: linear-gradient(386deg, #ed1c24, rgba(237, 28, 36, 0.7));
   text-transform: uppercase;
-  border-top: 3px solid #ba1d0d;
+  border-top: 3px solid #f0cc3a;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  color: #ba1d0d;
+  color: white;
   width: 180px;
   height: 35px;
   padding: 0px 4px;
@@ -1975,11 +1941,11 @@ pre.preview {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   font-size: 22px;
-  background: #323433;
+  background: white;
   text-transform: uppercase;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  color: #f0cc3a;
+  color: #323433;
   height: 35px;
   width: 180px;
   line-height: 33px;
@@ -1998,13 +1964,15 @@ pre.preview {
 }
 .flag img {
   position: absolute;
-  top: 35px;
-  left: 852px;
+  top: 33px;
+  left: 850px;
   height: 40px;
   width: 40px;
   border-radius: 30px;
   opacity: 1;
   z-index: 2;
+  border: 2px solid #f0cc3a;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
 }
 .checkered img {
   position: fixed;
@@ -2023,9 +1991,9 @@ pre.preview {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  -webkit-animation: "ani_19" 1s ease;
+  -webkit-animation: "ani_15" 1s ease;
 }
-@-webkit-keyframes "ani_19" {
+@-webkit-keyframes "ani_15" {
   0% {
     opacity: 0;
   }

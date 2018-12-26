@@ -78,13 +78,13 @@ UI.widgets.SessionInfo = React.createClass({
 		}
 
 		return (
-			<div className="session-info animated fadeIn">
+			<div className="session-info">
 				<div className="inner">
 					{p.sessionInfo.phase === 'GARAGE' ?
 						<div>
 							<div className="sessionName">{nameLookup[p.sessionInfo.phase]}</div>
 							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
-							<div className="flag">
+							<div className="flag animated pulse delay-1s">
 								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
 							</div>
 						</div>

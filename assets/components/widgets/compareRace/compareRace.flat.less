@@ -6,7 +6,6 @@
 	text-align: center;
 	font-family: Oswald;
 	color: #fff;
-	.onCreation(-webkit-transform, translate(0, 120px), translate(0, 0), 0.5s);
 	.inner {
 		white-space: nowrap;
 		width: auto;
@@ -28,7 +27,7 @@ display:none;
 		background: @CompareRaceBestTimeBackground;
 		padding: 10px 10px;
 		margin-right: 10px;
-		border-radius: 10px 10px 0 0;
+		border-radius: 15px 15px 0 0;
 		color: @CompareRaceBestTimeText;
 		height: 35px;
 		width: 130px;
@@ -154,8 +153,8 @@ display:none;
 		position: relative;
 		margin-right: 5px;
 		.flag {
-			width: 71px;
-			height: 61px;
+			width: 81px;
+			height: 71px;
 			background: #000;
 			position: absolute;
 			display: block;
@@ -169,13 +168,12 @@ display:none;
 			border-bottom-right-radius: 20%;
 			border-top-left-radius: 20%;
 			filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.9));
+			z-index: 1;
 		}
 	}
 }
 
 .flat .compare-race {
-	.onCreation(-webkit-transform, scale(0), scale(1), 0.2s);
-	.onCreation(opacity, 0, 1, 0.2s);
 	position: fixed;
 	bottom: 80px;
 	height: 70px;

@@ -186,7 +186,7 @@ UI.widgets.FocusedDriver = React.createClass({
 	},
 	getExtraInfo: function() {
 		var self = this;
-		if (UI.state.sessionInfo.type.match(/^(qualify|practice|race)/i)) {
+		if (UI.state.sessionInfo.type.match(/^(qualify|practice)/i)) {
 			return <div className="extra-info">
 				<ul className="sectors">
 					{self.getSectorItem('sector1')}
@@ -251,17 +251,17 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		return (
 			<div className={focusedDriverClasses}>
-				<div className="inner">
+				<div className="inner animated flipInX">
 					<div className="position">{driverInfo.scoreInfo.positionOverall}</div>
 					{self.getClassPosition(driverInfo.classId)}
 					<div className="flag-container">
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					</div>
-					<div className="name">{self.fixName(driverInfo.name)}</div>
+					<div className="name animated">{self.fixName(driverInfo.name)}</div>
 					<div className="team">{self.getTeamName(driverInfo.teamId, driverInfo.portalId)}</div>
 
 					{r3eTyreDB.classes[driverInfo.classId] != null ?
-					<div className="tyre">
+					<div className="tyre animated rotateIn delay-1s">
 						<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
 					</div>
 						:
@@ -271,7 +271,7 @@ UI.widgets.FocusedDriver = React.createClass({
 						<img src={'/render/'+driverInfo.manufacturerId+'/small/'}/>
 					</div>
 
-					<div className="vehicle">
+					<div className="vehicle animated pulse delay-1s">
 						<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
 					</div>
 

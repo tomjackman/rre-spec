@@ -96,7 +96,7 @@ UI.widgets.CompareRace = React.createClass({
 							<UI.widgets.CompareRaceDriver position="second" driver={drivers[0]}/>
 						</div>
 						:
-						<div className="delta">
+						<div className="delta animated flipInX">
 							<div className="value">&lt;</div>
 							<UI.widgets.CompareRaceDriver position="first" driver={drivers[1]}/>
 							<UI.widgets.CompareRaceDriver position="second" driver={drivers[0]}/>
@@ -132,7 +132,8 @@ UI.widgets.CompareRaceDriver = React.createClass({
 
 
 		var classes = {
-			'inner': true
+			'inner': true,
+			'animated flipInX': true
 		};
 		classes[self.props.position] = true;
 		return (
@@ -143,7 +144,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				</div>
 				<div className="name">{self.fixName(driver.name)}</div>
 				<div className="team">{self.getTeamName(driver.teamId, driver.portalId)}</div>
-				<div className="vehicle">
+				<div className="vehicle animated pulse delay-1s">
 					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} />
 				</div>
 				<div className="manufacturer">

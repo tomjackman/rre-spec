@@ -1210,7 +1210,7 @@ UI.widgets.FocusedDriver = React.createClass({
 	},
 	getExtraInfo: function () {
 		var self = this;
-		if (UI.state.sessionInfo.type.match(/^(qualify|practice|race)/i)) {
+		if (UI.state.sessionInfo.type.match(/^(qualify|practice)/i)) {
 			return React.createElement(
 				'div',
 				{ className: 'extra-info' },
@@ -1296,7 +1296,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			{ className: focusedDriverClasses },
 			React.createElement(
 				'div',
-				{ className: 'inner' },
+				{ className: 'inner animated flipInX' },
 				React.createElement(
 					'div',
 					{ className: 'position' },
@@ -1310,7 +1310,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				React.createElement(
 					'div',
-					{ className: 'name' },
+					{ className: 'name animated' },
 					self.fixName(driverInfo.name)
 				),
 				React.createElement(
@@ -1320,7 +1320,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				r3eTyreDB.classes[driverInfo.classId] != null ? React.createElement(
 					'div',
-					{ className: 'tyre' },
+					{ className: 'tyre animated rotateIn delay-1s' },
 					React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
 				) : null,
 				React.createElement(
@@ -1330,7 +1330,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				React.createElement(
 					'div',
-					{ className: 'vehicle' },
+					{ className: 'vehicle animated pulse delay-1s' },
 					React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driverInfo.liveryId + '&size=small' })
 				),
 				self.state.pushToPassInfo.allowed ? React.createElement(
@@ -2303,7 +2303,7 @@ UI.widgets.SessionInfo = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'session-info animated fadeIn' },
+			{ className: 'session-info' },
 			React.createElement(
 				'div',
 				{ className: 'inner' },
@@ -2322,7 +2322,7 @@ UI.widgets.SessionInfo = React.createClass({
 					),
 					React.createElement(
 						'div',
-						{ className: 'flag' },
+						{ className: 'flag animated pulse delay-1s' },
 						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
 					)
 				) : React.createElement(
@@ -3751,7 +3751,7 @@ UI.widgets.Alert = React.createClass({
           text: "a Slow Down Penalty has been awarded for track limits abuse"
         },
         '2': {
-          text: "a Slow Down Penalty has been awarded for continuing abuse track limits"
+          text: "a Slow Down Penalty has been awarded for continuing to abuse track limits"
         }
       },
       // Disqualified
@@ -3767,7 +3767,7 @@ UI.widgets.Alert = React.createClass({
         React.createElement(
           "div",
           { className: "raceControlAlert" },
-          "Race Control"
+          "Stewards"
         ),
         React.createElement(
           "div",
@@ -4236,7 +4236,7 @@ UI.widgets.CompareRace = React.createClass({
 					React.createElement(UI.widgets.CompareRaceDriver, { position: 'second', driver: drivers[0] })
 				) : React.createElement(
 					'div',
-					{ className: 'delta' },
+					{ className: 'delta animated flipInX' },
 					React.createElement(
 						'div',
 						{ className: 'value' },
@@ -4275,7 +4275,8 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		var driver = self.props.driver;
 
 		var classes = {
-			'inner': true
+			'inner': true,
+			'animated flipInX': true
 		};
 		classes[self.props.position] = true;
 		return React.createElement(
@@ -4303,7 +4304,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			),
 			React.createElement(
 				'div',
-				{ className: 'vehicle' },
+				{ className: 'vehicle animated pulse delay-1s' },
 				React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small' })
 			),
 			React.createElement(
