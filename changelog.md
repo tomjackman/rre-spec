@@ -1,7 +1,7 @@
 ### Version 1.2.0
 * [Feature] Added track logo and description on the event info screen.
 * [Feature] Increased trigger time to show qualifying results from 20 seconds left in the session, to 25 seconds.
-* [Bug Fix] Fixed a bug where the control panel could lock up when switching between driver info and compare widgets. For now, you must turn them on/off manually until a reliable way to hide the other widget automatically is found.
+* [Bug Fix] Fixed a bug where the control panel could lock up when switching between driver info and compare widgets. (For now, you must turn them on/off manually until a reliable way to hide the other widget automatically is found).
 * [Feature] Added avia racing theme.
 * [Feature] Small restyle and positioning of session info widget timer.
 * [Feature] Added logo to quali/race results.
