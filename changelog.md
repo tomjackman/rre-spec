@@ -1,20 +1,20 @@
 ### Version 1.2.0
-* [Feature] Added track logo and description on the event info screen.
 * [Feature] Increased trigger time to show qualifying results from 20 seconds left in the session, to 25 seconds.
 * [Bug Fix] Fixed a bug where the control panel could lock up when switching between driver info and compare widgets. (For now, you must turn them on/off manually until a reliable way to hide the other widget automatically is found).
-* [Feature] Added avia racing theme.
-* [Feature] Small restyle and positioning of session info widget timer.
-* [Feature] Added logo to quali/race results.
-* [Feature] Small UI updates to themes with new variable definitions.
-* [Feature] Added portal team name to the driver info and compare widgets if there is one defined.
+* [Feature] Small restyle and positioning of session info timer.
+* [Feature] Added logo to qualifying and race results table header.
+* [Feature] Small UI updates to themes with new variable definitions for some UI components.
+* [Feature] Added users portal team name to the driver info and compare widgets if there is one defined.
 * [Feature] Adjusted slow down penalty alert text for repeated track limit warnings.
-* [Bug Fix] Changed incident alerts title from race control to stewards for incidents.
+* [Bug Fix] Changed incident alerts title from 'race control' to 'stewards' for incidents.
 * [Feature] Added new animations to the driver info & compare info widgets.
-* [Feature] Add disqualification alerts in race sessions.
+* [Feature] Added disqualification alerts for race sessions.
+* [Feature] Added track logo and description on the event info screen.
+* [Feature] Added avia esport racing theme.
 
 ### Version 1.1.1
 * [Bug Fix] Fixed opposite metric/imperial units showing on the event info screen.
-* [Bug Fix] Added correct conversions for metric units.
+* [Bug Fix] Added correct conversions for imperial units.
 
 ### Version 1.1.0
 * [Feature] Increase race control alerts display time from 10 to 15 seconds.
