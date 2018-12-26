@@ -6,7 +6,7 @@
 * [Feature] Small UI updates to themes with new variable definitions for some UI components.
 * [Feature] Added users portal team name to the driver info and compare widgets if there is one defined.
 * [Feature] Adjusted slow down penalty alert text for repeated track limit warnings.
-* [Bug Fix] Changed incident alerts title from 'race control' to 'stewards' for incidents.
+* [Bug Fix] Changed alerts title from 'race control' to 'stewards' for incidents.
 * [Feature] Added new animations to the driver info & compare info widgets.
 * [Feature] Added disqualification alerts for race sessions.
 * [Feature] Added track logo and description on the event info screen.
