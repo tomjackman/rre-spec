@@ -69,7 +69,7 @@ UI.widgets.Alert = React.createClass({
           text: "a Slow Down Penalty has been awarded for track limits abuse"
         },
         '2': {
-          text: "a Slow Down Penalty has been awarded for continuing abuse track limits"
+          text: "a Slow Down Penalty has been awarded for continuing to abuse track limits"
         }
       },
       // Disqualified
