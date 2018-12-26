@@ -82,7 +82,7 @@ UI.widgets.Alert = React.createClass({
       <div>
         {event != null && event.driverName != null && penaltyMeanings[event.type] != null && penaltyMeanings[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null ?
         <div className={"alert animated fadeInRight "+(event.removing ? 'removing' : '')}>
-          <div className="raceControlAlert">Race Control</div>
+          <div className="raceControlAlert">Stewards</div>
     			<div className="alertMessage">Incident involving {event.driverName}, {penaltyMeanings[event.type][event.reason].text}</div>
         </div>
         :

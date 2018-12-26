@@ -2,7 +2,7 @@
 	"version": "1.0.0",
 	"elementName": "Alert",
 	"name": "Alert",
-	"buttonText": "Alerts (Race Control)",
+	"buttonText": "Steward Penalty Alerts",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Race"],
 	"defaultActive": true,

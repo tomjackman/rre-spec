@@ -8,6 +8,7 @@
 * [Feature] Small UI updates to themes with new variable definitions.
 * [Feature] Added portal team name to the driver info and compare widgets if there is one defined.
 * [Feature] Adjusted slow down penalty alert text for repeated track limit warnings.
+* [Bug Fix] Changed incident alerts title from race control to stewards for incidents.
 
 ### Version 1.1.1
 * [Bug Fix] Fixed opposite metric/imperial units showing on the event info screen.
