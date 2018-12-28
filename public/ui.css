@@ -904,10 +904,22 @@ body {
   background: rgba(38, 50, 56, 0.5);
   border-radius: 20px;
   color: white;
+  border-top: 3px solid #ff5252;
   padding: 6px 10px;
   min-width: 130px;
   display: inline-block;
   position: relative;
+}
+.flat .compare-race .delta .battle {
+  font-size: 17px;
+  text-transform: uppercase;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+  padding: 6px 10px;
+  width: inherit;
+  position: relative;
+  bottom: 4px;
 }
 .flat .compare-race .delta .inner {
   position: absolute !important;

@@ -4262,17 +4262,29 @@ UI.widgets.CompareRace = React.createClass({
 				{ className: 'inner' },
 				drivers[0].scoreInfo.timeDiff !== -1 ? React.createElement(
 					'div',
-					{ className: 'delta' },
+					{ className: 'delta animated flipInX' },
+					React.createElement(
+						'div',
+						{ className: 'battle' },
+						'Battle For P',
+						drivers[0].scoreInfo.positionOverall
+					),
 					React.createElement(
 						'div',
 						{ className: 'value' },
-						self.formatTime(Math.max(0, drivers[0].scoreInfo.timeDiff))
+						self.formatTime(Math.max(0, drivers[1].scoreInfo.timeDiff))
 					),
 					React.createElement(UI.widgets.CompareRaceDriver, { position: 'first', driver: drivers[1] }),
 					React.createElement(UI.widgets.CompareRaceDriver, { position: 'second', driver: drivers[0] })
 				) : React.createElement(
 					'div',
 					{ className: 'delta animated flipInX' },
+					React.createElement(
+						'div',
+						{ className: 'battle' },
+						'Battle For P',
+						drivers[1].scoreInfo.positionOverall
+					),
 					React.createElement(
 						'div',
 						{ className: 'value' },

@@ -187,11 +187,24 @@ display:none;
 		background: @CompareRaceDeltaBackground;
 		border-radius: 20px;
 		color: @CompareRaceDeltaText;
+		border-top: 3px solid @CompareRaceDeltaDeltaBorder;
 		padding: 6px 10px;
 		min-width: 130px;
 		display: inline-block;
 		display: inline-block;
 		position: relative;
+
+		.battle {
+			font-size: 17px;
+			text-transform: uppercase;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+			color: @CompareRaceDeltaText;
+			padding: 6px 10px;
+			width: inherit;
+			position: relative;
+			bottom: 4px;
+		}
 
 		.inner {
 			position: absolute !important;
