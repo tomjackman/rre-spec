@@ -10,6 +10,7 @@
 * [Feature] Highlighted time penalties in red on the race results table.
 * [Bug Fix] Corrected the class position text color on the race results screen.
 * [Bug Fix] Fixed a ui issue where the flag in the session info timer would not display correctly in the garage phase before a race.
+* [Feature] Updated the class colour of the silhouette series.
 
 ### Version 1.2.0
 * [Feature] Increased trigger time to show qualifying results from 20 seconds left in the session, to 25 seconds.

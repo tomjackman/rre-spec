@@ -62,7 +62,7 @@ var r3eClassColours = {
     },
     1717: {
       Name: "Silhouette Series",
-      colour: "rgba(67, 66, 64, 0.8)",
+      colour: "rgba(215, 215, 51, 0.8)",
       Id: 1717
     },
     1921: {
