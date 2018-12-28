@@ -84,7 +84,7 @@ UI.widgets.SessionInfo = React.createClass({
 						<div>
 							<div className="sessionName">{nameLookup[p.sessionInfo.phase]}</div>
 							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
-							<div className="flag animated pulse delay-1s">
+							<div className="flag">
 								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
 							</div>
 						</div>

@@ -107,7 +107,7 @@ var r3eClassColours = {
     },
     1717: {
       Name: "Silhouette Series",
-      colour: "rgba(67, 66, 64, 0.8)",
+      colour: "rgba(215, 215, 51, 0.8)",
       Id: 1717
     },
     1921: {
@@ -152,7 +152,7 @@ var r3eClassColours = {
     },
     3499: {
       Name: "DTM 1992",
-      colour: "rgba(27, 65, 159, 0.8)",
+      colour: "rgba(255, 120, 0, 0.8)",
       Id: 3499
     },
     3905: {
@@ -1651,7 +1651,7 @@ UI.widgets.RaceResults = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'text' },
-					'Qualifying Results',
+					'Race Results',
 					React.createElement('div', { className: 'logo' })
 				)
 			),
@@ -1669,6 +1669,11 @@ UI.widgets.RaceResults = React.createClass({
 					'div',
 					{ className: 'name' },
 					'Name'
+				),
+				React.createElement(
+					'div',
+					{ className: 'team' },
+					'Team'
 				),
 				React.createElement(
 					'div',
@@ -1741,16 +1746,15 @@ var RaceResultEntry = React.createClass({
 
 		var penaltyTime = React.createElement(
 			'div',
-			{ className: 'timePenalty' },
-			' No Penalties '
+			{ className: 'timePenalty', style: { 'min-width': '90px' } },
+			' - '
 		);
 		if (entry.penaltyTime) {
 			penaltyTime = React.createElement(
 				'div',
-				{ className: 'timePenalty' },
-				' ',
+				{ className: 'timePenalty', style: { color: 'red' } },
 				entry.penaltyTime / 1000,
-				's Penalty '
+				's Penalty'
 			);
 		}
 
@@ -1918,6 +1922,11 @@ UI.widgets.Results = React.createClass({
 						'div',
 						{ className: 'name' },
 						'Name'
+					),
+					React.createElement(
+						'div',
+						{ className: 'team' },
+						'Team'
 					),
 					React.createElement(
 						'div',
@@ -2322,7 +2331,7 @@ UI.widgets.SessionInfo = React.createClass({
 					),
 					React.createElement(
 						'div',
-						{ className: 'flag animated pulse delay-1s' },
+						{ className: 'flag' },
 						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
 					)
 				) : React.createElement(
@@ -3797,7 +3806,7 @@ UI.widgets.Alert = React.createClass({
     return React.createElement(
       "div",
       null,
-      event != null && event.driverName != null && penaltyMeanings[event.type] != null && penaltyMeanings[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null ? React.createElement(
+      UI.state.activeWidgets.Alert.active && event != null && event.driverName != null && penaltyMeanings[event.type] != null && penaltyMeanings[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null ? React.createElement(
         "div",
         { className: "alert animated fadeInRight " + (event.removing ? 'removing' : '') },
         React.createElement(
@@ -4267,7 +4276,7 @@ UI.widgets.CompareRace = React.createClass({
 						'div',
 						{ className: 'battle' },
 						'Battle For P',
-						drivers[0].scoreInfo.positionOverall
+						drivers[0].scoreInfo.positionOverall - 1
 					),
 					React.createElement(
 						'div',
@@ -4276,23 +4285,7 @@ UI.widgets.CompareRace = React.createClass({
 					),
 					React.createElement(UI.widgets.CompareRaceDriver, { position: 'first', driver: drivers[1] }),
 					React.createElement(UI.widgets.CompareRaceDriver, { position: 'second', driver: drivers[0] })
-				) : React.createElement(
-					'div',
-					{ className: 'delta animated flipInX' },
-					React.createElement(
-						'div',
-						{ className: 'battle' },
-						'Battle For P',
-						drivers[1].scoreInfo.positionOverall
-					),
-					React.createElement(
-						'div',
-						{ className: 'value' },
-						'<'
-					),
-					React.createElement(UI.widgets.CompareRaceDriver, { position: 'first', driver: drivers[1] }),
-					React.createElement(UI.widgets.CompareRaceDriver, { position: 'second', driver: drivers[0] })
-				)
+				) : null
 			)
 		);
 	}
