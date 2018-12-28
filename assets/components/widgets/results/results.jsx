@@ -97,6 +97,7 @@ UI.widgets.Results = React.createClass({
 					<div className="livery"/>
 					<div className="manufacturer"/>
 					<div className="name">Name</div>
+					<div className="team">Team</div>
 					<div className="fastest-time">Delta</div>
 					<div className="lap-time">Best lap time</div>
 				</div>

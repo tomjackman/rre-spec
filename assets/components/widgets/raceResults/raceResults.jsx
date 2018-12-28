@@ -40,6 +40,7 @@ UI.widgets.RaceResults = React.createClass({
 					<div className="livery"/>
 					<div className="manufacturer"/>
 					<div className="name">Name</div>
+					<div className="team">Team</div>
 					<div className="penaltyTime">Penalties</div>
 					<div className="lap-time">Finish time</div>
 					<div className="fastest-time">Best lap time</div>
@@ -80,9 +81,9 @@ var RaceResultEntry = React.createClass({
 			lapTime = <div className="lap-time">{UI.formatTime(entry.totalTime-self.props.firstEntry.totalTime)}</div>
 		}
 
-		var penaltyTime = <div className="timePenalty"> No Penalties </div>
+		var penaltyTime = <div className="timePenalty">No Penalties</div>
 		if (entry.penaltyTime) {
-			penaltyTime = <div className="timePenalty"> {(entry.penaltyTime/1000)}s Penalty </div>
+			penaltyTime = <div className="timePenalty" style={{color: 'red'}}>{(entry.penaltyTime/1000)}s Penalty</div>
 		}
 
 		return (

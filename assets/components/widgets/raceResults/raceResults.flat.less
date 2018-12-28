@@ -62,7 +62,7 @@
 		color: @RaceResultEntryTextColor;
 		background: @RaceResultEntryBackground;
 		&.title {
-			display: none;
+			padding: 0 0 0 10px;
 		}
 		&.fastest {
 			.fastest-time {
@@ -84,6 +84,7 @@
 			font-size: 18px;
 			text-align: center;
 			padding: 0 0 0 10px;
+			color: white;
 		}
 		.manufacturer {
 			width: 38px;
@@ -96,14 +97,17 @@
 				height: auto;
 			}
 		}
-		.timePenalty {
-			width: 120px;
-			font-size: 19px;
-			padding: 0 0 0 10px;
+		.penaltyTime {
+			width: 90px;
+			position: relative;
 		}
 		.name {
 			width: 320px;
 			padding: 0 0 0 20px;
+		}
+		.team {
+			width: 90px;
+			position: relative;
 		}
 		.livery {
 			width: 90px;
