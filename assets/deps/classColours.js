@@ -107,7 +107,7 @@ var r3eClassColours = {
     },
     3499: {
       Name: "DTM 1992",
-      colour: "rgba(27, 65, 159, 0.8)",
+      colour: "rgba(255, 120, 0, 0.8)",
       Id: 3499
     },
     3905: {
