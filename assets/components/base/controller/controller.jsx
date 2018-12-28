@@ -269,7 +269,6 @@ var Driver = React.createClass({
 		const divStyle = {
 				backgroundColor: classColour,
 				position: "absolute",
-				padding: "10px"
 		};
 
 		return <div className="position" style={divStyle}>Class P{position}</div>

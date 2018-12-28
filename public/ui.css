@@ -423,7 +423,7 @@ body {
   position: absolute;
   bottom: 25%;
   left: 0;
-  padding: 8px;
+  padding: 4px 6px;
   border-radius: 5px;
   font-size: 20px;
   border-radius: 100px;
@@ -442,7 +442,7 @@ body {
   position: absolute;
   bottom: 80%;
   left: 0;
-  padding: 8px;
+  padding: 6px 6px;
   border-radius: 5px;
   font-size: 20px;
   color: #fff;
@@ -458,11 +458,11 @@ body {
   position: absolute;
   left: 0;
   color: #fff;
-  padding: 10px;
   border-radius: 100px;
   bottom: 50%;
   font-size: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 4px 6px;
 }
 @-webkit-keyframes "ani_4" {
   0% {
@@ -1933,6 +1933,7 @@ pre.preview {
   line-height: 32px;
   text-align: center;
   display: inline-block;
+  z-index: 1;
 }
 .timer {
   font-family: Oswald;
@@ -1951,6 +1952,7 @@ pre.preview {
   line-height: 33px;
   text-align: center;
   display: inline-block;
+  z-index: 1;
 }
 .yellowFlag {
   position: fixed;
@@ -1961,6 +1963,7 @@ pre.preview {
   border-bottom-right-radius: 15px;
   height: 35px;
   width: 180px;
+  z-index: 2;
 }
 .flag img {
   position: absolute;
@@ -1970,7 +1973,7 @@ pre.preview {
   width: 40px;
   border-radius: 30px;
   opacity: 1;
-  z-index: 2;
+  z-index: 3;
   border: 2px solid #ff5252;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
 }
@@ -1982,7 +1985,7 @@ pre.preview {
   border-bottom-right-radius: 15px;
   height: 35px;
   width: 180px;
-  z-index: 1;
+  z-index: 2;
 }
 .track-map-bg {
   position: fixed;
@@ -1992,6 +1995,7 @@ pre.preview {
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   -webkit-animation: "ani_15" 1s ease;
+  z-index: 0;
 }
 @-webkit-keyframes "ani_15" {
   0% {

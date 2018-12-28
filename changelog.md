@@ -1,3 +1,9 @@
+### Version 1.3.0
+* [Feature] Small UI improvements to the driver info on the trackmap.
+* [Feature] Visibility of drivers on the on-screen track map is now layered based on class positioning. (A class leader of a slower class will show above a slower driver in a higher class).
+* [Feature] Improved meta info sizing on the broadcast control panel for each driver.
+* [Bug Fix] Set the correct start/finish point on the trackmap on sachsenring along with the correct direction.
+
 ### Version 1.2.0
 * [Feature] Increased trigger time to show qualifying results from 20 seconds left in the session, to 25 seconds.
 * [Bug Fix] Fixed a bug where the control panel could lock up when switching between driver info and compare widgets. (For now, you must turn them on/off manually until a reliable way to hide the other widget automatically is found).

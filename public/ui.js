@@ -2548,7 +2548,8 @@ var TrackMapDot = React.createClass({
 
 		return {
 			'WebkitTransform': 'translate(' + point.x + 'px, ' + point.y + 'px) scale(0.3)',
-			'background': self.getClassColor(driver.classId)
+			'background': self.getClassColor(driver.classId),
+			'zIndex': 100 - driver.scoreInfo.positionClass
 		};
 	},
 	shortenDriverName: function (name) {
@@ -2947,8 +2948,7 @@ var Driver = React.createClass({
 
 		const divStyle = {
 			backgroundColor: classColour,
-			position: "absolute",
-			padding: "10px"
+			position: "absolute"
 		};
 
 		return React.createElement(
