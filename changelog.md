@@ -1,8 +1,15 @@
 ### Version 1.3.0
 * [Feature] Small UI improvements to the driver info on the trackmap.
-* [Feature] Visibility of drivers on the on-screen track map is now layered based on class positioning. (A class leader of a slower class will show above a slower driver in a higher class).
-* [Feature] Improved meta info sizing on the broadcast control panel for each driver.
-* [Bug Fix] Set the correct start/finish point on the trackmap on sachsenring along with the correct direction.
+* [Feature] Visibility of drivers on the on-screen track map is now layered based on class positioning.
+* [Feature] Improved meta info sizing on the broadcast control panel for each driver on larger grids.
+* [Bug Fix] Set the correct start/finish point on the trackmap on sachsenring along with the correct driving direction.
+* [Feature] Added "Battle for Position x" to the compare race widget.
+* [Feature] Small UI updates to themes with new variable definitions for some UI components.
+* [Bug Fix] Fixed a bug where the steward alerts in race session would continued to show, even when the widget was disabled.
+* [Feature] Enabled column titles on qualifying results and race results screens.
+* [Feature] Highlighted time penalties in red on the race results table.
+* [Bug Fix] Corrected the class position text color on the race results screen.
+* [Bug Fix] Fixed a ui issue where the flag in the session info timer would not display correctly in the garage phase before a race.
 
 ### Version 1.2.0
 * [Feature] Increased trigger time to show qualifying results from 20 seconds left in the session, to 25 seconds.
