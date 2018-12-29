@@ -93,6 +93,23 @@ module.exports = function(assetsDir) {
 		});
 	});
 
+	app.get('/controllerOptions/', function(req, res) {
+			var config = require(__dirname + '/../../public/config.json');
+
+			try {
+			   JSON.parse(JSON.stringify(config));
+			} catch (e) {
+				return res.json({
+					error: 'Failed to Parse JSON: ' + e
+				});
+			}
+
+			// prevent caching of the json config, allow live reloads
+			delete require.cache[require.resolve(__dirname + '/../../public/config.json')];
+
+			res.json(config);
+	});
+
 	app.use(express.static(__dirname + '/../../public'));
 	app.use(express.static(__dirname + '/../../assets/components/widgets'));
 
