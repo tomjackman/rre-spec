@@ -1,3 +1,7 @@
+### Version 1.4.0
+* [Feature] Stated the new version number available in the alert when an update is available.
+* [Feature] Add reason for disqualification to steward alerts.
+
 ### Version 1.3.0
 * [Feature] Improved meta info sizing on the broadcast control panel for each driver on larger grids.
 * [Feature] Added "Battle for Position x" to the compare race widget.
