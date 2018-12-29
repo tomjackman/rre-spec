@@ -40,9 +40,16 @@ UI.widgets.MulticlassStandings = React.createClass({
 		};
 	},
 	getDriverStyle: function(driver) {
-		return {
-			'WebkitTransform': 'translate3d(0, ' + ((driver.scoreInfo.positionOverall-1) * 100) + '%, 0)'
-		};
+		if (UI.controllerOptions.options.indentFocusedDriver.value && driver.slotId === UI.state.focusedSlot) {
+			return {
+				'WebkitTransform': 'translate3d(0, ' + ((driver.scoreInfo.positionOverall-1) * 100) + '%, 0)',
+				'left': '10px'
+			};
+		} else {
+			return {
+				'WebkitTransform': 'translate3d(0, ' + ((driver.scoreInfo.positionOverall-1) * 100) + '%, 0)'
+			};
+		}
 	},
 	formatTime: UI.formatTime,
 	getMetaInfo: function(driver, sortedByPosition) {

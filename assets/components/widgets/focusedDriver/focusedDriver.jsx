@@ -253,7 +253,11 @@ UI.widgets.FocusedDriver = React.createClass({
 			<div className={focusedDriverClasses}>
 				<div className="inner animated flipInX">
 					<div className="position">{driverInfo.scoreInfo.positionOverall}</div>
-					{self.getClassPosition(driverInfo.classId)}
+					{ UI.controllerOptions.options.multiclass.value ?
+						self.getClassPosition(driverInfo.classId)
+					:
+						null
+					}
 					<div className="flag-container">
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					</div>

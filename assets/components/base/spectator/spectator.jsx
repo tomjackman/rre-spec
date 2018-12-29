@@ -136,6 +136,7 @@ UI.components.Spectator = React.createClass({
 		// Race control alerts
 		var eventTimeout;
 		r3e.on.eventOccurred(function(event) {
+			var alertLength = UI.controllerOptions.options.alertLength.value * 1000;
 
 			r3e.getDriverInfo({'slotId': event.slotId
 			}, function(driverInfo) {
@@ -157,17 +158,19 @@ UI.components.Spectator = React.createClass({
 						'event': null
 					});
 				}, 100)
-			}, 15*1000);
+			}, alertLength);
 		});
 
 		r3e.on.resultsUpdate(function(results) {
+			var continueToNextSessionTime = UI.controllerOptions.options.continueToNextSessionTime.value  * 1000;
+
 			self.setState({
 				'results': results.Results
 			});
 
 			setTimeout(function() {
 				r3e.goToNextEvent();
-			}, 45*1000);
+			}, continueToNextSessionTime);
 		});
 
 		var pitWindowTimeout;

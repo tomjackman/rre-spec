@@ -7,5 +7,5 @@
 	"keepOnSessionChange": true,
 	"disableFlags": false,
 	"defaultActive": false,
-	"description": "Display a list of the multiclass standings on screen. The class colours are chosen based on the dominant colour in the class icon from the store."
+	"description": "Display a list of the standings on screen. The multiclass colours are chosen based on the dominant colour in the class icon from the store."
 }

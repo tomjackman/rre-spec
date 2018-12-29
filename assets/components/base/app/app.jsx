@@ -10,17 +10,16 @@ UI.components.App = React.createClass({
 
 		const local = await fetch(localVersionUrl);
 		const localVersion = await local.json();
-		console.log("Current Version: " + localVersion.version);
 
 		if(publishedVersion.version > localVersion.version) {
-			var confirmText = "A New update is now Available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
+			var confirmText = "A New Update (v" + publishedVersion.version + ") is now Available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
 			if (confirm(confirmText)) {
 				// Overlay thread on S3 forum
 				let base64ForumUrl = "aHR0cHM6Ly9mb3J1bS5zZWN0b3Izc3R1ZGlvcy5jb20vaW5kZXgucGhwP3RocmVhZHMvcjNlLXJlYWxpdHktbW9kZXJuLWJyb2FkY2FzdC1vdmVybGF5LjEyMDYxLw==";
 			  window.open(atob(base64ForumUrl), '_blank');
 			}
 		} else {
-			console.log("Current Version is up to date");
+			console.log("Current Version is up to date (v" + localVersion.version + ").");
 		}
 	},
 	render: function() {

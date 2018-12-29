@@ -606,6 +606,42 @@ UI.c = function createReactComponent(type, data) {
 UI.controllerUpdateRate = 1000/2;
 UI.spectatorUpdateRate = 1000/15;
 
+// default options
+UI.controllerOptions = {
+  "options": {
+    "multiclass": {
+      "displayName": "Multiclass",
+      "value": false,
+      "tooltip": "Enable Multiclass UI elements (Default: False).",
+      "type": "checkbox"
+    },
+    "alertLength": {
+      "displayName": "Steward Alert Length",
+      "value": 15,
+      "tooltip": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
+      "type": "number"
+    },
+    "indentFocusedDriver": {
+      "displayName": "Indent Focused Driver",
+      "value": false,
+      "tooltip": "Indent the focused driver in the standings widget (Default: False).",
+      "type": "checkbox"
+    },
+    "qualifyingResultsDisplayTime": {
+      "displayName": "Qualifying Results Display Time",
+      "value": 25,
+      "tooltip": "The amount of seconds before the end of qualifying to display the results on screen (Default: 25 Seconds)",
+      "type": "number"
+    },
+    "continueToNextSessionTime": {
+      "displayName": "Continue to Next Session Time",
+      "value": 45,
+      "tooltip": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for (Default: 45 Seconds).",
+      "type": "number"
+    }
+  }
+};
+
 UI.getUserInfo = (function() {
 	var userCache = {};
 	return function(id) {
@@ -623,13 +659,26 @@ UI.getUserInfo = (function() {
 			if (data.error) {
 				return;
 			}
-			
+
 			userCache[id] = data;
 		});
 
 		return userCache[id];
 	};
 })();
+
+UI.getControllerConfig = function() {
+		$.getJSON('/controllerOptions/', function(data) {
+			if (data.error) {
+				console.log("Error fetching control options: " + data.error);
+				return;
+			}
+			UI.controllerOptions = data;
+		});
+};
+
+// fetch the controller config from the config file
+UI.getControllerConfig();
 
 UI.fixName = function(name) {
 	return name.replace(/(^.| .)/g, function(str) {
@@ -1302,7 +1351,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					{ className: 'position' },
 					driverInfo.scoreInfo.positionOverall
 				),
-				self.getClassPosition(driverInfo.classId),
+				UI.controllerOptions.options.multiclass.value ? self.getClassPosition(driverInfo.classId) : null,
 				React.createElement(
 					'div',
 					{ className: 'flag-container' },
@@ -1422,9 +1471,16 @@ UI.widgets.MulticlassStandings = React.createClass({
 		};
 	},
 	getDriverStyle: function (driver) {
-		return {
-			'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)'
-		};
+		if (UI.controllerOptions.options.indentFocusedDriver.value && driver.slotId === UI.state.focusedSlot) {
+			return {
+				'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)',
+				'left': '10px'
+			};
+		} else {
+			return {
+				'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)'
+			};
+		}
 	},
 	formatTime: UI.formatTime,
 	getMetaInfo: function (driver, sortedByPosition) {
@@ -1658,23 +1714,27 @@ UI.widgets.RaceResults = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'race-results-entry title' },
+				UI.controllerOptions.options.multiclass.value ? React.createElement(
+					'div',
+					{ className: 'classPosition' },
+					'Class'
+				) : null,
 				React.createElement(
 					'div',
 					{ className: 'position' },
-					'Position'
+					'Overall'
 				),
-				React.createElement('div', { className: 'livery' }),
 				React.createElement('div', { className: 'manufacturer' }),
-				React.createElement(
+				UI.controllerOptions.options.multiclass.value ? React.createElement(
 					'div',
-					{ className: 'name' },
+					{ className: 'name', style: { 'width': '30%' } },
+					'Name'
+				) : React.createElement(
+					'div',
+					{ className: 'name', style: { 'width': '40%' } },
 					'Name'
 				),
-				React.createElement(
-					'div',
-					{ className: 'team' },
-					'Team'
-				),
+				React.createElement('div', { className: 'livery' }),
 				React.createElement(
 					'div',
 					{ className: 'penaltyTime' },
@@ -1746,13 +1806,13 @@ var RaceResultEntry = React.createClass({
 
 		var penaltyTime = React.createElement(
 			'div',
-			{ className: 'timePenalty', style: { 'min-width': '90px' } },
+			{ className: 'penaltyTime', style: { 'min-width': '90px' } },
 			' - '
 		);
 		if (entry.penaltyTime) {
 			penaltyTime = React.createElement(
 				'div',
-				{ className: 'timePenalty', style: { color: 'red' } },
+				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
 				entry.penaltyTime / 1000,
 				's Penalty'
 			);
@@ -1761,16 +1821,17 @@ var RaceResultEntry = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: cx({ 'fastest': entry.isFastest, 'race-results-entry': true }) },
-			React.createElement(
+			UI.controllerOptions.options.multiclass.value ? React.createElement(
 				'div',
 				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
 				'Class P',
 				entry.positionClass,
 				'.'
-			),
+			) : null,
 			React.createElement(
 				'div',
 				{ className: 'position' },
+				'P',
 				entry.positionOverall,
 				'.'
 			),
@@ -1779,9 +1840,13 @@ var RaceResultEntry = React.createClass({
 				{ className: 'manufacturer' },
 				React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/' })
 			),
-			React.createElement(
+			UI.controllerOptions.options.multiclass.value ? React.createElement(
 				'div',
-				{ className: 'name' },
+				{ className: 'name', style: { 'width': '30%' } },
+				UI.fixName(entry.name)
+			) : React.createElement(
+				'div',
+				{ className: 'name', style: { 'width': '40%' } },
 				UI.fixName(entry.name)
 			),
 			React.createElement(
@@ -1895,7 +1960,7 @@ UI.widgets.Results = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'overallQuai' },
-			session.type === 'QUALIFYING' && session.timeLeft < 26 ? React.createElement(
+			session.type === 'QUALIFYING' && session.timeLeft <= UI.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
 				'div',
 				{ className: 'qualify-results' },
 				React.createElement(
@@ -1911,23 +1976,27 @@ UI.widgets.Results = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'qualify-results-entry title' },
+					UI.controllerOptions.options.multiclass.value ? React.createElement(
+						'div',
+						{ className: 'classPosition' },
+						'Class'
+					) : null,
 					React.createElement(
 						'div',
 						{ className: 'position' },
-						'Position'
+						'Overall'
 					),
-					React.createElement('div', { className: 'livery' }),
 					React.createElement('div', { className: 'manufacturer' }),
-					React.createElement(
+					UI.controllerOptions.options.multiclass.value ? React.createElement(
 						'div',
-						{ className: 'name' },
+						{ className: 'name', style: { 'width': '30%' } },
+						'Name'
+					) : React.createElement(
+						'div',
+						{ className: 'name', style: { 'width': '40%' } },
 						'Name'
 					),
-					React.createElement(
-						'div',
-						{ className: 'team' },
-						'Team'
-					),
+					React.createElement('div', { className: 'livery' }),
 					React.createElement(
 						'div',
 						{ className: 'fastest-time' },
@@ -1995,19 +2064,20 @@ var ResultEntry = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'overall' },
-			session.type === 'QUALIFYING' && session.timeLeft < 26 ? React.createElement(
+			session.type === 'QUALIFYING' && session.timeLeft <= UI.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
 				'div',
 				{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
-				React.createElement(
+				UI.controllerOptions.options.multiclass.value ? React.createElement(
 					'div',
 					{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
 					'Class P',
 					entry.scoreInfo.positionClass,
 					'.'
-				),
+				) : null,
 				React.createElement(
 					'div',
 					{ className: 'position' },
+					'P',
 					entry.scoreInfo.positionOverall,
 					'.'
 				),
@@ -2016,9 +2086,13 @@ var ResultEntry = React.createClass({
 					{ className: 'manufacturer' },
 					React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/' })
 				),
-				React.createElement(
+				UI.controllerOptions.options.multiclass.value ? React.createElement(
 					'div',
-					{ className: 'name' },
+					{ className: 'name', style: { 'width': '30%' } },
+					UI.fixName(entry.name)
+				) : React.createElement(
+					'div',
+					{ className: 'name', style: { 'width': '40%' } },
 					UI.fixName(entry.name)
 				),
 				React.createElement(
@@ -2635,17 +2709,16 @@ UI.components.App = React.createClass({
 
 		const local = await fetch(localVersionUrl);
 		const localVersion = await local.json();
-		console.log("Current Version: " + localVersion.version);
 
 		if (publishedVersion.version > localVersion.version) {
-			var confirmText = "A New update is now Available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
+			var confirmText = "A New Update (v" + publishedVersion.version + ") is now Available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
 			if (confirm(confirmText)) {
 				// Overlay thread on S3 forum
 				let base64ForumUrl = "aHR0cHM6Ly9mb3J1bS5zZWN0b3Izc3R1ZGlvcy5jb20vaW5kZXgucGhwP3RocmVhZHMvcjNlLXJlYWxpdHktbW9kZXJuLWJyb2FkY2FzdC1vdmVybGF5LjEyMDYxLw==";
 				window.open(atob(base64ForumUrl), '_blank');
 			}
 		} else {
-			console.log("Current Version is up to date");
+			console.log("Current Version is up to date (v" + localVersion.version + ").");
 		}
 	},
 	render: function () {
@@ -3561,6 +3634,7 @@ UI.components.Spectator = React.createClass({
 		// Race control alerts
 		var eventTimeout;
 		r3e.on.eventOccurred(function (event) {
+			var alertLength = UI.controllerOptions.options.alertLength.value * 1000;
 
 			r3e.getDriverInfo({ 'slotId': event.slotId
 			}, function (driverInfo) {
@@ -3582,17 +3656,19 @@ UI.components.Spectator = React.createClass({
 						'event': null
 					});
 				}, 100);
-			}, 15 * 1000);
+			}, alertLength);
 		});
 
 		r3e.on.resultsUpdate(function (results) {
+			var continueToNextSessionTime = UI.controllerOptions.options.continueToNextSessionTime.value * 1000;
+
 			self.setState({
 				'results': results.Results
 			});
 
 			setTimeout(function () {
 				r3e.goToNextEvent();
-			}, 45 * 1000);
+			}, continueToNextSessionTime);
 		});
 
 		var pitWindowTimeout;
@@ -3703,7 +3779,7 @@ UI.widgets.Alert = React.createClass({
 
     var stopAndGoPenalty = "a Stop & Go Penalty has been awarded for ";
 
-    var stopAndGoPenalty = "has been disqualified for ";
+    var disqualification = "has been disqualified for ";
 
     var penaltyMeanings = {
       // Drive Through
@@ -3768,37 +3844,37 @@ UI.widgets.Alert = React.createClass({
       // Disqualified
       '5': {
         '0': {
-          text: "a false start"
+          text: disqualification + "a false start"
         },
         '1': {
-          text: "speeding in the pitlane"
+          text: disqualification + "speeding in the pitlane"
         },
         '2': {
-          text: "driving the wrong way on track"
+          text: disqualification + "driving the wrong way on track"
         },
         '3': {
-          text: "entering the pits under red"
+          text: disqualification + "entering the pits under red"
         },
         '4': {
-          text: "exiting the pits under red"
+          text: disqualification + "exiting the pits under red"
         },
         '8': {
-          text: "ignoring a drive through penalty"
+          text: disqualification + "ignoring a drive through penalty"
         },
         '9': {
-          text: "ignoring a stop & go penalty"
+          text: disqualification + "ignoring a stop & go penalty"
         },
         '10': {
-          text: "ignoring a pitstop penalty"
+          text: disqualification + "ignoring a pitstop penalty"
         },
         '11': {
-          text: "ignoring a time penalty"
+          text: disqualification + "ignoring a time penalty"
         },
         '12': {
-          text: "excessive cutting"
+          text: disqualification + "excessive cutting"
         },
         '13': {
-          text: "ignoring blue flags"
+          text: disqualification + "ignoring blue flags"
         }
       }
     };
