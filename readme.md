@@ -13,10 +13,6 @@ The `theme.less` file is always the "active" theme and any modifications to that
 
 ### Using a Built-in Theme
 A number of built in themes have been created and can be found in the `theme` folder.
-* Audi
-* Porsche
-* Mercedes
-* KTM
 
 To use one of these themes, just copy & paste the content of the theme into the `theme/theme.less` file to make it active. Then restart the tool. All the sample themes support all widgets and DRS/PTP indicators.
 
