@@ -1,6 +1,12 @@
 ### Version 1.4.0
-* [Feature] Stated the new version number available in the alert when an update is available.
-* [Feature] Add reason for disqualification to steward alerts.
+* [Feature] State the new version number available in the alert when an update is available.
+* [Bug Fix] Add reason for disqualification on the race steward alerts.
+* [Feature] Added configuration file to turn on/off UI components and set values for certain features.
+* [Feature] Added the ability to turn off multiclass UI components.
+* [Feature] Added the ability to change the length of time a message from the stewards shows on screen during race session.
+* [Feature] Re-enabled the option to indent the currently focused driver in the standings tower.
+* [Feature] Added the ability to define the amount of seconds before the end of qualifying to display the results on screen.
+* [Feature] Added the ability to define the amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for
 
 ### Version 1.3.0
 * [Feature] Improved meta info sizing on the broadcast control panel for each driver on larger grids.
