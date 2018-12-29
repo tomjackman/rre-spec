@@ -36,11 +36,19 @@ UI.widgets.RaceResults = React.createClass({
 				<div className="text">Race Results<div className="logo"></div></div>
 			</div>
 				<div className="race-results-entry title">
-					<div className="position">Position</div>
-					<div className="livery"/>
+					{ UI.controllerOptions.options.multiclass.value ?
+						<div className="classPosition">Class</div>
+					:
+						null
+					}
+					<div className="position">Overall</div>
 					<div className="manufacturer"/>
-					<div className="name">Name</div>
-					<div className="team">Team</div>
+					{ UI.controllerOptions.options.multiclass.value ?
+						<div className="name" style={{'width': '30%'}}>Name</div>
+					:
+						<div className="name" style={{'width': '40%'}}>Name</div>
+					}
+					<div className="livery"></div>
 					<div className="penaltyTime">Penalties</div>
 					<div className="lap-time">Finish time</div>
 					<div className="fastest-time">Best lap time</div>
@@ -81,19 +89,27 @@ var RaceResultEntry = React.createClass({
 			lapTime = <div className="lap-time">{UI.formatTime(entry.totalTime-self.props.firstEntry.totalTime)}</div>
 		}
 
-		var penaltyTime = <div className="timePenalty" style={{'min-width': '90px'}}> - </div>
+		var penaltyTime = <div className="penaltyTime" style={{'min-width': '90px'}}> - </div>
 		if (entry.penaltyTime) {
-			penaltyTime = <div className="timePenalty" style={{color: 'red'}}>{(entry.penaltyTime/1000)}s Penalty</div>
+			penaltyTime = <div className="penaltyTime" style={{color: 'rgba(255, 82, 82, 1.0)'}}>{(entry.penaltyTime/1000)}s Penalty</div>
 		}
 
 		return (
 			<div className={cx({'fastest': entry.isFastest, 'race-results-entry': true})}>
-			<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.positionClass}.</div>
-			<div className="position">{entry.positionOverall}.</div>
+			{ UI.controllerOptions.options.multiclass.value ?
+				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.positionClass}.</div>
+			:
+				null
+			}
+			<div className="position">P{entry.positionOverall}.</div>
 				<div className="manufacturer">
 					<img src={'/render/'+entry.manufacturerId+'/small/'}/>
 				</div>
-				<div className="name">{UI.fixName(entry.name)}</div>
+				{ UI.controllerOptions.options.multiclass.value ?
+					<div className="name" style={{'width': '30%'}}>{UI.fixName(entry.name)}</div>
+				:
+					<div className="name" style={{'width': '40%'}}>{UI.fixName(entry.name)}</div>
+				}
 				<div className="livery">
 					<img src={'/render/'+entry.liveryId+'/small/'}/>
 				</div>

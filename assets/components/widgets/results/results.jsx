@@ -87,17 +87,25 @@ UI.widgets.Results = React.createClass({
 
 		return (
 			<div className="overallQuai">
-			{ session.type === 'QUALIFYING' && session.timeLeft < 26 ?
+			{ session.type === 'QUALIFYING' && session.timeLeft <= UI.controllerOptions.options.qualifyingResultsDisplayTime.value ?
 			<div className="qualify-results">
 				<div className="title">
 					<div className="text">Qualifying Results<div className="logo"></div></div>
 				</div>
 				<div className="qualify-results-entry title">
-					<div className="position">Position</div>
-					<div className="livery"/>
+					{ UI.controllerOptions.options.multiclass.value ?
+				  	<div className="classPosition">Class</div>
+					:
+						null
+				  }
+					<div className="position">Overall</div>
 					<div className="manufacturer"/>
-					<div className="name">Name</div>
-					<div className="team">Team</div>
+					{ UI.controllerOptions.options.multiclass.value ?
+						<div className="name" style={{'width': '30%'}}>Name</div>
+					:
+						<div className="name" style={{'width': '40%'}}>Name</div>
+					}
+					<div className="livery"></div>
 					<div className="fastest-time">Delta</div>
 					<div className="lap-time">Best lap time</div>
 				</div>
@@ -146,14 +154,22 @@ var ResultEntry = React.createClass({
 
 		return (
 			<div className="overall">
-			{ session.type === 'QUALIFYING' && session.timeLeft < 26 ?
+			{ session.type === 'QUALIFYING' && session.timeLeft <= UI.controllerOptions.options.qualifyingResultsDisplayTime.value ?
 			<div className={cx({'fastest': entry.isFastest, 'qualify-results-entry': true})}>
-			<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
-			<div className="position">{entry.scoreInfo.positionOverall}.</div>
+			{ UI.controllerOptions.options.multiclass.value ?
+				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
+			:
+				null
+			}
+			<div className="position">P{entry.scoreInfo.positionOverall}.</div>
 				<div className="manufacturer">
 					<img src={'/render/'+entry.manufacturerId+'/small/'}/>
 				</div>
-				<div className="name">{UI.fixName(entry.name)}</div>
+				{ UI.controllerOptions.options.multiclass.value ?
+					<div className="name" style={{'width': '30%'}}>{UI.fixName(entry.name)}</div>
+				:
+					<div className="name" style={{'width': '40%'}}>{UI.fixName(entry.name)}</div>
+				}
 				<div className="livery">
 					<img src={'/render/'+entry.liveryId+'/small/'}/>
 				</div>
