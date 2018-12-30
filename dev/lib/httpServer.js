@@ -93,6 +93,7 @@ module.exports = function(assetsDir) {
 		});
 	});
 
+	// read control option config from local file
 	app.get('/controllerOptions/', function(req, res) {
 			var config = require(__dirname + '/../../public/config.json');
 
@@ -109,6 +110,12 @@ module.exports = function(assetsDir) {
 
 			res.json(config);
 	});
+
+	// update file with new control options based on user input
+	app.post('/saveControllerOptions/', function (req, res) {
+		console.log(">>>>> ", req.rawBody);
+  	res.send('POST request to the homepage');
+	})
 
 	app.use(express.static(__dirname + '/../../public'));
 	app.use(express.static(__dirname + '/../../assets/components/widgets'));

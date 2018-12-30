@@ -12,7 +12,7 @@ UI.components.App = React.createClass({
 		const localVersion = await local.json();
 
 		if(publishedVersion.version > localVersion.version) {
-			var confirmText = "A New Update (v" + publishedVersion.version + ") is now Available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
+			var confirmText = "A New Update (v" + publishedVersion.version + ") is now available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
 			if (confirm(confirmText)) {
 				// Overlay thread on S3 forum
 				let base64ForumUrl = "aHR0cHM6Ly9mb3J1bS5zZWN0b3Izc3R1ZGlvcy5jb20vaW5kZXgucGhwP3RocmVhZHMvcjNlLXJlYWxpdHktbW9kZXJuLWJyb2FkY2FzdC1vdmVybGF5LjEyMDYxLw==";

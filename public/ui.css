@@ -355,6 +355,28 @@ body {
 .app-controller .title .toggle-track-map:hover:active {
   -webkit-transform: scale(0.9);
 }
+.app-controller .drivers-controls .controlPanel {
+  position: absolute;
+  bottom: 0px;
+  height: 200px;
+  background: #263238;
+  color: white;
+  font-family: Oswald;
+  border-top: 5px solid #00E676;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  width: 100%;
+  z-index: 4;
+}
+.app-controller .drivers-controls .controlPanel .controlPanelOption {
+  float: left;
+  position: relative;
+  border-left: 5px solid rgba(0, 0, 0, 0);
+  margin-right: -5px;
+}
+.app-controller .drivers-controls .controlPanel .controlPanelOption .option {
+  margin: 20px;
+}
 .app-controller .drivers-container {
   position: fixed;
   top: 100px;
@@ -364,22 +386,6 @@ body {
 }
 .app-controller .drivers-container.has-suggestions {
   left: 270px;
-}
-.app-controller .drivers-container .controlPanel {
-  top: 100px;
-  height: 200px;
-  background-color: grey;
-  width: 100%;
-}
-.app-controller .drivers-container .controlPanel .controlPanelOption {
-  float: left;
-  position: relative;
-  opacity: 0.5;
-  border-left: 5px solid rgba(0, 0, 0, 0);
-  margin-right: -5px;
-}
-.app-controller .drivers-container .controlPanel .controlPanelOption .option {
-  margin: 20px;
 }
 .app-controller .drivers-container .drivers {
   position: absolute;

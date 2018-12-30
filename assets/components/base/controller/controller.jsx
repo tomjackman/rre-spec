@@ -313,51 +313,50 @@ var Driver = React.createClass({
 
 // control options
 var ControlOption = React.createClass({
-	async componentWillMount() {
+	componentWillMount: function() {
 		// LOAD STATE FROM JSON FILE
-		this.state = {
-			isGoing: true,
-			numberOfGuests: 2
-		};
-
-
 
 		this.handleInputChange = this.handleInputChange.bind(this);
 	},
-	handleInputChange(event) {
-		// RECIEVE UPDATED VALUE
-		// SAVE TO JSON FILE
-		// UPDATE STATE
-    const target = event.target;
+	handleInputChange: function(event) {
+		var self = this;
+		const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
 
-    this.setState({
-      [name]: value
-    });
+		var updates = {"keyName": self.state.key, "newValue": value};
+
+		console.log(updates);
+
+		// save to json file
+		$.post('/saveControllerOptions/', updates, function(response) {
+			if (response.error) {
+				console.log("Error saving control options: " + response.error);
+				return;
+			}
+			// on success, update global state
+			UI.controllerOptions.options[self.state.key].value = value;
+		}, 'json');
   },
 	render: function() {
 		var self = this;
 
+		self.state = self.props.data;
+
 		var classes = cx({
 			'controlPanelOption': true
 		});
-
-		// <div className="controlPanel">
-		// 	<ControlOption/>
-		// </div>
 
 		return (
 			<div className={classes}>
 					<form>
 							<div className="option">
 				        <label>
-				          Is going:
+				          {self.state.displayName}
 				          <input
-				            name="isGoing"
-				            type="checkbox"
-				            checked={this.state.isGoing}
-				            onChange={this.handleInputChange} />
+				            defaultValue={self.state.value}
+				            type={self.state.type}
+										defaultChecked={self.state.value}
+				            onChange={self.handleInputChange} />
 				        </label>
 							</div>
 			   </form>
@@ -365,9 +364,6 @@ var ControlOption = React.createClass({
 		);
 	}
 });
-
-
-
 
 UI.components.Controller = React.createClass({
 	componentWillMount: function() {
@@ -436,7 +432,7 @@ UI.components.Controller = React.createClass({
 			'showCameraController': false
 		};
 	},
-	async componentDidMount() {
+	componentDidMount: function() {
 		var self = this;
 		$(document).on('touchend', '.drivers-container', function(event) {
 			var endTarget = document.elementFromPoint(
@@ -457,14 +453,6 @@ UI.components.Controller = React.createClass({
 				$('.control').removeClass('active');
 				$control.addClass('active');
 			}
-		});
-
-		// control panel
-		let configFile = 'config.json';
-		const configFileContent = await fetch(configFile);
-		const options = await configFileContent.json();
-		await self.setState({
-			'controlOptions': options
 		});
 	},
 	toggleValue: function(e) {
@@ -535,6 +523,8 @@ UI.components.Controller = React.createClass({
 		}
 		var session = UI.state.sessionInfo;
 
+		var controlOptionsData = UI.controllerOptions.options;
+
 		return (
 			<div className={classes}>
 				<div className="title">
@@ -566,6 +556,15 @@ UI.components.Controller = React.createClass({
 							:
 							null
 						}
+
+						<div className="controlPanel">
+							{Object.keys(controlOptionsData).map(function(key) {
+									// add the key to the data set also
+									controlOptionsData[key].key = key;
+									return <ControlOption data={controlOptionsData[key]} />
+							})}
+						</div>
+
 						<div className={cx({'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length})}>
 
 							<div className="drivers">

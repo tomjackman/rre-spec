@@ -2711,7 +2711,7 @@ UI.components.App = React.createClass({
 		const localVersion = await local.json();
 
 		if (publishedVersion.version > localVersion.version) {
-			var confirmText = "A New Update (v" + publishedVersion.version + ") is now Available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
+			var confirmText = "A New Update (v" + publishedVersion.version + ") is now available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
 			if (confirm(confirmText)) {
 				// Overlay thread on S3 forum
 				let base64ForumUrl = "aHR0cHM6Ly9mb3J1bS5zZWN0b3Izc3R1ZGlvcy5jb20vaW5kZXgucGhwP3RocmVhZHMvcjNlLXJlYWxpdHktbW9kZXJuLWJyb2FkY2FzdC1vdmVybGF5LjEyMDYxLw==";
@@ -3090,37 +3090,38 @@ var Driver = React.createClass({
 var ControlOption = React.createClass({
 	displayName: 'ControlOption',
 
-	async componentWillMount() {
+	componentWillMount: function () {
 		// LOAD STATE FROM JSON FILE
-		this.state = {
-			isGoing: true,
-			numberOfGuests: 2
-		};
 
 		this.handleInputChange = this.handleInputChange.bind(this);
 	},
-	handleInputChange(event) {
-		// RECIEVE UPDATED VALUE
-		// SAVE TO JSON FILE
-		// UPDATE STATE
+	handleInputChange: function (event) {
+		var self = this;
 		const target = event.target;
 		const value = target.type === 'checkbox' ? target.checked : target.value;
-		const name = target.name;
 
-		this.setState({
-			[name]: value
-		});
+		var updates = { "keyName": self.state.key, "newValue": value };
+
+		console.log(updates);
+
+		// save to json file
+		$.post('/saveControllerOptions/', updates, function (response) {
+			if (response.error) {
+				console.log("Error saving control options: " + response.error);
+				return;
+			}
+			// on success, update global state
+			UI.controllerOptions.options[self.state.key].value = value;
+		}, 'json');
 	},
 	render: function () {
 		var self = this;
 
+		self.state = self.props.data;
+
 		var classes = cx({
 			'controlPanelOption': true
 		});
-
-		// <div className="controlPanel">
-		// 	<ControlOption/>
-		// </div>
 
 		return React.createElement(
 			'div',
@@ -3134,12 +3135,12 @@ var ControlOption = React.createClass({
 					React.createElement(
 						'label',
 						null,
-						'Is going:',
+						self.state.displayName,
 						React.createElement('input', {
-							name: 'isGoing',
-							type: 'checkbox',
-							checked: this.state.isGoing,
-							onChange: this.handleInputChange })
+							defaultValue: self.state.value,
+							type: self.state.type,
+							defaultChecked: self.state.value,
+							onChange: self.handleInputChange })
 					)
 				)
 			)
@@ -3216,7 +3217,7 @@ UI.components.Controller = React.createClass({
 			'showCameraController': false
 		};
 	},
-	async componentDidMount() {
+	componentDidMount: function () {
 		var self = this;
 		$(document).on('touchend', '.drivers-container', function (event) {
 			var endTarget = document.elementFromPoint(event.originalEvent.changedTouches[0].pageX, event.originalEvent.changedTouches[0].pageY);
@@ -3231,14 +3232,6 @@ UI.components.Controller = React.createClass({
 				$('.control').removeClass('active');
 				$control.addClass('active');
 			}
-		});
-
-		// control panel
-		let configFile = 'config.json';
-		const configFileContent = await fetch(configFile);
-		const options = await configFileContent.json();
-		await self.setState({
-			'controlOptions': options
 		});
 	},
 	toggleValue: function (e) {
@@ -3309,6 +3302,8 @@ UI.components.Controller = React.createClass({
 		}
 		var session = UI.state.sessionInfo;
 
+		var controlOptionsData = UI.controllerOptions.options;
+
 		return React.createElement(
 			'div',
 			{ className: classes },
@@ -3348,6 +3343,15 @@ UI.components.Controller = React.createClass({
 						})
 					)
 				) : null,
+				React.createElement(
+					'div',
+					{ className: 'controlPanel' },
+					Object.keys(controlOptionsData).map(function (key) {
+						// add the key to the data set also
+						controlOptionsData[key].key = key;
+						return React.createElement(ControlOption, { data: controlOptionsData[key] });
+					})
+				),
 				React.createElement(
 					'div',
 					{ className: cx({ 'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length }) },
