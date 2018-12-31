@@ -314,8 +314,6 @@ var Driver = React.createClass({
 // control options
 var ControlOption = React.createClass({
 	componentWillMount: function() {
-		// LOAD STATE FROM JSON FILE
-
 		this.handleInputChange = this.handleInputChange.bind(this);
 	},
 	handleInputChange: function(event) {
@@ -325,16 +323,16 @@ var ControlOption = React.createClass({
 
 		var updates = {"keyName": self.state.key, "newValue": value};
 
-		console.log(updates);
-
 		// save to json file
 		$.post('/saveControllerOptions/', updates, function(response) {
 			if (response.error) {
 				console.log("Error saving control options: " + response.error);
 				return;
 			}
+
 			// on success, update global state
-			UI.controllerOptions.options[self.state.key].value = value;
+			var newConfig = JSON.parse(response);
+			io.emit('setControllerConfig', newConfig);
 		}, 'json');
   },
 	render: function() {

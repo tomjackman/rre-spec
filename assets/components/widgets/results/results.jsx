@@ -93,14 +93,14 @@ UI.widgets.Results = React.createClass({
 					<div className="text">Qualifying Results<div className="logo"></div></div>
 				</div>
 				<div className="qualify-results-entry title">
-					{ UI.controllerOptions.options.multiclass.value ?
+					{ UI.controllerOptions.options.multiclass.value === "true" ?
 				  	<div className="classPosition">Class</div>
 					:
 						null
 				  }
 					<div className="position">Overall</div>
 					<div className="manufacturer"/>
-					{ UI.controllerOptions.options.multiclass.value ?
+					{ UI.controllerOptions.options.multiclass.value === "true" ?
 						<div className="name" style={{'width': '30%'}}>Name</div>
 					:
 						<div className="name" style={{'width': '40%'}}>Name</div>
@@ -156,7 +156,7 @@ var ResultEntry = React.createClass({
 			<div className="overall">
 			{ session.type === 'QUALIFYING' && session.timeLeft <= UI.controllerOptions.options.qualifyingResultsDisplayTime.value ?
 			<div className={cx({'fastest': entry.isFastest, 'qualify-results-entry': true})}>
-			{ UI.controllerOptions.options.multiclass.value ?
+			{ UI.controllerOptions.options.multiclass.value === "true" ?
 				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
 			:
 				null

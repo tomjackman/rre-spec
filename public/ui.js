@@ -610,37 +610,38 @@ UI.spectatorUpdateRate = 1000/15;
 UI.controllerOptions = {
   "options": {
     "multiclass": {
-      "displayName": "Multiclass",
-      "value": false,
+      "displayName": "Multiclass UI",
+      "value": "true",
       "tooltip": "Enable Multiclass UI elements (Default: False).",
       "type": "checkbox"
     },
     "alertLength": {
-      "displayName": "Steward Alert Length",
-      "value": 15,
+      "displayName": "Steward Message Alert Time Length (Seconds)",
+      "value": "15",
       "tooltip": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
       "type": "number"
     },
     "indentFocusedDriver": {
       "displayName": "Indent Focused Driver",
-      "value": false,
+      "value": "true",
       "tooltip": "Indent the focused driver in the standings widget (Default: False).",
       "type": "checkbox"
     },
     "qualifyingResultsDisplayTime": {
-      "displayName": "Qualifying Results Display Time",
-      "value": 25,
+      "displayName": "Qualifying Results Display Time (Seconds)",
+      "value": "25",
       "tooltip": "The amount of seconds before the end of qualifying to display the results on screen (Default: 25 Seconds)",
       "type": "number"
     },
     "continueToNextSessionTime": {
-      "displayName": "Continue to Next Session Time",
-      "value": 45,
+      "displayName": "Continue to Next Session Time (Seconds)",
+      "value": "45",
       "tooltip": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for (Default: 45 Seconds).",
       "type": "number"
     }
   }
 };
+
 
 UI.getUserInfo = (function() {
 	var userCache = {};
@@ -676,6 +677,13 @@ UI.getControllerConfig = function() {
 			UI.controllerOptions = data;
 		});
 };
+
+// update the state
+io.on('setControllerConfig', function(data) {
+	console.log("before " + UI.controllerOptions);
+	UI.controllerOptions = data;
+	console.log("after " + UI.controllerOptions);
+});
 
 // fetch the controller config from the config file
 UI.getControllerConfig();
@@ -1351,7 +1359,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					{ className: 'position' },
 					driverInfo.scoreInfo.positionOverall
 				),
-				UI.controllerOptions.options.multiclass.value ? self.getClassPosition(driverInfo.classId) : null,
+				UI.controllerOptions.options.multiclass.value === "true" ? self.getClassPosition(driverInfo.classId) : null,
 				React.createElement(
 					'div',
 					{ className: 'flag-container' },
@@ -1471,7 +1479,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		};
 	},
 	getDriverStyle: function (driver) {
-		if (UI.controllerOptions.options.indentFocusedDriver.value && driver.slotId === UI.state.focusedSlot) {
+		if (UI.controllerOptions.options.indentFocusedDriver.value === "true" && driver.slotId === UI.state.focusedSlot) {
 			return {
 				'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)',
 				'left': '10px'
@@ -1714,7 +1722,7 @@ UI.widgets.RaceResults = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'race-results-entry title' },
-				UI.controllerOptions.options.multiclass.value ? React.createElement(
+				UI.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 					'div',
 					{ className: 'classPosition' },
 					'Class'
@@ -1725,7 +1733,7 @@ UI.widgets.RaceResults = React.createClass({
 					'Overall'
 				),
 				React.createElement('div', { className: 'manufacturer' }),
-				UI.controllerOptions.options.multiclass.value ? React.createElement(
+				UI.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 					'div',
 					{ className: 'name', style: { 'width': '30%' } },
 					'Name'
@@ -1821,7 +1829,7 @@ var RaceResultEntry = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: cx({ 'fastest': entry.isFastest, 'race-results-entry': true }) },
-			UI.controllerOptions.options.multiclass.value ? React.createElement(
+			UI.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 				'div',
 				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
 				'Class P',
@@ -1840,7 +1848,7 @@ var RaceResultEntry = React.createClass({
 				{ className: 'manufacturer' },
 				React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/' })
 			),
-			UI.controllerOptions.options.multiclass.value ? React.createElement(
+			UI.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 				'div',
 				{ className: 'name', style: { 'width': '30%' } },
 				UI.fixName(entry.name)
@@ -1976,7 +1984,7 @@ UI.widgets.Results = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'qualify-results-entry title' },
-					UI.controllerOptions.options.multiclass.value ? React.createElement(
+					UI.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 						'div',
 						{ className: 'classPosition' },
 						'Class'
@@ -1987,7 +1995,7 @@ UI.widgets.Results = React.createClass({
 						'Overall'
 					),
 					React.createElement('div', { className: 'manufacturer' }),
-					UI.controllerOptions.options.multiclass.value ? React.createElement(
+					UI.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 						'div',
 						{ className: 'name', style: { 'width': '30%' } },
 						'Name'
@@ -2067,7 +2075,7 @@ var ResultEntry = React.createClass({
 			session.type === 'QUALIFYING' && session.timeLeft <= UI.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
 				'div',
 				{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
-				UI.controllerOptions.options.multiclass.value ? React.createElement(
+				UI.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 					'div',
 					{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
 					'Class P',
@@ -3091,8 +3099,6 @@ var ControlOption = React.createClass({
 	displayName: 'ControlOption',
 
 	componentWillMount: function () {
-		// LOAD STATE FROM JSON FILE
-
 		this.handleInputChange = this.handleInputChange.bind(this);
 	},
 	handleInputChange: function (event) {
@@ -3102,16 +3108,16 @@ var ControlOption = React.createClass({
 
 		var updates = { "keyName": self.state.key, "newValue": value };
 
-		console.log(updates);
-
 		// save to json file
 		$.post('/saveControllerOptions/', updates, function (response) {
 			if (response.error) {
 				console.log("Error saving control options: " + response.error);
 				return;
 			}
+
 			// on success, update global state
-			UI.controllerOptions.options[self.state.key].value = value;
+			var newConfig = JSON.parse(response);
+			io.emit('setControllerConfig', newConfig);
 		}, 'json');
 	},
 	render: function () {

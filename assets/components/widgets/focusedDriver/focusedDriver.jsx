@@ -253,7 +253,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			<div className={focusedDriverClasses}>
 				<div className="inner animated flipInX">
 					<div className="position">{driverInfo.scoreInfo.positionOverall}</div>
-					{ UI.controllerOptions.options.multiclass.value ?
+					{ UI.controllerOptions.options.multiclass.value === "true" ?
 						self.getClassPosition(driverInfo.classId)
 					:
 						null

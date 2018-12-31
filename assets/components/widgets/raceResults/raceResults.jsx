@@ -36,14 +36,14 @@ UI.widgets.RaceResults = React.createClass({
 				<div className="text">Race Results<div className="logo"></div></div>
 			</div>
 				<div className="race-results-entry title">
-					{ UI.controllerOptions.options.multiclass.value ?
+					{ UI.controllerOptions.options.multiclass.value === "true" ?
 						<div className="classPosition">Class</div>
 					:
 						null
 					}
 					<div className="position">Overall</div>
 					<div className="manufacturer"/>
-					{ UI.controllerOptions.options.multiclass.value ?
+					{ UI.controllerOptions.options.multiclass.value === "true" ?
 						<div className="name" style={{'width': '30%'}}>Name</div>
 					:
 						<div className="name" style={{'width': '40%'}}>Name</div>
@@ -96,7 +96,7 @@ var RaceResultEntry = React.createClass({
 
 		return (
 			<div className={cx({'fastest': entry.isFastest, 'race-results-entry': true})}>
-			{ UI.controllerOptions.options.multiclass.value ?
+			{ UI.controllerOptions.options.multiclass.value === "true" ?
 				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.positionClass}.</div>
 			:
 				null
@@ -105,7 +105,7 @@ var RaceResultEntry = React.createClass({
 				<div className="manufacturer">
 					<img src={'/render/'+entry.manufacturerId+'/small/'}/>
 				</div>
-				{ UI.controllerOptions.options.multiclass.value ?
+				{ UI.controllerOptions.options.multiclass.value === "true" ?
 					<div className="name" style={{'width': '30%'}}>{UI.fixName(entry.name)}</div>
 				:
 					<div className="name" style={{'width': '40%'}}>{UI.fixName(entry.name)}</div>

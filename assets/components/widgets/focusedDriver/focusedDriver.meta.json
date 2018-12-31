@@ -5,6 +5,6 @@
 	"buttonText": "Driver info",
 	"activeInSessions": ["Practice", "Qualifying", "Race"],
 	"disableFlags": false,
-	"keepOnSessionChange": false,
+	"keepOnSessionChange": true,
 	"description": "Show information on screen about the currently selected driver."
 }

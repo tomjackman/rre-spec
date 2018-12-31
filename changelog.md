@@ -6,7 +6,8 @@
 * [Feature] Added the ability to change the length of time a message from the stewards shows on screen during race session.
 * [Feature] Re-enabled the option to indent the currently focused driver in the standings tower.
 * [Feature] Added the ability to define the amount of seconds before the end of qualifying to display the results on screen.
-* [Feature] Added the ability to define the amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for
+* [Feature] Added the ability to define the amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for.
+* [Feature] Changed the driver info widget to keep active state on session change.
 
 ### Version 1.3.0
 * [Feature] Improved meta info sizing on the broadcast control panel for each driver on larger grids.
