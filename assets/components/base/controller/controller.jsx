@@ -350,11 +350,11 @@ var ControlOption = React.createClass({
 					<form>
 							<div className="option">
 				        <label>
-				          {self.state.displayName}
+				          <span title={self.state.tooltip} style={{'font-size': '25px', 'color': '#00E676'}}>🛈</span> {self.state.displayName} 
 				          <input
 				            defaultValue={self.state.value}
 				            type={self.state.type}
-										defaultChecked={self.state.value}
+										defaultChecked={self.state.value === "true"}
 				            onChange={self.handleInputChange} />
 				        </label>
 							</div>
@@ -366,6 +366,7 @@ var ControlOption = React.createClass({
 
 UI.components.Controller = React.createClass({
 	componentWillMount: function() {
+
 		io.on('driversInfo', this.setDriversInfo);
 		io.on('directorSuggestions', this.setDirectorSuggestions);
 
@@ -424,11 +425,13 @@ UI.components.Controller = React.createClass({
 		});
 	},
 	getInitialState: function() {
+		this.toggleControlPanel = this.toggleControlPanel.bind(this);
 		return {
 			'driversInfo': [],
 			'directorSuggestions': [],
 			'active': false,
-			'showCameraController': false
+			'showCameraController': false,
+			'showControlPanel': false
 		};
 	},
 	componentDidMount: function() {
@@ -501,6 +504,9 @@ UI.components.Controller = React.createClass({
 		}
 		this.forceUpdate();
 	},
+	toggleControlPanel: function() {
+		this.setState({ showControlPanel: !this.state.showControlPanel });
+	},
 	updateSelf: function() {
 		this.forceUpdate();
 	},
@@ -526,7 +532,16 @@ UI.components.Controller = React.createClass({
 
 		return (
 			<div className={classes}>
+
 				<div className="title">
+					<a onClick={this.toggleControlPanel}>
+					{ this.state.showControlPanel ?
+						<img className="toggleControlPanel" src="/img/close.png" />
+						:
+						<img className="toggleControlPanel" src="/img/cog.png" />
+					}
+					</a>
+
 					<a onClick={this.toggleTrackMap}>
 					{window.location.hash.match(/trackmap/) && self.state.driversInfo.length ?
 						<img className="toggle-track-map" src="/img/close.svg" />
@@ -540,6 +555,7 @@ UI.components.Controller = React.createClass({
 						null
 					}
 				</div>
+
 				{window.location.hash.match(/trackmap/) && self.state.driversInfo.length ?
 					<TrackMap forceUpdateParent={self.updateSelf} drivers={self.state.driversInfo}/>
 					:
@@ -556,13 +572,17 @@ UI.components.Controller = React.createClass({
 							null
 						}
 
-						<div className="controlPanel">
-							{Object.keys(controlOptionsData).map(function(key) {
-									// add the key to the data set also
-									controlOptionsData[key].key = key;
-									return <ControlOption data={controlOptionsData[key]} />
-							})}
-						</div>
+						{ this.state.showControlPanel ?
+							<div className="controlPanel animated slideInUp">
+								{Object.keys(controlOptionsData).map(function(key) {
+										// add the key to the data set also
+										controlOptionsData[key].key = key;
+										return <ControlOption data={controlOptionsData[key]} />
+								})}
+							</div>
+							:
+								null
+							}
 
 						<div className={cx({'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length})}>
 

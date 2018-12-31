@@ -325,7 +325,7 @@ body {
   font-family: Abel;
 }
 .app-controller .title {
-  position: fixed;
+  position: absolute;
   top: 0px;
   white-space: nowrap;
   overflow: hidden;
@@ -342,6 +342,7 @@ body {
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   background: #263238;
+  z-index: 2;
 }
 .app-controller .title .toggle-track-map {
   float: right;
@@ -355,10 +356,23 @@ body {
 .app-controller .title .toggle-track-map:hover:active {
   -webkit-transform: scale(0.9);
 }
+.app-controller .title .toggleControlPanel {
+  float: left;
+  height: 50px;
+  margin: -10px 0 0;
+}
+.app-controller .title .toggleControlPanel:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.app-controller .title .toggleControlPanel:hover:active {
+  -webkit-transform: scale(0.9);
+}
 .app-controller .drivers-controls .controlPanel {
   position: absolute;
+  transition: opacity 0.2s, visibility 0.2s, margin-top 0s 0.2s;
   bottom: 0px;
-  height: 200px;
+  height: auto;
   background: #263238;
   color: white;
   font-family: Oswald;
@@ -372,10 +386,21 @@ body {
   float: left;
   position: relative;
   border-left: 5px solid rgba(0, 0, 0, 0);
-  margin-right: -5px;
+  font-size: 20px;
 }
 .app-controller .drivers-controls .controlPanel .controlPanelOption .option {
+  text-align: center;
   margin: 20px;
+}
+.app-controller .drivers-controls .controlPanel .controlPanelOption input[type=number] {
+  width: 40px;
+}
+.app-controller .drivers-controls .controlPanel .controlPanelOption label {
+  display: block;
+}
+.app-controller .drivers-controls .controlPanel .controlPanelOption input {
+  margin-left: 10px;
+  display: inline;
 }
 .app-controller .drivers-container {
   position: fixed;

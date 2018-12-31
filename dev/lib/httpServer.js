@@ -5,6 +5,7 @@ var fs = require('fs');
 var http = require('http');
 var pathTool = require('path');
 var socketIo = require('socket.io');
+var bodyParser = require('body-parser')
 
 var app = express();
 var serverHttp = http.createServer(app);
@@ -25,6 +26,8 @@ module.exports = function(assetsDir) {
 
 	var compression = require('compression');
 	app.use(compression());
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({ extended: true }));
 
 	// Quick and dirty ability to hotswap react components
 	app.get('/generate/:path', function(req, res) {
@@ -91,6 +94,25 @@ module.exports = function(assetsDir) {
             console.log('Fetch done for', id, ', in que: ' + waitingFor);
 			res.json(userInfoCache[id]);
 		});
+	});
+
+	// update file with new control options based on user input
+	app.post('/saveControllerOptions/', function (req, res) {
+		var filePath = __dirname + '/../../public/config.json';
+		var config = require(filePath);
+		try {
+			 JSON.parse(JSON.stringify(config));
+			 const keyName = req.body.keyName;
+			 const newValue = req.body.newValue;
+			 config.options[keyName].value = newValue;
+			 // save to file
+			 fs.writeFileSync(filePath, JSON.stringify(config, null, 2) , 'utf-8');
+		} catch (e) {
+			return res.json({
+				error: 'Error saving contol options config to disk: ' + e
+			});
+		}
+		res.json(JSON.stringify(config));
 	});
 
 	app.use(express.static(__dirname + '/../../public'));

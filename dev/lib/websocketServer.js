@@ -65,8 +65,20 @@ module.exports = function(io) {
 	  "options": {
 	    "multiclass": {
 	      "displayName": "Multiclass UI",
-	      "value": "true",
+	      "value": "false",
 	      "tooltip": "Enable Multiclass UI elements (Default: False).",
+	      "type": "checkbox"
+	    },
+	    "showTyreCompound": {
+	      "displayName": "Show Tyre Compound",
+	      "value": "true",
+	      "tooltip": "Show the tyre compound in the driver info widget for applicable classes.",
+	      "type": "checkbox"
+	    },
+	    "indentFocusedDriver": {
+	      "displayName": "Indent Focused Driver",
+	      "value": "true",
+	      "tooltip": "Indent the focused driver in the standings widget (Default: False).",
 	      "type": "checkbox"
 	    },
 	    "alertLength": {
@@ -74,12 +86,6 @@ module.exports = function(io) {
 	      "value": "15",
 	      "tooltip": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
 	      "type": "number"
-	    },
-	    "indentFocusedDriver": {
-	      "displayName": "Indent Focused Driver",
-	      "value": "true",
-	      "tooltip": "Indent the focused driver in the standings widget (Default: False).",
-	      "type": "checkbox"
 	    },
 	    "qualifyingResultsDisplayTime": {
 	      "displayName": "Qualifying Results Display Time (Seconds)",

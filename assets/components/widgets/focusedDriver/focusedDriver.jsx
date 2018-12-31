@@ -264,7 +264,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					<div className="name animated">{self.fixName(driverInfo.name)}</div>
 					<div className="team">{self.getTeamName(driverInfo.teamId, driverInfo.portalId)}</div>
 
-					{r3eTyreDB.classes[driverInfo.classId] != null ?
+					{UI.state.controllerOptions.options.showTyreCompound.value === "true" && r3eTyreDB.classes[driverInfo.classId] != null ?
 					<div className="tyre animated rotateIn delay-1s">
 						<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
 					</div>

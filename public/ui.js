@@ -1332,7 +1332,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					{ className: 'team' },
 					self.getTeamName(driverInfo.teamId, driverInfo.portalId)
 				),
-				r3eTyreDB.classes[driverInfo.classId] != null ? React.createElement(
+				UI.state.controllerOptions.options.showTyreCompound.value === "true" && r3eTyreDB.classes[driverInfo.classId] != null ? React.createElement(
 					'div',
 					{ className: 'tyre animated rotateIn delay-1s' },
 					React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
@@ -3099,11 +3099,17 @@ var ControlOption = React.createClass({
 					React.createElement(
 						'label',
 						null,
+						React.createElement(
+							'span',
+							{ title: self.state.tooltip, style: { 'font-size': '25px', 'color': '#00E676' } },
+							'\uD83D\uDEC8'
+						),
+						' ',
 						self.state.displayName,
 						React.createElement('input', {
 							defaultValue: self.state.value,
 							type: self.state.type,
-							defaultChecked: self.state.value,
+							defaultChecked: self.state.value === "true",
 							onChange: self.handleInputChange })
 					)
 				)
@@ -3116,6 +3122,7 @@ UI.components.Controller = React.createClass({
 	displayName: 'Controller',
 
 	componentWillMount: function () {
+
 		io.on('driversInfo', this.setDriversInfo);
 		io.on('directorSuggestions', this.setDirectorSuggestions);
 
@@ -3174,11 +3181,13 @@ UI.components.Controller = React.createClass({
 		});
 	},
 	getInitialState: function () {
+		this.toggleControlPanel = this.toggleControlPanel.bind(this);
 		return {
 			'driversInfo': [],
 			'directorSuggestions': [],
 			'active': false,
-			'showCameraController': false
+			'showCameraController': false,
+			'showControlPanel': false
 		};
 	},
 	componentDidMount: function () {
@@ -3245,6 +3254,9 @@ UI.components.Controller = React.createClass({
 		}
 		this.forceUpdate();
 	},
+	toggleControlPanel: function () {
+		this.setState({ showControlPanel: !this.state.showControlPanel });
+	},
 	updateSelf: function () {
 		this.forceUpdate();
 	},
@@ -3274,6 +3286,11 @@ UI.components.Controller = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'title' },
+				React.createElement(
+					'a',
+					{ onClick: this.toggleControlPanel },
+					this.state.showControlPanel ? React.createElement('img', { className: 'toggleControlPanel', src: '/img/close.png' }) : React.createElement('img', { className: 'toggleControlPanel', src: '/img/cog.png' })
+				),
 				React.createElement(
 					'a',
 					{ onClick: this.toggleTrackMap },
@@ -3307,15 +3324,15 @@ UI.components.Controller = React.createClass({
 						})
 					)
 				) : null,
-				React.createElement(
+				this.state.showControlPanel ? React.createElement(
 					'div',
-					{ className: 'controlPanel' },
+					{ className: 'controlPanel animated slideInUp' },
 					Object.keys(controlOptionsData).map(function (key) {
 						// add the key to the data set also
 						controlOptionsData[key].key = key;
 						return React.createElement(ControlOption, { data: controlOptionsData[key] });
 					})
-				),
+				) : null,
 				React.createElement(
 					'div',
 					{ className: cx({ 'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length }) },
@@ -4050,6 +4067,7 @@ UI.widgets.AutoDirector = React.createClass({
 		UI.state.activeWidgets.MulticlassStandings.active = true;
 		UI.state.activeWidgets.LogoOverlay.active = true;
 		UI.state.activeWidgets.SessionInfo.active = true;
+		UI.state.activeWidgets.FocusedDriver.active = true;
 		UI.state.activeWidgets.Alert.active = true;
 	},
 	usedCockpitCam: false,
