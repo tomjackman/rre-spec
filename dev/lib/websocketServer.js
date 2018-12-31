@@ -60,6 +60,42 @@ module.exports = function(io) {
 		return timestamp;
 	}
 
+	// default controller options
+	var defaultControllerOptions = {
+	  "options": {
+	    "multiclass": {
+	      "displayName": "Multiclass UI",
+	      "value": "true",
+	      "tooltip": "Enable Multiclass UI elements (Default: False).",
+	      "type": "checkbox"
+	    },
+	    "alertLength": {
+	      "displayName": "Steward Message Alert Time Length (Seconds)",
+	      "value": "15",
+	      "tooltip": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
+	      "type": "number"
+	    },
+	    "indentFocusedDriver": {
+	      "displayName": "Indent Focused Driver",
+	      "value": "true",
+	      "tooltip": "Indent the focused driver in the standings widget (Default: False).",
+	      "type": "checkbox"
+	    },
+	    "qualifyingResultsDisplayTime": {
+	      "displayName": "Qualifying Results Display Time (Seconds)",
+	      "value": "25",
+	      "tooltip": "The amount of seconds before the end of qualifying to display the results on screen (Default: 25 Seconds)",
+	      "type": "number"
+	    },
+	    "continueToNextSessionTime": {
+	      "displayName": "Continue to Next Session Time (Seconds)",
+	      "value": "45",
+	      "tooltip": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for (Default: 45 Seconds).",
+	      "type": "number"
+	    }
+	  }
+	};
+
 	var globalState = {
 		'sessionInfo': {
 			'type': '',
@@ -79,7 +115,8 @@ module.exports = function(io) {
 		'themes': {
 			'generic': true
 		},
-		'activeTheme': 'flat'
+		'activeTheme': 'flat',
+		'controllerOptions': defaultControllerOptions
 	};
 
 	var widgetsPath = __dirname+'/../../assets/components/widgets';
@@ -98,6 +135,26 @@ module.exports = function(io) {
 	}
 
 	updateOurWidgets();
+
+	function updateControllerOptions() {
+		var config = require(__dirname + '/../../public/config.json');
+
+		try {
+			 JSON.parse(JSON.stringify(config));
+		} catch (e) {
+			return res.json({
+				error: 'Failed to Parse JSON: ' + e
+			});
+		}
+
+		// prevent caching of the json config
+		delete require.cache[require.resolve(__dirname + '/../../public/config.json')];
+
+		globalState.controllerOptions = config;
+	}
+
+	updateControllerOptions();
+
 	function clearWidgets() {
 		// Assume a new session has started when spectator joins
 		// and disable all overlays

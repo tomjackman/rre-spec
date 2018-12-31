@@ -332,7 +332,8 @@ var ControlOption = React.createClass({
 
 			// on success, update global state
 			var newConfig = JSON.parse(response);
-			io.emit('setControllerConfig', newConfig);
+			UI.state.controllerOptions = newConfig;
+			io.emit('setState', UI.state);
 		}, 'json');
   },
 	render: function() {
@@ -521,7 +522,7 @@ UI.components.Controller = React.createClass({
 		}
 		var session = UI.state.sessionInfo;
 
-		var controlOptionsData = UI.controllerOptions.options;
+		var controlOptionsData = UI.state.controllerOptions.options;
 
 		return (
 			<div className={classes}>

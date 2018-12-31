@@ -16,43 +16,6 @@ UI.c = function createReactComponent(type, data) {
 UI.controllerUpdateRate = 1000/2;
 UI.spectatorUpdateRate = 1000/15;
 
-// default options
-UI.controllerOptions = {
-  "options": {
-    "multiclass": {
-      "displayName": "Multiclass UI",
-      "value": "true",
-      "tooltip": "Enable Multiclass UI elements (Default: False).",
-      "type": "checkbox"
-    },
-    "alertLength": {
-      "displayName": "Steward Message Alert Time Length (Seconds)",
-      "value": "15",
-      "tooltip": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
-      "type": "number"
-    },
-    "indentFocusedDriver": {
-      "displayName": "Indent Focused Driver",
-      "value": "true",
-      "tooltip": "Indent the focused driver in the standings widget (Default: False).",
-      "type": "checkbox"
-    },
-    "qualifyingResultsDisplayTime": {
-      "displayName": "Qualifying Results Display Time (Seconds)",
-      "value": "25",
-      "tooltip": "The amount of seconds before the end of qualifying to display the results on screen (Default: 25 Seconds)",
-      "type": "number"
-    },
-    "continueToNextSessionTime": {
-      "displayName": "Continue to Next Session Time (Seconds)",
-      "value": "45",
-      "tooltip": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for (Default: 45 Seconds).",
-      "type": "number"
-    }
-  }
-};
-
-
 UI.getUserInfo = (function() {
 	var userCache = {};
 	return function(id) {
@@ -78,25 +41,19 @@ UI.getUserInfo = (function() {
 	};
 })();
 
-UI.getControllerConfig = function() {
-		$.getJSON('/controllerOptions/', function(data) {
-			if (data.error) {
-				console.log("Error fetching control options: " + data.error);
-				return;
-			}
-			UI.controllerOptions = data;
-		});
-};
-
-// update the state
-io.on('setControllerConfig', function(data) {
-	console.log("before " + UI.controllerOptions);
-	UI.controllerOptions = data;
-	console.log("after " + UI.controllerOptions);
-});
-
-// fetch the controller config from the config file
-UI.getControllerConfig();
+// UI.getControllerConfig = function() {
+// 		$.getJSON('/controllerOptions/', function(data) {
+// 			if (data.error) {
+// 				console.log("Error fetching control options: " + data.error);
+// 				return;
+// 			}
+// 			UI.state.controllerOptions = data;
+// 			io.emit('setState', UI.state);
+// 		});
+// };
+//
+// // fetch the controller config from the config file
+// UI.getControllerConfig();
 
 UI.fixName = function(name) {
 	return name.replace(/(^.| .)/g, function(str) {

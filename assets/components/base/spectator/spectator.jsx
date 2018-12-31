@@ -136,7 +136,7 @@ UI.components.Spectator = React.createClass({
 		// Race control alerts
 		var eventTimeout;
 		r3e.on.eventOccurred(function(event) {
-			var alertLength = UI.controllerOptions.options.alertLength.value * 1000;
+			var alertLength = UI.state.controllerOptions.options.alertLength.value * 1000;
 
 			r3e.getDriverInfo({'slotId': event.slotId
 			}, function(driverInfo) {
@@ -162,7 +162,7 @@ UI.components.Spectator = React.createClass({
 		});
 
 		r3e.on.resultsUpdate(function(results) {
-			var continueToNextSessionTime = UI.controllerOptions.options.continueToNextSessionTime.value  * 1000;
+			var continueToNextSessionTime = UI.state.controllerOptions.options.continueToNextSessionTime.value  * 1000;
 
 			self.setState({
 				'results': results.Results
