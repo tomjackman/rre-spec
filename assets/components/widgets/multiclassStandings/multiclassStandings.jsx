@@ -110,16 +110,13 @@ UI.widgets.MulticlassStandings = React.createClass({
 		var parts = name.split(' ');
 		var name = parts[parts.length-1].substr(0, 3).toUpperCase();
 
-		var classColour = "rgba(38, 50, 56, 0.8)";
-
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
+		var divStyle = {};
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {
+			classColour = UI.getClassColour(classId);
+			divStyle = {
+					backgroundColor: classColour
+			};
 		}
-
-		const divStyle = {
-		    backgroundColor: classColour
-		};
-
 		return <div className="name" style={divStyle}>{firstInitial}{name}</div>
 	},
 	shouldShow: function(driver) {

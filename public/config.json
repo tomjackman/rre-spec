@@ -2,7 +2,7 @@
   "options": {
     "multiclass": {
       "displayName": "Multiclass UI",
-      "value": "true",
+      "value": "false",
       "tooltip": "Enable Multiclass UI elements (Default: False).",
       "type": "checkbox"
     },
@@ -14,7 +14,7 @@
     },
     "indentFocusedDriver": {
       "displayName": "Indent Focused Driver",
-      "value": "true",
+      "value": "false",
       "tooltip": "Indent the focused driver in the standings widget (Default: False).",
       "type": "checkbox"
     },

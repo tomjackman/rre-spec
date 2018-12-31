@@ -145,15 +145,17 @@ UI.widgets.TrackMap = React.createClass({
 	}
 });
 var TrackMapDot = React.createClass({
-	getClassColor: function(classId) {
-		var self = this;
-		var classColour = "rgba(38, 50, 56, 0.8)";
-
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
+	getPosition: function(driver) {
+		var divStyle = {};
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
+			classColour = UI.getClassColour(driver.classId);
+			divStyle = {
+					backgroundColor: classColour
+			};
+			return <div className="position" style={divStyle}>P{driver.scoreInfo.positionClass}</div>
+		} else {
+			return <div className="position" style={divStyle}>P{driver.scoreInfo.positionOverall}</div>
 		}
-
-		return classColour;
 	},
 	getStyles: function(driver) {
 		return cx({
@@ -181,8 +183,8 @@ var TrackMapDot = React.createClass({
 
 		return {
 			'WebkitTransform': 'translate('+point.x+'px, '+point.y+'px) scale(0.3)',
-			'background': self.getClassColor(driver.classId),
-			'zIndex': 100-driver.scoreInfo.positionClass
+			'zIndex': 100-driver.scoreInfo.positionClass,
+			'background': '#607D8B'
 		};
 	},
 	shortenDriverName: function(name) {
@@ -191,12 +193,6 @@ var TrackMapDot = React.createClass({
 		var name = firstInitial + parts[parts.length-1].substr(0, 3).toUpperCase();
 		return name;
 	},
-	getClass: function(driver) {
-		var self = this;
-		return {
-			'background': self.getClassColor(driver.classId)
-		};
-	},
 	render: function() {
 		var self = this;
 		var driver = this.props.driver;
@@ -204,9 +200,7 @@ var TrackMapDot = React.createClass({
 			<div
 			className={self.getStyles(driver)}
 			style={self.getDriverStyle(driver)}>
-				<div className="position" style={self.getClass(driver)}>
-				{driver.scoreInfo.positionClass}
-				</div>
+				{self.getPosition(driver)}
 				<div className="driverName">{self.shortenDriverName(driver.name)}</div>
 				<div className="manufacturer">
 					<img src={'/render/'+driver.manufacturerId+'/small/'}/>

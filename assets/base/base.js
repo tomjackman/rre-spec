@@ -41,24 +41,18 @@ UI.getUserInfo = (function() {
 	};
 })();
 
-// UI.getControllerConfig = function() {
-// 		$.getJSON('/controllerOptions/', function(data) {
-// 			if (data.error) {
-// 				console.log("Error fetching control options: " + data.error);
-// 				return;
-// 			}
-// 			UI.state.controllerOptions = data;
-// 			io.emit('setState', UI.state);
-// 		});
-// };
-//
-// // fetch the controller config from the config file
-// UI.getControllerConfig();
-
 UI.fixName = function(name) {
 	return name.replace(/(^.| .)/g, function(str) {
 		return str.toUpperCase();
 	});
+};
+
+UI.getClassColour = function(classId) {
+	if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
+		return r3eClassColours.classes[classId].colour;
+	} else {
+		return null;
+	}
 };
 
 UI.formatSessionTime = function(seconds) {

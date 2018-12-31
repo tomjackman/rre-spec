@@ -494,6 +494,7 @@ body {
   font-size: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   padding: 4px 6px;
+  background: #ff5252;
 }
 @-webkit-keyframes "ani_4" {
   0% {
@@ -1581,7 +1582,7 @@ pre.preview {
   background: #ff5252;
 }
 .flat .multiclass-standings .driver .position {
-  background: rgba(38, 50, 56, 0.8);
+  background: #263238;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -1611,6 +1612,7 @@ pre.preview {
   font-family: Oswald;
   display: inline-block;
   color: white;
+  background: #ff5252;
   width: 70px;
   padding-left: 10px;
   font-size: 18px;
@@ -2107,6 +2109,7 @@ pre.preview {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   color: white;
+  background: #ff5252;
   font-size: 23px;
 }
 .track-map .dot .driverName {

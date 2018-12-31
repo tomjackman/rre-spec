@@ -165,7 +165,7 @@ var ResultEntry = React.createClass({
 				<div className="manufacturer">
 					<img src={'/render/'+entry.manufacturerId+'/small/'}/>
 				</div>
-				{ UI.state.controllerOptions.options.multiclass.value ?
+				{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 					<div className="name" style={{'width': '30%'}}>{UI.fixName(entry.name)}</div>
 				:
 					<div className="name" style={{'width': '40%'}}>{UI.fixName(entry.name)}</div>

@@ -77,7 +77,7 @@ module.exports = function(io) {
 	    },
 	    "indentFocusedDriver": {
 	      "displayName": "Indent Focused Driver",
-	      "value": "true",
+	      "value": "false",
 	      "tooltip": "Indent the focused driver in the standings widget (Default: False).",
 	      "type": "checkbox"
 	    },

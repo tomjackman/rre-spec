@@ -201,8 +201,8 @@ UI.widgets.FocusedDriver = React.createClass({
 		var classColour = "rgba(38, 50, 56, 0.8)";
 		var driverInfo = self.state.driverInfo;
 
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
+		if (UI.getClassColour(classId) != null) {
+			classColour = UI.getClassColour(classId);
 		}
 
 		const divStyle = {

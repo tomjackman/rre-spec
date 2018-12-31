@@ -631,24 +631,18 @@ UI.getUserInfo = (function() {
 	};
 })();
 
-// UI.getControllerConfig = function() {
-// 		$.getJSON('/controllerOptions/', function(data) {
-// 			if (data.error) {
-// 				console.log("Error fetching control options: " + data.error);
-// 				return;
-// 			}
-// 			UI.state.controllerOptions = data;
-// 			io.emit('setState', UI.state);
-// 		});
-// };
-//
-// // fetch the controller config from the config file
-// UI.getControllerConfig();
-
 UI.fixName = function(name) {
 	return name.replace(/(^.| .)/g, function(str) {
 		return str.toUpperCase();
 	});
+};
+
+UI.getClassColour = function(classId) {
+	if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
+		return r3eClassColours.classes[classId].colour;
+	} else {
+		return null;
+	}
 };
 
 UI.formatSessionTime = function(seconds) {
@@ -1243,8 +1237,8 @@ UI.widgets.FocusedDriver = React.createClass({
 		var classColour = "rgba(38, 50, 56, 0.8)";
 		var driverInfo = self.state.driverInfo;
 
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
+		if (UI.getClassColour(classId) != null) {
+			classColour = UI.getClassColour(classId);
 		}
 
 		const divStyle = {
@@ -1535,16 +1529,13 @@ UI.widgets.MulticlassStandings = React.createClass({
 		var parts = name.split(' ');
 		var name = parts[parts.length - 1].substr(0, 3).toUpperCase();
 
-		var classColour = "rgba(38, 50, 56, 0.8)";
-
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
+		var divStyle = {};
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {
+			classColour = UI.getClassColour(classId);
+			divStyle = {
+				backgroundColor: classColour
+			};
 		}
-
-		const divStyle = {
-			backgroundColor: classColour
-		};
-
 		return React.createElement(
 			'div',
 			{ className: 'name', style: divStyle },
@@ -2051,7 +2042,7 @@ var ResultEntry = React.createClass({
 					{ className: 'manufacturer' },
 					React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/' })
 				),
-				UI.state.controllerOptions.options.multiclass.value ? React.createElement(
+				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 					'div',
 					{ className: 'name', style: { 'width': '30%' } },
 					UI.fixName(entry.name)
@@ -2560,15 +2551,27 @@ UI.widgets.TrackMap = React.createClass({
 var TrackMapDot = React.createClass({
 	displayName: 'TrackMapDot',
 
-	getClassColor: function (classId) {
-		var self = this;
-		var classColour = "rgba(38, 50, 56, 0.8)";
-
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
+	getPosition: function (driver) {
+		var divStyle = {};
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
+			classColour = UI.getClassColour(driver.classId);
+			divStyle = {
+				backgroundColor: classColour
+			};
+			return React.createElement(
+				'div',
+				{ className: 'position', style: divStyle },
+				'P',
+				driver.scoreInfo.positionClass
+			);
+		} else {
+			return React.createElement(
+				'div',
+				{ className: 'position', style: divStyle },
+				'P',
+				driver.scoreInfo.positionOverall
+			);
 		}
-
-		return classColour;
 	},
 	getStyles: function (driver) {
 		return cx({
@@ -2596,8 +2599,8 @@ var TrackMapDot = React.createClass({
 
 		return {
 			'WebkitTransform': 'translate(' + point.x + 'px, ' + point.y + 'px) scale(0.3)',
-			'background': self.getClassColor(driver.classId),
-			'zIndex': 100 - driver.scoreInfo.positionClass
+			'zIndex': 100 - driver.scoreInfo.positionClass,
+			'background': '#607D8B'
 		};
 	},
 	shortenDriverName: function (name) {
@@ -2605,12 +2608,6 @@ var TrackMapDot = React.createClass({
 		var parts = name.split(' ');
 		var name = firstInitial + parts[parts.length - 1].substr(0, 3).toUpperCase();
 		return name;
-	},
-	getClass: function (driver) {
-		var self = this;
-		return {
-			'background': self.getClassColor(driver.classId)
-		};
 	},
 	render: function () {
 		var self = this;
@@ -2620,11 +2617,7 @@ var TrackMapDot = React.createClass({
 			{
 				className: self.getStyles(driver),
 				style: self.getDriverStyle(driver) },
-			React.createElement(
-				'div',
-				{ className: 'position', style: self.getClass(driver) },
-				driver.scoreInfo.positionClass
-			),
+			self.getPosition(driver),
 			React.createElement(
 				'div',
 				{ className: 'driverName' },
@@ -2661,31 +2654,8 @@ var r3eOverlaySettings = {
 };
 
 UI.components.App = React.createClass({
-	displayName: 'App',
+	displayName: "App",
 
-	async componentDidMount() {
-		var self = this;
-		// github repo with version.json
-		let base64PublishedVersionUrl = 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RvbWphY2ttYW4vcnJlLXNwZWMvbWFzdGVyL3B1YmxpYy92ZXJzaW9uLmpzb24=';
-		let localVersionUrl = 'version.json';
-
-		const published = await fetch(atob(base64PublishedVersionUrl));
-		const publishedVersion = await published.json();
-
-		const local = await fetch(localVersionUrl);
-		const localVersion = await local.json();
-
-		if (publishedVersion.version > localVersion.version) {
-			var confirmText = "A New Update (v" + publishedVersion.version + ") is now available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
-			if (confirm(confirmText)) {
-				// Overlay thread on S3 forum
-				let base64ForumUrl = "aHR0cHM6Ly9mb3J1bS5zZWN0b3Izc3R1ZGlvcy5jb20vaW5kZXgucGhwP3RocmVhZHMvcjNlLXJlYWxpdHktbW9kZXJuLWJyb2FkY2FzdC1vdmVybGF5LjEyMDYxLw==";
-				window.open(atob(base64ForumUrl), '_blank');
-			}
-		} else {
-			console.log("Current Version is up to date (v" + localVersion.version + ").");
-		}
-	},
 	render: function () {
 		if (window.gameClient) {
 			return React.createElement(UI.components.Spectator, null);
@@ -2986,24 +2956,30 @@ var Driver = React.createClass({
 		}
 		return cx(classes);
 	},
-	renderPostion: function (position, classId) {
-		var classColour = "rgba(38, 50, 56, 0.8)";
-
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
-		}
-
-		const divStyle = {
-			backgroundColor: classColour,
+	renderPostion: function (driver) {
+		var divStyle = {
 			position: "absolute"
 		};
-
-		return React.createElement(
-			'div',
-			{ className: 'position', style: divStyle },
-			'Class P',
-			position
-		);
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
+			classColour = UI.getClassColour(driver.classId);
+			divStyle = {
+				backgroundColor: classColour,
+				position: "absolute"
+			};
+			return React.createElement(
+				'div',
+				{ className: 'position', style: divStyle },
+				'Class P',
+				driver.scoreInfo.positionClass
+			);
+		} else {
+			return React.createElement(
+				'div',
+				{ className: 'position', style: divStyle },
+				'Overall P',
+				driver.scoreInfo.positionOverall
+			);
+		}
 	},
 	render: function () {
 		var self = this;
@@ -3045,7 +3021,7 @@ var Driver = React.createClass({
 					(timeDiff / 1000).toFixed(2),
 					's'
 				) : null,
-				self.renderPostion(driver.scoreInfo.positionClass, driver.classId)
+				self.renderPostion(driver)
 			)
 		);
 	}
@@ -3121,7 +3097,30 @@ var ControlOption = React.createClass({
 UI.components.Controller = React.createClass({
 	displayName: 'Controller',
 
-	componentWillMount: function () {
+	async componentWillMount() {
+
+		// update checker
+		var self = this;
+		// github repo with version.json
+		let base64PublishedVersionUrl = 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RvbWphY2ttYW4vcnJlLXNwZWMvbWFzdGVyL3B1YmxpYy92ZXJzaW9uLmpzb24=';
+		let localVersionUrl = 'version.json';
+
+		const published = await fetch(atob(base64PublishedVersionUrl));
+		const publishedVersion = await published.json();
+
+		const local = await fetch(localVersionUrl);
+		const localVersion = await local.json();
+
+		if (publishedVersion.version > localVersion.version) {
+			var confirmText = "A New Update (v" + publishedVersion.version + ") is now available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
+			if (confirm(confirmText)) {
+				// Overlay thread on S3 forum
+				let base64ForumUrl = "aHR0cHM6Ly9mb3J1bS5zZWN0b3Izc3R1ZGlvcy5jb20vaW5kZXgucGhwP3RocmVhZHMvcjNlLXJlYWxpdHktbW9kZXJuLWJyb2FkY2FzdC1vdmVybGF5LjEyMDYxLw==";
+				window.open(atob(base64ForumUrl), '_blank');
+			}
+		} else {
+			console.log("Current Version is up to date (v" + localVersion.version + ").");
+		}
 
 		io.on('driversInfo', this.setDriversInfo);
 		io.on('directorSuggestions', this.setDirectorSuggestions);

@@ -259,19 +259,20 @@ var Driver = React.createClass({
 		}
 		return cx(classes);
 	},
-	renderPostion: function(position, classId) {
-		var classColour = "rgba(38, 50, 56, 0.8)";
-
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
-		}
-
-		const divStyle = {
-				backgroundColor: classColour,
-				position: "absolute",
+	renderPostion: function(driver) {
+		var divStyle = {
+			position: "absolute"
 		};
-
-		return <div className="position" style={divStyle}>Class P{position}</div>
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
+			classColour = UI.getClassColour(driver.classId);
+			divStyle = {
+					backgroundColor: classColour,
+					position: "absolute"
+			};
+			return <div className="position" style={divStyle}>Class P{driver.scoreInfo.positionClass}</div>
+		} else {
+			return <div className="position" style={divStyle}>Overall P{driver.scoreInfo.positionOverall}</div>
+		}
 	},
 	render: function() {
 		var self = this;
@@ -303,7 +304,7 @@ var Driver = React.createClass({
 						:
 						null
 					}
-					{self.renderPostion(driver.scoreInfo.positionClass, driver.classId)}
+					{self.renderPostion(driver)}
 				</div>
 			</div>
 		);
@@ -350,7 +351,7 @@ var ControlOption = React.createClass({
 					<form>
 							<div className="option">
 				        <label>
-				          <span title={self.state.tooltip} style={{'font-size': '25px', 'color': '#00E676'}}>🛈</span> {self.state.displayName} 
+				          <span title={self.state.tooltip} style={{'font-size': '25px', 'color': '#00E676'}}>🛈</span> {self.state.displayName}
 				          <input
 				            defaultValue={self.state.value}
 				            type={self.state.type}
@@ -365,7 +366,30 @@ var ControlOption = React.createClass({
 });
 
 UI.components.Controller = React.createClass({
-	componentWillMount: function() {
+	async componentWillMount() {
+
+		// update checker
+		var self = this;
+		// github repo with version.json
+		let base64PublishedVersionUrl = 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RvbWphY2ttYW4vcnJlLXNwZWMvbWFzdGVyL3B1YmxpYy92ZXJzaW9uLmpzb24=';
+		let localVersionUrl = 'version.json';
+
+		const published = await fetch(atob(base64PublishedVersionUrl));
+		const publishedVersion = await published.json();
+
+		const local = await fetch(localVersionUrl);
+		const localVersion = await local.json();
+
+		if(publishedVersion.version > localVersion.version) {
+			var confirmText = "A New Update (v" + publishedVersion.version + ") is now available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
+			if (confirm(confirmText)) {
+				// Overlay thread on S3 forum
+				let base64ForumUrl = "aHR0cHM6Ly9mb3J1bS5zZWN0b3Izc3R1ZGlvcy5jb20vaW5kZXgucGhwP3RocmVhZHMvcjNlLXJlYWxpdHktbW9kZXJuLWJyb2FkY2FzdC1vdmVybGF5LjEyMDYxLw==";
+				window.open(atob(base64ForumUrl), '_blank');
+			}
+		} else {
+			console.log("Current Version is up to date (v" + localVersion.version + ").");
+		}
 
 		io.on('driversInfo', this.setDriversInfo);
 		io.on('directorSuggestions', this.setDirectorSuggestions);
