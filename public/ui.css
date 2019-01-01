@@ -1862,6 +1862,9 @@ pre.preview {
   padding: 0 0 0 0px;
   font-size: 23px;
 }
+.flat .qualify-results .qualify-results-entry.title .classPosition {
+  color: white;
+}
 .flat .qualify-results .qualify-results-entry.fastest {
   color: #f500f5;
 }
