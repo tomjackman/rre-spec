@@ -9,7 +9,7 @@
 * [Feature] Added the ability to define the amount of seconds before the end of qualifying to display the results on screen.
 * [Feature] Added the ability to define the amount of seconds before the continuing to the next session after a race has finished.
 * [Feature] Updated the driver info widget to keep active state on session change.
-* [Feature] Added single class background colours to themes.
+* [Feature] Added single class default background colours to themes.
 * [Feature] Small UI updates to themes with new variable definitions for some UI components.
 * [Feature] Added settings UI to the broadcaster panel.
 * [Bug Fix] Prevent the update alert showing over the game when running an old version.
