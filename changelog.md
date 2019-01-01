@@ -10,6 +10,7 @@
 * [Feature] Added the ability to define the amount of seconds before the continuing to the next session after a race has finished.
 * [Feature] Updated the driver info widget to keep active state on session change.
 * [Feature] Added single class default background colours to themes.
+* [Bug Fix] Fixed wrong coloring of the session info border in the mercedes theme.
 * [Feature] Small UI updates to themes with new variable definitions for some UI components.
 * [Feature] Added settings UI to the broadcaster panel.
 * [Feature] Added automatic saving/loading of config setting.
