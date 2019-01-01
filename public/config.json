@@ -18,6 +18,12 @@
       "tooltip": "Indent the focused driver in the standings widget (Default: False).",
       "type": "checkbox"
     },
+    "showPortalTeam": {
+      "displayName": "Show Portal Team Names",
+      "value": "false",
+      "tooltip": "Show a drivers portal team name if they have added one (Default: False).",
+      "type": "checkbox"
+    },
     "alertLength": {
       "displayName": "Steward Message Alert Time Length (Seconds)",
       "value": "15",

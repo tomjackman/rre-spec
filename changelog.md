@@ -12,6 +12,8 @@
 * [Feature] Added single class default background colours to themes.
 * [Feature] Small UI updates to themes with new variable definitions for some UI components.
 * [Feature] Added settings UI to the broadcaster panel.
+* [Feature] Added automatic saving/loading of config setting.
+* [Feature] Added the ability to show/hide portal profile team names if a driver has added one.
 * [Bug Fix] Prevent the update alert showing over the game when running an old version.
 
 ### Version 1.3.0

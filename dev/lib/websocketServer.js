@@ -8,11 +8,6 @@ function updateWidgets(widgetsPath, globalState, callback) {
 	var jobs = [];
 
 	function onFile(err, filePath) {
-		var cssThemeMatch = filePath.match(/\.([a-zA-Z]+)\.less$/);
-		if (cssThemeMatch) {
-			globalState.themes[cssThemeMatch[1]] = true;
-		}
-
 		if (!filePath.match(/meta.json$/)) {
 			return;
 		}
@@ -81,6 +76,12 @@ module.exports = function(io) {
 	      "tooltip": "Indent the focused driver in the standings widget (Default: False).",
 	      "type": "checkbox"
 	    },
+	    "showPortalTeam": {
+	      "displayName": "Show Portal Team Names",
+	      "value": "false",
+	      "tooltip": "Show a drivers portal team name if they have added one (Default: False).",
+	      "type": "checkbox"
+	    },
 	    "alertLength": {
 	      "displayName": "Steward Message Alert Time Length (Seconds)",
 	      "value": "15",
@@ -119,7 +120,7 @@ module.exports = function(io) {
 		'camera': 'trackside',
 		'activeWidgets': {},
 		'themes': {
-			'generic': true
+			'base': true
 		},
 		'activeTheme': 'flat',
 		'controllerOptions': defaultControllerOptions
@@ -135,12 +136,22 @@ module.exports = function(io) {
 			return;
 		}
 
-		updateWidgets(widgetsPath, globalState, function(err, activeWidgets) {
-            io.sockets.emit('updatedState', globalState);
-        });
+	updateWidgets(widgetsPath, globalState, function(err, activeWidgets) {
+      io.sockets.emit('updatedState', globalState);
+    });
 	}
 
 	updateOurWidgets();
+
+	// function loadThemes() {
+	// 	var themesDir = __dirname + '/../../theme';
+	// 	var themes = {};
+	// 	fs.readdirSync(themesDir).forEach(file => {
+	// 		var themeName = file.slice(0, -5);
+	// 		globalState.themes[themeName] = true;
+	// 	})
+	// }
+	// loadThemes();
 
 	function updateControllerOptions() {
 		var config = require(__dirname + '/../../public/config.json');

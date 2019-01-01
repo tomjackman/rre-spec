@@ -215,7 +215,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		var self = this;
 		var teamName = "";
 		var portalTeamName = UI.getUserInfo(portalId).team;
-		if (portalTeamName != null && portalTeamName.length > 0) {
+		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			// add star for portal team names
 			teamName = "★ " + portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {

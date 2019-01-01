@@ -825,9 +825,6 @@ body {
   font-weight: 400;
   src: local('DaimlerCS-Light'), url(/fonts/DaimlerCS-Light.woff2) format('woff2');
 }
-.mercedes .app-spectator {
-  font: 14px/1 'DaimlerCS-ExtraBoldItalic', verdana, arial, sans-serif;
-}
 .app-spectator .camera-fade {
   position: fixed;
   top: 0;
