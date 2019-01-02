@@ -1328,7 +1328,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				UI.state.controllerOptions.options.showTyreCompound.value === "true" && r3eTyreDB.classes[driverInfo.classId] != null ? React.createElement(
 					'div',
-					{ className: 'tyre animated rotateIn delay-1s' },
+					{ className: 'tyre' },
 					React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
 				) : null,
 				React.createElement(
