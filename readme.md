@@ -2,7 +2,7 @@
 
 ## Getting Started
 1. Install http://nodejs.org/.
-2. Published node_modules are available [here](https://mega.nz/#!M85kHAxA!GSNKuIGWp7ZZBM7R9AB4jqhdyob1P7kdz4VYH4cJfAs).
+2. Published node_modules are available [here](https://mega.nz/#!M85kHAxA!GSNKuIGWp7ZZBM7R9AB4jqhdyob1P7kdz4VYH4cJfAs). (Place the modules in `\dev\node_modules`)
 3. Run `start.bat`.
 4. Add `-broadcastUrl=http://localhost:9090` in Steam Game launch options.
 5. Open http://localhost:9090 in a browser.
