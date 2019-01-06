@@ -92,7 +92,7 @@ UI.widgets.CompareRace = React.createClass({
 					{drivers[0].scoreInfo.timeDiff !== -1 ?
 						<div className="delta animated flipInX">
 							<div className="battle">Battle For P{drivers[0].scoreInfo.positionOverall - 1}</div>
-							<div className="value">{self.formatTime(Math.max(0, drivers[1].scoreInfo.timeDiff))}</div>
+							<div className="value">{self.formatTime(Math.max(0, drivers[0].scoreInfo.timeDiff))}</div>
 							<UI.widgets.CompareRaceDriver position="first" driver={drivers[1]}/>
 							<UI.widgets.CompareRaceDriver position="second" driver={drivers[0]}/>
 						</div>

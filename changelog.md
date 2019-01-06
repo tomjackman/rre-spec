@@ -3,6 +3,7 @@
 * [Feature] Added dark background overlay to results tables to blend better with the background.
 * [Feature] Added WTCR 2018 theme.
 * [Tooling] Added theme files to watch list to allow live updates to themes.
+* [Bug Fix] Fixed a timing bug in the compare race widget.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.
