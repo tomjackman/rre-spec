@@ -122,7 +122,7 @@ module.exports = function(io) {
 		'themes': {
 			'base': true
 		},
-		'activeTheme': 'flat',
+		'activeTheme': 'base',
 		'controllerOptions': defaultControllerOptions
 	};
 
@@ -143,15 +143,37 @@ module.exports = function(io) {
 
 	updateOurWidgets();
 
-	// function loadThemes() {
-	// 	var themesDir = __dirname + '/../../theme';
-	// 	var themes = {};
-	// 	fs.readdirSync(themesDir).forEach(file => {
-	// 		var themeName = file.slice(0, -5);
-	// 		globalState.themes[themeName] = true;
-	// 	})
-	// }
-	// loadThemes();
+	function replaceContents(file, replacement, cb) {
+		fs.readFile(replacement, (err, contents) => {
+			if (err) return cb(err);
+			fs.writeFile(file, contents, cb);
+		});
+	}
+
+	function loadThemes() {
+		var themesDir = __dirname + '/../../theme';
+		var themes = {};
+		fs.readdirSync(themesDir).forEach(file => {
+			var themeName = file.slice(0, -5);
+			if (themeName != "theme") {
+				globalState.themes[themeName] = true;
+			}
+		});
+
+		// set default theme on start: base.less
+		var defaultTheme = 'base';
+		var themeLessFile = themesDir + '/theme.less';
+		var activeThemeLessFile = themesDir + '/' + defaultTheme + '.less';
+		replaceContents(themeLessFile, activeThemeLessFile, err => {
+			if (err) {
+				return res.json({
+					error: 'Error setting default theme: ' + err
+				});
+			}
+			console.log("Loaded Default Theme > " + defaultTheme);
+		});
+	}
+	loadThemes();
 
 	function updateControllerOptions() {
 		var config = require(__dirname + '/../../public/config.json');

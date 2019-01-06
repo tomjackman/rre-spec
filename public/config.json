@@ -9,7 +9,7 @@
     "showTyreCompound": {
       "displayName": "Show Tyre Compound",
       "value": "true",
-      "tooltip": "Show the tyre compound in the driver info widget for applicable classes.",
+      "tooltip": "Show the tyre compound in the driver info widget for applicable classes. (Default: True)",
       "type": "checkbox"
     },
     "indentFocusedDriver": {

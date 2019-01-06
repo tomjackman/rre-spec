@@ -235,7 +235,7 @@ UI.components.Spectator = React.createClass({
 		var self = this;
 		var themeClass = UI.state.activeTheme;
 		return (
-			<div className={themeClass}>
+			<div>
 			<div className="app-spectator">
 				{Object.keys(UI.state.activeWidgets).map(function(type) {
 					return (!self.state.results && UI.state.activeWidgets[type].active) ? React.createElement(UI.widgets[type], {'key': type}) : null

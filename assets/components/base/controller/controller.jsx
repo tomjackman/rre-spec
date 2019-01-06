@@ -517,8 +517,22 @@ UI.components.Controller = React.createClass({
 		}
 	},
 	changeTheme: function(e) {
-		UI.state.activeTheme = e.target.value;
-		io.emit('setState', UI.state);
+		var theme = {"file": e.target.value};
+
+		// save to json file
+		$.post('/changeTheme/', theme, function(response) {
+			if (response.error) {
+				console.log("Error setting theme: " + response.error);
+				return;
+			}
+			var config = JSON.parse(response);
+			var theme = config.theme;
+
+			UI.state.activeTheme = theme;
+			io.emit('setState', UI.state);
+		}, 'json');
+
+
 	},
 	toggleTrackMap: function() {
 		if (window.location.hash.match(/trackmap/)) {
@@ -627,6 +641,11 @@ UI.components.Controller = React.createClass({
 					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control bottomLeft" data-value="wing">Rear wing</div>
 				</div>
 				<div className="widgets-list">
+				<select value={UI.state.activeTheme} onChange={self.changeTheme}>
+					{Object.keys(UI.state.themes).map(function(key) {
+						return <option key={key} value={key}>{key.toUpperCase()} THEME</option>
+					})}
+				</select>
 					<div className="widget-buttons">
 						{Object.keys(UI.state.activeWidgets).sort().map(function(key) {
 							return <WidgetManager widget={UI.state.activeWidgets[key]} key={key}/>

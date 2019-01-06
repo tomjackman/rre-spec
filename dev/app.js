@@ -23,4 +23,13 @@ chokidar.watch(assetsDir, {
 	'persistent': true
 }).on('change', assetGenerator);
 
+var themesDir = path.resolve(__dirname + '/../theme');
+
+// Enable generation of files on change
+var themeGenerator = require('./lib/generateHandler')(httpServer, themesDir);
+chokidar.watch(themesDir, {
+	'ignored': /[\/\\]\./,
+	'persistent': true
+}).on('change', themeGenerator);
+
 assetGenerator(null);

@@ -935,10 +935,10 @@ UI.widgets.EventInfo = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'event-info-bg animated fadeIn' },
+			{ className: 'event-info-bg' },
 			React.createElement(
 				'div',
-				{ className: 'event-info' },
+				{ className: 'event-info animated fadeIn' },
 				React.createElement(
 					'div',
 					{ className: 'serverName' },
@@ -1656,66 +1656,70 @@ UI.widgets.RaceResults = React.createClass({
 		var self = this;
 		return React.createElement(
 			'div',
-			{ className: 'race-results' },
+			{ className: 'race-results-bg' },
 			React.createElement(
 				'div',
-				{ className: 'title' },
+				{ className: 'race-results animated fadeIn' },
 				React.createElement(
 					'div',
-					{ className: 'text' },
-					'Race Results',
-					React.createElement('div', { className: 'logo' })
-				)
-			),
-			React.createElement(
-				'div',
-				{ className: 'race-results-entry title' },
-				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-					'div',
-					{ className: 'classPosition' },
-					'Class'
-				) : null,
-				React.createElement(
-					'div',
-					{ className: 'position' },
-					'Overall'
-				),
-				React.createElement('div', { className: 'manufacturer' }),
-				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-					'div',
-					{ className: 'name', style: { 'width': '30%' } },
-					'Name'
-				) : React.createElement(
-					'div',
-					{ className: 'name', style: { 'width': '40%' } },
-					'Name'
-				),
-				React.createElement('div', { className: 'livery' }),
-				React.createElement(
-					'div',
-					{ className: 'penaltyTime' },
-					'Penalties'
+					{ className: 'title' },
+					React.createElement(
+						'div',
+						{ className: 'text' },
+						'Race Results',
+						React.createElement('div', { className: 'logo' })
+					)
 				),
 				React.createElement(
 					'div',
-					{ className: 'lap-time' },
-					'Finish time'
+					{ className: 'race-results-entry title' },
+					UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+						'div',
+						{ className: 'classPosition' },
+						'Class'
+					) : null,
+					React.createElement(
+						'div',
+						{ className: 'position' },
+						'Overall'
+					),
+					React.createElement('div', { className: 'manufacturer' }),
+					UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+						'div',
+						{ className: 'name', style: { 'width': '30%' } },
+						'Name'
+					) : React.createElement(
+						'div',
+						{ className: 'name', style: { 'width': '40%' } },
+						'Name'
+					),
+					React.createElement('div', { className: 'livery' }),
+					React.createElement(
+						'div',
+						{ className: 'penaltyTime' },
+						'Penalties'
+					),
+					React.createElement(
+						'div',
+						{ className: 'lap-time' },
+						'Finish time'
+					),
+					React.createElement(
+						'div',
+						{ className: 'fastest-time' },
+						'Best lap time'
+					)
 				),
 				React.createElement(
 					'div',
-					{ className: 'fastest-time' },
-					'Best lap time'
-				)
-			),
-			React.createElement(
-				'div',
-				{ className: 'entries-outer', ref: 'entries-outer' },
-				React.createElement(
-					'div',
-					{ className: 'entries-inner', ref: 'entries-inner' },
-					self.props.results.map(function (entry, i) {
-						return React.createElement(RaceResultEntry, { entry: entry, firstEntry: self.props.results[0], index: i });
-					})
+					{ className: 'entries-outer', ref: 'entries-outer' },
+					React.createElement(
+						'div',
+						{ className: 'entries-inner', ref: 'entries-inner' },
+						self.props.results.map(function (entry, i) {
+							return React.createElement(RaceResultEntry, { entry: entry, firstEntry: self.props.results[0], index: i });
+						})
+					)
 				)
 			)
 		);
@@ -1915,64 +1919,68 @@ UI.widgets.Results = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'overallQuai' },
+			null,
 			session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
 				'div',
-				{ className: 'qualify-results' },
+				{ className: 'overallQuai animated fadeIn' },
 				React.createElement(
 					'div',
-					{ className: 'title' },
+					{ className: 'qualify-results' },
 					React.createElement(
 						'div',
-						{ className: 'text' },
-						'Qualifying Results',
-						React.createElement('div', { className: 'logo' })
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'qualify-results-entry title' },
-					UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-						'div',
-						{ className: 'classPosition' },
-						'Class'
-					) : null,
-					React.createElement(
-						'div',
-						{ className: 'position' },
-						'Overall'
-					),
-					React.createElement('div', { className: 'manufacturer' }),
-					UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-						'div',
-						{ className: 'name', style: { 'width': '30%' } },
-						'Name'
-					) : React.createElement(
-						'div',
-						{ className: 'name', style: { 'width': '40%' } },
-						'Name'
-					),
-					React.createElement('div', { className: 'livery' }),
-					React.createElement(
-						'div',
-						{ className: 'fastest-time' },
-						'Delta'
+						{ className: 'title' },
+						React.createElement(
+							'div',
+							{ className: 'text' },
+							'Qualifying Results',
+							React.createElement('div', { className: 'logo' })
+						)
 					),
 					React.createElement(
 						'div',
-						{ className: 'lap-time' },
-						'Best lap time'
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'entries-outer', ref: 'entries-outer' },
+						{ className: 'qualify-results-entry title' },
+						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+							'div',
+							{ className: 'classPosition' },
+							'Class'
+						) : null,
+						React.createElement(
+							'div',
+							{ className: 'position' },
+							'Overall'
+						),
+						React.createElement('div', { className: 'manufacturer' }),
+						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+							'div',
+							{ className: 'name', style: { 'width': '30%' } },
+							'Name'
+						) : React.createElement(
+							'div',
+							{ className: 'name', style: { 'width': '40%' } },
+							'Name'
+						),
+						React.createElement('div', { className: 'livery' }),
+						React.createElement(
+							'div',
+							{ className: 'fastest-time' },
+							'Delta'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lap-time' },
+							'Best lap time'
+						)
+					),
 					React.createElement(
 						'div',
-						{ className: 'entries-inner', ref: 'entries-inner' },
-						drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
-							return React.createElement(ResultEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
-						})
+						{ className: 'entries-outer', ref: 'entries-outer' },
+						React.createElement(
+							'div',
+							{ className: 'entries-inner', ref: 'entries-inner' },
+							drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
+								return React.createElement(ResultEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
+							})
+						)
 					)
 				)
 			) : null
@@ -3242,8 +3250,20 @@ UI.components.Controller = React.createClass({
 		}
 	},
 	changeTheme: function (e) {
-		UI.state.activeTheme = e.target.value;
-		io.emit('setState', UI.state);
+		var theme = { "file": e.target.value };
+
+		// save to json file
+		$.post('/changeTheme/', theme, function (response) {
+			if (response.error) {
+				console.log("Error setting theme: " + response.error);
+				return;
+			}
+			var config = JSON.parse(response);
+			var theme = config.theme;
+
+			UI.state.activeTheme = theme;
+			io.emit('setState', UI.state);
+		}, 'json');
 	},
 	toggleTrackMap: function () {
 		if (window.location.hash.match(/trackmap/)) {
@@ -3381,6 +3401,18 @@ UI.components.Controller = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'widgets-list' },
+				React.createElement(
+					'select',
+					{ value: UI.state.activeTheme, onChange: self.changeTheme },
+					Object.keys(UI.state.themes).map(function (key) {
+						return React.createElement(
+							'option',
+							{ key: key, value: key },
+							key.toUpperCase(),
+							' THEME'
+						);
+					})
+				),
 				React.createElement(
 					'div',
 					{ className: 'widget-buttons' },
@@ -3718,7 +3750,7 @@ UI.components.Spectator = React.createClass({
 		var themeClass = UI.state.activeTheme;
 		return React.createElement(
 			'div',
-			{ className: themeClass },
+			null,
 			React.createElement(
 				'div',
 				{ className: 'app-spectator' },

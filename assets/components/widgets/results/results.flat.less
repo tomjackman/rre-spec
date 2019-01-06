@@ -1,5 +1,14 @@
 @import '../theme/theme';
 
+.overallQuai {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.7);
+}
+
 .qualify-results {
 	.entries-outer {
 		max-height: 820px;
@@ -15,9 +24,7 @@
 		-webkit-transform: translate3d(0,0,0);
 	}
 }
-.flat .qualify-results {
-	.onCreation(opacity, 0, 1, 1s);
-	.onCreation(-webkit-transform, translate(0, 50px), translate(0, -50%), 1s);
+.qualify-results {
 	position: fixed;
 	top: 50%;
 	left: 20%;

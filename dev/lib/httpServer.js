@@ -115,6 +115,28 @@ module.exports = function(assetsDir) {
 		res.json(JSON.stringify(config));
 	});
 
+	function replaceContents(file, replacement, cb) {
+		fs.readFile(replacement, (err, contents) => {
+			if (err) return cb(err);
+			fs.writeFile(file, contents, cb);
+		});
+	}
+
+	app.post('/changeTheme/', function (req, res) {
+	// replace contents of file 'b' with contents of 'a'
+	var themesDir = __dirname + '/../../theme';
+	var themeLessFile = themesDir + '/theme.less';
+	var activeThemeLessFile = themesDir + '/' + req.body.file + '.less';
+	replaceContents(themeLessFile, activeThemeLessFile, err => {
+		if (err) {
+			return res.json({
+				error: 'Error when switching theme: ' + err
+			});
+		}
+		res.json(JSON.stringify({'theme': req.body.file}));
+	});
+});
+
 	app.use(express.static(__dirname + '/../../public'));
 	app.use(express.static(__dirname + '/../../assets/components/widgets'));
 

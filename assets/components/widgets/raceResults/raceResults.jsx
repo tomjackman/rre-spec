@@ -31,7 +31,8 @@ UI.widgets.RaceResults = React.createClass({
 		}
 		var self = this;
 		return (
-			<div className="race-results">
+			<div className="race-results-bg">
+			<div className="race-results animated fadeIn">
 			<div className="title">
 				<div className="text">Race Results<div className="logo"></div></div>
 			</div>
@@ -60,6 +61,7 @@ UI.widgets.RaceResults = React.createClass({
 						})}
 					</div>
 				</div>
+			</div>
 			</div>
 		);
 	}

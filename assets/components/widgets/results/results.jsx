@@ -86,8 +86,9 @@ UI.widgets.Results = React.createClass({
 	}
 
 		return (
-			<div className="overallQuai">
+			<div>
 			{ session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ?
+			<div className="overallQuai animated fadeIn">
 			<div className="qualify-results">
 				<div className="title">
 					<div className="text">Qualifying Results<div className="logo"></div></div>
@@ -117,10 +118,11 @@ UI.widgets.Results = React.createClass({
 					</div>
 				</div>
 			</div>
+			</div>
 				:
 				null
 				}
-			</div>
+				</div>
 		);
 	}
 });
