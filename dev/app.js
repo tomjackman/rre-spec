@@ -28,7 +28,7 @@ var themesDir = path.resolve(__dirname + '/../theme');
 // Enable generation of files on change
 var themeGenerator = require('./lib/generateHandler')(httpServer, themesDir);
 chokidar.watch(themesDir, {
-	'ignored': /[\/\\]\./,
+	ignored': /[\/\\]\./,
 	'persistent': true
 }).on('change', themeGenerator);
 

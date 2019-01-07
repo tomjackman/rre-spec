@@ -161,14 +161,14 @@ module.exports = function(io) {
 		var themes = {};
 		fs.readdirSync(themesDir).forEach(file => {
 			var themeName = file.slice(0, -5);
-			if (themeName != "theme") {
+			if (themeName != "Ω") {
 				globalState.themes[themeName] = true;
 			}
 		});
 
 		// set default theme on start: base.less
 		var defaultTheme = 'base';
-		var themeLessFile = themesDir + '/theme.less';
+		var themeLessFile = themesDir + '/Ω.less';
 		var activeThemeLessFile = themesDir + '/' + defaultTheme + '.less';
 		replaceContents(themeLessFile, activeThemeLessFile, err => {
 			if (err) {

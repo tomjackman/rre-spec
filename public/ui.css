@@ -138,7 +138,7 @@ a {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: black;
+  color: white;
   white-space: pre;
   font-family: Oswald;
   width: 60%;
@@ -150,17 +150,17 @@ a {
   padding: 0 15px 0 0;
   line-height: 85px;
   font-size: 30px;
-  background: white;
+  background: rgba(38, 50, 56, 0.8);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-top: 5px solid #dc2525;
+  border-top: 5px solid #c61712;
   text-transform: uppercase;
   margin-bottom: 10px;
   z-index: 0;
 }
 .race-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/wtcr.png);
+  content: url(results/logos/base.png);
   height: 55px;
   top: 10px;
   left: 20px;
@@ -172,7 +172,7 @@ a {
   margin-bottom: 4px;
   font-size: 19px;
   color: white;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(38, 50, 56, 0.9);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -550,7 +550,7 @@ select {
   font-size: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   padding: 4px 6px;
-  background: rgba(0, 0, 0, 0.8);
+  background: #c61712;
 }
 @-webkit-keyframes "ani_4" {
   0% {
@@ -947,7 +947,7 @@ select {
   top: 300px;
   right: 50px;
   text-transform: uppercase;
-  border-top: 3px solid #dc2525;
+  border-top: 3px solid #c61712;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -965,11 +965,11 @@ select {
   font-size: 23px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(38, 50, 56, 0.8);
   color: white;
 }
 .alert .alertMessage {
-  background: #78909c;
+  background: rgba(38, 50, 56, 0.6);
   color: white;
   font-size: 18px;
   border-bottom-left-radius: 15px;
@@ -987,10 +987,10 @@ select {
 .compare-race .delta {
   font-size: 20px;
   text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(38, 50, 56, 0.5);
   border-radius: 20px;
   color: white;
-  border-top: 3px solid #dc2525;
+  border-top: 3px solid #c61712;
   padding: 6px 10px;
   min-width: 130px;
   display: inline-block;
@@ -1053,11 +1053,11 @@ select {
 }
 .compare-race .inner .best-time {
   font-size: 18px;
-  background: #4caf50;
+  background: rgba(38, 50, 56, 0.5);
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 15px 15px 0 0;
-  color: white;
+  color: #69f0ae;
   height: 35px;
   width: 130px;
   z-index: 0;
@@ -1068,7 +1068,7 @@ select {
   -webkit-transition: top 0.5s;
 }
 .compare-race .inner .position {
-  background: #dc2525;
+  background: rgba(38, 50, 56, 0.5);
   color: white;
   width: 65px;
   font-size: 50px;
@@ -1078,19 +1078,19 @@ select {
   line-height: 70px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #c61712;
 }
 .compare-race .inner .name {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(38, 50, 56, 0.8);
   color: white;
   font-size: 30px;
   padding: 0 20px;
   min-width: 320px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #c61712;
 }
 .compare-race .inner .team {
   position: absolute;
-  background: #78909c;
+  background: rgba(38, 50, 56, 0.5);
   color: white;
   height: 30px;
   font-size: 20px;
@@ -1123,7 +1123,7 @@ select {
   position: relative;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #c61712;
 }
 .compare-race .inner .manufacturer img {
   position: absolute;
@@ -1198,7 +1198,7 @@ select {
   background: rgba(0, 0, 0, 0.1);
 }
 .event-info {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(38, 50, 56, 0.8);
   position: fixed;
   top: 50%;
   left: 25%;
@@ -1211,8 +1211,8 @@ select {
   font-family: Oswald;
   width: 944px;
   border-radius: 10px;
-  border-top: 10px solid #dc2525;
-  border-bottom: 5px solid white;
+  border-top: 10px solid #c61712;
+  border-bottom: 5px solid #c61712;
 }
 .event-info .serverName {
   color: white;
@@ -1249,7 +1249,7 @@ select {
   width: 70px;
 }
 .event-info .serverTrackName {
-  color: #78909c;
+  color: white;
   text-align: center;
   font-size: 30px;
   padding: 15px;
@@ -1427,7 +1427,7 @@ select {
 .focused-driver-info .extra-info ul li {
   font-size: 17px;
   float: left;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(38, 50, 56, 0.8);
   padding: 8px;
   margin-right: 10px;
   border: 1px;
@@ -1443,21 +1443,21 @@ select {
   color: #ffffff;
 }
 .focused-driver-info .extra-info ul li.finished.personal-best {
-  background: #4caf50;
+  background: linear-gradient(#4caf50, rgba(76, 175, 80, 0.5));
   color: white;
 }
 .focused-driver-info .extra-info ul li.finished.global-best {
-  background: #673ab7;
+  background: linear-gradient(#9c27b0, rgba(156, 39, 176, 0.5));
   color: white;
 }
 .focused-driver-info .best-time {
   line-height: 17px;
   font-size: 18px;
-  background: #4caf50;
+  background: rgba(38, 50, 56, 0.8);
   padding: 10px 10px;
   margin-right: 10px;
   border-radius: 15px 15px 0 0;
-  color: white;
+  color: #00c853;
   height: 35px;
   width: 140px;
   z-index: 0;
@@ -1497,7 +1497,7 @@ select {
   line-height: 65px;
 }
 .focused-driver-info .position {
-  background: #dc2525;
+  background: rgba(38, 50, 56, 0.8);
   color: white;
   width: 100px;
   font-size: 60px;
@@ -1507,21 +1507,21 @@ select {
   right: 300px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  border-bottom: 2px solid #dc2525;
+  border-bottom: 2px solid #c61712;
 }
 .focused-driver-info .name {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(38, 50, 56, 0.8);
   color: white;
   font-size: 30px;
   line-height: 60px;
   text-transform: uppercase;
   padding: 0px 20px;
   min-width: 500px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+  border-bottom: 2px solid #c61712;
 }
 .focused-driver-info .team {
   position: absolute;
-  color: #78909c;
+  color: white;
   font-size: 20px;
   line-height: 60px;
   text-transform: uppercase;
@@ -1563,7 +1563,7 @@ select {
   position: relative;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #c61712;
 }
 .focused-driver-info .manufacturer img {
   position: absolute;
@@ -1583,7 +1583,7 @@ select {
   background-position: -65px 0;
   position: relative;
   background: rgba(38, 50, 56, 0.8);
-  border-bottom: 2px solid #ff5252;
+  border-bottom: 2px solid #c61712;
 }
 .focused-driver-info .flag-container .flag {
   display: block;
@@ -1688,16 +1688,16 @@ select {
   border: 1px;
   border-bottom-right-radius: 25%;
   border-top-left-radius: 25%;
-  background: #4caf50;
+  background: #66bb6a;
 }
 .multiclass-standings .driver .inner .unpitted {
   border: 1px;
   border-bottom-right-radius: 25%;
   border-top-left-radius: 25%;
-  background: #dc2525;
+  background: #ff5252;
 }
 .multiclass-standings .driver .position {
-  background: #dc2525;
+  background: #263238;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -1727,7 +1727,7 @@ select {
   font-family: Oswald;
   display: inline-block;
   color: white;
-  background: rgba(0, 0, 0, 0.8);
+  background: #c61712;
   width: 70px;
   padding-left: 10px;
   padding-right: 10px;
@@ -1738,7 +1738,7 @@ select {
   line-height: inherit;
 }
 .multiclass-standings .driver .meta-info {
-  background: #78909c;
+  background: rgba(38, 50, 56, 0.5);
   color: white;
   position: absolute;
   font-family: Oswald;
@@ -1826,7 +1826,7 @@ pre.preview {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: black;
+  color: white;
   white-space: pre;
   font-family: Oswald;
   width: 60%;
@@ -1838,17 +1838,17 @@ pre.preview {
   padding: 0 15px 0 0;
   line-height: 85px;
   font-size: 30px;
-  background: white;
+  background: rgba(38, 50, 56, 0.8);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-top: 5px solid #dc2525;
+  border-top: 5px solid #c61712;
   text-transform: uppercase;
   margin-bottom: 10px;
   z-index: 0;
 }
 .qualify-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/wtcr.png);
+  content: url(results/logos/base.png);
   height: 55px;
   top: 10px;
   left: 20px;
@@ -1860,7 +1860,7 @@ pre.preview {
   margin-bottom: 4px;
   font-size: 19px;
   color: white;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(38, 50, 56, 0.9);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -1926,11 +1926,11 @@ pre.preview {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   font-size: 20px;
-  background: #ffc107;
+  background: rgba(255, 152, 0, 0.7);
   text-transform: uppercase;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  color: black;
+  color: white;
   height: 30px;
   width: 140px;
   line-height: 30px;
@@ -1944,7 +1944,7 @@ pre.preview {
   right: 50px;
   font-size: 23px;
   text-transform: uppercase;
-  border-top: 3px solid #dc2525;
+  border-top: 3px solid #c61712;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -1958,11 +1958,11 @@ pre.preview {
 .safetyAlert .raceControl {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(38, 50, 56, 0.8);
   color: white;
 }
 .safetyAlert .safetyCarIn {
-  background: #78909c;
+  background: rgba(38, 50, 56, 0.6);
   color: white;
   font-size: 18px;
   border-bottom-left-radius: 15px;
@@ -1975,9 +1975,9 @@ pre.preview {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   font-size: 21px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(38, 50, 56, 0.8);
   text-transform: uppercase;
-  border-top: 3px solid #dc2525;
+  border-top: 3px solid #c61712;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   color: white;
@@ -1996,7 +1996,7 @@ pre.preview {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   font-size: 22px;
-  background: #78909c;
+  background: rgba(38, 50, 56, 0.6);
   text-transform: uppercase;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -2028,7 +2028,7 @@ pre.preview {
   border-radius: 30px;
   opacity: 1;
   z-index: 3;
-  border: 2px solid #dc2525;
+  border: 2px solid #c61712;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
 }
 .checkered img {
@@ -2115,13 +2115,13 @@ pre.preview {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   color: white;
-  background: rgba(0, 0, 0, 0.8);
+  background: #c61712;
   font-size: 23px;
 }
 .track-map .dot .driverName {
   position: relative;
   top: -73px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(38, 50, 56, 0.8);
   width: 120px;
   font-size: 23px;
 }
@@ -2168,7 +2168,7 @@ pre.preview {
 }
 .track-map .dot.leader {
   background: #ff9800;
-  color: #dc2525;
+  color: #ff9800;
   z-index: 1;
 }
 .track-map .dot.active {
