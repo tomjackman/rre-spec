@@ -110,129 +110,92 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.race-results-bg {
+.event-info-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.1);
 }
-.race-results .entries-outer {
-  max-height: 820px;
-  overflow: hidden;
-}
-.race-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
-}
-.race-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.race-results {
+.event-info {
+  background: rgba(38, 50, 56, 0.8);
   position: fixed;
   top: 50%;
-  left: 20%;
-  right: 20%;
+  left: 25%;
+  right: 25%;
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: white;
+  color: #fff;
   white-space: pre;
   font-family: Oswald;
-  width: 60%;
+  width: 944px;
+  border-radius: 10px;
+  border-top: 10px solid #c61712;
+  border-bottom: 5px solid #c61712;
 }
-.race-results .title .text {
-  position: inherit;
-  height: 69px;
-  text-align: right;
-  padding: 0 15px 0 0;
-  line-height: 85px;
+.event-info .serverName {
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+}
+.event-info .trackImage img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.event-info .trackImage .trackLogo {
+  position: relative;
+}
+.event-info .trackImage .trackLogo img {
+  top: -110px;
+  left: 10px;
+  position: absolute;
+  opacity: 1;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+}
+.event-info .countryFlag {
+  text-align: center;
+  padding-top: 15px;
+}
+.event-info .countryFlag img {
+  position: relative;
+  opacity: 1;
+  height: 50px;
+  width: 70px;
+}
+.event-info .serverTrackName {
+  color: white;
+  text-align: center;
   font-size: 30px;
-  background: rgba(38, 50, 56, 0.8);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-top: 5px solid #c61712;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  z-index: 0;
+  padding: 15px;
+  border-bottom: 1px solid white;
+  width: 80%;
+  margin: auto;
 }
-.race-results .title .text .logo {
-  position: absolute;
-  content: url(results/logos/base.png);
-  height: 55px;
-  top: 10px;
-  left: 20px;
-  z-index: 1;
-}
-.race-results .race-results-entry {
-  height: 37px;
-  line-height: 37px;
-  margin-bottom: 4px;
-  font-size: 19px;
+.event-info .trackDescription {
   color: white;
-  background: rgba(38, 50, 56, 0.9);
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry.title {
-  padding: 0 0 0 0px;
-  font-size: 23px;
-}
-.race-results .race-results-entry.fastest .fastest-time {
-  color: #f500f5;
-}
-.race-results .race-results-entry > div {
-  height: 37px;
-  padding: 0 0 0 5px;
-  float: left;
-}
-.race-results .race-results-entry .position {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+  min-height: 100px;
+  white-space: pre-line;
   text-align: center;
-  width: 10%;
-  position: relative;
+  line-height: 1.5;
 }
-.race-results .race-results-entry .classPosition {
-  width: 10%;
-  position: relative;
-  text-align: center;
+.event-info .weather .weatherIcons {
+  display: flex;
   color: white;
-}
-.race-results .race-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
-}
-.race-results .race-results-entry .manufacturer img {
-  position: absolute;
-  top: 7px;
-  left: 8px;
-  width: 26px;
-  height: auto;
-}
-.race-results .race-results-entry .penaltyTime {
-  width: 10%;
-  position: relative;
-  text-align: center;
-}
-.race-results .race-results-entry .name {
-  position: relative;
-}
-.race-results .race-results-entry .livery {
-  width: 10%;
-  position: relative;
-}
-.race-results .race-results-entry .livery img {
-  position: relative;
-  height: 60px;
-  right: 30px;
-  top: -10px;
-}
-.race-results .race-results-entry .fastest-time,
-.race-results .race-results-entry .lap-time {
-  width: 10%;
-  text-align: center;
-  position: relative;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 21px;
 }
 @font-face {
   font-family: 'Hel';
@@ -1189,92 +1152,31 @@ select {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   z-index: 1;
 }
-.event-info-bg {
+.error-screen {
+  z-index: 2147483627;
   position: fixed;
+  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
 }
-.event-info {
-  background: rgba(38, 50, 56, 0.8);
+.error-screen pre {
   position: fixed;
   top: 50%;
-  left: 25%;
-  right: 25%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0px;
+  left: 50%;
   color: #fff;
-  white-space: pre;
-  font-family: Oswald;
-  width: 944px;
-  border-radius: 10px;
-  border-top: 10px solid #c61712;
-  border-bottom: 5px solid #c61712;
-}
-.event-info .serverName {
-  color: white;
-  text-align: center;
-  font-size: 40px;
-  padding: 20px;
-}
-.event-info .trackImage img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-.event-info .trackImage .trackLogo {
-  position: relative;
-}
-.event-info .trackImage .trackLogo img {
-  top: -110px;
-  left: 10px;
-  position: absolute;
-  opacity: 1;
-  height: 100px;
-  width: 100px;
-  background-color: white;
-}
-.event-info .countryFlag {
-  text-align: center;
-  padding-top: 15px;
-}
-.event-info .countryFlag img {
-  position: relative;
-  opacity: 1;
-  height: 50px;
-  width: 70px;
-}
-.event-info .serverTrackName {
-  color: white;
-  text-align: center;
-  font-size: 30px;
-  padding: 15px;
-  border-bottom: 1px solid white;
-  width: 80%;
-  margin: auto;
-}
-.event-info .trackDescription {
-  color: white;
-  display: block;
-  width: 100%;
-  font-size: 20px;
-  padding: 10px;
-  min-height: 100px;
-  white-space: pre-line;
-  text-align: center;
+  font-size: 17px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   line-height: 1.5;
+  font-family: Inconsolata;
 }
-.event-info .weather .weatherIcons {
-  display: flex;
-  color: white;
-  justify-content: space-around;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 21px;
+pre.preview {
+  background: #000;
+  white-space: pre;
+  text-align: left;
+  font-family: 'Inconsolata';
+  padding: 20px;
 }
 /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 .drs .icon {
@@ -1772,31 +1674,129 @@ select {
 .multiclass-standings .driver .tyre img {
   height: 100%;
 }
-.error-screen {
-  z-index: 2147483627;
+.race-results-bg {
   position: fixed;
-  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
 }
-.error-screen pre {
+.race-results .entries-outer {
+  max-height: 820px;
+  overflow: hidden;
+}
+.race-results .entries-outer .entries-inner {
+  top: 0;
+  position: relative;
+  -webkit-transition: top 15s linear;
+}
+.race-results .livery {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.race-results {
   position: fixed;
   top: 50%;
-  left: 50%;
-  color: #fff;
-  font-size: 17px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  line-height: 1.5;
-  font-family: Inconsolata;
-}
-pre.preview {
-  background: #000;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
+  z-index: -1;
+  padding: 0px;
+  color: white;
   white-space: pre;
-  text-align: left;
-  font-family: 'Inconsolata';
-  padding: 20px;
+  font-family: Oswald;
+  width: 60%;
+}
+.race-results .title .text {
+  position: inherit;
+  height: 69px;
+  text-align: right;
+  padding: 0 15px 0 0;
+  line-height: 85px;
+  font-size: 30px;
+  background: rgba(38, 50, 56, 0.8);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 5px solid #c61712;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  z-index: 0;
+}
+.race-results .title .text .logo {
+  position: absolute;
+  content: url(results/logos/base.png);
+  height: 55px;
+  top: 10px;
+  left: 20px;
+  z-index: 1;
+}
+.race-results .race-results-entry {
+  height: 37px;
+  line-height: 37px;
+  margin-bottom: 4px;
+  font-size: 19px;
+  color: white;
+  background: rgba(38, 50, 56, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.race-results .race-results-entry.title {
+  padding: 0 0 0 0px;
+  font-size: 23px;
+}
+.race-results .race-results-entry.fastest .fastest-time {
+  color: #f500f5;
+}
+.race-results .race-results-entry > div {
+  height: 37px;
+  padding: 0 0 0 5px;
+  float: left;
+}
+.race-results .race-results-entry .position {
+  text-align: center;
+  width: 10%;
+  position: relative;
+}
+.race-results .race-results-entry .classPosition {
+  width: 10%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.race-results .race-results-entry .manufacturer {
+  width: 5%;
+  position: relative;
+}
+.race-results .race-results-entry .manufacturer img {
+  position: absolute;
+  top: 7px;
+  left: 8px;
+  width: 26px;
+  height: auto;
+}
+.race-results .race-results-entry .penaltyTime {
+  width: 10%;
+  position: relative;
+  text-align: center;
+}
+.race-results .race-results-entry .name {
+  position: relative;
+}
+.race-results .race-results-entry .livery {
+  width: 10%;
+  position: relative;
+}
+.race-results .race-results-entry .livery img {
+  position: relative;
+  height: 60px;
+  right: 30px;
+  top: -10px;
+}
+.race-results .race-results-entry .fastest-time,
+.race-results .race-results-entry .lap-time {
+  width: 10%;
+  text-align: center;
+  position: relative;
 }
 .overallQuai {
   position: fixed;

@@ -157,7 +157,8 @@ module.exports = function(assetsDir) {
 	var port = parseInt(process.env.PORT, 10);
 	port = Number.isInteger(port) ? process.env.PORT : 9090;
 	serverHttp.listen(port, function() {
-		console.log(('Server is running on http://localhost:'+port).blue+'\n');
+		console.log((' > R3E Reality Broadcast Overlay').cyan+'\n');
+		console.log((' > Server is running on http://localhost:'+port).green+'\n');
 	});
 
 	return {

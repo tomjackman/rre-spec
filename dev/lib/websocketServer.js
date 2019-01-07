@@ -40,8 +40,8 @@ function updateWidgets(widgetsPath, globalState, callback) {
 		}
 
 		async.parallel(jobs, function() {
-			console.log('Loaded widgets:'.yellow);
-			console.log(('* '+Object.keys(globalState.activeWidgets).join('\n* ')).yellow+'\n');
+			console.log('> Loaded Widgets:'.green);
+			console.log(('- '+Object.keys(globalState.activeWidgets).join('\n- ')).green+'\n');
 			callback();
 		});
 	}
@@ -172,11 +172,9 @@ module.exports = function(io) {
 		var activeThemeLessFile = themesDir + '/' + defaultTheme + '.less';
 		replaceContents(themeLessFile, activeThemeLessFile, err => {
 			if (err) {
-				return res.json({
-					error: 'Error setting default theme: ' + err
-				});
+				console.log(('Error setting default theme: ' + err).red);
 			}
-			console.log("Loaded Default Theme > " + defaultTheme);
+			console.log(("> Loaded Default Theme: " + defaultTheme).green);
 		});
 	}
 	loadThemes();
