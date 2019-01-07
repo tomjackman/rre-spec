@@ -1527,14 +1527,21 @@ UI.widgets.MulticlassStandings = React.createClass({
 	renderName: function (name, classId) {
 		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
 		var parts = name.split(' ');
-		var name = parts[parts.length - 1].substr(0, 3).toUpperCase();
-
 		var divStyle = {};
+
+		if (UI.state.controllerOptions.options.showFullStandingsName.value === "true") {
+			// show full name and increase width
+			var lastNames = parts.slice(1);
+			var name = lastNames.map(item => item.toUpperCase());
+			divStyle.width = "120px";
+		} else {
+			// Show characters of last name by default
+			var name = parts[parts.length - 1].substr(0, 3).toUpperCase();
+		}
+
 		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {
 			classColour = UI.getClassColour(classId);
-			divStyle = {
-				backgroundColor: classColour
-			};
+			divStyle.backgroundColor = classColour;
 		}
 		return React.createElement(
 			'div',
@@ -4374,7 +4381,7 @@ UI.widgets.CompareRace = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'value' },
-						self.formatTime(Math.max(0, drivers[1].scoreInfo.timeDiff))
+						self.formatTime(Math.max(0, drivers[0].scoreInfo.timeDiff))
 					),
 					React.createElement(UI.widgets.CompareRaceDriver, { position: 'first', driver: drivers[1] }),
 					React.createElement(UI.widgets.CompareRaceDriver, { position: 'second', driver: drivers[0] })

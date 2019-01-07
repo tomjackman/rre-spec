@@ -4,6 +4,7 @@
 * [Feature] Added WTCR 2018 theme.
 * [Tooling] Added theme files to watch list to allow live updates to themes.
 * [Bug Fix] Fixed a timing bug in the compare race widget.
+* [Feature] Added the ability to toggle on/off a drivers full last name in the standings tower.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.

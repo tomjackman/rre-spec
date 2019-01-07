@@ -24,6 +24,12 @@
       "tooltip": "Show a drivers portal team name if they have added one (Default: False).",
       "type": "checkbox"
     },
+    "showFullStandingsName": {
+      "displayName": "Show Full Surnames in Standings",
+      "value": "false",
+      "tooltip": "Show the full middle and last names of drivers in the standings tower (Default: False).",
+      "type": "checkbox"
+    },
     "alertLength": {
       "displayName": "Steward Message Alert Time Length (Seconds)",
       "value": "15",
