@@ -1383,7 +1383,11 @@ UI.widgets.LogoOverlay = React.createClass({
 
 	render: function () {
 		var self = this;
-		return React.createElement("div", { className: "logo-overlay animated flipInY" });
+		return React.createElement(
+			"div",
+			{ className: "logo-overlay animated flipInY" },
+			React.createElement("img", { src: "/logoOverlay/flat/logo-overlay.png" })
+		);
 	}
 });
 UI.widgets.MulticlassStandings = React.createClass({

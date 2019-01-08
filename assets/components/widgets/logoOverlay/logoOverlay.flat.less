@@ -1,13 +1,13 @@
 @import '../theme/Ω';
 
 .logo-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	font-size: @fontSize;
+	position: absolute;
+	top: 1em;
+	right: 1em;
 	z-index: -1;
-	background: url(/logoOverlay/flat/logo-overlay.png) no-repeat;
-	background-size: contain;
 	.onCreation(opacity, 0, 1, 0.5s);
+	img {
+		width: 8em;
+	}
 }

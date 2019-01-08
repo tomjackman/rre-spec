@@ -1599,14 +1599,11 @@ select {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .logo-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  font-size: 20px;
+  position: absolute;
+  top: 1em;
+  right: 1em;
   z-index: -1;
-  background: url(/logoOverlay/flat/logo-overlay.png) no-repeat;
-  background-size: contain;
   -webkit-animation: "ani_7" 0.5s ease;
 }
 @-webkit-keyframes "ani_7" {
@@ -1616,6 +1613,9 @@ select {
   100% {
     opacity: 1;
   }
+}
+.logo-overlay img {
+  width: 8em;
 }
 .multiclass-standings {
   font-family: 20px;
