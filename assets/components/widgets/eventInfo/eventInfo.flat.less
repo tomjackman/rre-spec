@@ -6,29 +6,31 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.1);
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.4);
 }
 
 .event-info {
   background: @EventInfoPanelBackground;
+	font-size: @fontSize;
+	width: 50em;
 	position: fixed;
-	top: 50%;
-	left: 25%;
-	right: 25%;
-	-webkit-transform: translate(0, -50%);
+	top: 8em;
+	left: 50%;
+  transform: translate(-50%, 0);
 	z-index: -1;
-	padding: 0px;
+	padding: 0em;
 	color: #fff;
 	white-space: pre;
 	font-family: Oswald;
-	width: 944px;
   border-radius: 10px;
-	border-top: 10px solid @EventInfoBorderTop;
-	border-bottom: 5px solid @EventInfoBorderBottom;
+	border-top: 0.5em solid @EventInfoBorderTop;
+	border-bottom: 0.5em solid @EventInfoBorderBottom;
+
   .serverName {
     color: @EventInfoServerNameText;
     text-align: center;
-    font-size: 40px;
+    font-size: @fontSize * 1.5;
     padding: 20px;
   }
   .trackImage {
@@ -65,7 +67,7 @@
 	.serverTrackName {
 		color: @EventInfoServerTrackNameText;
 		text-align: center;
-		font-size: 30px;
+		font-size: @fontSize * 1.5;
 		padding: 15px;
 		border-bottom: 1px solid white;
 		width: 80%;
@@ -75,7 +77,7 @@
 		color: @EventInfoDescriptionText;
 		display: block;
 		width: 100%;
-		font-size: 20px;
+		font-size: @fontSize;
 		padding: 10px;
 		min-height: 100px;
 		white-space: pre-line;
@@ -85,11 +87,11 @@
   .weather {
     .weatherIcons {
       display: flex;
+			font-size: @fontSize;
 			color: @EventInfoWeatherText;
       justify-content:space-around;
-      padding-top: 15px;
-			padding-bottom: 15px;
-			font-size: 21px;
+      padding-top: 0.75em;
+			padding-bottom: 0.75em;
     }
   }
 

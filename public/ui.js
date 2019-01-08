@@ -1433,7 +1433,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		if (UI.state.controllerOptions.options.indentFocusedDriver.value === "true" && driver.slotId === UI.state.focusedSlot) {
 			return {
 				'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)',
-				'left': '10px'
+				'left': '0.5em'
 			};
 		} else {
 			return {
@@ -1533,7 +1533,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 			// show full name and increase width
 			var lastNames = parts.slice(1);
 			var name = lastNames.map(item => item.toUpperCase());
-			divStyle.width = "120px";
+			divStyle.width = "6em";
 		} else {
 			// Show characters of last name by default
 			var name = parts[parts.length - 1].substr(0, 3).toUpperCase();

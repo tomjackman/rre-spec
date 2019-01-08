@@ -3,20 +3,20 @@
 .sessionName {
 	font-family: Oswald;
 	position: fixed;
-	top: 20px;
+	top: 1em;
 	left: 50%;
 	-webkit-transform: translate(-50%, 0);
-	font-size: 21px;
+	font-size: @fontSize;
 	background: @SessionInfoPhaseBackground;
 	text-transform: uppercase;
-	border-top: 3px solid @SessionInfoPhaseBorderTop;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
+	border-top: 0.20em solid @SessionInfoPhaseBorderTop;
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
 	color: @SessionInfoPhaseTextColor;
-	width: 180px;
-	height: 35px;
-	padding: 0px 4px;
-	line-height: 32px;
+	width: 9em;
+	height: 2em;
+	padding: 0em 0.25em;
+	line-height: 1.6em;
 	text-align: center;
 	display: inline-block;
 	z-index: 1;
@@ -25,59 +25,65 @@
 .timer {
 	font-family: Oswald;
 	position: fixed;
-	top: 55px;
+	top: 3em;
 	left: 50%;
 	-webkit-transform: translate(-50%, 0);
-	font-size: 22px;
+	font-size: @fontSize;
 	background: @SessionInfoTimerBackground;
 	text-transform: uppercase;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
 	color: @SessionInfoTimerTextColor;
-	height: 35px;
-	width: 180px;
-	line-height: 33px;
+	width: 9em;
+	height: 2em;
+	line-height: 1.8em;
 	text-align: center;
 	display: inline-block;
 	z-index: 1;
 }
 
 .yellowFlag {
+	font-size: @fontSize;
 	position: fixed;
 	background-color: yellow;
 	top: 55px;
-	left: 870px;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-	height: 35px;
-	width: 180px;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0);
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	height: 2em;
+	width: 9em;
 	z-index: 2;
 }
 
 .flag {
+	position: fixed;
+	font-size: @fontSize;
+	top: 1.8em;
+	left: 50%;
+	-webkit-transform: translate(-250%, 0);
+	z-index: 3;
 	img {
-		position: absolute;
-		top: 33px;
-		left: 850px;
-		height: 40px;
-		width: 40px;
-		border-radius: 30px;
+		height: 2em;
+		width: 2em;
+		border-radius: 2.5em;
 		opacity: 1;
-		z-index: 3;
-		border: 2px solid @SessionInfoPhaseBorderTop;
+		border: 0.1em solid @SessionInfoPhaseBorderTop;
 		filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.9));
 	}
 }
 
 .checkered {
+		font-size: @fontSize;
 		img {
 		position: fixed;
-		top: 55px;
-		left: 870px;
-		border-bottom-left-radius: 15px;
-		border-bottom-right-radius: 15px;
-		height: 35px;
-		width: 180px;
+		top: 3em;
+		left: 50%;
+		-webkit-transform: translate(-50%, 0);
+		border-bottom-left-radius: 1em;
+		border-bottom-right-radius: 1em;
+		height: 2em;
+		width: 9em;
 		z-index: 2;
 	}
 }
