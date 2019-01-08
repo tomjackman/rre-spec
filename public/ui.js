@@ -1693,11 +1693,11 @@ UI.widgets.RaceResults = React.createClass({
 					React.createElement('div', { className: 'manufacturer' }),
 					UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 						'div',
-						{ className: 'name', style: { 'width': '30%' } },
+						{ className: 'shortName' },
 						'Name'
 					) : React.createElement(
 						'div',
-						{ className: 'name', style: { 'width': '40%' } },
+						{ className: 'longName' },
 						'Name'
 					),
 					React.createElement('div', { className: 'livery' }),
@@ -1709,12 +1709,12 @@ UI.widgets.RaceResults = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'lap-time' },
-						'Finish time'
+						'Finish Time'
 					),
 					React.createElement(
 						'div',
 						{ className: 'fastest-time' },
-						'Best lap time'
+						'Best Lap Time'
 					)
 				),
 				React.createElement(
@@ -1773,7 +1773,7 @@ var RaceResultEntry = React.createClass({
 
 		var penaltyTime = React.createElement(
 			'div',
-			{ className: 'penaltyTime', style: { 'min-width': '90px' } },
+			{ className: 'penaltyTime', style: { 'min-width': '4.5em' } },
 			' - '
 		);
 		if (entry.penaltyTime) {
@@ -1809,11 +1809,11 @@ var RaceResultEntry = React.createClass({
 			),
 			UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 				'div',
-				{ className: 'name', style: { 'width': '30%' } },
+				{ className: 'shortName' },
 				UI.fixName(entry.name)
 			) : React.createElement(
 				'div',
-				{ className: 'name', style: { 'width': '40%' } },
+				{ className: 'longName' },
 				UI.fixName(entry.name)
 			),
 			React.createElement(
@@ -1959,11 +1959,11 @@ UI.widgets.Results = React.createClass({
 						React.createElement('div', { className: 'manufacturer' }),
 						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 							'div',
-							{ className: 'name', style: { 'width': '30%' } },
+							{ className: 'shortName' },
 							'Name'
 						) : React.createElement(
 							'div',
-							{ className: 'name', style: { 'width': '40%' } },
+							{ className: 'longName' },
 							'Name'
 						),
 						React.createElement('div', { className: 'livery' }),
@@ -1975,7 +1975,7 @@ UI.widgets.Results = React.createClass({
 						React.createElement(
 							'div',
 							{ className: 'lap-time' },
-							'Best lap time'
+							'Best Lap Time'
 						)
 					),
 					React.createElement(
@@ -2059,11 +2059,11 @@ var ResultEntry = React.createClass({
 				),
 				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 					'div',
-					{ className: 'name', style: { 'width': '30%' } },
+					{ className: 'shortName' },
 					UI.fixName(entry.name)
 				) : React.createElement(
 					'div',
-					{ className: 'name', style: { 'width': '40%' } },
+					{ className: 'longName' },
 					UI.fixName(entry.name)
 				),
 				React.createElement(

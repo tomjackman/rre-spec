@@ -1,6 +1,7 @@
 @import '../theme/Ω';
 
 .overallQuai {
+	font-size: @fontSize;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -11,7 +12,7 @@
 
 .qualify-results {
 	.entries-outer {
-		max-height: 820px;
+		max-height: 40em;
 		overflow: hidden;
 
 		.entries-inner {
@@ -39,41 +40,39 @@
 	.title {
 		.text {
 			position: inherit;
-			height: 69px;
+			height: 3em;
 			text-align: right;
-			padding: 0 15px 0 0;
-			line-height: 85px;
-			font-size: 30px;
+			padding: 0 0.75em 0 0;
+			line-height: 4em;
+			font-size: @fontSize * 1.5;
 			background: @QualiResultTitleBackground;
-			border-top-left-radius: 10px;
-			border-top-right-radius: 10px;
-			border-top: 5px solid @QualiResultTitleBorderTop;
+			border-top-left-radius: 0.5em;
+			border-top-right-radius: 0.5em;
+			border-top: 0.25em solid @QualiResultTitleBorderTop;
 			text-transform: uppercase;
-			margin-bottom: 10px;
+			margin-bottom: 0.5em;
 			z-index: 0;
 			.logo {
 				position: absolute;
 				content: @RaceResultTitleLogo;
-				height: 55px;
-				top: 10px;
-				left: 20px;
+				height: 2.2em;
+				top: 0.5em;
+				left: 1em;
 				z-index: 1;
 			}
 		}
-
 	}
 	.qualify-results-entry {
-		height: 37px;
-		line-height: 37px;
-		margin-bottom: 4px;
-		font-size: 19px;
+		height: 2em;
+		line-height: 2em;
+		margin-bottom: 0.1em;
 		color: @QualiResultEntryTextColor;
 		background: @QualiResultEntryBackground;
 		white-space: nowrap;
   	overflow: hidden;
 		&.title {
-			padding: 0 0 0 0px;
-			font-size: 23px;
+			padding: 0 0 0 0em;
+			font-size: @fontSize * 1.1;
 		}
 		&.title .classPosition {
 			color: @QualiResultEntryTextColor;
@@ -82,8 +81,8 @@
 			color: #f500f5;
 		}
 		& > div {
-			height: 37px;
-			padding: 0 0 0 5px;
+			height: 2em;
+			padding: 0 0 0 0.25em;
 			float: left;
 		}
 		.position {
@@ -102,23 +101,28 @@
 			position: relative;
 			img {
 				position: absolute;
-				top: 7px;
-				left: 8px;
-				width: 26px;
+				top: 0.3em;
+				left: 0.5em;
+				width: 1.5em;
 				height: auto;
 			}
 		}
-		.name {
+		.shortName {
 			position: relative;
+			width: 30%;
+		}
+		.longName {
+			position: relative;
+			width: 40%;
 		}
 		.livery {
 			width: 15%;
 			position: relative;
 			img {
 				position: relative;
-				height: 60px;
-				right: 30px;
-				top: -10px;
+				height: 3em;
+				right: 1.5em;
+				top: -0.5em;
 			}
 		}
 		.fastest-time, .lap-time {

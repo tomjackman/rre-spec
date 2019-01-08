@@ -102,13 +102,13 @@ UI.widgets.Results = React.createClass({
 					<div className="position">Overall</div>
 					<div className="manufacturer"/>
 					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-						<div className="name" style={{'width': '30%'}}>Name</div>
+						<div className="shortName">Name</div>
 					:
-						<div className="name" style={{'width': '40%'}}>Name</div>
+						<div className="longName">Name</div>
 					}
 					<div className="livery"></div>
 					<div className="fastest-time">Delta</div>
-					<div className="lap-time">Best lap time</div>
+					<div className="lap-time">Best Lap Time</div>
 				</div>
 				<div className="entries-outer" ref="entries-outer">
 					<div className="entries-inner" ref="entries-inner">
@@ -168,9 +168,9 @@ var ResultEntry = React.createClass({
 					<img src={'/render/'+entry.manufacturerId+'/small/'}/>
 				</div>
 				{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-					<div className="name" style={{'width': '30%'}}>{UI.fixName(entry.name)}</div>
+					<div className="shortName">{UI.fixName(entry.name)}</div>
 				:
-					<div className="name" style={{'width': '40%'}}>{UI.fixName(entry.name)}</div>
+					<div className="longName">{UI.fixName(entry.name)}</div>
 				}
 				<div className="livery">
 					<img src={'/render/'+entry.liveryId+'/small/'}/>

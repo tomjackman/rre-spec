@@ -111,6 +111,7 @@ a {
   -webkit-user-select: none;
 }
 .race-results-bg {
+  font-size: 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -119,7 +120,7 @@ a {
   background: rgba(0, 0, 0, 0.7);
 }
 .race-results .entries-outer {
-  max-height: 820px;
+  max-height: 40em;
   overflow: hidden;
 }
 .race-results .entries-outer .entries-inner {
@@ -145,40 +146,39 @@ a {
 }
 .race-results .title .text {
   position: inherit;
-  height: 69px;
+  height: 3em;
   text-align: right;
-  padding: 0 15px 0 0;
-  line-height: 85px;
+  padding: 0 0.75em 0 0;
+  line-height: 4em;
   font-size: 30px;
   background: rgba(38, 50, 56, 0.8);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-top: 5px solid #c61712;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-top: 0.25em solid #c61712;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 0.5em;
   z-index: 0;
 }
 .race-results .title .text .logo {
   position: absolute;
   content: url(results/logos/base.png);
-  height: 55px;
-  top: 10px;
-  left: 20px;
+  height: 2.2em;
+  top: 0.5em;
+  left: 1em;
   z-index: 1;
 }
 .race-results .race-results-entry {
-  height: 37px;
-  line-height: 37px;
-  margin-bottom: 4px;
-  font-size: 19px;
+  height: 2em;
+  line-height: 2em;
+  margin-bottom: 0.1em;
   color: white;
   background: rgba(38, 50, 56, 0.9);
   white-space: nowrap;
   overflow: hidden;
 }
 .race-results .race-results-entry.title {
-  padding: 0 0 0 0px;
-  font-size: 23px;
+  padding: 0 0 0 0em;
+  font-size: 22px;
 }
 .race-results .race-results-entry.fastest .fastest-time {
   color: #f500f5;
@@ -205,9 +205,9 @@ a {
 }
 .race-results .race-results-entry .manufacturer img {
   position: absolute;
-  top: 7px;
-  left: 8px;
-  width: 26px;
+  top: 0.3em;
+  left: 0.5em;
+  width: 1.5em;
   height: auto;
 }
 .race-results .race-results-entry .penaltyTime {
@@ -215,8 +215,13 @@ a {
   position: relative;
   text-align: center;
 }
-.race-results .race-results-entry .name {
+.race-results .race-results-entry .shortName {
   position: relative;
+  width: 30%;
+}
+.race-results .race-results-entry .longName {
+  position: relative;
+  width: 40%;
 }
 .race-results .race-results-entry .livery {
   width: 10%;
@@ -224,9 +229,9 @@ a {
 }
 .race-results .race-results-entry .livery img {
   position: relative;
-  height: 60px;
-  right: 30px;
-  top: -10px;
+  height: 3em;
+  right: 1.5em;
+  top: -0.5em;
 }
 .race-results .race-results-entry .fastest-time,
 .race-results .race-results-entry .lap-time {
@@ -1788,6 +1793,7 @@ pre.preview {
   padding: 20px;
 }
 .overallQuai {
+  font-size: 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -1796,7 +1802,7 @@ pre.preview {
   background: rgba(0, 0, 0, 0.7);
 }
 .qualify-results .entries-outer {
-  max-height: 820px;
+  max-height: 40em;
   overflow: hidden;
 }
 .qualify-results .entries-outer .entries-inner {
@@ -1822,40 +1828,39 @@ pre.preview {
 }
 .qualify-results .title .text {
   position: inherit;
-  height: 69px;
+  height: 3em;
   text-align: right;
-  padding: 0 15px 0 0;
-  line-height: 85px;
+  padding: 0 0.75em 0 0;
+  line-height: 4em;
   font-size: 30px;
   background: rgba(38, 50, 56, 0.8);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-top: 5px solid #c61712;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-top: 0.25em solid #c61712;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 0.5em;
   z-index: 0;
 }
 .qualify-results .title .text .logo {
   position: absolute;
   content: url(results/logos/base.png);
-  height: 55px;
-  top: 10px;
-  left: 20px;
+  height: 2.2em;
+  top: 0.5em;
+  left: 1em;
   z-index: 1;
 }
 .qualify-results .qualify-results-entry {
-  height: 37px;
-  line-height: 37px;
-  margin-bottom: 4px;
-  font-size: 19px;
+  height: 2em;
+  line-height: 2em;
+  margin-bottom: 0.1em;
   color: white;
   background: rgba(38, 50, 56, 0.9);
   white-space: nowrap;
   overflow: hidden;
 }
 .qualify-results .qualify-results-entry.title {
-  padding: 0 0 0 0px;
-  font-size: 23px;
+  padding: 0 0 0 0em;
+  font-size: 22px;
 }
 .qualify-results .qualify-results-entry.title .classPosition {
   color: white;
@@ -1864,8 +1869,8 @@ pre.preview {
   color: #f500f5;
 }
 .qualify-results .qualify-results-entry > div {
-  height: 37px;
-  padding: 0 0 0 5px;
+  height: 2em;
+  padding: 0 0 0 0.25em;
   float: left;
 }
 .qualify-results .qualify-results-entry .position {
@@ -1885,13 +1890,18 @@ pre.preview {
 }
 .qualify-results .qualify-results-entry .manufacturer img {
   position: absolute;
-  top: 7px;
-  left: 8px;
-  width: 26px;
+  top: 0.3em;
+  left: 0.5em;
+  width: 1.5em;
   height: auto;
 }
-.qualify-results .qualify-results-entry .name {
+.qualify-results .qualify-results-entry .shortName {
   position: relative;
+  width: 30%;
+}
+.qualify-results .qualify-results-entry .longName {
+  position: relative;
+  width: 40%;
 }
 .qualify-results .qualify-results-entry .livery {
   width: 15%;
@@ -1899,9 +1909,9 @@ pre.preview {
 }
 .qualify-results .qualify-results-entry .livery img {
   position: relative;
-  height: 60px;
-  right: 30px;
-  top: -10px;
+  height: 3em;
+  right: 1.5em;
+  top: -0.5em;
 }
 .qualify-results .qualify-results-entry .fastest-time,
 .qualify-results .qualify-results-entry .lap-time {
