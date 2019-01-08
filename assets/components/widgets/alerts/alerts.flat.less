@@ -1,37 +1,33 @@
 @import '../theme/Ω';
 
 .alert {
+  font-size: @fontSize;
   font-family: Oswald;
 	position: fixed;
-	top: 300px;
-  right: 50px;
+	top: 15em;
+  right: 2.5em;
 	text-transform: uppercase;
   border-top: 3px solid @AlertTitleBorderTop;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-	min-height: 25px;
-	width: 300px;
-	line-height: 33px;
+  border-radius: 1em;
+	min-height: 1em;
+	width: 15em;
+	line-height: 1.7em;
 	text-align: center;
 	display: inline-block;
   &.removing {
-    opacity: 0;
+    opacity: 0.5;
   }
   .raceControlAlert {
-    font-size: 23px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
     background: @AlertTitleBackgroundColor;
     color: @AlertTitleText;
   }
   .alertMessage {
     background: @AlertMessageBackground;
     color: @AlertMessageText;
-    font-size: 18px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    padding: 5px;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding: 0.25em;
   }
 }

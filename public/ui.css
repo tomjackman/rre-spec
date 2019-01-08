@@ -947,39 +947,35 @@ select {
   opacity: 0;
 }
 .alert {
+  font-size: 20px;
   font-family: Oswald;
   position: fixed;
-  top: 300px;
-  right: 50px;
+  top: 15em;
+  right: 2.5em;
   text-transform: uppercase;
   border-top: 3px solid #c61712;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  min-height: 25px;
-  width: 300px;
-  line-height: 33px;
+  border-radius: 1em;
+  min-height: 1em;
+  width: 15em;
+  line-height: 1.7em;
   text-align: center;
   display: inline-block;
 }
 .alert.removing {
-  opacity: 0;
+  opacity: 0.5;
 }
 .alert .raceControlAlert {
-  font-size: 23px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
   background: rgba(38, 50, 56, 0.8);
   color: white;
 }
 .alert .alertMessage {
   background: rgba(38, 50, 56, 0.6);
   color: white;
-  font-size: 18px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 5px;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  padding: 0.25em;
 }
 .compare-race {
   position: fixed;
@@ -2066,8 +2062,9 @@ pre.preview {
 }
 .track-map {
   position: fixed;
-  width: 512px;
-  height: 512px;
+  font-size: 20px;
+  width: 25em;
+  height: 25em;
   top: 50%;
   left: 50%;
   -webkit-transform: scale(2) translate(-50%, -50%);
@@ -2083,12 +2080,11 @@ pre.preview {
   top: 0;
   left: 0;
   -webkit-transition: -webkit-transform 0.5s linear;
-  width: 20px;
-  height: 20px;
-  font-size: 40px;
-  margin: -10px 0 0 -10px;
+  width: 1em;
+  height: 1em;
+  margin: -0.5em 0 0 -0.5em;
   font-weight: bold;
-  line-height: 43px;
+  line-height: 2em;
   text-align: center;
   color: #fff;
   border-radius: 100%;
@@ -2098,55 +2094,42 @@ pre.preview {
 .track-map .dot .manufacturer .vehicle {
   vertical-align: top;
   display: inline-block;
-  height: 85px;
-  line-height: 85px;
-}
-.track-map .dot .vehicle {
-  position: relative;
-  left: 50px;
-}
-.track-map .dot .vehicle img {
-  position: absolute;
-  top: -190px;
-  left: -250px;
-  height: 100px;
-  width: 0px;
+  height: 4em;
+  line-height: 4em;
 }
 .track-map .dot .position {
   position: relative;
-  left: -50px;
-  width: 50px;
-  top: -30px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  left: -2.5em;
+  width: 2.5em;
+  top: -1.5em;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
   color: white;
   background: #c61712;
-  font-size: 23px;
 }
 .track-map .dot .driverName {
   position: relative;
-  top: -73px;
+  top: -3.5em;
   background-color: rgba(38, 50, 56, 0.8);
-  width: 120px;
-  font-size: 23px;
+  width: 6em;
 }
 .track-map .dot .manufacturer {
   position: relative;
   background-color: white;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  left: 110px;
-  width: 50px;
-  height: 42px;
-  top: -115px;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  left: 5.8em;
+  width: 2.5em;
+  height: 2em;
+  top: -5.5em;
 }
 .track-map .dot .manufacturer img {
   position: absolute;
   background-color: white;
-  top: 5px;
-  left: 5px;
-  height: 35px;
-  width: 35px;
+  top: 0.25em;
+  left: 0.25em;
+  height: 1.6em;
+  width: 1.6em;
 }
 .track-map .dot.idle {
   opacity: 0.3;
@@ -2161,15 +2144,14 @@ pre.preview {
 .track-map .dot .name {
   position: absolute;
   -webkit-transform: translate(-50%, 0);
-  font-size: 14px;
   line-height: 1;
   background: rgba(38, 50, 56, 0.8);
-  padding: 5px;
+  padding: 0.25em;
   color: #fff;
   white-space: nowrap;
-  border-radius: 5px;
+  border-radius: 0.25em;
   bottom: 100%;
-  margin: 0 0 5px 0;
+  margin: 0 0 0.25em 0;
 }
 .track-map .dot.leader {
   background: #ff9800;

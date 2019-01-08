@@ -12,8 +12,9 @@
 }
 .track-map {
 	position: fixed;
-	width: 512px;
-	height: 512px;
+	font-size: @fontSize;
+	width: 25em;
+	height: 25em;
 	top: 50%;
 	left: 50%;
 	-webkit-transform: scale(2) translate(-50%, -50%);
@@ -28,12 +29,11 @@
 		top: 0;
 		left: 0;
 		-webkit-transition: -webkit-transform 0.5s linear;
-		width: 20px;
-		height: 20px;
-		font-size: 40px;
-		margin: -10px 0 0 -10px;
+		width: 1em;
+		height: 1em;
+		margin: -0.5em 0 0 -0.5em;
 		font-weight: bold;
-		line-height: 43px;
+		line-height: 2em;
 		text-align: center;
 		color: #fff;
 		border-radius: 100%;
@@ -41,54 +41,41 @@
 		.dot .position .driverName, .manufacturer .vehicle  {
 			vertical-align: top;
 			display: inline-block;
-			height: 85px;
-			line-height: 85px;
-		}
-		.vehicle {
-			position: relative;
-			left: 50px;
-			img {
-				position: absolute;
-				top: -190px;
-				left: -250px;
-				height: 100px;
-				width: 0px;
-			}
+			height: 4em;
+			line-height: 4em;
 		}
 		.position {
 			position: relative;
-			left: -50px;
-			width: 50px;
-		  top: -30px;
-			border-top-left-radius: 20px;
-			border-bottom-left-radius: 20px;
+			left: -2.5em;
+			width: 2.5em;
+		  top: -1.5em;
+			border-top-left-radius: 1em;
+			border-bottom-left-radius: 1em;
 			color: @TrackMapDriverPositionText;
 			background: @StandingsDriverNameClassColour;
-			font-size: 23px;
 		}
 		.driverName {
 			position: relative;
-			top: -73px;
+			top: -3.5em;
 			background-color: @TrackMapDriverNameBackground;
-			width: 120px;
-			font-size: 23px;
+			width: 6em;
 		}
 		.manufacturer {
 			position: relative;
 			background-color: @TrackMapManufacturerBackground;
-			border-top-right-radius: 20px;
-			border-bottom-right-radius: 20px;
-			left: 110px;
-			width: 50px;
-			height: 42px;
-			top: -115px;
+			border-top-right-radius: 1em;
+			border-bottom-right-radius: 1em;
+			left: 5.8em;
+			width: 2.5em;
+			height: 2em;
+			top: -5.5em;
 			img {
 				position: absolute;
 				background-color: @TrackMapManufacturerBackground;
-				top: 5px;
-				left: 5px;
-				height: 35px;
-				width: 35px;
+				top: 0.25em;
+				left: 0.25em;
+				height: 1.6em;
+				width: 1.6em;
 			}
 		}
 		&.idle {
@@ -104,15 +91,14 @@
 		.name {
 			position: absolute;
 			-webkit-transform: translate(-50%, 0);
-			font-size: 14px;
 			line-height: 1;
 			background: @backgroundDark;
-			padding: 5px;
+			padding: 0.25em;
 			color: #fff;
 			white-space: nowrap;
-			border-radius: 5px;
+			border-radius: 0.25em;
 			bottom: 100%;
-			margin: 0 0 5px 0;
+			margin: 0 0 0.25em 0;
 		}
 		&.leader {
 			background:@TrackMapLeaderDotBackground;
