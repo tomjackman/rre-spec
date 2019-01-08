@@ -1200,7 +1200,7 @@ select {
 }
 .event-info {
   background: rgba(38, 50, 56, 0.8);
-  font-size: 15px;
+  font-size: 20px;
   width: 50em;
   position: fixed;
   top: 8em;
@@ -1218,7 +1218,7 @@ select {
 .event-info .serverName {
   color: white;
   text-align: center;
-  font-size: 22.5px;
+  font-size: 30px;
   padding: 20px;
 }
 .event-info .trackImage img {
@@ -1252,7 +1252,7 @@ select {
 .event-info .serverTrackName {
   color: white;
   text-align: center;
-  font-size: 22.5px;
+  font-size: 30px;
   padding: 15px;
   border-bottom: 1px solid white;
   width: 80%;
@@ -1262,7 +1262,7 @@ select {
   color: white;
   display: block;
   width: 100%;
-  font-size: 15px;
+  font-size: 20px;
   padding: 10px;
   min-height: 100px;
   white-space: pre-line;
@@ -1271,7 +1271,7 @@ select {
 }
 .event-info .weather .weatherIcons {
   display: flex;
-  font-size: 15px;
+  font-size: 20px;
   color: white;
   justify-content: space-around;
   padding-top: 0.75em;
@@ -1617,7 +1617,7 @@ select {
   }
 }
 .multiclass-standings {
-  font-family: 15px;
+  font-family: 20px;
   position: fixed;
   top: 1em;
   font-family: Hel;
@@ -1637,12 +1637,12 @@ select {
   }
 }
 .multiclass-standings .driver {
-  font-size: 15px;
+  font-size: 20px;
   -webkit-animation: "ani_9" 0.2s ease;
   position: absolute;
   top: 0;
   left: 1.3em;
-  height: 2em;
+  height: 1.9em;
   z-index: 1;
   -webkit-transition: -webkit-transform 0.5s linear, left 0.2s linear;
   white-space: nowrap;
@@ -1663,11 +1663,11 @@ select {
 .multiclass-standings .driver .inner > div {
   vertical-align: top;
   height: 100%;
-  line-height: 1.5em;
+  line-height: 1.8em;
 }
 .multiclass-standings .driver .inner .pitted,
 .multiclass-standings .driver .inner .unpitted {
-  font-size: 15px;
+  font-size: 20px;
   width: 1.5em;
   height: 1.5em;
   position: absolute;
@@ -1678,7 +1678,7 @@ select {
 }
 .multiclass-standings .driver .inner .pitted:after,
 .multiclass-standings .driver .inner .unpitted:after {
-  font-size: 19.5px;
+  font-size: 26px;
   display: block;
   color: white;
   content: "⭗";
@@ -1696,10 +1696,10 @@ select {
   background: #ff5252;
 }
 .multiclass-standings .driver .position {
-  font-size: 15px;
+  font-size: 20px;
   background: #263238;
-  border-top-left-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
   display: inline-block;
   color: white;
   font-size: 1em;
@@ -1714,7 +1714,7 @@ select {
 .multiclass-standings .driver .manufacturer {
   background: white;
   display: inline-block;
-  width: 2em;
+  width: 1.8em;
   height: 2em;
   padding: 0.25em;
 }
@@ -1722,7 +1722,7 @@ select {
   height: 100%;
 }
 .multiclass-standings .driver .name {
-  font-size: 15px;
+  font-size: 20px;
   background-color: #b71c1c;
   font-family: Oswald;
   display: inline-block;
@@ -1737,7 +1737,7 @@ select {
   line-height: inherit;
 }
 .multiclass-standings .driver .meta-info {
-  font-size: 15px;
+  font-size: 20px;
   background: rgba(38, 50, 56, 0.5);
   color: white;
   position: absolute;
@@ -1746,10 +1746,10 @@ select {
   left: 100%;
   height: 90%;
   text-align: center;
-  line-height: 2.5em;
+  line-height: 1em;
   padding: 0 0.5em 0 0.5em;
-  border-top-right-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
   min-width: 6em;
   -webkit-animation: "ani_10" 0.7s ease;
 }
@@ -1909,51 +1909,47 @@ pre.preview {
   position: relative;
 }
 .safetyCarDeployed {
+  font-size: 20px;
   font-family: Oswald;
   position: fixed;
-  top: 90px;
+  top: 5em;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-  font-size: 20px;
   background: rgba(255, 152, 0, 0.7);
   text-transform: uppercase;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
   color: white;
-  height: 30px;
-  width: 140px;
-  line-height: 30px;
+  height: 1.5em;
+  width: 7em;
+  line-height: 1.5em;
   text-align: center;
   display: inline-block;
 }
 .safetyAlert {
+  font-size: 20px;
   font-family: Oswald;
   position: fixed;
-  top: 200px;
-  right: 50px;
-  font-size: 23px;
+  top: 10em;
+  right: 2.5em;
   text-transform: uppercase;
   border-top: 3px solid #c61712;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  min-height: 25px;
-  width: 300px;
-  line-height: 33px;
+  border-radius: 1em;
+  min-height: 1em;
+  width: 15em;
+  line-height: 1.7em;
   text-align: center;
   display: inline-block;
 }
 .safetyAlert .raceControl {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
   background: rgba(38, 50, 56, 0.8);
   color: white;
 }
 .safetyAlert .safetyCarIn {
   background: rgba(38, 50, 56, 0.6);
   color: white;
-  font-size: 18px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -1963,7 +1959,7 @@ pre.preview {
   top: 1em;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-  font-size: 15px;
+  font-size: 20px;
   background: rgba(38, 50, 56, 0.8);
   text-transform: uppercase;
   border-top: 0.2em solid #c61712;
@@ -1984,7 +1980,7 @@ pre.preview {
   top: 3em;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-  font-size: 15px;
+  font-size: 20px;
   background: rgba(38, 50, 56, 0.6);
   text-transform: uppercase;
   border-bottom-left-radius: 1em;
@@ -1998,7 +1994,7 @@ pre.preview {
   z-index: 1;
 }
 .yellowFlag {
-  font-size: 15px;
+  font-size: 20px;
   position: fixed;
   background-color: yellow;
   top: 55px;
@@ -2012,7 +2008,7 @@ pre.preview {
 }
 .flag {
   position: fixed;
-  font-size: 15px;
+  font-size: 20px;
   top: 1.8em;
   left: 50%;
   -webkit-transform: translate(-250%, 0);
@@ -2027,7 +2023,7 @@ pre.preview {
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
 }
 .checkered {
-  font-size: 15px;
+  font-size: 20px;
 }
 .checkered img {
   position: fixed;

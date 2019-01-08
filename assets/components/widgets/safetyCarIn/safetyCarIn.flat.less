@@ -1,33 +1,29 @@
 @import '../theme/Ω';
 
 .safetyAlert {
+  font-size: @fontSize;
   font-family: Oswald;
 	position: fixed;
-	top: 200px;
-  right: 50px;
-	font-size: 23px;
+	top: 10em;
+  right: 2.5em;
 	text-transform: uppercase;
   border-top: 3px solid @SafetyCarInTitleBorderTop;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-	min-height: 25px;
-	width: 300px;
-	line-height: 33px;
+  border-radius: 1em;
+	min-height: 1em;
+	width: 15em;
+	line-height: 1.7em;
 	text-align: center;
 	display: inline-block;
 
   .raceControl {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
     background: @SafetyCarInTitleBackgroundColor;
     color: @SafetyCarInTitleText;
   }
   .safetyCarIn {
     background: @SafetyCarInMessageBackground;
     color: @SafetyCarInMessageText;
-    font-size: 18px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
   }
