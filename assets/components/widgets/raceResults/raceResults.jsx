@@ -19,18 +19,63 @@ UI.widgets.RaceResults = React.createClass({
 		var self = this;
 		var fastestTime = 99999;
 		var fastestTimeIndex = null;
+		var winnerIndex = null;
 		self.props.results.forEach(function(entry, i) {
 			if (entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.bestLapInfo.sector3;
 				fastestTimeIndex = i;
+			}
+			if (entry.positionOverall === 1) {
+				winnerIndex = i;
 			}
 		});
 
 		if (self.props.results[fastestTimeIndex]) {
 			self.props.results[fastestTimeIndex].isFastest = true
 		}
+
+		var fastestDriver = self.props.results[fastestTimeIndex];
+		var winningDriver = self.props.results[winnerIndex];
+
 		var self = this;
 		return (
+			<div>
+			{ winningDriver != null ?
+			<div className="winnerColumn animated fadeIn">
+			<div className="winnerTitle">Race Winner</div>
+				<div className="winnerImageContainer">
+					<img className="winnerImage" src={'/img/winner.png'} />
+				</div>
+				<div className="winnerLogo"></div>
+				<div className="livery">
+					<img src={'/render/'+winningDriver.liveryId+'/small/'}/>
+				</div>
+				<div className="driverFlagContainer">
+					<img className="driveFlag" src={'/img/flags/'+UI.getUserInfo(winningDriver.portalId).country+'.png'} />
+				</div>
+				<div className="driverName">{winningDriver.name.toUpperCase()}</div>
+			</div>
+			:
+				null
+			}
+			{ fastestDriver != null ?
+			<div className="fastestDriverColumn animated fadeIn">
+			<div className="fastestTitle">Fastest Lap</div>
+				<div className="fastestDriverImageContainer">
+					<img className="fastestDriverImage" src={'/img/fastest.png'} />
+				</div>
+				<div className="fastestDriverLogo"></div>
+				<div className="fastestDriverLivery">
+					<img src={'/render/'+fastestDriver.liveryId+'/small/'}/>
+				</div>
+				<div className="fastestDriverFlagContainer">
+					<img className="fastestDriverFlag" src={'/img/flags/'+UI.getUserInfo(fastestDriver.portalId).country+'.png'} />
+				</div>
+				<div className="fastestDriverName">{fastestDriver.name.toUpperCase()}</div>
+			</div>
+			:
+				null
+			}
 			<div className="race-results-bg">
 			<div className="race-results animated fadeIn">
 			<div className="title">
@@ -61,6 +106,7 @@ UI.widgets.RaceResults = React.createClass({
 						})}
 					</div>
 				</div>
+			</div>
 			</div>
 			</div>
 		);

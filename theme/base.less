@@ -1,9 +1,12 @@
+@import '../resolutionScaler.less';
+
 // Base Theme
 @widgetBorder: #c61712;
 @backgroundDark: rgba(38, 50, 56, 0.8);
 @backgroundLight: rgba(38, 50, 56, 0.5);
 
-@fontSize: 20px;
+// resolution scaling
+@fontSize: @resolutionScale;
 
 // Alert Widget
 @AlertTitleBackgroundColor: rgba(38, 50, 56, 0.8);
@@ -95,6 +98,8 @@
 @RaceResultEntryBackground: rgba(38, 50, 56, 0.9);
 @RaceResultEntryTextColor: white;
 @RaceResultTitleLogo: url(results/logos/base.png);
+@RaceResultWinnerBackground: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(198,23,18, 0.8) 90%);
+@RaceResultFastestLapBackground: linear-gradient(240deg, rgba(38, 50, 56, 0.0) 10%, rgba(113,34,154,1) 90%);
 
 // Qualyfying Results Widget
 @QualiResultTitleBackground: rgba(38, 50, 56, 0.8);

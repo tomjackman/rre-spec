@@ -5,6 +5,10 @@
 * [Tooling] Added theme files to watch list to allow live updates to themes.
 * [Bug Fix] Fixed a timing bug in the compare race widget.
 * [Feature] Added the ability to toggle on/off a drivers full last name in the standings tower.
+* [Feature] Improved colours of the Audi theme.
+* [Feature] Added winner and fastest lap information to the race results screen.
+* [Feature] Added responsive UI based on game resolution.
+* [Feature] Added resolution scaling config value to scale UI elements smaller or bigger.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.

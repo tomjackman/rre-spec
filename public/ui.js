@@ -1654,82 +1654,154 @@ UI.widgets.RaceResults = React.createClass({
 		var self = this;
 		var fastestTime = 99999;
 		var fastestTimeIndex = null;
+		var winnerIndex = null;
 		self.props.results.forEach(function (entry, i) {
 			if (entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.bestLapInfo.sector3;
 				fastestTimeIndex = i;
+			}
+			if (entry.positionOverall === 1) {
+				winnerIndex = i;
 			}
 		});
 
 		if (self.props.results[fastestTimeIndex]) {
 			self.props.results[fastestTimeIndex].isFastest = true;
 		}
+
+		var fastestDriver = self.props.results[fastestTimeIndex];
+		var winningDriver = self.props.results[winnerIndex];
+
 		var self = this;
 		return React.createElement(
 			'div',
-			{ className: 'race-results-bg' },
+			null,
+			winningDriver != null ? React.createElement(
+				'div',
+				{ className: 'winnerColumn animated fadeIn' },
+				React.createElement(
+					'div',
+					{ className: 'winnerTitle' },
+					'Race Winner'
+				),
+				React.createElement(
+					'div',
+					{ className: 'winnerImageContainer' },
+					React.createElement('img', { className: 'winnerImage', src: '/img/winner.png' })
+				),
+				React.createElement('div', { className: 'winnerLogo' }),
+				React.createElement(
+					'div',
+					{ className: 'livery' },
+					React.createElement('img', { src: '/render/' + winningDriver.liveryId + '/small/' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'driverFlagContainer' },
+					React.createElement('img', { className: 'driveFlag', src: '/img/flags/' + UI.getUserInfo(winningDriver.portalId).country + '.png' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'driverName' },
+					winningDriver.name.toUpperCase()
+				)
+			) : null,
+			fastestDriver != null ? React.createElement(
+				'div',
+				{ className: 'fastestDriverColumn animated fadeIn' },
+				React.createElement(
+					'div',
+					{ className: 'fastestTitle' },
+					'Fastest Lap'
+				),
+				React.createElement(
+					'div',
+					{ className: 'fastestDriverImageContainer' },
+					React.createElement('img', { className: 'fastestDriverImage', src: '/img/fastest.png' })
+				),
+				React.createElement('div', { className: 'fastestDriverLogo' }),
+				React.createElement(
+					'div',
+					{ className: 'fastestDriverLivery' },
+					React.createElement('img', { src: '/render/' + fastestDriver.liveryId + '/small/' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'fastestDriverFlagContainer' },
+					React.createElement('img', { className: 'fastestDriverFlag', src: '/img/flags/' + UI.getUserInfo(fastestDriver.portalId).country + '.png' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'fastestDriverName' },
+					fastestDriver.name.toUpperCase()
+				)
+			) : null,
 			React.createElement(
 				'div',
-				{ className: 'race-results animated fadeIn' },
+				{ className: 'race-results-bg' },
 				React.createElement(
 					'div',
-					{ className: 'title' },
+					{ className: 'race-results animated fadeIn' },
 					React.createElement(
 						'div',
-						{ className: 'text' },
-						'Race Results',
-						React.createElement('div', { className: 'logo' })
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'race-results-entry title' },
-					UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-						'div',
-						{ className: 'classPosition' },
-						'Class'
-					) : null,
-					React.createElement(
-						'div',
-						{ className: 'position' },
-						'Overall'
-					),
-					React.createElement('div', { className: 'manufacturer' }),
-					UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-						'div',
-						{ className: 'shortName' },
-						'Name'
-					) : React.createElement(
-						'div',
-						{ className: 'longName' },
-						'Name'
-					),
-					React.createElement('div', { className: 'livery' }),
-					React.createElement(
-						'div',
-						{ className: 'penaltyTime' },
-						'Penalties'
+						{ className: 'title' },
+						React.createElement(
+							'div',
+							{ className: 'text' },
+							'Race Results',
+							React.createElement('div', { className: 'logo' })
+						)
 					),
 					React.createElement(
 						'div',
-						{ className: 'lap-time' },
-						'Finish Time'
+						{ className: 'race-results-entry title' },
+						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+							'div',
+							{ className: 'classPosition' },
+							'Class'
+						) : null,
+						React.createElement(
+							'div',
+							{ className: 'position' },
+							'Overall'
+						),
+						React.createElement('div', { className: 'manufacturer' }),
+						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+							'div',
+							{ className: 'shortName' },
+							'Name'
+						) : React.createElement(
+							'div',
+							{ className: 'longName' },
+							'Name'
+						),
+						React.createElement('div', { className: 'livery' }),
+						React.createElement(
+							'div',
+							{ className: 'penaltyTime' },
+							'Penalties'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lap-time' },
+							'Finish Time'
+						),
+						React.createElement(
+							'div',
+							{ className: 'fastest-time' },
+							'Best Lap Time'
+						)
 					),
 					React.createElement(
 						'div',
-						{ className: 'fastest-time' },
-						'Best Lap Time'
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'entries-outer', ref: 'entries-outer' },
-					React.createElement(
-						'div',
-						{ className: 'entries-inner', ref: 'entries-inner' },
-						self.props.results.map(function (entry, i) {
-							return React.createElement(RaceResultEntry, { entry: entry, firstEntry: self.props.results[0], index: i });
-						})
+						{ className: 'entries-outer', ref: 'entries-outer' },
+						React.createElement(
+							'div',
+							{ className: 'entries-inner', ref: 'entries-inner' },
+							self.props.results.map(function (entry, i) {
+								return React.createElement(RaceResultEntry, { entry: entry, firstEntry: self.props.results[0], index: i });
+							})
+						)
 					)
 				)
 			)
@@ -2380,7 +2452,7 @@ UI.widgets.SessionInfo = React.createClass({
 					),
 					React.createElement(
 						'div',
-						{ className: 'flag' },
+						{ className: 'sessionInfoFlag' },
 						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
 					)
 				) : React.createElement(
@@ -2399,7 +2471,7 @@ UI.widgets.SessionInfo = React.createClass({
 					p.sessionInfo.type.match(/^race/i) && self.yellowFlagOnTrack ? React.createElement('div', { className: 'yellowFlag animated flash infinite' }) : null,
 					React.createElement(
 						'div',
-						{ className: 'flag' },
+						{ className: 'sessionInfoFlag' },
 						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
 					),
 					p.sessionInfo.phase === 'CHECKERED' ? React.createElement(

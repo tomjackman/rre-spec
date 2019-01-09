@@ -1,11 +1,16 @@
+@import '../resolutionScaler.less';
+
 // Audi Theme
 @widgetBorder: rgba(255, 82, 82, 1.0);
 @backgroundDark: rgba(38, 50, 56, 0.8);
 @backgroundLight: rgba(38, 50, 56, 0.5);
 
+// resolution scaling
+@fontSize: @resolutionScale;
+
 // Alert Widget
 @AlertTitleBackgroundColor: #323433;
-@AlertTitleBorderTop: #ba1d0d;
+@AlertTitleBorderTop: #e21d38;
 @AlertTitleText: white;
 @AlertMessageBackground: white;
 @AlertMessageText: #323433;
@@ -16,13 +21,13 @@
 
 // Safety Car In Widget
 @SafetyCarInTitleBackgroundColor: #323433;
-@SafetyCarInTitleBorderTop: #ba1d0d;
+@SafetyCarInTitleBorderTop: #e21d38;
 @SafetyCarInTitleText: white;
 @SafetyCarInMessageBackground: white;
 @SafetyCarInMessageText: #323433;
 
 // Multiclass Standings Widget
-@StandingsPositionBackground: #ba1d0d;
+@StandingsPositionBackground: #e21d38;
 @StandingsPositionText: white;
 @StandingsManufacturerBackground: white;
 @StandingsDriverNameText: white;
@@ -39,25 +44,25 @@
 @CompareRaceBestTimeBackground: #323433;
 @CompareRacePositionBackground: #323433;
 @CompareRacePositionText: white;
-@CompareRacePositionBorder: #ba1d0d;
+@CompareRacePositionBorder: #e21d38;
 @CompareRaceNameBackground: white;
 @CompareRaceNameText: #323433;
-@CompareRaceNameBorder: #ba1d0d;
+@CompareRaceNameBorder: #e21d38;
 @CompareRaceTeamNameBackground: #323433;
 @CompareRaceTeamNameText: white;
 @CompareRaceManufacturerBackground: white;
-@CompareRaceManufacturerBorder: #ba1d0d;
+@CompareRaceManufacturerBorder: #e21d38;
 @CompareRaceDeltaBackground: rgba(0, 0, 0, 0.6);
 @CompareRaceDeltaText: white;
-@CompareRaceDeltaDeltaBorder: #ba1d0d;
+@CompareRaceDeltaDeltaBorder: #e21d38;
 @CompareRaceDRSActiveBackground: rgba(76, 175, 80, 0.7);
 
 // Driver Info Widget
-@DriverInfoNameBorder: #ba1d0d;
+@DriverInfoNameBorder: #e21d38;
 @DriverInfoNameBackground: white;
 @DriverInfoNameText: #323433;
-@DriverInfoTeamNameText: #ba1d0d;
-@DriverInfoPositionBorder: #ba1d0d;
+@DriverInfoTeamNameText: #e21d38;
+@DriverInfoPositionBorder: #e21d38;
 @DriverInfoPositionBackground: #323433;
 @DriverInfoPositionText: white;
 @DriverInfoPositionClassBackground: rgba(38, 50, 56, 0.5);
@@ -65,7 +70,7 @@
 @DriverInfoBestTimeBackground: #323433;
 @DriverInfoBestTimeText: #00C853;
 @DriverInfoSplitTimesBackground: rgba(38, 50, 56, 0.8);
-@DriverInfoManufacturerBorder: #ba1d0d;
+@DriverInfoManufacturerBorder: #e21d38;
 @DriverInfoManufacturerBackground: white;
 @DriverInfoClassBackground: rgba(38, 50, 56, 0.5);
 @DriverInfoFlagBackground: rgba(38, 50, 56, 0.8);
@@ -79,8 +84,8 @@
 
 // Event Info Widget
 @EventInfoPanelBackground: white;
-@EventInfoBorderTop: #ba1d0d;
-@EventInfoBorderBottom: #ba1d0d;
+@EventInfoBorderTop: #e21d38;
+@EventInfoBorderBottom: #e21d38;
 @EventInfoServerNameText: #323433;
 @EventInfoServerTrackNameText: #323433;
 @EventInfoWeatherText: #323433;
@@ -89,14 +94,16 @@
 // Race Result Widget
 @RaceResultTitleBackground: #323433;
 @RaceResultTitleTextColor: white;
-@RaceResultTitleBorderTop: #ba1d0d;
+@RaceResultTitleBorderTop: #e21d38;
 @RaceResultEntryBackground: #323433;
 @RaceResultEntryTextColor: white;
 @RaceResultTitleLogo: url(results/logos/audi.png);
+@RaceResultWinnerBackground: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(226,29,56,1) 90%);
+@RaceResultFastestLapBackground: linear-gradient(240deg, rgba(38, 50, 56, 0.0) 10%, rgba(113,34,154,1) 90%);
 
 // Qualyfying Results Widget
 @QualiResultTitleBackground: #323433;
-@QualiResultTitleBorderTop: #ba1d0d;
+@QualiResultTitleBorderTop: #e21d38;
 @QualiResultEntryBackground:#323433;
 @QualiResultEntryTextColor: white;
 @QualiResultTitleText: white;
@@ -104,7 +111,7 @@
 
 // Session Info Widget
 @SessionInfoPhaseBackground: #323433;
-@SessionInfoPhaseBorderTop: #ba1d0d;
+@SessionInfoPhaseBorderTop: #e21d38;
 @SessionInfoPhaseTextColor: white;
 @SessionInfoTimerTextColor: #323433;;
 @SessionInfoTimerBackground: white;

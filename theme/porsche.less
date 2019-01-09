@@ -1,7 +1,12 @@
+@import '../resolutionScaler.less';
+
 // Porsche Theme
 @widgetBorder: rgba(255, 82, 82, 1.0);
 @backgroundDark: rgba(38, 50, 56, 0.8);
 @backgroundLight: rgba(38, 50, 56, 0.5);
+
+// resolution scaling
+@fontSize: @resolutionScale;
 
 // Alert Widget
 @AlertTitleBackgroundColor: white;
@@ -93,6 +98,8 @@
 @RaceResultEntryBackground: white;
 @RaceResultEntryTextColor: black;
 @RaceResultTitleLogo: url(results/logos/porsche.png);
+@RaceResultWinnerBackground: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgb(0,176,193) 90%);
+@RaceResultFastestLapBackground: linear-gradient(240deg, rgba(38, 50, 56, 0.0) 10%, rgba(113,34,154,1) 90%);
 
 // Qualyfying Results Widget
 @QualiResultTitleBackground: white;

@@ -23,13 +23,22 @@ chokidar.watch(assetsDir, {
 	'persistent': true
 }).on('change', assetGenerator);
 
+// themme directory
 var themesDir = path.resolve(__dirname + '/../theme');
-
 // Enable generation of files on change
 var themeGenerator = require('./lib/generateHandler')(httpServer, themesDir);
 chokidar.watch(themesDir, {
 	'ignored': /[\/\\]\./,
 	'persistent': true
 }).on('change', themeGenerator);
+
+// resolution scaler
+var resScalerDir = path.resolve(__dirname + '/../resolutionScaler.less');
+// Enable generation of files on change
+var resScalerGen = require('./lib/generateHandler')(httpServer, resScalerDir);
+chokidar.watch(resScalerDir, {
+	'ignored': /[\/\\]\./,
+	'persistent': true
+}).on('change', resScalerGen);
 
 assetGenerator(null);

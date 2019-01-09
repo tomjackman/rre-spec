@@ -1,7 +1,12 @@
+@import '../resolutionScaler.less';
+
 // Avia eRacing Theme
 @widgetBorder: rgba(255, 82, 82, 1.0);
 @backgroundDark: rgba(38, 50, 56, 0.8);
 @backgroundLight: rgba(38, 50, 56, 0.5);
+
+// resolution scaling
+@fontSize: @resolutionScale;
 
 // Alert Widget
 @AlertTitleBackgroundColor: linear-gradient(386deg, rgba(237,28,36, 1), rgba(237,28,36, 0.7));
@@ -93,6 +98,8 @@
 @RaceResultEntryBackground: white;
 @RaceResultEntryTextColor: #323433;
 @RaceResultTitleLogo: url(results/logos/avia.png);
+@RaceResultWinnerBackground: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(237,28,36,1) 90%);
+@RaceResultFastestLapBackground: linear-gradient(240deg, rgba(38, 50, 56, 0.0) 10%, rgba(113,34,154,1) 90%);
 
 // Qualyfying Results Widget
 @QualiResultTitleBackground: white;
