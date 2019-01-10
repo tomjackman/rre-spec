@@ -294,18 +294,20 @@ UI.widgets.FocusedDriver = React.createClass({
 						{self.getExtraInfo()}
 					</div>
 
-					{self.state.pushToPassInfo.allowed ?
-						<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active})}>
-							{self.getPtpState()}
-							<div className="text">Remaining - {self.state.pushToPassInfo.amountLeft}</div>
-						</div>
-						:
-						null
-					}
+					<div className="assists">
+						{self.state.pushToPassInfo.allowed ?
+							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active})}>
+								{self.getPtpState()}
+								<div className="text">Remaining - {self.state.pushToPassInfo.amountLeft}</div>
+							</div>
+							:
+							null
+						}
 
-					<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled})}>
-						<div className={cx({'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled})}>DRS</div>
-						<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>Remaining - {self.state.vehicleInfo.drsLeft}</div>
+						<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled})}>
+							<div className={cx({'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled})}>DRS</div>
+							<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>Remaining - {self.state.vehicleInfo.drsLeft}</div>
+						</div>
 					</div>
 
 

@@ -135,18 +135,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		classes[self.props.position] = true;
 		return (
 			<div className={cx(classes)}>
-				<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionOverall}</div></div>
-				<div className="compareFlagContainer">
-					<img className="compareFlag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
-				</div>
-				<div className="compareName">{self.fixName(driver.name)}</div>
-				<div className="team">{self.getTeamName(driver.teamId, driver.portalId)}</div>
-				<div className="vehicle">
-					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} />
-				</div>
-				<div className="manufacturer">
-					<img src={'/render/'+driver.manufacturerId+'/small/'}/>
-				</div>
+			<div className="top">
 				{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 					<div className="best-time">
 						PB - {UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
@@ -154,17 +143,37 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					:
 					null
 				}
+				</div>
+			<div className="main">
+				<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionOverall}</div></div>
+				<div className="compare-flag-container">
+					<img className="compare-flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
+				</div>
+				<div className="compareName"><div className="name">{self.fixName(driver.name)}</div></div>
+				<div className="vehicle">
+					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} />
+				</div>
+				<div className="manufacturer">
+					<img src={'/render/'+driver.manufacturerId+'/small/'}/>
+				</div>
+			</div>
 
-				{driver.pushToPassInfo.allowed ?
-					<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})}>
-						<div className={cx({'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active})}>PTP</div>
+				<div className="bottom">
+					<div className="team">{self.getTeamName(driver.teamId, driver.portalId)}</div>
+				</div>
+
+				<div className="compareAssists">
+					{driver.pushToPassInfo.allowed ?
+						<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})}>
+							<div className={cx({'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active})}>PTP</div>
+						</div>
+						:
+						null
+					}
+
+					<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})}>
+						<div className={cx({'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled})}>DRS</div>
 					</div>
-					:
-					null
-				}
-
-				<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})}>
-					<div className={cx({'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled})}>DRS</div>
 				</div>
 
 			</div>

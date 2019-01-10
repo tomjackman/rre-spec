@@ -1368,30 +1368,34 @@ UI.widgets.FocusedDriver = React.createClass({
 					{ className: 'bottom' },
 					self.getExtraInfo()
 				),
-				self.state.pushToPassInfo.allowed ? React.createElement(
-					'div',
-					{ className: cx({ 'ptp': true, 'active': self.state.pushToPassInfo.active }) },
-					self.getPtpState(),
-					React.createElement(
-						'div',
-						{ className: 'text' },
-						'Remaining - ',
-						self.state.pushToPassInfo.amountLeft
-					)
-				) : null,
 				React.createElement(
 					'div',
-					{ className: cx({ 'drs': true, 'active': self.state.vehicleInfo.drsEnabled }) },
+					{ className: 'assists' },
+					self.state.pushToPassInfo.allowed ? React.createElement(
+						'div',
+						{ className: cx({ 'ptp': true, 'active': self.state.pushToPassInfo.active }) },
+						self.getPtpState(),
+						React.createElement(
+							'div',
+							{ className: 'text' },
+							'Remaining - ',
+							self.state.pushToPassInfo.amountLeft
+						)
+					) : null,
 					React.createElement(
 						'div',
-						{ className: cx({ 'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled }) },
-						'DRS'
-					),
-					React.createElement(
-						'div',
-						{ className: cx({ 'text': true, 'active': self.state.vehicleInfo.drsEnabled }) },
-						'Remaining - ',
-						self.state.vehicleInfo.drsLeft
+						{ className: cx({ 'drs': true, 'active': self.state.vehicleInfo.drsEnabled }) },
+						React.createElement(
+							'div',
+							{ className: cx({ 'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled }) },
+							'DRS'
+						),
+						React.createElement(
+							'div',
+							{ className: cx({ 'text': true, 'active': self.state.vehicleInfo.drsEnabled }) },
+							'Remaining - ',
+							self.state.vehicleInfo.drsLeft
+						)
 					)
 				)
 			)
@@ -4521,60 +4525,80 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			{ className: cx(classes) },
 			React.createElement(
 				'div',
-				{ className: 'comparePositionContainer' },
+				{ className: 'top' },
+				driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
+					'div',
+					{ className: 'best-time' },
+					'PB - ',
+					UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+				) : null
+			),
+			React.createElement(
+				'div',
+				{ className: 'main' },
 				React.createElement(
 					'div',
-					{ className: 'comparePosition' },
-					driver.scoreInfo.positionOverall
+					{ className: 'comparePositionContainer' },
+					React.createElement(
+						'div',
+						{ className: 'comparePosition' },
+						driver.scoreInfo.positionOverall
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'compare-flag-container' },
+					React.createElement('img', { className: 'compare-flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'compareName' },
+					React.createElement(
+						'div',
+						{ className: 'name' },
+						self.fixName(driver.name)
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'vehicle' },
+					React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'manufacturer' },
+					React.createElement('img', { src: '/render/' + driver.manufacturerId + '/small/' })
 				)
 			),
 			React.createElement(
 				'div',
-				{ className: 'compareFlagContainer' },
-				React.createElement('img', { className: 'compareFlag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
-			),
-			React.createElement(
-				'div',
-				{ className: 'compareName' },
-				self.fixName(driver.name)
-			),
-			React.createElement(
-				'div',
-				{ className: 'team' },
-				self.getTeamName(driver.teamId, driver.portalId)
-			),
-			React.createElement(
-				'div',
-				{ className: 'vehicle' },
-				React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small' })
-			),
-			React.createElement(
-				'div',
-				{ className: 'manufacturer' },
-				React.createElement('img', { src: '/render/' + driver.manufacturerId + '/small/' })
-			),
-			driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
-				'div',
-				{ className: 'best-time' },
-				'PB - ',
-				UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-			) : null,
-			driver.pushToPassInfo.allowed ? React.createElement(
-				'div',
-				{ className: cx({ 'ptp': true, 'active': driver.pushToPassInfo.active }) },
+				{ className: 'bottom' },
 				React.createElement(
 					'div',
-					{ className: cx({ 'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active }) },
-					'PTP'
+					{ className: 'team' },
+					self.getTeamName(driver.teamId, driver.portalId)
 				)
-			) : null,
+			),
 			React.createElement(
 				'div',
-				{ className: cx({ 'drs': true, 'active': driver.vehicleInfo.drsEnabled }) },
+				{ className: 'compareAssists' },
+				driver.pushToPassInfo.allowed ? React.createElement(
+					'div',
+					{ className: cx({ 'ptp': true, 'active': driver.pushToPassInfo.active }) },
+					React.createElement(
+						'div',
+						{ className: cx({ 'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active }) },
+						'PTP'
+					)
+				) : null,
 				React.createElement(
 					'div',
-					{ className: cx({ 'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled }) },
-					'DRS'
+					{ className: cx({ 'drs': true, 'active': driver.vehicleInfo.drsEnabled }) },
+					React.createElement(
+						'div',
+						{ className: cx({ 'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled }) },
+						'DRS'
+					)
 				)
 			)
 		);

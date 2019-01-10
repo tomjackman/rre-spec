@@ -111,121 +111,105 @@ a {
   -webkit-user-select: none;
 }
 /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-.drs .icon {
-  background: rgba(76, 175, 80, 0.2);
-  position: absolute;
-  top: -10px;
-  left: -240px;
-  right: 10px;
-  height: 1px;
-  line-height: 50px;
-  font-family: Oswald;
-  font-size: 0px;
-  width: 1px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  bottom: 0;
+.assists .drs {
+  position: relative;
+  height: 5em;
 }
-.drs .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: 40px;
-  left: -240px;
-  right: 10px;
-  height: 1px;
-  width: 1px;
-  line-height: 50px;
-  font-size: 0px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  bottom: 0;
-}
-.drs.active .icon {
+.assists .drs .icon {
   background: rgba(76, 175, 80, 0.7);
   position: absolute;
-  top: -10px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  line-height: 50px;
-  font-family: Oswald;
-  font-size: 30px;
-  width: 150px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  bottom: 0;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0em;
+  font-size: 0;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
 }
-.drs.active .text {
+.assists .drs .text {
   background: rgba(38, 50, 56, 0.8);
   position: absolute;
-  top: 40px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  width: 150px;
-  line-height: 50px;
-  font-size: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  bottom: 0;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0em;
+  font-size: 0;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
-.ptp .text {
+.assists .drs.active .icon {
+  background: rgba(76, 175, 80, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}
+.assists .drs.active .text {
   background: rgba(38, 50, 56, 0.8);
   position: absolute;
-  top: 40px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  width: 0px;
-  line-height: 50px;
-  font-size: 0px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  bottom: 0;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
-.ptp .icon {
-  background: rgba(183, 28, 28, 0.7);
-  position: absolute;
-  top: -10px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  line-height: 50px;
-  font-family: Oswald;
-  font-size: 0px;
-  width: 0px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  bottom: 0;
+.assists .ptp {
+  position: relative;
+  height: 5em;
 }
-.ptp.active .icon {
+.assists .ptp .icon {
   background: rgba(66, 165, 245, 0.7);
   position: absolute;
-  top: -10px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  line-height: 50px;
-  font-family: Oswald;
-  font-size: 30px;
-  width: 150px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  bottom: 0;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0em;
+  font-size: 0;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
 }
-.ptp.active .text {
+.assists .ptp .text {
   background: rgba(38, 50, 56, 0.8);
   position: absolute;
-  top: 40px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  width: 150px;
-  line-height: 50px;
-  font-size: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  bottom: 0;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0em;
+  font-size: 0;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+.assists .ptp.active .icon {
+  background: rgba(66, 165, 245, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}
+.assists .ptp.active .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 .focused-driver-info {
   text-align: center;
@@ -253,6 +237,7 @@ a {
   display: inline-block;
 }
 .focused-driver-info .bottom .extra-info {
+  height: 1em;
   position: relative;
   top: 1em;
   z-index: -1;
@@ -1212,6 +1197,7 @@ select {
   color: #fff;
   /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
   position: absolute !important;
+  bottom: 2em;
 }
 .compare-race .inner .inner {
   font-size: 20px;
@@ -1224,32 +1210,34 @@ select {
 .compare-race .inner .extra-info {
   display: none;
 }
-.compare-race .inner .position,
-.compare-race .inner .name,
-.compare-race .inner .vehicle,
-.compare-race .inner .team,
-.compare-race .inner .manufacturer,
-.compare-race .inner .flag-container {
-  vertical-align: top;
-  display: inline-block;
-  height: 3.5em;
-  line-height: 3.75em;
+.compare-race .inner .top {
+  position: relative;
+  height: 1.75em;
+  left: 8em;
 }
-.compare-race .inner .best-time {
+.compare-race .inner .top .best-time {
   background: rgba(38, 50, 56, 0.5);
   padding: 0.5em 0.5em;
   margin-right: 0.5em;
   border-radius: 0.75em 0.75em 0 0;
   color: #69f0ae;
   height: 1.75em;
-  width: 6.5em;
-  z-index: 0;
+  width: 7em;
   margin-bottom: 0px;
-  position: fixed;
-  left: 7.5em;
+  text-align: center;
   bottom: 100%;
 }
-.compare-race .inner .position {
+.compare-race .inner .comparePositionContainer,
+.compare-race .inner .compareName,
+.compare-race .inner .vehicle,
+.compare-race .inner .manufacturer,
+.compare-race .inner .compare-flag-container {
+  vertical-align: top;
+  display: inline-block;
+  height: 3.5em;
+  line-height: 3.75em;
+}
+.compare-race .inner .main .comparePositionContainer {
   background: rgba(38, 50, 56, 0.5);
   color: white;
   width: 3.25em;
@@ -1261,60 +1249,75 @@ select {
   border-bottom-left-radius: 1em;
   border-bottom: 0.1em solid #c61712;
 }
-.compare-race .inner .name {
+.compare-race .inner .main .comparePositionContainer .comparePosition {
+  font-size: 40px;
+}
+.compare-race .inner .main .compareName {
   background: rgba(38, 50, 56, 0.8);
   color: white;
   padding: 0 1em;
   min-width: 16em;
   border-bottom: 0.1em solid #c61712;
 }
-.compare-race .inner .team {
+.compare-race .inner .main .compareName .name {
+  font-size: 26px;
+}
+.compare-race .inner .main .vehicle {
+  width: 1.75em;
   position: fixed;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  z-index: 2;
+}
+.compare-race .inner .main .vehicle img {
+  position: absolute;
+  top: -4em;
+  left: -6.5em;
+  height: 5.5em;
+}
+.compare-race .inner .main .manufacturer {
+  background: white;
+  width: 4em;
+  z-index: 1;
+  position: relative;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-bottom: 0.1em solid #c61712;
+}
+.compare-race .inner .main .manufacturer img {
+  position: absolute;
+  top: 0.25em;
+  right: 0.5em;
+  height: 3em;
+}
+.compare-race .inner .bottom {
+  position: relative;
+  height: 1.5em;
+  width: 20em;
+  left: 4em;
+}
+.compare-race .inner .bottom .team {
   background: rgba(38, 50, 56, 0.5);
   color: white;
   height: 1.5em;
   text-transform: uppercase;
-  left: 20%;
-  right: 13%;
   top: 3.5em;
   line-height: 1.5em;
   border: 0.1em;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
 }
-.compare-race .inner .vehicle {
-  width: 1.75em;
-  position: fixed;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
+.compare-race .inner .compareAssists {
+  height: 1.5em;
 }
-.compare-race .inner .vehicle img {
-  position: absolute;
-  top: -4em;
-  left: -8.5em;
-  height: 5.5em;
+.compare-race .inner .compareAssists .drs .icon {
+  width: 0;
+  font-size: 0;
 }
-.compare-race .inner .manufacturer {
-  background: white;
-  width: 4em;
-  position: relative;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-  border-bottom: 0.1em solid #c61712;
-}
-.compare-race .inner .manufacturer img {
-  position: absolute;
-  top: 0.25em;
-  right: 0.5em;
-  height: 3em;
-}
-.compare-race .inner .drs .icon {
-  width: 0px;
-}
-.compare-race .inner .drs.active .icon {
+.compare-race .inner .compareAssists .drs.active .icon {
   background: rgba(76, 175, 80, 0.7);
-  position: fixed;
-  top: -1.5em;
+  position: relative;
+  top: -7.5em;
   left: 0.75em;
   right: 0.5em;
   height: 1.5em;
@@ -1325,13 +1328,14 @@ select {
   border-top-right-radius: 0.5em;
   bottom: 0;
 }
-.compare-race .inner .ptp .icon {
-  width: 0px;
+.compare-race .inner .compareAssists .ptp .icon {
+  width: 0;
+  font-size: 0;
 }
-.compare-race .inner .ptp.active .icon {
-  background: rgba(183, 28, 28, 0.7);
-  position: fixed;
-  top: -1.5em;
+.compare-race .inner .compareAssists .ptp.active .icon {
+  background: rgba(66, 165, 245, 0.7);
+  position: relative;
+  top: -6.5em;
   left: 0.75em;
   right: 0.5em;
   height: 1.5em;
@@ -1342,12 +1346,12 @@ select {
   border-top-right-radius: 0.5em;
   bottom: 0;
 }
-.compare-race .inner .flag-container {
+.compare-race .inner .compare-flag-container {
   width: 3em;
   position: relative;
   margin-right: 0.25em;
 }
-.compare-race .inner .flag-container .flag {
+.compare-race .inner .compare-flag-container .compare-flag {
   height: 3.5em;
   background: rgba(38, 50, 56, 0.8);
   position: fixed;
