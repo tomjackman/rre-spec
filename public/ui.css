@@ -110,131 +110,299 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.overallQuai {
-  font-size: 20px;
+/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
+.drs .icon {
+  background: rgba(76, 175, 80, 0.2);
+  position: absolute;
+  top: -10px;
+  left: -240px;
+  right: 10px;
+  height: 1px;
+  line-height: 50px;
+  font-family: Oswald;
+  font-size: 0px;
+  width: 1px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  bottom: 0;
+}
+.drs .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: 40px;
+  left: -240px;
+  right: 10px;
+  height: 1px;
+  width: 1px;
+  line-height: 50px;
+  font-size: 0px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  bottom: 0;
+}
+.drs.active .icon {
+  background: rgba(76, 175, 80, 0.7);
   position: fixed;
-  top: 0;
+  top: -0.5em;
+  left: -12em;
+  right: 0.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  font-family: Oswald;
+  width: 7.5em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  bottom: 0;
+}
+.drs.active .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: fixed;
+  top: 2em;
+  left: -12em;
+  right: 0.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  bottom: 0;
+}
+.ptp .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: fixed;
+  top: 40px;
+  left: -240px;
+  right: 10px;
+  height: 50px;
+  width: 0px;
+  line-height: 50px;
+  font-size: 0px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  bottom: 0;
+}
+.ptp .icon {
+  background: rgba(183, 28, 28, 0.7);
+  position: fixed;
+  top: -10px;
+  left: -240px;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
+  font-family: Oswald;
+  font-size: 0px;
+  width: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  bottom: 0;
+}
+.ptp.active .icon {
+  background: rgba(66, 165, 245, 0.7);
+  position: fixed;
+  top: -0.5em;
+  left: -12em;
+  right: 0.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  font-family: Oswald;
+  width: 7.5em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  bottom: 0;
+}
+.ptp.active .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: fixed;
+  top: 2em;
+  left: -12em;
+  right: 0.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  bottom: 0;
+}
+.focused-driver-info {
+  text-align: center;
+  font-family: Oswald;
+  color: #fff;
+  position: fixed;
+  bottom: 7%;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
 }
-.qualify-results .entries-outer {
-  max-height: 40em;
-  overflow: hidden;
+.focused-driver-info.hide-flags .flag-container {
+  display: none;
 }
-.qualify-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
+.focused-driver-info .inner {
+  font-size: 20px;
+  height: 3.5em;
+  display: inline-block;
 }
-.qualify-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.qualify-results {
-  position: fixed;
-  top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
+.focused-driver-info .extra-info {
+  position: absolute;
+  top: 4.5em;
   z-index: -1;
-  padding: 0px;
-  color: white;
-  white-space: pre;
+  margin-top: 0em;
   font-family: Oswald;
-  width: 60%;
+  left: 28%;
 }
-.qualify-results .title .text {
-  position: inherit;
-  height: 3em;
-  text-align: right;
-  padding: 0 0.75em 0 0;
-  line-height: 4em;
-  font-size: 30px;
-  background: rgba(38, 50, 56, 0.8);
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  border-top: 0.25em solid #c61712;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-  z-index: 0;
+.focused-driver-info .extra-info ul {
+  margin: 0;
+  padding: 0.25em;
 }
-.qualify-results .title .text .logo {
-  position: absolute;
-  content: url(results/logos/base.png);
-  height: 2.2em;
-  top: 0.5em;
-  left: 1em;
-  z-index: 1;
-}
-.qualify-results .qualify-results-entry {
-  height: 2em;
-  line-height: 2em;
-  margin-bottom: 0.1em;
-  color: white;
-  background: rgba(38, 50, 56, 0.9);
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry.title {
-  padding: 0 0 0 0em;
-  font-size: 22px;
-}
-.qualify-results .qualify-results-entry.title .classPosition {
-  color: white;
-}
-.qualify-results .qualify-results-entry.fastest {
-  color: #f500f5;
-}
-.qualify-results .qualify-results-entry > div {
-  height: 2em;
-  padding: 0 0 0 0.25em;
+.focused-driver-info .extra-info ul li {
   float: left;
-}
-.qualify-results .qualify-results-entry .position {
-  text-align: center;
-  width: 10%;
+  background: rgba(38, 50, 56, 0.8);
+  padding: 0.5em;
+  margin-right: 0.5em;
+  border: 0.1em;
+  border-radius: 0.5em;
+  color: white;
   position: relative;
+  -webkit-transition: top 0.5s;
 }
-.qualify-results .qualify-results-entry .classPosition {
-  width: 10%;
-  position: relative;
-  text-align: center;
+.focused-driver-info .extra-info ul li.active {
+  top: 0;
+}
+.focused-driver-info .extra-info ul li.finished {
+  color: #ffffff;
+}
+.focused-driver-info .extra-info ul li.finished.personal-best {
+  background: linear-gradient(#4caf50, rgba(76, 175, 80, 0.5));
   color: white;
 }
-.qualify-results .qualify-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
+.focused-driver-info .extra-info ul li.finished.global-best {
+  background: linear-gradient(#9c27b0, rgba(156, 39, 176, 0.5));
+  color: white;
 }
-.qualify-results .qualify-results-entry .manufacturer img {
+.focused-driver-info .best-time {
+  line-height: 1em;
+  background: rgba(38, 50, 56, 0.8);
+  padding: 0.5em 0.5em;
+  margin-right: 0.5em;
+  border-radius: 0.75em 0.75em 0 0;
+  color: #00c853;
+  height: 1.75em;
+  width: 7em;
+  z-index: 0;
+  margin-bottom: 0px;
+  position: relative;
+  bottom: 5.75em;
+  left: 42%;
+}
+.focused-driver-info .positionInClass {
+  line-height: 1em;
+  background: rgba(38, 50, 56, 0.5);
+  padding: 0.5em 0.5em;
+  margin-right: 0.5em;
+  border-radius: 0.75em 0.75em 0 0;
+  color: white;
+  height: 1.75em;
+  width: 6em;
+  z-index: 0;
+  margin-bottom: 0px;
+  position: relative;
+  bottom: 7.5em;
+  left: 63%;
+}
+.focused-driver-info .position,
+.focused-driver-info .flag-container,
+.focused-driver-info .name,
+.focused-driver-info .team,
+.focused-driver-info .tyre,
+.focused-driver-info .manufacturer,
+.focused-driver-info .vehicle {
+  vertical-align: top;
+  display: inline-block;
+  height: 4em;
+  line-height: 3.25em;
+}
+.focused-driver-info .position {
+  background: rgba(38, 50, 56, 0.8);
+  color: white;
+  width: 4em;
+  padding-left: 0.7em;
+  text-align: center;
+  padding-right: 0.75em;
+  line-height: 3.7em;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  border-bottom: 0.1em solid #c61712;
+}
+.focused-driver-info .name {
+  background: rgba(38, 50, 56, 0.8);
+  color: white;
+  line-height: 3em;
+  text-transform: uppercase;
+  padding: 0px 1em;
+  min-width: 25em;
+  border-bottom: 0.1em solid #c61712;
+}
+.focused-driver-info .team {
+  position: relative;
+  color: white;
+  line-height: 3em;
+  text-transform: uppercase;
+  left: 59%;
+  float: left;
+  right: 59%;
+  top: 1.6em;
+}
+.focused-driver-info .vehicle {
+  width: 1.75em;
   position: absolute;
-  top: 0.3em;
-  left: 0.5em;
-  width: 1.5em;
-  height: auto;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
-.qualify-results .qualify-results-entry .shortName {
-  position: relative;
-  width: 30%;
+.focused-driver-info .vehicle img {
+  position: absolute;
+  top: -3.9em;
+  left: -7.5em;
+  height: 5.5em;
 }
-.qualify-results .qualify-results-entry .longName {
-  position: relative;
-  width: 40%;
+.focused-driver-info .tyre {
+  width: 1.75em;
+  position: absolute;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
-.qualify-results .qualify-results-entry .livery {
-  width: 15%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .livery img {
-  position: relative;
+.focused-driver-info .tyre img {
+  position: absolute;
+  top: 0.5em;
+  left: -3.5em;
   height: 3em;
-  right: 1.5em;
-  top: -0.5em;
 }
-.qualify-results .qualify-results-entry .fastest-time,
-.qualify-results .qualify-results-entry .lap-time {
-  width: 15%;
+.focused-driver-info .manufacturer {
+  background: white;
+  width: 4em;
+  position: fixed;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-bottom: 0.1em solid #c61712;
+}
+.focused-driver-info .manufacturer img {
   position: relative;
+  top: 0.5em;
+  left: 0.1em;
+  height: 3em;
+}
+.focused-driver-info .flag-container {
+  width: 3em;
+  position: relative;
+  background: rgba(38, 50, 56, 0.8);
+  border-bottom: 0.1em solid #c61712;
+}
+.focused-driver-info .flag-container .flag {
+  position: absolute;
+  display: block;
+  width: 5em;
+  height: 5em;
+  top: -0.75em;
+  border-bottom-right-radius: 1em;
+  border-top-left-radius: 1em;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 @font-face {
   font-family: 'Hel';
@@ -976,8 +1144,8 @@ select {
 }
 .compare-race {
   position: fixed;
-  bottom: 80px;
-  height: 70px;
+  bottom: 6em;
+  height: 3.5em;
   left: 0;
   right: 0;
   text-align: center;
@@ -986,38 +1154,37 @@ select {
   font-size: 20px;
   text-transform: uppercase;
   background: rgba(38, 50, 56, 0.5);
-  border-radius: 20px;
+  border-radius: 1em;
   color: white;
-  border-top: 3px solid #c61712;
-  padding: 6px 10px;
-  min-width: 130px;
+  border-top: 0.25em solid #c61712;
+  padding: 0.25em 0.5em;
+  min-width: 6.5em;
   display: inline-block;
   position: relative;
 }
 .compare-race .delta .battle {
-  font-size: 17px;
   text-transform: uppercase;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
   color: white;
-  padding: 6px 10px;
+  padding: 0.25em 0.5em;
   width: inherit;
   position: relative;
-  bottom: 4px;
+  bottom: 0.25em;
 }
 .compare-race .delta .inner {
   position: absolute !important;
-  top: 10px;
+  top: 0.5em;
 }
 .compare-race .delta .inner.first {
   left: auto;
   right: 100%;
-  margin-right: 20px;
+  margin-right: 1em;
 }
 .compare-race .delta .inner.second {
   right: auto;
   left: 100%;
-  margin-left: 20px;
+  margin-left: 1em;
 }
 .compare-race .inner {
   left: 0;
@@ -1029,9 +1196,10 @@ select {
   position: absolute !important;
 }
 .compare-race .inner .inner {
+  font-size: 20px;
   white-space: nowrap;
   width: auto;
-  height: 81px;
+  height: 4em;
   display: inline-block;
   position: relative;
 }
@@ -1046,144 +1214,135 @@ select {
 .compare-race .inner .flag-container {
   vertical-align: top;
   display: inline-block;
-  height: 71px;
-  line-height: 75px;
+  height: 3.5em;
+  line-height: 3.75em;
 }
 .compare-race .inner .best-time {
-  font-size: 18px;
   background: rgba(38, 50, 56, 0.5);
-  padding: 10px 10px;
-  margin-right: 10px;
-  border-radius: 15px 15px 0 0;
+  padding: 0.5em 0.5em;
+  margin-right: 0.5em;
+  border-radius: 0.75em 0.75em 0 0;
   color: #69f0ae;
-  height: 35px;
-  width: 130px;
+  height: 1.75em;
+  width: 6.5em;
   z-index: 0;
   margin-bottom: 0px;
-  position: absolute;
-  left: 150px;
+  position: fixed;
+  left: 7.5em;
   bottom: 100%;
-  -webkit-transition: top 0.5s;
 }
 .compare-race .inner .position {
   background: rgba(38, 50, 56, 0.5);
   color: white;
-  width: 65px;
-  font-size: 50px;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 3.25em;
+  text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
   padding-left: 0px;
-  line-height: 70px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom: 1px solid #c61712;
+  line-height: 3.5em;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  border-bottom: 0.1em solid #c61712;
 }
 .compare-race .inner .name {
   background: rgba(38, 50, 56, 0.8);
   color: white;
-  font-size: 30px;
-  padding: 0 20px;
-  min-width: 320px;
-  border-bottom: 1px solid #c61712;
+  padding: 0 1em;
+  min-width: 16em;
+  border-bottom: 0.1em solid #c61712;
 }
 .compare-race .inner .team {
-  position: absolute;
+  position: fixed;
   background: rgba(38, 50, 56, 0.5);
   color: white;
-  height: 30px;
-  font-size: 20px;
+  height: 1.5em;
   text-transform: uppercase;
   left: 20%;
   right: 13%;
-  top: 71px;
-  line-height: 30px;
-  border: 1px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  top: 3.5em;
+  line-height: 1.5em;
+  border: 0.1em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 .compare-race .inner .vehicle {
-  background-position: -442px 0;
-  width: 36px;
-  position: absolute;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  width: 1.75em;
+  position: fixed;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 .compare-race .inner .vehicle img {
   position: absolute;
-  top: -80px;
-  left: -170px;
-  height: 110px;
+  top: -4em;
+  left: -8.5em;
+  height: 5.5em;
 }
 .compare-race .inner .manufacturer {
   background: white;
-  background-position: -442px 0;
-  width: 76px;
+  width: 4em;
   position: relative;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom: 1px solid #c61712;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-bottom: 0.1em solid #c61712;
 }
 .compare-race .inner .manufacturer img {
   position: absolute;
-  top: 5px;
-  left: 8px;
-  height: 60px;
+  top: 0.25em;
+  right: 0.5em;
+  height: 3em;
 }
 .compare-race .inner .drs .icon {
   width: 0px;
 }
 .compare-race .inner .drs.active .icon {
   background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -30px;
-  left: 15px;
-  right: 10px;
-  height: 30px;
-  line-height: 35px;
+  position: fixed;
+  top: -1.5em;
+  left: 0.75em;
+  right: 0.5em;
+  height: 1.5em;
+  line-height: 1.75em;
   font-family: Oswald;
-  font-size: 20px;
-  width: 47px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  width: 2.25em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
   bottom: 0;
 }
 .compare-race .inner .ptp .icon {
   width: 0px;
 }
 .compare-race .inner .ptp.active .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -35px;
-  left: 10px;
-  right: 10px;
-  height: 35px;
-  line-height: 35px;
+  background: rgba(183, 28, 28, 0.7);
+  position: fixed;
+  top: -1.5em;
+  left: 0.75em;
+  right: 0.5em;
+  height: 1.5em;
+  line-height: 1.75em;
   font-family: Oswald;
-  font-size: 20px;
-  width: 52px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  width: 2.25em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
   bottom: 0;
 }
 .compare-race .inner .flag-container {
-  width: 61px;
-  background-position: -65px 0;
+  width: 3em;
   position: relative;
-  margin-right: 5px;
+  margin-right: 0.25em;
 }
 .compare-race .inner .flag-container .flag {
-  width: 81px;
-  height: 71px;
+  height: 3.5em;
+  background: rgba(38, 50, 56, 0.8);
+  position: fixed;
   display: block;
   content: '';
-  width: 80px;
-  height: 80px;
+  width: 4em;
+  height: 4em;
   background: #000;
   position: absolute;
-  top: -9px;
-  left: -5px;
-  border-bottom-right-radius: 20%;
-  border-top-left-radius: 20%;
+  top: -0.5em;
+  left: -0.25em;
+  border-bottom-right-radius: 1em;
+  border-top-left-radius: 1em;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   z-index: 1;
 }
@@ -1275,325 +1434,31 @@ select {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
 }
-/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-.drs .icon {
-  background: rgba(76, 175, 80, 0.2);
-  position: absolute;
-  top: -10px;
-  left: -240px;
-  right: 10px;
-  height: 1px;
-  line-height: 50px;
-  font-family: Oswald;
-  font-size: 0px;
-  width: 1px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  bottom: 0;
-}
-.drs .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: 40px;
-  left: -240px;
-  right: 10px;
-  height: 1px;
-  width: 1px;
-  line-height: 50px;
-  font-size: 0px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  bottom: 0;
-}
-.drs.active .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -10px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  line-height: 50px;
-  font-family: Oswald;
-  font-size: 30px;
-  width: 150px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  bottom: 0;
-}
-.drs.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: 40px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  width: 150px;
-  line-height: 50px;
-  font-size: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  bottom: 0;
-}
-.ptp .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: 40px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  width: 0px;
-  line-height: 50px;
-  font-size: 0px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  bottom: 0;
-}
-.ptp .icon {
-  background: rgba(183, 28, 28, 0.7);
-  position: absolute;
-  top: -10px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  line-height: 50px;
-  font-family: Oswald;
-  font-size: 0px;
-  width: 0px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  bottom: 0;
-}
-.ptp.active .icon {
-  background: rgba(66, 165, 245, 0.7);
-  position: absolute;
-  top: -10px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  line-height: 50px;
-  font-family: Oswald;
-  font-size: 30px;
-  width: 150px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  bottom: 0;
-}
-.ptp.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: 40px;
-  left: -240px;
-  right: 10px;
-  height: 50px;
-  width: 150px;
-  line-height: 50px;
-  font-size: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  bottom: 0;
-}
-.focused-driver-info {
-  text-align: center;
-  font-family: Oswald;
-  color: #fff;
+.error-screen {
+  z-index: 2147483627;
   position: fixed;
-  bottom: 70px;
+  background: #af0000;
+  top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
 }
-.focused-driver-info.hide-flags .flag-container {
-  display: none;
-}
-.focused-driver-info .inner {
-  height: 71px;
-  display: inline-block;
-  position: absolute;
-  left: 30%;
-  bottom: 20%;
-}
-.focused-driver-info .extra-info {
-  position: absolute;
-  top: 90px;
-  z-index: -1;
-  margin-top: 0px;
-  font-family: Oswald;
-  left: 28%;
-}
-.focused-driver-info .extra-info ul {
-  margin: 0;
-  padding: 5px;
-}
-.focused-driver-info .extra-info ul li {
+.error-screen pre {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: #fff;
   font-size: 17px;
-  float: left;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 8px;
-  margin-right: 10px;
-  border: 1px;
-  border-radius: 10px;
-  color: white;
-  position: relative;
-  -webkit-transition: top 0.5s;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+  font-family: Inconsolata;
 }
-.focused-driver-info .extra-info ul li.active {
-  top: 0;
-}
-.focused-driver-info .extra-info ul li.finished {
-  color: #ffffff;
-}
-.focused-driver-info .extra-info ul li.finished.personal-best {
-  background: linear-gradient(#4caf50, rgba(76, 175, 80, 0.5));
-  color: white;
-}
-.focused-driver-info .extra-info ul li.finished.global-best {
-  background: linear-gradient(#9c27b0, rgba(156, 39, 176, 0.5));
-  color: white;
-}
-.focused-driver-info .best-time {
-  line-height: 17px;
-  font-size: 18px;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 10px 10px;
-  margin-right: 10px;
-  border-radius: 15px 15px 0 0;
-  color: #00c853;
-  height: 35px;
-  width: 140px;
-  z-index: 0;
-  margin-bottom: 0px;
-  position: absolute;
-  left: 210px;
-  bottom: 100%;
-  -webkit-transition: top 0.5s;
-}
-.focused-driver-info .positionInClass {
-  line-height: 17px;
-  font-size: 18px;
-  background: rgba(38, 50, 56, 0.5);
-  padding: 10px 10px;
-  margin-right: 10px;
-  border-radius: 15px 15px 0 0;
-  color: white;
-  height: 35px;
-  width: 140px;
-  z-index: 0;
-  margin-bottom: 0px;
-  position: absolute;
-  left: 360px;
-  bottom: 100%;
-  -webkit-transition: top 0.5s;
-}
-.focused-driver-info .position,
-.focused-driver-info .flag-container,
-.focused-driver-info .name,
-.focused-driver-info .team,
-.focused-driver-info .tyre,
-.focused-driver-info .manufacturer,
-.focused-driver-info .vehicle {
-  vertical-align: top;
-  display: inline-block;
-  height: 85px;
-  line-height: 65px;
-}
-.focused-driver-info .position {
-  background: rgba(38, 50, 56, 0.8);
-  color: white;
-  width: 100px;
-  font-size: 60px;
-  text-align: center;
-  padding-right: 13px;
-  line-height: 80px;
-  right: 300px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom: 2px solid #c61712;
-}
-.focused-driver-info .name {
-  background: rgba(38, 50, 56, 0.8);
-  color: white;
-  font-size: 30px;
-  line-height: 60px;
-  text-transform: uppercase;
-  padding: 0px 20px;
-  min-width: 500px;
-  border-bottom: 2px solid #c61712;
-}
-.focused-driver-info .team {
-  position: absolute;
-  color: white;
-  font-size: 20px;
-  line-height: 60px;
-  text-transform: uppercase;
-  left: 25%;
-  right: 13%;
-  top: 35px;
-}
-.focused-driver-info .vehicle {
-  background-position: -442px 0;
-  width: 36px;
-  position: absolute;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-.focused-driver-info .vehicle img {
-  position: absolute;
-  top: -80px;
-  left: -230px;
-  height: 110px;
-}
-.focused-driver-info .tyre {
-  background-position: -442px 0;
-  width: 36px;
-  position: absolute;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-.focused-driver-info .tyre img {
-  position: absolute;
-  top: 15px;
-  left: -92px;
-  height: 60px;
-}
-.focused-driver-info .manufacturer {
-  background: white;
-  background-position: -442px 0;
-  width: 76px;
-  left: -25px;
-  position: relative;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom: 2px solid #c61712;
-}
-.focused-driver-info .manufacturer img {
-  position: absolute;
-  top: 10px;
-  left: 7px;
-  height: 62px;
-}
-.focused-driver-info .class {
-  background: rgba(38, 50, 56, 0.5);
-  font-size: 35px;
-  text-transform: uppercase;
-  padding: 0px 20px;
-  min-width: 25px;
-}
-.focused-driver-info .flag-container {
-  width: 61px;
-  background-position: -65px 0;
-  position: relative;
-  background: rgba(38, 50, 56, 0.8);
-  border-bottom: 2px solid #c61712;
-}
-.focused-driver-info .flag-container .flag {
-  display: block;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: -15px;
-  left: -10px;
-  border-bottom-right-radius: 20%;
-  border-top-left-radius: 20%;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
+pre.preview {
+  background: #000;
+  white-space: pre;
+  text-align: left;
+  font-family: 'Inconsolata';
+  padding: 20px;
 }
 .logo-overlay {
   font-size: 20px;
@@ -2043,31 +1908,131 @@ select {
   border-bottom-right-radius: 0.5em;
   filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
 }
-.error-screen {
-  z-index: 2147483627;
+.overallQuai {
+  font-size: 20px;
   position: fixed;
-  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
 }
-.error-screen pre {
+.qualify-results .entries-outer {
+  max-height: 40em;
+  overflow: hidden;
+}
+.qualify-results .entries-outer .entries-inner {
+  top: 0;
+  position: relative;
+  -webkit-transition: top 15s linear;
+}
+.qualify-results .livery {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.qualify-results {
   position: fixed;
   top: 50%;
-  left: 50%;
-  color: #fff;
-  font-size: 17px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  line-height: 1.5;
-  font-family: Inconsolata;
-}
-pre.preview {
-  background: #000;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
+  z-index: -1;
+  padding: 0px;
+  color: white;
   white-space: pre;
-  text-align: left;
-  font-family: 'Inconsolata';
-  padding: 20px;
+  font-family: Oswald;
+  width: 60%;
+}
+.qualify-results .title .text {
+  position: inherit;
+  height: 3em;
+  text-align: right;
+  padding: 0 0.75em 0 0;
+  line-height: 4em;
+  font-size: 30px;
+  background: rgba(38, 50, 56, 0.8);
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-top: 0.25em solid #c61712;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  z-index: 0;
+}
+.qualify-results .title .text .logo {
+  position: absolute;
+  content: url(results/logos/base.png);
+  height: 2.2em;
+  top: 0.5em;
+  left: 1em;
+  z-index: 1;
+}
+.qualify-results .qualify-results-entry {
+  height: 2em;
+  line-height: 2em;
+  margin-bottom: 0.1em;
+  color: white;
+  background: rgba(38, 50, 56, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry.title {
+  padding: 0 0 0 0em;
+  font-size: 22px;
+}
+.qualify-results .qualify-results-entry.title .classPosition {
+  color: white;
+}
+.qualify-results .qualify-results-entry.fastest {
+  color: #f500f5;
+}
+.qualify-results .qualify-results-entry > div {
+  height: 2em;
+  padding: 0 0 0 0.25em;
+  float: left;
+}
+.qualify-results .qualify-results-entry .position {
+  text-align: center;
+  width: 10%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .classPosition {
+  width: 10%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.qualify-results .qualify-results-entry .manufacturer {
+  width: 5%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .manufacturer img {
+  position: absolute;
+  top: 0.3em;
+  left: 0.5em;
+  width: 1.5em;
+  height: auto;
+}
+.qualify-results .qualify-results-entry .shortName {
+  position: relative;
+  width: 30%;
+}
+.qualify-results .qualify-results-entry .longName {
+  position: relative;
+  width: 40%;
+}
+.qualify-results .qualify-results-entry .livery {
+  width: 15%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .livery img {
+  position: relative;
+  height: 3em;
+  right: 1.5em;
+  top: -0.5em;
+}
+.qualify-results .qualify-results-entry .fastest-time,
+.qualify-results .qualify-results-entry .lap-time {
+  width: 15%;
+  position: relative;
 }
 .safetyCarDeployed {
   font-size: 20px;

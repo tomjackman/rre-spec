@@ -1304,13 +1304,12 @@ UI.widgets.FocusedDriver = React.createClass({
 			{ className: focusedDriverClasses },
 			React.createElement(
 				'div',
-				{ className: 'inner animated flipInX' },
+				{ className: 'inner animated fadeIn' },
 				React.createElement(
 					'div',
 					{ className: 'position' },
 					driverInfo.scoreInfo.positionOverall
 				),
-				UI.state.controllerOptions.options.multiclass.value === "true" ? self.getClassPosition(driverInfo.classId) : null,
 				React.createElement(
 					'div',
 					{ className: 'flag-container' },
@@ -1318,7 +1317,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				React.createElement(
 					'div',
-					{ className: 'name animated' },
+					{ className: 'name' },
 					self.fixName(driverInfo.name)
 				),
 				React.createElement(
@@ -1338,7 +1337,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				React.createElement(
 					'div',
-					{ className: 'vehicle animated pulse delay-1s' },
+					{ className: 'vehicle' },
 					React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driverInfo.liveryId + '&size=small' })
 				),
 				self.state.pushToPassInfo.allowed ? React.createElement(
@@ -1373,7 +1372,8 @@ UI.widgets.FocusedDriver = React.createClass({
 					{ className: 'best-time' },
 					'PB - ',
 					UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-				) : null
+				) : null,
+				UI.state.controllerOptions.options.multiclass.value === "true" ? self.getClassPosition(driverInfo.classId) : null
 			)
 		);
 	}
@@ -1678,7 +1678,7 @@ UI.widgets.RaceResults = React.createClass({
 			null,
 			winningDriver != null ? React.createElement(
 				'div',
-				{ className: 'winnerColumn animated fadeIn' },
+				{ className: 'winnerColumn animated fadeInLeft' },
 				React.createElement(
 					'div',
 					{ className: 'winnerTitle' },
@@ -1708,7 +1708,7 @@ UI.widgets.RaceResults = React.createClass({
 			) : null,
 			fastestDriver != null ? React.createElement(
 				'div',
-				{ className: 'fastestDriverColumn animated fadeIn' },
+				{ className: 'fastestDriverColumn animated fadeInRight' },
 				React.createElement(
 					'div',
 					{ className: 'fastestTitle' },
@@ -4447,7 +4447,7 @@ UI.widgets.CompareRace = React.createClass({
 				{ className: 'inner' },
 				drivers[0].scoreInfo.timeDiff !== -1 ? React.createElement(
 					'div',
-					{ className: 'delta animated flipInX' },
+					{ className: 'delta animated fadeIn' },
 					React.createElement(
 						'div',
 						{ className: 'battle' },
@@ -4493,7 +4493,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 
 		var classes = {
 			'inner': true,
-			'animated flipInX': true
+			'animated fadeIn': true
 		};
 		classes[self.props.position] = true;
 		return React.createElement(
@@ -4501,17 +4501,21 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			{ className: cx(classes) },
 			React.createElement(
 				'div',
-				{ className: 'position' },
-				driver.scoreInfo.positionOverall
+				{ className: 'comparePositionContainer' },
+				React.createElement(
+					'div',
+					{ className: 'comparePosition' },
+					driver.scoreInfo.positionOverall
+				)
 			),
 			React.createElement(
 				'div',
-				{ className: 'flag-container' },
-				React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
+				{ className: 'compareFlagContainer' },
+				React.createElement('img', { className: 'compareFlag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
 			),
 			React.createElement(
 				'div',
-				{ className: 'name' },
+				{ className: 'compareName' },
 				self.fixName(driver.name)
 			),
 			React.createElement(
@@ -4521,7 +4525,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			),
 			React.createElement(
 				'div',
-				{ className: 'vehicle animated pulse delay-1s' },
+				{ className: 'vehicle' },
 				React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small' })
 			),
 			React.createElement(

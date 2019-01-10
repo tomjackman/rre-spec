@@ -90,7 +90,7 @@ UI.widgets.CompareRace = React.createClass({
 			<div className="compare-race">
 				<div className="inner">
 					{drivers[0].scoreInfo.timeDiff !== -1 ?
-						<div className="delta animated flipInX">
+						<div className="delta animated fadeIn">
 							<div className="battle">Battle For P{drivers[0].scoreInfo.positionOverall - 1}</div>
 							<div className="value">{self.formatTime(Math.max(0, drivers[0].scoreInfo.timeDiff))}</div>
 							<UI.widgets.CompareRaceDriver position="first" driver={drivers[1]}/>
@@ -130,18 +130,18 @@ UI.widgets.CompareRaceDriver = React.createClass({
 
 		var classes = {
 			'inner': true,
-			'animated flipInX': true
+			'animated fadeIn': true
 		};
 		classes[self.props.position] = true;
 		return (
 			<div className={cx(classes)}>
-				<div className="position">{driver.scoreInfo.positionOverall}</div>
-				<div className="flag-container">
-					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
+				<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionOverall}</div></div>
+				<div className="compareFlagContainer">
+					<img className="compareFlag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
 				</div>
-				<div className="name">{self.fixName(driver.name)}</div>
+				<div className="compareName">{self.fixName(driver.name)}</div>
 				<div className="team">{self.getTeamName(driver.teamId, driver.portalId)}</div>
-				<div className="vehicle animated pulse delay-1s">
+				<div className="vehicle">
 					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} />
 				</div>
 				<div className="manufacturer">

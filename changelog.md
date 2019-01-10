@@ -8,7 +8,7 @@
 * [Feature] Improved colours of the Audi theme.
 * [Feature] Added winner and fastest lap information to the race results screen.
 * [Feature] Added responsive UI based on game resolution.
-* [Feature] Added resolution scaling config value to scale UI elements smaller or bigger.
+* [Feature] Added resolution scaling config file to scale UI elements.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.

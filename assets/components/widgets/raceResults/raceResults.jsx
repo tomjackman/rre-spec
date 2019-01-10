@@ -41,7 +41,7 @@ UI.widgets.RaceResults = React.createClass({
 		return (
 			<div>
 			{ winningDriver != null ?
-			<div className="winnerColumn animated fadeIn">
+			<div className="winnerColumn animated fadeInLeft">
 			<div className="winnerTitle">Race Winner</div>
 				<div className="winnerImageContainer">
 					<img className="winnerImage" src={'/img/winner.png'} />
@@ -59,7 +59,7 @@ UI.widgets.RaceResults = React.createClass({
 				null
 			}
 			{ fastestDriver != null ?
-			<div className="fastestDriverColumn animated fadeIn">
+			<div className="fastestDriverColumn animated fadeInRight">
 			<div className="fastestTitle">Fastest Lap</div>
 				<div className="fastestDriverImageContainer">
 					<img className="fastestDriverImage" src={'/img/fastest.png'} />

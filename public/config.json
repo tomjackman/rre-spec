@@ -2,7 +2,7 @@
   "options": {
     "multiclass": {
       "displayName": "Multiclass UI",
-      "value": "false",
+      "value": "true",
       "tooltip": "Enable Multiclass UI elements (Default: False).",
       "type": "checkbox"
     },
@@ -44,7 +44,7 @@
     },
     "continueToNextSessionTime": {
       "displayName": "Continue to Next Session Time (Seconds)",
-      "value": "45",
+      "value": "5545",
       "tooltip": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for (Default: 45 Seconds).",
       "type": "number"
     }

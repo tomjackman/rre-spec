@@ -251,17 +251,12 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		return (
 			<div className={focusedDriverClasses}>
-				<div className="inner animated flipInX">
+				<div className="inner animated fadeIn">
 					<div className="position">{driverInfo.scoreInfo.positionOverall}</div>
-					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-						self.getClassPosition(driverInfo.classId)
-					:
-						null
-					}
 					<div className="flag-container">
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					</div>
-					<div className="name animated">{self.fixName(driverInfo.name)}</div>
+					<div className="name">{self.fixName(driverInfo.name)}</div>
 					<div className="team">{self.getTeamName(driverInfo.teamId, driverInfo.portalId)}</div>
 
 					{UI.state.controllerOptions.options.showTyreCompound.value === "true" && r3eTyreDB.classes[driverInfo.classId] != null ?
@@ -275,7 +270,7 @@ UI.widgets.FocusedDriver = React.createClass({
 						<img src={'/render/'+driverInfo.manufacturerId+'/small/'}/>
 					</div>
 
-					<div className="vehicle animated pulse delay-1s">
+					<div className="vehicle">
 						<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
 					</div>
 
@@ -299,6 +294,11 @@ UI.widgets.FocusedDriver = React.createClass({
 							PB - {UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
 						</div>
 						:
+						null
+					}
+					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
+						self.getClassPosition(driverInfo.classId)
+					:
 						null
 					}
 				</div>

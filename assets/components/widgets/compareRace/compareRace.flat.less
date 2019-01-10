@@ -7,99 +7,93 @@
 	font-family: Oswald;
 	color: #fff;
 	.inner {
+		font-size: @fontSize;
 		white-space: nowrap;
 		width: auto;
-		height: 81px;
+		height: 4em;
 		display: inline-block;
 		position: relative;
 	}
 	.extra-info {
-display:none;
+		display:none;
 	}
 	.position, .name, .vehicle, .team, .manufacturer, .flag-container {
 		vertical-align: top;
 		display: inline-block;
-		height: 71px;
-		line-height: 75px;
+		height: 3.5em;
+		line-height: 3.75em;
 	}
 	.best-time {
-		font-size: 18px;
 		background: @CompareRaceBestTimeBackground;
-		padding: 10px 10px;
-		margin-right: 10px;
-		border-radius: 15px 15px 0 0;
+		padding: 0.5em 0.5em;
+		margin-right: 0.5em;
+		border-radius: 0.75em 0.75em 0 0;
 		color: @CompareRaceBestTimeText;
-		height: 35px;
-		width: 130px;
+		height: 1.75em;
+		width: 6.5em;
 		z-index: 0;
 		margin-bottom: 0px;
-		position: absolute;
-		left: 150px;
+		position: fixed;
+		left: 7.5em;
 		bottom: 100%;
-		-webkit-transition: top 0.5s;
 	}
 	.position {
 		background: @CompareRacePositionBackground;
 		color: @CompareRacePositionText;
-		width: 65px;
-		font-size: 50px;
-		text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+		width: 3.25em;
+		text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
 		text-align: center;
 		padding-left: 0px;
-		line-height: 70px;
-		border-top-left-radius: 20px;
-		border-bottom-left-radius: 20px;
-		border-bottom: 1px solid @CompareRacePositionBorder;
+		line-height: 3.5em;
+		border-top-left-radius: 1em;
+		border-bottom-left-radius: 1em;
+		border-bottom: 0.1em solid @CompareRacePositionBorder;
 	}
 	.name {
   	background: @CompareRaceNameBackground;
 		color: @CompareRaceNameText;
-		font-size: 30px;
-		padding: 0 20px;
-		min-width: 320px;
-		border-bottom: 1px solid @CompareRaceNameBorder;
+		padding: 0 1em;
+		min-width: 16em;
+		border-bottom: 0.1em solid @CompareRaceNameBorder;
 	}
 	.team {
-		position: absolute;
+		position: fixed;
 		background: @CompareRaceTeamNameBackground;
 		color: @CompareRaceTeamNameText;
-		height: 30px;
-		font-size: 20px;
+		height: 1.5em;
 		text-transform: uppercase;
 		left: 20%;
 		right: 13%;
-		top: 71px;
-		line-height: 30px;
-		border: 1px;
-		border-bottom-left-radius: 20px;
-		border-bottom-right-radius: 20px;
+		top: 3.5em;
+		line-height: 1.5em;
+		border: 0.1em;
+		border-bottom-left-radius: 1em;
+		border-bottom-right-radius: 1em;
 	}
 	.vehicle {
-		background-position: -442px 0;
-		width: 36px;
-		position: absolute;
-		border-top-right-radius: 20px;
-		border-bottom-right-radius: 20px;
+		width: 1.75em;
+		position: fixed;
+		border-top-right-radius: 1em;
+		border-bottom-right-radius: 1em;
 		img {
 			position: absolute;
-			top: -80px;
-			left: -170px;
-			height: 110px;
+			top: -4em;
+			left: -8.5em;
+			height: 5.5em;
 		}
 	}
 	.manufacturer {
 		background: @CompareRaceManufacturerBackground;
-		background-position: -442px 0;
-		width: 76px;
+		width: 4em;
 		position: relative;
-		border-top-right-radius: 20px;
-		border-bottom-right-radius: 20px;
-		border-bottom: 1px solid @CompareRaceManufacturerBorder;
+		border-top-right-radius: 1em;
+		border-bottom-right-radius: 1em;
+		border-bottom: 0.1em solid @CompareRaceManufacturerBorder;
 		img {
 			position: absolute;
-			top: 5px;
-			left: 8px;
-			height: 60px;
+			top: 0.25em;
+			right: 0.5em;
+			height: 3em;
 		}
 	}
 	/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
@@ -110,17 +104,16 @@ display:none;
 		&.active {
 			.icon {
 				background: @CompareRaceDRSActiveBackground;
-				position: absolute;
-				top: -30px;
-				left: 15px;
-				right: 10px;
-				height: 30px;
-				line-height: 35px;
+				position: fixed;
+				top: -1.5em;
+				left: 0.75em;
+				right: 0.5em;
+				height: 1.5em;
+				line-height: 1.75em;
 				font-family: Oswald;
-				font-size: 20px;
-				width: 47px;
-				border-top-left-radius: 10px;
-				border-top-right-radius: 10px;
+				width: 2.25em;
+				border-top-left-radius: 0.5em;
+				border-top-right-radius: 0.5em;
 				bottom: 0;
 			}
 		}
@@ -131,42 +124,40 @@ display:none;
 		}
 		&.active {
 			.icon {
-				background: @CompareRaceDRSActiveBackground;
-				position: absolute;
-				top: -35px;
-				left: 10px;
-				right: 10px;
-				height: 35px;
-				line-height: 35px;
+				background: rgba(183, 28, 28, 0.7);
+				position: fixed;
+				top: -1.5em;
+				left: 0.75em;
+				right: 0.5em;
+				height: 1.5em;
+				line-height: 1.75em;
 				font-family: Oswald;
-				font-size: 20px;
-				width: 52px;
-				border-top-left-radius: 10px;
-				border-top-right-radius: 10px;
+				width: 2.25em;
+				border-top-left-radius: 0.5em;
+				border-top-right-radius: 0.5em;
 				bottom: 0;
 			}
 		}
 	}
 	.flag-container {
-		width: 61px;
-		background-position: -65px 0;
+		width: 3em;
 		position: relative;
-		margin-right: 5px;
+		margin-right: 0.25em;
 		.flag {
-			width: 81px;
-			height: 71px;
-			background: #000;
-			position: absolute;
+			width: 4em;
+			height: 3.5em;
+			background: @DriverInfoFlagBackground;
+			position: fixed;
 			display: block;
 			content: '';
-			width: 80px;
-			height: 80px;
+			width: 4em;
+			height: 4em;
 			background: #000;
 			position: absolute;
-			top: -9px;
-			left: -5px;
-			border-bottom-right-radius: 20%;
-			border-top-left-radius: 20%;
+			top: -0.5em;
+			left: -0.25em;
+			border-bottom-right-radius: 1em;
+			border-top-left-radius: 1em;
 			filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.9));
 			z-index: 1;
 		}
@@ -175,49 +166,47 @@ display:none;
 
 .compare-race {
 	position: fixed;
-	bottom: 80px;
-	height: 70px;
+	bottom: 6em;
+	height: 3.5em;
 	left: 0;
 	right: 0;
 	text-align: center;
 
 	.delta {
-		font-size: 20px;
+		font-size: @fontSize;
 		text-transform: uppercase;
 		background: @CompareRaceDeltaBackground;
-		border-radius: 20px;
+		border-radius: 1em;
 		color: @CompareRaceDeltaText;
-		border-top: 3px solid @CompareRaceDeltaDeltaBorder;
-		padding: 6px 10px;
-		min-width: 130px;
-		display: inline-block;
+		border-top: 0.25em solid @CompareRaceDeltaDeltaBorder;
+		padding: 0.25em 0.5em;
+		min-width: 6.5em;
 		display: inline-block;
 		position: relative;
 
 		.battle {
-			font-size: 17px;
 			text-transform: uppercase;
-			border-top-left-radius: 20px;
-			border-top-right-radius: 20px;
+			border-top-left-radius: 1em;
+			border-top-right-radius: 1em;
 			color: @CompareRaceDeltaText;
-			padding: 6px 10px;
+			padding: 0.25em 0.5em;
 			width: inherit;
 			position: relative;
-			bottom: 4px;
+			bottom: 0.25em;
 		}
 
 		.inner {
 			position: absolute !important;
-			top: 10px;
+			top: 0.5em;
 			&.first {
 				left: auto;
 				right: 100%;
-				margin-right: 20px;
+				margin-right: 1em;
 			}
 			&.second {
 				right:  auto;
 				left: 100%;
-				margin-left: 20px;
+				margin-left: 1em;
 			}
 		}
 	}
