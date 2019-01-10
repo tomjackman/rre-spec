@@ -138,7 +138,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			<div className="top">
 				{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 					<div className="best-time">
-						PB - {UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
+						{UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
 					</div>
 					:
 					null

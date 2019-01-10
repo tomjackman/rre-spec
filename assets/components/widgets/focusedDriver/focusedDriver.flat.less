@@ -34,18 +34,18 @@
 		ul {
 			margin: 0;
 			padding: 0.25em;
+			transform: skew(-15deg);
 			li {
 				float: left;
 				background: @DriverInfoSplitTimesBackground;
 				padding: 0.5em;
 				margin-right: 0.5em;
 				border: 0.1em;
-				border-radius: 0.5em;
 				color: white;
 				position: relative;
-				min-width: 4em;
-
+				min-width: 7.5em;
 				-webkit-transition: top 0.5s;
+				font-size: @fontSize * 0.9;
 				&.active {
 					top: 0;
 				}
@@ -77,34 +77,30 @@
 	}
 	.top {
 		position: relative;
-		left: -1em;
+		left: -1.2em;
 		height: 1.75em;
-		bottom: 0.25em;
+		bottom: -0.25em;
 		.best-time {
-			line-height: 1em;
+			transform: skew(-15deg);
+			line-height: 0.5em;
 			background: @DriverInfoBestTimeBackground;
 			padding: 0.5em 0.5em;
-			margin-right: 0.5em;
-			border-radius: 0.75em 0.75em 0 0;
 			color: @DriverInfoBestTimeText;
-			height: 1.75em;
 			width: 7em;
 			z-index: 0;
 			margin-bottom: 0px;
-			height: 2em;
+			height: 1.5em;
 		}
 		.positionInClass {
-			line-height: 1em;
+			transform: skew(-15deg);
+			line-height: 0.5em;
 			background: @DriverInfoPositionClassBackground;
 			padding: 0.5em 0.5em;
-			margin-right: 0.5em;
-			border-radius: 0.75em 0.75em 0 0;
 			color: @DriverInfoPositionClassText;
-			height: 1.75em;
 			width: 7em;
 			z-index: 0;
 			margin-bottom: 0px;
-			height: 2em;
+			height: 1.5em;
 		}
 	}
 	.main {

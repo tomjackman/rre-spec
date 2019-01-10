@@ -1189,12 +1189,15 @@ UI.widgets.FocusedDriver = React.createClass({
 			globalBest = personalBest;
 		}
 
+		var sectorMap = { "sector1": "Sector 1", "sector2": "Sector 2", "sector3": "Sector 3" };
+
 		var classes = cx({
 			'sector-entry': true,
 			'finished': sector.finished,
 			'active': sector.time > 0,
 			'personal-best': sector.time <= personalBest,
-			'global-best': sector.time <= globalBest
+			'global-best': sector.time <= globalBest,
+			'animated fadeInRight': true
 		});
 		if (sector.time === -1) {
 			return null;
@@ -1203,7 +1206,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			return React.createElement(
 				'li',
 				{ className: classes },
-				UI.formatTime(sector.time, { ignoreSign: true }),
+				sectorMap[name] + " - " + UI.formatTime(sector.time, { ignoreSign: true }),
 				' (',
 				UI.formatTime(sector.time - globalBest),
 				')'
@@ -1212,7 +1215,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			return React.createElement(
 				'li',
 				{ className: classes },
-				UI.formatTime(sector.time, { ignoreSign: true })
+				sectorMap[name] + " - " + UI.formatTime(sector.time, { ignoreSign: true })
 			);
 		}
 	},
@@ -4529,7 +4532,6 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
 					'div',
 					{ className: 'best-time' },
-					'PB - ',
 					UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
 				) : null
 			),

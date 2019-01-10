@@ -2,7 +2,7 @@
   "options": {
     "multiclass": {
       "displayName": "Multiclass UI",
-      "value": "false",
+      "value": "true",
       "tooltip": "Enable Multiclass UI elements (Default: False).",
       "type": "checkbox"
     },

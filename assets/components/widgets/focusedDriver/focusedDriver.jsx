@@ -164,23 +164,26 @@ UI.widgets.FocusedDriver = React.createClass({
 			globalBest = personalBest;
 		}
 
+		var sectorMap = {"sector1": "Sector 1", "sector2": "Sector 2", "sector3": "Sector 3"}
+
 		var classes = cx({
 			'sector-entry': true
 			, 'finished': sector.finished
 			, 'active': sector.time > 0
 			, 'personal-best': sector.time <= personalBest
 			, 'global-best': sector.time <= globalBest
+			, 'animated fadeInRight': true
 		});
 		if (sector.time === -1) {
 			return null;
 		}
 		if (sector.finished && sector.time-globalBest !== 0) {
 			return <li className={classes}>
-				{UI.formatTime(sector.time, {ignoreSign: true})} ({UI.formatTime(sector.time-globalBest)})
+				{sectorMap[name] + " - " + UI.formatTime(sector.time, {ignoreSign: true})} ({UI.formatTime(sector.time-globalBest)})
 			</li>
 		} else {
 			return <li className={classes}>
-				{UI.formatTime(sector.time, {ignoreSign: true})}
+				{sectorMap[name] + " - " + UI.formatTime(sector.time, {ignoreSign: true})}
 			</li>;
 		}
 	},
