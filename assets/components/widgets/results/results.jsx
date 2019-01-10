@@ -69,7 +69,7 @@ UI.widgets.Results = React.createClass({
 		var fastestTime = 99999;
 		var fastestTimeIndex = null;
 		drivers.forEach(function(entry, i) {
-			if (entry.scoreInfo.bestLapInfo.valid && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
+			if (entry.finishStatus != 'DNF' && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
 				fastestTimeIndex = i;
 			}

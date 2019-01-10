@@ -1680,7 +1680,7 @@ UI.widgets.RaceResults = React.createClass({
 		var fastestTimeIndex = null;
 		var winnerIndex = null;
 		self.props.results.forEach(function (entry, i) {
-			if (entry.bestLapInfo.valid && entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
+			if (entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime && entry.finishStatus != 'DNF') {
 				fastestTime = entry.bestLapInfo.sector3;
 				fastestTimeIndex = i;
 			}
@@ -2008,7 +2008,7 @@ UI.widgets.Results = React.createClass({
 		var fastestTime = 99999;
 		var fastestTimeIndex = null;
 		drivers.forEach(function (entry, i) {
-			if (entry.scoreInfo.bestLapInfo.valid && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
+			if (entry.finishStatus != 'DNF' && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
 				fastestTimeIndex = i;
 			}
