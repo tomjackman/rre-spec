@@ -252,26 +252,46 @@ UI.widgets.FocusedDriver = React.createClass({
 		return (
 			<div className={focusedDriverClasses}>
 				<div className="inner animated fadeIn">
-					<div className="position">{driverInfo.scoreInfo.positionOverall}</div>
+					<div className="top">
+						{driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ?
+							<div className="best-time">
+								PB - {UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
+							</div>
+							:
+							null
+						}
+						{ UI.state.controllerOptions.options.multiclass.value === "true" ?
+							self.getClassPosition(driverInfo.classId)
+						:
+							null
+						}
+					</div>
+					<div className="main">
+					<div className="positionContainer"><div className="position">{driverInfo.scoreInfo.positionOverall}</div></div>
 					<div className="flag-container">
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					</div>
-					<div className="name">{self.fixName(driverInfo.name)}</div>
-					<div className="team">{self.getTeamName(driverInfo.teamId, driverInfo.portalId)}</div>
-
+					<div className="driverInfoDetails">
+						<div className="name">{self.fixName(driverInfo.name)}</div>
+						<div className="team">{self.getTeamName(driverInfo.teamId, driverInfo.portalId)}</div>
+					</div>
 					{UI.state.controllerOptions.options.showTyreCompound.value === "true" && r3eTyreDB.classes[driverInfo.classId] != null ?
-					<div className="tyre">
-						<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
-					</div>
-						:
-						null
-					}
-					<div className="manufacturer">
-						<img src={'/render/'+driverInfo.manufacturerId+'/small/'}/>
+						<div className="tyre">
+							<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
+						</div>
+							:
+							null
+						}
+						<div className="manufacturer">
+							<img src={'/render/'+driverInfo.manufacturerId+'/small/'}/>
+						</div>
+						<div className="vehicle">
+							<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
+						</div>
 					</div>
 
-					<div className="vehicle">
-						<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
+					<div className="bottom">
+						{self.getExtraInfo()}
 					</div>
 
 					{self.state.pushToPassInfo.allowed ?
@@ -288,19 +308,7 @@ UI.widgets.FocusedDriver = React.createClass({
 						<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>Remaining - {self.state.vehicleInfo.drsLeft}</div>
 					</div>
 
-					{self.getExtraInfo()}
-					{driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ?
-						<div className="best-time">
-							PB - {UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
-						</div>
-						:
-						null
-					}
-					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-						self.getClassPosition(driverInfo.classId)
-					:
-						null
-					}
+
 				</div>
 			</div>
 		);

@@ -1307,38 +1307,66 @@ UI.widgets.FocusedDriver = React.createClass({
 				{ className: 'inner animated fadeIn' },
 				React.createElement(
 					'div',
-					{ className: 'position' },
-					driverInfo.scoreInfo.positionOverall
+					{ className: 'top' },
+					driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
+						'div',
+						{ className: 'best-time' },
+						'PB - ',
+						UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+					) : null,
+					UI.state.controllerOptions.options.multiclass.value === "true" ? self.getClassPosition(driverInfo.classId) : null
 				),
 				React.createElement(
 					'div',
-					{ className: 'flag-container' },
-					React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
+					{ className: 'main' },
+					React.createElement(
+						'div',
+						{ className: 'positionContainer' },
+						React.createElement(
+							'div',
+							{ className: 'position' },
+							driverInfo.scoreInfo.positionOverall
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'flag-container' },
+						React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'driverInfoDetails' },
+						React.createElement(
+							'div',
+							{ className: 'name' },
+							self.fixName(driverInfo.name)
+						),
+						React.createElement(
+							'div',
+							{ className: 'team' },
+							self.getTeamName(driverInfo.teamId, driverInfo.portalId)
+						)
+					),
+					UI.state.controllerOptions.options.showTyreCompound.value === "true" && r3eTyreDB.classes[driverInfo.classId] != null ? React.createElement(
+						'div',
+						{ className: 'tyre' },
+						React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
+					) : null,
+					React.createElement(
+						'div',
+						{ className: 'manufacturer' },
+						React.createElement('img', { src: '/render/' + driverInfo.manufacturerId + '/small/' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'vehicle' },
+						React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driverInfo.liveryId + '&size=small' })
+					)
 				),
 				React.createElement(
 					'div',
-					{ className: 'name' },
-					self.fixName(driverInfo.name)
-				),
-				React.createElement(
-					'div',
-					{ className: 'team' },
-					self.getTeamName(driverInfo.teamId, driverInfo.portalId)
-				),
-				UI.state.controllerOptions.options.showTyreCompound.value === "true" && r3eTyreDB.classes[driverInfo.classId] != null ? React.createElement(
-					'div',
-					{ className: 'tyre' },
-					React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
-				) : null,
-				React.createElement(
-					'div',
-					{ className: 'manufacturer' },
-					React.createElement('img', { src: '/render/' + driverInfo.manufacturerId + '/small/' })
-				),
-				React.createElement(
-					'div',
-					{ className: 'vehicle' },
-					React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driverInfo.liveryId + '&size=small' })
+					{ className: 'bottom' },
+					self.getExtraInfo()
 				),
 				self.state.pushToPassInfo.allowed ? React.createElement(
 					'div',
@@ -1365,15 +1393,7 @@ UI.widgets.FocusedDriver = React.createClass({
 						'Remaining - ',
 						self.state.vehicleInfo.drsLeft
 					)
-				),
-				self.getExtraInfo(),
-				driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
-					'div',
-					{ className: 'best-time' },
-					'PB - ',
-					UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-				) : null,
-				UI.state.controllerOptions.options.multiclass.value === "true" ? self.getClassPosition(driverInfo.classId) : null
+				)
 			)
 		);
 	}

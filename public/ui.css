@@ -142,34 +142,36 @@ a {
 }
 .drs.active .icon {
   background: rgba(76, 175, 80, 0.7);
-  position: fixed;
-  top: -0.5em;
-  left: -12em;
-  right: 0.5em;
-  height: 2.5em;
-  line-height: 2.5em;
+  position: absolute;
+  top: -10px;
+  left: -240px;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
   font-family: Oswald;
-  width: 7.5em;
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
+  font-size: 30px;
+  width: 150px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   bottom: 0;
 }
 .drs.active .text {
   background: rgba(38, 50, 56, 0.8);
-  position: fixed;
-  top: 2em;
-  left: -12em;
-  right: 0.5em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
+  position: absolute;
+  top: 40px;
+  left: -240px;
+  right: 10px;
+  height: 50px;
+  width: 150px;
+  line-height: 50px;
+  font-size: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   bottom: 0;
 }
 .ptp .text {
   background: rgba(38, 50, 56, 0.8);
-  position: fixed;
+  position: absolute;
   top: 40px;
   left: -240px;
   right: 10px;
@@ -183,7 +185,7 @@ a {
 }
 .ptp .icon {
   background: rgba(183, 28, 28, 0.7);
-  position: fixed;
+  position: absolute;
   top: -10px;
   left: -240px;
   right: 10px;
@@ -198,29 +200,31 @@ a {
 }
 .ptp.active .icon {
   background: rgba(66, 165, 245, 0.7);
-  position: fixed;
-  top: -0.5em;
-  left: -12em;
-  right: 0.5em;
-  height: 2.5em;
-  line-height: 2.5em;
+  position: absolute;
+  top: -10px;
+  left: -240px;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
   font-family: Oswald;
-  width: 7.5em;
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
+  font-size: 30px;
+  width: 150px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   bottom: 0;
 }
 .ptp.active .text {
   background: rgba(38, 50, 56, 0.8);
-  position: fixed;
-  top: 2em;
-  left: -12em;
-  right: 0.5em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
+  position: absolute;
+  top: 40px;
+  left: -240px;
+  right: 10px;
+  height: 50px;
+  width: 150px;
+  line-height: 50px;
+  font-size: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   bottom: 0;
 }
 .focused-driver-info {
@@ -228,7 +232,7 @@ a {
   font-family: Oswald;
   color: #fff;
   position: fixed;
-  bottom: 7%;
+  bottom: 12em;
   left: 0;
   right: 0;
 }
@@ -239,20 +243,27 @@ a {
   font-size: 20px;
   height: 3.5em;
   display: inline-block;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
 }
 .focused-driver-info .extra-info {
-  position: absolute;
-  top: 4.5em;
+  vertical-align: top;
+  display: inline-block;
+}
+.focused-driver-info .bottom .extra-info {
+  position: relative;
+  top: 1em;
   z-index: -1;
   margin-top: 0em;
   font-family: Oswald;
-  left: 28%;
 }
-.focused-driver-info .extra-info ul {
+.focused-driver-info .bottom .extra-info ul {
   margin: 0;
   padding: 0.25em;
 }
-.focused-driver-info .extra-info ul li {
+.focused-driver-info .bottom .extra-info ul li {
   float: left;
   background: rgba(38, 50, 56, 0.8);
   padding: 0.5em;
@@ -261,23 +272,46 @@ a {
   border-radius: 0.5em;
   color: white;
   position: relative;
+  min-width: 4em;
   -webkit-transition: top 0.5s;
 }
-.focused-driver-info .extra-info ul li.active {
+.focused-driver-info .bottom .extra-info ul li.active {
   top: 0;
 }
-.focused-driver-info .extra-info ul li.finished {
+.focused-driver-info .bottom .extra-info ul li.finished {
   color: #ffffff;
 }
-.focused-driver-info .extra-info ul li.finished.personal-best {
+.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
   background: linear-gradient(#4caf50, rgba(76, 175, 80, 0.5));
   color: white;
 }
-.focused-driver-info .extra-info ul li.finished.global-best {
+.focused-driver-info .bottom .extra-info ul li.finished.global-best {
   background: linear-gradient(#9c27b0, rgba(156, 39, 176, 0.5));
   color: white;
 }
-.focused-driver-info .best-time {
+.focused-driver-info .positionContainer,
+.focused-driver-info .flag-container,
+.focused-driver-info .driverInfoDetails,
+.focused-driver-info .tyre,
+.focused-driver-info .manufacturer,
+.focused-driver-info .vehicle {
+  vertical-align: top;
+  display: inline-block;
+  height: 4em;
+  line-height: 3.25em;
+}
+.focused-driver-info .best-time,
+.focused-driver-info .positionInClass {
+  vertical-align: top;
+  display: inline-block;
+}
+.focused-driver-info .top {
+  position: relative;
+  left: -1em;
+  height: 1.75em;
+  bottom: 0.25em;
+}
+.focused-driver-info .top .best-time {
   line-height: 1em;
   background: rgba(38, 50, 56, 0.8);
   padding: 0.5em 0.5em;
@@ -288,11 +322,9 @@ a {
   width: 7em;
   z-index: 0;
   margin-bottom: 0px;
-  position: relative;
-  bottom: 5.75em;
-  left: 42%;
+  height: 2em;
 }
-.focused-driver-info .positionInClass {
+.focused-driver-info .top .positionInClass {
   line-height: 1em;
   background: rgba(38, 50, 56, 0.5);
   padding: 0.5em 0.5em;
@@ -300,26 +332,12 @@ a {
   border-radius: 0.75em 0.75em 0 0;
   color: white;
   height: 1.75em;
-  width: 6em;
+  width: 7em;
   z-index: 0;
   margin-bottom: 0px;
-  position: relative;
-  bottom: 7.5em;
-  left: 63%;
+  height: 2em;
 }
-.focused-driver-info .position,
-.focused-driver-info .flag-container,
-.focused-driver-info .name,
-.focused-driver-info .team,
-.focused-driver-info .tyre,
-.focused-driver-info .manufacturer,
-.focused-driver-info .vehicle {
-  vertical-align: top;
-  display: inline-block;
-  height: 4em;
-  line-height: 3.25em;
-}
-.focused-driver-info .position {
+.focused-driver-info .main .positionContainer {
   background: rgba(38, 50, 56, 0.8);
   color: white;
   width: 4em;
@@ -331,70 +349,70 @@ a {
   border-bottom-left-radius: 1em;
   border-bottom: 0.1em solid #c61712;
 }
-.focused-driver-info .name {
+.focused-driver-info .main .positionContainer .position {
+  font-size: 60px;
+}
+.focused-driver-info .main .driverInfoDetails {
   background: rgba(38, 50, 56, 0.8);
-  color: white;
-  line-height: 3em;
   text-transform: uppercase;
   padding: 0px 1em;
-  min-width: 25em;
+  min-width: 23em;
   border-bottom: 0.1em solid #c61712;
 }
-.focused-driver-info .team {
+.focused-driver-info .main .driverInfoDetails .name {
+  line-height: 2em;
+  color: white;
+  font-size: 26px;
+}
+.focused-driver-info .main .driverInfoDetails .team {
+  font-size: 19px;
+  line-height: 0.7em;
   position: relative;
   color: white;
-  line-height: 3em;
   text-transform: uppercase;
-  left: 59%;
-  float: left;
-  right: 59%;
-  top: 1.6em;
 }
-.focused-driver-info .vehicle {
+.focused-driver-info .main .vehicle {
   width: 1.75em;
-  position: absolute;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
+  position: relative;
+  left: -12.5em;
 }
-.focused-driver-info .vehicle img {
+.focused-driver-info .main .vehicle img {
   position: absolute;
-  top: -3.9em;
-  left: -7.5em;
+  top: -4em;
+  left: 1.5em;
   height: 5.5em;
 }
-.focused-driver-info .tyre {
-  width: 1.75em;
-  position: absolute;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
+.focused-driver-info .main .tyre {
+  position: relative;
 }
-.focused-driver-info .tyre img {
+.focused-driver-info .main .tyre img {
   position: absolute;
-  top: 0.5em;
-  left: -3.5em;
+  top: 0.6em;
+  left: -4.5em;
   height: 3em;
 }
-.focused-driver-info .manufacturer {
+.focused-driver-info .main .manufacturer {
   background: white;
   width: 4em;
-  position: fixed;
+  position: relative;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
   border-bottom: 0.1em solid #c61712;
+  left: -1em;
 }
-.focused-driver-info .manufacturer img {
-  position: relative;
+.focused-driver-info .main .manufacturer img {
+  position: absolute;
   top: 0.5em;
-  left: 0.1em;
+  left: 0.5em;
   height: 3em;
 }
-.focused-driver-info .flag-container {
+.focused-driver-info .main .flag-container {
   width: 3em;
   position: relative;
   background: rgba(38, 50, 56, 0.8);
   border-bottom: 0.1em solid #c61712;
 }
-.focused-driver-info .flag-container .flag {
+.focused-driver-info .main .flag-container .flag {
   position: absolute;
   display: block;
   width: 5em;

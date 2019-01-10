@@ -44,7 +44,7 @@
     },
     "continueToNextSessionTime": {
       "displayName": "Continue to Next Session Time (Seconds)",
-      "value": "5545",
+      "value": "45",
       "tooltip": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for (Default: 45 Seconds).",
       "type": "number"
     }

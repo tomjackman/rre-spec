@@ -14,14 +14,22 @@
 		font-size: @fontSize;
 		height: 3.5em;
 		display: inline-block;
+		position: absolute;
+		left: 20%;
+		right: 20%;
+		-webkit-transform: translate(0, -50%);
 	}
 	.extra-info {
-		position: absolute;
-		top: 4.5em;
+		vertical-align: top;
+		display: inline-block;
+	}
+	.bottom {
+	.extra-info {
+		position: relative;
+		top: 1em;
 		z-index: -1;
 		margin-top: 0em;
 		font-family: Oswald;
-		left: 28%;
 		ul {
 			margin: 0;
 			padding: 0.25em;
@@ -34,6 +42,7 @@
 				border-radius: 0.5em;
 				color: white;
 				position: relative;
+				min-width: 4em;
 
 				-webkit-transition: top 0.5s;
 				&.active {
@@ -54,43 +63,51 @@
 			}
 		}
 	}
-	.best-time {
-		line-height: 1em;
-		background: @DriverInfoBestTimeBackground;
-		padding: 0.5em 0.5em;
-		margin-right: 0.5em;
-		border-radius: 0.75em 0.75em 0 0;
-		color: @DriverInfoBestTimeText;
-		height: 1.75em;
-		width: 7em;
-		z-index: 0;
-		margin-bottom: 0px;
-		position: relative;
-		bottom: 5.75em;
-		left: 42%;
-	}
-	.positionInClass {
-		line-height: 1em;
-		background: @DriverInfoPositionClassBackground;
-		padding: 0.5em 0.5em;
-		margin-right: 0.5em;
-		border-radius: 0.75em 0.75em 0 0;
-		color: @DriverInfoPositionClassText;
-		height: 1.75em;
-		width: 6em;
-		z-index: 0;
-		margin-bottom: 0px;
-		position: relative;
-		bottom: 7.5em;
-		left: 63%;
-	}
-	.position, .flag-container, .name, .team, .tyre, .manufacturer, .vehicle {
+}
+	.positionContainer, .flag-container, .driverInfoDetails, .tyre, .manufacturer, .vehicle {
 		vertical-align: top;
 		display: inline-block;
 		height: 4em;
 		line-height: 3.25em;
 	}
-	.position {
+	.best-time, .positionInClass {
+		vertical-align: top;
+		display: inline-block;
+	}
+	.top {
+		position: relative;
+		left: -1em;
+		height: 1.75em;
+		bottom: 0.25em;
+		.best-time {
+			line-height: 1em;
+			background: @DriverInfoBestTimeBackground;
+			padding: 0.5em 0.5em;
+			margin-right: 0.5em;
+			border-radius: 0.75em 0.75em 0 0;
+			color: @DriverInfoBestTimeText;
+			height: 1.75em;
+			width: 7em;
+			z-index: 0;
+			margin-bottom: 0px;
+			height: 2em;
+		}
+		.positionInClass {
+			line-height: 1em;
+			background: @DriverInfoPositionClassBackground;
+			padding: 0.5em 0.5em;
+			margin-right: 0.5em;
+			border-radius: 0.75em 0.75em 0 0;
+			color: @DriverInfoPositionClassText;
+			height: 1.75em;
+			width: 7em;
+			z-index: 0;
+			margin-bottom: 0px;
+			height: 2em;
+		}
+	}
+	.main {
+	.positionContainer {
 		background: @DriverInfoPositionBackground;
 		color: @DriverInfoPositionText;
 		width: 4em;
@@ -101,61 +118,61 @@
 		border-top-left-radius: 1em;
 		border-bottom-left-radius: 1em;
 		border-bottom: 0.1em solid @DriverInfoPositionBorder;
+		.position {
+			font-size: @fontSize * 3;
+		}
 	}
-	.name {
-  	background: @DriverInfoNameBackground;
-		color: @DriverInfoNameText;
-		line-height: 3em;
+	.driverInfoDetails {
+		background: @DriverInfoNameBackground;
 		text-transform: uppercase;
 		padding: 0px 1em;
-		min-width: 25em;
+		min-width: 23em;
 		border-bottom: 0.1em solid @DriverInfoNameBorder;
-	}
-	.team {
-		position: relative;
-		color: @DriverInfoTeamNameText;
-		line-height: 3em;
-		text-transform: uppercase;
-		left: 59%;
-		float: left;
-		right: 59%;
-		top: 1.6em;
+		.name {
+			line-height: 2em;
+			color: @DriverInfoNameText;
+			font-size: @fontSize * 1.3;
+		}
+		.team {
+			font-size: @fontSize * 0.95;
+			line-height: 0.7em;
+			position: relative;
+			color: @DriverInfoTeamNameText;
+			text-transform: uppercase;
+		}
 	}
 	.vehicle {
 		width: 1.75em;
-		position: absolute;
-		border-top-right-radius: 1em;
-		border-bottom-right-radius: 1em;
+		position: relative;
+		left: -12.5em;
 		img {
 			position: absolute;
-			top: -3.9em;
-			left: -7.5em;
+			top: -4em;
+			left: 1.5em;
 			height: 5.5em;
 		}
 	}
 	.tyre {
-		width: 1.75em;
-		position: absolute;
-		border-top-right-radius: 1em;
-		border-bottom-right-radius: 1em;
+		position: relative;
 			img {
 				position: absolute;
-				top: 0.5em;
-				left: -3.5em;
+				top: 0.6em;
+				left: -4.5em;
 				height: 3em;
 			}
 	}
 	.manufacturer {
 		background: @DriverInfoManufacturerBackground;
 		width: 4em;
-		position: fixed;
+		position: relative;
 		border-top-right-radius: 1em;
 		border-bottom-right-radius: 1em;
 		border-bottom: 0.1em solid @DriverInfoManufacturerBorder;
+		left: -1em;
 		img {
-			position: relative;
+			position: absolute;
 			top: 0.5em;
-			left: 0.1em;
+			left: 0.5em;
 			height: 3em;
 		}
 	}
@@ -175,6 +192,7 @@
 			filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.9));
 		}
 	}
+}
 }
 /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 .drs {
@@ -210,29 +228,31 @@
 	&.active {
 		.icon {
 			background: @DriverInfoDrsActiveBackground;
-			position: fixed;
-			top: -0.5em;
-			left: -12em;
-			right: 0.5em;
-			height: 2.5em;
-			line-height: 2.5em;
+			position: absolute;
+			top: -10px;
+			left: -240px;
+			right: 10px;
+			height: 50px;
+			line-height: 50px;
 			font-family: Oswald;
-			width: 7.5em;
-			border-top-left-radius: 1em;
-			border-top-right-radius: 1em;
+			font-size: 30px;
+			width: 150px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
 			bottom: 0;
 		}
 		.text {
 			background: @DriverInfoDrsRemainingBackground;
-			position: fixed;
-			top: 2em;
-			left: -12em;
-			right: 0.5em;
-			height: 2.5em;
-			line-height: 2.5em;
-			width: 7.5em;
-			border-bottom-left-radius: 1em;
-			border-bottom-right-radius: 1em;
+			position: absolute;
+			top: 40px;
+			left: -240px;
+			right: 10px;
+			height: 50px;
+			width: 150px;
+			line-height: 50px;
+			font-size: 20px;
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
 			bottom: 0;
 		}
 	}
@@ -240,7 +260,7 @@
 .ptp {
 	.text {
 		background: @backgroundDark;
-		position: fixed;
+		position: absolute;
 		top: 40px;
 		left: -240px;
 		right: 10px;
@@ -254,7 +274,7 @@
 	}
 	.icon {
 		background: rgba(183, 28, 28, 0.7);
-		position: fixed;
+		position: absolute;
 		top: -10px;
 		left: -240px;
 		right: 10px;
@@ -270,29 +290,31 @@
 	&.active {
 		.icon {
 			background: rgba(66, 165, 245, 0.7);
-			position: fixed;
-			top: -0.5em;
-			left: -12em;
-			right: 0.5em;
-			height: 2.5em;
-			line-height: 2.5em;
+			position: absolute;
+			top: -10px;
+			left: -240px;
+			right: 10px;
+			height: 50px;
+			line-height: 50px;
 			font-family: Oswald;
-			width: 7.5em;
-			border-top-left-radius: 1em;
-			border-top-right-radius: 1em;
+			font-size: 30px;
+			width: 150px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
 			bottom: 0;
 		}
 		.text {
 			background: @backgroundDark;
-			position: fixed;
-			top: 2em;
-			left: -12em;
-			right: 0.5em;
-			height: 2.5em;
-			line-height: 2.5em;
-			width: 7.5em;
-			border-bottom-left-radius: 1em;
-			border-bottom-right-radius: 1em;
+			position: absolute;
+			top: 40px;
+			left: -240px;
+			right: 10px;
+			height: 50px;
+			width: 150px;
+			line-height: 50px;
+			font-size: 20px;
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
 			bottom: 0;
 		}
 	}
@@ -300,7 +322,7 @@
 .focused-driver-info {
 	.driverInfoFocusedDriverFlat;
 	position: fixed;
-	bottom: 7%;
+	bottom: 12em;
 	left: 0;
 	right: 0;
 }
