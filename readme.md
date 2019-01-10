@@ -15,4 +15,4 @@ Setting the px value to a higher number will increase scaling and setting a lowe
 ### Creating Your Own Theme
 To create your own theme, its recommended to create a copy of the `base.less` file with your theme name. Then start the tool, select the theme from the dropdown and start modifying the less variables.
 
-The updates should be shown live on screen.
+Select the theme from the dropdown to view the results on screen.

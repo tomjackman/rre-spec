@@ -1561,7 +1561,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 			// show full name and increase width
 			var lastNames = parts.slice(1);
 			var name = lastNames.map(item => item.toUpperCase());
-			divStyle.width = "6em";
+			divStyle.width = "8em";
 		} else {
 			// Show characters of last name by default
 			var name = parts[parts.length - 1].substr(0, 3).toUpperCase();
@@ -1569,7 +1569,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {
 			classColour = UI.getClassColour(classId);
-			divStyle.backgroundColor = classColour;
+			divStyle.background = classColour;
 		}
 		return React.createElement(
 			'div',
