@@ -1331,7 +1331,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'flag-container' },
-						React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
+						UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'flag', src: UI.getUserInfo(driverInfo.portalId).avatar }) : React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
 					),
 					React.createElement(
 						'div',
@@ -1680,7 +1680,7 @@ UI.widgets.RaceResults = React.createClass({
 		var fastestTimeIndex = null;
 		var winnerIndex = null;
 		self.props.results.forEach(function (entry, i) {
-			if (entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
+			if (entry.bestLapInfo.valid && entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.bestLapInfo.sector3;
 				fastestTimeIndex = i;
 			}
@@ -2008,7 +2008,7 @@ UI.widgets.Results = React.createClass({
 		var fastestTime = 99999;
 		var fastestTimeIndex = null;
 		drivers.forEach(function (entry, i) {
-			if (entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
+			if (entry.scoreInfo.bestLapInfo.valid && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
 				fastestTimeIndex = i;
 			}
@@ -2137,7 +2137,7 @@ var ResultEntry = React.createClass({
 			{ className: 'overall' },
 			session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
 				'div',
-				{ className: cx({ 'fastest': entry.isFastest, 'qualify-results-entry': true }) },
+				{ className: cx({ 'qualify-results-entry': true }) },
 				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 					'div',
 					{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
@@ -2174,7 +2174,7 @@ var ResultEntry = React.createClass({
 				lapTime,
 				React.createElement(
 					'div',
-					{ className: 'lap-time' },
+					{ className: cx({ 'fastest': entry.isFastest, 'lap-time': true }) },
 					UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
 				)
 			) : null
@@ -4548,7 +4548,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'compare-flag-container' },
-					React.createElement('img', { className: 'compare-flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
+					UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'compare-flag', src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { className: 'compare-flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
 				),
 				React.createElement(
 					'div',

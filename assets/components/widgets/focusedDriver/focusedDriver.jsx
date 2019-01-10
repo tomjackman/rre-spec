@@ -269,7 +269,11 @@ UI.widgets.FocusedDriver = React.createClass({
 					<div className="main">
 					<div className="positionContainer"><div className="position">{driverInfo.scoreInfo.positionOverall}</div></div>
 					<div className="flag-container">
+					{UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
+						<img className="flag" src={UI.getUserInfo(driverInfo.portalId).avatar} />
+					:
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
+					}
 					</div>
 					<div className="driverInfoDetails">
 						<div className="name">{self.fixName(driverInfo.name)}</div>

@@ -147,7 +147,11 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			<div className="main">
 				<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionOverall}</div></div>
 				<div className="compare-flag-container">
+				{UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
+					<img className="compare-flag" src={UI.getUserInfo(driver.portalId).avatar} />
+				:
 					<img className="compare-flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
+				}
 				</div>
 				<div className="compareName"><div className="name">{self.fixName(driver.name)}</div></div>
 				<div className="vehicle">

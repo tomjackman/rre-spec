@@ -1346,7 +1346,6 @@ select {
   content: '';
   width: 4em;
   height: 4em;
-  background: #000;
   position: absolute;
   top: -0.5em;
   left: -0.25em;
@@ -1731,6 +1730,7 @@ select {
   border-bottom: 0.1em solid #c61712;
 }
 .focused-driver-info .main .flag-container .flag {
+  background: rgba(38, 50, 56, 0.8);
   position: absolute;
   display: block;
   width: 5em;
@@ -2003,9 +2003,6 @@ pre.preview {
 .qualify-results .qualify-results-entry.title .classPosition {
   color: white;
 }
-.qualify-results .qualify-results-entry.fastest {
-  color: #f500f5;
-}
 .qualify-results .qualify-results-entry > div {
   height: 2em;
   padding: 0 0 0 0.25em;
@@ -2055,6 +2052,10 @@ pre.preview {
 .qualify-results .qualify-results-entry .lap-time {
   width: 15%;
   position: relative;
+}
+.qualify-results .qualify-results-entry .fastest-time.fastest,
+.qualify-results .qualify-results-entry .lap-time.fastest {
+  color: #f500f5;
 }
 .safetyCarDeployed {
   font-size: 20px;

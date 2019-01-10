@@ -69,7 +69,7 @@ UI.widgets.Results = React.createClass({
 		var fastestTime = 99999;
 		var fastestTimeIndex = null;
 		drivers.forEach(function(entry, i) {
-			if (entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
+			if (entry.scoreInfo.bestLapInfo.valid && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
 				fastestTimeIndex = i;
 			}
@@ -157,7 +157,7 @@ var ResultEntry = React.createClass({
 		return (
 			<div className="overall">
 			{ session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ?
-			<div className={cx({'fastest': entry.isFastest, 'qualify-results-entry': true})}>
+			<div className={cx({'qualify-results-entry': true})}>
 			{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
 			:
@@ -176,7 +176,7 @@ var ResultEntry = React.createClass({
 					<img src={'/render/'+entry.liveryId+'/small/'}/>
 				</div>
 				{lapTime}
-				<div className="lap-time">{UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
+				<div className={cx({'fastest': entry.isFastest, 'lap-time': true})}>{UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
 			</div>
 			:
 			null

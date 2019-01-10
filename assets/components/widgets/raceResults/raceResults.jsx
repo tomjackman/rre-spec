@@ -21,7 +21,7 @@ UI.widgets.RaceResults = React.createClass({
 		var fastestTimeIndex = null;
 		var winnerIndex = null;
 		self.props.results.forEach(function(entry, i) {
-			if (entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
+			if (entry.bestLapInfo.valid && entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.bestLapInfo.sector3;
 				fastestTimeIndex = i;
 			}

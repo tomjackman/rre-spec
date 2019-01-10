@@ -11,6 +11,9 @@
 * [Feature] Added resolution scaling config file to scale UI elements.
 * [Bug Fix] Added correct coloring to PTP indicators.
 * [Feature] Updated some theme logos to improve visibility.
+* [Bug Fix] Prevented a DNF'd driver with no time set being shown as setting the fastest lap in a race.
+* [Bug Fix] Prevented a driver with no time set in qualifying preventing the pole sitter bring shown with a purple lap time on the qualifying results screen.
+* [Feature] Added the ability to show drivers portal avatars in place of the country flag on the driver info and compare widgets.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.

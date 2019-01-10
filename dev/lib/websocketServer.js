@@ -82,6 +82,12 @@ module.exports = function(io) {
 	      "tooltip": "Show a drivers portal team name if they have added one (Default: False).",
 	      "type": "checkbox"
 	    },
+			"showPortalAvatar": {
+				"displayName": "Show Driver Avatar",
+				"value": "false",
+				"tooltip": "Show a drivers portal avatar in place of the country flag (Default: False).",
+				"type": "checkbox"
+			},
 			"showFullStandingsName": {
 				"displayName": "Show Full Surnames in Standings",
 				"value": "false",
