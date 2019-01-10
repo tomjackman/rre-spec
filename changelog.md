@@ -9,7 +9,8 @@
 * [Feature] Added winner and fastest lap information to the race results screen.
 * [Feature] Added responsive UI based on game resolution.
 * [Feature] Added resolution scaling config file to scale UI elements.
-* [Bug Fix] Added correct coloring to PTP indicators. 
+* [Bug Fix] Added correct coloring to PTP indicators.
+* [Feature] Updated some theme logos to improve visibility.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.

@@ -125,7 +125,7 @@ module.exports = function(assetsDir) {
 	app.post('/changeTheme/', function (req, res) {
 	// replace contents of file 'b' with contents of 'a'
 	var themesDir = __dirname + '/../../theme';
-	var themeLessFile = themesDir + '/Ω.less';
+	var themeLessFile = themesDir + '/z.less';
 	var activeThemeLessFile = themesDir + '/' + req.body.file + '.less';
 	replaceContents(themeLessFile, activeThemeLessFile, err => {
 		if (err) {

@@ -110,7 +110,7 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.overallQuai {
+.race-results-bg {
   font-size: 20px;
   position: fixed;
   top: 0;
@@ -119,19 +119,19 @@ a {
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
 }
-.qualify-results .entries-outer {
+.race-results .entries-outer {
   max-height: 40em;
   overflow: hidden;
 }
-.qualify-results .entries-outer .entries-inner {
+.race-results .entries-outer .entries-inner {
   top: 0;
   position: relative;
   -webkit-transition: top 15s linear;
 }
-.qualify-results .livery {
+.race-results .livery {
   -webkit-transform: translate3d(0, 0, 0);
 }
-.qualify-results {
+.race-results {
   position: fixed;
   top: 50%;
   left: 20%;
@@ -144,7 +144,7 @@ a {
   font-family: Oswald;
   width: 60%;
 }
-.qualify-results .title .text {
+.race-results .title .text {
   position: inherit;
   height: 3em;
   text-align: right;
@@ -159,7 +159,7 @@ a {
   margin-bottom: 0.5em;
   z-index: 0;
 }
-.qualify-results .title .text .logo {
+.race-results .title .text .logo {
   position: absolute;
   content: url(results/logos/base.png);
   height: 2.2em;
@@ -167,7 +167,7 @@ a {
   left: 1em;
   z-index: 1;
 }
-.qualify-results .qualify-results-entry {
+.race-results .race-results-entry {
   height: 2em;
   line-height: 2em;
   margin-bottom: 0.1em;
@@ -176,65 +176,223 @@ a {
   white-space: nowrap;
   overflow: hidden;
 }
-.qualify-results .qualify-results-entry.title {
+.race-results .race-results-entry.title {
   padding: 0 0 0 0em;
   font-size: 22px;
 }
-.qualify-results .qualify-results-entry.title .classPosition {
-  color: white;
+.race-results .race-results-entry.fastest .fastest-time {
+  color: #a3229a;
 }
-.qualify-results .qualify-results-entry.fastest {
-  color: #f500f5;
-}
-.qualify-results .qualify-results-entry > div {
-  height: 2em;
-  padding: 0 0 0 0.25em;
+.race-results .race-results-entry > div {
+  height: 37px;
+  padding: 0 0 0 5px;
   float: left;
 }
-.qualify-results .qualify-results-entry .position {
+.race-results .race-results-entry .position {
   text-align: center;
   width: 10%;
   position: relative;
 }
-.qualify-results .qualify-results-entry .classPosition {
+.race-results .race-results-entry .classPosition {
   width: 10%;
   position: relative;
   text-align: center;
   color: white;
 }
-.qualify-results .qualify-results-entry .manufacturer {
+.race-results .race-results-entry .manufacturer {
   width: 5%;
   position: relative;
 }
-.qualify-results .qualify-results-entry .manufacturer img {
+.race-results .race-results-entry .manufacturer img {
   position: absolute;
   top: 0.3em;
   left: 0.5em;
   width: 1.5em;
   height: auto;
 }
-.qualify-results .qualify-results-entry .shortName {
+.race-results .race-results-entry .penaltyTime {
+  width: 10%;
+  position: relative;
+  text-align: center;
+}
+.race-results .race-results-entry .shortName {
   position: relative;
   width: 30%;
 }
-.qualify-results .qualify-results-entry .longName {
+.race-results .race-results-entry .longName {
   position: relative;
   width: 40%;
 }
-.qualify-results .qualify-results-entry .livery {
-  width: 15%;
+.race-results .race-results-entry .livery {
+  width: 10%;
   position: relative;
 }
-.qualify-results .qualify-results-entry .livery img {
+.race-results .race-results-entry .livery img {
   position: relative;
   height: 3em;
   right: 1.5em;
   top: -0.5em;
 }
-.qualify-results .qualify-results-entry .fastest-time,
-.qualify-results .qualify-results-entry .lap-time {
-  width: 15%;
+.race-results .race-results-entry .fastest-time,
+.race-results .race-results-entry .lap-time {
+  width: 10%;
+  text-align: center;
   position: relative;
+}
+.winnerColumn {
+  position: fixed;
+  font-size: 20px;
+  width: 14.5em;
+  background: black;
+  left: 2em;
+  height: 13em;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  z-index: 2;
+  border-radius: 0.5em;
+  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(198, 23, 18, 0.8) 90%);
+}
+.winnerColumn .winnerTitle {
+  font-size: 30px;
+  color: white;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+}
+.winnerColumn .winnerImageContainer {
+  left: 7em;
+  width: 7em;
+  z-index: 2;
+}
+.winnerColumn .winnerImageContainer img {
+  width: 7em;
+  filter: drop-shadow(13px 13px 13px #000000);
+}
+.winnerColumn .winner {
+  font-size: 24px;
+  text-align: center;
+  line-height: 1.5em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  width: 100%;
+  height: 1.5em;
+  color: white;
+}
+.winnerColumn .livery {
+  position: fixed;
+  left: 2em;
+  top: 90%;
+  -webkit-transform: translate(0, -90%);
+  z-index: 1;
+}
+.winnerColumn .livery img {
+  width: 12.5em;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
+}
+.winnerColumn .driverFlagContainer {
+  position: fixed;
+  content: url(results/logos/base.png);
+  width: 5em;
+  top: 35%;
+  -webkit-transform: translate(0, -35%);
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+  left: 9em;
+  z-index: 1;
+}
+.winnerColumn .driverName {
+  font-size: 18px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 2em;
+  top: 7%;
+  line-height: 1.5em;
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0.25em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+}
+.fastestDriverColumn {
+  position: fixed;
+  font-size: 20px;
+  width: 14.5em;
+  background: black;
+  right: 2em;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  z-index: 2;
+  border-radius: 0.5em;
+  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, #71229a 90%);
+}
+.fastestDriverColumn .fastestTitle {
+  font-size: 30px;
+  color: white;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+}
+.fastestDriverColumn .fastestDriverImageContainer {
+  left: 7em;
+  width: 7em;
+  z-index: 2;
+}
+.fastestDriverColumn .fastestDriverImageContainer img {
+  width: 7em;
+  filter: drop-shadow(13px 13px 13px #000000);
+}
+.fastestDriverColumn .fastestDriverLogo {
+  font-size: 24px;
+  text-align: center;
+  line-height: 1.5em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  width: 100%;
+  height: 1.5em;
+  color: white;
+}
+.fastestDriverColumn .fastestDriverLivery {
+  position: fixed;
+  left: 2em;
+  top: 90%;
+  -webkit-transform: translate(0, -90%);
+  z-index: 1;
+}
+.fastestDriverColumn .fastestDriverLivery img {
+  width: 12.5em;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
+}
+.fastestDriverColumn .fastestDriverFlagContainer {
+  position: fixed;
+  content: url(results/logos/base.png);
+  width: 5em;
+  top: 35%;
+  -webkit-transform: translate(0, -35%);
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+  left: 9em;
+  z-index: 1;
+}
+.fastestDriverColumn .fastestDriverName {
+  font-size: 18px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 2em;
+  top: 7%;
+  line-height: 1.5em;
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0.25em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
 }
 @font-face {
   font-family: 'Hel';
@@ -1746,290 +1904,6 @@ select {
     -webkit-transform: translate(0, 0);
   }
 }
-.race-results-bg {
-  font-size: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-}
-.race-results .entries-outer {
-  max-height: 40em;
-  overflow: hidden;
-}
-.race-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
-}
-.race-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.race-results {
-  position: fixed;
-  top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0px;
-  color: white;
-  white-space: pre;
-  font-family: Oswald;
-  width: 60%;
-}
-.race-results .title .text {
-  position: inherit;
-  height: 3em;
-  text-align: right;
-  padding: 0 0.75em 0 0;
-  line-height: 4em;
-  font-size: 30px;
-  background: rgba(38, 50, 56, 0.8);
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  border-top: 0.25em solid #c61712;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-  z-index: 0;
-}
-.race-results .title .text .logo {
-  position: absolute;
-  content: url(results/logos/base.png);
-  height: 2.2em;
-  top: 0.5em;
-  left: 1em;
-  z-index: 1;
-}
-.race-results .race-results-entry {
-  height: 2em;
-  line-height: 2em;
-  margin-bottom: 0.1em;
-  color: white;
-  background: rgba(38, 50, 56, 0.9);
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry.title {
-  padding: 0 0 0 0em;
-  font-size: 22px;
-}
-.race-results .race-results-entry.fastest .fastest-time {
-  color: #a3229a;
-}
-.race-results .race-results-entry > div {
-  height: 37px;
-  padding: 0 0 0 5px;
-  float: left;
-}
-.race-results .race-results-entry .position {
-  text-align: center;
-  width: 10%;
-  position: relative;
-}
-.race-results .race-results-entry .classPosition {
-  width: 10%;
-  position: relative;
-  text-align: center;
-  color: white;
-}
-.race-results .race-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
-}
-.race-results .race-results-entry .manufacturer img {
-  position: absolute;
-  top: 0.3em;
-  left: 0.5em;
-  width: 1.5em;
-  height: auto;
-}
-.race-results .race-results-entry .penaltyTime {
-  width: 10%;
-  position: relative;
-  text-align: center;
-}
-.race-results .race-results-entry .shortName {
-  position: relative;
-  width: 30%;
-}
-.race-results .race-results-entry .longName {
-  position: relative;
-  width: 40%;
-}
-.race-results .race-results-entry .livery {
-  width: 10%;
-  position: relative;
-}
-.race-results .race-results-entry .livery img {
-  position: relative;
-  height: 3em;
-  right: 1.5em;
-  top: -0.5em;
-}
-.race-results .race-results-entry .fastest-time,
-.race-results .race-results-entry .lap-time {
-  width: 10%;
-  text-align: center;
-  position: relative;
-}
-.winnerColumn {
-  position: fixed;
-  font-size: 20px;
-  width: 14.5em;
-  background: black;
-  left: 2em;
-  height: 13em;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-  z-index: 2;
-  border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(198, 23, 18, 0.8) 90%);
-}
-.winnerColumn .winnerTitle {
-  font-size: 30px;
-  color: white;
-  height: 2em;
-  text-align: center;
-  line-height: 2em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.winnerColumn .winnerImageContainer {
-  left: 7em;
-  width: 7em;
-  z-index: 2;
-}
-.winnerColumn .winnerImageContainer img {
-  width: 7em;
-  filter: drop-shadow(13px 13px 13px #000000);
-}
-.winnerColumn .winner {
-  font-size: 24px;
-  text-align: center;
-  line-height: 1.5em;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  width: 100%;
-  height: 1.5em;
-  color: white;
-}
-.winnerColumn .livery {
-  position: fixed;
-  left: 2em;
-  top: 90%;
-  -webkit-transform: translate(0, -90%);
-  z-index: 1;
-}
-.winnerColumn .livery img {
-  width: 12.5em;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
-}
-.winnerColumn .driverFlagContainer {
-  position: fixed;
-  content: url(results/logos/base.png);
-  width: 5em;
-  top: 35%;
-  -webkit-transform: translate(0, -35%);
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-  left: 9em;
-  z-index: 1;
-}
-.winnerColumn .driverName {
-  font-size: 18px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 2em;
-  top: 7%;
-  line-height: 1.5em;
-  color: white;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0.25em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn {
-  position: fixed;
-  font-size: 20px;
-  width: 14.5em;
-  background: black;
-  right: 2em;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-  z-index: 2;
-  border-radius: 0.5em;
-  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, #71229a 90%);
-}
-.fastestDriverColumn .fastestTitle {
-  font-size: 30px;
-  color: white;
-  height: 2em;
-  text-align: center;
-  line-height: 2em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn .fastestDriverImageContainer {
-  left: 7em;
-  width: 7em;
-  z-index: 2;
-}
-.fastestDriverColumn .fastestDriverImageContainer img {
-  width: 7em;
-  filter: drop-shadow(13px 13px 13px #000000);
-}
-.fastestDriverColumn .fastestDriverLogo {
-  font-size: 24px;
-  text-align: center;
-  line-height: 1.5em;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  width: 100%;
-  height: 1.5em;
-  color: white;
-}
-.fastestDriverColumn .fastestDriverLivery {
-  position: fixed;
-  left: 2em;
-  top: 90%;
-  -webkit-transform: translate(0, -90%);
-  z-index: 1;
-}
-.fastestDriverColumn .fastestDriverLivery img {
-  width: 12.5em;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn .fastestDriverFlagContainer {
-  position: fixed;
-  content: url(results/logos/base.png);
-  width: 5em;
-  top: 35%;
-  -webkit-transform: translate(0, -35%);
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-  left: 9em;
-  z-index: 1;
-}
-.fastestDriverColumn .fastestDriverName {
-  font-size: 18px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 2em;
-  top: 7%;
-  line-height: 1.5em;
-  color: white;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0.25em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
 .error-screen {
   z-index: 2147483627;
   position: fixed;
@@ -2055,6 +1929,132 @@ pre.preview {
   text-align: left;
   font-family: 'Inconsolata';
   padding: 20px;
+}
+.overallQuai {
+  font-size: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+.qualify-results .entries-outer {
+  max-height: 40em;
+  overflow: hidden;
+}
+.qualify-results .entries-outer .entries-inner {
+  top: 0;
+  position: relative;
+  -webkit-transition: top 15s linear;
+}
+.qualify-results .livery {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.qualify-results {
+  position: fixed;
+  top: 50%;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
+  z-index: -1;
+  padding: 0px;
+  color: white;
+  white-space: pre;
+  font-family: Oswald;
+  width: 60%;
+}
+.qualify-results .title .text {
+  position: inherit;
+  height: 3em;
+  text-align: right;
+  padding: 0 0.75em 0 0;
+  line-height: 4em;
+  font-size: 30px;
+  background: rgba(38, 50, 56, 0.8);
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-top: 0.25em solid #c61712;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  z-index: 0;
+}
+.qualify-results .title .text .logo {
+  position: absolute;
+  content: url(results/logos/base.png);
+  height: 2.2em;
+  top: 0.5em;
+  left: 1em;
+  z-index: 1;
+}
+.qualify-results .qualify-results-entry {
+  height: 2em;
+  line-height: 2em;
+  margin-bottom: 0.1em;
+  color: white;
+  background: rgba(38, 50, 56, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry.title {
+  padding: 0 0 0 0em;
+  font-size: 22px;
+}
+.qualify-results .qualify-results-entry.title .classPosition {
+  color: white;
+}
+.qualify-results .qualify-results-entry.fastest {
+  color: #f500f5;
+}
+.qualify-results .qualify-results-entry > div {
+  height: 2em;
+  padding: 0 0 0 0.25em;
+  float: left;
+}
+.qualify-results .qualify-results-entry .position {
+  text-align: center;
+  width: 10%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .classPosition {
+  width: 10%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.qualify-results .qualify-results-entry .manufacturer {
+  width: 5%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .manufacturer img {
+  position: absolute;
+  top: 0.3em;
+  left: 0.5em;
+  width: 1.5em;
+  height: auto;
+}
+.qualify-results .qualify-results-entry .shortName {
+  position: relative;
+  width: 30%;
+}
+.qualify-results .qualify-results-entry .longName {
+  position: relative;
+  width: 40%;
+}
+.qualify-results .qualify-results-entry .livery {
+  width: 15%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .livery img {
+  position: relative;
+  height: 3em;
+  right: 1.5em;
+  top: -0.5em;
+}
+.qualify-results .qualify-results-entry .fastest-time,
+.qualify-results .qualify-results-entry .lap-time {
+  width: 15%;
+  position: relative;
 }
 .safetyCarDeployed {
   font-size: 20px;
