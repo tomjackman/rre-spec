@@ -1,7 +1,7 @@
 @import '../resolutionScaler.less';
 
-// Base Theme
-@widgetBorder: #c61712;
+// Porsche Theme
+@widgetBorder: rgba(255, 82, 82, 1.0);
 @backgroundDark: rgba(38, 50, 56, 0.8);
 @backgroundLight: rgba(38, 50, 56, 0.5);
 
@@ -9,10 +9,10 @@
 @fontSize: @resolutionScale;
 
 // Alert Widget
-@AlertTitleBackgroundColor: rgba(38, 50, 56, 0.8);
-@AlertTitleBorderTop: #c61712;
-@AlertTitleText: white;
-@AlertMessageBackground: rgba(38, 50, 56, 0.6);
+@AlertTitleBackgroundColor: white;
+@AlertTitleBorderTop: rgba(255, 82, 82, 1.0);
+@AlertTitleText: black;
+@AlertMessageBackground: #00afc0;
 @AlertMessageText: white;
 
 // Safety Car Deployed Widget
@@ -20,61 +20,61 @@
 @SafetyCarDeployedText: white;
 
 // Safety Car In Widget
-@SafetyCarInTitleBackgroundColor: rgba(38, 50, 56, 0.8);
-@SafetyCarInTitleBorderTop: #c61712;
-@SafetyCarInTitleText: white;
-@SafetyCarInMessageBackground: rgba(38, 50, 56, 0.6);
+@SafetyCarInTitleBackgroundColor: white;
+@SafetyCarInTitleBorderTop: rgba(255, 82, 82, 1.0);
+@SafetyCarInTitleText: black;
+@SafetyCarInMessageBackground: #00afc0;
 @SafetyCarInMessageText: white;
 
 // Multiclass Standings Widget
-@StandingsPositionBackground: rgba(38, 50, 56, 1);
-@StandingsPositionText: white;
+@StandingsPositionBackground: white;
+@StandingsPositionText: #00afc0;
 @StandingsManufacturerBackground: white;
 @StandingsDriverNameText: white;
-@StandingsDriverNameClassColour: #c61712;
-@StandingsTimingBackground: rgba(38, 50, 56, 0.5);
-@StandingsTimingText: white;
+@StandingsDriverNameClassColour: #00afc0;
+@StandingsTimingBackground: white;
+@StandingsTimingText: black;
 @StandingsTimingBackgroundPitted: rgba(102, 187, 106, 1);
 @StandingsTimingBackgroundUnpitted: rgba(255, 82, 82, 1);
 @StandingsTimingPitText: white;
 @StandingsTyreBackground: rgba(38, 50, 56, 0.5);
 
 // Compare Drivers Widget
-@CompareRaceBestTimeText: rgba(105, 240, 174,1.0);
-@CompareRaceBestTimeBackground: rgba(38, 50, 56, 0.5);
-@CompareRacePositionBackground: rgba(38, 50, 56, 0.5);
-@CompareRacePositionText: white;
-@CompareRacePositionBorder: #c61712;
-@CompareRaceNameText: white;
-@CompareRaceNameBackground: rgba(38, 50, 56, 0.8);
-@CompareRaceNameBorder: #c61712;
-@CompareRaceTeamNameBackground: rgba(38, 50, 56, 0.5);
+@CompareRaceBestTimeText: #00C853;
+@CompareRaceBestTimeBackground: black;
+@CompareRacePositionBackground: white;
+@CompareRacePositionText: #00afc0;
+@CompareRacePositionBorder: red;
+@CompareRaceNameBackground: white;
+@CompareRaceNameText: black;
+@CompareRaceNameBorder: red;
+@CompareRaceTeamNameBackground: #00afc0;
 @CompareRaceTeamNameText: white;
 @CompareRaceManufacturerBackground: white;
-@CompareRaceManufacturerBorder: #c61712;
-@CompareRaceDeltaBackground: rgba(38, 50, 56, 0.5);
-@CompareRaceDeltaText: white;
-@CompareRaceDeltaDeltaBorder: #c61712;
+@CompareRaceManufacturerBorder: red;
+@CompareRaceDeltaBackground: white;
+@CompareRaceDeltaText: #00afc0;
+@CompareRaceDeltaDeltaBorder: rgba(255, 82, 82, 1.0);
 @CompareRaceDRSActiveBackground: rgba(76, 175, 80, 0.7);
 
 // Driver Info Widget
-@DriverInfoNameBorder: #c61712;
-@DriverInfoNameBackground: rgba(38, 50, 56, 0.8);
-@DriverInfoNameText: white;
-@DriverInfoTeamNameText: white;
-@DriverInfoPositionBorder: #c61712;
-@DriverInfoPositionBackground: rgba(38, 50, 56, 0.8);
-@DriverInfoPositionText: white;
+@DriverInfoNameBorder: #d5001c;
+@DriverInfoNameBackground: white;
+@DriverInfoNameText: black;
+@DriverInfoTeamNameText: #00afc0;
+@DriverInfoPositionBorder: #d5001c;
+@DriverInfoPositionBackground: white;
+@DriverInfoPositionText: #00afc0;
 @DriverInfoPositionClassBackground: rgba(38, 50, 56, 0.5);
 @DriverInfoPositionClassText: white;
-@DriverInfoBestTimeBackground: rgba(38, 50, 56, 0.8);
+@DriverInfoBestTimeBackground: black;
 @DriverInfoBestTimeText: #00C853;
 @DriverInfoSplitTimesBackground: rgba(38, 50, 56, 0.8);
-@DriverInfoManufacturerBorder: #c61712;
+@DriverInfoManufacturerBorder: #d5001c;
 @DriverInfoManufacturerBackground: white;
 @DriverInfoClassBackground: rgba(38, 50, 56, 0.5);
-@DriverInfoFlagBackground: rgba(38, 50, 56, 0.8);
-@DriverInfoFlagBorder: #c61712;
+@DriverInfoFlagBackground: white;
+@DriverInfoFlagBorder: rgba(255, 82, 82, 1.0);
 @DriverInfoDrsActiveBackground: rgba(76, 175, 80, 0.7);
 @DriverInfoDrsRemainingBackground: rgba(38, 50, 56, 0.8);
 @DriverInfoPersonalBestSplitBackground: linear-gradient(rgba(76, 175, 80,1.0), rgba(76, 175, 80, 0.5));
@@ -83,38 +83,40 @@
 @DriverInfoGlobalBestSplitText: white;
 
 // Event Info Widget
-@EventInfoPanelBackground: rgba(38, 50, 56, 0.8);
-@EventInfoBorderTop: #c61712;
-@EventInfoBorderBottom: #c61712;
-@EventInfoServerNameText: white;
-@EventInfoServerTrackNameText: white;
-@EventInfoWeatherText: white;
-@EventInfoDescriptionText: white;
+@EventInfoPanelBackground: white;
+@EventInfoBorderTop: #d5001c;
+@EventInfoBorderBottom: #00afc0;
+@EventInfoServerNameText: black;
+@EventInfoServerTrackNameText: #00afc0;
+@EventInfoWeatherText: black;
+@EventInfoDescriptionText: black;
 
 // Race Result Widget
-@RaceResultTitleBackground: rgba(38, 50, 56, 0.8);
+@RaceResultTitleBackground: linear-gradient(80deg, rgba(255, 255, 255, 1) 30%, rgba(0, 175, 192, 1) 70%);
 @RaceResultTitleTextColor: white;
-@RaceResultTitleBorderTop: #c61712;
-@RaceResultEntryBackground: rgba(38, 50, 56, 0.9);
-@RaceResultEntryTextColor: white;
-@RaceResultTitleLogo: url(results/logos/base.png);
-@RaceResultWinnerBackground: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(198,23,18, 0.8) 90%);
+@RaceResultTitleBorderTop: #00afc0;
+@RaceResultEntryBackground: white;
+@RaceResultEntryBorderBottom: rgba(0, 175, 192, 1);
+@RaceResultEntryTextColor: black;
+@RaceResultTitleLogo: url(results/logos/porsche.png);
+@RaceResultWinnerBackground: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgb(0,176,193) 90%);
 @RaceResultFastestLapBackground: linear-gradient(240deg, rgba(38, 50, 56, 0.0) 10%, rgba(113,34,154,1) 90%);
 
 // Qualyfying Results Widget
-@QualiResultTitleBackground: rgba(38, 50, 56, 0.8);
-@QualiResultTitleBorderTop: #c61712;
-@QualiResultEntryBackground: rgba(38, 50, 56, 0.9);
-@QualiResultEntryTextColor: white;
+@QualiResultTitleBackground: linear-gradient(80deg, rgba(255, 255, 255, 1) 30%, rgba(0, 175, 192, 1) 70%);
+@QualiResultTitleBorderTop: #00afc0;
+@QualiResultEntryBackground: white;
+@QualiResultEntryTextColor: black;
+@QualiResultEntryBorderBottom: rgba(0, 175, 192, 1);
 @QualiResultTitleText: white;
-@QualiResultTitleLogo: url(results/logos/base.png);
+@QualiResultTitleLogo: url(results/logos/porsche.png);
 
 // Session Info Widget
-@SessionInfoPhaseBackground: rgba(38, 50, 56, 0.8);
-@SessionInfoPhaseBorderTop: #c61712;
-@SessionInfoPhaseTextColor: white;
+@SessionInfoPhaseBackground: white;
+@SessionInfoPhaseBorderTop: rgba(255, 82, 82, 1.0);
+@SessionInfoPhaseTextColor: black;
 @SessionInfoTimerTextColor: white;
-@SessionInfoTimerBackground: rgba(38, 50, 56, 0.6);
+@SessionInfoTimerBackground: #00afc0;
 
 // Trackmap Widget
 @TrackMapOverlayBackground: rgba(0, 0, 0, 0.7);

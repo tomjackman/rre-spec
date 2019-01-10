@@ -7,7 +7,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.6);
 }
 .race-results {
 	.entries-outer {
@@ -25,6 +25,7 @@
 	}
 }
 .race-results {
+	filter: drop-shadow(9px 9px 9px rgba(0,0,0,1));
 	position: fixed;
 	top: 50%;
 	left: 20%;
@@ -44,10 +45,10 @@
 			padding: 0 0.75em 0 0;
 			line-height: 4em;
 			font-size: @fontSize * 1.5;
-			background: @QualiResultTitleBackground;
+			background: @RaceResultTitleBackground;
 			border-top-left-radius: 0.5em;
 			border-top-right-radius: 0.5em;
-			border-top: 0.25em solid @QualiResultTitleBorderTop;
+			border-top: 0.25em solid @RaceResultTitleBorderTop;
 			text-transform: uppercase;
 			margin-bottom: 0.5em;
 			z-index: 0;
@@ -64,11 +65,11 @@
 	.race-results-entry {
 		height: 2em;
 		line-height: 2em;
-		margin-bottom: 0.1em;
 		color: @RaceResultEntryTextColor;
 		background: @RaceResultEntryBackground;
 		white-space: nowrap;
 		overflow: hidden;
+		border-bottom: 0.1em solid @RaceResultEntryBorderBottom;
 		&.title {
 			padding: 0 0 0 0em;
 			font-size: @fontSize * 1.1;

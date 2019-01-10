@@ -7,7 +7,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.6);
 }
 
 .qualify-results {
@@ -38,6 +38,7 @@
 	white-space: pre;
 	font-family: Oswald;
 	width: 60%;
+	filter: drop-shadow(9px 9px 9px rgba(0,0,0,1));
 	.title {
 		.text {
 			position: inherit;
@@ -66,11 +67,11 @@
 	.qualify-results-entry {
 		height: 2em;
 		line-height: 2em;
-		margin-bottom: 0.1em;
 		color: @QualiResultEntryTextColor;
 		background: @QualiResultEntryBackground;
 		white-space: nowrap;
   	overflow: hidden;
+		border-bottom: 0.1em solid @QualiResultEntryBorderBottom;
 		&.title {
 			padding: 0 0 0 0em;
 			font-size: @fontSize * 1.1;
