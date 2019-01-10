@@ -14,6 +14,10 @@
 * [Bug Fix] Prevented a DNF'd driver with no time set being shown as setting the fastest lap in a race.
 * [Bug Fix] Prevented a driver with no time set in qualifying preventing the pole sitter bring shown with a purple lap time on the qualifying results screen.
 * [Feature] Added the ability to show drivers portal avatars in place of the country flag on the driver info and compare widgets.
+* [Feature] Set sector names in practise and qualifying splits.
+* [Feature] Enhance styling of the sector splits.
+* [Feature] Enhance styling of the personal best time and class position ui in the driver info and compare widgets.
+* [Feature] Appearance revision of all themes.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.
