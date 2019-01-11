@@ -42,12 +42,6 @@
       "tooltip": "When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time (Default: False).",
       "type": "checkbox"
     },
-    "driverInfoQuickSwitch": {
-      "displayName": "Driver Info/Compare Quick Switch (Beta)",
-      "value": "false",
-      "tooltip": "Allows quick switching between the driver info and compare driver widget by disabling the other one when selected. Experimental, report any issues in the forum thread if you experience issues with this enabled (Default: False).",
-      "type": "checkbox"
-    },
     "alertLength": {
       "displayName": "Steward Message Alert Time Length (Seconds)",
       "value": "15",
