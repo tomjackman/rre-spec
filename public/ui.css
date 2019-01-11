@@ -162,7 +162,7 @@ a {
 }
 .race-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/audi.png);
+  content: url(results/logos/base.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -300,7 +300,7 @@ a {
 }
 .winnerColumn .driverFlagContainer {
   position: fixed;
-  content: url(results/logos/audi.png);
+  content: url(results/logos/base.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -377,7 +377,7 @@ a {
 }
 .fastestDriverColumn .fastestDriverFlagContainer {
   position: fixed;
-  content: url(results/logos/audi.png);
+  content: url(results/logos/base.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -1998,7 +1998,7 @@ pre.preview {
 }
 .qualify-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/audi.png);
+  content: url(results/logos/base.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
