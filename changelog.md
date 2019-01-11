@@ -2,22 +2,24 @@
 * [Feature] Added theme switcher that supports the new theme system.
 * [Feature] Added dark background overlay to results tables to blend better with the background.
 * [Feature] Added WTCR 2018 theme.
-* [Tooling] Added theme files to watch list to allow live updates to themes.
 * [Bug Fix] Fixed a timing bug in the compare race widget.
 * [Feature] Added the ability to toggle on/off a drivers full last name in the standings tower.
-* [Feature] Improved colours of the Audi theme.
 * [Feature] Added winner and fastest lap information to the race results screen.
 * [Feature] Added responsive UI based on game resolution.
-* [Feature] Added resolution scaling config file to scale UI elements.
-* [Bug Fix] Added correct coloring to PTP indicators.
+* [Feature] Added resolution scaling config file (resolutionScaler.less) to scale UI elements.
+* [Bug Fix] Added correct colours to PTP indicators.
 * [Feature] Updated some theme logos to improve visibility.
 * [Bug Fix] Prevented a DNF'd driver with no time set being shown as setting the fastest lap in a race.
 * [Bug Fix] Prevented a driver with no time set in qualifying preventing the pole sitter bring shown with a purple lap time on the qualifying results screen.
 * [Feature] Added the ability to show drivers portal avatars in place of the country flag on the driver info and compare widgets.
-* [Feature] Set sector names in practise and qualifying splits.
+* [Feature] Added sector names in practise and qualifying splits.
 * [Feature] Enhance styling of the sector splits.
 * [Feature] Enhance styling of the personal best time and class position ui in the driver info and compare widgets.
 * [Feature] Appearance revision of all themes.
+* [Feature] Improved animations all round.
+* [Feature] Enhanced contrasting between on-screen widgets and the game.
+* [Feature] Added 'Auto Director Only Mode' - When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time.
+* [Tooling] Reduced default refresh intervals for better game performance.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.

@@ -266,7 +266,7 @@ var Driver = React.createClass({
 		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
 			classColour = UI.getClassColour(driver.classId);
 			divStyle = {
-					backgroundColor: classColour,
+					background: classColour,
 					position: "absolute"
 			};
 			return <div className="position" style={divStyle}>Class P{driver.scoreInfo.positionClass}</div>

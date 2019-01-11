@@ -184,11 +184,13 @@ UI.widgets.AutoDirector = React.createClass({
 	// These rules are checked top to bottom, must return score
 	rules: UI.scoringRules,
 	activateDefaultWidgets: function() {
-		UI.state.activeWidgets.MulticlassStandings.active = true;
-		UI.state.activeWidgets.LogoOverlay.active = true;
-		UI.state.activeWidgets.SessionInfo.active = true;
-		UI.state.activeWidgets.FocusedDriver.active = true;
-		UI.state.activeWidgets.Alert.active = true;
+		if (UI.state.controllerOptions.options.autoDirectorOnlyMode.value === "false") {
+			UI.state.activeWidgets.MulticlassStandings.active = true;
+			UI.state.activeWidgets.LogoOverlay.active = true;
+			UI.state.activeWidgets.SessionInfo.active = true;
+			UI.state.activeWidgets.FocusedDriver.active = true;
+			UI.state.activeWidgets.Alert.active = true;
+		}
 	},
 	usedCockpitCam: false,
 	usedCockpitTimeout: null,

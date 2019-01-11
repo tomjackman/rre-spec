@@ -209,7 +209,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		}
 
 		const divStyle = {
-				backgroundColor: classColour
+				background: classColour
 		};
 
 		return <div className="positionInClass" style={divStyle}>P{driverInfo.scoreInfo.positionClass} IN CLASS</div>
@@ -273,9 +273,9 @@ UI.widgets.FocusedDriver = React.createClass({
 					<div className="positionContainer"><div className="position">{driverInfo.scoreInfo.positionOverall}</div></div>
 					<div className="flag-container">
 					{UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
-						<img className="flag" src={UI.getUserInfo(driverInfo.portalId).avatar} />
+						<img className="flag animated fadeIn" src={UI.getUserInfo(driverInfo.portalId).avatar} />
 					:
-						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
+						<img className="flag animated fadeIn" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					}
 					</div>
 					<div className="driverInfoDetails">

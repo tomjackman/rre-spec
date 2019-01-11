@@ -150,7 +150,7 @@ var TrackMapDot = React.createClass({
 		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
 			classColour = UI.getClassColour(driver.classId);
 			divStyle = {
-					backgroundColor: classColour
+					background: classColour
 			};
 			return <div className="position" style={divStyle}>P{driver.scoreInfo.positionClass}</div>
 		} else {

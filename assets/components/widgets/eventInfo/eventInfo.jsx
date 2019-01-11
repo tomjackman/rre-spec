@@ -2,8 +2,6 @@ UI.widgets.EventInfo = React.createClass({
 	componentWillMount: function() {
 		var self = this;
 
-		io.emit('setState', UI.state);
-
 		function updateInfo() {
 			UI.batch({
 				'eventInfo': function(done) {

@@ -603,8 +603,8 @@ UI.c = function createReactComponent(type, data) {
 	return UI.components[type](data);
 };
 
-UI.controllerUpdateRate = 1000/2;
-UI.spectatorUpdateRate = 1000/15;
+UI.controllerUpdateRate = 1000/1.5;
+UI.spectatorUpdateRate = 1000/6;
 
 UI.getUserInfo = (function() {
 	var userCache = {};
@@ -881,8 +881,6 @@ UI.widgets.EventInfo = React.createClass({
 
 	componentWillMount: function () {
 		var self = this;
-
-		io.emit('setState', UI.state);
 
 		function updateInfo() {
 			UI.batch({
@@ -1245,7 +1243,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		}
 
 		const divStyle = {
-			backgroundColor: classColour
+			background: classColour
 		};
 
 		return React.createElement(
@@ -1334,7 +1332,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'flag-container' },
-						UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'flag', src: UI.getUserInfo(driverInfo.portalId).avatar }) : React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
+						UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'flag animated fadeIn', src: UI.getUserInfo(driverInfo.portalId).avatar }) : React.createElement('img', { className: 'flag animated fadeIn', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
 					),
 					React.createElement(
 						'div',
@@ -1848,7 +1846,7 @@ var RaceResultEntry = React.createClass({
 			className = r3eData.classes[classId].Name;
 		}
 
-		return { 'backgroundColor': classColour };
+		return { 'background': classColour };
 	},
 	render: function () {
 		var self = this;
@@ -2110,7 +2108,7 @@ var ResultEntry = React.createClass({
 			className = r3eData.classes[classId].Name;
 		}
 
-		return { 'backgroundColor': classColour };
+		return { 'background': classColour };
 	},
 	render: function () {
 		var self = this;
@@ -2674,7 +2672,7 @@ var TrackMapDot = React.createClass({
 		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
 			classColour = UI.getClassColour(driver.classId);
 			divStyle = {
-				backgroundColor: classColour
+				background: classColour
 			};
 			return React.createElement(
 				'div',
@@ -3081,7 +3079,7 @@ var Driver = React.createClass({
 		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
 			classColour = UI.getClassColour(driver.classId);
 			divStyle = {
-				backgroundColor: classColour,
+				background: classColour,
 				position: "absolute"
 			};
 			return React.createElement(
@@ -4205,11 +4203,13 @@ UI.widgets.AutoDirector = React.createClass({
 	// These rules are checked top to bottom, must return score
 	rules: UI.scoringRules,
 	activateDefaultWidgets: function () {
-		UI.state.activeWidgets.MulticlassStandings.active = true;
-		UI.state.activeWidgets.LogoOverlay.active = true;
-		UI.state.activeWidgets.SessionInfo.active = true;
-		UI.state.activeWidgets.FocusedDriver.active = true;
-		UI.state.activeWidgets.Alert.active = true;
+		if (UI.state.controllerOptions.options.autoDirectorOnlyMode.value === "false") {
+			UI.state.activeWidgets.MulticlassStandings.active = true;
+			UI.state.activeWidgets.LogoOverlay.active = true;
+			UI.state.activeWidgets.SessionInfo.active = true;
+			UI.state.activeWidgets.FocusedDriver.active = true;
+			UI.state.activeWidgets.Alert.active = true;
+		}
 	},
 	usedCockpitCam: false,
 	usedCockpitTimeout: null,
@@ -4550,7 +4550,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'compare-flag-container' },
-					UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'compare-flag', src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { className: 'compare-flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
+					UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'compare-flag animated fadeIn', src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { className: 'compare-flag animated fadeIn', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
 				),
 				React.createElement(
 					'div',

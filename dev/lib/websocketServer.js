@@ -94,6 +94,12 @@ module.exports = function(io) {
 				"tooltip": "Show the full middle and last names of drivers in the standings tower (Default: False).",
 				"type": "checkbox"
 			},
+			"autoDirectorOnlyMode": {
+				"displayName": "Auto Director Only Mode",
+				"value": "false",
+				"tooltip": "When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time (Default: False).",
+				"type": "checkbox"
+			},
 	    "alertLength": {
 	      "displayName": "Steward Message Alert Time Length (Seconds)",
 	      "value": "15",

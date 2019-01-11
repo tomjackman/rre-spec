@@ -13,8 +13,8 @@ UI.c = function createReactComponent(type, data) {
 	return UI.components[type](data);
 };
 
-UI.controllerUpdateRate = 1000/2;
-UI.spectatorUpdateRate = 1000/15;
+UI.controllerUpdateRate = 1000/1.5;
+UI.spectatorUpdateRate = 1000/6;
 
 UI.getUserInfo = (function() {
 	var userCache = {};

@@ -137,7 +137,7 @@ var ResultEntry = React.createClass({
 			className = r3eData.classes[classId].Name;
 		}
 
-		return {	'backgroundColor': classColour };
+		return {	'background': classColour };
 	},
 	render: function() {
 		var self = this;
