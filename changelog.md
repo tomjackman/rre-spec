@@ -1,25 +1,26 @@
 ### Version 1.5.0
+* [Feature] Added responsive UI based on game resolution.
+* [Feature] Added resolution scaling config file (resolutionScaler.less) to scale UI elements.
 * [Feature] Added theme switcher that supports the new theme system.
-* [Feature] Added dark background overlay to results tables to blend better with the background.
 * [Feature] Added WTCR 2018 theme.
 * [Bug Fix] Fixed a timing bug in the compare race widget.
 * [Feature] Added the ability to toggle on/off a drivers full last name in the standings tower.
 * [Feature] Added winner and fastest lap information to the race results screen.
-* [Feature] Added responsive UI based on game resolution.
-* [Feature] Added resolution scaling config file (resolutionScaler.less) to scale UI elements.
-* [Bug Fix] Added correct colours to PTP indicators.
-* [Feature] Updated some theme logos to improve visibility.
+* [Feature] Added dark background overlay behind results tables to blend better with the background.
 * [Bug Fix] Prevented a DNF'd driver with no time set being shown as setting the fastest lap in a race.
 * [Bug Fix] Prevented a driver with no time set in qualifying preventing the pole sitter bring shown with a purple lap time on the qualifying results screen.
+* [Bug Fix] Added correct colours to PTP indicators.
+* [Feature] Updated some theme logos to improve visibility.
 * [Feature] Added the ability to show drivers portal avatars in place of the country flag on the driver info and compare widgets.
 * [Feature] Added sector names in practise and qualifying splits.
 * [Feature] Enhance styling of the sector splits.
-* [Feature] Enhance styling of the personal best time and class position ui in the driver info and compare widgets.
-* [Feature] Appearance revision of all themes.
-* [Feature] Improved animations all round.
-* [Feature] Enhanced contrasting between on-screen widgets and the game.
+* [Feature] Enhance styling of the personal best time and class position UI elements in the driver info and compare widgets.
+* [Feature] Styling revision of all themes.
+* [Feature] Improved animations.
+* [Feature] Enhanced contrasting between on-screen widgets and the game window to make the overlay pop more.
 * [Feature] Added 'Auto Director Only Mode' - When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time.
 * [Tooling] Reduced default refresh intervals for better game performance.
+* [Feature] Created new base theme.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.
