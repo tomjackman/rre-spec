@@ -292,9 +292,14 @@ UI.widgets.FocusedDriver = React.createClass({
 						<div className="manufacturer">
 							<img src={'/render/'+driverInfo.manufacturerId+'/small/'}/>
 						</div>
+
+						{UI.state.controllerOptions.options.showLiveryPreview.value === "true" ?
 						<div className="vehicle">
 							<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
 						</div>
+						:
+							null
+						}
 					</div>
 
 					<div className="bottom">

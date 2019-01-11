@@ -21,6 +21,7 @@
 * [Feature] Added 'Auto Director Only Mode' - When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time.
 * [Tooling] Reduced default refresh intervals for better game performance.
 * [Feature] Created new base theme.
+* [Feature] Allowed the livery preview on the driver info and compare info widgets to be disabled.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.

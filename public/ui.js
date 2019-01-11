@@ -1358,11 +1358,11 @@ UI.widgets.FocusedDriver = React.createClass({
 						{ className: 'manufacturer' },
 						React.createElement('img', { src: '/render/' + driverInfo.manufacturerId + '/small/' })
 					),
-					React.createElement(
+					UI.state.controllerOptions.options.showLiveryPreview.value === "true" ? React.createElement(
 						'div',
 						{ className: 'vehicle' },
 						React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driverInfo.liveryId + '&size=small' })
-					)
+					) : null
 				),
 				React.createElement(
 					'div',
@@ -4561,11 +4561,11 @@ UI.widgets.CompareRaceDriver = React.createClass({
 						self.fixName(driver.name)
 					)
 				),
-				React.createElement(
+				UI.state.controllerOptions.options.showLiveryPreview.value === "true" ? React.createElement(
 					'div',
 					{ className: 'vehicle' },
 					React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small' })
-				),
+				) : null,
 				React.createElement(
 					'div',
 					{ className: 'manufacturer' },

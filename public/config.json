@@ -42,6 +42,12 @@
       "tooltip": "When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time (Default: False).",
       "type": "checkbox"
     },
+    "showLiveryPreview": {
+      "displayName": "Show Livery Preview",
+      "value": "true",
+      "tooltip": "Show the livery of the car on the driver info and compare driver widgets (Default: True).",
+      "type": "checkbox"
+    },
     "alertLength": {
       "displayName": "Steward Message Alert Time Length (Seconds)",
       "value": "15",
