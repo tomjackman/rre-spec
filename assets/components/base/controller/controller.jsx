@@ -255,7 +255,7 @@ var Driver = React.createClass({
 		};
 
 		if (timeDiff > 0 && timeDiff < 1000) {
-			classes['close animated flash infinite'] = true;
+			classes['close'] = true;
 		}
 		return cx(classes);
 	},

@@ -1964,16 +1964,6 @@ UI.widgets.Results = React.createClass({
 	componentWillMount: function () {
 		var self = this;
 
-		// Hide all other overlays besides logo
-		Object.keys(UI.state.activeWidgets).forEach(function (key) {
-			if (key.match(/(Results|LogoOverlay|SessionInfo|AutoDirector)/)) {
-				return;
-			}
-
-			UI.state.activeWidgets[key].active = false;
-		});
-		io.emit('setState', UI.state);
-
 		function updateInfo() {
 			UI.batch({
 				'driversInfo': r3e.getDriversInfo
@@ -2042,9 +2032,12 @@ UI.widgets.Results = React.createClass({
 
 		var session = UI.state.sessionInfo;
 
-		if (session.type === 'QUALIFYING' && session.timeLeft < 26) {
+		if (session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
 			// Hide widgets that use the same screen space
 			UI.state.activeWidgets.FocusedDriver.active = false;
+			UI.state.activeWidgets.MulticlassStandings.active = false;
+			UI.state.activeWidgets.SessionInfo.active = false;
+			UI.state.activeWidgets.EventInfo.active = false;
 		}
 
 		return React.createElement(
@@ -3112,7 +3105,7 @@ var Driver = React.createClass({
 		};
 
 		if (timeDiff > 0 && timeDiff < 1000) {
-			classes['close animated flash infinite'] = true;
+			classes['close'] = true;
 		}
 		return cx(classes);
 	},

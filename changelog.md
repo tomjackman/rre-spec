@@ -1,3 +1,7 @@
+### Version 1.5.1
+* [Bug Fix] Ensured that other widgets are correctly disabled when the qualifying results appear on screen.
+* [Bug Fix] Removed flashing close racing indicator inside the broadcaster panel.
+
 ### Version 1.5.0
 * [Feature] Added responsive UI based on game resolution.
 * [Feature] Added resolution scaling config file (resolutionScaler.less) to scale UI elements.
