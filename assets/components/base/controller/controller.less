@@ -66,7 +66,7 @@ select {
     background-position: center right;
     background-repeat: no-repeat;
     border: 2px solid white;
-    background: #263238;
+    background: #1f1f1e;
     border-radius: 35px;
     text-align: center;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -88,7 +88,7 @@ select {
 }
 [data-title]:after {
     content: attr(data-title);
-    background-color: rgba(38, 50, 56, 1);
+    background-color: rgba(31, 31, 30, 0.9);
     color: white;
     font-size: 19px;
     position: absolute;
@@ -98,14 +98,13 @@ select {
     right: 120%;
     top: -140%;
     white-space: normal;
-    border-radius: 25px;
     border-top: 5px solid;
-    border-top-color: rgba(255, 82, 82, 1.0);
+    border-top-color: rgba(226, 29, 56, 1);
     box-shadow: 1px 1px 3px #222222;
     opacity: 0;
     z-index: 99999;
     visibility: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6) inset;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,1));
 }
 [data-title] {
     position: relative;
@@ -117,7 +116,7 @@ select {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(38, 50, 56, 1);
+	background: rgba(31, 31, 30, 1);
 	font-family: Abel;
 
 	.title {
@@ -158,10 +157,10 @@ select {
 		font-size: 30px;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
 		color: white;
-		border-bottom: 5px solid rgba(255, 82, 82, 1.0);
+		border-bottom: 2px solid rgba(226, 29, 56, 1);
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    background: rgba(38, 50, 56, 1);
+    background: rgba(31, 31, 30, 0.9);
     z-index: 2;
 	}
 
@@ -170,10 +169,10 @@ select {
         transition: opacity .2s, visibility .2s, margin-top 0s .2s;
         bottom: 0px;
         height: auto;
-        background: #263238;
+        background: rgba(31, 31, 30, 1);
         color: white;
         font-family: Oswald;
-        border-top: 5px solid #00E676;
+        border-top: 2px solid #00E676;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
         width: 100%;
@@ -225,7 +224,7 @@ select {
 				opacity: 1;
 			}
 			&.idle {
-				opacity: 0.05;
+				opacity: 0.1;
 			}
 
 			.meta {
@@ -245,7 +244,7 @@ select {
 				}
 				.name {
 					display: inline-block;
-					font-size: 30px;
+					font-size: 40px;
 					padding: 10px;
 					white-space: nowrap;
 				}
@@ -256,26 +255,27 @@ select {
 				bottom: 25%;
 				left: 0;
 				padding: 4px 6px;
-				border-radius: 5px;
 				font-size: 20px;
-        border-radius: 100px;
+        opacity: 1.0;
         color: white;
-        background: #4CAF50;
+        transform: skew(-15deg, 0deg);
+        filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
+        background: linear-gradient(135deg, rgba(0, 200, 83, 0.9) 10%, rgba(0, 200, 83, 0.9) 90%);
 			}
 			.interesting {
 				position: absolute;
 				bottom: 80%;
 				left: 0;
 				padding: 6px 6px;
-				border-radius: 5px;
 				font-size: 20px;
-				color: #fff;
+				color: white;
 				background: #333;
-        border-radius: 100px;
+        transform: skew(-15deg, 0deg);
 
 				&.close {
-					background: #00E676;
-          border-radius: 100px;
+					background: #FF9800;
+          color: black;
+          transform: skew(-15deg, 0deg);
 				}
 			}
 			.position {
@@ -283,10 +283,11 @@ select {
 				position: absolute;
 				left: 0;
 				color: #fff;
-				border-radius: 100px;
+				transform: skew(-15deg, 0deg);
         bottom: 50%;
+        opacity: 1.0;
 				font-size: 20px;
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+				filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
         padding: 4px 6px;
         background: @StandingsDriverNameClassColour;
 			}
@@ -301,31 +302,33 @@ select {
 	.widgets-list, .suggestions {
 		position: fixed;
 		top: 70px;
-		width: 240px;
+		width: 250px;
     color: white;
     bottom: 0;
-		box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 		font-size: 16px;
-    background: rgba(38, 50, 56, 1);
+    background: rgba(31, 31, 30, 0.9);
 		select {
 			margin: 10px 5%;
 			width: 90%;
 		}
 		.widget-buttons, .holder {
 			position: absolute;
-			top: 35px;
+			top: 40px;
 			bottom: 5px;
-			left: 0;
-			right: 0;
+			left: 2px;
+			right: 5px;
 			flex-direction: column;
 			display: flex;
       margin-top: 15px;
+      filter: drop-shadow(1px 1px 1px rgba(0,0,0,1));
+      .widget-manager {
+        transform: skew(-15deg, 0deg);
+      }
 			.widget-manager, .suggestion {
 				flex: auto;
 				margin: 5px;
 				color: #fff;
 				text-transform: uppercase;
-				border-radius: 5px;
 				opacity: 1;
 				background: rgba(0, 0, 0, 0.1);
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
@@ -354,10 +357,12 @@ select {
 					.gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
 					color: #ffc;
           border-top-color: #4CAF50;
+          border-left-color: #4CAF50;
 				}
 				&.inactive {
 					.gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-          border-top-color: #F44336;
+          border-top-color: rgba(226, 29, 56, 1);
+          border-left-color: rgba(226, 29, 56, 1);
 					&.warning {
 						background: rgba(200, 0, 0, 0.3);
 						color: rgba(255,255,255,0.45);

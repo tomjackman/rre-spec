@@ -152,17 +152,17 @@ a {
   padding: 0 0.75em 0 0;
   line-height: 4em;
   font-size: 30px;
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  background: linear-gradient(80deg, #ffffff 30%, #00afc0 70%);
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
-  border-top: 0.25em solid #e21d38;
+  border-top: 0.25em solid #00afc0;
   text-transform: uppercase;
   margin-bottom: 0.5em;
   z-index: 0;
 }
 .race-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/base.png);
+  content: url(results/logos/porsche.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -171,11 +171,11 @@ a {
 .race-results .race-results-entry {
   height: 2em;
   line-height: 2em;
-  color: white;
-  background: rgba(31, 31, 30, 0.9);
+  color: black;
+  background: white;
   white-space: nowrap;
   overflow: hidden;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #00afc0;
 }
 .race-results .race-results-entry.title {
   padding: 0 0 0 0em;
@@ -190,7 +190,7 @@ a {
   float: left;
 }
 .race-results .race-results-entry.title .classPosition {
-  color: white;
+  color: black;
   -ms-transform: skew(0deg, 0deg);
   -webkit-transform: skew(0deg, 0deg);
   transform: skew(0deg, 0deg);
@@ -274,7 +274,7 @@ a {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, #e21d38 90%);
+  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, #00b0c1 90%);
 }
 .winnerColumn .winnerTitle {
   font-size: 30px;
@@ -316,7 +316,7 @@ a {
 }
 .winnerColumn .driverFlagContainer {
   position: fixed;
-  content: url(results/logos/base.png);
+  content: url(results/logos/porsche.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -393,7 +393,7 @@ a {
 }
 .fastestDriverColumn .fastestDriverFlagContainer {
   position: fixed;
-  content: url(results/logos/base.png);
+  content: url(results/logos/porsche.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -511,7 +511,7 @@ select {
   background-position: center right;
   background-repeat: no-repeat;
   border: 2px solid white;
-  background: #263238;
+  background: #1f1f1e;
   border-radius: 35px;
   text-align: center;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -533,7 +533,7 @@ select {
 }
 [data-title]:after {
   content: attr(data-title);
-  background-color: #263238;
+  background-color: rgba(31, 31, 30, 0.9);
   color: white;
   font-size: 19px;
   position: absolute;
@@ -543,14 +543,13 @@ select {
   right: 120%;
   top: -140%;
   white-space: normal;
-  border-radius: 25px;
   border-top: 5px solid;
-  border-top-color: #ff5252;
+  border-top-color: #e21d38;
   box-shadow: 1px 1px 3px #222222;
   opacity: 0;
   z-index: 99999;
   visibility: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6) inset;
+  filter: drop-shadow(1px 1px 1px #000000);
 }
 [data-title] {
   position: relative;
@@ -561,7 +560,7 @@ select {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #263238;
+  background: #1f1f1e;
   font-family: Abel;
 }
 .app-controller .title {
@@ -578,10 +577,10 @@ select {
   font-size: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
   color: white;
-  border-bottom: 5px solid #ff5252;
+  border-bottom: 2px solid #e21d38;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  background: #263238;
+  background: rgba(31, 31, 30, 0.9);
   z-index: 2;
 }
 .app-controller .title .toggle-track-map {
@@ -613,10 +612,10 @@ select {
   transition: opacity 0.2s, visibility 0.2s, margin-top 0s 0.2s;
   bottom: 0px;
   height: auto;
-  background: #263238;
+  background: #1f1f1e;
   color: white;
   font-family: Oswald;
-  border-top: 5px solid #00E676;
+  border-top: 2px solid #00E676;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   width: 100%;
@@ -668,7 +667,7 @@ select {
   opacity: 1;
 }
 .app-controller .drivers-container .driver-entry.idle {
-  opacity: 0.05;
+  opacity: 0.1;
 }
 .app-controller .drivers-container .driver-entry .meta {
   right: 0;
@@ -685,7 +684,7 @@ select {
 }
 .app-controller .drivers-container .driver-entry .meta .name {
   display: inline-block;
-  font-size: 30px;
+  font-size: 40px;
   padding: 10px;
   white-space: nowrap;
 }
@@ -695,11 +694,12 @@ select {
   bottom: 25%;
   left: 0;
   padding: 4px 6px;
-  border-radius: 5px;
   font-size: 20px;
-  border-radius: 100px;
+  opacity: 1.0;
   color: white;
-  background: #4CAF50;
+  transform: skew(-15deg, 0deg);
+  filter: drop-shadow(2px 2px 2px #000000);
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.9) 10%, rgba(0, 200, 83, 0.9) 90%);
 }
 @-webkit-keyframes "ani_3" {
   0% {
@@ -714,27 +714,28 @@ select {
   bottom: 80%;
   left: 0;
   padding: 6px 6px;
-  border-radius: 5px;
   font-size: 20px;
-  color: #fff;
+  color: white;
   background: #333;
-  border-radius: 100px;
+  transform: skew(-15deg, 0deg);
 }
 .app-controller .drivers-container .driver-entry .interesting.close {
-  background: #00E676;
-  border-radius: 100px;
+  background: #FF9800;
+  color: black;
+  transform: skew(-15deg, 0deg);
 }
 .app-controller .drivers-container .driver-entry .position {
   -webkit-animation: "ani_4" 1s ease;
   position: absolute;
   left: 0;
   color: #fff;
-  border-radius: 100px;
+  transform: skew(-15deg, 0deg);
   bottom: 50%;
+  opacity: 1.0;
   font-size: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(2px 2px 2px #000000);
   padding: 4px 6px;
-  background: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, #e21d38 99%);
+  background: #00afc0;
 }
 @-webkit-keyframes "ani_4" {
   0% {
@@ -753,12 +754,11 @@ select {
 .app-controller .suggestions {
   position: fixed;
   top: 70px;
-  width: 240px;
+  width: 250px;
   color: white;
   bottom: 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   font-size: 16px;
-  background: #263238;
+  background: rgba(31, 31, 30, 0.9);
 }
 .app-controller .widgets-list select,
 .app-controller .suggestions select {
@@ -770,13 +770,20 @@ select {
 .app-controller .widgets-list .holder,
 .app-controller .suggestions .holder {
   position: absolute;
-  top: 35px;
+  top: 40px;
   bottom: 5px;
-  left: 0;
-  right: 0;
+  left: 2px;
+  right: 5px;
   flex-direction: column;
   display: flex;
   margin-top: 15px;
+  filter: drop-shadow(1px 1px 1px #000000);
+}
+.app-controller .widgets-list .widget-buttons .widget-manager,
+.app-controller .suggestions .widget-buttons .widget-manager,
+.app-controller .widgets-list .holder .widget-manager,
+.app-controller .suggestions .holder .widget-manager {
+  transform: skew(-15deg, 0deg);
 }
 .app-controller .widgets-list .widget-buttons .widget-manager,
 .app-controller .suggestions .widget-buttons .widget-manager,
@@ -790,7 +797,6 @@ select {
   margin: 5px;
   color: #fff;
   text-transform: uppercase;
-  border-radius: 5px;
   opacity: 1;
   background: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
@@ -845,6 +851,7 @@ select {
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.6)), color-stop(1, rgba(0, 0, 0, 0.4)));
   color: #ffc;
   border-top-color: #4CAF50;
+  border-left-color: #4CAF50;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager.inactive,
 .app-controller .suggestions .widget-buttons .widget-manager.inactive,
@@ -859,7 +866,8 @@ select {
   background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
   background: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.2)), color-stop(1, rgba(0, 0, 0, 0.4)));
-  border-top-color: #F44336;
+  border-top-color: #e21d38;
+  border-left-color: #e21d38;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager.inactive.warning,
 .app-controller .suggestions .widget-buttons .widget-manager.inactive.warning,
@@ -1132,7 +1140,7 @@ select {
   top: 15em;
   right: 2.5em;
   text-transform: uppercase;
-  border-top: 3px solid #e21d38;
+  border-top: 3px solid #ff5252;
   border-radius: 1em;
   min-height: 1em;
   width: 15em;
@@ -1147,12 +1155,12 @@ select {
 .alert .raceControlAlert {
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
-  background: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, #e21d38 90%);
-  color: white;
+  background: white;
+  color: black;
 }
 .alert .alertMessage {
-  background: white;
-  color: #323433;
+  background: #00afc0;
+  color: white;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   padding: 0.25em;
@@ -1168,10 +1176,10 @@ select {
 .compare-race .delta {
   font-size: 20px;
   text-transform: uppercase;
-  background: rgba(31, 31, 30, 0.9);
+  background: white;
   border-radius: 1em;
-  color: white;
-  border-top: 0.25em solid #e21d38;
+  color: #00afc0;
+  border-top: 0.25em solid #ff5252;
   padding: 0.25em 0.5em;
   min-width: 6.5em;
   display: inline-block;
@@ -1181,7 +1189,7 @@ select {
   text-transform: uppercase;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
-  color: white;
+  color: #00afc0;
   padding: 0.25em 0.5em;
   width: inherit;
   position: relative;
@@ -1251,8 +1259,8 @@ select {
   line-height: 3.75em;
 }
 .compare-race .inner .main .comparePositionContainer {
-  background: #e21d38;
-  color: white;
+  background: white;
+  color: #00afc0;
   width: 3.25em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -1260,17 +1268,17 @@ select {
   line-height: 3.5em;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid red;
 }
 .compare-race .inner .main .comparePositionContainer .comparePosition {
   font-size: 40px;
 }
 .compare-race .inner .main .compareName {
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
-  color: white;
+  background: white;
+  color: black;
   padding: 0 1em;
   min-width: 16em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid red;
 }
 .compare-race .inner .main .compareName .name {
   font-size: 26px;
@@ -1295,7 +1303,7 @@ select {
   position: relative;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid red;
 }
 .compare-race .inner .main .manufacturer img {
   position: absolute;
@@ -1310,7 +1318,7 @@ select {
   left: 4em;
 }
 .compare-race .inner .bottom .team {
-  background: rgba(31, 31, 30, 0.9);
+  background: #00afc0;
   color: white;
   height: 1.5em;
   text-transform: uppercase;
@@ -1405,11 +1413,11 @@ select {
   white-space: pre;
   font-family: Oswald;
   border-radius: 10px;
-  border-top: 0.5em solid #e21d38;
-  border-bottom: 0.5em solid #e21d38;
+  border-top: 0.5em solid #d5001c;
+  border-bottom: 0.5em solid #00afc0;
 }
 .event-info .serverName {
-  color: #323433;
+  color: black;
   text-align: center;
   font-size: 30px;
   padding: 20px;
@@ -1443,7 +1451,7 @@ select {
   width: 70px;
 }
 .event-info .serverTrackName {
-  color: #323433;
+  color: #00afc0;
   text-align: center;
   font-size: 30px;
   padding: 15px;
@@ -1452,7 +1460,7 @@ select {
   margin: auto;
 }
 .event-info .trackDescription {
-  color: #323433;
+  color: black;
   display: block;
   width: 100%;
   font-size: 20px;
@@ -1465,7 +1473,7 @@ select {
 .event-info .weather .weatherIcons {
   display: flex;
   font-size: 20px;
-  color: #323433;
+  color: black;
   justify-content: space-around;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
@@ -1676,7 +1684,7 @@ select {
 .focused-driver-info .top .positionInClass {
   transform: skew(-15deg);
   line-height: 0.5em;
-  background: #e21d38;
+  background: rgba(38, 50, 56, 0.5);
   padding: 0.5em 0.5em;
   color: white;
   width: 7em;
@@ -1685,8 +1693,8 @@ select {
   height: 1.5em;
 }
 .focused-driver-info .main .positionContainer {
-  background: rgba(31, 31, 30, 0.9);
-  color: white;
+  background: white;
+  color: #00afc0;
   width: 4em;
   padding-left: 0.7em;
   text-align: center;
@@ -1694,28 +1702,28 @@ select {
   line-height: 3.7em;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #d5001c;
 }
 .focused-driver-info .main .positionContainer .position {
   font-size: 60px;
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  background: white;
   text-transform: uppercase;
   padding: 0px 1em;
   min-width: 23em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #d5001c;
 }
 .focused-driver-info .main .driverInfoDetails .name {
   line-height: 2em;
-  color: white;
+  color: black;
   font-size: 26px;
 }
 .focused-driver-info .main .driverInfoDetails .team {
   font-size: 19px;
   line-height: 0.7em;
   position: relative;
-  color: white;
+  color: #00afc0;
   text-transform: uppercase;
 }
 .focused-driver-info .main .vehicle {
@@ -1744,7 +1752,7 @@ select {
   position: relative;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #d5001c;
   left: -1em;
 }
 .focused-driver-info .main .manufacturer img {
@@ -1756,7 +1764,7 @@ select {
 .focused-driver-info .main .flag-container {
   width: 3em;
   position: relative;
-  background: rgba(38, 50, 56, 0.8);
+  background: white;
   border-bottom: 0.1em solid #ff5252;
 }
 .focused-driver-info .main .flag-container .flag {
@@ -1868,15 +1876,15 @@ select {
 .multiclass-standings .driver .inner .unpitted {
   border: 1px;
   border-radius: 1em;
-  background: #e21d38;
+  background: #ff5252;
 }
 .multiclass-standings .driver .position {
   font-size: 20px;
-  background: rgba(226, 29, 56, 0.9);
+  background: white;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   display: inline-block;
-  color: white;
+  color: #00afc0;
   font-size: 1em;
   text-align: center;
   width: 2em;
@@ -1902,7 +1910,7 @@ select {
   font-family: Oswald;
   display: inline-block;
   color: white;
-  background: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, #e21d38 99%);
+  background: #00afc0;
   width: 4em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -1913,8 +1921,8 @@ select {
 }
 .multiclass-standings .driver .meta-info {
   font-size: 20px;
-  background: rgba(31, 31, 30, 0.9);
-  color: white;
+  background: white;
+  color: black;
   position: absolute;
   font-family: Oswald;
   display: inline-block;
@@ -2004,17 +2012,17 @@ pre.preview {
   padding: 0 0.75em 0 0;
   line-height: 4em;
   font-size: 30px;
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  background: linear-gradient(80deg, #ffffff 30%, #00afc0 70%);
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
-  border-top: 0.25em solid #e21d38;
+  border-top: 0.25em solid #00afc0;
   text-transform: uppercase;
   margin-bottom: 0.5em;
   z-index: 0;
 }
 .qualify-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/base.png);
+  content: url(results/logos/porsche.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -2023,18 +2031,18 @@ pre.preview {
 .qualify-results .qualify-results-entry {
   height: 2em;
   line-height: 2em;
-  color: white;
-  background: rgba(31, 31, 30, 0.9);
+  color: black;
+  background: white;
   white-space: nowrap;
   overflow: hidden;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #00afc0;
 }
 .qualify-results .qualify-results-entry.title {
   padding: 0 0 0 0em;
   font-size: 22px;
 }
 .qualify-results .qualify-results-entry.title .classPosition {
-  color: white;
+  color: black;
   -ms-transform: skew(0deg, 0deg);
   -webkit-transform: skew(0deg, 0deg);
   transform: skew(0deg, 0deg);
@@ -2117,11 +2125,11 @@ pre.preview {
   top: 5em;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-  background: rgba(255, 193, 7, 0.9);
+  background: rgba(255, 152, 0, 0.7);
   text-transform: uppercase;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
-  color: black;
+  color: white;
   height: 1.5em;
   width: 7em;
   line-height: 1.5em;
@@ -2136,7 +2144,7 @@ pre.preview {
   top: 10em;
   right: 2.5em;
   text-transform: uppercase;
-  border-top: 3px solid #e21d38;
+  border-top: 3px solid #ff5252;
   border-radius: 1em;
   min-height: 1em;
   width: 15em;
@@ -2148,12 +2156,12 @@ pre.preview {
 .safetyAlert .raceControl {
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
-  background: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, #e21d38 90%);
-  color: white;
+  background: white;
+  color: black;
 }
 .safetyAlert .safetyCarIn {
-  background: white;
-  color: #323433;
+  background: #00afc0;
+  color: white;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -2164,12 +2172,12 @@ pre.preview {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   font-size: 20px;
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  background: white;
   text-transform: uppercase;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid #ff5252;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
-  color: white;
+  color: black;
   width: 9em;
   height: 2em;
   padding: 0em 0.25em;
@@ -2186,11 +2194,11 @@ pre.preview {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   font-size: 20px;
-  background: white;
+  background: #00afc0;
   text-transform: uppercase;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
-  color: #323433;
+  color: white;
   width: 9em;
   height: 2em;
   line-height: 1.8em;
@@ -2225,7 +2233,7 @@ pre.preview {
   width: 2em;
   border-radius: 2.5em;
   opacity: 1;
-  border: 0.1em solid #e21d38;
+  border: 0.1em solid #ff5252;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
 }
 .checkered {
@@ -2305,7 +2313,7 @@ pre.preview {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   color: white;
-  background: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, #e21d38 99%);
+  background: #00afc0;
 }
 .track-map .dot .driverName {
   position: relative;
