@@ -107,8 +107,9 @@ UI.widgets.Results = React.createClass({
 						<div className="longName">Name</div>
 					}
 					<div className="livery"></div>
+					<div className="resultTeam">Team</div>
 					<div className="fastest-time">Delta</div>
-					<div className="lap-time">Best Lap Time</div>
+					<div className="lap-time">Best Lap</div>
 				</div>
 				<div className="entries-outer" ref="entries-outer">
 					<div className="entries-inner" ref="entries-inner">
@@ -138,6 +139,18 @@ var ResultEntry = React.createClass({
 		}
 
 		return {	'background': classColour };
+	},
+	getTeamName: function(teamId, portalId) {
+		var self = this;
+		var teamName = "";
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "★ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+		return teamName;
 	},
 	render: function() {
 		var self = this;
@@ -175,6 +188,7 @@ var ResultEntry = React.createClass({
 				<div className="livery">
 					<img src={'/render/'+entry.liveryId+'/small/'}/>
 				</div>
+				<div className="resultTeam">{self.getTeamName(entry.teamId, entry.portalId)}</div>
 				{lapTime}
 				<div className={cx({'fastest': entry.isFastest, 'lap-time': true})}>{UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
 			</div>

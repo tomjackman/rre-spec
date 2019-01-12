@@ -95,9 +95,10 @@ UI.widgets.RaceResults = React.createClass({
 						<div className="longName">Name</div>
 					}
 					<div className="livery"></div>
+					<div className="raceResultTeam">Team</div>
 					<div className="penaltyTime">Penalties</div>
 					<div className="lap-time">Finish Time</div>
-					<div className="fastest-time">Best Lap Time</div>
+					<div className="fastest-time">Best Lap</div>
 				</div>
 				<div className="entries-outer" ref="entries-outer">
 					<div className="entries-inner" ref="entries-inner">
@@ -125,7 +126,19 @@ var RaceResultEntry = React.createClass({
 
 		return {	'background': classColour };
 	},
-		render: function() {
+	getTeamName: function(teamId, portalId) {
+		var self = this;
+		var teamName = "";
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "★ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+		return teamName;
+	},
+	render: function() {
 		var self = this;
 		var entry = self.props.entry;
 		var lapTime = null;
@@ -161,6 +174,7 @@ var RaceResultEntry = React.createClass({
 				<div className="livery">
 					<img src={'/render/'+entry.liveryId+'/small/'}/>
 				</div>
+				<div className="raceResultTeam">{self.getTeamName(entry.teamId, entry.portalId)}</div>
 				{penaltyTime}
 				{lapTime}
 				{entry.bestLapInfo.sector3 !== -1 ?

@@ -1803,6 +1803,11 @@ UI.widgets.RaceResults = React.createClass({
 						React.createElement('div', { className: 'livery' }),
 						React.createElement(
 							'div',
+							{ className: 'raceResultTeam' },
+							'Team'
+						),
+						React.createElement(
+							'div',
 							{ className: 'penaltyTime' },
 							'Penalties'
 						),
@@ -1814,7 +1819,7 @@ UI.widgets.RaceResults = React.createClass({
 						React.createElement(
 							'div',
 							{ className: 'fastest-time' },
-							'Best Lap Time'
+							'Best Lap'
 						)
 					),
 					React.createElement(
@@ -1847,6 +1852,18 @@ var RaceResultEntry = React.createClass({
 		}
 
 		return { 'background': classColour };
+	},
+	getTeamName: function (teamId, portalId) {
+		var self = this;
+		var teamName = "";
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "★ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+		return teamName;
 	},
 	render: function () {
 		var self = this;
@@ -1921,6 +1938,11 @@ var RaceResultEntry = React.createClass({
 				'div',
 				{ className: 'livery' },
 				React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
+			),
+			React.createElement(
+				'div',
+				{ className: 'raceResultTeam' },
+				self.getTeamName(entry.teamId, entry.portalId)
 			),
 			penaltyTime,
 			lapTime,
@@ -2070,13 +2092,18 @@ UI.widgets.Results = React.createClass({
 						React.createElement('div', { className: 'livery' }),
 						React.createElement(
 							'div',
+							{ className: 'resultTeam' },
+							'Team'
+						),
+						React.createElement(
+							'div',
 							{ className: 'fastest-time' },
 							'Delta'
 						),
 						React.createElement(
 							'div',
 							{ className: 'lap-time' },
-							'Best Lap Time'
+							'Best Lap'
 						)
 					),
 					React.createElement(
@@ -2109,6 +2136,18 @@ var ResultEntry = React.createClass({
 		}
 
 		return { 'background': classColour };
+	},
+	getTeamName: function (teamId, portalId) {
+		var self = this;
+		var teamName = "";
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "★ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+		return teamName;
 	},
 	render: function () {
 		var self = this;
@@ -2171,6 +2210,11 @@ var ResultEntry = React.createClass({
 					'div',
 					{ className: 'livery' },
 					React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'resultTeam' },
+					self.getTeamName(entry.teamId, entry.portalId)
 				),
 				lapTime,
 				React.createElement(

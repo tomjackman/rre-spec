@@ -86,10 +86,13 @@
 		}
 		&.title .classPosition {
 			color: @QualiResultEntryTextColor;
+			-ms-transform: skew(0deg, 0deg);
+			-webkit-transform: skew(0deg, 0deg);
+			transform: skew(0deg, 0deg);
 		}
 		.position {
 			text-align: center;
-			width: 10%;
+			width: 7%;
 			position: relative;
 		}
 		.classPosition {
@@ -118,13 +121,26 @@
 			position: relative;
 			text-align: center;
 		}
-		.shortName {
-			position: relative;
-			width: 30%;
-		}
 		.longName {
 			position: relative;
-			width: 40%;
+			width: 17%;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		.shortName {
+			position: relative;
+			width: 17%;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		.raceResultTeam {
+			position: relative;
+			width: 20%;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
 		}
 		.livery {
 			width: 10%;
