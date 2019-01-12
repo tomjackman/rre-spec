@@ -22,6 +22,7 @@
 * [Tooling] Reduced default refresh intervals for better game performance.
 * [Feature] Created new base theme.
 * [Feature] Allowed the livery preview on the driver info and compare info widgets to be disabled.
+* [Feature] Show the drivers team in the results tables.
 
 ### Version 1.4.0
 * [Feature] State the new version number available in the alert when an update is available.
