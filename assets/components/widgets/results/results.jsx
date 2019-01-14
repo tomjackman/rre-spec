@@ -65,7 +65,7 @@ UI.widgets.Results = React.createClass({
 			}
 		});
 		if (drivers[fastestTimeIndex]) {
-			drivers[fastestTimeIndex].isFastest = true
+			drivers[fastestTimeIndex].isFastest = true;
 		}
 
 	var session = UI.state.sessionInfo;
