@@ -165,6 +165,10 @@ UI.widgets.MulticlassStandings = React.createClass({
 			, 'multiclass-standings': true
 		});
 
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+			return null;
+		}
+
 		// Need to clone it to keep the base array sorted by slotId
 		return (
 			<div className={multiclassStandingsClasses}>

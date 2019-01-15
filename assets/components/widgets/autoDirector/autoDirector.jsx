@@ -175,7 +175,7 @@ UI.scoringRules = {
 		if (!UI.state.sessionInfo.type.match(/^race/i)) {
 			return score;
 		}
-		var ratio = (((1-(driver.scoreInfo.positionOverall/drivers.length))/3)+0.7);
+		var ratio = (((1-(driver.scoreInfo.positionClass/drivers.length))/3)+0.7);
 		score += score*ratio;
 		return score;
 	}

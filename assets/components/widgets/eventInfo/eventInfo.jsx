@@ -53,6 +53,10 @@ UI.widgets.EventInfo = React.createClass({
       speedMeasurement = "MPH"
     }
 
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+			return null;
+		}
+
 		return (
       <div className="event-info-bg">
   			<div className="event-info animated fadeIn">

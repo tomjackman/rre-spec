@@ -1,3 +1,4 @@
+@import '../theme/z';
 /* ---- Abel ---- */
 
 @font-face {
@@ -88,7 +89,7 @@ select {
 }
 [data-title]:after {
     content: attr(data-title);
-    background-color: rgba(31, 31, 30, 0.9);
+    background-color: #0e0e0e;
     color: white;
     font-size: 19px;
     position: absolute;
@@ -116,7 +117,7 @@ select {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(31, 31, 30, 1);
+	background: #0e0e0e;
 	font-family: Abel;
 
 	.title {
@@ -160,7 +161,7 @@ select {
 		border-bottom: 2px solid rgba(226, 29, 56, 1);
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    background: rgba(31, 31, 30, 0.9);
+    background: #0e0e0e;
     z-index: 2;
 	}
 
@@ -169,7 +170,7 @@ select {
         transition: opacity .2s, visibility .2s, margin-top 0s .2s;
         bottom: 0px;
         height: auto;
-        background: rgba(31, 31, 30, 1);
+        background: #0e0e0e;
         color: white;
         font-family: Oswald;
         border-top: 2px solid #00E676;
@@ -306,7 +307,7 @@ select {
     color: white;
     bottom: 0;
 		font-size: 16px;
-    background: rgba(31, 31, 30, 0.9);
+    background: #0e0e0e;
 		select {
 			margin: 10px 5%;
 			width: 90%;
@@ -321,9 +322,6 @@ select {
 			display: flex;
       margin-top: 15px;
       filter: drop-shadow(1px 1px 1px rgba(0,0,0,1));
-      .widget-manager {
-        transform: skew(-15deg, 0deg);
-      }
 			.widget-manager, .suggestion {
 				flex: auto;
 				margin: 5px;

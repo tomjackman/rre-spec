@@ -67,8 +67,8 @@
 		.position {
 			font-size: @fontSize;
 			background: @StandingsPositionBackground;
-			border-top-left-radius: 1em;
-			border-bottom-left-radius: 1em;
+			border-top-left-radius: 0.5em;
+			border-bottom-left-radius: 0.5em;
 			display: inline-block;
 			color: @StandingsPositionText;
 			font-size: 1em;
@@ -112,14 +112,14 @@
 			position: absolute;
 			font-family: Oswald;
 			display: inline-block;
-			left: 100%;
+			left: 95%;
 			height: 90%;
 			text-align: center;
 			line-height: 1em;
 			padding: 0 0.5em 0 0.5em;
-			border-top-right-radius: 1em;
-			border-bottom-right-radius: 1em;
 			min-width: 6em;
+			transform: skew(-15deg);
+			z-index: -1;
 			.onCreation(-webkit-transform, translate(-100%, 0), translate(0, 0), 0.7s);
 		}
 	}

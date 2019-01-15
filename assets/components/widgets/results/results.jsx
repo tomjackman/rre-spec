@@ -70,14 +70,6 @@ UI.widgets.Results = React.createClass({
 
 	var session = UI.state.sessionInfo;
 
-	if (session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
-		// Hide widgets that use the same screen space
-		UI.state.activeWidgets.FocusedDriver.active = false;
-		UI.state.activeWidgets.MulticlassStandings.active = false;
-		UI.state.activeWidgets.SessionInfo.active = false;
-		UI.state.activeWidgets.EventInfo.active = false;
-	}
-
 		return (
 			<div>
 			{ session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ?

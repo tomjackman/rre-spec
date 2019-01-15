@@ -4,7 +4,7 @@
 	"name": "Session countdown",
 	"buttonText": "Session countdown",
 	"keepOnSessionChange": false,
-	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
 	"defaultActive": true,
 	"description": "Shows the name of the current session or phase along with the timer and country flag."
 }

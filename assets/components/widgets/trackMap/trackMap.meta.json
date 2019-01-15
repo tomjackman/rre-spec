@@ -4,7 +4,7 @@
 	"name": "Track map",
 	"buttonText": "Track map",
 	"keepOnSessionChange": false,
-	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
 	"defaultActive": false,
 	"description": "Overlays a track map on screen showing the drivers and class positions."
 }

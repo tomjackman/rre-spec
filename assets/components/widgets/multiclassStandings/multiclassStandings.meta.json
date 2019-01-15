@@ -3,9 +3,9 @@
 	"elementName": "MulticlassStandings",
 	"name": "Multiclass Standings",
 	"buttonText": "Standings",
-	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
 	"keepOnSessionChange": true,
 	"disableFlags": false,
-	"defaultActive": false,
+	"defaultActive": true,
 	"description": "Display a list of the standings on screen. The multiclass colours are chosen based on the dominant colour in the class icon from the store."
 }

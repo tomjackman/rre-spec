@@ -1,3 +1,14 @@
+### Version 1.5.2
+* [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.
+* [Feature] Allowed extra widgets to be active in the warmup session.
+* [Feature] Decreased default resolution scaling by 2 clicks making UI elements smaller by default.
+* [Feature] Small UI improvements to standings tower.
+* [Feature] Adjustment to the auto director to improve weighting scores to battles in the lower classes, eg. class positioning rather than overall positioning in multiclass races.
+* [Feature] Enabled popular widgets by default.
+* [Feature] Improve readability of steward and safety car alert text.
+* [Feature] Small improvement to steward alerts display logic.
+* [Bug Fix] Fixed the mercedes theme not obeying the resolution scaler.
+
 ### Version 1.5.1
 * [Bug Fix] Ensured that other widgets are correctly disabled when the qualifying results appear on screen.
 * [Bug Fix] Removed flashing close racing indicator inside the broadcaster panel.

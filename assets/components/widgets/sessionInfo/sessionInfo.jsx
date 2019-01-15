@@ -71,6 +71,10 @@ UI.widgets.SessionInfo = React.createClass({
 			return null;
 		}
 
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+			return null;
+		}
+
 		var showCheckered = null;
 
 		if (p.sessionInfo.phase === 'CHECKERED') {

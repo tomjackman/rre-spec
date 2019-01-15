@@ -931,6 +931,10 @@ UI.widgets.EventInfo = React.createClass({
 			speedMeasurement = "MPH";
 		}
 
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+			return null;
+		}
+
 		return React.createElement(
 			'div',
 			{ className: 'event-info-bg' },
@@ -1296,7 +1300,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
-		if (UI.state.sessionInfo.phase === 'END') {
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
 			return null;
 		}
 
@@ -1616,6 +1620,10 @@ UI.widgets.MulticlassStandings = React.createClass({
 			'hide-flags': UI.state.activeWidgets.MulticlassStandings.disableFlags,
 			'multiclass-standings': true
 		});
+
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+			return null;
+		}
 
 		// Need to clone it to keep the base array sorted by slotId
 		return React.createElement(
@@ -2031,14 +2039,6 @@ UI.widgets.Results = React.createClass({
 		}
 
 		var session = UI.state.sessionInfo;
-
-		if (session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
-			// Hide widgets that use the same screen space
-			UI.state.activeWidgets.FocusedDriver.active = false;
-			UI.state.activeWidgets.MulticlassStandings.active = false;
-			UI.state.activeWidgets.SessionInfo.active = false;
-			UI.state.activeWidgets.EventInfo.active = false;
-		}
 
 		return React.createElement(
 			'div',
@@ -2484,6 +2484,10 @@ UI.widgets.SessionInfo = React.createClass({
 		};
 
 		if (!p.sessionInfo.type || p.sessionInfo.type === 'EVENT RESULTS') {
+			return null;
+		}
+
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
 			return null;
 		}
 
@@ -3816,7 +3820,7 @@ UI.components.Spectator = React.createClass({
 					self.setState({
 						'event': null
 					});
-				}, 100);
+				}, alertLength + 1);
 			}, alertLength);
 		});
 
@@ -4229,7 +4233,7 @@ UI.scoringRules = {
 		if (!UI.state.sessionInfo.type.match(/^race/i)) {
 			return score;
 		}
-		var ratio = (1 - driver.scoreInfo.positionOverall / drivers.length) / 3 + 0.7;
+		var ratio = (1 - driver.scoreInfo.positionClass / drivers.length) / 3 + 0.7;
 		score += score * ratio;
 		return score;
 	}
