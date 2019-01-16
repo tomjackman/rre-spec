@@ -254,8 +254,10 @@ var Driver = React.createClass({
 			'interesting': true
 		};
 
-		if (timeDiff > 0 && timeDiff < 1000) {
+		if (timeDiff > 0 && timeDiff < 1000 && timeDiff > 250) {
 			classes['close'] = true;
+		} else if (timeDiff > 0 && timeDiff < 251) {
+			classes['veryClose animated flash'] = true;
 		}
 		return cx(classes);
 	},
@@ -269,9 +271,9 @@ var Driver = React.createClass({
 					background: classColour,
 					position: "absolute"
 			};
-			return <div className="position" style={divStyle}>Class P{driver.scoreInfo.positionClass}</div>
+			return <div className="position" style={divStyle}>P{driver.scoreInfo.positionOverall} / Class P{driver.scoreInfo.positionClass}</div>
 		} else {
-			return <div className="position" style={divStyle}>Overall P{driver.scoreInfo.positionOverall}</div>
+			return <div className="position" style={divStyle}>P{driver.scoreInfo.positionOverall}</div>
 		}
 	},
 	render: function() {
