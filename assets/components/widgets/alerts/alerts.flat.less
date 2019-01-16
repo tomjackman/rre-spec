@@ -1,13 +1,12 @@
 @import '../theme/z';
 
 .alert {
-  font-size: @fontSize * 1.2;
+  font-size: @fontSize * 1.1;
   font-family: Oswald;
 	position: fixed;
 	top: 15em;
   right: 2.5em;
 	text-transform: uppercase;
-  border-top: 3px solid @AlertTitleBorderTop;
   border-radius: 1em;
 	min-height: 1em;
 	width: 15em;
@@ -19,20 +18,19 @@
     opacity: 0.5;
   }
   .raceControlAlert {
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
+    -webkit-transform: skew(-10deg, 0deg);
+    border-top: 3px solid @AlertTitleBorderTop;
     background: @AlertTitleBackgroundColor;
     color: @AlertTitleText;
-    font-size: @fontSize * 1.2;
+    font-size: @fontSize * 1.1;
     padding: 0.05em;
   }
   .alertMessage {
     background: @AlertMessageBackground;
     color: @AlertMessageText;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
+    -webkit-transform: skew(-10deg, 0deg);
     padding: 0.15em;
-    font-size: @fontSize * 1.2;
+    font-size: @fontSize * 1.1;
     text-transform: capitalize;
   }
 }

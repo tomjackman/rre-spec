@@ -1,36 +1,36 @@
 @import '../theme/z';
 
 .safetyAlert {
-  font-size: @fontSize * 1.2;
+  font-size: @fontSize * 1.1;
   font-family: Oswald;
 	position: fixed;
 	top: 10em;
   right: 2.5em;
 	text-transform: uppercase;
-  border-top: 3px solid @SafetyCarInTitleBorderTop;
-  border-radius: 1em;
 	min-height: 1em;
-	width: 15em;
+	width: 11em;
 	line-height: 1.7em;
 	text-align: center;
 	display: inline-block;
   filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
 
   .raceControl {
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
+    -webkit-transform: skew(-10deg, 0deg);
+    border-top: 3px solid @SafetyCarInTitleBorderTop;
     background: @SafetyCarInTitleBackgroundColor;
     color: @SafetyCarInTitleText;
-    font-size: @fontSize * 1.2;
+    font-size: @fontSize * 1.1;
     padding: 0.05em;
+    top: 0.1em;
+    z-index: 0;
   }
   .safetyCarIn {
     background: @SafetyCarInMessageBackground;
     color: @SafetyCarInMessageText;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
-    font-size: @fontSize * 1.2;
+    -webkit-transform: skew(-10deg, 0deg);
+    font-size: @fontSize * 1.1;
     padding: 0.15em;
     text-transform: capitalize;
+    z-index: -1;
   }
 }
