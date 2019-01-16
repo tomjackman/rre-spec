@@ -1,47 +1,41 @@
 @import '../theme/z';
 
-.sessionName {
+.session-info {
+.inner {
+	font-size: @fontSize * 1.1;
 	font-family: Oswald;
 	position: fixed;
-	top: 1em;
+	top: 0.5em;
 	left: 50%;
 	-webkit-transform: translate(-50%, 0);
-	font-size: @fontSize;
+	text-align: center;
+	filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
+
+.sessionInfoFlag, .sessionName, .timer, .checkered, .countdown, .yellowFlag, {
+	display: inline-block;
+	vertical-align: top;
+	height: 2em;
+	padding: 0em 1em;
+	transform: skew(-15deg, 0deg);
+	line-height: 1.8em;
+	margin: 0px;
+}
+
+.sessionName {
+	min-width: 4em;
 	background: @SessionInfoPhaseBackground;
 	text-transform: uppercase;
 	border-top: 0.20em solid @SessionInfoPhaseBorderTop;
-	border-top-left-radius: 1em;
-	border-top-right-radius: 1em;
 	color: @SessionInfoPhaseTextColor;
-	width: 9em;
-	height: 2em;
-	padding: 0em 0.25em;
-	line-height: 1.6em;
-	text-align: center;
-	display: inline-block;
-	z-index: 1;
-	filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
 }
 
 .timer {
-	font-family: Oswald;
-	position: fixed;
-	top: 3em;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0);
-	font-size: @fontSize;
+	min-width: 4em;
+	border-top: 0.20em solid @SessionInfoPhaseBorderTop;
 	background: @SessionInfoTimerBackground;
 	text-transform: uppercase;
-	border-bottom-left-radius: 1em;
-	border-bottom-right-radius: 1em;
 	color: @SessionInfoTimerTextColor;
-	width: 9em;
-	height: 2em;
-	line-height: 1.8em;
-	text-align: center;
-	display: inline-block;
-	z-index: 1;
-	filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
+	z-index: 2;
 }
 
 .yellowFlag {
@@ -58,34 +52,46 @@
 	z-index: 2;
 }
 
+.countdown {
+	padding: 0em 0.3em;
+	min-width: 4em;
+	border-top: 0.20em solid @SessionInfoPhaseBorderTop;
+	background: @SessionInfoTimerBackground;
+	text-transform: uppercase;
+	color: @SessionInfoTimerTextColor;
+	line-height: 1.6em;
+	transform: skew(-15deg, 0deg);
+	z-index: -2;
+	.countdownIndicatorsRed {
+		z-index: -1;
+		font-size: @fontSize * 1.5;
+		color: rgba(226, 29, 56, 1);
+	}
+}
+
 .sessionInfoFlag {
-	position: fixed;
-	font-size: @fontSize;
-	top: 1.8em;
-	left: 50%;
-	-webkit-transform: translate(-250%, 0);
-	z-index: 3;
+	margin: 0;
+	padding: 0;
+	height: 2em;
+	width: 2em;
 	img {
 		height: 2em;
 		width: 2em;
-		border-radius: 2.5em;
 		opacity: 1;
-		border: 0.1em solid @SessionInfoPhaseBorderTop;
-		filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.9));
 	}
 }
 
 .checkered {
+		margin: 0;
+		padding: 0;
+		width: 4em;
 		font-size: @fontSize;
 		img {
-		position: fixed;
-		top: 3em;
-		left: 50%;
-		-webkit-transform: translate(-50%, 0);
-		border-bottom-left-radius: 1em;
-		border-bottom-right-radius: 1em;
-		height: 2em;
-		width: 9em;
-		z-index: 2;
+			border-top: 0.20em solid @SessionInfoPhaseBorderTop;
+			height: 2em;
+			width: 4em;
+			z-index: 2;
 	}
+}
+}
 }

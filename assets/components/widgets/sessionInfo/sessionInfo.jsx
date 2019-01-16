@@ -7,7 +7,7 @@ UI.widgets.SessionInfo = React.createClass({
 			UI.batch({
 				'eventInfo': r3e.getEventInfo,
 				'sessionInfo': r3e.getSessionInfo,
-				'driversInfo': r3e.getDriversInfo,
+				'driversInfo': r3e.getDriversInfo
 			}, self.setState.bind(self));
 		}
 		updateInfo();
@@ -82,35 +82,44 @@ UI.widgets.SessionInfo = React.createClass({
 		}
 
 		return (
-			<div className="session-info">
+			<div className="session-info animated fadeInLeft">
 				<div className="inner">
 					{p.sessionInfo.phase === 'GARAGE' ?
 						<div>
-							<div className="sessionName">{nameLookup[p.sessionInfo.phase]}</div>
-							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
 							<div className="sessionInfoFlag">
 								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
 							</div>
+							<div className="sessionName">{nameLookup[p.sessionInfo.phase]}</div>
+							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
 						</div>
 						:
 						<div>
+							<div className="sessionInfoFlag">
+								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
+							</div>
 							<div className="sessionName">{nameLookup[p.sessionInfo.type]}</div>
-							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
+								{p.sessionInfo.phase === 'CHECKERED' ?
+									<div className="checkered">
+										<img src={'/img/checkered.jpg'} />
+									</div>
+								:
+									<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
+								}
+								{p.sessionInfo.type.match(/^race/i) && p.sessionInfo.phase.match(/^countdown/i) ?
+									<div className="countdown">
+										<div className="animated fadeInLeft">
+											<div className="countdownIndicatorsRed animated infinite flash">◉◉◉◉◉</div>
+										</div>
+									</div>
+								:
+									null
+								}
 								{p.sessionInfo.type.match(/^race/i) && self.yellowFlagOnTrack ?
 								<div className="yellowFlag animated flash infinite"></div>
 								:
 								null
 								}
-								<div className="sessionInfoFlag">
-									<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
-								</div>
-								{p.sessionInfo.phase === 'CHECKERED' ?
-								<div className="checkered">
-									<img src={'/img/checkered.jpg'} />
-								</div>
-								:
-								null
-							}
+
 						</div>
 					}
 
