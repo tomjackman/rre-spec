@@ -212,7 +212,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				background: classColour
 		};
 
-		return <div className="positionInClass" style={divStyle}>P{driverInfo.scoreInfo.positionClass} IN CLASS</div>
+		return <div className="positionInClass" style={divStyle}>P{driverInfo.scoreInfo.positionClass}</div>
 	},
 	getTeamName: function(teamId, portalId) {
 		var self = this;
@@ -232,6 +232,18 @@ UI.widgets.FocusedDriver = React.createClass({
 			return <div className="icon animated infinite flash">PTP</div>
 		} else {
 			return <div className="icon">PTP</div>
+		}
+	},
+	getPersonalBestTime: function(driverInfo) {
+		if(driverInfo.scoreInfo.bestLapInfo.sector3 !== -1) {
+			var isFastestInQuali = (UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') && driverInfo.scoreInfo.positionOverall === 1;
+			if (isFastestInQuali) {
+				return <div className="best-time fastest">{UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
+			} else {
+				return <div className="best-time">{UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
+			}
+		} else {
+			return null;
 		}
 	},
 	render: function() {
@@ -256,13 +268,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			<div className={focusedDriverClasses}>
 				<div className="inner animated fadeIn">
 					<div className="top">
-						{driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ?
-							<div className="best-time">
-								PB - {UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
-							</div>
-							:
-							null
-						}
+						{self.getPersonalBestTime(driverInfo)}
 						{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 							self.getClassPosition(driverInfo.classId)
 						:

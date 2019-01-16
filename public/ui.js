@@ -1254,8 +1254,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			'div',
 			{ className: 'positionInClass', style: divStyle },
 			'P',
-			driverInfo.scoreInfo.positionClass,
-			' IN CLASS'
+			driverInfo.scoreInfo.positionClass
 		);
 	},
 	getTeamName: function (teamId, portalId) {
@@ -1286,6 +1285,26 @@ UI.widgets.FocusedDriver = React.createClass({
 			);
 		}
 	},
+	getPersonalBestTime: function (driverInfo) {
+		if (driverInfo.scoreInfo.bestLapInfo.sector3 !== -1) {
+			var isFastestInQuali = (UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') && driverInfo.scoreInfo.positionOverall === 1;
+			if (isFastestInQuali) {
+				return React.createElement(
+					'div',
+					{ className: 'best-time fastest' },
+					UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+				);
+			} else {
+				return React.createElement(
+					'div',
+					{ className: 'best-time' },
+					UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+				);
+			}
+		} else {
+			return null;
+		}
+	},
 	render: function () {
 		var self = this;
 		var pitInfo = self.state.pitInfo;
@@ -1313,12 +1332,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'top' },
-					driverInfo.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
-						'div',
-						{ className: 'best-time' },
-						'PB - ',
-						UI.formatTime(driverInfo.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-					) : null,
+					self.getPersonalBestTime(driverInfo),
 					UI.state.controllerOptions.options.multiclass.value === "true" ? self.getClassPosition(driverInfo.classId) : null
 				),
 				React.createElement(
@@ -1521,7 +1535,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 				if (driver.scoreInfo.bestLapInfo.sector3 !== -1) {
 					return React.createElement(
 						'div',
-						{ className: 'meta-info' },
+						{ className: 'meta-info fastest' },
 						self.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
 					);
 				} else {
@@ -1622,6 +1636,10 @@ UI.widgets.MulticlassStandings = React.createClass({
 		});
 
 		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+			return null;
+		}
+
+		if (UI.state.sessionInfo.phase === 'GARAGE') {
 			return null;
 		}
 
@@ -2499,13 +2517,18 @@ UI.widgets.SessionInfo = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'session-info' },
+			{ className: 'session-info animated fadeInLeft' },
 			React.createElement(
 				'div',
 				{ className: 'inner' },
 				p.sessionInfo.phase === 'GARAGE' ? React.createElement(
 					'div',
 					null,
+					React.createElement(
+						'div',
+						{ className: 'sessionInfoFlag' },
+						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
+					),
 					React.createElement(
 						'div',
 						{ className: 'sessionName' },
@@ -2515,36 +2538,43 @@ UI.widgets.SessionInfo = React.createClass({
 						'div',
 						{ className: 'timer' },
 						UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
-					),
-					React.createElement(
-						'div',
-						{ className: 'sessionInfoFlag' },
-						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
 					)
 				) : React.createElement(
 					'div',
 					null,
 					React.createElement(
 						'div',
-						{ className: 'sessionName' },
-						nameLookup[p.sessionInfo.type]
-					),
-					React.createElement(
-						'div',
-						{ className: 'timer' },
-						UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
-					),
-					p.sessionInfo.type.match(/^race/i) && self.yellowFlagOnTrack ? React.createElement('div', { className: 'yellowFlag animated flash infinite' }) : null,
-					React.createElement(
-						'div',
 						{ className: 'sessionInfoFlag' },
 						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'sessionName' },
+						nameLookup[p.sessionInfo.type]
 					),
 					p.sessionInfo.phase === 'CHECKERED' ? React.createElement(
 						'div',
 						{ className: 'checkered' },
 						React.createElement('img', { src: '/img/checkered.jpg' })
-					) : null
+					) : React.createElement(
+						'div',
+						{ className: 'timer' },
+						UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
+					),
+					p.sessionInfo.type.match(/^race/i) && p.sessionInfo.phase.match(/^countdown/i) ? React.createElement(
+						'div',
+						{ className: 'countdown' },
+						React.createElement(
+							'div',
+							{ className: 'animated fadeInLeft' },
+							React.createElement(
+								'div',
+								{ className: 'countdownIndicatorsRed animated infinite flash' },
+								'\u25C9\u25C9\u25C9\u25C9\u25C9'
+							)
+						)
+					) : null,
+					p.sessionInfo.type.match(/^race/i) && self.yellowFlagOnTrack ? React.createElement('div', { className: 'yellowFlag animated flash infinite' }) : null
 				)
 			)
 		);
@@ -3108,8 +3138,10 @@ var Driver = React.createClass({
 			'interesting': true
 		};
 
-		if (timeDiff > 0 && timeDiff < 1000) {
+		if (timeDiff > 0 && timeDiff < 1000 && timeDiff > 250) {
 			classes['close'] = true;
+		} else if (timeDiff > 0 && timeDiff < 251) {
+			classes['veryClose animated flash'] = true;
 		}
 		return cx(classes);
 	},
@@ -3126,14 +3158,16 @@ var Driver = React.createClass({
 			return React.createElement(
 				'div',
 				{ className: 'position', style: divStyle },
-				'Class P',
+				'P',
+				driver.scoreInfo.positionOverall,
+				' / Class P',
 				driver.scoreInfo.positionClass
 			);
 		} else {
 			return React.createElement(
 				'div',
 				{ className: 'position', style: divStyle },
-				'Overall P',
+				'P',
 				driver.scoreInfo.positionOverall
 			);
 		}
@@ -4917,8 +4951,12 @@ UI.widgets.SafetyCarDeployed = React.createClass({
 		var self = this;
 		return React.createElement(
 			"div",
-			{ className: "safetyCarDeployed animated flash infinite" },
-			"Safety Car"
+			{ className: "safetyCarDeployedContainer" },
+			React.createElement(
+				"div",
+				{ className: "safetyCarDeployed animated flash infinite" },
+				"Safety Car"
+			)
 		);
 	}
 });

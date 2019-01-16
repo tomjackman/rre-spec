@@ -52,7 +52,6 @@
 				}
 				&.finished {
 					color: rgba(255, 255, 255, 1);
-
 					&.personal-best {
 						background: @DriverInfoPersonalBestSplitBackground;
 						color: @DriverInfoPersonalBestSplitText;
@@ -87,7 +86,7 @@
 			background: @DriverInfoBestTimeBackground;
 			padding: 0.5em 0.5em;
 			color: @DriverInfoBestTimeText;
-			width: 7em;
+			width: 6em;
 			z-index: 0;
 			margin-bottom: 0px;
 			height: 1.5em;
@@ -98,10 +97,14 @@
 			background: @DriverInfoPositionClassBackground;
 			padding: 0.5em 0.5em;
 			color: @DriverInfoPositionClassText;
-			width: 7em;
+			width: 3em;
 			z-index: 0;
 			margin-bottom: 0px;
 			height: 1.5em;
+		}
+		.fastest {
+			color: white;
+			background: @DriverInfoGlobalBestSplitBackground;
 		}
 	}
 	.main {

@@ -81,7 +81,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		} else if(UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') {
 			if (driver.scoreInfo.positionOverall === 1) {
 				if (driver.scoreInfo.bestLapInfo.sector3 !== -1) {
-					return <div className="meta-info">{self.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
+					return <div className="meta-info fastest">{self.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
 				} else {
 					return <div className="meta-info"></div>;
 				}
@@ -166,6 +166,10 @@ UI.widgets.MulticlassStandings = React.createClass({
 		});
 
 		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+			return null;
+		}
+
+		if (UI.state.sessionInfo.phase === 'GARAGE') {
 			return null;
 		}
 
