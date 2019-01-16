@@ -144,9 +144,9 @@ module.exports = function(io) {
 		'camera': 'trackside',
 		'activeWidgets': {},
 		'themes': {
-			'base': true
+			'raceroom-red': true
 		},
-		'activeTheme': 'base',
+		'activeTheme': 'raceroom-red',
 		'controllerOptions': defaultControllerOptions
 	};
 
@@ -184,8 +184,8 @@ module.exports = function(io) {
 			}
 		});
 
-		// set default theme on start: base.less
-		var defaultTheme = 'base';
+		// set default theme on start: raceroom-red.less
+		var defaultTheme = 'raceroom-red';
 		var themeLessFile = themesDir + '/z.less';
 		var activeThemeLessFile = themesDir + '/' + defaultTheme + '.less';
 		replaceContents(themeLessFile, activeThemeLessFile, err => {
