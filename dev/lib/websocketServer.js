@@ -106,6 +106,12 @@ module.exports = function(io) {
 				"tooltip": "Show the livery of the car on the driver info and compare driver widgets (Default: True).",
 				"type": "checkbox"
 			},
+			"showComparisonSpeed": {
+				"displayName": "Show Comparison Speed",
+				"value": "false",
+				"tooltip": "Show the comparison speed (in KM/H) between 2 drivers in the compare info widget (Default: False).",
+				"type": "checkbox"
+			},
 	    "alertLength": {
 	      "displayName": "Steward Message Alert Time Length (Seconds)",
 	      "value": "15",

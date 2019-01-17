@@ -142,6 +142,13 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		return (
 			<div className={cx(classes)}>
 			<div className="top">
+			{UI.state.controllerOptions.options.showComparisonSpeed.value === "true" ?
+					<div className="speed">
+						{driver.vehicleInfo.speed} KM/H
+					</div>
+					:
+					null
+				}
 				{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 					<div className="best-time">
 						{UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}
