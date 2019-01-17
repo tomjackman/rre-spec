@@ -4302,7 +4302,6 @@ UI.widgets.AutoDirector = React.createClass({
 			UI.state.activeWidgets.MulticlassStandings.active = true;
 			UI.state.activeWidgets.LogoOverlay.active = true;
 			UI.state.activeWidgets.SessionInfo.active = true;
-			UI.state.activeWidgets.FocusedDriver.active = true;
 			UI.state.activeWidgets.Alert.active = true;
 		}
 	},
@@ -4630,6 +4629,12 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'top' },
+				UI.state.controllerOptions.options.showComparisonSpeed.value === "true" ? React.createElement(
+					'div',
+					{ className: 'speed' },
+					driver.vehicleInfo.speed,
+					' KM/H'
+				) : null,
 				driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
 					'div',
 					{ className: 'best-time' },

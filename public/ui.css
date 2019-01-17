@@ -1075,19 +1075,35 @@ select {
 }
 .compare-race .inner .top {
   position: relative;
-  height: 1.75em;
-  left: 11.5em;
   bottom: -0.25em;
+  text-align: center;
+  height: 1.75em;
+  left: -0.5em;
+  margin: 0;
+}
+.compare-race .inner .top .speed,
+.compare-race .inner .top .best-time {
+  vertical-align: top;
+  display: inline-block;
+}
+.compare-race .inner .top .speed {
+  transform: skew(-10deg);
+  background: #3f51b5;
+  line-height: 0.5em;
+  padding: 0.5em 0.5em;
+  color: white;
+  width: 5em;
+  z-index: 0;
+  height: 1.5em;
 }
 .compare-race .inner .top .best-time {
-  transform: skew(-15deg);
+  transform: skew(-10deg);
   background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
   line-height: 0.5em;
   padding: 0.5em 0.5em;
   color: white;
   width: 5em;
   z-index: 0;
-  margin-bottom: 0px;
   height: 1.5em;
 }
 .compare-race .inner .comparePositionContainer,
@@ -1134,9 +1150,9 @@ select {
 }
 .compare-race .inner .main .vehicle img {
   position: absolute;
-  top: -4em;
-  left: -6.5em;
-  height: 5.5em;
+  top: -3.2em;
+  left: -4.2em;
+  height: 4.5em;
 }
 .compare-race .inner .main .manufacturer {
   background: white;
@@ -1215,20 +1231,17 @@ select {
   width: 3em;
   position: relative;
   margin-right: 0.25em;
+  transform: skew(-10deg);
 }
 .compare-race .inner .compare-flag-container .compare-flag {
-  height: 3.5em;
   background: rgba(38, 50, 56, 0.8);
   position: fixed;
   display: block;
   content: '';
   width: 4em;
-  height: 4em;
+  height: 3.5em;
   position: absolute;
-  top: -0.5em;
-  left: -0.25em;
-  border-bottom-right-radius: 1em;
-  border-top-left-radius: 1em;
+  left: -0.3em;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   z-index: 1;
 }
@@ -1239,7 +1252,7 @@ select {
   right: 0;
   bottom: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
 }
 .event-info {
   background: white;
@@ -1462,7 +1475,7 @@ select {
 .focused-driver-info .bottom .extra-info ul {
   margin: 0;
   padding: 0.25em;
-  transform: skew(-15deg);
+  transform: skew(-10deg);
 }
 .focused-driver-info .bottom .extra-info ul li {
   float: left;
@@ -1513,7 +1526,7 @@ select {
   bottom: -0.25em;
 }
 .focused-driver-info .top .best-time {
-  transform: skew(-15deg);
+  transform: skew(-10deg);
   line-height: 0.5em;
   background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
   padding: 0.5em 0.5em;
@@ -1541,7 +1554,7 @@ select {
 .focused-driver-info .main .positionContainer {
   background: rgba(31, 31, 30, 0.9);
   color: white;
-  width: 4em;
+  width: 5em;
   padding-left: 0.7em;
   text-align: center;
   padding-right: 0.75em;
@@ -1612,16 +1625,15 @@ select {
   position: relative;
   background: rgba(38, 50, 56, 0.8);
   border-bottom: 0.1em solid #ff5252;
+  transform: skew(-10deg);
 }
 .focused-driver-info .main .flag-container .flag {
   background: rgba(38, 50, 56, 0.8);
   position: absolute;
   display: block;
-  width: 5em;
-  height: 5em;
-  top: -0.75em;
-  border-bottom-right-radius: 1em;
-  border-top-left-radius: 1em;
+  left: -0.4em;
+  width: 4.5em;
+  height: 4em;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .logo-overlay {

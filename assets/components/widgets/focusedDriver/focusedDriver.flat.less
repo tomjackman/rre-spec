@@ -35,7 +35,7 @@
 		ul {
 			margin: 0;
 			padding: 0.25em;
-			transform: skew(-15deg);
+			transform: skew(-10deg);
 			li {
 				float: left;
 				background: @DriverInfoSplitTimesBackground;
@@ -81,7 +81,7 @@
 		height: 1.75em;
 		bottom: -0.25em;
 		.best-time {
-			transform: skew(-15deg);
+			transform: skew(-10deg);
 			line-height: 0.5em;
 			background: @DriverInfoBestTimeBackground;
 			padding: 0.5em 0.5em;
@@ -111,7 +111,7 @@
 	.positionContainer {
 		background: @DriverInfoPositionBackground;
 		color: @DriverInfoPositionText;
-		width: 4em;
+		width: 5em;
 		padding-left: 0.7em;
 		text-align: center;
 		padding-right: 0.75em;
@@ -182,15 +182,14 @@
 		position: relative;
 		background: @DriverInfoFlagBackground;
 		border-bottom: 0.1em solid @DriverInfoFlagBorder;
+		transform: skew(-10deg);
 		.flag {
 			background: @backgroundDark;
 			position: absolute;
 			display: block;
-			width: 5em;
-			height: 5em;
-			top: -0.75em;
-			border-bottom-right-radius: 1em;
-			border-top-left-radius: 1em;
+			left: -0.4em;
+			width: 4.5em;
+			height: 4em;
 			filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.9));
 		}
 	}

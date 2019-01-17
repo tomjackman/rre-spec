@@ -1,4 +1,4 @@
-### Version 1.5.3
+### Version 1.6.0
 * [Feature] Added red extra close racing indicator in the broadcast panel for cars within 0.25s of each other.
 * [Feature] Added new green and blue raceroom themes for more variety.
 * [Feature] Redesigned session info timer styling.
@@ -10,6 +10,10 @@
 * [Feature] Hidden the standings widget visibility in the garage phase pre-race as not all drivers are displayed in the standings at that point and looks odd. (The standings widget will regain visibility on the starting grid automatically).
 * [Bug Fix] Disable the driver info widget if the compare widget is enabled (and vice versa).
 * [Feature] Hide the driver info, compare and standings widgets when the event info overlay is activated for better appearance.
+* [Feature] Small UI updates to themes with new variable definitions for some UI components.
+* [Bug Fix] Fixed small theme inconsistency in the WTCR compare driver widget.
+* [Feature] Added a toggle to enable a speed comparison (in Km/h) between to drivers in the compare driver widget.
+* [Feature] Restyled driver info and compare driver flags with a sharper look.
 
 ### Version 1.5.2
 * [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.
