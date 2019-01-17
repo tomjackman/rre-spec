@@ -133,6 +133,12 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			'animated fadeIn': true
 		};
 		classes[self.props.position] = true;
+
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
+			return null;
+		}
+
 		return (
 			<div className={cx(classes)}>
 			<div className="top">

@@ -9,6 +9,7 @@
 * [Feature] Added purple fastest lap indicator in quali/practise sessions for the standings and driver info widgets.
 * [Feature] Hidden the standings widget visibility in the garage phase pre-race as not all drivers are displayed in the standings at that point and looks odd. (The standings widget will regain visibility on the starting grid automatically).
 * [Bug Fix] Disable the driver info widget if the compare widget is enabled (and vice versa).
+* [Feature] Hide the driver info, compare and standings widgets when the event info overlay is activated for better appearance.
 
 ### Version 1.5.2
 * [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.

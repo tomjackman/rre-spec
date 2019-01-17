@@ -173,6 +173,11 @@ UI.widgets.MulticlassStandings = React.createClass({
 			return null;
 		}
 
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
+			return null;
+		}
+
 		// Need to clone it to keep the base array sorted by slotId
 		return (
 			<div className={multiclassStandingsClasses}>

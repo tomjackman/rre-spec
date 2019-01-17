@@ -264,6 +264,11 @@ UI.widgets.FocusedDriver = React.createClass({
 			return null;
 		}
 
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
+			return null;
+		}
+
 		return (
 			<div className={focusedDriverClasses}>
 				<div className="inner animated fadeIn">

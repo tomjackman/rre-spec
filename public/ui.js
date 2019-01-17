@@ -1323,6 +1323,11 @@ UI.widgets.FocusedDriver = React.createClass({
 			return null;
 		}
 
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
+			return null;
+		}
+
 		return React.createElement(
 			'div',
 			{ className: focusedDriverClasses },
@@ -1640,6 +1645,11 @@ UI.widgets.MulticlassStandings = React.createClass({
 		}
 
 		if (UI.state.sessionInfo.phase === 'GARAGE') {
+			return null;
+		}
+
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
 			return null;
 		}
 
@@ -4608,6 +4618,12 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			'animated fadeIn': true
 		};
 		classes[self.props.position] = true;
+
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
+			return null;
+		}
+
 		return React.createElement(
 			'div',
 			{ className: cx(classes) },
