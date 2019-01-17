@@ -16,3 +16,6 @@ Setting the px value to a higher number will increase scaling and setting a lowe
 To create your own theme, its recommended to create a copy of the `raceroom-red.less` file with your theme name. Then start the tool, select the theme from the dropdown and start modifying the less variables.
 
 Select the theme from the dropdown to view the results on screen.
+
+### License
+The [Unlicense](LICENSE).
