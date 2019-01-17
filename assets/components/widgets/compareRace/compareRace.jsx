@@ -159,7 +159,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} />
 				</div>
 				:
-					null 
+					null
 				}
 				<div className="manufacturer">
 					<img src={'/render/'+driver.manufacturerId+'/small/'}/>

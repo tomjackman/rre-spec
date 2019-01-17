@@ -182,6 +182,18 @@ var TrackMapControllerDot = React.createClass({
 var WidgetManager = React.createClass({
 	onClickDriver: function(e) {
 		UI.state.activeWidgets[this.props.widget.elementName].active = !this.props.widget.active;
+
+		// disable the compare widget when the driver info widget is selected and vice versa.
+		var compareRaceWidgetId = "CompareRace";
+		var focusedDriverWidgetId = "FocusedDriver";
+		if (UI.state.activeWidgets[this.props.widget.elementName].elementName === compareRaceWidgetId &&
+		UI.state.activeWidgets[this.props.widget.elementName].active === true) {
+			UI.state.activeWidgets[focusedDriverWidgetId].active = false;
+		} else if (UI.state.activeWidgets[this.props.widget.elementName].elementName === focusedDriverWidgetId &&
+		UI.state.activeWidgets[this.props.widget.elementName].active === true) {
+			UI.state.activeWidgets[compareRaceWidgetId].active = false;
+		}
+
 		io.emit('setState', UI.state);
 	},
 	render: function() {

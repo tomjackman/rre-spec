@@ -1,13 +1,14 @@
 ### Version 1.5.3
 * [Feature] Added red extra close racing indicator in the broadcast panel for cars within 0.25s of each other.
 * [Feature] Added new green and blue raceroom themes for more variety.
+* [Feature] Redesigned session info timer styling.
 * [Feature] Improved chequered flag appearance on session end.
+* [Feature] Added very basic race lights out indicator to the session info widget on race starts.
 * [Bug Fix] Use full width of the race results table for non multiclass races.
 * [Feature] Improved steward, safety car and mandatory pit indicator styling.
-* [Feature] Add basic race countdown lights indicator.
-* [Feature] Redesigned session info timer styling.
-* [Feature] Added fastest lap indicator in quali/practise sessions for the standings and driver info widgets.
-* [Feature] Hidden the standings widget visibility in the garage phase pre-race as not all drivers are displayed. (It will regain visibility on the starting grid automatically).
+* [Feature] Added purple fastest lap indicator in quali/practise sessions for the standings and driver info widgets.
+* [Feature] Hidden the standings widget visibility in the garage phase pre-race as not all drivers are displayed in the standings at that point and looks odd. (The standings widget will regain visibility on the starting grid automatically).
+* [Bug Fix] Disable the driver info widget if the compare widget is enabled (and vice versa).
 
 ### Version 1.5.2
 * [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.
