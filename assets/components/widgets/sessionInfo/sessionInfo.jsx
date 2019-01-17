@@ -107,7 +107,7 @@ UI.widgets.SessionInfo = React.createClass({
 								}
 								{p.sessionInfo.type.match(/^race/i) && p.sessionInfo.phase.match(/^countdown/i) ?
 									<div className="countdown">
-										<div className="animated fadeInLeft">
+										<div className="animated fadeIn">
 											<div className="countdownIndicatorsRed animated infinite flash">◉◉◉◉◉</div>
 										</div>
 									</div>
