@@ -61,20 +61,28 @@ UI.widgets.MulticlassStandings = React.createClass({
 					return <div className="meta-info">Lap {driver.scoreInfo.laps + 1}</div>;
 			} else {
 				if (sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps > 1) {
-					return <div className="meta-info">+{(sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps)-1} Laps</div>
+					if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+						return <div className="meta-info">+{driver.scoreInfo.lapDiff} Lap(s)</div>
+					} else {
+						return <div className="meta-info">+{(sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps)-1} Lap(s)</div>
+					}
 				} else {
-					var sortedIndex = 0;
-					sortedByPosition.forEach(function(sortedDriver, i) {
-						if (sortedDriver.slotId === driver.slotId) {
-							sortedIndex = i;
-						}
-					});
-					var timeDifference = sortedByPosition.slice(1, sortedIndex+1).map(function(driver) {
-						return Math.max(0, driver.scoreInfo.timeDiff);
-					}).reduce(function(p, c) {
-						return p+c;
-					});
-					return <div className="meta-info">{self.formatTime(timeDifference)}</div>
+					if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+						return <div className="meta-info">{self.formatTime(driver.scoreInfo.timeDiff)}</div>
+					} else {
+						var sortedIndex = 0;
+						sortedByPosition.forEach(function(sortedDriver, i) {
+							if (sortedDriver.slotId === driver.slotId) {
+								sortedIndex = i;
+							}
+						});
+						var timeDifference = sortedByPosition.slice(1, sortedIndex+1).map(function(driver) {
+							return Math.max(0, driver.scoreInfo.timeDiff);
+						}).reduce(function(p, c) {
+							return p+c;
+						});
+						return <div className="meta-info">{self.formatTime(timeDifference)}</div>
+					}
 				}
 			}
 		// Qualify and Practice

@@ -36,6 +36,12 @@
       "tooltip": "Show the full middle and last names of drivers in the standings tower (Default: False).",
       "type": "checkbox"
     },
+    "showRelativeStandingsTiming": {
+      "displayName": "Show Relative Standings Timings",
+      "value": "false",
+      "tooltip": "Show relative timings on the standings tower to the driver in front rather than the leader during race sessions (Default: False).",
+      "type": "checkbox"
+    },
     "autoDirectorOnlyMode": {
       "displayName": "Auto Director Only Mode",
       "value": "false",
@@ -50,7 +56,7 @@
     },
     "showComparisonSpeed": {
       "displayName": "Show Comparison Speed",
-      "value": "true",
+      "value": "false",
       "tooltip": "Show the comparison speed (in KM/H) between 2 drivers in the compare info widget (Default: False).",
       "type": "checkbox"
     },

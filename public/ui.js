@@ -1508,30 +1508,48 @@ UI.widgets.MulticlassStandings = React.createClass({
 				);
 			} else {
 				if (sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps > 1) {
-					return React.createElement(
-						'div',
-						{ className: 'meta-info' },
-						'+',
-						sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps - 1,
-						' Laps'
-					);
+					if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							'+',
+							driver.scoreInfo.lapDiff,
+							' Lap(s)'
+						);
+					} else {
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							'+',
+							sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps - 1,
+							' Lap(s)'
+						);
+					}
 				} else {
-					var sortedIndex = 0;
-					sortedByPosition.forEach(function (sortedDriver, i) {
-						if (sortedDriver.slotId === driver.slotId) {
-							sortedIndex = i;
-						}
-					});
-					var timeDifference = sortedByPosition.slice(1, sortedIndex + 1).map(function (driver) {
-						return Math.max(0, driver.scoreInfo.timeDiff);
-					}).reduce(function (p, c) {
-						return p + c;
-					});
-					return React.createElement(
-						'div',
-						{ className: 'meta-info' },
-						self.formatTime(timeDifference)
-					);
+					if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							self.formatTime(driver.scoreInfo.timeDiff)
+						);
+					} else {
+						var sortedIndex = 0;
+						sortedByPosition.forEach(function (sortedDriver, i) {
+							if (sortedDriver.slotId === driver.slotId) {
+								sortedIndex = i;
+							}
+						});
+						var timeDifference = sortedByPosition.slice(1, sortedIndex + 1).map(function (driver) {
+							return Math.max(0, driver.scoreInfo.timeDiff);
+						}).reduce(function (p, c) {
+							return p + c;
+						});
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							self.formatTime(timeDifference)
+						);
+					}
 				}
 			}
 			// Qualify and Practice

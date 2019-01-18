@@ -67,7 +67,7 @@ module.exports = function(io) {
 	    "showTyreCompound": {
 	      "displayName": "Show Tyre Compound",
 	      "value": "true",
-	      "tooltip": "Show the tyre compound in the driver info widget for applicable classes.",
+	      "tooltip": "Show the tyre compound in the driver info widget for applicable classes (Default: true).",
 	      "type": "checkbox"
 	    },
 	    "indentFocusedDriver": {
@@ -92,6 +92,12 @@ module.exports = function(io) {
 				"displayName": "Show Full Surnames in Standings",
 				"value": "false",
 				"tooltip": "Show the full middle and last names of drivers in the standings tower (Default: False).",
+				"type": "checkbox"
+			},
+			"showRelativeStandingsTiming": {
+				"displayName": "Show Relative Standings Timings",
+				"value": "false",
+				"tooltip": "Show relative timings on the standings tower to the driver in front rather than the leader during race sessions (Default: False).",
 				"type": "checkbox"
 			},
 			"autoDirectorOnlyMode": {
