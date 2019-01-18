@@ -471,6 +471,9 @@ select {
   text-align: center;
   margin: 20px;
 }
+.app-controller .drivers-controls .controlPanel .controlPanelOption input[type=checkbox] {
+  display: none;
+}
 .app-controller .drivers-controls .controlPanel .controlPanelOption input[type=number] {
   width: 40px;
 }

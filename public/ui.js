@@ -3292,6 +3292,8 @@ var ControlOption = React.createClass({
 			'controlPanelOption': true
 		});
 
+		var color = self.state.value != "false" ? '#00E676' : '#e21d38';
+
 		return React.createElement(
 			'div',
 			{ className: classes },
@@ -3306,11 +3308,10 @@ var ControlOption = React.createClass({
 						null,
 						React.createElement(
 							'span',
-							{ title: self.state.tooltip, style: { 'font-size': '25px', 'color': '#00E676' } },
-							'\uD83D\uDEC8'
+							{ title: self.state.tooltip, style: { 'font-size': '20px', 'color': color } },
+							'\uD83D\uDEC8 ',
+							self.state.displayName
 						),
-						' ',
-						self.state.displayName,
 						React.createElement('input', {
 							defaultValue: self.state.value,
 							type: self.state.type,

@@ -360,12 +360,14 @@ var ControlOption = React.createClass({
 			'controlPanelOption': true
 		});
 
+		var color = self.state.value != "false" ? '#00E676' : '#e21d38';
+
 		return (
 			<div className={classes}>
 					<form>
 							<div className="option">
 				        <label>
-				          <span title={self.state.tooltip} style={{'font-size': '25px', 'color': '#00E676'}}>🛈</span> {self.state.displayName}
+				          <span title={self.state.tooltip} style={{'font-size': '20px', 'color': color}}>🛈 {self.state.displayName}</span>
 				          <input
 				            defaultValue={self.state.value}
 				            type={self.state.type}
