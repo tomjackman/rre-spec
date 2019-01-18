@@ -1503,8 +1503,8 @@ UI.widgets.MulticlassStandings = React.createClass({
 				return React.createElement(
 					'div',
 					{ className: 'meta-info' },
-					driver.scoreInfo.laps,
-					' Lap(s)'
+					'Lap ',
+					driver.scoreInfo.laps + 1
 				);
 			} else {
 				if (sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps > 1) {
@@ -1513,7 +1513,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 						{ className: 'meta-info' },
 						'+',
 						sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps - 1,
-						' laps'
+						' Laps'
 					);
 				} else {
 					var sortedIndex = 0;

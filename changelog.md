@@ -16,6 +16,7 @@
 * [Feature] Restyled driver info and compare driver flags with a sharper look.
 * [Feature] Increased event info dark background overlay tint by 30% for better contrast with the modal.
 * [Feature] Changed the race leaders lap count text format to read better and show the current lap number rather than the laps completed.
+* [Feature] Adjusted the safety car in alert and stewards alert widget positions to be closer to the right edge of the screen.
 
 ### Version 1.5.2
 * [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.
