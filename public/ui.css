@@ -110,93 +110,153 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.event-info-bg {
+.overallQuai {
+  font-size: 18px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
   background: rgba(0, 0, 0, 0.6);
 }
-.event-info {
-  background: white;
-  font-size: 18px;
-  width: 50em;
+.qualify-results .entries-outer {
+  max-height: 40em;
+  overflow: hidden;
+}
+.qualify-results .entries-outer .entries-inner {
+  top: 0;
+  position: relative;
+  -webkit-transition: top 15s linear;
+}
+.qualify-results .livery {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.qualify-results {
   position: fixed;
-  top: 8em;
-  left: 50%;
-  transform: translate(-50%, 0);
+  top: 50%;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
   z-index: -1;
-  padding: 0em;
-  color: #fff;
+  padding: 0px;
+  color: white;
   white-space: pre;
   font-family: Oswald;
-  border-radius: 10px;
-  border-top: 0.5em solid #e21d38;
-  border-bottom: 0.5em solid #e21d38;
+  width: 60%;
+  filter: drop-shadow(9px 9px 9px #000000);
 }
-.event-info .serverName {
-  color: #323433;
-  text-align: center;
+.qualify-results .title .text {
+  position: inherit;
+  height: 3em;
+  text-align: right;
+  padding: 0 0.75em 0 0;
+  line-height: 4em;
   font-size: 27px;
-  padding: 20px;
+  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-top: 0.25em solid #e21d38;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  z-index: 0;
 }
-.event-info .trackImage img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-.event-info .trackImage .trackLogo {
-  position: relative;
-}
-.event-info .trackImage .trackLogo img {
-  top: -110px;
-  left: 10px;
+.qualify-results .title .text .logo {
   position: absolute;
-  opacity: 1;
-  height: 100px;
-  width: 100px;
-  background-color: white;
+  content: url(results/logos/base.png);
+  height: 2.2em;
+  top: 0.5em;
+  left: 1em;
+  z-index: 1;
 }
-.event-info .countryFlag {
+.qualify-results .qualify-results-entry {
+  height: 2em;
+  line-height: 2em;
+  color: white;
+  background: rgba(31, 31, 30, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  border-bottom: 0.1em solid #e21d38;
+}
+.qualify-results .qualify-results-entry.title {
+  padding: 0 0 0 0em;
+  font-size: 19.8px;
+}
+.qualify-results .qualify-results-entry.title .classPosition {
+  color: white;
+  -ms-transform: skew(0deg, 0deg);
+  -webkit-transform: skew(0deg, 0deg);
+  transform: skew(0deg, 0deg);
+}
+.qualify-results .qualify-results-entry > div {
+  height: 2em;
+  padding: 0 0 0 0.25em;
+  float: left;
+}
+.qualify-results .qualify-results-entry .position {
   text-align: center;
-  padding-top: 15px;
-}
-.event-info .countryFlag img {
+  width: 10%;
   position: relative;
-  opacity: 1;
-  height: 50px;
-  width: 70px;
 }
-.event-info .serverTrackName {
-  color: #323433;
+.qualify-results .qualify-results-entry .classPosition {
+  width: 10%;
+  position: relative;
   text-align: center;
-  font-size: 27px;
-  padding: 15px;
-  border-bottom: 1px solid white;
-  width: 80%;
-  margin: auto;
+  color: white;
+  right: 0.5em;
+  -ms-transform: skew(-15deg, 0deg);
+  -webkit-transform: skew(-15deg, 0deg);
+  transform: skew(-15deg, 0deg);
 }
-.event-info .trackDescription {
-  color: #323433;
-  display: block;
-  width: 100%;
-  font-size: 18px;
-  padding: 10px;
-  min-height: 100px;
-  white-space: pre-line;
-  text-align: center;
-  line-height: 1.5;
+.qualify-results .qualify-results-entry .manufacturer {
+  width: 5%;
+  position: relative;
 }
-.event-info .weather .weatherIcons {
-  display: flex;
-  font-size: 18px;
-  color: #323433;
-  justify-content: space-around;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
+.qualify-results .qualify-results-entry .manufacturer img {
+  position: absolute;
+  top: 0.3em;
+  left: 0.5em;
+  width: 1.5em;
+  height: auto;
+}
+.qualify-results .qualify-results-entry .longName {
+  position: relative;
+  width: 30%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry .shortName {
+  position: relative;
+  width: 20%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry .resultTeam {
+  position: relative;
+  width: 25%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry .livery {
+  width: 10%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .livery img {
+  position: relative;
+  height: 3em;
+  right: 1.5em;
+  top: -0.5em;
+}
+.qualify-results .qualify-results-entry .fastest-time,
+.qualify-results .qualify-results-entry .lap-time {
+  width: 10%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .fastest-time.fastest,
+.qualify-results .qualify-results-entry .lap-time.fastest {
+  color: #f500f5;
 }
 @font-face {
   font-family: 'Hel';
@@ -958,10 +1018,8 @@ select {
 .compare-race .delta {
   font-size: 18px;
   text-transform: uppercase;
-  background: rgba(31, 31, 30, 0.9);
   border-radius: 1em;
   color: white;
-  border-top: 0.25em solid #e21d38;
   padding: 0.25em 0.5em;
   min-width: 6.5em;
   display: inline-block;
@@ -969,13 +1027,26 @@ select {
 }
 .compare-race .delta .battle {
   text-transform: uppercase;
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
+  border-top: 0.25em solid #e21d38;
   color: white;
-  padding: 0.25em 0.5em;
+  padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
+  transform: skew(-10deg);
+  background: rgba(31, 31, 30, 0.9);
+  left: 0.3em;
+}
+.compare-race .delta .value {
+  text-transform: uppercase;
+  color: white;
+  padding: 0.4em 0.7em;
+  width: inherit;
+  position: relative;
+  bottom: 0.25em;
+  left: -0.05em;
+  transform: skew(-10deg);
+  background: rgba(31, 31, 30, 0.9);
 }
 .compare-race .delta .inner {
   position: absolute !important;
@@ -984,12 +1055,12 @@ select {
 .compare-race .delta .inner.first {
   left: auto;
   right: 100%;
-  margin-right: 1em;
+  margin-right: 2em;
 }
 .compare-race .delta .inner.second {
   right: auto;
   left: 100%;
-  margin-left: 1em;
+  margin-left: 2em;
 }
 .compare-race .inner {
   left: 0;
@@ -1114,8 +1185,10 @@ select {
   height: 1.5em;
   width: 20em;
   left: 4em;
+  z-index: -1;
 }
 .compare-race .inner .bottom .team {
+  transform: skew(-10deg);
   background: rgba(31, 31, 30, 0.9);
   color: white;
   height: 1.5em;
@@ -1123,8 +1196,6 @@ select {
   top: 3.5em;
   line-height: 1.5em;
   border: 0.1em;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
 }
 .compare-race .inner .compareAssists {
   height: 1.5em;
@@ -1185,31 +1256,93 @@ select {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   z-index: 1;
 }
-.error-screen {
-  z-index: 2147483627;
+.event-info-bg {
   position: fixed;
-  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
 }
-.error-screen pre {
+.event-info {
+  background: white;
+  font-size: 18px;
+  width: 50em;
   position: fixed;
-  top: 50%;
+  top: 8em;
   left: 50%;
+  transform: translate(-50%, 0);
+  z-index: -1;
+  padding: 0em;
   color: #fff;
-  font-size: 17px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  line-height: 1.5;
-  font-family: Inconsolata;
-}
-pre.preview {
-  background: #000;
   white-space: pre;
-  text-align: left;
-  font-family: 'Inconsolata';
+  font-family: Oswald;
+  border-radius: 10px;
+  border-top: 0.5em solid #e21d38;
+  border-bottom: 0.5em solid #e21d38;
+}
+.event-info .serverName {
+  color: #323433;
+  text-align: center;
+  font-size: 27px;
   padding: 20px;
+}
+.event-info .trackImage img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.event-info .trackImage .trackLogo {
+  position: relative;
+}
+.event-info .trackImage .trackLogo img {
+  top: -110px;
+  left: 10px;
+  position: absolute;
+  opacity: 1;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+}
+.event-info .countryFlag {
+  text-align: center;
+  padding-top: 15px;
+}
+.event-info .countryFlag img {
+  position: relative;
+  opacity: 1;
+  height: 50px;
+  width: 70px;
+}
+.event-info .serverTrackName {
+  color: #323433;
+  text-align: center;
+  font-size: 27px;
+  padding: 15px;
+  border-bottom: 1px solid white;
+  width: 80%;
+  margin: auto;
+}
+.event-info .trackDescription {
+  color: #323433;
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  min-height: 100px;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.5;
+}
+.event-info .weather .weatherIcons {
+  display: flex;
+  font-size: 18px;
+  color: #323433;
+  justify-content: space-around;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
 }
 /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 .assists .drs {
@@ -1992,153 +2125,31 @@ pre.preview {
   border-bottom-right-radius: 0.5em;
   filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
 }
-.overallQuai {
-  font-size: 18px;
+.error-screen {
+  z-index: 2147483627;
   position: fixed;
+  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
 }
-.qualify-results .entries-outer {
-  max-height: 40em;
-  overflow: hidden;
-}
-.qualify-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
-}
-.qualify-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.qualify-results {
+.error-screen pre {
   position: fixed;
   top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0px;
-  color: white;
+  left: 50%;
+  color: #fff;
+  font-size: 17px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+  font-family: Inconsolata;
+}
+pre.preview {
+  background: #000;
   white-space: pre;
-  font-family: Oswald;
-  width: 60%;
-  filter: drop-shadow(9px 9px 9px #000000);
-}
-.qualify-results .title .text {
-  position: inherit;
-  height: 3em;
-  text-align: right;
-  padding: 0 0.75em 0 0;
-  line-height: 4em;
-  font-size: 27px;
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  border-top: 0.25em solid #e21d38;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-  z-index: 0;
-}
-.qualify-results .title .text .logo {
-  position: absolute;
-  content: url(results/logos/base.png);
-  height: 2.2em;
-  top: 0.5em;
-  left: 1em;
-  z-index: 1;
-}
-.qualify-results .qualify-results-entry {
-  height: 2em;
-  line-height: 2em;
-  color: white;
-  background: rgba(31, 31, 30, 0.9);
-  white-space: nowrap;
-  overflow: hidden;
-  border-bottom: 0.1em solid #e21d38;
-}
-.qualify-results .qualify-results-entry.title {
-  padding: 0 0 0 0em;
-  font-size: 19.8px;
-}
-.qualify-results .qualify-results-entry.title .classPosition {
-  color: white;
-  -ms-transform: skew(0deg, 0deg);
-  -webkit-transform: skew(0deg, 0deg);
-  transform: skew(0deg, 0deg);
-}
-.qualify-results .qualify-results-entry > div {
-  height: 2em;
-  padding: 0 0 0 0.25em;
-  float: left;
-}
-.qualify-results .qualify-results-entry .position {
-  text-align: center;
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .classPosition {
-  width: 10%;
-  position: relative;
-  text-align: center;
-  color: white;
-  right: 0.5em;
-  -ms-transform: skew(-15deg, 0deg);
-  -webkit-transform: skew(-15deg, 0deg);
-  transform: skew(-15deg, 0deg);
-}
-.qualify-results .qualify-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .manufacturer img {
-  position: absolute;
-  top: 0.3em;
-  left: 0.5em;
-  width: 1.5em;
-  height: auto;
-}
-.qualify-results .qualify-results-entry .longName {
-  position: relative;
-  width: 30%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .shortName {
-  position: relative;
-  width: 20%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .resultTeam {
-  position: relative;
-  width: 25%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .livery {
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .livery img {
-  position: relative;
-  height: 3em;
-  right: 1.5em;
-  top: -0.5em;
-}
-.qualify-results .qualify-results-entry .fastest-time,
-.qualify-results .qualify-results-entry .lap-time {
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .fastest-time.fastest,
-.qualify-results .qualify-results-entry .lap-time.fastest {
-  color: #f500f5;
+  text-align: left;
+  font-family: 'Inconsolata';
+  padding: 20px;
 }
 .safetyCarDeployedContainer {
   font-size: 18px;
