@@ -56,7 +56,7 @@
     },
     "showComparisonSpeed": {
       "displayName": "Show Comparison Speed",
-      "value": "false",
+      "value": "true",
       "tooltip": "Show the comparison speed (in KM/H) between 2 drivers in the compare info widget (Default: False).",
       "type": "checkbox"
     },

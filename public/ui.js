@@ -1485,7 +1485,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		if (UI.state.controllerOptions.options.indentFocusedDriver.value === "true" && driver.slotId === UI.state.focusedSlot) {
 			return {
 				'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)',
-				'left': '2em'
+				'left': '1em'
 			};
 		} else {
 			return {
@@ -1507,8 +1507,8 @@ UI.widgets.MulticlassStandings = React.createClass({
 					driver.scoreInfo.laps + 1
 				);
 			} else {
-				if (sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps > 1) {
-					if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+				if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+					if (driver.scoreInfo.lapDiff > 0) {
 						return React.createElement(
 							'div',
 							{ className: 'meta-info' },
@@ -1520,17 +1520,17 @@ UI.widgets.MulticlassStandings = React.createClass({
 						return React.createElement(
 							'div',
 							{ className: 'meta-info' },
-							'+',
-							sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps - 1,
-							' Lap(s)'
+							self.formatTime(driver.scoreInfo.timeDiff)
 						);
 					}
 				} else {
-					if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+					if (sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps > 1) {
 						return React.createElement(
 							'div',
 							{ className: 'meta-info' },
-							self.formatTime(driver.scoreInfo.timeDiff)
+							'+',
+							sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps - 1,
+							' Lap(s)'
 						);
 					} else {
 						var sortedIndex = 0;

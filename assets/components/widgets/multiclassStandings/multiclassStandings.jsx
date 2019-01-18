@@ -43,7 +43,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		if (UI.state.controllerOptions.options.indentFocusedDriver.value === "true" && driver.slotId === UI.state.focusedSlot) {
 			return {
 				'WebkitTransform': 'translate3d(0, ' + ((driver.scoreInfo.positionOverall-1) * 100) + '%, 0)',
-				'left': '2em'
+				'left': '1em'
 			};
 		} else {
 			return {

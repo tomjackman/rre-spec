@@ -1,24 +1,25 @@
 ### Version 1.6.0
 * [Feature] Added red extra close racing indicator in the broadcast panel for cars within 0.25s of each other.
 * [Feature] Added new green and blue raceroom themes for more variety.
-* [Feature] Redesigned session info timer styling.
+* [Feature] Added new session info timer design.
 * [Feature] Improved chequered flag appearance on session end.
-* [Feature] Added very basic race lights out indicator to the session info widget on race starts.
+* [Feature] Added (very basic) race lights out indicator to the session info widget on race countdown/start.
 * [Bug Fix] Use full width of the race results table for non multiclass races.
 * [Feature] Improved steward, safety car and mandatory pit indicator styling.
 * [Feature] Added purple fastest lap indicator in quali/practise sessions for the standings and driver info widgets.
 * [Feature] Hidden the standings widget visibility in the garage phase pre-race as not all drivers are displayed in the standings at that point and looks odd. (The standings widget will regain visibility on the starting grid automatically).
-* [Bug Fix] Disable the driver info widget if the compare widget is enabled (and vice versa).
+* [Bug Fix] Disable the driver info widget if the compare driver widget is enabled (and vice versa).
+* [Feature] Increased event info dark background overlay tint by 30% for better contrast with the modal.
 * [Feature] Hide the driver info, compare and standings widgets when the event info overlay is activated for better appearance.
 * [Feature] Small UI updates to themes with new variable definitions for some UI components.
 * [Bug Fix] Fixed small theme inconsistency in the WTCR compare driver widget.
 * [Feature] Added a toggle to enable a speed comparison (in Km/h) between to drivers in the compare driver widget.
 * [Feature] Restyled driver info and compare driver flags, team names and deltas with a sharper look.
-* [Feature] Increased event info dark background overlay tint by 30% for better contrast with the modal.
 * [Feature] Changed the race leaders lap count text format to read better and show the current lap number rather than the laps completed.
-* [Feature] Adjusted the safety car in alert and stewards alert widget positions to be closer to the right edge of the screen.
-* [Feature] Improved control options appearance in the broadcaster panel to more easily tell on/off state.
+* [Feature] Adjusted the 'safety car in' alert and stewards alert widget positioning to be closer to the right edge of the screen.
+* [Feature] Improved control options appearance in the broadcaster panel to easily tell an options on/off state.
 * [Feature] Restyled and moved the mandatory pit indicator to the right side of the standings tower to free up screen space when not in use.
+* [Feature] Restyled all DRS/PTP indicators to sharper design.
 
 ### Version 1.5.2
 * [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.
