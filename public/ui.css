@@ -153,8 +153,6 @@ a {
   line-height: 4em;
   font-size: 27px;
   background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
   border-top: 0.25em solid #e21d38;
   text-transform: uppercase;
   margin-bottom: 0.5em;
@@ -1839,8 +1837,6 @@ select {
   line-height: 4em;
   font-size: 27px;
   background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
   border-top: 0.25em solid #e21d38;
   text-transform: uppercase;
   margin-bottom: 0.5em;
@@ -2279,7 +2275,7 @@ pre.preview {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  -webkit-animation: "ani_12" 1s ease;
+  -webkit-animation: "ani_12" 0.3s ease;
   z-index: 0;
 }
 @-webkit-keyframes "ani_12" {
@@ -2300,7 +2296,7 @@ pre.preview {
   -webkit-transform: scale(2) translate(-50%, -50%);
   -webkit-transform-origin: top left;
   opacity: 0;
-  -webkit-transition: opacity 1s;
+  -webkit-transition: opacity 0.3s;
 }
 .track-map.loaded {
   opacity: 1;
@@ -2309,7 +2305,7 @@ pre.preview {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-transition: -webkit-transform 0.5s linear;
+  -webkit-transition: -webkit-transform 0.3s linear;
   width: 1em;
   height: 1em;
   margin: -0.5em 0 0 -0.5em;

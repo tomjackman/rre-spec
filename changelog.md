@@ -5,6 +5,7 @@
 * [Feature] Improved chequered flag appearance on session end.
 * [Feature] Added (very basic) race lights out indicator to the session info widget on race countdown/start.
 * [Bug Fix] Use full width of the race results table for non multiclass races.
+* [Bug Fix] Fixed a bug where the fastest race lap may not be highlighted on the results screen.
 * [Feature] Improved steward, safety car and mandatory pit indicator styling.
 * [Feature] Added purple fastest lap indicator in quali/practise sessions for the standings and driver info widgets.
 * [Feature] Hidden the standings widget visibility in the garage phase pre-race as not all drivers are displayed in the standings at that point and looks odd. (The standings widget will regain visibility on the starting grid automatically).
@@ -12,7 +13,7 @@
 * [Feature] Increased event info dark background overlay tint by 30% for better contrast with the modal.
 * [Feature] Hide the driver info, compare and standings widgets when the event info overlay is activated for better appearance.
 * [Feature] Small UI updates to themes with new variable definitions for some UI components.
-* [Bug Fix] Fixed small theme inconsistency in the WTCR compare driver widget.
+* [Bug Fix] Fixed small theme inconsistency in the WTCR compare drivers widget.
 * [Feature] Added a toggle to enable a speed comparison (in Km/h) between to drivers in the compare driver widget.
 * [Feature] Restyled driver info and compare driver flags, team names and deltas with a sharper look.
 * [Feature] Changed the race leaders lap count text format to read better and show the current lap number rather than the laps completed.
@@ -21,7 +22,7 @@
 * [Feature] Restyled and moved the mandatory pit indicator to the right side of the standings tower to free up screen space when not in use.
 * [Feature] Restyled all DRS/PTP indicators to sharper design.
 * [Feature] Added a toggle to hide the manufacturer logo in the standings tower. A use case to disable this would be in single car cup classes like NSU or Porsche GT3 Cup where its not necessary as they are all the same class.
-* [Bug Fix] Fixed a bug where the fastest race lap may not be highlighted on the results screen.
+* [Feature] Added penalty weights to the race results screen.
 
 ### Version 1.5.2
 * [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.

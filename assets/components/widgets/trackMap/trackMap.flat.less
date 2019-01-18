@@ -7,7 +7,7 @@
 	right: 0;
 	bottom: 0;
 	background: @TrackMapOverlayBackground;
-	.onCreation(opacity, 0, 1, 1s);
+	.onCreation(opacity, 0, 1, 0.3s);
 	z-index: 0;
 }
 .track-map {
@@ -20,7 +20,7 @@
 	-webkit-transform: scale(2) translate(-50%, -50%);
 	-webkit-transform-origin: top left;
 	opacity: 0;
-	-webkit-transition: opacity 1s;
+	-webkit-transition: opacity 0.3s;
 	&.loaded {
 		opacity: 1;
 	}
@@ -28,7 +28,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		-webkit-transition: -webkit-transform 0.5s linear;
+		-webkit-transition: -webkit-transform 0.3s linear;
 		width: 1em;
 		height: 1em;
 		margin: -0.5em 0 0 -0.5em;

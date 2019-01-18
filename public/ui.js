@@ -1952,17 +1952,34 @@ var RaceResultEntry = React.createClass({
 			);
 		}
 
+		// race penalties
 		var penaltyTime = React.createElement(
 			'div',
 			{ className: 'penaltyTime', style: { 'min-width': '4.5em' } },
 			' - '
 		);
-		if (entry.penaltyTime) {
+		if (entry.penaltyTime && entry.penaltyWeight) {
 			penaltyTime = React.createElement(
 				'div',
 				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
 				entry.penaltyTime / 1000,
-				's Penalty'
+				's/',
+				entry.penaltyWeight,
+				'KG'
+			);
+		} else if (entry.penaltyTime) {
+			penaltyTime = React.createElement(
+				'div',
+				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
+				entry.penaltyTime / 1000,
+				's'
+			);
+		} else if (entry.penaltyWeight) {
+			penaltyTime = React.createElement(
+				'div',
+				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
+				entry.penaltyWeight,
+				'KG'
 			);
 		}
 

@@ -150,9 +150,14 @@ var RaceResultEntry = React.createClass({
 			lapTime = <div className="lap-time">{UI.formatTime(entry.totalTime-self.props.firstEntry.totalTime)}</div>
 		}
 
+		// race penalties
 		var penaltyTime = <div className="penaltyTime" style={{'min-width': '4.5em'}}> - </div>
-		if (entry.penaltyTime) {
-			penaltyTime = <div className="penaltyTime" style={{color: 'rgba(255, 82, 82, 1.0)'}}>{(entry.penaltyTime/1000)}s Penalty</div>
+		if (entry.penaltyTime && entry.penaltyWeight) {
+			penaltyTime = <div className="penaltyTime" style={{color: 'rgba(255, 82, 82, 1.0)'}}>{(entry.penaltyTime/1000)}s/{entry.penaltyWeight}KG</div>
+		} else if (entry.penaltyTime) {
+			penaltyTime = <div className="penaltyTime" style={{color: 'rgba(255, 82, 82, 1.0)'}}>{(entry.penaltyTime/1000)}s</div>
+		} else if (entry.penaltyWeight) {
+			penaltyTime = <div className="penaltyTime" style={{color: 'rgba(255, 82, 82, 1.0)'}}>{entry.penaltyWeight}KG</div>
 		}
 
 		return (
