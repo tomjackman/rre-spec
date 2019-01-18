@@ -1662,6 +1662,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 			return null;
 		}
 
+		// hide in garage phase since thw whole grid won't be shown which looks bad on screen
 		if (UI.state.sessionInfo.phase === 'GARAGE') {
 			return null;
 		}
@@ -1691,11 +1692,11 @@ UI.widgets.MulticlassStandings = React.createClass({
 								driversLookup[i].scoreInfo.positionOverall
 							),
 							self.renderName(driversLookup[i].name, driversLookup[i].classId),
-							React.createElement(
+							UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ? React.createElement(
 								'div',
 								{ className: 'manufacturer' },
 								React.createElement('img', { src: '/render/' + driversLookup[i].manufacturerId + '/small/' })
-							),
+							) : null,
 							self.getMetaInfo(driversLookup[i], drivers),
 							React.createElement(
 								'div',

@@ -64,6 +64,12 @@ module.exports = function(io) {
 	      "tooltip": "Enable Multiclass UI elements (Default: False).",
 	      "type": "checkbox"
 	    },
+			"showStandingsManufacturer": {
+				"displayName": "Show Standings Manufacturer",
+				"value": "true",
+				"tooltip": "Show the manufacturer logo in the standings tower. A use case to disable this would be in single car cup classes like NSU or Porsche GT3 Cup (Default: true).",
+				"type": "checkbox"
+			},
 	    "showTyreCompound": {
 	      "displayName": "Show Tyre Compound",
 	      "value": "true",
