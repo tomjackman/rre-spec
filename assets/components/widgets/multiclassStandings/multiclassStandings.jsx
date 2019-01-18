@@ -60,15 +60,15 @@ UI.widgets.MulticlassStandings = React.createClass({
 			if (driver.scoreInfo.positionOverall === 1) {
 					return <div className="meta-info">Lap {driver.scoreInfo.laps + 1}</div>;
 			} else {
-				if (sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps > 1) {
-					if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+				if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+					if (driver.scoreInfo.lapDiff > 0) {
 						return <div className="meta-info">+{driver.scoreInfo.lapDiff} Lap(s)</div>
 					} else {
-						return <div className="meta-info">+{(sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps)-1} Lap(s)</div>
+						return <div className="meta-info">{self.formatTime(driver.scoreInfo.timeDiff)}</div>
 					}
 				} else {
-					if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
-						return <div className="meta-info">{self.formatTime(driver.scoreInfo.timeDiff)}</div>
+					if (sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps > 1) {
+						return <div className="meta-info">+{(sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps)-1} Lap(s)</div>
 					} else {
 						var sortedIndex = 0;
 						sortedByPosition.forEach(function(sortedDriver, i) {
