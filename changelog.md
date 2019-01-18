@@ -18,6 +18,7 @@
 * [Feature] Changed the race leaders lap count text format to read better and show the current lap number rather than the laps completed.
 * [Feature] Adjusted the safety car in alert and stewards alert widget positions to be closer to the right edge of the screen.
 * [Feature] Improved control options appearance in the broadcaster panel to more easily tell on/off state.
+* [Feature] Restyled and moved the mandatory pit indicator to the right side of the standings tower to free up screen space when not in use.
 
 ### Version 1.5.2
 * [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.

@@ -82,7 +82,7 @@ UI.widgets.SessionInfo = React.createClass({
 		}
 
 		return (
-			<div className="session-info animated fadeInLeft">
+			<div className="session-info animated fadeInDown">
 				<div className="inner">
 					{p.sessionInfo.phase === 'GARAGE' ?
 						<div>

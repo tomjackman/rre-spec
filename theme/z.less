@@ -1,6 +1,6 @@
 @import '../resolutionScaler.less';
 
-// Raceroom Red Theme
+// WTCR Theme
 @widgetBorder: rgba(255, 82, 82, 1.0);
 @backgroundDark: rgba(38, 50, 56, 0.8);
 @backgroundLight: rgba(38, 50, 56, 0.5);
@@ -9,32 +9,32 @@
 @fontSize: @resolutionScale;
 
 // Alert Widget
-@AlertTitleBackgroundColor: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, rgba(226, 29, 56, 1) 90%);
-@AlertTitleBorderTop: rgba(226, 29, 56, 1);
+@AlertTitleBackgroundColor: rgba(0,0,0,0.8);
+@AlertTitleBorderTop: #dc2525;
 @AlertTitleText: white;
-@AlertMessageBackground: white;
-@AlertMessageText: #323433;
+@AlertMessageBackground: rgba(120, 144, 156, 0.7);
+@AlertMessageText: white;
 
 // Safety Car Deployed Widget
-@SafetyCarDeployedBackground: rgba(255, 193, 7, 0.9);
+@SafetyCarDeployedBackground: #FFC107;
 @SafetyCarDeployedText: black;
 
 // Safety Car In Widget
-@SafetyCarInTitleBackgroundColor: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, rgba(226, 29, 56, 1) 90%);
-@SafetyCarInTitleBorderTop: rgba(226, 29, 56, 1);
+@SafetyCarInTitleBackgroundColor: rgba(0,0,0,0.8);
+@SafetyCarInTitleBorderTop: #dc2525;
 @SafetyCarInTitleText: white;
-@SafetyCarInMessageBackground: white;
-@SafetyCarInMessageText: #323433;
+@SafetyCarInMessageBackground: rgba(120, 144, 156, 0.7);
+@SafetyCarInMessageText: white;
 
 // Multiclass Standings Widget
-@StandingsPositionBackground: rgba(226, 29, 56, 0.9);
+@StandingsPositionBackground: #dc2525;
 @StandingsPositionText: white;
 @StandingsManufacturerBackground: white;
 @StandingsDriverNameText: white;
-@StandingsDriverNameClassColour: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, rgba(226, 29, 56, 1) 99%);
-@StandingsTimingBackground: rgba(31, 31, 30, 0.9);
+@StandingsDriverNameClassColour: rgba(0,0,0,0.8);
+@StandingsTimingBackground: rgba(120, 144, 156, 0.7);
 @StandingsTimingText: white;
-@StandingsTimingBackgroundPitted: rgba(102, 187, 106, 1);
+@StandingsTimingBackgroundPitted: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
 @StandingsTimingBackgroundUnpitted: rgba(226, 29, 56, 1);
 @StandingsTimingPitText: white;
 @StandingsTyreBackground: rgba(38, 50, 56, 0.5);
@@ -42,37 +42,37 @@
 // Compare Drivers Widget
 @CompareRaceBestTimeText: white;
 @CompareRaceBestTimeBackground: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-@CompareRacePositionBackground: rgba(226, 29, 56, 1);
+@CompareRacePositionBackground: #dc2525;
 @CompareRacePositionText: white;
-@CompareRacePositionBorder: rgba(226, 29, 56, 1);
-@CompareRaceNameBackground: linear-gradient(240deg, rgba(226, 29, 56, 1) 10%, rgba(31, 31, 30, 0.9) 90%);
+@CompareRacePositionBorder: #dc2525;
+@CompareRaceNameBackground: rgba(0,0,0,0.9);
 @CompareRaceNameText: white;
-@CompareRaceNameBorder: rgba(226, 29, 56, 1);
-@CompareRaceTeamNameBackground: rgba(31, 31, 30, 0.9);
+@CompareRaceNameBorder: black;
+@CompareRaceTeamNameBackground: rgba(120, 144, 156, 0.7);
 @CompareRaceTeamNameText: white;
 @CompareRaceManufacturerBackground: white;
-@CompareRaceManufacturerBorder: rgba(226, 29, 56, 1);
-@CompareRaceDeltaBackground: rgba(31, 31, 30, 0.9);
+@CompareRaceManufacturerBorder: white;
+@CompareRaceDeltaBackground: rgba(0, 0, 0, 0.8);
 @CompareRaceDeltaText: white;
-@CompareRaceDeltaDeltaBorder: rgba(226, 29, 56, 1);
+@CompareRaceDeltaDeltaBorder: #dc2525;
 @CompareRaceDRSActiveBackground: rgba(76, 175, 80, 0.7);
 @CompareRaceSpeedBackground: rgba(63, 81, 181, 1.0);
 @CompareRaceSpeedText: white;
 
 // Driver Info Widget
-@DriverInfoNameBorder: rgba(226, 29, 56, 1);
-@DriverInfoNameBackground: linear-gradient(240deg, rgba(226, 29, 56, 1) 10%, rgba(31, 31, 30, 0.9) 90%);
+@DriverInfoNameBorder: rgba(0,0,0,0.9);
+@DriverInfoNameBackground: rgba(0,0,0,0.9);
 @DriverInfoNameText: white;
-@DriverInfoTeamNameText: white;
-@DriverInfoPositionBorder: rgba(226, 29, 56, 1);
-@DriverInfoPositionBackground: rgba(31, 31, 30, 0.9);
+@DriverInfoTeamNameText: rgba(120, 144, 156, 0.9);
+@DriverInfoPositionBorder: #dc2525;
+@DriverInfoPositionBackground: #dc2525;
 @DriverInfoPositionText: white;
-@DriverInfoPositionClassBackground: rgba(226, 29, 56, 1);
+@DriverInfoPositionClassBackground: rgba(38, 50, 56, 0.5);
 @DriverInfoPositionClassText: white;
 @DriverInfoBestTimeBackground: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
 @DriverInfoBestTimeText: white;
-@DriverInfoSplitTimesBackground: rgba(38, 50, 56, 0.8);
-@DriverInfoManufacturerBorder: rgba(226, 29, 56, 1);
+@DriverInfoSplitTimesBackground: rgba(0,0,0,0.9);
+@DriverInfoManufacturerBorder: white;
 @DriverInfoManufacturerBackground: white;
 @DriverInfoClassBackground: rgba(38, 50, 56, 0.5);
 @DriverInfoFlagBackground: rgba(38, 50, 56, 0.8);
@@ -85,47 +85,47 @@
 @DriverInfoGlobalBestSplitText: white;
 
 // Event Info Widget
-@EventInfoPanelBackground: white;
-@EventInfoBorderTop: rgba(226, 29, 56, 1);
-@EventInfoBorderBottom: rgba(226, 29, 56, 1);
-@EventInfoServerNameText: #323433;
-@EventInfoServerTrackNameText: #323433;
-@EventInfoWeatherText: #323433;
-@EventInfoDescriptionText: #323433;
+@EventInfoPanelBackground: rgba(0,0,0,0.8);
+@EventInfoBorderTop: #dc2525;
+@EventInfoBorderBottom: white;
+@EventInfoServerNameText: white;
+@EventInfoServerTrackNameText: rgba(120, 144, 156, 0.7);
+@EventInfoWeatherText: white;
+@EventInfoDescriptionText: white;
 
 // Race Result Widget
-@RaceResultTitleBackground: linear-gradient(240deg, rgba(226, 29, 56, 1) 10%, rgba(31, 31, 30, 0.9) 90%);
+@RaceResultTitleBackground: linear-gradient(200deg, rgba(38, 50, 56, 0.5) 10%, rgba(186, 29, 13, 1) 90%);
 @RaceResultTitleTextColor: white;
-@RaceResultTitleBorderTop: rgba(226, 29, 56, 1);
-@RaceResultEntryBackground: rgba(31, 31, 30, 0.9);
-@RaceResultEntryBorderBottom: rgba(226, 29, 56, 1);
+@RaceResultTitleBorderTop: #ba1d0d;
+@RaceResultEntryBackground: rgba(38, 50, 56, 0.5);
+@RaceResultEntryBorderBottom: rgba(186, 29, 13, 1);
 @RaceResultEntryTextColor: white;
-@RaceResultTitleLogo: url(results/logos/base.png);
-@RaceResultWinnerBackground: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(226,29,56,1) 90%);
+@RaceResultTitleLogo: url(results/logos/wtcr.png);
+@RaceResultWinnerBackground: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgb(186,29,13) 90%);
 @RaceResultFastestLapBackground: linear-gradient(240deg, rgba(38, 50, 56, 0.0) 10%, rgba(113,34,154,1) 90%);
 
 // Qualyfying Results Widget
-@QualiResultTitleBackground: linear-gradient(240deg, rgba(226, 29, 56, 1) 10%, rgba(31, 31, 30, 0.9) 90%);
-@QualiResultTitleBorderTop: rgba(226, 29, 56, 1);
-@QualiResultEntryBackground: rgba(31, 31, 30, 0.9);
+@QualiResultTitleBackground: linear-gradient(200deg, rgba(38, 50, 56, 0.5) 10%, rgba(186, 29, 13, 1) 90%);
+@QualiResultTitleBorderTop: #ba1d0d;
+@QualiResultEntryBackground: rgba(38, 50, 56, 0.5);
 @QualiResultEntryTextColor: white;
-@QualiResultEntryBorderBottom: rgba(226, 29, 56, 1);
+@QualiResultEntryBorderBottom: rgba(186, 29, 13, 1);
 @QualiResultTitleText: white;
-@QualiResultTitleLogo: url(results/logos/base.png);
+@QualiResultTitleLogo: url(results/logos/wtcr.png);
 
 // Session Info Widget
-@SessionInfoPhaseBackground: linear-gradient(240deg, rgba(226, 29, 56, 1) 10%, rgba(31, 31, 30, 0.9) 90%);
-@SessionInfoPhaseBorderTop: rgba(226, 29, 56, 1);
+@SessionInfoPhaseBackground: rgba(0,0,0,0.8);
+@SessionInfoPhaseBorderTop: #dc2525;
 @SessionInfoPhaseTextColor: white;
-@SessionInfoTimerTextColor: #323433;;
-@SessionInfoTimerBackground: white;
+@SessionInfoTimerTextColor: white;
+@SessionInfoTimerBackground: rgba(120, 144, 156, 0.7);
 
 // Trackmap Widget
 @TrackMapOverlayBackground: rgba(0, 0, 0, 0.7);
 @TrackMapLeaderDotBackground: rgba(255, 152, 0,1.0);
-@TrackMapLeaderDotText: rgba(255, 152, 0,1.0);
+@TrackMapLeaderDotText: #dc2525;
 @TrackMapSelectedDriverBackground: rgba(76, 175, 80, 1.0);
 @TrackMapSelectedDriverText: rgba(76, 175, 80, 1.0);
 @TrackMapDriverPositionText: white;
-@TrackMapDriverNameBackground: rgba(38, 50, 56, 0.8);
+@TrackMapDriverNameBackground: rgba(0,0,0,0.8);
 @TrackMapManufacturerBackground: white;

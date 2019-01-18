@@ -202,12 +202,12 @@ UI.widgets.MulticlassStandings = React.createClass({
 									{self.getMetaInfo(driversLookup[i], drivers)}
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?
-											<div className="pitted" />
+											<div className="pitted">⭗</div>
 											:
 											null
 										}
 										{driversLookup[i].mandatoryPitstopPerformed === 0 ?
-											<div className="unpitted" />
+											<div className="unpitted">⭗</div>
 											:
 											null
 										}

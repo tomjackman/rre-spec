@@ -12,14 +12,13 @@
 	top: 1em;
 	font-family: Hel;
 	color: #fff;
-	left: 2em;
+	left: 1em;
 	.onCreation(-webkit-transform, translate(-10em, 0), translate(0, 0), 0.1s);
 	.driver {
 		font-size: @fontSize;
 		.onCreation(opacity, 0, 1, 0.2s);
 		position: absolute;
 		top: 0;
-		left: 1.3em;
 		height: 1.9em;
 		z-index: 1;
 		-webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
@@ -29,45 +28,17 @@
 			height: 1.8em;
 			position: relative;
 			z-index: 1;
+			transform: skew(-15deg, 0deg);
 			& > div {
 				vertical-align: top;
 				height: 100%;
 				line-height: 1.8em;
 			}
-
-			.pitted, .unpitted {
-				font-size: @fontSize;
-				width: 1.5em;
-				height: 1.5em;
-				position: absolute;
-				top: 0.1em;
-				right: 100%;
-				line-height: 1.8em;
-				margin-right: 0.5em;
-				transform: skew(-15deg);
-				&:after {
-					font-size: @fontSize * 1.3;
-					display: block;
-					color: @StandingsTimingPitText;
-					content: "⭗";
-					text-align: center;
-					line-height: 1.2em;
-				}
-			}
-			.pitted {
-				border: 1px;
-				background: @StandingsTimingBackgroundPitted;
-			}
-			.unpitted {
-				border: 1px;
-				background: @StandingsTimingBackgroundUnpitted;
-			}
 		}
 		.position {
+			margin: 0;
 			font-size: @fontSize;
 			background: @StandingsPositionBackground;
-			border-top-left-radius: 0.5em;
-			border-bottom-left-radius: 0.5em;
 			display: inline-block;
 			color: @StandingsPositionText;
 			font-size: 1em;
@@ -76,15 +47,13 @@
 			height: 80%;
 			font-family: Oswald;
 		}
-		.flag-container {
-			display: none;
-		}
 		.manufacturer {
 			background: @StandingsManufacturerBackground;
 			display: inline-block;
 			width: 1.8em;
 			height: 2em;
 			padding: 0.25em;
+			z-index: 1;
 			img {
 				height: 100%;
 			}
@@ -103,27 +72,40 @@
 			white-space: nowrap;
 			overflow: hidden;
 			line-height: inherit;
+			z-index: 1;
 		}
 		.meta-info {
 			font-size: @fontSize;
 			background: @StandingsTimingBackground;
 			color: @StandingsTimingText;
-			position: absolute;
 			font-family: Oswald;
 			display: inline-block;
-			left: 95%;
-			height: 90%;
+			height: 1.2em;
 			text-align: center;
 			line-height: 1em;
 			padding: 0 0.5em 0 0.5em;
 			min-width: 6em;
-			transform: skew(-15deg);
 			z-index: -1;
 			.onCreation(-webkit-transform, translate(-100%, 0), translate(0, 0), 0.1s);
 		}
 		.fastest {
 			color: white;
 			background: @DriverInfoGlobalBestSplitBackground;
+		}
+		.pit-info {
+			.onCreation(-webkit-transform, translate(-100%, 0), translate(0, 0), 0.5s);
+			margin: 0;
+			display: inline-block;
+			width: 1.5em;
+			text-align: center;
+			.pitted {
+				font-size: @fontSize * 1.2;
+				background: @StandingsTimingBackgroundPitted;
+			}
+			.unpitted {
+				font-size: @fontSize * 1.2;
+				background: @StandingsTimingBackgroundUnpitted;
+			}
 		}
 	}
 }

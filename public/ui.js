@@ -1700,8 +1700,16 @@ UI.widgets.MulticlassStandings = React.createClass({
 							React.createElement(
 								'div',
 								{ className: 'pit-info' },
-								driversLookup[i].mandatoryPitstopPerformed === 1 ? React.createElement('div', { className: 'pitted' }) : null,
-								driversLookup[i].mandatoryPitstopPerformed === 0 ? React.createElement('div', { className: 'unpitted' }) : null
+								driversLookup[i].mandatoryPitstopPerformed === 1 ? React.createElement(
+									'div',
+									{ className: 'pitted' },
+									'\u2B57'
+								) : null,
+								driversLookup[i].mandatoryPitstopPerformed === 0 ? React.createElement(
+									'div',
+									{ className: 'unpitted' },
+									'\u2B57'
+								) : null
 							)
 						)
 					) : null
@@ -2545,7 +2553,7 @@ UI.widgets.SessionInfo = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'session-info animated fadeInLeft' },
+			{ className: 'session-info animated fadeInDown' },
 			React.createElement(
 				'div',
 				{ className: 'inner' },
