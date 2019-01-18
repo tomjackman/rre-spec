@@ -456,8 +456,6 @@ select {
   color: white;
   font-family: Oswald;
   border-top: 2px solid #00E676;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
   width: 100%;
   z-index: 4;
 }

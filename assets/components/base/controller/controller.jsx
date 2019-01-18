@@ -360,7 +360,7 @@ var ControlOption = React.createClass({
 			'controlPanelOption': true
 		});
 
-		var color = self.state.value != "false" ? '#00E676' : '#e21d38';
+		var color = self.state.value != "false" ? '#4CAF50' : '#F44336';
 
 		return (
 			<div className={classes}>
