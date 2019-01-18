@@ -20,6 +20,8 @@
 * [Feature] Improved control options appearance in the broadcaster panel to easily tell an options on/off state.
 * [Feature] Restyled and moved the mandatory pit indicator to the right side of the standings tower to free up screen space when not in use.
 * [Feature] Restyled all DRS/PTP indicators to sharper design.
+* [Feature] Added a toggle to hide the manufacturer logo in the standings tower. A use case to disable this would be in single car cup classes like NSU or Porsche GT3 Cup where its not necessary as they are all the same class.
+* [Bug Fix] Fixed a bug where the fastest race lap may not be highlighted on the results screen.
 
 ### Version 1.5.2
 * [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.

@@ -1740,11 +1740,11 @@ UI.widgets.RaceResults = React.createClass({
 	},
 	render: function () {
 		var self = this;
-		var fastestTime = 99999;
+		var fastestTime = 999999;
 		var fastestTimeIndex = null;
 		var winnerIndex = null;
 		self.props.results.forEach(function (entry, i) {
-			if (entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime && entry.finishStatus != 'DNF') {
+			if (entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.bestLapInfo.sector3;
 				fastestTimeIndex = i;
 			}
@@ -1766,7 +1766,7 @@ UI.widgets.RaceResults = React.createClass({
 			null,
 			winningDriver != null ? React.createElement(
 				'div',
-				{ className: 'winnerColumn animated fadeInLeft' },
+				{ className: 'winnerColumn animated fadeInLeft delay-2s' },
 				React.createElement(
 					'div',
 					{ className: 'winnerTitle' },
@@ -1796,7 +1796,7 @@ UI.widgets.RaceResults = React.createClass({
 			) : null,
 			fastestDriver != null ? React.createElement(
 				'div',
-				{ className: 'fastestDriverColumn animated fadeInRight' },
+				{ className: 'fastestDriverColumn animated fadeInRight delay-2s' },
 				React.createElement(
 					'div',
 					{ className: 'fastestTitle' },
@@ -2081,10 +2081,10 @@ UI.widgets.Results = React.createClass({
 			return null;
 		}
 
-		var fastestTime = 99999;
+		var fastestTime = 999999;
 		var fastestTimeIndex = null;
 		drivers.forEach(function (entry, i) {
-			if (entry.finishStatus != 'DNF' && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
+			if (entry.scoreInfo.bestLapInfo.sector3 !== -1 && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
 				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
 				fastestTimeIndex = i;
 			}
