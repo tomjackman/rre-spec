@@ -552,3 +552,114 @@ select {
 		}
 	}
 }
+
+// New Broadcast Controller UI
+
+.drivers-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  height: 100%;
+  color: white;
+}
+
+.tabled-driver-entry {
+  float: left;
+  position: relative;
+  opacity: 0.8;
+  height: 1.5em;
+  font-size: 20px;
+
+  &.focused {
+    opacity: 1;
+  }
+  &.idle {
+    opacity: 0.2;
+  }
+
+  .position, .interesting, .name, .livery, .tvCam, .dashCam, .cockpitCam, .frontCam, .wingCam, .tyre, .best-lap-time {
+    vertical-align: top;
+    display: inline-block;
+    height: 1.5em;
+    line-height: 1.5em;
+    text-align: center;
+    padding: 0.1em;
+    border: 1px solid rgba(96, 125, 139,0.3);
+  }
+  .position {
+    width: 5%;
+    color: #fff;
+    opacity: 1.0;
+    background: #F44336;
+  }
+  .name {
+    width: 20%;
+    white-space: nowrap;
+    background: white;
+    color: black;
+  }
+  .livery {
+    border: 0px;
+    background: white;
+    min-width: 4%;
+    padding: 0;
+    img {
+      padding: 0;
+    }
+  }
+  .tvCam {
+    background: #FF9800;
+    min-width: 4%;
+    opacity: 1.0;
+  }
+  .cockpitCam {
+    background: #FF9800;
+    min-width: 7%;
+    opacity: 1.0;
+  }
+  .dashCam {
+    background: #FF9800;
+    min-width: 7%;
+    opacity: 1.0;
+  }
+  .frontCam {
+    background: #FF9800;
+    min-width: 7%;
+    opacity: 1.0;
+  }
+  .wingCam {
+    background: #FF9800;
+    min-width: 7%;
+    opacity: 1.0;
+  }
+  .tyre {
+    color: white;
+    width: 10%;
+    opacity: 1.0;
+    background: #3F51B5;
+  }
+  .best-lap-time {
+    width: 15%;
+    opacity: 1.0;
+    color: white;
+    background: #009688;
+    &.invalid {
+      background: rgba(96, 125, 139,1.0);
+    }
+  }
+  .interesting {
+    width: 8%;
+    color: white;
+    background: #333;
+
+    &.close {
+      background: #FF9800;
+      color: black;
+    }
+    &.veryClose {
+      background: red;
+      color: white;
+    }
+  }
+}

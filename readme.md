@@ -7,6 +7,9 @@
 4. Open http://localhost:9090 in a browser.
 5. Start RaceRoom and join a multiplayer server.
 
+### Using UI Toggles
+Inside the broadcasting control panel in the browser, there is a settings icon in the top left hand corner. Clicking on this will bring up a popup with toggles and input boxes that can be used to change the appearance and functionality of the UI.
+
 ### Resolution: Scaling UI Elements
 The `resolutionScaler.less` file contains a config value which allow you to manually increase/decrease UI elements based on your resolution.
 

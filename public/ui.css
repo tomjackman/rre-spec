@@ -110,151 +110,93 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.overallQuai {
-  font-size: 18px;
+.event-info-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.6);
 }
-.qualify-results .entries-outer {
-  max-height: 40em;
-  overflow: hidden;
-}
-.qualify-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
-}
-.qualify-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.qualify-results {
+.event-info {
+  background: white;
+  font-size: 18px;
+  width: 50em;
   position: fixed;
-  top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
+  top: 8em;
+  left: 50%;
+  transform: translate(-50%, 0);
   z-index: -1;
-  padding: 0px;
-  color: white;
+  padding: 0em;
+  color: #fff;
   white-space: pre;
   font-family: Oswald;
-  width: 60%;
-  filter: drop-shadow(9px 9px 9px #000000);
+  border-radius: 10px;
+  border-top: 0.5em solid #e21d38;
+  border-bottom: 0.5em solid #e21d38;
 }
-.qualify-results .title .text {
-  position: inherit;
-  height: 3em;
-  text-align: right;
-  padding: 0 0.75em 0 0;
-  line-height: 4em;
+.event-info .serverName {
+  color: #323433;
+  text-align: center;
   font-size: 27px;
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
-  border-top: 0.25em solid #e21d38;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-  z-index: 0;
+  padding: 20px;
 }
-.qualify-results .title .text .logo {
+.event-info .trackImage img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.event-info .trackImage .trackLogo {
+  position: relative;
+}
+.event-info .trackImage .trackLogo img {
+  top: -110px;
+  left: 10px;
   position: absolute;
-  content: url(results/logos/base.png);
-  height: 2.2em;
-  top: 0.5em;
-  left: 1em;
-  z-index: 1;
+  opacity: 1;
+  height: 100px;
+  width: 100px;
+  background-color: white;
 }
-.qualify-results .qualify-results-entry {
-  height: 2em;
-  line-height: 2em;
-  color: white;
-  background: rgba(31, 31, 30, 0.9);
-  white-space: nowrap;
-  overflow: hidden;
-  border-bottom: 0.1em solid #e21d38;
-}
-.qualify-results .qualify-results-entry.title {
-  padding: 0 0 0 0em;
-  font-size: 19.8px;
-}
-.qualify-results .qualify-results-entry.title .classPosition {
-  color: white;
-  -ms-transform: skew(0deg, 0deg);
-  -webkit-transform: skew(0deg, 0deg);
-  transform: skew(0deg, 0deg);
-}
-.qualify-results .qualify-results-entry > div {
-  height: 2em;
-  padding: 0 0 0 0.25em;
-  float: left;
-}
-.qualify-results .qualify-results-entry .position {
+.event-info .countryFlag {
   text-align: center;
-  width: 10%;
-  position: relative;
+  padding-top: 15px;
 }
-.qualify-results .qualify-results-entry .classPosition {
-  width: 10%;
+.event-info .countryFlag img {
   position: relative;
+  opacity: 1;
+  height: 50px;
+  width: 70px;
+}
+.event-info .serverTrackName {
+  color: #323433;
   text-align: center;
-  color: white;
-  right: 0.5em;
-  -ms-transform: skew(-15deg, 0deg);
-  -webkit-transform: skew(-15deg, 0deg);
-  transform: skew(-15deg, 0deg);
+  font-size: 27px;
+  padding: 15px;
+  border-bottom: 1px solid white;
+  width: 80%;
+  margin: auto;
 }
-.qualify-results .qualify-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
+.event-info .trackDescription {
+  color: #323433;
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  min-height: 100px;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.5;
 }
-.qualify-results .qualify-results-entry .manufacturer img {
-  position: absolute;
-  top: 0.3em;
-  left: 0.5em;
-  width: 1.5em;
-  height: auto;
-}
-.qualify-results .qualify-results-entry .longName {
-  position: relative;
-  width: 30%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .shortName {
-  position: relative;
-  width: 20%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .resultTeam {
-  position: relative;
-  width: 25%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .livery {
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .livery img {
-  position: relative;
-  height: 3em;
-  right: 1.5em;
-  top: -0.5em;
-}
-.qualify-results .qualify-results-entry .fastest-time,
-.qualify-results .qualify-results-entry .lap-time {
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .fastest-time.fastest,
-.qualify-results .qualify-results-entry .lap-time.fastest {
-  color: #f500f5;
+.event-info .weather .weatherIcons {
+  display: flex;
+  font-size: 18px;
+  color: #323433;
+  justify-content: space-around;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
 }
 @font-face {
   font-family: 'Hel';
@@ -895,6 +837,120 @@ select {
   color: #000;
   z-index: 4;
 }
+.drivers-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  height: 100%;
+  color: white;
+}
+.tabled-driver-entry {
+  float: left;
+  position: relative;
+  opacity: 0.8;
+  height: 1.5em;
+  font-size: 20px;
+}
+.tabled-driver-entry.focused {
+  opacity: 1;
+}
+.tabled-driver-entry.idle {
+  opacity: 0.2;
+}
+.tabled-driver-entry .position,
+.tabled-driver-entry .interesting,
+.tabled-driver-entry .name,
+.tabled-driver-entry .livery,
+.tabled-driver-entry .tvCam,
+.tabled-driver-entry .dashCam,
+.tabled-driver-entry .cockpitCam,
+.tabled-driver-entry .frontCam,
+.tabled-driver-entry .wingCam,
+.tabled-driver-entry .tyre,
+.tabled-driver-entry .best-lap-time {
+  vertical-align: top;
+  display: inline-block;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  padding: 0.1em;
+  border: 1px solid rgba(96, 125, 139, 0.3);
+}
+.tabled-driver-entry .position {
+  width: 5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #F44336;
+}
+.tabled-driver-entry .name {
+  width: 20%;
+  white-space: nowrap;
+  background: white;
+  color: black;
+}
+.tabled-driver-entry .livery {
+  border: 0px;
+  background: white;
+  min-width: 4%;
+  padding: 0;
+}
+.tabled-driver-entry .livery img {
+  padding: 0;
+}
+.tabled-driver-entry .tvCam {
+  background: #FF9800;
+  min-width: 4%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .cockpitCam {
+  background: #FF9800;
+  min-width: 7%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .dashCam {
+  background: #FF9800;
+  min-width: 7%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .frontCam {
+  background: #FF9800;
+  min-width: 7%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .wingCam {
+  background: #FF9800;
+  min-width: 7%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .tyre {
+  color: white;
+  width: 10%;
+  opacity: 1.0;
+  background: #3F51B5;
+}
+.tabled-driver-entry .best-lap-time {
+  width: 15%;
+  opacity: 1.0;
+  color: white;
+  background: #009688;
+}
+.tabled-driver-entry .best-lap-time.invalid {
+  background: #607d8b;
+}
+.tabled-driver-entry .interesting {
+  width: 8%;
+  color: white;
+  background: #333;
+}
+.tabled-driver-entry .interesting.close {
+  background: #FF9800;
+  color: black;
+}
+.tabled-driver-entry .interesting.veryClose {
+  background: red;
+  color: white;
+}
 @font-face {
   font-family: 'DaimlerCS-Demi';
   font-style: oblique;
@@ -1253,93 +1309,31 @@ select {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   z-index: 1;
 }
-.event-info-bg {
+.error-screen {
+  z-index: 2147483627;
   position: fixed;
+  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
 }
-.event-info {
-  background: white;
-  font-size: 18px;
-  width: 50em;
+.error-screen pre {
   position: fixed;
-  top: 8em;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, 0);
-  z-index: -1;
-  padding: 0em;
   color: #fff;
-  white-space: pre;
-  font-family: Oswald;
-  border-radius: 10px;
-  border-top: 0.5em solid #e21d38;
-  border-bottom: 0.5em solid #e21d38;
-}
-.event-info .serverName {
-  color: #323433;
-  text-align: center;
-  font-size: 27px;
-  padding: 20px;
-}
-.event-info .trackImage img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-.event-info .trackImage .trackLogo {
-  position: relative;
-}
-.event-info .trackImage .trackLogo img {
-  top: -110px;
-  left: 10px;
-  position: absolute;
-  opacity: 1;
-  height: 100px;
-  width: 100px;
-  background-color: white;
-}
-.event-info .countryFlag {
-  text-align: center;
-  padding-top: 15px;
-}
-.event-info .countryFlag img {
-  position: relative;
-  opacity: 1;
-  height: 50px;
-  width: 70px;
-}
-.event-info .serverTrackName {
-  color: #323433;
-  text-align: center;
-  font-size: 27px;
-  padding: 15px;
-  border-bottom: 1px solid white;
-  width: 80%;
-  margin: auto;
-}
-.event-info .trackDescription {
-  color: #323433;
-  display: block;
-  width: 100%;
-  font-size: 18px;
-  padding: 10px;
-  min-height: 100px;
-  white-space: pre-line;
-  text-align: center;
+  font-size: 17px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   line-height: 1.5;
+  font-family: Inconsolata;
 }
-.event-info .weather .weatherIcons {
-  display: flex;
-  font-size: 18px;
-  color: #323433;
-  justify-content: space-around;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
+pre.preview {
+  background: #000;
+  white-space: pre;
+  text-align: left;
+  font-family: 'Inconsolata';
+  padding: 20px;
 }
 /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 .assists .drs {
@@ -2100,31 +2094,151 @@ select {
   border-bottom-right-radius: 0.5em;
   filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
 }
-.error-screen {
-  z-index: 2147483627;
+.overallQuai {
+  font-size: 18px;
   position: fixed;
-  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
-.error-screen pre {
+.qualify-results .entries-outer {
+  max-height: 40em;
+  overflow: hidden;
+}
+.qualify-results .entries-outer .entries-inner {
+  top: 0;
+  position: relative;
+  -webkit-transition: top 15s linear;
+}
+.qualify-results .livery {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.qualify-results {
   position: fixed;
   top: 50%;
-  left: 50%;
-  color: #fff;
-  font-size: 17px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  line-height: 1.5;
-  font-family: Inconsolata;
-}
-pre.preview {
-  background: #000;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
+  z-index: -1;
+  padding: 0px;
+  color: white;
   white-space: pre;
-  text-align: left;
-  font-family: 'Inconsolata';
-  padding: 20px;
+  font-family: Oswald;
+  width: 60%;
+  filter: drop-shadow(9px 9px 9px #000000);
+}
+.qualify-results .title .text {
+  position: inherit;
+  height: 3em;
+  text-align: right;
+  padding: 0 0.75em 0 0;
+  line-height: 4em;
+  font-size: 27px;
+  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  border-top: 0.25em solid #e21d38;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  z-index: 0;
+}
+.qualify-results .title .text .logo {
+  position: absolute;
+  content: url(results/logos/base.png);
+  height: 2.2em;
+  top: 0.5em;
+  left: 1em;
+  z-index: 1;
+}
+.qualify-results .qualify-results-entry {
+  height: 2em;
+  line-height: 2em;
+  color: white;
+  background: rgba(31, 31, 30, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  border-bottom: 0.1em solid #e21d38;
+}
+.qualify-results .qualify-results-entry.title {
+  padding: 0 0 0 0em;
+  font-size: 19.8px;
+}
+.qualify-results .qualify-results-entry.title .classPosition {
+  color: white;
+  -ms-transform: skew(0deg, 0deg);
+  -webkit-transform: skew(0deg, 0deg);
+  transform: skew(0deg, 0deg);
+}
+.qualify-results .qualify-results-entry > div {
+  height: 2em;
+  padding: 0 0 0 0.25em;
+  float: left;
+}
+.qualify-results .qualify-results-entry .position {
+  text-align: center;
+  width: 10%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .classPosition {
+  width: 10%;
+  position: relative;
+  text-align: center;
+  color: white;
+  right: 0.5em;
+  -ms-transform: skew(-15deg, 0deg);
+  -webkit-transform: skew(-15deg, 0deg);
+  transform: skew(-15deg, 0deg);
+}
+.qualify-results .qualify-results-entry .manufacturer {
+  width: 5%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .manufacturer img {
+  position: absolute;
+  top: 0.3em;
+  left: 0.5em;
+  width: 1.5em;
+  height: auto;
+}
+.qualify-results .qualify-results-entry .longName {
+  position: relative;
+  width: 30%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry .shortName {
+  position: relative;
+  width: 20%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry .resultTeam {
+  position: relative;
+  width: 25%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry .livery {
+  width: 10%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .livery img {
+  position: relative;
+  height: 3em;
+  right: 1.5em;
+  top: -0.5em;
+}
+.qualify-results .qualify-results-entry .fastest-time,
+.qualify-results .qualify-results-entry .lap-time {
+  width: 10%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .fastest-time.fastest,
+.qualify-results .qualify-results-entry .lap-time.fastest {
+  color: #f500f5;
 }
 .safetyCarDeployedContainer {
   font-size: 18px;

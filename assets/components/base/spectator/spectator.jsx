@@ -14,6 +14,14 @@ UI.components.Spectator = React.createClass({
 							done();
 						});
 					});
+					jobs.push(function(done) {
+						r3e.getPitInfo({
+							'slotId': driver.slotId
+						}, function(pitInfo) {
+							driver.pitInfo = pitInfo;
+							done();
+						});
+					});
 				});
 				UI.batch(jobs, function(data) {
 					r3e.getSessionInfo(function(sessionInfo) {

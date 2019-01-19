@@ -1,5 +1,11 @@
 {
   "options": {
+    "useNewBroadcastUI": {
+      "displayName": "Use Beta Broadcaster UI",
+      "value": "true",
+      "tooltip": "Enable a beta version of the broadcaster controller UI (Default: false).",
+      "type": "checkbox"
+    },
     "multiclass": {
       "displayName": "Multiclass UI",
       "value": "false",

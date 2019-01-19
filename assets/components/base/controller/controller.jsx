@@ -638,14 +638,23 @@ UI.components.Controller = React.createClass({
 								null
 							}
 
+							{UI.state.controllerOptions.options.useNewBroadcastUI.value === "true" ?
+							<div className={cx({'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length})}>
+								<ul>
+									{self.state.driversInfo.sort(self.sortFunctionPosition).map(function(driver, i){
+										return <TabledDriver key={driver.slotId} focused={driver.slotId === UI.state.focusedSlot} imageSize="small" position={i} driver={driver}></TabledDriver>
+									})}
+								</ul>
+							</div>
+							:
 						<div className={cx({'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length})}>
-
 							<div className="drivers">
 								{self.state.driversInfo.sort(self.sortFunctionPosition).map(function(driver, i){
 									return <Driver key={driver.slotId} focused={driver.slotId === UI.state.focusedSlot} imageSize="big" position={i} driver={driver}></Driver>
 								})}
 							</div>
 						</div>
+						}
 					</div>
 				}
 				<div onMouseUp={this.mouseUp} className="camera-control">
@@ -669,6 +678,75 @@ UI.components.Controller = React.createClass({
 					</div>
 				</div>
 			</div>
+		);
+	}
+});
+
+var TabledDriver = React.createClass({
+	changeCamera: function(camera, slotId) {
+		UI.state.focusedSlot = slotId;
+		UI.state.camera = camera;
+		io.emit('setState', UI.state);
+		io.emit('updatedCamera', {});
+	},
+	getInterestingStyle: function(timeDiff) {
+		var classes = {
+			'interesting': true
+		};
+		
+		if (timeDiff > 0 && timeDiff < 1000 && timeDiff > 250) {
+			classes['close'] = true;
+		} else if (timeDiff > 0 && timeDiff < 251) {
+			classes['veryClose animated flash'] = true;
+		}
+		return cx(classes);
+	},
+	renderPostion: function(driver) {
+		var divStyle = {};
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
+			classColour = UI.getClassColour(driver.classId);
+			divStyle = {
+					background: classColour
+			};
+			return <div className="position" style={divStyle}>{driver.scoreInfo.positionClass}</div>
+		} else {
+			return <div className="position" style={divStyle}>{driver.scoreInfo.positionOverall}</div>
+		}
+	},
+	render: function() {
+		var self = this;
+
+		var classes = cx({
+			'tabled-driver-entry': true,
+			'focused': this.props.focused,
+			'idle': self.props.driver.vehicleInfo.speed < 5
+		});
+		var driver = self.props.driver;
+		var state = self.state;
+		var timeDiff = driver.scoreInfo.timeDiff;
+		var isRace = UI.state.sessionInfo.type.match(/^race/i);
+		return (
+			<div className={classes} style={{'zIndex': (1000-this.props.position)}}>
+					{self.renderPostion(driver)}
+					{isRace ?
+						<div className={self.getInterestingStyle(timeDiff)} onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{(timeDiff/1000).toFixed(2)}s</div>
+						:
+						<div className="interesting" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>N/A</div>
+					}
+					<div className="name" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{UI.fixName(driver.name)}</div>
+					<img className="livery" onClick={() => {this.changeCamera('trackside', driver.slotId)}} src={'/render/'+driver.liveryId+'/'+this.props.imageSize+'/'}/>
+					<div className="tvCam" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>TV</div>
+					<div className="dashCam" onClick={() => {this.changeCamera('onboard1', driver.slotId)}}>Dash</div>
+					<div className="cockpitCam" onClick={() => {this.changeCamera('onboard2', driver.slotId)}}>Cockpit</div>
+					<div className="frontCam"  onClick={() => {this.changeCamera('frontCam', driver.slotId)}}>Front</div>
+					<div className="wingCam"  onClick={() => {this.changeCamera('wing', driver.slotId)}}>Wing</div>
+					<div className="tyre">{driver.pitInfo.tyreType}</div>
+					{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
+						<div className="best-lap-time">{UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
+						:
+						<div className="best-lap-time invalid">N/A</div>
+					}
+				</div>
 		);
 	}
 });

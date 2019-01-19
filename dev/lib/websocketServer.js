@@ -58,6 +58,12 @@ module.exports = function(io) {
 	// default controller options
 	var defaultControllerOptions = {
 	  "options": {
+			"useNewBroadcastUI": {
+	      "displayName": "Use Beta Broadcaster UI",
+	      "value": "false",
+	      "tooltip": "Enable a beta version of the broadcaster controller UI (Default: false).",
+	      "type": "checkbox"
+	    },
 	    "multiclass": {
 	      "displayName": "Multiclass UI",
 	      "value": "false",

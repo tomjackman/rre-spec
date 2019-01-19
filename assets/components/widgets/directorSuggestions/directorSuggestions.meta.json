@@ -5,6 +5,6 @@
 	"buttonText": "Director suggestions",
 	"keepOnSessionChange": true,
 	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
-	"defaultActive": true,
+	"defaultActive": false,
 	"description": "Show the auto director driver weightings in a sidebar within the broadcaster control panel. The higher the weighting, the higher the chance the auto director will focus on that driver."
 }
