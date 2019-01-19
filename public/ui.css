@@ -851,12 +851,15 @@ select {
   opacity: 0.8;
   height: 1.5em;
   font-size: 20px;
-}
-.tabled-driver-entry.focused {
-  opacity: 1;
+  color: black;
 }
 .tabled-driver-entry.idle {
   opacity: 0.2;
+}
+.tabled-driver-entry.focused {
+  opacity: 1;
+  font-size: 23px;
+  font-weight: bold;
 }
 .tabled-driver-entry .position,
 .tabled-driver-entry .interesting,
@@ -887,7 +890,6 @@ select {
   width: 20%;
   white-space: nowrap;
   background: white;
-  color: black;
 }
 .tabled-driver-entry .livery {
   border: 0px;
@@ -899,26 +901,31 @@ select {
   padding: 0;
 }
 .tabled-driver-entry .tvCam {
+  color: black;
   background: #FF9800;
   min-width: 4%;
   opacity: 1.0;
 }
 .tabled-driver-entry .cockpitCam {
   background: #FF9800;
+  color: black;
   min-width: 7%;
   opacity: 1.0;
 }
 .tabled-driver-entry .dashCam {
   background: #FF9800;
+  color: black;
   min-width: 7%;
   opacity: 1.0;
 }
 .tabled-driver-entry .frontCam {
   background: #FF9800;
+  color: black;
   min-width: 7%;
   opacity: 1.0;
 }
 .tabled-driver-entry .wingCam {
+  color: black;
   background: #FF9800;
   min-width: 7%;
   opacity: 1.0;
