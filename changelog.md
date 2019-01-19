@@ -23,6 +23,7 @@
 * [Feature] Restyled all DRS/PTP indicators to sharper design.
 * [Feature] Added a toggle to hide the manufacturer logo in the standings tower. A use case to disable this would be in single car cup classes like NSU or Porsche GT3 Cup where its not necessary as they are all the same class.
 * [Feature] Added penalty weights to the race results screen.
+* [Feature] Added beta version of a new broadcast controller UI.
 
 ### Version 1.5.2
 * [Bug Fix] Improved logic around how widgets are hidden/shown between the qualifying results and garage/warmup/race sessions.
