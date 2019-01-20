@@ -1832,7 +1832,7 @@ select {
   height: 100%;
   line-height: 1.8em;
 }
-.multiclass-standings .driver .position {
+.multiclass-standings .driver .positionContainer {
   margin: 0;
   font-size: 18px;
   background: rgba(226, 29, 56, 0.9);
@@ -1843,6 +1843,9 @@ select {
   width: 2em;
   height: 80%;
   font-family: Oswald;
+}
+.multiclass-standings .driver .positionContainer .position {
+  transform: skew(15deg, 0deg);
 }
 .multiclass-standings .driver .manufacturer {
   background: white;
@@ -1856,7 +1859,7 @@ select {
   transform: skew(15deg, 0deg);
   height: 100%;
 }
-.multiclass-standings .driver .name {
+.multiclass-standings .driver .nameContainer {
   font-size: 18px;
   background-color: #b71c1c;
   font-family: Oswald;
@@ -1871,6 +1874,9 @@ select {
   overflow: hidden;
   line-height: inherit;
   z-index: 1;
+}
+.multiclass-standings .driver .nameContainer .name {
+  transform: skew(15deg, 0deg);
 }
 .multiclass-standings .driver .meta-info {
   font-size: 18px;

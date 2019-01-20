@@ -1263,7 +1263,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		var portalTeamName = UI.getUserInfo(portalId).team;
 		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			// add star for portal team names
-			teamName = "★ " + portalTeamName;
+			teamName = "✪ " + portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
@@ -1615,9 +1615,13 @@ UI.widgets.MulticlassStandings = React.createClass({
 		}
 		return React.createElement(
 			'div',
-			{ className: 'name', style: divStyle },
-			firstInitial,
-			name
+			{ className: 'nameContainer', style: divStyle },
+			React.createElement(
+				'div',
+				{ className: 'name' },
+				firstInitial,
+				name
+			)
 		);
 	},
 	shouldShow: function (driver) {
@@ -1688,8 +1692,12 @@ UI.widgets.MulticlassStandings = React.createClass({
 							{ className: 'inner' },
 							React.createElement(
 								'div',
-								{ className: 'position' },
-								driversLookup[i].scoreInfo.positionOverall
+								{ className: 'positionContainer' },
+								React.createElement(
+									'div',
+									{ className: 'position' },
+									driversLookup[i].scoreInfo.positionOverall
+								)
 							),
 							self.renderName(driversLookup[i].name, driversLookup[i].classId),
 							UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ? React.createElement(
@@ -1922,7 +1930,7 @@ var RaceResultEntry = React.createClass({
 		var portalTeamName = UI.getUserInfo(portalId).team;
 		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			// add star for portal team names
-			teamName = "★ " + portalTeamName;
+			teamName = "✪ " + portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
@@ -2208,7 +2216,7 @@ var ResultEntry = React.createClass({
 		var portalTeamName = UI.getUserInfo(portalId).team;
 		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			// add star for portal team names
-			teamName = "★ " + portalTeamName;
+			teamName = "✪ " + portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
@@ -4816,7 +4824,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		var portalTeamName = UI.getUserInfo(portalId).team;
 		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			// add star for portal team names
-			teamName = "★ " + portalTeamName;
+			teamName = "✪ " + portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
