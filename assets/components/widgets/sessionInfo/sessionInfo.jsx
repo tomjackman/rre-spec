@@ -91,6 +91,11 @@ UI.widgets.SessionInfo = React.createClass({
 							</div>
 							<div className="sessionName">{nameLookup[p.sessionInfo.phase]}</div>
 							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
+							{UI.state.controllerOptions.options.showServerNameInTimer.value === "true" ?
+								<div className="serverName">{p.eventInfo.serverName}</div>
+							:
+								null
+							}
 						</div>
 						:
 						<div>
@@ -104,6 +109,11 @@ UI.widgets.SessionInfo = React.createClass({
 									</div>
 								:
 									<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
+								}
+								{UI.state.controllerOptions.options.showServerNameInTimer.value === "true" ?
+									<div className="serverName">{p.eventInfo.serverName}</div>
+								:
+									null
 								}
 								{p.sessionInfo.type.match(/^race/i) && p.sessionInfo.phase.match(/^countdown/i) ?
 									<div className="countdown">

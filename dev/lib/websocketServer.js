@@ -130,6 +130,12 @@ module.exports = function(io) {
 				"tooltip": "Show the comparison speed (in KM/H) between 2 drivers in the compare info widget (Default: False).",
 				"type": "checkbox"
 			},
+			"showServerNameInTimer": {
+				"displayName": "Show Server Namer in Timer",
+				"value": "false",
+				"tooltip": "Shows the name of the server in the session info timer widget (Default: False).",
+				"type": "checkbox"
+			},
 	    "alertLength": {
 	      "displayName": "Steward Message Alert Time Length (Seconds)",
 	      "value": "15",

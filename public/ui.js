@@ -2592,7 +2592,12 @@ UI.widgets.SessionInfo = React.createClass({
 						'div',
 						{ className: 'timer' },
 						UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
-					)
+					),
+					UI.state.controllerOptions.options.showServerNameInTimer.value === "true" ? React.createElement(
+						'div',
+						{ className: 'serverName' },
+						p.eventInfo.serverName
+					) : null
 				) : React.createElement(
 					'div',
 					null,
@@ -2615,6 +2620,11 @@ UI.widgets.SessionInfo = React.createClass({
 						{ className: 'timer' },
 						UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))
 					),
+					UI.state.controllerOptions.options.showServerNameInTimer.value === "true" ? React.createElement(
+						'div',
+						{ className: 'serverName' },
+						p.eventInfo.serverName
+					) : null,
 					p.sessionInfo.type.match(/^race/i) && p.sessionInfo.phase.match(/^countdown/i) ? React.createElement(
 						'div',
 						{ className: 'countdown' },
