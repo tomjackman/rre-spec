@@ -693,7 +693,7 @@ var TabledDriver = React.createClass({
 		var classes = {
 			'interesting': true
 		};
-		
+
 		if (timeDiff > 0 && timeDiff < 1000 && timeDiff > 250) {
 			classes['close'] = true;
 		} else if (timeDiff > 0 && timeDiff < 251) {
@@ -739,6 +739,7 @@ var TabledDriver = React.createClass({
 					<div className="dashCam" onClick={() => {this.changeCamera('onboard1', driver.slotId)}}>Dash</div>
 					<div className="cockpitCam" onClick={() => {this.changeCamera('onboard2', driver.slotId)}}>Cockpit</div>
 					<div className="frontCam"  onClick={() => {this.changeCamera('frontCam', driver.slotId)}}>Front</div>
+					<div className="rearCam"  onClick={() => {this.changeCamera('rearCam', driver.slotId)}}>Rear</div>
 					<div className="wingCam"  onClick={() => {this.changeCamera('wing', driver.slotId)}}>Wing</div>
 					<div className="tyre">{driver.pitInfo.tyreType}</div>
 					{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?

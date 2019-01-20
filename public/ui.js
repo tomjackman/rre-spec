@@ -3794,6 +3794,13 @@ var TabledDriver = React.createClass({
 			),
 			React.createElement(
 				'div',
+				{ className: 'rearCam', onClick: () => {
+						this.changeCamera('rearCam', driver.slotId);
+					} },
+				'Rear'
+			),
+			React.createElement(
+				'div',
 				{ className: 'wingCam', onClick: () => {
 						this.changeCamera('wing', driver.slotId);
 					} },

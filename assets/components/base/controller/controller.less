@@ -578,10 +578,9 @@ select {
   &.focused {
     opacity: 1;
     font-size: 23px;
-    font-weight: bold;
   }
 
-  .position, .interesting, .name, .livery, .tvCam, .dashCam, .cockpitCam, .frontCam, .wingCam, .tyre, .best-lap-time {
+  .position, .interesting, .name, .livery, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .best-lap-time {
     vertical-align: top;
     display: inline-block;
     height: 1.5em;
@@ -619,25 +618,31 @@ select {
   .cockpitCam {
     background: #FF9800;
     color: black;
-    min-width: 7%;
+    min-width: 6%;
     opacity: 1.0;
   }
   .dashCam {
     background: #FF9800;
     color: black;
-    min-width: 7%;
+    min-width: 5%;
     opacity: 1.0;
   }
   .frontCam {
     background: #FF9800;
     color: black;
-    min-width: 7%;
+    min-width: 5%;
+    opacity: 1.0;
+  }
+  .rearCam {
+    background: #FF9800;
+    color: black;
+    min-width: 5%;
     opacity: 1.0;
   }
   .wingCam {
     color: black;
     background: #FF9800;
-    min-width: 7%;
+    min-width: 5%;
     opacity: 1.0;
   }
   .tyre {

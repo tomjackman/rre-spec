@@ -859,7 +859,6 @@ select {
 .tabled-driver-entry.focused {
   opacity: 1;
   font-size: 23px;
-  font-weight: bold;
 }
 .tabled-driver-entry .position,
 .tabled-driver-entry .interesting,
@@ -869,6 +868,7 @@ select {
 .tabled-driver-entry .dashCam,
 .tabled-driver-entry .cockpitCam,
 .tabled-driver-entry .frontCam,
+.tabled-driver-entry .rearCam,
 .tabled-driver-entry .wingCam,
 .tabled-driver-entry .tyre,
 .tabled-driver-entry .best-lap-time {
@@ -909,25 +909,31 @@ select {
 .tabled-driver-entry .cockpitCam {
   background: #FF9800;
   color: black;
-  min-width: 7%;
+  min-width: 6%;
   opacity: 1.0;
 }
 .tabled-driver-entry .dashCam {
   background: #FF9800;
   color: black;
-  min-width: 7%;
+  min-width: 5%;
   opacity: 1.0;
 }
 .tabled-driver-entry .frontCam {
   background: #FF9800;
   color: black;
-  min-width: 7%;
+  min-width: 5%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .rearCam {
+  background: #FF9800;
+  color: black;
+  min-width: 5%;
   opacity: 1.0;
 }
 .tabled-driver-entry .wingCam {
   color: black;
   background: #FF9800;
-  min-width: 7%;
+  min-width: 5%;
   opacity: 1.0;
 }
 .tabled-driver-entry .tyre {
