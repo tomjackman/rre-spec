@@ -110,93 +110,301 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.event-info-bg {
+/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
+.assists .drs {
+  position: relative;
+  height: 5em;
+}
+.assists .drs .icon {
+  background: rgba(76, 175, 80, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+  transform: skew(-10deg);
+}
+.assists .drs .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+  transform: skew(-10deg);
+}
+.assists .drs.active .icon {
+  background: rgba(76, 175, 80, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 18px;
+  transform: skew(-10deg);
+}
+.assists .drs.active .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 18px;
+  transform: skew(-10deg);
+}
+.assists .ptp {
+  position: relative;
+  height: 5em;
+}
+.assists .ptp .icon {
+  background: rgba(66, 165, 245, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+  transform: skew(-10deg);
+}
+.assists .ptp .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+  transform: skew(-10deg);
+}
+.assists .ptp.active .icon {
+  background: rgba(66, 165, 245, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 18px;
+  transform: skew(-10deg);
+}
+.assists .ptp.active .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 18px;
+  transform: skew(-10deg);
+}
+.focused-driver-info {
+  text-align: center;
+  font-family: Oswald;
+  color: #fff;
   position: fixed;
-  top: 0;
+  bottom: 144px;
   left: 0;
   right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
 }
-.event-info {
-  background: white;
+.focused-driver-info.hide-flags .flag-container {
+  display: none;
+}
+.focused-driver-info .inner {
+  filter: drop-shadow(2px 2px 2px #000000);
   font-size: 18px;
-  width: 50em;
-  position: fixed;
-  top: 8em;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: -1;
-  padding: 0em;
-  color: #fff;
-  white-space: pre;
-  font-family: Oswald;
-  border-radius: 10px;
-  border-top: 0.5em solid #e21d38;
-  border-bottom: 0.5em solid #e21d38;
-}
-.event-info .serverName {
-  color: #323433;
-  text-align: center;
-  font-size: 27px;
-  padding: 20px;
-}
-.event-info .trackImage img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-.event-info .trackImage .trackLogo {
-  position: relative;
-}
-.event-info .trackImage .trackLogo img {
-  top: -110px;
-  left: 10px;
+  height: 3.5em;
+  display: inline-block;
   position: absolute;
-  opacity: 1;
-  height: 100px;
-  width: 100px;
-  background-color: white;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
 }
-.event-info .countryFlag {
-  text-align: center;
-  padding-top: 15px;
+.focused-driver-info .extra-info {
+  vertical-align: top;
+  display: inline-block;
 }
-.event-info .countryFlag img {
+.focused-driver-info .bottom .extra-info {
+  height: 1em;
   position: relative;
-  opacity: 1;
-  height: 50px;
-  width: 70px;
+  top: 0.5em;
+  z-index: -1;
+  margin-top: 0em;
+  font-family: Oswald;
 }
-.event-info .serverTrackName {
-  color: #323433;
+.focused-driver-info .bottom .extra-info ul {
+  margin: 0;
+  padding: 0.25em;
+  transform: skew(-10deg);
+}
+.focused-driver-info .bottom .extra-info ul li {
+  float: left;
+  background: rgba(38, 50, 56, 0.8);
+  padding: 0.5em;
+  margin-right: 0.5em;
+  border: 0.1em;
+  color: white;
+  position: relative;
+  min-width: 8em;
+  -webkit-transition: top 0.5s;
+  font-size: 16.2px;
+}
+.focused-driver-info .bottom .extra-info ul li.active {
+  top: 0;
+}
+.focused-driver-info .bottom .extra-info ul li.finished {
+  color: #ffffff;
+}
+.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
+  color: white;
+}
+.focused-driver-info .bottom .extra-info ul li.finished.global-best {
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
+  color: white;
+}
+.focused-driver-info .positionContainer,
+.focused-driver-info .flag-container,
+.focused-driver-info .driverInfoDetails,
+.focused-driver-info .tyre,
+.focused-driver-info .manufacturer,
+.focused-driver-info .vehicle {
+  vertical-align: top;
+  display: inline-block;
+  height: 4em;
+  line-height: 3.25em;
+}
+.focused-driver-info .best-time,
+.focused-driver-info .positionInClass {
+  vertical-align: top;
+  display: inline-block;
+}
+.focused-driver-info .top {
+  position: relative;
+  left: -1.2em;
+  height: 1.75em;
+  bottom: -0.25em;
+}
+.focused-driver-info .top .best-time {
+  transform: skew(-10deg);
+  line-height: 0.5em;
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
+  padding: 0.5em 0.5em;
+  color: white;
+  width: 6em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
+}
+.focused-driver-info .top .positionInClass {
+  transform: skew(-15deg);
+  line-height: 0.5em;
+  background: #e21d38;
+  padding: 0.5em 0.5em;
+  color: white;
+  width: 3em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
+}
+.focused-driver-info .top .fastest {
+  color: white;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
+}
+.focused-driver-info .main .positionContainer {
+  background: rgba(31, 31, 30, 0.9);
+  color: white;
+  width: 5em;
+  padding-left: 0.7em;
   text-align: center;
-  font-size: 27px;
-  padding: 15px;
-  border-bottom: 1px solid white;
-  width: 80%;
-  margin: auto;
+  padding-right: 0.75em;
+  line-height: 3.7em;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  border-bottom: 0.1em solid #e21d38;
 }
-.event-info .trackDescription {
-  color: #323433;
+.focused-driver-info .main .positionContainer .position {
+  font-size: 54px;
+}
+.focused-driver-info .main .driverInfoDetails {
+  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  text-transform: uppercase;
+  padding: 0px 1em;
+  min-width: 23em;
+  border-bottom: 0.1em solid #e21d38;
+}
+.focused-driver-info .main .driverInfoDetails .name {
+  line-height: 2em;
+  color: white;
+  font-size: 23.4px;
+}
+.focused-driver-info .main .driverInfoDetails .team {
+  font-size: 17.1px;
+  line-height: 0.7em;
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+}
+.focused-driver-info .main .vehicle {
+  width: 1.75em;
+  position: relative;
+  left: -12.5em;
+}
+.focused-driver-info .main .vehicle img {
+  position: absolute;
+  top: -4em;
+  left: 1.5em;
+  height: 5.5em;
+}
+.focused-driver-info .main .tyre {
+  position: relative;
+}
+.focused-driver-info .main .tyre img {
+  position: absolute;
+  top: 0.6em;
+  left: -4.5em;
+  height: 3em;
+}
+.focused-driver-info .main .manufacturer {
+  background: white;
+  width: 4em;
+  position: relative;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-bottom: 0.1em solid white;
+  left: -1em;
+}
+.focused-driver-info .main .manufacturer img {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  height: 3em;
+}
+.focused-driver-info .main .flag-container {
+  width: 3em;
+  position: relative;
+  background: #263238;
+  border-bottom: 0.1em solid #ff5252;
+  transform: skew(-10deg);
+  margin: 0;
+}
+.focused-driver-info .main .flag-container .flag {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
   display: block;
-  width: 100%;
-  font-size: 18px;
-  padding: 10px;
-  min-height: 100px;
-  white-space: pre-line;
-  text-align: center;
-  line-height: 1.5;
-}
-.event-info .weather .weatherIcons {
-  display: flex;
-  font-size: 18px;
-  color: #323433;
-  justify-content: space-around;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
+  left: -0.4em;
+  width: 4.5em;
+  height: 4em;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 @font-face {
   font-family: 'Hel';
@@ -1137,8 +1345,8 @@ select {
   font-family: Oswald;
   color: #fff;
   /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-  position: absolute !important;
-  bottom: 2em;
+  position: fixed !important;
+  bottom: 72px;
 }
 .compare-race .inner .inner {
   font-size: 18px;
@@ -1322,6 +1530,94 @@ select {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   z-index: 1;
 }
+.event-info-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+}
+.event-info {
+  background: white;
+  font-size: 18px;
+  width: 50em;
+  position: fixed;
+  top: 8em;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: -1;
+  padding: 0em;
+  color: #fff;
+  white-space: pre;
+  font-family: Oswald;
+  border-radius: 10px;
+  border-top: 0.5em solid #e21d38;
+  border-bottom: 0.5em solid #e21d38;
+}
+.event-info .serverName {
+  color: #323433;
+  text-align: center;
+  font-size: 27px;
+  padding: 20px;
+}
+.event-info .trackImage img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.event-info .trackImage .trackLogo {
+  position: relative;
+}
+.event-info .trackImage .trackLogo img {
+  top: -110px;
+  left: 10px;
+  position: absolute;
+  opacity: 1;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+}
+.event-info .countryFlag {
+  text-align: center;
+  padding-top: 15px;
+}
+.event-info .countryFlag img {
+  position: relative;
+  opacity: 1;
+  height: 50px;
+  width: 70px;
+}
+.event-info .serverTrackName {
+  color: #323433;
+  text-align: center;
+  font-size: 27px;
+  padding: 15px;
+  border-bottom: 1px solid white;
+  width: 80%;
+  margin: auto;
+}
+.event-info .trackDescription {
+  color: #323433;
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  min-height: 100px;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.5;
+}
+.event-info .weather .weatherIcons {
+  display: flex;
+  font-size: 18px;
+  color: #323433;
+  justify-content: space-around;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
 .error-screen {
   z-index: 2147483627;
   position: fixed;
@@ -1347,302 +1643,6 @@ pre.preview {
   text-align: left;
   font-family: 'Inconsolata';
   padding: 20px;
-}
-/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-.assists .drs {
-  position: relative;
-  height: 5em;
-}
-.assists .drs .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .drs .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .drs.active .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 18px;
-  transform: skew(-10deg);
-}
-.assists .drs.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 18px;
-  transform: skew(-10deg);
-}
-.assists .ptp {
-  position: relative;
-  height: 5em;
-}
-.assists .ptp .icon {
-  background: rgba(66, 165, 245, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .ptp .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .ptp.active .icon {
-  background: rgba(66, 165, 245, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 18px;
-  transform: skew(-10deg);
-}
-.assists .ptp.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 18px;
-  transform: skew(-10deg);
-}
-.focused-driver-info {
-  text-align: center;
-  font-family: Oswald;
-  color: #fff;
-  position: fixed;
-  bottom: 10em;
-  left: 0;
-  right: 0;
-}
-.focused-driver-info.hide-flags .flag-container {
-  display: none;
-}
-.focused-driver-info .inner {
-  filter: drop-shadow(2px 2px 2px #000000);
-  font-size: 18px;
-  height: 3.5em;
-  display: inline-block;
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-}
-.focused-driver-info .extra-info {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .bottom .extra-info {
-  height: 1em;
-  position: relative;
-  top: 0.5em;
-  z-index: -1;
-  margin-top: 0em;
-  font-family: Oswald;
-}
-.focused-driver-info .bottom .extra-info ul {
-  margin: 0;
-  padding: 0.25em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .bottom .extra-info ul li {
-  float: left;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 0.5em;
-  margin-right: 0.5em;
-  border: 0.1em;
-  color: white;
-  position: relative;
-  min-width: 8em;
-  -webkit-transition: top 0.5s;
-  font-size: 16.2px;
-}
-.focused-driver-info .bottom .extra-info ul li.active {
-  top: 0;
-}
-.focused-driver-info .bottom .extra-info ul li.finished {
-  color: #ffffff;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  color: white;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.global-best {
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-  color: white;
-}
-.focused-driver-info .positionContainer,
-.focused-driver-info .flag-container,
-.focused-driver-info .driverInfoDetails,
-.focused-driver-info .tyre,
-.focused-driver-info .manufacturer,
-.focused-driver-info .vehicle {
-  vertical-align: top;
-  display: inline-block;
-  height: 4em;
-  line-height: 3.25em;
-}
-.focused-driver-info .best-time,
-.focused-driver-info .positionInClass {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .top {
-  position: relative;
-  left: -1.2em;
-  height: 1.75em;
-  bottom: -0.25em;
-}
-.focused-driver-info .top .best-time {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 6em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .positionInClass {
-  transform: skew(-15deg);
-  line-height: 0.5em;
-  background: #e21d38;
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 3em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-}
-.focused-driver-info .main .positionContainer {
-  background: rgba(31, 31, 30, 0.9);
-  color: white;
-  width: 5em;
-  padding-left: 0.7em;
-  text-align: center;
-  padding-right: 0.75em;
-  line-height: 3.7em;
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
-  border-bottom: 0.1em solid #e21d38;
-}
-.focused-driver-info .main .positionContainer .position {
-  font-size: 54px;
-}
-.focused-driver-info .main .driverInfoDetails {
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
-  text-transform: uppercase;
-  padding: 0px 1em;
-  min-width: 23em;
-  border-bottom: 0.1em solid #e21d38;
-}
-.focused-driver-info .main .driverInfoDetails .name {
-  line-height: 2em;
-  color: white;
-  font-size: 23.4px;
-}
-.focused-driver-info .main .driverInfoDetails .team {
-  font-size: 17.1px;
-  line-height: 0.7em;
-  position: relative;
-  color: white;
-  text-transform: uppercase;
-}
-.focused-driver-info .main .vehicle {
-  width: 1.75em;
-  position: relative;
-  left: -12.5em;
-}
-.focused-driver-info .main .vehicle img {
-  position: absolute;
-  top: -4em;
-  left: 1.5em;
-  height: 5.5em;
-}
-.focused-driver-info .main .tyre {
-  position: relative;
-}
-.focused-driver-info .main .tyre img {
-  position: absolute;
-  top: 0.6em;
-  left: -4.5em;
-  height: 3em;
-}
-.focused-driver-info .main .manufacturer {
-  background: white;
-  width: 4em;
-  position: relative;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-  border-bottom: 0.1em solid white;
-  left: -1em;
-}
-.focused-driver-info .main .manufacturer img {
-  position: absolute;
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .flag-container {
-  width: 3em;
-  position: relative;
-  background: #263238;
-  border-bottom: 0.1em solid #ff5252;
-  transform: skew(-10deg);
-  margin: 0;
-}
-.focused-driver-info .main .flag-container .flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  display: block;
-  left: -0.4em;
-  width: 4.5em;
-  height: 4em;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
 }
 .logo-overlay {
   font-size: 18px;
