@@ -132,7 +132,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 			classColour = UI.getClassColour(classId);
 			divStyle.background = classColour;
 		}
-		return <div className="name" style={divStyle}>{firstInitial}{name}</div>
+		return <div className="nameContainer" style={divStyle}><div className="name">{firstInitial}{name}</div></div>
 	},
 	shouldShow: function(driver) {
 		if (!driver) {
@@ -195,7 +195,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 						{self.shouldShow(driversLookup[i]) ?
 							<div className={cx({'driver': true, 'active': (driversLookup[i].slotId === UI.state.focusedSlot)})} key={driversLookup[i].slotId} style={self.getDriverStyle(driversLookup[i])}>
 								<div className="inner">
-									<div className="position">{driversLookup[i].scoreInfo.positionOverall}</div>
+									<div className="positionContainer"><div className="position">{driversLookup[i].scoreInfo.positionOverall}</div></div>
 									{self.renderName(driversLookup[i].name, driversLookup[i].classId)}
 									{UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ?
 										<div className="manufacturer">

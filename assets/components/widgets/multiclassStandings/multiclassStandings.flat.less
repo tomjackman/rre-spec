@@ -33,7 +33,7 @@
 				line-height: 1.8em;
 			}
 		}
-		.position {
+		.positionContainer {
 			margin: 0;
 			font-size: @fontSize;
 			background: @StandingsPositionBackground;
@@ -44,6 +44,9 @@
 			width: 2em;
 			height: 80%;
 			font-family: Oswald;
+			.position {
+				transform: skew(+15deg, 0deg);
+			}
 		}
 		.manufacturer {
 			background: @StandingsManufacturerBackground;
@@ -57,7 +60,7 @@
 				height: 100%;
 			}
 		}
-		.name {
+		.nameContainer {
 			font-size: @fontSize;
 			background-color: rgb(183, 28, 28);
 			font-family: Oswald;
@@ -72,6 +75,9 @@
 			overflow: hidden;
 			line-height: inherit;
 			z-index: 1;
+			.name {
+				transform: skew(+15deg, 0deg);
+			}
 		}
 		.meta-info {
 			font-size: @fontSize;
