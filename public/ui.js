@@ -876,6 +876,128 @@ UI.widgets.DirectorSuggestions = React.createClass({
 		return React.createElement('div', null);
 	}
 });
+UI.widgets.EntriesList = React.createClass({
+  displayName: 'EntriesList',
+
+  componentWillMount: function () {
+    var self = this;
+
+    function updateInfo() {
+      UI.batch({
+        'driversInfo': r3e.getDriversInfo,
+        'eventInfo': function (done) {
+          r3e.getEventInfo(done);
+        }
+      }, self.setState.bind(self));
+    }
+    updateInfo();
+    self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+  },
+  componentWillUnmount: function () {
+    clearInterval(this.updateInterval);
+  },
+  getInitialState: function () {
+    return {
+      'eventInfo': {},
+      'driversInfo': {
+        'driversInfo': []
+      }
+    };
+  },
+  sortFunctionPosition: function (a, b) {
+    if (a.slotId > b.slotId) {
+      return 1;
+    } else if (a.slotId === b.slotId) {
+      return 0;
+    } else {
+      return -1;
+    }
+  },
+  render: function () {
+    var self = this;
+    var info = self.state.eventInfo;
+    if (!info.serverName) {
+      return null;
+    }
+    var drivers = self.state.driversInfo.driversInfo;
+
+    return React.createElement(
+      'div',
+      { className: 'entries-bg' },
+      React.createElement(
+        'div',
+        { 'class': 'entries-title' },
+        info.serverName
+      ),
+      React.createElement(
+        'div',
+        { className: 'entries animated fadeIn' },
+        React.createElement(
+          'div',
+          { className: 'entries-container' },
+          React.createElement(
+            'ul',
+            null,
+            drivers.sort(this.sortFunctionPosition).map(function (driver, i) {
+              return React.createElement(EntryDriver, { driver: driver });
+            })
+          )
+        )
+      )
+    );
+  }
+});
+
+var EntryDriver = React.createClass({
+  displayName: 'EntryDriver',
+
+  getTeamName: function (teamId, portalId) {
+    var self = this;
+    var teamName = "";
+    var portalTeamName = UI.getUserInfo(portalId).team;
+    if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+      // add star for portal team names
+      teamName = "✪ " + portalTeamName;
+    } else if (r3eData.teams[teamId] != null) {
+      teamName = r3eData.teams[teamId].Name;
+    }
+    return teamName;
+  },
+  render: function () {
+    var self = this;
+    var driver = self.props.driver;
+
+    return React.createElement(
+      'div',
+      { className: 'entries-driver' },
+      React.createElement(
+        'div',
+        { className: 'entrySlot' },
+        driver.slotId
+      ),
+      React.createElement(
+        'div',
+        { className: 'entryFlag' },
+        UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
+      ),
+      React.createElement(
+        'div',
+        { className: 'entryName' },
+        driver.name
+      ),
+      React.createElement(
+        'div',
+        { className: 'entryTeam' },
+        self.getTeamName(driver.teamId, driver.portalId)
+      ),
+      React.createElement(
+        'div',
+        { className: 'entryLivery' },
+        React.createElement('img', { src: '/render/' + driver.liveryId + '/small/' })
+      )
+    );
+  }
+});
 UI.widgets.EventInfo = React.createClass({
 	displayName: 'EventInfo',
 
@@ -891,7 +1013,6 @@ UI.widgets.EventInfo = React.createClass({
 		}
 		updateInfo();
 	},
-	componentWillUnmount: function () {},
 	getInitialState: function () {
 		return {
 			'eventInfo': {}
@@ -2046,259 +2167,6 @@ var RaceResultEntry = React.createClass({
 		);
 	}
 });
-UI.widgets.Results = React.createClass({
-	displayName: 'Results',
-
-	componentWillMount: function () {
-		var self = this;
-
-		function updateInfo() {
-			UI.batch({
-				'driversInfo': r3e.getDriversInfo
-			}, self.setState.bind(self));
-		}
-		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
-
-		(function checkRefs() {
-			if (!self.refs['entries-outer']) {
-				return setTimeout(checkRefs, 100);
-			}
-
-			var diff = self.refs['entries-outer'].clientHeight - self.refs['entries-inner'].clientHeight;
-			setTimeout(function () {
-				if (!self.refs['entries-inner']) {
-					return;
-				}
-				self.refs['entries-inner'].style.top = diff + 'px';
-			}, 10 * 1000);
-		})();
-	},
-	componentWillUnmount: function () {
-		clearInterval(this.updateInterval);
-	},
-	getInitialState: function () {
-		return {
-			'driversInfo': {
-				'driversInfo': []
-			}
-		};
-	},
-	sortFunctionPosition: function (a, b) {
-		if (a.scoreInfo.positionOverall > b.scoreInfo.positionOverall) {
-			return 1;
-		} else if (a.scoreInfo.positionOverall === b.scoreInfo.positionOverall) {
-			return 0;
-		} else {
-			return -1;
-		}
-	},
-	render: function () {
-		var self = this;
-		if (this.state.driversInfo.driversInfo.length === 0) {
-			return null;
-		}
-		var drivers = this.state.driversInfo.driversInfo;
-		if (drivers.filter(function (entry) {
-			return entry.scoreInfo.bestLapInfo.sector3 !== -1;
-		}).length === 0) {
-			return null;
-		}
-
-		var fastestTime = 999999;
-		var fastestTimeIndex = null;
-		drivers.forEach(function (entry, i) {
-			if (entry.scoreInfo.bestLapInfo.sector3 !== -1 && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
-				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
-				fastestTimeIndex = i;
-			}
-		});
-		if (drivers[fastestTimeIndex]) {
-			drivers[fastestTimeIndex].isFastest = true;
-		}
-
-		var session = UI.state.sessionInfo;
-
-		return React.createElement(
-			'div',
-			null,
-			session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
-				'div',
-				{ className: 'overallQuai animated fadeIn' },
-				React.createElement(
-					'div',
-					{ className: 'qualify-results' },
-					React.createElement(
-						'div',
-						{ className: 'title' },
-						React.createElement(
-							'div',
-							{ className: 'text' },
-							'Qualifying Results',
-							React.createElement('div', { className: 'logo' })
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'qualify-results-entry title' },
-						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-							'div',
-							{ className: 'classPosition' },
-							'Class'
-						) : null,
-						React.createElement(
-							'div',
-							{ className: 'position' },
-							'Overall'
-						),
-						React.createElement('div', { className: 'manufacturer' }),
-						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-							'div',
-							{ className: 'shortName' },
-							'Name'
-						) : React.createElement(
-							'div',
-							{ className: 'longName' },
-							'Name'
-						),
-						React.createElement('div', { className: 'livery' }),
-						React.createElement(
-							'div',
-							{ className: 'resultTeam' },
-							'Team'
-						),
-						React.createElement(
-							'div',
-							{ className: 'fastest-time' },
-							'Delta'
-						),
-						React.createElement(
-							'div',
-							{ className: 'lap-time' },
-							'Best Lap'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'entries-outer', ref: 'entries-outer' },
-						React.createElement(
-							'div',
-							{ className: 'entries-inner', ref: 'entries-inner' },
-							drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
-								return React.createElement(ResultEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
-							})
-						)
-					)
-				)
-			) : null
-		);
-	}
-});
-
-var ResultEntry = React.createClass({
-	displayName: 'ResultEntry',
-
-	getClassColour: function (classId) {
-		var classColour = "rgba(38, 50, 56, 0.8)";
-		var className = "";
-
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
-			className = r3eData.classes[classId].Name;
-		}
-
-		return { 'background': classColour };
-	},
-	getTeamName: function (teamId, portalId) {
-		var self = this;
-		var teamName = "";
-		var portalTeamName = UI.getUserInfo(portalId).team;
-		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
-			// add star for portal team names
-			teamName = "✪ " + portalTeamName;
-		} else if (r3eData.teams[teamId] != null) {
-			teamName = r3eData.teams[teamId].Name;
-		}
-		return teamName;
-	},
-	render: function () {
-		var self = this;
-		var entry = self.props.entry;
-		var lapTime = null;
-		if (entry.scoreInfo.bestLapInfo.sector3 === -1) {
-			return null;
-		}
-		if (this.props.index === 0) {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'fastest-time' },
-				'-'
-			);
-		} else {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'fastest-time' },
-				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3 - self.props.firstEntry.scoreInfo.bestLapInfo.sector3)
-			);
-		}
-
-		var session = UI.state.sessionInfo;
-
-		return React.createElement(
-			'div',
-			{ className: 'overall' },
-			session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
-				'div',
-				{ className: cx({ 'qualify-results-entry': true }) },
-				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-					'div',
-					{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
-					'Class P',
-					entry.scoreInfo.positionClass,
-					'.'
-				) : null,
-				React.createElement(
-					'div',
-					{ className: 'position' },
-					'P',
-					entry.scoreInfo.positionOverall,
-					'.'
-				),
-				React.createElement(
-					'div',
-					{ className: 'manufacturer' },
-					React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/' })
-				),
-				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-					'div',
-					{ className: 'shortName' },
-					UI.fixName(entry.name)
-				) : React.createElement(
-					'div',
-					{ className: 'longName' },
-					UI.fixName(entry.name)
-				),
-				React.createElement(
-					'div',
-					{ className: 'livery' },
-					React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
-				),
-				React.createElement(
-					'div',
-					{ className: 'resultTeam' },
-					self.getTeamName(entry.teamId, entry.portalId)
-				),
-				lapTime,
-				React.createElement(
-					'div',
-					{ className: cx({ 'fastest': entry.isFastest, 'lap-time': true }) },
-					UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-				)
-			) : null
-		);
-	}
-});
 (function reload() {
 	// When a Less file has been updated
 	window.io.on('css', function(path, content) {
@@ -2465,6 +2333,22 @@ $(document).keyup(function(e) {
 				});
 			});
 		});
+	}
+});
+UI.widgets.SafetyCarDeployed = React.createClass({
+	displayName: "SafetyCarDeployed",
+
+	render: function () {
+		var self = this;
+		return React.createElement(
+			"div",
+			{ className: "safetyCarDeployedContainer" },
+			React.createElement(
+				"div",
+				{ className: "safetyCarDeployed animated flash infinite" },
+				"Safety Car"
+			)
+		);
 	}
 });
 UI.widgets.SafetyCarIn = React.createClass({
@@ -5197,19 +5081,256 @@ var r3eTracks = {
   }
 };
 
-UI.widgets.SafetyCarDeployed = React.createClass({
-	displayName: "SafetyCarDeployed",
+UI.widgets.Results = React.createClass({
+	displayName: 'Results',
 
+	componentWillMount: function () {
+		var self = this;
+
+		function updateInfo() {
+			UI.batch({
+				'driversInfo': r3e.getDriversInfo
+			}, self.setState.bind(self));
+		}
+		updateInfo();
+
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+
+		(function checkRefs() {
+			if (!self.refs['entries-outer']) {
+				return setTimeout(checkRefs, 100);
+			}
+
+			var diff = self.refs['entries-outer'].clientHeight - self.refs['entries-inner'].clientHeight;
+			setTimeout(function () {
+				if (!self.refs['entries-inner']) {
+					return;
+				}
+				self.refs['entries-inner'].style.top = diff + 'px';
+			}, 10 * 1000);
+		})();
+	},
+	componentWillUnmount: function () {
+		clearInterval(this.updateInterval);
+	},
+	getInitialState: function () {
+		return {
+			'driversInfo': {
+				'driversInfo': []
+			}
+		};
+	},
+	sortFunctionPosition: function (a, b) {
+		if (a.scoreInfo.positionOverall > b.scoreInfo.positionOverall) {
+			return 1;
+		} else if (a.scoreInfo.positionOverall === b.scoreInfo.positionOverall) {
+			return 0;
+		} else {
+			return -1;
+		}
+	},
 	render: function () {
 		var self = this;
+		if (this.state.driversInfo.driversInfo.length === 0) {
+			return null;
+		}
+		var drivers = this.state.driversInfo.driversInfo;
+		if (drivers.filter(function (entry) {
+			return entry.scoreInfo.bestLapInfo.sector3 !== -1;
+		}).length === 0) {
+			return null;
+		}
+
+		var fastestTime = 999999;
+		var fastestTimeIndex = null;
+		drivers.forEach(function (entry, i) {
+			if (entry.scoreInfo.bestLapInfo.sector3 !== -1 && entry.scoreInfo.bestLapInfo.sector3 < fastestTime) {
+				fastestTime = entry.scoreInfo.bestLapInfo.sector3;
+				fastestTimeIndex = i;
+			}
+		});
+		if (drivers[fastestTimeIndex]) {
+			drivers[fastestTimeIndex].isFastest = true;
+		}
+
+		var session = UI.state.sessionInfo;
+
 		return React.createElement(
-			"div",
-			{ className: "safetyCarDeployedContainer" },
-			React.createElement(
-				"div",
-				{ className: "safetyCarDeployed animated flash infinite" },
-				"Safety Car"
-			)
+			'div',
+			null,
+			session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
+				'div',
+				{ className: 'overallQuai animated fadeIn' },
+				React.createElement(
+					'div',
+					{ className: 'qualify-results' },
+					React.createElement(
+						'div',
+						{ className: 'title' },
+						React.createElement(
+							'div',
+							{ className: 'text' },
+							'Qualifying Results',
+							React.createElement('div', { className: 'logo' })
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'qualify-results-entry title' },
+						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+							'div',
+							{ className: 'classPosition' },
+							'Class'
+						) : null,
+						React.createElement(
+							'div',
+							{ className: 'position' },
+							'Overall'
+						),
+						React.createElement('div', { className: 'manufacturer' }),
+						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+							'div',
+							{ className: 'shortName' },
+							'Name'
+						) : React.createElement(
+							'div',
+							{ className: 'longName' },
+							'Name'
+						),
+						React.createElement('div', { className: 'livery' }),
+						React.createElement(
+							'div',
+							{ className: 'resultTeam' },
+							'Team'
+						),
+						React.createElement(
+							'div',
+							{ className: 'fastest-time' },
+							'Delta'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lap-time' },
+							'Best Lap'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'entries-outer', ref: 'entries-outer' },
+						React.createElement(
+							'div',
+							{ className: 'entries-inner', ref: 'entries-inner' },
+							drivers.sort(this.sortFunctionPosition).map(function (entry, i) {
+								return React.createElement(ResultEntry, { entry: entry, firstEntry: drivers[0], key: i, index: i });
+							})
+						)
+					)
+				)
+			) : null
+		);
+	}
+});
+
+var ResultEntry = React.createClass({
+	displayName: 'ResultEntry',
+
+	getClassColour: function (classId) {
+		var classColour = "rgba(38, 50, 56, 0.8)";
+		var className = "";
+
+		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
+			classColour = r3eClassColours.classes[classId].colour;
+			className = r3eData.classes[classId].Name;
+		}
+
+		return { 'background': classColour };
+	},
+	getTeamName: function (teamId, portalId) {
+		var self = this;
+		var teamName = "";
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "✪ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+		return teamName;
+	},
+	render: function () {
+		var self = this;
+		var entry = self.props.entry;
+		var lapTime = null;
+		if (entry.scoreInfo.bestLapInfo.sector3 === -1) {
+			return null;
+		}
+		if (this.props.index === 0) {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'fastest-time' },
+				'-'
+			);
+		} else {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'fastest-time' },
+				UI.formatTime(entry.scoreInfo.bestLapInfo.sector3 - self.props.firstEntry.scoreInfo.bestLapInfo.sector3)
+			);
+		}
+
+		var session = UI.state.sessionInfo;
+
+		return React.createElement(
+			'div',
+			{ className: 'overall' },
+			session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
+				'div',
+				{ className: cx({ 'qualify-results-entry': true }) },
+				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+					'div',
+					{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
+					'Class P',
+					entry.scoreInfo.positionClass,
+					'.'
+				) : null,
+				React.createElement(
+					'div',
+					{ className: 'position' },
+					'P',
+					entry.scoreInfo.positionOverall,
+					'.'
+				),
+				React.createElement(
+					'div',
+					{ className: 'manufacturer' },
+					React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/' })
+				),
+				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+					'div',
+					{ className: 'shortName' },
+					UI.fixName(entry.name)
+				) : React.createElement(
+					'div',
+					{ className: 'longName' },
+					UI.fixName(entry.name)
+				),
+				React.createElement(
+					'div',
+					{ className: 'livery' },
+					React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'resultTeam' },
+					self.getTeamName(entry.teamId, entry.portalId)
+				),
+				lapTime,
+				React.createElement(
+					'div',
+					{ className: cx({ 'fastest': entry.isFastest, 'lap-time': true }) },
+					UI.formatTime(entry.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+				)
+			) : null
 		);
 	}
 });

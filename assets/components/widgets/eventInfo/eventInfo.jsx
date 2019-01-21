@@ -11,9 +11,6 @@ UI.widgets.EventInfo = React.createClass({
 		}
 		updateInfo();
 	},
-	componentWillUnmount: function() {
-
-	},
 	getInitialState: function() {
 		return {
 			'eventInfo': {}
