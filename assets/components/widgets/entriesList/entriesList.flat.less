@@ -1,0 +1,90 @@
+@import '../theme/z';
+
+.entries-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.entries {
+  position: fixed;
+	top: 50%;
+	left: 20%;
+	right: 20%;
+	-webkit-transform: translate(0, -50%);
+	z-index: -1;
+	padding: 0.5em;
+  background-color: green;
+	white-space: pre;
+	font-family: Oswald;
+	width: 70%;
+  max-height: 20em;
+	filter: drop-shadow(9px 9px 9px rgba(0,0,0,1));
+  .entries-title {
+    text-align: center;
+    background-color: red;
+    color: white;
+    height: 2em;
+  }
+}
+
+.entries-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  height: 100%;
+  color: white;
+}
+
+.entries-driver {
+  float: left;
+  position: relative;
+  height: 2em;
+  font-size: @fontSize;
+  color: black;
+
+  .entrySlot, .entryFlag, .entryName, .entryTeam, .entryLivery {
+    vertical-align: top;
+    display: inline-block;
+    line-height: 2em;
+    text-align: center;
+    border: 1px solid rgba(96, 125, 139,0.3);
+    background-color: white;
+  }
+
+  .entrySlot {
+    width: 10%;
+    white-space: nowrap;
+  }
+  .entryFlag {
+    width: 10%;
+    padding: 0;
+    img {
+      width: 100%;
+      padding: 0;
+      height: 2em;
+    }
+  }
+  .entryName {
+    width: 30%;
+    white-space: nowrap;
+  }
+  .entryTeam {
+    width: 30%;
+    white-space: nowrap;
+  }
+  .entryLivery {
+    width: 20%;
+    padding: 0;
+    img {
+      height: 2em;
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
