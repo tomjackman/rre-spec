@@ -50,6 +50,9 @@ UI.widgets.EventInfo = React.createClass({
       speedMeasurement = "MPH"
     }
 
+		var trackLogo = r3eTracks.tracks[info.trackId] && r3eTracks.tracks[info.trackId].trackLogoUrl ? r3eTracks.tracks[info.trackId].trackLogoUrl : null;
+		var trackDescription = r3eTracks.tracks[info.trackId] && r3eTracks.tracks[info.trackId].description ? r3eTracks.tracks[info.trackId].description : null;
+
 		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
 			return null;
 		}
@@ -61,14 +64,14 @@ UI.widgets.EventInfo = React.createClass({
           <div className="trackImage">
 						<img src={'http://game.raceroom.com/store/image_redirect?id='+info.trackId+'&size=big'} />
 						<div className="trackLogo">
-							<img src={r3eTracks.tracks[info.trackId].trackLogoUrl} />
+							<img src={trackLogo} />
 						</div>
 					</div>
 					<div className="countryFlag">
 						<img src={'/img/flags/'+self.getCountryCode(info.trackId)+'.svg'} />
 					</div>
 					<div className="serverTrackName">{info.trackName} {info.layoutName}</div>
-					<div className="trackDescription">{r3eTracks.tracks[info.trackId].description}</div>
+					<div className="trackDescription">{trackDescription}</div>
 					  <div className="weather">
               <div className="weatherIcons">
               <div className="weatherInfoAmbientTempImage"><img height="40px" width="40px" src={'/img/weather/ambient-temp.png'} /> {ambientTemp}{temperatureMeasurement} Air</div>

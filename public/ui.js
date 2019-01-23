@@ -1052,6 +1052,9 @@ UI.widgets.EventInfo = React.createClass({
 			speedMeasurement = "MPH";
 		}
 
+		var trackLogo = r3eTracks.tracks[info.trackId] && r3eTracks.tracks[info.trackId].trackLogoUrl ? r3eTracks.tracks[info.trackId].trackLogoUrl : null;
+		var trackDescription = r3eTracks.tracks[info.trackId] && r3eTracks.tracks[info.trackId].description ? r3eTracks.tracks[info.trackId].description : null;
+
 		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
 			return null;
 		}
@@ -1074,7 +1077,7 @@ UI.widgets.EventInfo = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'trackLogo' },
-						React.createElement('img', { src: r3eTracks.tracks[info.trackId].trackLogoUrl })
+						React.createElement('img', { src: trackLogo })
 					)
 				),
 				React.createElement(
@@ -1092,7 +1095,7 @@ UI.widgets.EventInfo = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'trackDescription' },
-					r3eTracks.tracks[info.trackId].description
+					trackDescription
 				),
 				React.createElement(
 					'div',
