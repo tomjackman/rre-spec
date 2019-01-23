@@ -1971,12 +1971,17 @@ select {
   height: 5.5em;
 }
 .focused-driver-info .main .tyre {
+  background: rgba(31, 31, 30, 0.9);
+  width: 4em;
   position: relative;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-bottom: 0.1em solid #e21d38;
 }
 .focused-driver-info .main .tyre img {
   position: absolute;
-  top: 0.6em;
-  left: -4.5em;
+  top: 0.5em;
+  left: 0.5em;
   height: 3em;
 }
 .focused-driver-info .main .manufacturer {
@@ -1986,7 +1991,6 @@ select {
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
   border-bottom: 0.1em solid white;
-  left: -1em;
 }
 .focused-driver-info .main .manufacturer img {
   position: absolute;

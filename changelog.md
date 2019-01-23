@@ -1,3 +1,8 @@
+### Version 1.6.1
+* [Bug Fix] Prevented an error being thrown if no local description exists for a track.
+* [Feature] Add new tyre compound indicators.
+* [Feature] Small UI updates to themes with new variable definitions for some UI components.
+
 ### Version 1.6.0
 * [Feature] Added red extra close racing indicator in the broadcast panel for cars within 0.25s of each other.
 * [Feature] Added new green and blue raceroom themes for more variety.

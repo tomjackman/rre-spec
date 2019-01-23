@@ -1499,8 +1499,7 @@ UI.widgets.FocusedDriver = React.createClass({
 						'div',
 						{ className: 'tyre' },
 						React.createElement('img', { src: '/img/tyres/' + pitInfo.tyreType + '.png' })
-					) : null,
-					React.createElement(
+					) : React.createElement(
 						'div',
 						{ className: 'manufacturer' },
 						React.createElement('img', { src: '/render/' + driverInfo.manufacturerId + '/small/' })

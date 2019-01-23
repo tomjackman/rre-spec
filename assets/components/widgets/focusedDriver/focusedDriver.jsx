@@ -298,11 +298,11 @@ UI.widgets.FocusedDriver = React.createClass({
 							<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
 						</div>
 							:
-							null
+							<div className="manufacturer">
+								<img src={'/render/'+driverInfo.manufacturerId+'/small/'}/>
+							</div>
 						}
-						<div className="manufacturer">
-							<img src={'/render/'+driverInfo.manufacturerId+'/small/'}/>
-						</div>
+
 
 						{UI.state.controllerOptions.options.showLiveryPreview.value === "true" ?
 						<div className="vehicle">

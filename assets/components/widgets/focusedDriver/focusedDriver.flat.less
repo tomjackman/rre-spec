@@ -154,13 +154,18 @@
 		}
 	}
 	.tyre {
+		background: @DriverInfoTyreBackground;
+		width: 4em;
 		position: relative;
-			img {
-				position: absolute;
-				top: 0.6em;
-				left: -4.5em;
-				height: 3em;
-			}
+		border-top-right-radius: 1em;
+		border-bottom-right-radius: 1em;
+		border-bottom: 0.1em solid @DriverInfoTyreBorder;
+		img {
+			position: absolute;
+			top: 0.5em;
+			left: 0.5em;
+			height: 3em;
+		}
 	}
 	.manufacturer {
 		background: @DriverInfoManufacturerBackground;
@@ -169,7 +174,6 @@
 		border-top-right-radius: 1em;
 		border-bottom-right-radius: 1em;
 		border-bottom: 0.1em solid @DriverInfoManufacturerBorder;
-		left: -1em;
 		img {
 			position: absolute;
 			top: 0.5em;
