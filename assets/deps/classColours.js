@@ -269,6 +269,11 @@ var r3eClassColours = {
       Name: "Group 4",
       colour: "rgba(193, 62, 54, 0.8)",
       Id: 7304
+    },
+    7278: {
+      Name: "ADAC GT Masters 2018",
+      colour: "rgba(0, 154, 223, 0.8)",
+      Id: 7278
     }
   }
 };
