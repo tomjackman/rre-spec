@@ -5,6 +5,7 @@
 * [Feature] Added Most Autodrome asset references.
 * [Feature] Added ADAC GT Masters 2018 class colours.
 * [Feature] Added ADAC GT Masters Theme.
+* [Feature] Shows laps behind on the race results screen.
 
 ### Version 1.6.0
 * [Feature] Added red extra close racing indicator in the broadcast panel for cars within 0.25s of each other.
