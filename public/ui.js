@@ -2080,6 +2080,20 @@ var RaceResultEntry = React.createClass({
 				{ className: 'lap-time' },
 				UI.formatTime(entry.totalTime, { ignoreSign: true })
 			);
+		} else if (entry.lapsBehind === 1) {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				entry.lapsBehind,
+				' Lap'
+			);
+		} else if (entry.lapsBehind > 1) {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				entry.lapsBehind,
+				' Laps'
+			);
 		} else {
 			lapTime = React.createElement(
 				'div',

@@ -146,6 +146,10 @@ var RaceResultEntry = React.createClass({
 			lapTime = <div className="lap-time">DNF</div>
 		} else if (self.props.index === 0) {
 			lapTime = <div className="lap-time">{UI.formatTime(entry.totalTime, {ignoreSign: true})}</div>
+		} else if (entry.lapsBehind === 1) {
+			lapTime = <div className="lap-time">{entry.lapsBehind} Lap</div>
+		} else if (entry.lapsBehind > 1) {
+			lapTime = <div className="lap-time">{entry.lapsBehind} Laps</div>
 		} else {
 			lapTime = <div className="lap-time">{UI.formatTime(entry.totalTime-self.props.firstEntry.totalTime)}</div>
 		}

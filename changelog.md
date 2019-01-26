@@ -2,6 +2,9 @@
 * [Bug Fix] Prevented an error being thrown if no local description exists for a track.
 * [Feature] Add new tyre compound indicators.
 * [Feature] Small UI updates to themes with new variable definitions for some UI components.
+* [Feature] Added Most Autodrome asset references.
+* [Feature] Added ADAC GT Masters 2018 class colours.
+* [Feature] Added ADAC GT Masters Theme.
 
 ### Version 1.6.0
 * [Feature] Added red extra close racing indicator in the broadcast panel for cars within 0.25s of each other.
