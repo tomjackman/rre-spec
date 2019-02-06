@@ -1,3 +1,6 @@
+### Version 1.7.0
+* [Feature] Added 'Code 60' indicator in race session as used in the 24H series.
+
 ### Version 1.6.1
 * [Bug Fix] Prevented an error being thrown if no local description exists for a track.
 * [Feature] Add new tyre compound indicators.
