@@ -796,6 +796,247 @@ window.addEventListener('message', function(event) {
 	}
 });
 
+UI.widgets.CompareRace = React.createClass({
+	displayName: 'CompareRace',
+
+	componentDidMount: function () {
+		var self = this;
+
+		// Hide widgets that use the same screen space
+		// UI.state.activeWidgets.FocusedDriver.active = false;
+		// io.emit('setState', UI.state);
+
+		function updateInfo() {
+			r3e.getDriversInfo(function (data) {
+				var drivers = [];
+				var foundFastest = false;
+				var usersIndex = null;
+				data.driversInfo.forEach(function (driver, i) {
+					if (driver.slotId === UI.state.focusedSlot) {
+						usersIndex = i;
+						return drivers.push(driver);
+					}
+				});
+
+				if (usersIndex) {
+					drivers.push(data.driversInfo[usersIndex - 1]);
+				}
+
+				var jobs = [];
+				drivers.forEach(function (driver) {
+					jobs.push(function (done) {
+						UI.batch({
+							'vehicleInfo': function (done) {
+								r3e.getVehicleInfo({
+									'slotId': driver.slotId
+								}, done);
+							},
+							'pushToPassInfo': function (done) {
+								r3e.getPushToPassInfo({
+									'slotId': UI.state.focusedSlot
+								}, done);
+							},
+							'extendedInfo': function (done) {
+								r3e.getExtendedInfo({
+									'slotId': driver.slotId
+								}, done);
+							}
+						}, function (data) {
+							driver.vehicleInfo = data.vehicleInfo;
+							driver.extendedInfo = data.extendedInfo;
+							driver.pushToPassInfo = data.pushToPassInfo;
+							done(driver);
+						});
+					});
+				});
+				UI.batch(jobs, function (data) {
+					self.setState({
+						'driversInfo': data
+					});
+				});
+			});
+		}
+		updateInfo();
+
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+	},
+	componentWillUnmount: function () {
+		clearInterval(this.updateInterval);
+		clearInterval(this.closeDownTimeout);
+	},
+	getInitialState: function () {
+		return {
+			'driversInfo': null
+		};
+	},
+	formatTime: UI.formatTime,
+	render: function () {
+		var self = this;
+		if (!UI.state.sessionInfo.type.match(/^RACE/)) {
+			return null;
+		}
+		if (!self.state.driversInfo) {
+			return null;
+		}
+		if (!self.state.driversInfo[1]) {
+			return null;
+		}
+		if (!self.state.driversInfo[1].scoreInfo.timeDiff) {
+			return null;
+		}
+		var drivers = self.state.driversInfo;
+		return React.createElement(
+			'div',
+			{ className: 'compare-race' },
+			React.createElement(
+				'div',
+				{ className: 'inner' },
+				drivers[0].scoreInfo.timeDiff !== -1 ? React.createElement(
+					'div',
+					{ className: 'delta animated fadeIn' },
+					React.createElement(
+						'div',
+						{ className: 'battle' },
+						'Battle For P',
+						drivers[0].scoreInfo.positionOverall - 1
+					),
+					React.createElement(
+						'div',
+						{ className: 'value' },
+						self.formatTime(Math.max(0, drivers[0].scoreInfo.timeDiff))
+					),
+					React.createElement(UI.widgets.CompareRaceDriver, { position: 'first', driver: drivers[1] }),
+					React.createElement(UI.widgets.CompareRaceDriver, { position: 'second', driver: drivers[0] })
+				) : null
+			)
+		);
+	}
+});
+
+UI.widgets.CompareRaceDriver = React.createClass({
+	displayName: 'CompareRaceDriver',
+
+	fixName: function (str) {
+		str = UI.fixName(str);
+		var parts = str.split(' ');
+		return parts[0][0] + '. ' + parts[parts.length - 1].toUpperCase();
+	},
+	getTeamName: function (teamId, portalId) {
+		var self = this;
+		var teamName = "";
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+			// add star for portal team names
+			teamName = "✪ " + portalTeamName;
+		} else if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+		return teamName;
+	},
+	render: function () {
+		var self = this;
+		var driver = self.props.driver;
+
+		var classes = {
+			'inner': true,
+			'animated fadeIn': true
+		};
+		classes[self.props.position] = true;
+
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
+			return null;
+		}
+
+		return React.createElement(
+			'div',
+			{ className: cx(classes) },
+			React.createElement(
+				'div',
+				{ className: 'top' },
+				UI.state.controllerOptions.options.showComparisonSpeed.value === "true" ? React.createElement(
+					'div',
+					{ className: 'speed' },
+					driver.vehicleInfo.speed,
+					' KM/H'
+				) : null,
+				driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
+					'div',
+					{ className: 'best-time' },
+					UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+				) : null
+			),
+			React.createElement(
+				'div',
+				{ className: 'main' },
+				React.createElement(
+					'div',
+					{ className: 'comparePositionContainer' },
+					React.createElement(
+						'div',
+						{ className: 'comparePosition' },
+						driver.scoreInfo.positionOverall
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'compare-flag-container' },
+					UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'compare-flag animated fadeIn', src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { className: 'compare-flag animated fadeIn', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'compareName' },
+					React.createElement(
+						'div',
+						{ className: 'name' },
+						self.fixName(driver.name)
+					)
+				),
+				UI.state.controllerOptions.options.showLiveryPreview.value === "true" ? React.createElement(
+					'div',
+					{ className: 'vehicle' },
+					React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small' })
+				) : null,
+				React.createElement(
+					'div',
+					{ className: 'manufacturer' },
+					React.createElement('img', { src: '/render/' + driver.manufacturerId + '/small/' })
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'bottom' },
+				React.createElement(
+					'div',
+					{ className: 'team' },
+					self.getTeamName(driver.teamId, driver.portalId)
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'compareAssists' },
+				driver.pushToPassInfo.allowed ? React.createElement(
+					'div',
+					{ className: cx({ 'ptp': true, 'active': driver.pushToPassInfo.active }) },
+					React.createElement(
+						'div',
+						{ className: cx({ 'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active }) },
+						'PTP'
+					)
+				) : null,
+				React.createElement(
+					'div',
+					{ className: cx({ 'drs': true, 'active': driver.vehicleInfo.drsEnabled }) },
+					React.createElement(
+						'div',
+						{ className: cx({ 'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled }) },
+						'DRS'
+					)
+				)
+			)
+		);
+	}
+});
 UI.widgets.DirectorSuggestions = React.createClass({
 	displayName: 'DirectorSuggestions',
 
@@ -2084,6 +2325,7 @@ var RaceResultEntry = React.createClass({
 			lapTime = React.createElement(
 				'div',
 				{ className: 'lap-time' },
+				'+',
 				entry.lapsBehind,
 				' Lap'
 			);
@@ -2091,6 +2333,7 @@ var RaceResultEntry = React.createClass({
 			lapTime = React.createElement(
 				'div',
 				{ className: 'lap-time' },
+				'+',
 				entry.lapsBehind,
 				' Laps'
 			);
@@ -4598,243 +4841,19 @@ function cx() {
 }
 
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-UI.widgets.CompareRace = React.createClass({
-	displayName: 'CompareRace',
+UI.widgets.Code60 = React.createClass({
+	displayName: "Code60",
 
-	componentDidMount: function () {
-		var self = this;
-
-		// Hide widgets that use the same screen space
-		// UI.state.activeWidgets.FocusedDriver.active = false;
-		// io.emit('setState', UI.state);
-
-		function updateInfo() {
-			r3e.getDriversInfo(function (data) {
-				var drivers = [];
-				var foundFastest = false;
-				var usersIndex = null;
-				data.driversInfo.forEach(function (driver, i) {
-					if (driver.slotId === UI.state.focusedSlot) {
-						usersIndex = i;
-						return drivers.push(driver);
-					}
-				});
-
-				if (usersIndex) {
-					drivers.push(data.driversInfo[usersIndex - 1]);
-				}
-
-				var jobs = [];
-				drivers.forEach(function (driver) {
-					jobs.push(function (done) {
-						UI.batch({
-							'vehicleInfo': function (done) {
-								r3e.getVehicleInfo({
-									'slotId': driver.slotId
-								}, done);
-							},
-							'pushToPassInfo': function (done) {
-								r3e.getPushToPassInfo({
-									'slotId': UI.state.focusedSlot
-								}, done);
-							},
-							'extendedInfo': function (done) {
-								r3e.getExtendedInfo({
-									'slotId': driver.slotId
-								}, done);
-							}
-						}, function (data) {
-							driver.vehicleInfo = data.vehicleInfo;
-							driver.extendedInfo = data.extendedInfo;
-							driver.pushToPassInfo = data.pushToPassInfo;
-							done(driver);
-						});
-					});
-				});
-				UI.batch(jobs, function (data) {
-					self.setState({
-						'driversInfo': data
-					});
-				});
-			});
-		}
-		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
-	},
-	componentWillUnmount: function () {
-		clearInterval(this.updateInterval);
-		clearInterval(this.closeDownTimeout);
-	},
-	getInitialState: function () {
-		return {
-			'driversInfo': null
-		};
-	},
-	formatTime: UI.formatTime,
 	render: function () {
 		var self = this;
-		if (!UI.state.sessionInfo.type.match(/^RACE/)) {
-			return null;
-		}
-		if (!self.state.driversInfo) {
-			return null;
-		}
-		if (!self.state.driversInfo[1]) {
-			return null;
-		}
-		if (!self.state.driversInfo[1].scoreInfo.timeDiff) {
-			return null;
-		}
-		var drivers = self.state.driversInfo;
 		return React.createElement(
-			'div',
-			{ className: 'compare-race' },
+			"div",
+			{ className: "code60Container" },
+			React.createElement("img", { className: "code60Img animated flash infinite", src: "img/code60.png" }),
 			React.createElement(
-				'div',
-				{ className: 'inner' },
-				drivers[0].scoreInfo.timeDiff !== -1 ? React.createElement(
-					'div',
-					{ className: 'delta animated fadeIn' },
-					React.createElement(
-						'div',
-						{ className: 'battle' },
-						'Battle For P',
-						drivers[0].scoreInfo.positionOverall - 1
-					),
-					React.createElement(
-						'div',
-						{ className: 'value' },
-						self.formatTime(Math.max(0, drivers[0].scoreInfo.timeDiff))
-					),
-					React.createElement(UI.widgets.CompareRaceDriver, { position: 'first', driver: drivers[1] }),
-					React.createElement(UI.widgets.CompareRaceDriver, { position: 'second', driver: drivers[0] })
-				) : null
-			)
-		);
-	}
-});
-
-UI.widgets.CompareRaceDriver = React.createClass({
-	displayName: 'CompareRaceDriver',
-
-	fixName: function (str) {
-		str = UI.fixName(str);
-		var parts = str.split(' ');
-		return parts[0][0] + '. ' + parts[parts.length - 1].toUpperCase();
-	},
-	getTeamName: function (teamId, portalId) {
-		var self = this;
-		var teamName = "";
-		var portalTeamName = UI.getUserInfo(portalId).team;
-		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
-			// add star for portal team names
-			teamName = "✪ " + portalTeamName;
-		} else if (r3eData.teams[teamId] != null) {
-			teamName = r3eData.teams[teamId].Name;
-		}
-		return teamName;
-	},
-	render: function () {
-		var self = this;
-		var driver = self.props.driver;
-
-		var classes = {
-			'inner': true,
-			'animated fadeIn': true
-		};
-		classes[self.props.position] = true;
-
-		// hide when the event info widget is open.
-		if (UI.state.activeWidgets.EventInfo.active === true) {
-			return null;
-		}
-
-		return React.createElement(
-			'div',
-			{ className: cx(classes) },
-			React.createElement(
-				'div',
-				{ className: 'top' },
-				UI.state.controllerOptions.options.showComparisonSpeed.value === "true" ? React.createElement(
-					'div',
-					{ className: 'speed' },
-					driver.vehicleInfo.speed,
-					' KM/H'
-				) : null,
-				driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
-					'div',
-					{ className: 'best-time' },
-					UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-				) : null
-			),
-			React.createElement(
-				'div',
-				{ className: 'main' },
-				React.createElement(
-					'div',
-					{ className: 'comparePositionContainer' },
-					React.createElement(
-						'div',
-						{ className: 'comparePosition' },
-						driver.scoreInfo.positionOverall
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'compare-flag-container' },
-					UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'compare-flag animated fadeIn', src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { className: 'compare-flag animated fadeIn', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
-				),
-				React.createElement(
-					'div',
-					{ className: 'compareName' },
-					React.createElement(
-						'div',
-						{ className: 'name' },
-						self.fixName(driver.name)
-					)
-				),
-				UI.state.controllerOptions.options.showLiveryPreview.value === "true" ? React.createElement(
-					'div',
-					{ className: 'vehicle' },
-					React.createElement('img', { src: 'http://game.raceroom.com/store/image_redirect?id=' + driver.liveryId + '&size=small' })
-				) : null,
-				React.createElement(
-					'div',
-					{ className: 'manufacturer' },
-					React.createElement('img', { src: '/render/' + driver.manufacturerId + '/small/' })
-				)
-			),
-			React.createElement(
-				'div',
-				{ className: 'bottom' },
-				React.createElement(
-					'div',
-					{ className: 'team' },
-					self.getTeamName(driver.teamId, driver.portalId)
-				)
-			),
-			React.createElement(
-				'div',
-				{ className: 'compareAssists' },
-				driver.pushToPassInfo.allowed ? React.createElement(
-					'div',
-					{ className: cx({ 'ptp': true, 'active': driver.pushToPassInfo.active }) },
-					React.createElement(
-						'div',
-						{ className: cx({ 'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active }) },
-						'PTP'
-					)
-				) : null,
-				React.createElement(
-					'div',
-					{ className: cx({ 'drs': true, 'active': driver.vehicleInfo.drsEnabled }) },
-					React.createElement(
-						'div',
-						{ className: cx({ 'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled }) },
-						'DRS'
-					)
-				)
+				"div",
+				{ className: "code60" },
+				"Code 60"
 			)
 		);
 	}

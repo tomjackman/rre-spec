@@ -1,0 +1,30 @@
+@import '../theme/z';
+
+.code60Container {
+  font-size: @fontSize;
+  position: fixed;
+  top: 4em;
+  background: @Code60Background;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
+    display: inline-block;
+  .code60Img {
+    background: @Code60Background;
+    float: left;
+    font-family: Oswald;
+  	text-transform: uppercase;
+  	height: 2em;
+  	width: 3em;
+  }
+  .code60 {
+    font-family: Oswald;
+  	background: @Code60Background;
+  	text-transform: uppercase;
+  	color: @Code60Text;
+  	height: 2em;
+  	width: 8em;
+  	line-height: 2em;
+  	text-align: center;
+  }
+}
