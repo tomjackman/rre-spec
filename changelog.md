@@ -1,7 +1,8 @@
 ### Version 1.7.0
 * [Feature] Added 'Code 60' indicator in race session as used in the 24H series.
 * [Feature] Small UI improvements to the beta broadcaster UI.
-* [Feature] Set qualifying results table scroll delay to 60% of the qualifying table display length instead of a constant seconds.
+* [Feature] Set qualifying results table scroll delay to 60% of the qualifying table display length instead of a constant 10 seconds.
+* [Feature] Add raceroom special event theme.
 
 ### Version 1.6.1
 * [Bug Fix] Prevented an error being thrown if no local description exists for a track.
