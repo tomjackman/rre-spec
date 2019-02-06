@@ -571,26 +571,27 @@ select {
   height: 1.5em;
   font-size: 20px;
   color: black;
+  background: white;
 
   &.idle {
-    opacity: 0.2;
+    opacity: 0.1;
   }
   &.focused {
     opacity: 1;
-    font-size: 22px;
+    background-color: yellow;
+    border: 0.01em solid yellow;
   }
 
   .position, .interesting, .name, .livery, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .best-lap-time {
     vertical-align: top;
     display: inline-block;
     height: 1.5em;
-    line-height: 1.5em;
+    line-height: 1.2em;
     text-align: center;
-    padding: 0.1em;
-    border: 1px solid rgba(96, 125, 139,0.3);
+    border: 0.01em solid white;
   }
   .position {
-    width: 5%;
+    width: 4%;
     color: #fff;
     opacity: 1.0;
     background: #F44336;
@@ -598,7 +599,6 @@ select {
   .name {
     width: 20%;
     white-space: nowrap;
-    background: white;
   }
   .livery {
     border: 0px;
@@ -610,39 +610,39 @@ select {
     }
   }
   .tvCam {
-    color: black;
-    background: #FF9800;
+    color: white;
+    background: #2196F3;
     min-width: 4%;
     opacity: 1.0;
   }
   .cockpitCam {
-    background: #FF9800;
-    color: black;
-    min-width: 6%;
+    background: #2196F3;
+    color: white;
+    min-width: 8%;
     opacity: 1.0;
   }
   .dashCam {
-    background: #FF9800;
-    color: black;
-    min-width: 5%;
+    background: #2196F3;
+    color: white;
+    min-width: 6%;
     opacity: 1.0;
   }
   .frontCam {
-    background: #FF9800;
-    color: black;
-    min-width: 5%;
+    background: #2196F3;
+    color: white;
+    min-width: 7%;
     opacity: 1.0;
   }
   .rearCam {
-    background: #FF9800;
-    color: black;
-    min-width: 5%;
+    background: #2196F3;
+    color: white;
+    min-width: 6%;
     opacity: 1.0;
   }
   .wingCam {
-    color: black;
-    background: #FF9800;
-    min-width: 5%;
+    color: white;
+    background: #2196F3;
+    min-width: 6%;
     opacity: 1.0;
   }
   .tyre {
@@ -652,7 +652,7 @@ select {
     background: #3F51B5;
   }
   .best-lap-time {
-    width: 10%;
+    width: 12%;
     opacity: 1.0;
     color: white;
     background: #009688;

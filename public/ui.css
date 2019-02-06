@@ -910,13 +910,15 @@ select {
   height: 1.5em;
   font-size: 20px;
   color: black;
+  background: white;
 }
 .tabled-driver-entry.idle {
-  opacity: 0.2;
+  opacity: 0.1;
 }
 .tabled-driver-entry.focused {
   opacity: 1;
-  font-size: 22px;
+  background-color: yellow;
+  border: 0.01em solid yellow;
 }
 .tabled-driver-entry .position,
 .tabled-driver-entry .interesting,
@@ -933,13 +935,12 @@ select {
   vertical-align: top;
   display: inline-block;
   height: 1.5em;
-  line-height: 1.5em;
+  line-height: 1.2em;
   text-align: center;
-  padding: 0.1em;
-  border: 1px solid rgba(96, 125, 139, 0.3);
+  border: 0.01em solid white;
 }
 .tabled-driver-entry .position {
-  width: 5%;
+  width: 4%;
   color: #fff;
   opacity: 1.0;
   background: #F44336;
@@ -947,7 +948,6 @@ select {
 .tabled-driver-entry .name {
   width: 20%;
   white-space: nowrap;
-  background: white;
 }
 .tabled-driver-entry .livery {
   border: 0px;
@@ -959,39 +959,39 @@ select {
   padding: 0;
 }
 .tabled-driver-entry .tvCam {
-  color: black;
-  background: #FF9800;
+  color: white;
+  background: #2196F3;
   min-width: 4%;
   opacity: 1.0;
 }
 .tabled-driver-entry .cockpitCam {
-  background: #FF9800;
-  color: black;
-  min-width: 6%;
+  background: #2196F3;
+  color: white;
+  min-width: 8%;
   opacity: 1.0;
 }
 .tabled-driver-entry .dashCam {
-  background: #FF9800;
-  color: black;
-  min-width: 5%;
+  background: #2196F3;
+  color: white;
+  min-width: 6%;
   opacity: 1.0;
 }
 .tabled-driver-entry .frontCam {
-  background: #FF9800;
-  color: black;
-  min-width: 5%;
+  background: #2196F3;
+  color: white;
+  min-width: 7%;
   opacity: 1.0;
 }
 .tabled-driver-entry .rearCam {
-  background: #FF9800;
-  color: black;
-  min-width: 5%;
+  background: #2196F3;
+  color: white;
+  min-width: 6%;
   opacity: 1.0;
 }
 .tabled-driver-entry .wingCam {
-  color: black;
-  background: #FF9800;
-  min-width: 5%;
+  color: white;
+  background: #2196F3;
+  min-width: 6%;
   opacity: 1.0;
 }
 .tabled-driver-entry .tyre {
@@ -1001,7 +1001,7 @@ select {
   background: #3F51B5;
 }
 .tabled-driver-entry .best-lap-time {
-  width: 10%;
+  width: 12%;
   opacity: 1.0;
   color: white;
   background: #009688;
