@@ -55,108 +55,6 @@ module.exports = function(io) {
 		return timestamp;
 	}
 
-	// default controller options
-	var defaultControllerOptions = {
-	  "options": {
-			"useNewBroadcastUI": {
-	      "displayName": "Use Beta Broadcaster UI",
-	      "value": "false",
-	      "tooltip": "Enable a beta version of the broadcaster controller UI (Default: false).",
-	      "type": "checkbox"
-	    },
-	    "multiclass": {
-	      "displayName": "Multiclass UI",
-	      "value": "false",
-	      "tooltip": "Enable Multiclass UI elements (Default: False).",
-	      "type": "checkbox"
-	    },
-			"showStandingsManufacturer": {
-				"displayName": "Show Standings Manufacturer",
-				"value": "true",
-				"tooltip": "Show the manufacturer logo in the standings tower. A use case to disable this would be in single car cup classes like NSU or Porsche GT3 Cup (Default: true).",
-				"type": "checkbox"
-			},
-	    "showTyreCompound": {
-	      "displayName": "Show Tyre Compound",
-	      "value": "true",
-	      "tooltip": "Show the tyre compound in the driver info widget for applicable classes (Default: true).",
-	      "type": "checkbox"
-	    },
-	    "indentFocusedDriver": {
-	      "displayName": "Indent Focused Driver",
-	      "value": "false",
-	      "tooltip": "Indent the focused driver in the standings widget (Default: False).",
-	      "type": "checkbox"
-	    },
-	    "showPortalTeam": {
-	      "displayName": "Show Portal Team Names",
-	      "value": "false",
-	      "tooltip": "Show a drivers portal team name if they have added one (Default: False).",
-	      "type": "checkbox"
-	    },
-			"showPortalAvatar": {
-				"displayName": "Show Driver Avatar",
-				"value": "false",
-				"tooltip": "Show a drivers portal avatar in place of the country flag (Default: False).",
-				"type": "checkbox"
-			},
-			"showFullStandingsName": {
-				"displayName": "Show Full Surnames in Standings",
-				"value": "false",
-				"tooltip": "Show the full middle and last names of drivers in the standings tower (Default: False).",
-				"type": "checkbox"
-			},
-			"showRelativeStandingsTiming": {
-				"displayName": "Show Relative Standings Timings",
-				"value": "false",
-				"tooltip": "Show relative timings on the standings tower to the driver in front rather than the leader during race sessions (Default: False).",
-				"type": "checkbox"
-			},
-			"autoDirectorOnlyMode": {
-				"displayName": "Auto Director Only Mode",
-				"value": "false",
-				"tooltip": "When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time (Default: False).",
-				"type": "checkbox"
-			},
-			"showLiveryPreview": {
-				"displayName": "Show Livery Preview",
-				"value": "true",
-				"tooltip": "Show the livery of the car on the driver info and compare driver widgets (Default: True).",
-				"type": "checkbox"
-			},
-			"showComparisonSpeed": {
-				"displayName": "Show Comparison Speed",
-				"value": "false",
-				"tooltip": "Show the comparison speed (in KM/H) between 2 drivers in the compare info widget (Default: False).",
-				"type": "checkbox"
-			},
-			"showServerNameInTimer": {
-				"displayName": "Show Server Namer in Timer",
-				"value": "false",
-				"tooltip": "Shows the name of the server in the session info timer widget (Default: False).",
-				"type": "checkbox"
-			},
-	    "alertLength": {
-	      "displayName": "Steward Message Alert Time Length (Seconds)",
-	      "value": "15",
-	      "tooltip": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
-	      "type": "number"
-	    },
-	    "qualifyingResultsDisplayTime": {
-	      "displayName": "Qualifying Results Display Time (Seconds)",
-	      "value": "25",
-	      "tooltip": "The amount of seconds before the end of qualifying to display the results on screen (Default: 25 Seconds)",
-	      "type": "number"
-	    },
-	    "continueToNextSessionTime": {
-	      "displayName": "Continue to Next Session Time (Seconds)",
-	      "value": "45",
-	      "tooltip": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for (Default: 45 Seconds).",
-	      "type": "number"
-	    }
-	  }
-	};
-
 	var globalState = {
 		'sessionInfo': {
 			'type': '',
@@ -177,7 +75,7 @@ module.exports = function(io) {
 			'raceroom-red': true
 		},
 		'activeTheme': 'raceroom-red',
-		'controllerOptions': defaultControllerOptions
+		'controllerOptions': {}
 	};
 
 	var widgetsPath = __dirname+'/../../assets/components/widgets';

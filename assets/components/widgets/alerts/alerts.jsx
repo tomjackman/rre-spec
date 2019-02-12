@@ -115,9 +115,15 @@ UI.widgets.Alert = React.createClass({
 		return (
       <div>
         {UI.state.activeWidgets.Alert.active && event != null && event.driverName != null && penaltyMeanings[event.type] != null && penaltyMeanings[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null ?
-        <div className={"alert animated fadeInRight "+(event.removing ? 'removing' : '')}>
-          <div className="raceControlAlert">Stewards</div>
-    			<div className="alertMessage">Incident involving {event.driverName}, {penaltyMeanings[event.type][event.reason].text}</div>
+        <div>
+          {UI.state.controllerOptions.options.showSlowDownAlerts.value === "true" || event.type != 4 ?
+            <div className={"alert animated fadeInRight "+(event.removing ? 'removing' : '')}>
+              <div className="raceControlAlert">Stewards</div>
+        			<div className="alertMessage">Incident involving {event.driverName}, {penaltyMeanings[event.type][event.reason].text}</div>
+            </div>
+          :
+            null
+          }
         </div>
         :
         null

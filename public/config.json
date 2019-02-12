@@ -2,7 +2,7 @@
   "options": {
     "useNewBroadcastUI": {
       "displayName": "Use Beta Broadcaster UI",
-      "value": "false",
+      "value": "true",
       "tooltip": "Enable a beta version of the broadcaster controller UI (Default: false).",
       "type": "checkbox"
     },
@@ -70,6 +70,12 @@
       "displayName": "Show Comparison Speed",
       "value": "false",
       "tooltip": "Show the comparison speed (in KM/H) between 2 drivers in the compare info widget (Default: False).",
+      "type": "checkbox"
+    },
+    "showSlowDownAlerts": {
+      "displayName": "Show Slow Down Alerts",
+      "value": "false",
+      "tooltip": "Show slow down alerts from the stewards (Default: False).",
       "type": "checkbox"
     },
     "showServerNameInTimer": {

@@ -3768,14 +3768,10 @@ UI.components.Controller = React.createClass({
 				) : null,
 				UI.state.controllerOptions.options.useNewBroadcastUI.value === "true" ? React.createElement(
 					'div',
-					{ className: cx({ 'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length }) },
-					React.createElement(
-						'ul',
-						null,
-						self.state.driversInfo.sort(self.sortFunctionPosition).map(function (driver, i) {
-							return React.createElement(TabledDriver, { key: driver.slotId, focused: driver.slotId === UI.state.focusedSlot, imageSize: 'small', position: i, driver: driver });
-						})
-					)
+					{ className: cx({ 'drivers-container-beta': true, 'has-suggestions': self.state.directorSuggestions.length }) },
+					self.state.driversInfo.sort(self.sortFunctionPosition).map(function (driver, i) {
+						return React.createElement(TabledDriver, { key: driver.slotId, focused: driver.slotId === UI.state.focusedSlot, imageSize: 'small', position: i, driver: driver });
+					})
 				) : React.createElement(
 					'div',
 					{ className: cx({ 'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length }) },
@@ -4473,20 +4469,24 @@ UI.widgets.Alert = React.createClass({
       null,
       UI.state.activeWidgets.Alert.active && event != null && event.driverName != null && penaltyMeanings[event.type] != null && penaltyMeanings[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null ? React.createElement(
         "div",
-        { className: "alert animated fadeInRight " + (event.removing ? 'removing' : '') },
-        React.createElement(
+        null,
+        UI.state.controllerOptions.options.showSlowDownAlerts.value === "true" || event.type != 4 ? React.createElement(
           "div",
-          { className: "raceControlAlert" },
-          "Stewards"
-        ),
-        React.createElement(
-          "div",
-          { className: "alertMessage" },
-          "Incident involving ",
-          event.driverName,
-          ", ",
-          penaltyMeanings[event.type][event.reason].text
-        )
+          { className: "alert animated fadeInRight " + (event.removing ? 'removing' : '') },
+          React.createElement(
+            "div",
+            { className: "raceControlAlert" },
+            "Stewards"
+          ),
+          React.createElement(
+            "div",
+            { className: "alertMessage" },
+            "Incident involving ",
+            event.driverName,
+            ", ",
+            penaltyMeanings[event.type][event.reason].text
+          )
+        ) : null
       ) : null
     );
   }
