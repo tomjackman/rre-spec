@@ -836,9 +836,24 @@ select {
   color: #000;
   z-index: 4;
 }
-.drivers-container-beta {
+.drivers-container-beta-title {
   position: fixed;
   top: 100px;
+  bottom: 0;
+  left: 20px;
+  right: 270px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.drivers-container-beta {
+  position: fixed;
+  top: 120px;
   bottom: 0;
   left: 20px;
   right: 270px;
@@ -850,10 +865,13 @@ select {
   overflow: hidden;
   overflow-y: scroll;
 }
+.tabled-driver-entry:nth-child(odd) {
+  opacity: 0.9;
+}
 .tabled-driver-entry {
   float: left;
   position: relative;
-  opacity: 0.8;
+  opacity: 1;
   height: 1.1em;
   font-size: 20px;
   color: black;
@@ -863,13 +881,14 @@ select {
   opacity: 0.1;
 }
 .tabled-driver-entry.focused {
-  opacity: 1;
   background-color: yellow;
-  border: 0.01em solid yellow;
 }
 .tabled-driver-entry .position,
+.tabled-driver-entry .lap,
 .tabled-driver-entry .interesting,
 .tabled-driver-entry .name,
+.tabled-driver-entry .flag,
+.tabled-driver-entry .manufacturer,
 .tabled-driver-entry .livery,
 .tabled-driver-entry .tvCam,
 .tabled-driver-entry .dashCam,
@@ -884,22 +903,45 @@ select {
   height: 1.1em;
   line-height: 1.0em;
   text-align: center;
-  border: 0.01em solid white;
 }
 .tabled-driver-entry .position {
-  width: 4%;
+  width: 3%;
   color: #fff;
   opacity: 1.0;
   background: #F44336;
+}
+.tabled-driver-entry .lap {
+  width: 3%;
+  color: #fff;
+  opacity: 1.0;
+  background: #3F51B5;
+}
+.tabled-driver-entry .flag {
+  border: 0px;
+  background: white;
+  width: 2%;
+  padding: 0;
+}
+.tabled-driver-entry .flag img {
+  padding: 0;
 }
 .tabled-driver-entry .name {
   width: 20%;
   white-space: nowrap;
 }
+.tabled-driver-entry .manufacturer {
+  border: 0px;
+  background: white;
+  width: 2%;
+  padding: 0;
+}
+.tabled-driver-entry .manufacturer img {
+  padding: 0;
+}
 .tabled-driver-entry .livery {
   border: 0px;
   background: white;
-  min-width: 4%;
+  width: 3%;
   padding: 0;
 }
 .tabled-driver-entry .livery img {

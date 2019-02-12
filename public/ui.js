@@ -3768,10 +3768,85 @@ UI.components.Controller = React.createClass({
 				) : null,
 				UI.state.controllerOptions.options.useNewBroadcastUI.value === "true" ? React.createElement(
 					'div',
-					{ className: cx({ 'drivers-container-beta': true, 'has-suggestions': self.state.directorSuggestions.length }) },
-					self.state.driversInfo.sort(self.sortFunctionPosition).map(function (driver, i) {
-						return React.createElement(TabledDriver, { key: driver.slotId, focused: driver.slotId === UI.state.focusedSlot, imageSize: 'small', position: i, driver: driver });
-					})
+					null,
+					React.createElement(
+						'div',
+						{ className: 'drivers-container-beta-title' },
+						React.createElement(
+							'div',
+							{ className: 'tabled-driver-entry' },
+							React.createElement(
+								'div',
+								{ className: 'position' },
+								'Pos'
+							),
+							React.createElement(
+								'div',
+								{ className: 'lap' },
+								'Lap'
+							),
+							React.createElement(
+								'div',
+								{ className: 'interesting' },
+								'Diff'
+							),
+							React.createElement('div', { className: 'flag' }),
+							React.createElement(
+								'div',
+								{ className: 'name' },
+								'Driver'
+							),
+							React.createElement('div', { className: 'manufacturer' }),
+							React.createElement('div', { className: 'livery' }),
+							React.createElement(
+								'div',
+								{ className: 'tvCam' },
+								'TV'
+							),
+							React.createElement(
+								'div',
+								{ className: 'dashCam' },
+								'Dash'
+							),
+							React.createElement(
+								'div',
+								{ className: 'cockpitCam' },
+								'Cockpit'
+							),
+							React.createElement(
+								'div',
+								{ className: 'frontCam' },
+								'Front'
+							),
+							React.createElement(
+								'div',
+								{ className: 'rearCam' },
+								'Rear'
+							),
+							React.createElement(
+								'div',
+								{ className: 'wingCam' },
+								'Wing'
+							),
+							React.createElement(
+								'div',
+								{ className: 'tyre' },
+								'Tyre'
+							),
+							React.createElement(
+								'div',
+								{ className: 'best-lap-time' },
+								'Best Lap'
+							)
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: cx({ 'drivers-container-beta': true, 'has-suggestions': self.state.directorSuggestions.length }) },
+						self.state.driversInfo.sort(self.sortFunctionPosition).map(function (driver, i) {
+							return React.createElement(TabledDriver, { key: driver.slotId, focused: driver.slotId === UI.state.focusedSlot, imageSize: 'small', position: i, driver: driver });
+						})
+					)
 				) : React.createElement(
 					'div',
 					{ className: cx({ 'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length }) },
@@ -3886,6 +3961,17 @@ var TabledDriver = React.createClass({
 			);
 		}
 	},
+	getTimeDiff: function (driver) {
+		if (driver.scoreInfo.positionOverall === 1) {
+			return "-";
+		} else if (driver.scoreInfo.lapDiff === 1) {
+			return "+1 Lap";
+		} else if (driver.scoreInfo.lapDiff > 0) {
+			return "+" + driver.scoreInfo.lapDiff + " Laps";
+		} else {
+			return "+" + (driver.scoreInfo.timeDiff / 1000).toFixed(2);
+		}
+	},
 	render: function () {
 		var self = this;
 
@@ -3902,13 +3988,17 @@ var TabledDriver = React.createClass({
 			'div',
 			{ className: classes, style: { 'zIndex': 1000 - this.props.position } },
 			self.renderPostion(driver),
+			React.createElement(
+				'div',
+				{ className: 'lap' },
+				driver.scoreInfo.laps + 1
+			),
 			isRace ? React.createElement(
 				'div',
 				{ className: self.getInterestingStyle(timeDiff), onClick: () => {
 						this.changeCamera('trackside', driver.slotId);
 					} },
-				(timeDiff / 1000).toFixed(2),
-				's'
+				self.getTimeDiff(driver)
 			) : React.createElement(
 				'div',
 				{ className: 'interesting', onClick: () => {
@@ -3916,13 +4006,15 @@ var TabledDriver = React.createClass({
 					} },
 				'N/A'
 			),
+			React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' }),
 			React.createElement(
 				'div',
 				{ className: 'name', onClick: () => {
 						this.changeCamera('trackside', driver.slotId);
-					} },
+					}, title: "Portal ID - " + driver.portalId },
 				UI.fixName(driver.name)
 			),
+			React.createElement('img', { className: 'manufacturer', src: '/render/' + driver.manufacturerId + '/small/' }),
 			React.createElement('img', { className: 'livery', onClick: () => {
 					this.changeCamera('trackside', driver.slotId);
 				}, src: '/render/' + driver.liveryId + '/' + this.props.imageSize + '/' }),

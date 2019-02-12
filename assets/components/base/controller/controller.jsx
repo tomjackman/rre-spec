@@ -639,12 +639,32 @@ UI.components.Controller = React.createClass({
 							}
 
 							{UI.state.controllerOptions.options.useNewBroadcastUI.value === "true" ?
-							<div className={cx({'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length})}>
-								<ul>
+							<div>
+							<div className="drivers-container-beta-title">
+							<div className="tabled-driver-entry">
+							<div className="position">Pos</div>
+							<div className="lap">Lap</div>
+							<div className="interesting">Diff</div>
+							<div className="flag"></div>
+							<div className="name">Driver</div>
+							<div className="manufacturer"></div>
+							<div className="livery"></div>
+							<div className="tvCam">TV</div>
+							<div className="dashCam">Dash</div>
+							<div className="cockpitCam">Cockpit</div>
+							<div className="frontCam">Front</div>
+							<div className="rearCam">Rear</div>
+							<div className="wingCam">Wing</div>
+							<div className="tyre">Tyre</div>
+							<div className="best-lap-time">Best Lap</div>
+							</div>
+							</div>
+
+							<div className={cx({'drivers-container-beta': true, 'has-suggestions': self.state.directorSuggestions.length})}>
 									{self.state.driversInfo.sort(self.sortFunctionPosition).map(function(driver, i){
 										return <TabledDriver key={driver.slotId} focused={driver.slotId === UI.state.focusedSlot} imageSize="small" position={i} driver={driver}></TabledDriver>
 									})}
-								</ul>
+							</div>
 							</div>
 							:
 						<div className={cx({'drivers-container': true, 'has-suggestions': self.state.directorSuggestions.length})}>
@@ -713,6 +733,17 @@ var TabledDriver = React.createClass({
 			return <div className="position" style={divStyle}>{driver.scoreInfo.positionOverall}</div>
 		}
 	},
+	getTimeDiff: function(driver) {
+		if (driver.scoreInfo.positionOverall === 1) {
+			return "-";
+		} else if (driver.scoreInfo.lapDiff === 1) {
+			return "+1 Lap";
+		} else if (driver.scoreInfo.lapDiff > 0) {
+			return "+" + driver.scoreInfo.lapDiff + " Laps";
+		} else {
+			return "+" + (driver.scoreInfo.timeDiff/1000).toFixed(2);
+		}
+	},
 	render: function() {
 		var self = this;
 
@@ -728,12 +759,15 @@ var TabledDriver = React.createClass({
 		return (
 			<div className={classes} style={{'zIndex': (1000-this.props.position)}}>
 					{self.renderPostion(driver)}
+					<div className="lap">{driver.scoreInfo.laps + 1}</div>
 					{isRace ?
-						<div className={self.getInterestingStyle(timeDiff)} onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{(timeDiff/1000).toFixed(2)}s</div>
+						<div className={self.getInterestingStyle(timeDiff)} onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{self.getTimeDiff(driver)}</div>
 						:
 						<div className="interesting" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>N/A</div>
 					}
-					<div className="name" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{UI.fixName(driver.name)}</div>
+					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
+					<div className="name" onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={"Portal ID - " + driver.portalId}>{UI.fixName(driver.name)}</div>
+					<img className="manufacturer" src={'/render/'+driver.manufacturerId+'/small/'}/>
 					<img className="livery" onClick={() => {this.changeCamera('trackside', driver.slotId)}} src={'/render/'+driver.liveryId+'/'+this.props.imageSize+'/'}/>
 					<div className="tvCam" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>TV</div>
 					<div className="dashCam" onClick={() => {this.changeCamera('onboard1', driver.slotId)}}>Dash</div>
