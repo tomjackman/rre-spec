@@ -1,4 +1,4 @@
-# R3E Reality UI - TV Overlay
+# R3E TV Overlay
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/S4DGAMofoE4/0.jpg)](https://www.youtube.com/watch?v=S4DGAMofoE4&feature=youtu.be&t=951)
 
