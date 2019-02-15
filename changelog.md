@@ -4,7 +4,10 @@
 * [Feature] Set qualifying results table scroll delay to 60% of the qualifying table display length instead of a constant 10 seconds.
 * [Feature] Add raceroom special event theme.
 * [Feature] Allow slow down alerts to be disabled in races (now disabled by default for less noise).
-* [Feature] Enhanced beta broadcast UI table.
+* [Feature] Added country flag and name to beta broadcast panel UI.
+* [Feature] Added damage indicator to beta broadcast panel UI.
+* [Feature] Added mandatory pitstop status to beta broadcast panel UI.
+* [Feature] Condensed camera controls in the beta broadcast panel UI.
 
 ### Version 1.6.1
 * [Bug Fix] Prevented an error being thrown if no local description exists for a track.
