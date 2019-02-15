@@ -3807,9 +3807,15 @@ UI.components.Controller = React.createClass({
 							),
 							React.createElement(
 								'div',
+								{ className: 'mandatoryPit' },
+								'Pit'
+							),
+							React.createElement(
+								'div',
 								{ className: 'tyre' },
 								'Tyre'
 							),
+							React.createElement('img', { className: 'damage', src: '/img/controlPanel/damage.png' }),
 							React.createElement(
 								'div',
 								{ className: 'best-lap-time' },
@@ -3938,6 +3944,57 @@ var TabledDriver = React.createClass({
 			);
 		}
 	},
+	renderDamage: function (damage) {
+		var damageAverage = (damage.engine + damage.transmission + damage.frontAero + damage.rearAero) / 4;
+		var damageTooltip = "Engine Damage: " + damage.engine + "%, " + "Transmission Damage: " + damage.transmission + "%, " + "Front Aero Damage: " + damage.frontAero + "%, " + "Rear Aero Damage: " + damage.rearAero + "%";
+
+		if (damage.engine > 70 || damage.transmission > 70 || damage.frontAero > 70 || damage.rearAero > 70) {
+			return React.createElement(
+				'div',
+				{ className: 'damage', style: { background: '#B71C1C' }, title: damageTooltip },
+				damageAverage + "%"
+			);
+		} else if (damage.engine > 50 || damage.transmission > 30 || damage.frontAero > 50 || damage.rearAero > 50) {
+			return React.createElement(
+				'div',
+				{ className: 'damage', style: { background: '#FF5722' }, title: damageTooltip },
+				damageAverage + "%"
+			);
+		} else if (damage.engine > 25 || damage.transmission > 25 || damage.frontAero > 25 || damage.rearAero > 25) {
+			return React.createElement(
+				'div',
+				{ className: 'damage', style: { background: '#FFC107' }, title: damageTooltip },
+				damageAverage + "%"
+			);
+		} else {
+			return React.createElement(
+				'div',
+				{ className: 'damage', style: { background: '#2E7D32' }, title: damageTooltip },
+				damageAverage + "%"
+			);
+		}
+	},
+	renderMandatoryPit: function (mandatoryPit) {
+		if (mandatoryPit === 1) {
+			return React.createElement(
+				'div',
+				{ className: 'mandatoryPit', style: { background: 'linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%)' }, title: 'Mandatory Pit Taken' },
+				'\u2B57'
+			);
+		} else if (mandatoryPit === 0) {
+			return React.createElement(
+				'div',
+				{ className: 'mandatoryPit', style: { background: 'rgba(226, 29, 56, 1)' }, title: 'Mandatory Pit Not Taken' },
+				'\u2B57'
+			);
+		} else {
+			return React.createElement(
+				'div',
+				{ className: 'mandatoryPit', style: { background: '#607D8B' }, title: 'No Mandatory Pit Required' },
+				'N/A'
+			);
+		}
+	},
 	getTimeDiff: function (driver) {
 		if (driver.scoreInfo.positionOverall === 1) {
 			return "-";
@@ -4037,11 +4094,13 @@ var TabledDriver = React.createClass({
 					}, title: 'Wing Camera' },
 				'W'
 			),
+			self.renderMandatoryPit(driver.mandatoryPitstopPerformed),
 			React.createElement(
 				'div',
 				{ className: 'tyre' },
 				driver.pitInfo.tyreType
 			),
+			self.renderDamage(driver.pitInfo.damage),
 			driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
 				'div',
 				{ className: 'best-lap-time' },

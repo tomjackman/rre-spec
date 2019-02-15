@@ -604,7 +604,7 @@ select {
     background-color: yellow;
   }
 
-  .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .best-lap-time {
+  .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .damage, .best-lap-time {
     vertical-align: top;
     display: inline-block;
     height: 1.1em;
@@ -696,11 +696,23 @@ select {
     min-width: 2%;
     opacity: 1.0;
   }
+  .mandatoryPit {
+    width: 2.5%;
+    color: #fff;
+    opacity: 1.0;
+    background: #FF5722;
+  }
   .tyre {
     color: white;
     width: 10%;
     opacity: 1.0;
     background: #3F51B5;
+  }
+  .damage {
+    width: 2.5%;
+    color: #fff;
+    opacity: 1.0;
+    background: #F44336;
   }
   .best-lap-time {
     width: 12%;

@@ -889,6 +889,7 @@ select {
 .tabled-driver-entry .manufacturer,
 .tabled-driver-entry .livery,
 .tabled-driver-entry .cameras,
+.tabled-driver-entry .mandatoryPit,
 .tabled-driver-entry .tvCam,
 .tabled-driver-entry .dashCam,
 .tabled-driver-entry .cockpitCam,
@@ -896,6 +897,7 @@ select {
 .tabled-driver-entry .rearCam,
 .tabled-driver-entry .wingCam,
 .tabled-driver-entry .tyre,
+.tabled-driver-entry .damage,
 .tabled-driver-entry .best-lap-time {
   vertical-align: top;
   display: inline-block;
@@ -988,11 +990,23 @@ select {
   min-width: 2%;
   opacity: 1.0;
 }
+.tabled-driver-entry .mandatoryPit {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #FF5722;
+}
 .tabled-driver-entry .tyre {
   color: white;
   width: 10%;
   opacity: 1.0;
   background: #3F51B5;
+}
+.tabled-driver-entry .damage {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #F44336;
 }
 .tabled-driver-entry .best-lap-time {
   width: 12%;

@@ -650,7 +650,9 @@ UI.components.Controller = React.createClass({
 							<div className="manufacturer"></div>
 							<div className="livery"></div>
 							<div className="cameras">Cameras</div>
+							<div className="mandatoryPit">Pit</div>
 							<div className="tyre">Tyre</div>
+							<img className="damage"src="/img/controlPanel/damage.png"/>
 							<div className="best-lap-time">Best Lap</div>
 							</div>
 							</div>
@@ -728,6 +730,32 @@ var TabledDriver = React.createClass({
 			return <div className="position" style={divStyle} title={"Overall - P" + driver.scoreInfo.positionOverall + ", Class - P" + driver.scoreInfo.positionClass}>{driver.scoreInfo.positionOverall}</div>
 		}
 	},
+	renderDamage: function(damage) {
+		var damageAverage = ((damage.engine + damage.transmission + damage.frontAero + damage.rearAero)/4);
+		var damageTooltip = "Engine Damage: " + damage.engine + "%, " +
+		"Transmission Damage: " + damage.transmission + "%, " +
+		"Front Aero Damage: " + damage.frontAero + "%, " +
+		"Rear Aero Damage: " + damage.rearAero + "%";
+
+		if (damage.engine > 70 || damage.transmission > 70 || damage.frontAero > 70 || damage.rearAero > 70) {
+			return <div className="damage" style={{background: '#B71C1C'}} title={damageTooltip}>{damageAverage + "%"}</div>
+		} else if (damage.engine > 50 || damage.transmission > 30 || damage.frontAero > 50 || damage.rearAero > 50) {
+			return <div className="damage" style={{background: '#FF5722'}} title={damageTooltip}>{damageAverage + "%"}</div>
+		} else if (damage.engine > 25 || damage.transmission > 25 || damage.frontAero > 25 || damage.rearAero > 25) {
+			return <div className="damage" style={{background: '#FFC107'}} title={damageTooltip}>{damageAverage + "%"}</div>
+		}	else {
+			return <div className="damage" style={{background: '#2E7D32'}} title={damageTooltip}>{damageAverage + "%"}</div>
+		}
+	},
+	renderMandatoryPit: function(mandatoryPit) {
+		if (mandatoryPit === 1) {
+			return <div className="mandatoryPit" style={{background: 'linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%)'}} title="Mandatory Pit Taken">⭗</div>
+		} else if (mandatoryPit === 0) {
+			return <div className="mandatoryPit" style={{background: 'rgba(226, 29, 56, 1)'}} title="Mandatory Pit Not Taken">⭗</div>
+		}	else {
+			return <div className="mandatoryPit" style={{background: '#607D8B'}} title="No Mandatory Pit Required">N/A</div>
+		}
+	},
 	getTimeDiff: function(driver) {
 		if (driver.scoreInfo.positionOverall === 1) {
 			return "-";
@@ -770,7 +798,9 @@ var TabledDriver = React.createClass({
 					<div className="frontCam"  onClick={() => {this.changeCamera('frontCam', driver.slotId)}} title="Front Camera">F</div>
 					<div className="rearCam"  onClick={() => {this.changeCamera('rearCam', driver.slotId)}} title="Rear Camera">R</div>
 					<div className="wingCam"  onClick={() => {this.changeCamera('wing', driver.slotId)}} title="Wing Camera">W</div>
+					{self.renderMandatoryPit(driver.mandatoryPitstopPerformed)}
 					<div className="tyre">{driver.pitInfo.tyreType}</div>
+					{self.renderDamage(driver.pitInfo.damage)}
 					{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 						<div className="best-lap-time">{UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
 						:
