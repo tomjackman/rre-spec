@@ -649,12 +649,7 @@ UI.components.Controller = React.createClass({
 							<div className="name">Driver</div>
 							<div className="manufacturer"></div>
 							<div className="livery"></div>
-							<div className="tvCam">TV</div>
-							<div className="dashCam">Dash</div>
-							<div className="cockpitCam">Cockpit</div>
-							<div className="frontCam">Front</div>
-							<div className="rearCam">Rear</div>
-							<div className="wingCam">Wing</div>
+							<div className="cameras">Cameras</div>
 							<div className="tyre">Tyre</div>
 							<div className="best-lap-time">Best Lap</div>
 							</div>
@@ -728,9 +723,9 @@ var TabledDriver = React.createClass({
 			divStyle = {
 					background: classColour
 			};
-			return <div className="position" style={divStyle}>{driver.scoreInfo.positionClass}</div>
+			return <div className="position" style={divStyle} title={"Overall - P" + driver.scoreInfo.positionOverall + ", Class - P" + driver.scoreInfo.positionClass}>{driver.scoreInfo.positionClass}</div>
 		} else {
-			return <div className="position" style={divStyle}>{driver.scoreInfo.positionOverall}</div>
+			return <div className="position" style={divStyle} title={"Overall - P" + driver.scoreInfo.positionOverall + ", Class - P" + driver.scoreInfo.positionClass}>{driver.scoreInfo.positionOverall}</div>
 		}
 	},
 	getTimeDiff: function(driver) {
@@ -765,16 +760,16 @@ var TabledDriver = React.createClass({
 						:
 						<div className="interesting" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>N/A</div>
 					}
-					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
+					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} title={"Country - " + UI.getUserInfo(driver.portalId).countryName}/>
 					<div className="name" onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={"Portal ID - " + driver.portalId}>{UI.fixName(driver.name)}</div>
 					<img className="manufacturer" src={'/render/'+driver.manufacturerId+'/small/'}/>
 					<img className="livery" onClick={() => {this.changeCamera('trackside', driver.slotId)}} src={'/render/'+driver.liveryId+'/'+this.props.imageSize+'/'}/>
-					<div className="tvCam" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>TV</div>
-					<div className="dashCam" onClick={() => {this.changeCamera('onboard1', driver.slotId)}}>Dash</div>
-					<div className="cockpitCam" onClick={() => {this.changeCamera('onboard2', driver.slotId)}}>Cockpit</div>
-					<div className="frontCam"  onClick={() => {this.changeCamera('frontCam', driver.slotId)}}>Front</div>
-					<div className="rearCam"  onClick={() => {this.changeCamera('rearCam', driver.slotId)}}>Rear</div>
-					<div className="wingCam"  onClick={() => {this.changeCamera('wing', driver.slotId)}}>Wing</div>
+					<div className="tvCam" onClick={() => {this.changeCamera('trackside', driver.slotId)}} title="TV Trackside Camera">TV</div>
+					<div className="dashCam" onClick={() => {this.changeCamera('onboard1', driver.slotId)}} title="Dash Camera">D</div>
+					<div className="cockpitCam" onClick={() => {this.changeCamera('onboard2', driver.slotId)}} title="Cockpit Camera">C</div>
+					<div className="frontCam"  onClick={() => {this.changeCamera('frontCam', driver.slotId)}} title="Front Camera">F</div>
+					<div className="rearCam"  onClick={() => {this.changeCamera('rearCam', driver.slotId)}} title="Rear Camera">R</div>
+					<div className="wingCam"  onClick={() => {this.changeCamera('wing', driver.slotId)}} title="Wing Camera">W</div>
 					<div className="tyre">{driver.pitInfo.tyreType}</div>
 					{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 						<div className="best-lap-time">{UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>

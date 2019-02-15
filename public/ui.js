@@ -620,7 +620,9 @@ UI.getUserInfo = (function() {
 
 		userCache[id] = {
 			country: 'zz', // default to neutral country
+			countryName: 'Unknown', // default to neutral country
 			avatar: '/img/placeholder-avatar.png',
+			rank: "",
 			team: ""
 		};
 
@@ -3800,33 +3802,8 @@ UI.components.Controller = React.createClass({
 							React.createElement('div', { className: 'livery' }),
 							React.createElement(
 								'div',
-								{ className: 'tvCam' },
-								'TV'
-							),
-							React.createElement(
-								'div',
-								{ className: 'dashCam' },
-								'Dash'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cockpitCam' },
-								'Cockpit'
-							),
-							React.createElement(
-								'div',
-								{ className: 'frontCam' },
-								'Front'
-							),
-							React.createElement(
-								'div',
-								{ className: 'rearCam' },
-								'Rear'
-							),
-							React.createElement(
-								'div',
-								{ className: 'wingCam' },
-								'Wing'
+								{ className: 'cameras' },
+								'Cameras'
 							),
 							React.createElement(
 								'div',
@@ -3950,13 +3927,13 @@ var TabledDriver = React.createClass({
 			};
 			return React.createElement(
 				'div',
-				{ className: 'position', style: divStyle },
+				{ className: 'position', style: divStyle, title: "Overall - P" + driver.scoreInfo.positionOverall + ", Class - P" + driver.scoreInfo.positionClass },
 				driver.scoreInfo.positionClass
 			);
 		} else {
 			return React.createElement(
 				'div',
-				{ className: 'position', style: divStyle },
+				{ className: 'position', style: divStyle, title: "Overall - P" + driver.scoreInfo.positionOverall + ", Class - P" + driver.scoreInfo.positionClass },
 				driver.scoreInfo.positionOverall
 			);
 		}
@@ -4006,7 +3983,7 @@ var TabledDriver = React.createClass({
 					} },
 				'N/A'
 			),
-			React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' }),
+			React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg', title: "Country - " + UI.getUserInfo(driver.portalId).countryName }),
 			React.createElement(
 				'div',
 				{ className: 'name', onClick: () => {
@@ -4022,43 +3999,43 @@ var TabledDriver = React.createClass({
 				'div',
 				{ className: 'tvCam', onClick: () => {
 						this.changeCamera('trackside', driver.slotId);
-					} },
+					}, title: 'TV Trackside Camera' },
 				'TV'
 			),
 			React.createElement(
 				'div',
 				{ className: 'dashCam', onClick: () => {
 						this.changeCamera('onboard1', driver.slotId);
-					} },
-				'Dash'
+					}, title: 'Dash Camera' },
+				'D'
 			),
 			React.createElement(
 				'div',
 				{ className: 'cockpitCam', onClick: () => {
 						this.changeCamera('onboard2', driver.slotId);
-					} },
-				'Cockpit'
+					}, title: 'Cockpit Camera' },
+				'C'
 			),
 			React.createElement(
 				'div',
 				{ className: 'frontCam', onClick: () => {
 						this.changeCamera('frontCam', driver.slotId);
-					} },
-				'Front'
+					}, title: 'Front Camera' },
+				'F'
 			),
 			React.createElement(
 				'div',
 				{ className: 'rearCam', onClick: () => {
 						this.changeCamera('rearCam', driver.slotId);
-					} },
-				'Rear'
+					}, title: 'Rear Camera' },
+				'R'
 			),
 			React.createElement(
 				'div',
 				{ className: 'wingCam', onClick: () => {
 						this.changeCamera('wing', driver.slotId);
-					} },
-				'Wing'
+					}, title: 'Wing Camera' },
+				'W'
 			),
 			React.createElement(
 				'div',

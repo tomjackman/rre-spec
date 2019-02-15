@@ -838,25 +838,23 @@ select {
 }
 .drivers-container-beta-title {
   position: fixed;
-  top: 100px;
+  top: 80px;
   bottom: 0;
-  left: 20px;
-  right: 270px;
+  left: 5px;
+  right: 237px;
   list-style: none;
   display: flex;
   flex-direction: column;
   height: 100%;
   color: white;
   font-weight: bold;
-  overflow: hidden;
-  overflow-y: scroll;
 }
 .drivers-container-beta {
   position: fixed;
-  top: 120px;
+  top: 100px;
   bottom: 0;
-  left: 20px;
-  right: 270px;
+  left: 5px;
+  right: 220px;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -890,6 +888,7 @@ select {
 .tabled-driver-entry .flag,
 .tabled-driver-entry .manufacturer,
 .tabled-driver-entry .livery,
+.tabled-driver-entry .cameras,
 .tabled-driver-entry .tvCam,
 .tabled-driver-entry .dashCam,
 .tabled-driver-entry .cockpitCam,
@@ -932,7 +931,7 @@ select {
 .tabled-driver-entry .manufacturer {
   border: 0px;
   background: white;
-  width: 2%;
+  width: 1.5%;
   padding: 0;
 }
 .tabled-driver-entry .manufacturer img {
@@ -947,40 +946,46 @@ select {
 .tabled-driver-entry .livery img {
   padding: 0;
 }
+.tabled-driver-entry .cameras {
+  color: white;
+  background: #4CAF50;
+  width: 12%;
+  opacity: 1.0;
+}
 .tabled-driver-entry .tvCam {
   color: white;
-  background: #2196F3;
-  min-width: 4%;
+  background: #4CAF50;
+  width: 2%;
   opacity: 1.0;
 }
 .tabled-driver-entry .cockpitCam {
-  background: #2196F3;
+  background: #4CAF50;
   color: white;
-  min-width: 8%;
+  min-width: 2%;
   opacity: 1.0;
 }
 .tabled-driver-entry .dashCam {
-  background: #2196F3;
+  background: #4CAF50;
   color: white;
-  min-width: 6%;
+  min-width: 2%;
   opacity: 1.0;
 }
 .tabled-driver-entry .frontCam {
-  background: #2196F3;
+  background: #4CAF50;
   color: white;
-  min-width: 7%;
+  min-width: 2%;
   opacity: 1.0;
 }
 .tabled-driver-entry .rearCam {
-  background: #2196F3;
+  background: #4CAF50;
   color: white;
-  min-width: 6%;
+  min-width: 2%;
   opacity: 1.0;
 }
 .tabled-driver-entry .wingCam {
   color: white;
-  background: #2196F3;
-  min-width: 6%;
+  background: #4CAF50;
+  min-width: 2%;
   opacity: 1.0;
 }
 .tabled-driver-entry .tyre {
