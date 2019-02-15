@@ -87,7 +87,9 @@ module.exports = function(assetsDir) {
 			var userInfo = json.context.c;
 			userInfoCache[id] = {
                 country: userInfo.overview.country.code,
+								countryName: userInfo.overview.country.name,
                 avatar: userInfo.avatar,
+								rank: userInfo.competition_rank,
 								team: userInfo.team
             };
             waitingFor--;

@@ -25,7 +25,9 @@ UI.getUserInfo = (function() {
 
 		userCache[id] = {
 			country: 'zz', // default to neutral country
+			countryName: 'Unknown', // default to neutral country
 			avatar: '/img/placeholder-avatar.png',
+			rank: "",
 			team: ""
 		};
 
