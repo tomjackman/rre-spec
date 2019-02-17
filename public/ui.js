@@ -4122,17 +4122,17 @@ var TabledDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'blackFlag', title: 'Black Flag', active: driver.scoreInfo.flagInfo.black === 1 },
-					driver.scoreInfo.flagInfo.black
+					'!'
 				),
 				React.createElement(
 					'div',
 					{ className: 'blueFlag', title: 'Blue Flag', active: driver.scoreInfo.flagInfo.blue === 1 },
-					driver.scoreInfo.flagInfo.blue
+					'!'
 				),
 				React.createElement(
 					'div',
 					{ className: 'yellowFlag', title: 'Yellow Flag', active: driver.scoreInfo.flagInfo.yellow === 1 },
-					driver.scoreInfo.flagInfo.yellow
+					'!'
 				)
 			),
 			driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(

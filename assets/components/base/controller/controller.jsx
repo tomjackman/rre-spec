@@ -813,9 +813,9 @@ var TabledDriver = React.createClass({
 					}
 					{self.renderDamage(driver.pitInfo.damage)}
 					<div className="flags">
-					 <div className="blackFlag" title="Black Flag" active={driver.scoreInfo.flagInfo.black === 1}>{driver.scoreInfo.flagInfo.black}</div>
-					 <div className="blueFlag" title="Blue Flag" active={driver.scoreInfo.flagInfo.blue === 1}>{driver.scoreInfo.flagInfo.blue}</div>
-					 <div className="yellowFlag" title="Yellow Flag" active={driver.scoreInfo.flagInfo.yellow === 1}>{driver.scoreInfo.flagInfo.yellow}</div>
+					 <div className="blackFlag" title="Black Flag" active={driver.scoreInfo.flagInfo.black === 1}>!</div>
+					 <div className="blueFlag" title="Blue Flag" active={driver.scoreInfo.flagInfo.blue === 1}>!</div>
+					 <div className="yellowFlag" title="Yellow Flag" active={driver.scoreInfo.flagInfo.yellow === 1}>!</div>
 					</div>
 					{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 						<div className="best-lap-time">{UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
