@@ -851,7 +851,7 @@ select {
 }
 .drivers-container-beta {
   position: fixed;
-  top: 100px;
+  top: 107px;
   bottom: 0;
   left: 5px;
   right: 220px;
@@ -870,13 +870,13 @@ select {
   float: left;
   position: relative;
   opacity: 1;
-  height: 1.1em;
+  height: 1.3em;
   font-size: 20px;
   color: black;
   background: white;
 }
 .tabled-driver-entry.idle {
-  opacity: 0.1;
+  opacity: 0.4;
 }
 .tabled-driver-entry.focused {
   background-color: yellow;
@@ -898,11 +898,12 @@ select {
 .tabled-driver-entry .wingCam,
 .tabled-driver-entry .tyre,
 .tabled-driver-entry .damage,
+.tabled-driver-entry .flags,
 .tabled-driver-entry .best-lap-time {
   vertical-align: top;
   display: inline-block;
-  height: 1.1em;
-  line-height: 1.0em;
+  height: 1.3em;
+  line-height: 1.3em;
   text-align: center;
 }
 .tabled-driver-entry .position {
@@ -997,16 +998,43 @@ select {
   background: #FF5722;
 }
 .tabled-driver-entry .tyre {
+  border: 0px;
+  background: #333;
+  width: 3%;
+  padding: 0;
   color: white;
-  width: 10%;
-  opacity: 1.0;
-  background: #3F51B5;
+}
+.tabled-driver-entry .tyre img {
+  width: 40%;
+  padding: 0;
 }
 .tabled-driver-entry .damage {
-  width: 2.5%;
+  width: 5%;
   color: #fff;
   opacity: 1.0;
-  background: #F44336;
+  background: #8BC34A;
+}
+.tabled-driver-entry .flags {
+  width: 5%;
+  opacity: 1.0;
+  color: white;
+  background: grey;
+}
+.tabled-driver-entry .flags .blackFlag {
+  background: black;
+  display: inline-block;
+  min-width: 33%;
+}
+.tabled-driver-entry .flags .blueFlag {
+  background: blue;
+  display: inline-block;
+  min-width: 33%;
+}
+.tabled-driver-entry .flags .yellowFlag {
+  background: yellow;
+  display: inline-block;
+  color: black;
+  min-width: 34%;
 }
 .tabled-driver-entry .best-lap-time {
   width: 12%;

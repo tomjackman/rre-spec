@@ -3815,7 +3815,16 @@ UI.components.Controller = React.createClass({
 								{ className: 'tyre' },
 								'Tyre'
 							),
-							React.createElement('img', { className: 'damage', src: '/img/controlPanel/damage.png' }),
+							React.createElement(
+								'div',
+								{ className: 'damage' },
+								'Damage'
+							),
+							React.createElement(
+								'div',
+								{ className: 'flags' },
+								'Flags'
+							),
 							React.createElement(
 								'div',
 								{ className: 'best-lap-time' },
@@ -3948,29 +3957,31 @@ var TabledDriver = React.createClass({
 		var damageAverage = (damage.engine + damage.transmission + damage.frontAero + damage.rearAero) / 4;
 		var damageTooltip = "Engine Damage: " + damage.engine + "%, " + "Transmission Damage: " + damage.transmission + "%, " + "Front Aero Damage: " + damage.frontAero + "%, " + "Rear Aero Damage: " + damage.rearAero + "%";
 
+		var highestDamage = Math.max(damage.engine, damage.transmission, damage.frontAero, damage.rearAero);
+
 		if (damage.engine > 70 || damage.transmission > 70 || damage.frontAero > 70 || damage.rearAero > 70) {
 			return React.createElement(
 				'div',
-				{ className: 'damage', style: { background: '#B71C1C' }, title: damageTooltip },
-				damageAverage + "%"
+				{ className: 'damage', style: { background: '#F44336' }, title: damageTooltip },
+				highestDamage + "%"
 			);
 		} else if (damage.engine > 50 || damage.transmission > 30 || damage.frontAero > 50 || damage.rearAero > 50) {
 			return React.createElement(
 				'div',
 				{ className: 'damage', style: { background: '#FF5722' }, title: damageTooltip },
-				damageAverage + "%"
+				highestDamage + "%"
 			);
 		} else if (damage.engine > 25 || damage.transmission > 25 || damage.frontAero > 25 || damage.rearAero > 25) {
 			return React.createElement(
 				'div',
 				{ className: 'damage', style: { background: '#FFC107' }, title: damageTooltip },
-				damageAverage + "%"
+				highestDamage + "%"
 			);
 		} else {
 			return React.createElement(
 				'div',
-				{ className: 'damage', style: { background: '#2E7D32' }, title: damageTooltip },
-				damageAverage + "%"
+				{ className: 'damage', style: { background: '#8BC34A' }, title: damageTooltip },
+				highestDamage + "%"
 			);
 		}
 	},
@@ -3978,7 +3989,7 @@ var TabledDriver = React.createClass({
 		if (mandatoryPit === 1) {
 			return React.createElement(
 				'div',
-				{ className: 'mandatoryPit', style: { background: 'linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%)' }, title: 'Mandatory Pit Taken' },
+				{ className: 'mandatoryPit', style: { background: '#2E7D32' }, title: 'Mandatory Pit Taken' },
 				'\u2B57'
 			);
 		} else if (mandatoryPit === 0) {
@@ -4095,12 +4106,35 @@ var TabledDriver = React.createClass({
 				'W'
 			),
 			self.renderMandatoryPit(driver.mandatoryPitstopPerformed),
-			React.createElement(
+			r3eTyreDB.classes[driver.classId] != null || ["Soft", "Hard", "Primary", "Alternate", "Medium"].indexOf(driver.pitInfo.tyreType) > -1 ? React.createElement(
 				'div',
 				{ className: 'tyre' },
-				driver.pitInfo.tyreType
+				React.createElement('img', { src: '/img/tyres/' + driver.pitInfo.tyreType + '.png', title: driver.pitInfo.tyreType })
+			) : React.createElement(
+				'div',
+				{ className: 'tyre' },
+				React.createElement('img', { src: '/img/tyres/dedicated.png', title: "Dedicated Tyre: " + driver.pitInfo.tyreType })
 			),
 			self.renderDamage(driver.pitInfo.damage),
+			React.createElement(
+				'div',
+				{ className: 'flags' },
+				React.createElement(
+					'div',
+					{ className: 'blackFlag', title: 'Black Flag', active: driver.scoreInfo.flagInfo.black === 1 },
+					driver.scoreInfo.flagInfo.black
+				),
+				React.createElement(
+					'div',
+					{ className: 'blueFlag', title: 'Blue Flag', active: driver.scoreInfo.flagInfo.blue === 1 },
+					driver.scoreInfo.flagInfo.blue
+				),
+				React.createElement(
+					'div',
+					{ className: 'yellowFlag', title: 'Yellow Flag', active: driver.scoreInfo.flagInfo.yellow === 1 },
+					driver.scoreInfo.flagInfo.yellow
+				)
+			),
 			driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
 				'div',
 				{ className: 'best-lap-time' },
