@@ -652,7 +652,8 @@ UI.components.Controller = React.createClass({
 							<div className="cameras">Cameras</div>
 							<div className="mandatoryPit">Pit</div>
 							<div className="tyre">Tyre</div>
-							<img className="damage"src="/img/controlPanel/damage.png"/>
+							<div className="damage">Damage</div>
+							<div className="flags">Flags</div>
 							<div className="best-lap-time">Best Lap</div>
 							</div>
 							</div>
@@ -737,19 +738,21 @@ var TabledDriver = React.createClass({
 		"Front Aero Damage: " + damage.frontAero + "%, " +
 		"Rear Aero Damage: " + damage.rearAero + "%";
 
+		var highestDamage = Math.max(damage.engine, damage.transmission, damage.frontAero, damage.rearAero);
+
 		if (damage.engine > 70 || damage.transmission > 70 || damage.frontAero > 70 || damage.rearAero > 70) {
-			return <div className="damage" style={{background: '#B71C1C'}} title={damageTooltip}>{damageAverage + "%"}</div>
+			return <div className="damage" style={{background: '#F44336'}} title={damageTooltip}>{highestDamage + "%"}</div>
 		} else if (damage.engine > 50 || damage.transmission > 30 || damage.frontAero > 50 || damage.rearAero > 50) {
-			return <div className="damage" style={{background: '#FF5722'}} title={damageTooltip}>{damageAverage + "%"}</div>
+			return <div className="damage" style={{background: '#FF5722'}} title={damageTooltip}>{highestDamage + "%"}</div>
 		} else if (damage.engine > 25 || damage.transmission > 25 || damage.frontAero > 25 || damage.rearAero > 25) {
-			return <div className="damage" style={{background: '#FFC107'}} title={damageTooltip}>{damageAverage + "%"}</div>
+			return <div className="damage" style={{background: '#FFC107'}} title={damageTooltip}>{highestDamage + "%"}</div>
 		}	else {
-			return <div className="damage" style={{background: '#2E7D32'}} title={damageTooltip}>{damageAverage + "%"}</div>
+			return <div className="damage" style={{background: '#8BC34A'}} title={damageTooltip}>{highestDamage + "%"}</div>
 		}
 	},
 	renderMandatoryPit: function(mandatoryPit) {
 		if (mandatoryPit === 1) {
-			return <div className="mandatoryPit" style={{background: 'linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%)'}} title="Mandatory Pit Taken">⭗</div>
+			return <div className="mandatoryPit" style={{background: '#2E7D32'}} title="Mandatory Pit Taken">⭗</div>
 		} else if (mandatoryPit === 0) {
 			return <div className="mandatoryPit" style={{background: 'rgba(226, 29, 56, 1)'}} title="Mandatory Pit Not Taken">⭗</div>
 		}	else {
@@ -799,8 +802,21 @@ var TabledDriver = React.createClass({
 					<div className="rearCam"  onClick={() => {this.changeCamera('rearCam', driver.slotId)}} title="Rear Camera">R</div>
 					<div className="wingCam"  onClick={() => {this.changeCamera('wing', driver.slotId)}} title="Wing Camera">W</div>
 					{self.renderMandatoryPit(driver.mandatoryPitstopPerformed)}
-					<div className="tyre">{driver.pitInfo.tyreType}</div>
+					{r3eTyreDB.classes[driver.classId] != null || ["Soft", "Hard", "Primary", "Alternate", "Medium"].indexOf(driver.pitInfo.tyreType) > -1 ?
+						<div className="tyre">
+							<img src={'/img/tyres/'+driver.pitInfo.tyreType+'.png'} title={driver.pitInfo.tyreType} />
+						</div>
+						:
+						<div className="tyre">
+							<img src={'/img/tyres/dedicated.png'} title={"Dedicated Tyre: " + driver.pitInfo.tyreType} />
+						</div>
+					}
 					{self.renderDamage(driver.pitInfo.damage)}
+					<div className="flags">
+					 <div className="blackFlag" title="Black Flag" active={driver.scoreInfo.flagInfo.black === 1}>{driver.scoreInfo.flagInfo.black}</div>
+					 <div className="blueFlag" title="Blue Flag" active={driver.scoreInfo.flagInfo.blue === 1}>{driver.scoreInfo.flagInfo.blue}</div>
+					 <div className="yellowFlag" title="Yellow Flag" active={driver.scoreInfo.flagInfo.yellow === 1}>{driver.scoreInfo.flagInfo.yellow}</div>
+					</div>
 					{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 						<div className="best-lap-time">{UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
 						:

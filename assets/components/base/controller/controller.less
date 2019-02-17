@@ -571,7 +571,7 @@ select {
 
 .drivers-container-beta {
   position: fixed;
-  top: 100px;
+  top: 107px;
   bottom: 0;
   left: 5px;
   right: 220px;
@@ -592,23 +592,23 @@ select {
   float: left;
   position: relative;
   opacity: 1;
-  height: 1.1em;
+  height: 1.3em;
   font-size: 20px;
   color: black;
   background: white;
 
   &.idle {
-    opacity: 0.1;
+    opacity: 0.4;
   }
   &.focused {
     background-color: yellow;
   }
 
-  .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .damage, .best-lap-time {
+  .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .damage, .flags, .best-lap-time {
     vertical-align: top;
     display: inline-block;
-    height: 1.1em;
-    line-height: 1.0em;
+    height: 1.3em;
+    line-height: 1.3em;
     text-align: center;
   }
   .position {
@@ -703,16 +703,43 @@ select {
     background: #FF5722;
   }
   .tyre {
+    border: 0px;
+    background: #333;
+    width: 3%;
+    padding: 0;
     color: white;
-    width: 10%;
-    opacity: 1.0;
-    background: #3F51B5;
+    img {
+      width: 40%;
+      padding: 0;
+    }
   }
   .damage {
-    width: 2.5%;
+    width: 5%;
     color: #fff;
     opacity: 1.0;
-    background: #F44336;
+    background: #8BC34A;
+  }
+  .flags {
+    width: 5%;
+    opacity: 1.0;
+    color: white;
+    background: grey;
+    .blackFlag {
+      background: black;
+      display: inline-block;
+      min-width: 33%;
+    }
+    .blueFlag {
+      background: blue;
+      display: inline-block;
+      min-width: 33%;
+    }
+    .yellowFlag {
+      background: yellow;
+      display: inline-block;
+      color: black;
+      min-width: 34%;
+    }
   }
   .best-lap-time {
     width: 12%;

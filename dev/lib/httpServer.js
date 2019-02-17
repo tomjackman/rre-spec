@@ -63,7 +63,7 @@ module.exports = function(assetsDir) {
 
         waitingFor++;
 		console.log('Fetching user data for', id, ', in que: ' + waitingFor);
-		request('http://game.raceroom.com/users/' + id + '/?json', {
+		request('http://game.raceroom.com/utils/user-info/' + id, {
 			'json': true
 		}, function(err, r, json) {
 			if (err) {
@@ -84,16 +84,15 @@ module.exports = function(assetsDir) {
 				});
 			}
 
-			var userInfo = json.context.c;
+			var userInfo = json;
 			userInfoCache[id] = {
-                country: userInfo.overview.country.code,
-								countryName: userInfo.overview.country.name,
+                country: userInfo.country.code,
+								countryName: userInfo.country.name,
                 avatar: userInfo.avatar,
-								rank: userInfo.competition_rank,
 								team: userInfo.team
             };
             waitingFor--;
-            console.log('Fetch done for', id, ', in que: ' + waitingFor);
+            console.log('Fetch done for ' + userInfo.name + ', in que: ' + waitingFor);
 			res.json(userInfoCache[id]);
 		});
 	});
