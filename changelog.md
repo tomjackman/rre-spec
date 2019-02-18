@@ -7,6 +7,8 @@
 * [Feature] Added country flag and name to beta broadcast panel UI.
 * [Feature] Added damage indicator to beta broadcast panel UI.
 * [Feature] Added mandatory pitstop status to beta broadcast panel UI.
+* [Feature] Added DRS/PTP remaining & active indicators to beta broadcast panel UI.
+* [Feature] Added best split times to beta broadcast panel UI.
 * [Feature] Condensed camera controls in the beta broadcast panel UI.
 * [Feature] Added tyre icons to the beta broadcast panel UI with green icon for series using dedicated tyres.
 * [Tooling] Switched to new user info endpoint with smaller payloads to improve rendering of user info on screen.
