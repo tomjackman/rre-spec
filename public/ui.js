@@ -3792,14 +3792,26 @@ UI.components.Controller = React.createClass({
 								{ className: 'interesting' },
 								'Diff'
 							),
-							React.createElement('div', { className: 'flag' }),
+							React.createElement(
+								'div',
+								{ className: 'flag' },
+								'C'
+							),
 							React.createElement(
 								'div',
 								{ className: 'name' },
 								'Driver'
 							),
-							React.createElement('div', { className: 'manufacturer' }),
-							React.createElement('div', { className: 'livery' }),
+							React.createElement(
+								'div',
+								{ className: 'manufacturer' },
+								'M'
+							),
+							React.createElement(
+								'div',
+								{ className: 'livery' },
+								'L'
+							),
 							React.createElement(
 								'div',
 								{ className: 'cameras' },
@@ -3827,8 +3839,33 @@ UI.components.Controller = React.createClass({
 							),
 							React.createElement(
 								'div',
+								{ className: 'ptp' },
+								'PTP'
+							),
+							React.createElement(
+								'div',
+								{ className: 'drs' },
+								'DRS'
+							),
+							React.createElement(
+								'div',
+								{ className: 'best-lap-s1' },
+								'S1'
+							),
+							React.createElement(
+								'div',
+								{ className: 'best-lap-s2' },
+								'S2'
+							),
+							React.createElement(
+								'div',
 								{ className: 'best-lap-time' },
 								'Best Lap'
+							),
+							React.createElement(
+								'div',
+								{ className: 'last-lap-time' },
+								'Last Lap'
 							)
 						)
 					),
@@ -4054,7 +4091,7 @@ var TabledDriver = React.createClass({
 			React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg', title: "Country - " + UI.getUserInfo(driver.portalId).countryName }),
 			React.createElement(
 				'div',
-				{ className: 'name', onClick: () => {
+				{ className: cx({ 'name': true, 'focused': this.props.focused }), onClick: () => {
 						this.changeCamera('trackside', driver.slotId);
 					}, title: "Portal ID - " + driver.portalId },
 				UI.fixName(driver.name)
@@ -4135,6 +4172,26 @@ var TabledDriver = React.createClass({
 					'!'
 				)
 			),
+			React.createElement(
+				'div',
+				{ className: cx({ 'ptp': true, 'active': driver.pushToPassInfo.active }), title: 'PTP Remaining' },
+				driver.pushToPassInfo.allowed ? driver.pushToPassInfo.amountLeft : 'N/A'
+			),
+			React.createElement(
+				'div',
+				{ className: cx({ 'drs': true, 'active': driver.vehicleInfo.drsEnabled }), title: 'DRS Remaining' },
+				driver.vehicleInfo.drsLeft > -1 ? driver.vehicleInfo.drsLeft : 'N/A'
+			),
+			React.createElement(
+				'div',
+				{ className: 'best-lap-s1' },
+				driver.scoreInfo.bestLapInfo.sector1 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector1, { ignoreSign: true }) : 'N/A'
+			),
+			React.createElement(
+				'div',
+				{ className: 'best-lap-s2' },
+				driver.scoreInfo.bestLapInfo.sector2 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector2, { ignoreSign: true }) : 'N/A'
+			),
 			driver.scoreInfo.bestLapInfo.sector3 !== -1 ? React.createElement(
 				'div',
 				{ className: 'best-lap-time' },
@@ -4142,7 +4199,16 @@ var TabledDriver = React.createClass({
 			) : React.createElement(
 				'div',
 				{ className: 'best-lap-time invalid' },
-				'N/A'
+				'None Set'
+			),
+			driver.extendedInfo.lastTenLapsInfo.length > 0 && driver.extendedInfo.lastTenLapsInfo[0].valid ? React.createElement(
+				'div',
+				{ className: 'last-lap-time' },
+				UI.formatTime(driver.extendedInfo.lastTenLapsInfo[0].sector3, { ignoreSign: true })
+			) : React.createElement(
+				'div',
+				{ className: 'last-lap-time invalid' },
+				'Invalid'
 			)
 		);
 	}
@@ -4261,6 +4327,30 @@ UI.components.Spectator = React.createClass({
 							'slotId': driver.slotId
 						}, function (pitInfo) {
 							driver.pitInfo = pitInfo;
+							done();
+						});
+					});
+					jobs.push(function (done) {
+						r3e.getExtendedInfo({
+							'slotId': driver.slotId
+						}, function (extendedInfo) {
+							driver.extendedInfo = extendedInfo;
+							done();
+						});
+					});
+					jobs.push(function (done) {
+						r3e.getPushToPassInfo({
+							'slotId': driver.slotId
+						}, function (pushToPassInfo) {
+							driver.pushToPassInfo = pushToPassInfo;
+							done();
+						});
+					});
+					jobs.push(function (done) {
+						r3e.getVehicleInfo({
+							'slotId': driver.slotId
+						}, function (vehicleInfo) {
+							driver.vehicleInfo = vehicleInfo;
 							done();
 						});
 					});

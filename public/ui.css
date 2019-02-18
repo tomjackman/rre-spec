@@ -349,23 +349,21 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  height: 70px;
+  height: 40px;
   left: 0px;
   right: 0;
-  padding: 20px;
-  font-size: 30px;
+  padding: 10px;
+  font-size: 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
   color: white;
   border-bottom: 2px solid #e21d38;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
   background: #0e0e0e;
   z-index: 2;
 }
 .app-controller .title .toggle-track-map {
   float: right;
-  height: 50px;
-  margin: -10px 0 0;
+  height: 30px;
+  margin: -5px 0 0;
 }
 .app-controller .title .toggle-track-map:hover {
   opacity: 0.8;
@@ -376,8 +374,8 @@ select {
 }
 .app-controller .title .toggleControlPanel {
   float: left;
-  height: 50px;
-  margin: -10px 0 0;
+  height: 30px;
+  margin: -5px 0 0;
 }
 .app-controller .title .toggleControlPanel:hover {
   opacity: 0.8;
@@ -423,7 +421,7 @@ select {
 }
 .app-controller .drivers-container {
   position: fixed;
-  top: 100px;
+  top: 80px;
   bottom: 0;
   left: 20px;
   right: 270px;
@@ -539,7 +537,7 @@ select {
 .app-controller .widgets-list,
 .app-controller .suggestions {
   position: fixed;
-  top: 70px;
+  top: 40px;
   width: 250px;
   color: white;
   bottom: 0;
@@ -838,22 +836,22 @@ select {
 }
 .drivers-container-beta-title {
   position: fixed;
-  top: 80px;
+  top: 50px;
   bottom: 0;
-  left: 5px;
+  left: 10px;
   right: 237px;
   list-style: none;
   display: flex;
   flex-direction: column;
   height: 100%;
   color: white;
-  font-weight: bold;
+  font-family: Oswald;
 }
 .drivers-container-beta {
   position: fixed;
-  top: 107px;
+  top: 77px;
   bottom: 0;
-  left: 5px;
+  left: 10px;
   right: 220px;
   list-style: none;
   display: flex;
@@ -872,14 +870,11 @@ select {
   opacity: 1;
   height: 1.3em;
   font-size: 20px;
-  color: black;
-  background: white;
+  color: white;
+  background: #0e0e0e;
 }
 .tabled-driver-entry.idle {
   opacity: 0.4;
-}
-.tabled-driver-entry.focused {
-  background-color: yellow;
 }
 .tabled-driver-entry .position,
 .tabled-driver-entry .lap,
@@ -899,28 +894,33 @@ select {
 .tabled-driver-entry .tyre,
 .tabled-driver-entry .damage,
 .tabled-driver-entry .flags,
-.tabled-driver-entry .best-lap-time {
+.tabled-driver-entry .ptp,
+.tabled-driver-entry .drs,
+.tabled-driver-entry .best-lap-s1,
+.tabled-driver-entry .best-lap-s2,
+.tabled-driver-entry .best-lap-time,
+.tabled-driver-entry .last-lap-time {
   vertical-align: top;
   display: inline-block;
   height: 1.3em;
-  line-height: 1.3em;
+  line-height: 1.2em;
   text-align: center;
 }
 .tabled-driver-entry .position {
-  width: 3%;
+  width: 2%;
   color: #fff;
   opacity: 1.0;
   background: #F44336;
 }
 .tabled-driver-entry .lap {
-  width: 3%;
+  width: 2.5%;
   color: #fff;
   opacity: 1.0;
   background: #3F51B5;
 }
 .tabled-driver-entry .flag {
   border: 0px;
-  background: white;
+  background: #37474F;
   width: 2%;
   padding: 0;
 }
@@ -928,12 +928,19 @@ select {
   padding: 0;
 }
 .tabled-driver-entry .name {
-  width: 20%;
+  width: 14%;
+  background: #263238;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
+}
+.tabled-driver-entry .name.focused {
+  background-color: yellow;
+  color: black;
 }
 .tabled-driver-entry .manufacturer {
   border: 0px;
-  background: white;
+  background: #37474F;
   width: 1.5%;
   padding: 0;
 }
@@ -942,7 +949,7 @@ select {
 }
 .tabled-driver-entry .livery {
   border: 0px;
-  background: white;
+  background: #37474F;
   width: 3%;
   padding: 0;
 }
@@ -995,7 +1002,7 @@ select {
   width: 2.5%;
   color: #fff;
   opacity: 1.0;
-  background: #FF5722;
+  background: #607D8B;
 }
 .tabled-driver-entry .tyre {
   border: 0px;
@@ -1005,8 +1012,9 @@ select {
   color: white;
 }
 .tabled-driver-entry .tyre img {
-  width: 40%;
+  width: 45%;
   padding: 0;
+  vertical-align: middle;
 }
 .tabled-driver-entry .damage {
   width: 5%;
@@ -1015,7 +1023,7 @@ select {
   background: #8BC34A;
 }
 .tabled-driver-entry .flags {
-  width: 5%;
+  width: 4%;
   opacity: 1.0;
   color: white;
   background: grey;
@@ -1048,8 +1056,22 @@ select {
 .tabled-driver-entry .flags .yellowFlag:active {
   opacity: 1;
 }
+.tabled-driver-entry .best-lap-s1 {
+  width: 5%;
+  background: #4DB6AC;
+}
+.tabled-driver-entry .best-lap-s1.invalid {
+  background: #607d8b;
+}
+.tabled-driver-entry .best-lap-s2 {
+  width: 5%;
+  background: #26A69A;
+}
+.tabled-driver-entry .best-lap-s2.invalid {
+  background: #607d8b;
+}
 .tabled-driver-entry .best-lap-time {
-  width: 12%;
+  width: 8%;
   opacity: 1.0;
   color: white;
   background: #009688;
@@ -1057,8 +1079,35 @@ select {
 .tabled-driver-entry .best-lap-time.invalid {
   background: #607d8b;
 }
-.tabled-driver-entry .interesting {
+.tabled-driver-entry .last-lap-time {
   width: 8%;
+  opacity: 1.0;
+  color: white;
+  background: #00695C;
+}
+.tabled-driver-entry .last-lap-time.invalid {
+  background: #F44336;
+}
+.tabled-driver-entry .drs {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #B71C1C;
+}
+.tabled-driver-entry .drs:active {
+  background: #00C853;
+}
+.tabled-driver-entry .ptp {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #1976D2;
+}
+.tabled-driver-entry .ptp:active {
+  background: #00BCD4;
+}
+.tabled-driver-entry .interesting {
+  width: 6%;
   color: white;
   background: #333;
 }

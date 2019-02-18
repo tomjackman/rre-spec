@@ -645,16 +645,22 @@ UI.components.Controller = React.createClass({
 							<div className="position">Pos</div>
 							<div className="lap">Lap</div>
 							<div className="interesting">Diff</div>
-							<div className="flag"></div>
+							<div className="flag">C</div>
 							<div className="name">Driver</div>
-							<div className="manufacturer"></div>
-							<div className="livery"></div>
+							<div className="manufacturer">M</div>
+							<div className="livery">L</div>
 							<div className="cameras">Cameras</div>
 							<div className="mandatoryPit">Pit</div>
 							<div className="tyre">Tyre</div>
 							<div className="damage">Damage</div>
 							<div className="flags">Flags</div>
+							<div className="ptp">PTP</div>
+							<div className="drs">DRS</div>
+							<div className="best-lap-s1">S1</div>
+							<div className="best-lap-s2">S2</div>
 							<div className="best-lap-time">Best Lap</div>
+							<div className="last-lap-time">Last Lap</div>
+
 							</div>
 							</div>
 
@@ -792,15 +798,15 @@ var TabledDriver = React.createClass({
 						<div className="interesting" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>N/A</div>
 					}
 					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} title={"Country - " + UI.getUserInfo(driver.portalId).countryName}/>
-					<div className="name" onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={"Portal ID - " + driver.portalId}>{UI.fixName(driver.name)}</div>
+					<div className={cx({'name': true, 'focused': this.props.focused})} onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={"Portal ID - " + driver.portalId}>{UI.fixName(driver.name)}</div>
 					<img className="manufacturer" src={'/render/'+driver.manufacturerId+'/small/'}/>
 					<img className="livery" onClick={() => {this.changeCamera('trackside', driver.slotId)}} src={'/render/'+driver.liveryId+'/'+this.props.imageSize+'/'}/>
 					<div className="tvCam" onClick={() => {this.changeCamera('trackside', driver.slotId)}} title="TV Trackside Camera">TV</div>
 					<div className="dashCam" onClick={() => {this.changeCamera('onboard1', driver.slotId)}} title="Dash Camera">D</div>
 					<div className="cockpitCam" onClick={() => {this.changeCamera('onboard2', driver.slotId)}} title="Cockpit Camera">C</div>
-					<div className="frontCam"  onClick={() => {this.changeCamera('frontCam', driver.slotId)}} title="Front Camera">F</div>
-					<div className="rearCam"  onClick={() => {this.changeCamera('rearCam', driver.slotId)}} title="Rear Camera">R</div>
-					<div className="wingCam"  onClick={() => {this.changeCamera('wing', driver.slotId)}} title="Wing Camera">W</div>
+					<div className="frontCam" onClick={() => {this.changeCamera('frontCam', driver.slotId)}} title="Front Camera">F</div>
+					<div className="rearCam" onClick={() => {this.changeCamera('rearCam', driver.slotId)}} title="Rear Camera">R</div>
+					<div className="wingCam" onClick={() => {this.changeCamera('wing', driver.slotId)}} title="Wing Camera">W</div>
 					{self.renderMandatoryPit(driver.mandatoryPitstopPerformed)}
 					{r3eTyreDB.classes[driver.classId] != null || ["Soft", "Hard", "Primary", "Alternate", "Medium"].indexOf(driver.pitInfo.tyreType) > -1 ?
 						<div className="tyre">
@@ -817,10 +823,19 @@ var TabledDriver = React.createClass({
 					 <div className="blueFlag" title="Blue Flag" active={driver.scoreInfo.flagInfo.blue === 1}>!</div>
 					 <div className="yellowFlag" title="Yellow Flag" active={driver.scoreInfo.flagInfo.yellow === 1}>!</div>
 					</div>
+					<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})} title="PTP Remaining">{driver.pushToPassInfo.allowed ? driver.pushToPassInfo.amountLeft : 'N/A'}</div>
+					<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})} title="DRS Remaining">{driver.vehicleInfo.drsLeft > -1 ? driver.vehicleInfo.drsLeft : 'N/A'}</div>
+					<div className="best-lap-s1">{driver.scoreInfo.bestLapInfo.sector1 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector1, {ignoreSign: true}) : 'N/A'}</div>
+					<div className="best-lap-s2">{driver.scoreInfo.bestLapInfo.sector2 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector2, {ignoreSign: true}) : 'N/A'}</div>
 					{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 						<div className="best-lap-time">{UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
 						:
-						<div className="best-lap-time invalid">N/A</div>
+						<div className="best-lap-time invalid">None Set</div>
+					}
+					{driver.extendedInfo.lastTenLapsInfo.length > 0 && driver.extendedInfo.lastTenLapsInfo[0].valid ?
+						<div className="last-lap-time">{UI.formatTime(driver.extendedInfo.lastTenLapsInfo[0].sector3, {ignoreSign: true})}</div>
+						:
+						<div className="last-lap-time invalid">Invalid</div>
 					}
 				</div>
 		);

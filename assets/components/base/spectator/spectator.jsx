@@ -22,6 +22,30 @@ UI.components.Spectator = React.createClass({
 							done();
 						});
 					});
+					jobs.push(function(done) {
+						r3e.getExtendedInfo({
+							'slotId': driver.slotId
+						}, function(extendedInfo) {
+							driver.extendedInfo = extendedInfo;
+							done();
+						});
+					});
+					jobs.push(function(done) {
+						r3e.getPushToPassInfo({
+							'slotId': driver.slotId
+						}, function(pushToPassInfo) {
+							driver.pushToPassInfo = pushToPassInfo;
+							done();
+						});
+					});
+					jobs.push(function(done) {
+						r3e.getVehicleInfo({
+							'slotId': driver.slotId
+						}, function(vehicleInfo) {
+							driver.vehicleInfo = vehicleInfo;
+							done();
+						});
+					});
 				});
 				UI.batch(jobs, function(data) {
 					r3e.getSessionInfo(function(sessionInfo) {
