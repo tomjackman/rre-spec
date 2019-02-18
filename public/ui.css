@@ -849,17 +849,18 @@ select {
 }
 .drivers-container-beta {
   position: fixed;
-  top: 77px;
+  top: 75px;
   bottom: 0;
   left: 10px;
   right: 220px;
   list-style: none;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 90%;
   color: white;
   overflow: hidden;
   overflow-y: scroll;
+  font-family: Arial;
 }
 .tabled-driver-entry:nth-child(odd) {
   opacity: 0.9;
@@ -869,7 +870,7 @@ select {
   position: relative;
   opacity: 1;
   height: 1.3em;
-  font-size: 20px;
+  font-size: 17px;
   color: white;
   background: #0e0e0e;
 }
@@ -1017,7 +1018,7 @@ select {
   vertical-align: middle;
 }
 .tabled-driver-entry .damage {
-  width: 5%;
+  width: 4%;
   color: #fff;
   opacity: 1.0;
   background: #8BC34A;
@@ -1034,7 +1035,7 @@ select {
   min-width: 33%;
   opacity: 0.1;
 }
-.tabled-driver-entry .flags .blackFlag:active {
+.tabled-driver-entry .flags .blackFlag.active {
   opacity: 1;
 }
 .tabled-driver-entry .flags .blueFlag {
@@ -1043,7 +1044,7 @@ select {
   min-width: 33%;
   opacity: 0.1;
 }
-.tabled-driver-entry .flags .blueFlag:active {
+.tabled-driver-entry .flags .blueFlag.active {
   opacity: 1;
 }
 .tabled-driver-entry .flags .yellowFlag {
@@ -1053,7 +1054,7 @@ select {
   min-width: 34%;
   opacity: 0.1;
 }
-.tabled-driver-entry .flags .yellowFlag:active {
+.tabled-driver-entry .flags .yellowFlag.active {
   opacity: 1;
 }
 .tabled-driver-entry .best-lap-s1 {
@@ -1071,7 +1072,7 @@ select {
   background: #607d8b;
 }
 .tabled-driver-entry .best-lap-time {
-  width: 8%;
+  width: 7%;
   opacity: 1.0;
   color: white;
   background: #009688;
@@ -1080,7 +1081,7 @@ select {
   background: #607d8b;
 }
 .tabled-driver-entry .last-lap-time {
-  width: 8%;
+  width: 7%;
   opacity: 1.0;
   color: white;
   background: #00695C;
@@ -1094,7 +1095,7 @@ select {
   opacity: 1.0;
   background: #B71C1C;
 }
-.tabled-driver-entry .drs:active {
+.tabled-driver-entry .drs.active {
   background: #00C853;
 }
 .tabled-driver-entry .ptp {
@@ -1103,7 +1104,7 @@ select {
   opacity: 1.0;
   background: #1976D2;
 }
-.tabled-driver-entry .ptp:active {
+.tabled-driver-entry .ptp.active {
   background: #00BCD4;
 }
 .tabled-driver-entry .interesting {

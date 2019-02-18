@@ -569,17 +569,18 @@ select {
 
 .drivers-container-beta {
   position: fixed;
-  top: 77px;
+  top: 75px;
   bottom: 0;
   left: 10px;
   right: 220px;
   list-style: none;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 90%;
   color: white;
   overflow:hidden;
   overflow-y:scroll;
+  font-family: Arial;
 }
 
 .tabled-driver-entry:nth-child(odd) {
@@ -591,7 +592,7 @@ select {
   position: relative;
   opacity: 1;
   height: 1.3em;
-  font-size: 20px;
+  font-size: 17px;
   color: white;
   background: #0e0e0e;
 
@@ -718,7 +719,7 @@ select {
     }
   }
   .damage {
-    width: 5%;
+    width: 4%;
     color: #fff;
     opacity: 1.0;
     background: #8BC34A;
@@ -733,7 +734,7 @@ select {
       display: inline-block;
       min-width: 33%;
       opacity: 0.1;
-      &:active {
+      &.active {
         opacity: 1;
       }
     }
@@ -742,7 +743,7 @@ select {
       display: inline-block;
       min-width: 33%;
       opacity: 0.1;
-      &:active {
+      &.active {
         opacity: 1;
       }
     }
@@ -752,7 +753,7 @@ select {
       color: black;
       min-width: 34%;
       opacity: 0.1;
-      &:active {
+      &.active {
         opacity: 1;
       }
     }
@@ -772,7 +773,7 @@ select {
     }
   }
   .best-lap-time {
-    width: 8%;
+    width: 7%;
     opacity: 1.0;
     color: white;
     background: #009688;
@@ -781,7 +782,7 @@ select {
     }
   }
   .last-lap-time {
-    width: 8%;
+    width: 7%;
     opacity: 1.0;
     color: white;
     background: #00695C;
@@ -794,7 +795,7 @@ select {
     color: #fff;
     opacity: 1.0;
     background: #B71C1C;
-    &:active {
+    &.active {
       background: #00C853;
     }
   }
@@ -803,7 +804,7 @@ select {
     color: #fff;
     opacity: 1.0;
     background: #1976D2;
-    &:active {
+    &.active {
       background: #00BCD4;
     }
   }

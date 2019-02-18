@@ -640,29 +640,28 @@ UI.components.Controller = React.createClass({
 
 							{UI.state.controllerOptions.options.useNewBroadcastUI.value === "true" ?
 							<div>
-							<div className="drivers-container-beta-title">
-							<div className="tabled-driver-entry">
-							<div className="position">Pos</div>
-							<div className="lap">Lap</div>
-							<div className="interesting">Diff</div>
-							<div className="flag">C</div>
-							<div className="name">Driver</div>
-							<div className="manufacturer">M</div>
-							<div className="livery">L</div>
-							<div className="cameras">Cameras</div>
-							<div className="mandatoryPit">Pit</div>
-							<div className="tyre">Tyre</div>
-							<div className="damage">Damage</div>
-							<div className="flags">Flags</div>
-							<div className="ptp">PTP</div>
-							<div className="drs">DRS</div>
-							<div className="best-lap-s1">S1</div>
-							<div className="best-lap-s2">S2</div>
-							<div className="best-lap-time">Best Lap</div>
-							<div className="last-lap-time">Last Lap</div>
-
-							</div>
-							</div>
+								<div className="drivers-container-beta-title">
+									<div className="tabled-driver-entry">
+										<div className="position">Pos</div>
+										<div className="lap">Lap</div>
+										<div className="interesting">Diff</div>
+										<div className="flag">C</div>
+										<div className="name">Driver</div>
+										<div className="manufacturer">M</div>
+										<div className="livery">L</div>
+										<div className="cameras">Cameras</div>
+										<div className="mandatoryPit">Pit</div>
+										<div className="tyre">Tyre</div>
+										<div className="damage">Damage</div>
+										<div className="flags">Flags</div>
+										<div className="ptp">PTP</div>
+										<div className="drs">DRS</div>
+										<div className="best-lap-s1">S1</div>
+										<div className="best-lap-s2">S2</div>
+										<div className="best-lap-time">Best Lap</div>
+										<div className="last-lap-time">Last Lap</div>
+								 </div>
+							 </div>
 
 							<div className={cx({'drivers-container-beta': true, 'has-suggestions': self.state.directorSuggestions.length})}>
 									{self.state.driversInfo.sort(self.sortFunctionPosition).map(function(driver, i){
@@ -819,9 +818,9 @@ var TabledDriver = React.createClass({
 					}
 					{self.renderDamage(driver.pitInfo.damage)}
 					<div className="flags">
-					 <div className="blackFlag" title="Black Flag" active={driver.scoreInfo.flagInfo.black === 1}>!</div>
-					 <div className="blueFlag" title="Blue Flag" active={driver.scoreInfo.flagInfo.blue === 1}>!</div>
-					 <div className="yellowFlag" title="Yellow Flag" active={driver.scoreInfo.flagInfo.yellow === 1}>!</div>
+					 <div className={cx({'blackFlag': true, 'active': driver.scoreInfo.flagInfo.black === 1})} title="Black Flag">!</div>
+					 <div className={cx({'blueFlag': true, 'active': driver.scoreInfo.flagInfo.blue === 1})} title="Blue Flag">!</div>
+					 <div className={cx({'yellowFlag': true, 'active': driver.scoreInfo.flagInfo.yellow === 1})} title="Yellow Flag">!</div>
 					</div>
 					<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})} title="PTP Remaining">{driver.pushToPassInfo.allowed ? driver.pushToPassInfo.amountLeft : 'N/A'}</div>
 					<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})} title="DRS Remaining">{driver.vehicleInfo.drsLeft > -1 ? driver.vehicleInfo.drsLeft : 'N/A'}</div>

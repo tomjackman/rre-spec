@@ -4158,17 +4158,17 @@ var TabledDriver = React.createClass({
 				{ className: 'flags' },
 				React.createElement(
 					'div',
-					{ className: 'blackFlag', title: 'Black Flag', active: driver.scoreInfo.flagInfo.black === 1 },
+					{ className: cx({ 'blackFlag': true, 'active': driver.scoreInfo.flagInfo.black === 1 }), title: 'Black Flag' },
 					'!'
 				),
 				React.createElement(
 					'div',
-					{ className: 'blueFlag', title: 'Blue Flag', active: driver.scoreInfo.flagInfo.blue === 1 },
+					{ className: cx({ 'blueFlag': true, 'active': driver.scoreInfo.flagInfo.blue === 1 }), title: 'Blue Flag' },
 					'!'
 				),
 				React.createElement(
 					'div',
-					{ className: 'yellowFlag', title: 'Yellow Flag', active: driver.scoreInfo.flagInfo.yellow === 1 },
+					{ className: cx({ 'yellowFlag': true, 'active': driver.scoreInfo.flagInfo.yellow === 1 }), title: 'Yellow Flag' },
 					'!'
 				)
 			),
