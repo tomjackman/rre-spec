@@ -13,6 +13,7 @@
 * [Feature] Condensed camera controls in the beta broadcast panel UI.
 * [Feature] Added pit count, pit status and tyre wear placeholders to beta broadcast panel UI.
 * [Feature] Added tyre icons to the beta broadcast panel UI with green icon for series using dedicated tyres.
+* [Feature] Tweaked ADAC GT Masters 2018 Theme.
 * [Tooling] Switched to new user info endpoint with smaller payloads to improve rendering of user info on screen.
 
 ### Version 1.6.1
