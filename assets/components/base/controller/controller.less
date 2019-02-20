@@ -376,6 +376,7 @@ select {
 	}
 	.suggestions {
 		left: 0;
+    z-index: 15;
 		.holder {
 			display: block;
 			top: 10px;
@@ -565,11 +566,14 @@ select {
   height: 100%;
   color: white;
   font-family: Oswald;
+  .drivers {
+    display: none;
+  }
 }
 
 .drivers-container-beta {
   position: fixed;
-  top: 75px;
+  top: 72px;
   bottom: 0;
   left: 10px;
   right: 220px;
@@ -600,7 +604,7 @@ select {
     opacity: 0.4;
   }
 
-  .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .damage, .flags, .ptp, .drs, .best-lap-s1, .best-lap-s2, .best-lap-time, .last-lap-time {
+  .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .pit, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .tyreWear, .damage, .flags, .ptp, .drs, .best-lap-s1, .best-lap-s2, .best-lap-time, .last-lap-time {
     vertical-align: top;
     display: inline-block;
     height: 1.3em;
@@ -700,6 +704,12 @@ select {
     min-width: 2%;
     opacity: 1.0;
   }
+  .pit {
+    width: 2.5%;
+    color: #fff;
+    opacity: 1.0;
+    background: #607D8B;
+  }
   .mandatoryPit {
     width: 2.5%;
     color: #fff;
@@ -717,6 +727,12 @@ select {
       padding: 0;
       vertical-align: middle;
     }
+  }
+  .tyreWear {
+    background: #333;
+    width: 3%;
+    padding: 0;
+    color: white;
   }
   .damage {
     width: 4%;

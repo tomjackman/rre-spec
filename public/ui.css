@@ -660,6 +660,7 @@ select {
 }
 .app-controller .suggestions {
   left: 0;
+  z-index: 15;
 }
 .app-controller .suggestions .holder {
   display: block;
@@ -847,9 +848,12 @@ select {
   color: white;
   font-family: Oswald;
 }
+.drivers-container-beta-title .drivers {
+  display: none;
+}
 .drivers-container-beta {
   position: fixed;
-  top: 75px;
+  top: 72px;
   bottom: 0;
   left: 10px;
   right: 220px;
@@ -885,6 +889,7 @@ select {
 .tabled-driver-entry .manufacturer,
 .tabled-driver-entry .livery,
 .tabled-driver-entry .cameras,
+.tabled-driver-entry .pit,
 .tabled-driver-entry .mandatoryPit,
 .tabled-driver-entry .tvCam,
 .tabled-driver-entry .dashCam,
@@ -893,6 +898,7 @@ select {
 .tabled-driver-entry .rearCam,
 .tabled-driver-entry .wingCam,
 .tabled-driver-entry .tyre,
+.tabled-driver-entry .tyreWear,
 .tabled-driver-entry .damage,
 .tabled-driver-entry .flags,
 .tabled-driver-entry .ptp,
@@ -999,6 +1005,12 @@ select {
   min-width: 2%;
   opacity: 1.0;
 }
+.tabled-driver-entry .pit {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #607D8B;
+}
 .tabled-driver-entry .mandatoryPit {
   width: 2.5%;
   color: #fff;
@@ -1016,6 +1028,12 @@ select {
   width: 45%;
   padding: 0;
   vertical-align: middle;
+}
+.tabled-driver-entry .tyreWear {
+  background: #333;
+  width: 3%;
+  padding: 0;
+  color: white;
 }
 .tabled-driver-entry .damage {
   width: 4%;

@@ -3771,6 +3771,7 @@ UI.components.Controller = React.createClass({
 				UI.state.controllerOptions.options.useNewBroadcastUI.value === "true" ? React.createElement(
 					'div',
 					null,
+					React.createElement('div', { className: 'scrap' }),
 					React.createElement(
 						'div',
 						{ className: 'drivers-container-beta-title' },
@@ -3819,13 +3820,23 @@ UI.components.Controller = React.createClass({
 							),
 							React.createElement(
 								'div',
-								{ className: 'mandatoryPit' },
+								{ className: 'pit' },
 								'Pit'
+							),
+							React.createElement(
+								'div',
+								{ className: 'mandatoryPit' },
+								'M Pit'
 							),
 							React.createElement(
 								'div',
 								{ className: 'tyre' },
 								'Tyre'
+							),
+							React.createElement(
+								'div',
+								{ className: 'tyreWear' },
+								'N/A'
 							),
 							React.createElement(
 								'div',
@@ -3932,8 +3943,7 @@ UI.components.Controller = React.createClass({
 						return React.createElement(
 							'option',
 							{ key: key, value: key },
-							key.toUpperCase(),
-							' THEME'
+							key
 						);
 					})
 				),
@@ -4142,6 +4152,11 @@ var TabledDriver = React.createClass({
 					}, title: 'Wing Camera' },
 				'W'
 			),
+			React.createElement(
+				'div',
+				{ className: 'pit' },
+				'N/A'
+			),
 			self.renderMandatoryPit(driver.mandatoryPitstopPerformed),
 			r3eTyreDB.classes[driver.classId] != null || ["Soft", "Hard", "Primary", "Alternate", "Medium"].indexOf(driver.pitInfo.tyreType) > -1 ? React.createElement(
 				'div',
@@ -4151,6 +4166,11 @@ var TabledDriver = React.createClass({
 				'div',
 				{ className: 'tyre' },
 				React.createElement('img', { src: '/img/tyres/dedicated.png', title: "Dedicated Tyre: " + driver.pitInfo.tyreType })
+			),
+			React.createElement(
+				'div',
+				{ className: 'tyreWear' },
+				'N/A'
 			),
 			self.renderDamage(driver.pitInfo.damage),
 			React.createElement(
