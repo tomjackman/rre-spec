@@ -15,6 +15,8 @@
 * [Feature] Added tyre icons to the beta broadcast panel UI with green icon for series using dedicated tyres.
 * [Feature] Tweaked ADAC GT Masters 2018 Theme.
 * [Tooling] Switched to new user info endpoint with smaller payloads to improve rendering of user info on screen.
+* [Feature] Added commentary names widget, can be set in the control option UI.
+* [Dev] Changed window reloading key from 'r' to 'F5' to facilitate typing of commentary names.
 
 ### Version 1.6.1
 * [Bug Fix] Prevented an error being thrown if no local description exists for a track.
