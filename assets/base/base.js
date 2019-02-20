@@ -180,17 +180,17 @@ $(document).keyup(function(e) {
 			r3e.exit();
 		}
 	}
-	if (e.which === 82) { // r
+	if (e.which === 116) { // F5
 		window.location.reload(true);
 	}
-	if (e.which === 67) { // c
-		cursorShowing = !cursorShowing;
-		if (window.r3e) {
-			r3e.showCursor({
-				'show': cursorShowing
-			});
-		}
-	}
+	// if (e.which === 67) { // c
+	// 	cursorShowing = !cursorShowing;
+	// 	if (window.r3e) {
+	// 		r3e.showCursor({
+	// 			'show': cursorShowing
+	// 		});
+	// 	}
+	// }
 });
 
 // Allow the spectator to work in an iframe
