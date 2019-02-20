@@ -1,0 +1,10 @@
+{
+	"version": "1.0.0",
+	"elementName": "CommentaryNames",
+	"name": "Commentary Names",
+	"buttonText": "Commentator Names",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
+	"defaultActive": false,
+	"description": "Show the commentators names. The names text can be set in the control panel settings."
+}
