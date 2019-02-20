@@ -5,10 +5,16 @@ UI.widgets.CommentaryNames = React.createClass({
 	},
   render: function() {
 		var self = this;
+
+    // hide when the event info widget is open.
+    if (UI.state.activeWidgets.EventInfo.active === true) {
+      return null;
+    }
+
 		return (
       <div className="commentaryNameAlert animated fadeInRight">
-        <div className="raceControl">Commentary</div>
-  			<div className="safetyCarIn">Safety Car in this lap</div>
+        <div className="commentaryTitle">Commentary</div>
+  			<div className="commentaryName">{UI.state.controllerOptions.options.commentaryNames.value ? UI.state.controllerOptions.options.commentaryNames.value : '-'}</div>
       </div>
 		);
 	}

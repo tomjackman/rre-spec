@@ -3,30 +3,32 @@
 .commentaryNameAlert {
   font-size: @fontSize * 1.1;
   font-family: Oswald;
-	position: fixed;
-	top: 10em;
-  right: 1.5em;
+  position: fixed;
+  bottom: 11em;
+  left: 43%;
+  -webkit-transform: translate(-43%, 0);
+  text-align: center;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
 	text-transform: uppercase;
 	min-height: 1em;
-	width: 11em;
+	width: 14em;
 	line-height: 1.7em;
-	text-align: center;
 	display: inline-block;
   filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
 
-  .raceControl {
+  .commentaryTitle {
     -webkit-transform: skew(-10deg, 0deg);
-    border-top: 3px solid @SafetyCarInTitleBorderTop;
-    background: @SafetyCarInTitleBackgroundColor;
-    color: @SafetyCarInTitleText;
+    border-top: 3px solid @CommentaryTitleBorderTop;
+    background: @CommentaryTitleBackgroundColor;
+    color: @CommentaryTitleText;
     font-size: @fontSize * 1.1;
     padding: 0.05em;
     top: 0.1em;
     z-index: 0;
   }
-  .safetyCarIn {
-    background: @SafetyCarInMessageBackground;
-    color: @SafetyCarInMessageText;
+  .commentaryName {
+    background: @CommentaryMessageBackground;
+    color: @CommentaryMessageText;
     -webkit-transform: skew(-10deg, 0deg);
     font-size: @fontSize * 1.1;
     padding: 0.15em;

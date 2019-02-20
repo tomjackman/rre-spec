@@ -775,17 +775,17 @@ $(document).keyup(function(e) {
 			r3e.exit();
 		}
 	}
-	if (e.which === 82) { // r
+	if (e.which === 116) { // F5
 		window.location.reload(true);
 	}
-	if (e.which === 67) { // c
-		cursorShowing = !cursorShowing;
-		if (window.r3e) {
-			r3e.showCursor({
-				'show': cursorShowing
-			});
-		}
-	}
+	// if (e.which === 67) { // c
+	// 	cursorShowing = !cursorShowing;
+	// 	if (window.r3e) {
+	// 		r3e.showCursor({
+	// 			'show': cursorShowing
+	// 		});
+	// 	}
+	// }
 });
 
 // Allow the spectator to work in an iframe
@@ -807,18 +807,24 @@ UI.widgets.CommentaryNames = React.createClass({
   },
   render: function () {
     var self = this;
+
+    // hide when the event info widget is open.
+    if (UI.state.activeWidgets.EventInfo.active === true) {
+      return null;
+    }
+
     return React.createElement(
       "div",
       { className: "commentaryNameAlert animated fadeInRight" },
       React.createElement(
         "div",
-        { className: "raceControl" },
+        { className: "commentaryTitle" },
         "Commentary"
       ),
       React.createElement(
         "div",
-        { className: "safetyCarIn" },
-        "Safety Car in this lap"
+        { className: "commentaryName" },
+        UI.state.controllerOptions.options.commentaryNames.value ? UI.state.controllerOptions.options.commentaryNames.value : '-'
       )
     );
   }
