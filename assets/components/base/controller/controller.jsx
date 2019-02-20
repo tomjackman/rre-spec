@@ -651,10 +651,10 @@ UI.components.Controller = React.createClass({
 										<div className="manufacturer">M</div>
 										<div className="livery">L</div>
 										<div className="cameras">Cameras</div>
-										<div className="pit">Pit</div>
+										<div className="pit"># Pit</div>
 										<div className="mandatoryPit">M Pit</div>
 										<div className="tyre">Tyre</div>
-										<div className="tyreWear">N/A</div>
+										<div className="tyreWear">Wear</div>
 										<div className="damage">Damage</div>
 										<div className="flags">Flags</div>
 										<div className="ptp">PTP</div>
@@ -809,7 +809,7 @@ var TabledDriver = React.createClass({
 					<div className="frontCam" onClick={() => {this.changeCamera('frontCam', driver.slotId)}} title="Front Camera">F</div>
 					<div className="rearCam" onClick={() => {this.changeCamera('rearCam', driver.slotId)}} title="Rear Camera">R</div>
 					<div className="wingCam" onClick={() => {this.changeCamera('wing', driver.slotId)}} title="Wing Camera">W</div>
-					<div className="pit">N/A</div>
+					<div className="pit" title="Pit Count & Pit Status">0</div>
 					{self.renderMandatoryPit(driver.mandatoryPitstopPerformed)}
 					{r3eTyreDB.classes[driver.classId] != null || ["Soft", "Hard", "Primary", "Alternate", "Medium"].indexOf(driver.pitInfo.tyreType) > -1 ?
 						<div className="tyre">
@@ -820,7 +820,7 @@ var TabledDriver = React.createClass({
 							<img src={'/img/tyres/dedicated.png'} title={"Dedicated Tyre: " + driver.pitInfo.tyreType} />
 						</div>
 					}
-					<div className="tyreWear">N/A</div>
+					<div className="tyreWear" title="Tyre Wear Status">0%</div>
 					{self.renderDamage(driver.pitInfo.damage)}
 					<div className="flags">
 					 <div className={cx({'blackFlag': true, 'active': driver.scoreInfo.flagInfo.black === 1})} title="Black Flag">!</div>

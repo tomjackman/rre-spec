@@ -1009,13 +1009,13 @@ select {
   width: 2.5%;
   color: #fff;
   opacity: 1.0;
-  background: #607D8B;
+  background: #673AB7;
 }
 .tabled-driver-entry .mandatoryPit {
   width: 2.5%;
   color: #fff;
   opacity: 1.0;
-  background: #607D8B;
+  background: #7E57C2;
 }
 .tabled-driver-entry .tyre {
   border: 0px;
@@ -1030,7 +1030,7 @@ select {
   vertical-align: middle;
 }
 .tabled-driver-entry .tyreWear {
-  background: #333;
+  background: #515050;
   width: 3%;
   padding: 0;
   color: white;
