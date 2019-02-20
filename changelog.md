@@ -17,6 +17,7 @@
 * [Tooling] Switched to new user info endpoint with smaller payloads to improve rendering of user info on screen.
 * [Feature] Added commentary names widget, can be set in the control option UI.
 * [Dev] Changed window reloading key from 'r' to 'F5' to facilitate typing of commentary names.
+* [Feature] Reduced default resolution scaling by 1px.
 
 ### Version 1.6.1
 * [Bug Fix] Prevented an error being thrown if no local description exists for a track.
