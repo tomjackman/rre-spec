@@ -9,7 +9,9 @@
 * [Feature] Added mandatory pitstop status to beta broadcast panel UI.
 * [Feature] Added DRS/PTP remaining & active indicators to beta broadcast panel UI.
 * [Feature] Added best split times to beta broadcast panel UI.
+* [Feature] Added column headers to beta broadcast panel UI.
 * [Feature] Condensed camera controls in the beta broadcast panel UI.
+* [Feature] Added pit count, pit status and tyre wear placeholders to beta broadcast panel UI.
 * [Feature] Added tyre icons to the beta broadcast panel UI with green icon for series using dedicated tyres.
 * [Tooling] Switched to new user info endpoint with smaller payloads to improve rendering of user info on screen.
 
