@@ -84,6 +84,12 @@
       "tooltip": "Shows the name of the server in the session info timer widget (Default: False).",
       "type": "checkbox"
     },
+    "commentaryNames": {
+      "displayName": "Commentary Name(s)",
+      "value": "",
+      "tooltip": "Enable Multiclass UI elements (Default: 'Blank').",
+      "type": "text"
+    },
     "alertLength": {
       "displayName": "Steward Message Alert Time Length (Seconds)",
       "value": "15",
