@@ -339,7 +339,7 @@ select {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #0e0e0e;
+  background: #212121;
   font-family: Abel;
 }
 .app-controller .title {
@@ -356,8 +356,7 @@ select {
   font-size: 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
   color: white;
-  border-bottom: 2px solid #e21d38;
-  background: #0e0e0e;
+  background: #263238;
   z-index: 2;
 }
 .app-controller .title .toggle-track-map {
@@ -542,7 +541,7 @@ select {
   color: white;
   bottom: 0;
   font-size: 16px;
-  background: #0e0e0e;
+  background: #263238;
 }
 .app-controller .widgets-list select,
 .app-controller .suggestions select {
@@ -582,8 +581,9 @@ select {
   cursor: pointer;
   position: relative;
   text-align: center;
-  border-top: 5px solid;
+  border-top: 4px solid;
   box-shadow: 1px 1px 3px #222222;
+  font-family: Oswald;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager .text,
 .app-controller .suggestions .widget-buttons .widget-manager .text,
@@ -599,7 +599,7 @@ select {
   right: 0;
   -webkit-transform: translate(0, -50%);
   padding: 0 10px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.4;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager:hover,
@@ -620,16 +620,11 @@ select {
 .app-controller .suggestions .widget-buttons .suggestion.active,
 .app-controller .widgets-list .holder .suggestion.active,
 .app-controller .suggestions .holder .suggestion.active {
-  color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background: rgba(0, 0, 0, 0.4);
-  background: linear-gradient(bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
-  background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
-  background: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.6)), color-stop(1, rgba(0, 0, 0, 0.4)));
   color: #ffc;
-  border-top-color: #4CAF50;
-  border-left-color: #4CAF50;
+  background: #26A69A;
+  border-top-color: #76FF03;
+  border-left-color: #76FF03;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager.inactive,
 .app-controller .suggestions .widget-buttons .widget-manager.inactive,
@@ -876,10 +871,12 @@ select {
   height: 1.3em;
   font-size: 17px;
   color: white;
-  background: #0e0e0e;
 }
 .tabled-driver-entry.idle {
   opacity: 0.4;
+}
+.tabled-driver-entry.focused {
+  opacity: 1;
 }
 .tabled-driver-entry .position,
 .tabled-driver-entry .lap,

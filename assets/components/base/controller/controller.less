@@ -117,7 +117,7 @@ select {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: #0e0e0e;
+	background: #212121;
 	font-family: Abel;
 
 	.title {
@@ -158,8 +158,7 @@ select {
 		font-size: 25px;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
 		color: white;
-		border-bottom: 2px solid rgba(226, 29, 56, 1);
-    background: #0e0e0e;
+    background: #263238;
     z-index: 2;
 	}
 
@@ -312,7 +311,7 @@ select {
     color: white;
     bottom: 0;
 		font-size: 16px;
-    background: #0e0e0e;
+    background: #263238;
 		select {
 			margin: 10px 5%;
 			width: 90%;
@@ -339,8 +338,9 @@ select {
 				cursor: pointer;
 				position: relative;
 				text-align: center;
-        border-top: 5px solid;
+        border-top: 4px solid;
         box-shadow: 1px 1px 3px #222222;
+        font-family: Oswald;
 				.text {
 					position: absolute;
 					top: 50%;
@@ -348,19 +348,18 @@ select {
 					right: 0;
 					-webkit-transform: translate(0, -50%);
 					padding: 0 10px;
-					font-size: 20px;
+					font-size: 18px;
 					line-height: 1.4;
 				}
 				&:hover {
 					color: rgba(255, 255, 255, 0.5);
 				}
 				&.active {
-					color: rgba(255, 255, 255, 1);
 					box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-					.gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
 					color: #ffc;
-          border-top-color: #4CAF50;
-          border-left-color: #4CAF50;
+          background: #26A69A;
+          border-top-color: #76FF03;
+          border-left-color: #76FF03;
 				}
 				&.inactive {
 					.gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
@@ -598,10 +597,11 @@ select {
   height: 1.3em;
   font-size: 17px;
   color: white;
-  background: #0e0e0e;
-
   &.idle {
     opacity: 0.4;
+  }
+  &.focused {
+    opacity: 1;
   }
 
   .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .pit, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .tyreWear, .damage, .flags, .ptp, .drs, .best-lap-s1, .best-lap-s2, .best-lap-time, .last-lap-time {
