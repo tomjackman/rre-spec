@@ -12,6 +12,12 @@
       "tooltip": "Enable Multiclass UI elements (Default: False).",
       "type": "checkbox"
     },
+    "tvStyleAnimations": {
+      "displayName": "Use TV Style Animations",
+      "value": "true",
+      "tooltip": "Auto-hide the driver information widgets on screen after a few seconds. (Default: true).",
+      "type": "checkbox"
+    },
     "showStandingsManufacturer": {
       "displayName": "Show Standings Manufacturer",
       "value": "true",
