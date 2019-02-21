@@ -667,8 +667,8 @@ UI.components.Controller = React.createClass({
 							 </div>
 
 							<div className={cx({'drivers-container-beta': true, 'has-suggestions': self.state.directorSuggestions.length})}>
-									{self.state.driversInfo.sort(self.sortFunctionPosition).map(function(driver, i){
-										return <TabledDriver key={driver.slotId} focused={driver.slotId === UI.state.focusedSlot} imageSize="small" position={i} driver={driver}></TabledDriver>
+									{self.state.driversInfo.sort(self.sortFunctionPosition).map(function(driver, i) {
+										return <TabledDriver key={driver.slotId} focused={driver.slotId === UI.state.focusedSlot} imageSize="small" position={i} driver={driver} fastest={self.state.driversInfo[0]}></TabledDriver>
 									})}
 							</div>
 							</div>
@@ -767,15 +767,32 @@ var TabledDriver = React.createClass({
 			return <div className="mandatoryPit" style={{background: '#607D8B'}} title="No Mandatory Pit Required">N/A</div>
 		}
 	},
-	getTimeDiff: function(driver) {
-		if (driver.scoreInfo.positionOverall === 1) {
-			return "-";
-		} else if (driver.scoreInfo.lapDiff === 1) {
-			return "+1 Lap";
-		} else if (driver.scoreInfo.lapDiff > 0) {
-			return "+" + driver.scoreInfo.lapDiff + " Laps";
+	getTimeDiff: function(driver, fastestDriver) {
+		var self = this;
+		// Race
+		if (UI.state.sessionInfo.type.match(/^race/i)) {
+			if (driver.scoreInfo.positionOverall === 1) {
+				return  "Lap " + driver.scoreInfo.laps + 1;
+			} else if (driver.scoreInfo.lapDiff === 1) {
+				return "+1 Lap";
+			} else if (driver.scoreInfo.lapDiff > 0) {
+				return "+" + driver.scoreInfo.lapDiff + " Laps";
+			} else {
+				return "+" + (driver.scoreInfo.timeDiff/1000).toFixed(2);
+			}
+		// Qualify and Practice
+		} else if (UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') {
+			if (driver.scoreInfo.positionOverall === 1) {
+				return "-";
+			} else {
+				if (driver.scoreInfo.bestLapInfo.valid) {
+					return UI.formatTime(driver.scoreInfo.bestLapInfo.sector3 - fastestDriver.scoreInfo.bestLapInfo.sector3);
+				} else {
+					return "N/A";
+				}
+			}
 		} else {
-			return "+" + (driver.scoreInfo.timeDiff/1000).toFixed(2);
+			return "N/A";
 		}
 	},
 	render: function() {
@@ -789,15 +806,16 @@ var TabledDriver = React.createClass({
 		var driver = self.props.driver;
 		var state = self.state;
 		var timeDiff = driver.scoreInfo.timeDiff;
+		var fastestDriver = self.props.fastest;
 		var isRace = UI.state.sessionInfo.type.match(/^race/i);
 		return (
 			<div className={classes} style={{'zIndex': (1000-this.props.position)}}>
 					{self.renderPostion(driver)}
 					<div className="lap">{driver.scoreInfo.laps + 1}</div>
 					{isRace ?
-						<div className={self.getInterestingStyle(timeDiff)} onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{self.getTimeDiff(driver)}</div>
+						<div className={self.getInterestingStyle(timeDiff)} onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{self.getTimeDiff(driver, fastestDriver)}</div>
 						:
-						<div className="interesting" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>N/A</div>
+						<div className="interesting" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{self.getTimeDiff(driver, fastestDriver)}</div>
 					}
 					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} title={"Country - " + UI.getUserInfo(driver.portalId).countryName}/>
 					<div className={cx({'name': true, 'focused': this.props.focused})} onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={"Portal ID - " + driver.portalId}>{UI.fixName(driver.name)}</div>

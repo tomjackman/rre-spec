@@ -3842,7 +3842,7 @@ UI.components.Controller = React.createClass({
 						'div',
 						{ className: cx({ 'drivers-container-beta': true, 'has-suggestions': self.state.directorSuggestions.length }) },
 						self.state.driversInfo.sort(self.sortFunctionPosition).map(function (driver, i) {
-							return React.createElement(TabledDriver, { key: driver.slotId, focused: driver.slotId === UI.state.focusedSlot, imageSize: 'small', position: i, driver: driver });
+							return React.createElement(TabledDriver, { key: driver.slotId, focused: driver.slotId === UI.state.focusedSlot, imageSize: 'small', position: i, driver: driver, fastest: self.state.driversInfo[0] });
 						})
 					)
 				) : React.createElement(
@@ -4011,15 +4011,32 @@ var TabledDriver = React.createClass({
 			);
 		}
 	},
-	getTimeDiff: function (driver) {
-		if (driver.scoreInfo.positionOverall === 1) {
-			return "-";
-		} else if (driver.scoreInfo.lapDiff === 1) {
-			return "+1 Lap";
-		} else if (driver.scoreInfo.lapDiff > 0) {
-			return "+" + driver.scoreInfo.lapDiff + " Laps";
+	getTimeDiff: function (driver, fastestDriver) {
+		var self = this;
+		// Race
+		if (UI.state.sessionInfo.type.match(/^race/i)) {
+			if (driver.scoreInfo.positionOverall === 1) {
+				return "Lap " + driver.scoreInfo.laps + 1;
+			} else if (driver.scoreInfo.lapDiff === 1) {
+				return "+1 Lap";
+			} else if (driver.scoreInfo.lapDiff > 0) {
+				return "+" + driver.scoreInfo.lapDiff + " Laps";
+			} else {
+				return "+" + (driver.scoreInfo.timeDiff / 1000).toFixed(2);
+			}
+			// Qualify and Practice
+		} else if (UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') {
+			if (driver.scoreInfo.positionOverall === 1) {
+				return "-";
+			} else {
+				if (driver.scoreInfo.bestLapInfo.valid) {
+					return UI.formatTime(driver.scoreInfo.bestLapInfo.sector3 - fastestDriver.scoreInfo.bestLapInfo.sector3);
+				} else {
+					return "N/A";
+				}
+			}
 		} else {
-			return "+" + (driver.scoreInfo.timeDiff / 1000).toFixed(2);
+			return "N/A";
 		}
 	},
 	render: function () {
@@ -4033,6 +4050,7 @@ var TabledDriver = React.createClass({
 		var driver = self.props.driver;
 		var state = self.state;
 		var timeDiff = driver.scoreInfo.timeDiff;
+		var fastestDriver = self.props.fastest;
 		var isRace = UI.state.sessionInfo.type.match(/^race/i);
 		return React.createElement(
 			'div',
@@ -4048,13 +4066,13 @@ var TabledDriver = React.createClass({
 				{ className: self.getInterestingStyle(timeDiff), onClick: () => {
 						this.changeCamera('trackside', driver.slotId);
 					} },
-				self.getTimeDiff(driver)
+				self.getTimeDiff(driver, fastestDriver)
 			) : React.createElement(
 				'div',
 				{ className: 'interesting', onClick: () => {
 						this.changeCamera('trackside', driver.slotId);
 					} },
-				'N/A'
+				self.getTimeDiff(driver, fastestDriver)
 			),
 			React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg', title: "Country - " + UI.getUserInfo(driver.portalId).countryName }),
 			React.createElement(
