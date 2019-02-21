@@ -2,6 +2,9 @@
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/S4DGAMofoE4/0.jpg)](https://www.youtube.com/watch?v=S4DGAMofoE4&feature=youtu.be&t=951)
 
+### Changelog
+[Version Changelogs](changelog.md).
+
 ## Getting Started
 1. Install http://nodejs.org/.
 2. Run `start.bat`.
