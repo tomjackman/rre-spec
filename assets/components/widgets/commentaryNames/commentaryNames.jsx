@@ -12,7 +12,7 @@ UI.widgets.CommentaryNames = React.createClass({
     }
 
 		return (
-      <div className="commentaryNameAlert animated fadeInRight">
+      <div className="commentaryNameAlert slit-in">
         <div className="commentaryTitle">Commentary</div>
   			<div className="commentaryName">{UI.state.controllerOptions.options.commentaryNames.value ? UI.state.controllerOptions.options.commentaryNames.value : '-'}</div>
       </div>

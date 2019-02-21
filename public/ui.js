@@ -815,7 +815,7 @@ UI.widgets.CommentaryNames = React.createClass({
 
     return React.createElement(
       "div",
-      { className: "commentaryNameAlert animated fadeInRight" },
+      { className: "commentaryNameAlert slit-in" },
       React.createElement(
         "div",
         { className: "commentaryTitle" },
