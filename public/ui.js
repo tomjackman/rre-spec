@@ -4113,7 +4113,7 @@ var TabledDriver = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'pit', title: 'Pit Count & Pit Status' },
-				'0'
+				'N/A'
 			),
 			self.renderMandatoryPit(driver.mandatoryPitstopPerformed),
 			r3eTyreDB.classes[driver.classId] != null || ["Soft", "Hard", "Primary", "Alternate", "Medium"].indexOf(driver.pitInfo.tyreType) > -1 ? React.createElement(
@@ -4128,7 +4128,7 @@ var TabledDriver = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'tyreWear', title: 'Tyre Wear Status' },
-				'0%'
+				'N/A'
 			),
 			self.renderDamage(driver.pitInfo.damage),
 			React.createElement(
