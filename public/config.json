@@ -85,7 +85,7 @@
       "type": "checkbox"
     },
     "showServerNameInTimer": {
-      "displayName": "Show Server Namer in Timer",
+      "displayName": "Show Server Name in Timer",
       "value": "false",
       "tooltip": "Shows the name of the server in the session info timer widget (Default: False).",
       "type": "checkbox"
@@ -97,7 +97,7 @@
       "type": "text"
     },
     "alertLength": {
-      "displayName": "Steward Message Alert Time Length (Seconds)",
+      "displayName": "Steward Message Display Time (Seconds)",
       "value": "15",
       "tooltip": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
       "type": "number"
