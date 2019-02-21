@@ -815,7 +815,7 @@ UI.widgets.CommentaryNames = React.createClass({
 
     return React.createElement(
       "div",
-      { className: "commentaryNameAlert slit-in" },
+      { className: "commentaryNameAlert slit-in-commentary" },
       React.createElement(
         "div",
         { className: "commentaryTitle" },
@@ -1716,10 +1716,11 @@ UI.widgets.FocusedDriver = React.createClass({
 			return null;
 		}
 
+		// show exit animation only in races, if the user has it enabled in the control options and when DRS or PTP us bit being deployed.
 		var focusedDriverClasses = cx({
 			'hide-flags': UI.state.activeWidgets.FocusedDriver.disableFlags,
 			'focused-driver-info': true,
-			'slit-out': UI.state.sessionInfo.type.match(/^race/i) && UI.state.controllerOptions.options.tvStyleAnimations.value === "true"
+			'slit-out': UI.state.sessionInfo.type.match(/^race/i) && UI.state.controllerOptions.options.tvStyleAnimations.value === "true" && !self.state.vehicleInfo.drsEnabled && !self.state.pushToPassInfo.active
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
@@ -1740,7 +1741,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				{ className: 'inner animated slit-in' },
 				React.createElement(
 					'div',
-					{ className: 'top animated fadeInUp delay-2s' },
+					{ className: 'top animated fadeInUp delay-3s' },
 					self.state.pushToPassInfo.allowed ? React.createElement(
 						'div',
 						{ className: 'ptpRemaining' },
@@ -1798,7 +1799,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				React.createElement(
 					'div',
-					{ className: 'bottom animated fadeInDown delay-3s' },
+					{ className: 'bottom animated fadeInDown delay-4s' },
 					self.getExtraInfo()
 				),
 				React.createElement(

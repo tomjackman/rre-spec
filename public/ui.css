@@ -1273,11 +1273,11 @@ select {
   line-height: 2em;
   text-align: center;
 }
-.slit-in {
-  -webkit-animation: slit-in-horizontal 0.45s ease-out both;
-  animation: slit-in-horizontal 0.45s ease-out both;
+.slit-in-commentary {
+  -webkit-animation: slit-in-hor 0.45s ease-out both;
+  animation: slit-in-hor 0.45s ease-out both;
 }
-@-webkit-keyframes slit-in-horizontal {
+@-webkit-keyframes slit-in-hor {
   0% {
     -webkit-transform: translateZ(-800px) rotateX(90deg);
     transform: translateZ(-800px) rotateX(90deg);
@@ -1293,7 +1293,7 @@ select {
     transform: translateZ(0) rotateX(-10);
   }
 }
-@keyframes slit-in-horizontal {
+@keyframes slit-in-hor {
   0% {
     -webkit-transform: translateZ(-800px) rotateX(90deg);
     transform: translateZ(-800px) rotateX(90deg);
@@ -1747,8 +1747,8 @@ pre.preview {
   }
 }
 .slit-in {
-  -webkit-animation: slit-in-horizontal 0.45s ease-out 1s both;
-  animation: slit-in-horizontal 0.45s ease-out 1s both;
+  -webkit-animation: slit-in-horizontal 0.45s ease-out 2s both;
+  animation: slit-in-horizontal 0.45s ease-out 2s both;
 }
 @-webkit-keyframes slit-in-horizontal {
   0% {
