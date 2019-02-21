@@ -257,6 +257,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		var focusedDriverClasses = cx({
 			'hide-flags': UI.state.activeWidgets.FocusedDriver.disableFlags
 			, 'focused-driver-info': true
+			, 'slit-out': UI.state.sessionInfo.type.match(/^race/i) && UI.state.controllerOptions.options.tvStyleAnimations.value === "true"
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
@@ -270,9 +271,9 @@ UI.widgets.FocusedDriver = React.createClass({
 		}
 
 		return (
-			<div className={focusedDriverClasses}>
-				<div className="inner animated fadeIn">
-					<div className="top">
+			<div className={focusedDriverClasses} key={self.state.driverInfo.portalId}>
+				<div className="inner animated slit-in">
+					<div className="top animated fadeInUp delay-2s">
 						{self.state.pushToPassInfo.allowed ?
 							<div className="ptpRemaining">PTP: {self.state.pushToPassInfo.amountLeft}</div>
 							:
@@ -289,9 +290,9 @@ UI.widgets.FocusedDriver = React.createClass({
 					<div className="positionContainer"><div className="position">{driverInfo.scoreInfo.positionOverall}</div></div>
 					<div className="flag-container">
 					{UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
-						<img className="flag animated fadeIn" src={UI.getUserInfo(driverInfo.portalId).avatar} />
+						<img className="flag" src={UI.getUserInfo(driverInfo.portalId).avatar} />
 					:
-						<img className="flag animated fadeIn" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
+						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
 					}
 					</div>
 					<div className="driverInfoDetails">
@@ -318,7 +319,7 @@ UI.widgets.FocusedDriver = React.createClass({
 						}
 					</div>
 
-					<div className="bottom">
+					<div className="bottom animated fadeInDown delay-3s">
 						{self.getExtraInfo()}
 					</div>
 

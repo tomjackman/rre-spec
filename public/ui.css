@@ -1668,6 +1668,84 @@ pre.preview {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
 }
+.animated.delay-10s {
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
+}
+.slit-out {
+  -webkit-animation: slit-out-horizontal 0.5s ease-in 10s both;
+  animation: slit-out-horizontal 0.5s ease-in 10s both;
+}
+@-webkit-keyframes slit-out-horizontal {
+  0% {
+    -webkit-transform: translateZ(0) rotateX(0);
+    transform: translateZ(0) rotateX(0);
+    opacity: 1;
+  }
+  54% {
+    -webkit-transform: translateZ(-160px) rotateX(87deg);
+    transform: translateZ(-160px) rotateX(87deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-800px) rotateX(90deg);
+    transform: translateZ(-800px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+@keyframes slit-out-horizontal {
+  0% {
+    -webkit-transform: translateZ(0) rotateX(0);
+    transform: translateZ(0) rotateX(0);
+    opacity: 1;
+  }
+  54% {
+    -webkit-transform: translateZ(-160px) rotateX(87deg);
+    transform: translateZ(-160px) rotateX(87deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-800px) rotateX(90deg);
+    transform: translateZ(-800px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+.slit-in {
+  -webkit-animation: slit-in-horizontal 0.45s ease-out 1s both;
+  animation: slit-in-horizontal 0.45s ease-out 1s both;
+}
+@-webkit-keyframes slit-in-horizontal {
+  0% {
+    -webkit-transform: translateZ(-800px) rotateX(90deg);
+    transform: translateZ(-800px) rotateX(90deg);
+    opacity: 0;
+  }
+  54% {
+    -webkit-transform: translateZ(-160px) rotateX(87deg);
+    transform: translateZ(-160px) rotateX(87deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(0) rotateX(-10);
+    transform: translateZ(0) rotateX(-10);
+  }
+}
+@keyframes slit-in-horizontal {
+  0% {
+    -webkit-transform: translateZ(-800px) rotateX(90deg);
+    transform: translateZ(-800px) rotateX(90deg);
+    opacity: 0;
+  }
+  54% {
+    -webkit-transform: translateZ(-160px) rotateX(87deg);
+    transform: translateZ(-160px) rotateX(87deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(0) rotateX(-10);
+    transform: translateZ(0) rotateX(-10);
+  }
+}
 /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 .assists .drs {
   position: relative;
@@ -1852,6 +1930,7 @@ pre.preview {
   left: -1.2em;
   height: 1.75em;
   bottom: -0.25em;
+  z-index: -2;
 }
 .focused-driver-info .top .ptpRemaining {
   transform: skew(-10deg);

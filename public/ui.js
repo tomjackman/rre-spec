@@ -1718,7 +1718,8 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		var focusedDriverClasses = cx({
 			'hide-flags': UI.state.activeWidgets.FocusedDriver.disableFlags,
-			'focused-driver-info': true
+			'focused-driver-info': true,
+			'slit-out': UI.state.sessionInfo.type.match(/^race/i) && UI.state.controllerOptions.options.tvStyleAnimations.value === "true"
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
@@ -1733,13 +1734,13 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: focusedDriverClasses },
+			{ className: focusedDriverClasses, key: self.state.driverInfo.portalId },
 			React.createElement(
 				'div',
-				{ className: 'inner animated fadeIn' },
+				{ className: 'inner animated slit-in' },
 				React.createElement(
 					'div',
-					{ className: 'top' },
+					{ className: 'top animated fadeInUp delay-2s' },
 					self.state.pushToPassInfo.allowed ? React.createElement(
 						'div',
 						{ className: 'ptpRemaining' },
@@ -1764,7 +1765,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'flag-container' },
-						UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'flag animated fadeIn', src: UI.getUserInfo(driverInfo.portalId).avatar }) : React.createElement('img', { className: 'flag animated fadeIn', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
+						UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'flag', src: UI.getUserInfo(driverInfo.portalId).avatar }) : React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
 					),
 					React.createElement(
 						'div',
@@ -1797,7 +1798,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				React.createElement(
 					'div',
-					{ className: 'bottom' },
+					{ className: 'bottom animated fadeInDown delay-3s' },
 					self.getExtraInfo()
 				),
 				React.createElement(
