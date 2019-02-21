@@ -723,7 +723,7 @@ var TabledDriver = React.createClass({
 		if (timeDiff > 0 && timeDiff < 1000 && timeDiff > 250) {
 			classes['close'] = true;
 		} else if (timeDiff > 0 && timeDiff < 251) {
-			classes['veryClose animated flash'] = true;
+			classes['veryClose'] = true;
 		}
 		return cx(classes);
 	},
