@@ -19,9 +19,11 @@
 * [Feature] Added pit count, pit status and tyre wear placeholders to beta broadcast panel UI.
 * [Feature] Added tyre icons to the beta broadcast panel UI with green icon for series using dedicated tyres.
 * [Tooling] Switched to new user info endpoint with smaller payloads to improve rendering of user info on screen.
+* [Tooling] Added ADAC GT Masters 2018 team names.
 * [Dev] Changed window reloading key from 'r' to 'F5' to facilitate typing of commentary names.
 * [Feature] Reduced default resolution scaling by 1px.
 * [Feature] Small UI updates to themes with new variable definitions for some UI components.
+* [Feature] Added time differences in qualifying and practise sessions in the beta broadcast panel UI.
 
 ### Version 1.6.1
 * [Bug Fix] Prevented an error being thrown if no local description exists for a track.
