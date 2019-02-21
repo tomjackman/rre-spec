@@ -273,6 +273,11 @@ UI.widgets.FocusedDriver = React.createClass({
 			<div className={focusedDriverClasses}>
 				<div className="inner animated fadeIn">
 					<div className="top">
+						{self.state.pushToPassInfo.allowed ?
+							<div className="ptpRemaining">PTP: {self.state.pushToPassInfo.amountLeft}</div>
+							:
+							null
+						}
 						{self.getPersonalBestTime(driverInfo)}
 						{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 							self.getClassPosition(driverInfo.classId)

@@ -1740,6 +1740,12 @@ UI.widgets.FocusedDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'top' },
+					self.state.pushToPassInfo.allowed ? React.createElement(
+						'div',
+						{ className: 'ptpRemaining' },
+						'PTP: ',
+						self.state.pushToPassInfo.amountLeft
+					) : null,
 					self.getPersonalBestTime(driverInfo),
 					UI.state.controllerOptions.options.multiclass.value === "true" ? self.getClassPosition(driverInfo.classId) : null
 				),

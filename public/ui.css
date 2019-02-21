@@ -110,311 +110,92 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.race-results-bg {
-  font-size: 17px;
+.entries-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.6);
 }
-.race-results .entries-outer {
-  max-height: 40em;
-  overflow: hidden;
-}
-.race-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
-}
-.race-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.race-results {
-  filter: drop-shadow(9px 9px 9px #000000);
+.entries {
   position: fixed;
   top: 50%;
   left: 20%;
   right: 20%;
   -webkit-transform: translate(0, -50%);
   z-index: -1;
-  padding: 0px;
-  color: white;
+  padding: 0.5em;
+  background-color: green;
   white-space: pre;
   font-family: Oswald;
-  width: 60%;
+  width: 70%;
+  max-height: 20em;
+  filter: drop-shadow(9px 9px 9px #000000);
 }
-.race-results .title .text {
-  position: inherit;
-  height: 3em;
-  text-align: right;
-  padding: 0 0.75em 0 0;
-  line-height: 4em;
-  font-size: 25.5px;
-  background: #212121;
-  border-top: 0.25em solid #ffd113;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-  z-index: 0;
-}
-.race-results .title .text .logo {
-  position: absolute;
-  content: url(results/logos/adac-gt-masters.png);
-  height: 2.2em;
-  top: 0.5em;
-  left: 1em;
-  z-index: 1;
-}
-.race-results .race-results-entry {
-  height: 2em;
-  line-height: 2em;
+.entries .entries-title {
+  text-align: center;
+  background-color: red;
   color: white;
-  background: #212121;
-  white-space: nowrap;
-  overflow: hidden;
-  border-bottom: 0.1em solid #ffd113;
+  height: 2em;
 }
-.race-results .race-results-entry.title {
-  padding: 0 0 0 0em;
-  font-size: 18.7px;
+.entries-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  height: 100%;
+  color: white;
 }
-.race-results .race-results-entry.fastest .fastest-time {
-  color: #a3229a;
-}
-.race-results .race-results-entry > div {
-  height: 37px;
-  padding: 0 0 0 5px;
+.entries-driver {
   float: left;
-}
-.race-results .race-results-entry.title .classPosition {
-  color: white;
-  -ms-transform: skew(0deg, 0deg);
-  -webkit-transform: skew(0deg, 0deg);
-  transform: skew(0deg, 0deg);
-}
-.race-results .race-results-entry .position {
-  text-align: center;
-  width: 7%;
   position: relative;
+  height: 2em;
+  font-size: 17px;
+  color: black;
 }
-.race-results .race-results-entry .classPosition {
+.entries-driver .entrySlot,
+.entries-driver .entryFlag,
+.entries-driver .entryName,
+.entries-driver .entryTeam,
+.entries-driver .entryLivery {
+  vertical-align: top;
+  display: inline-block;
+  line-height: 2em;
+  text-align: center;
+  border: 1px solid rgba(96, 125, 139, 0.3);
+  background-color: white;
+}
+.entries-driver .entrySlot {
   width: 10%;
-  position: relative;
-  text-align: center;
-  color: white;
-  right: 0.5em;
-  -ms-transform: skew(-15deg, 0deg);
-  -webkit-transform: skew(-15deg, 0deg);
-  transform: skew(-15deg, 0deg);
+  white-space: nowrap;
 }
-.race-results .race-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
-}
-.race-results .race-results-entry .manufacturer img {
-  position: absolute;
-  top: 0.3em;
-  left: 0.5em;
-  width: 1.5em;
-  height: auto;
-}
-.race-results .race-results-entry .penaltyTime {
+.entries-driver .entryFlag {
   width: 10%;
-  position: relative;
-  text-align: center;
+  padding: 0;
 }
-.race-results .race-results-entry .longName {
-  position: relative;
-  width: 27%;
-  text-overflow: ellipsis;
+.entries-driver .entryFlag img {
+  width: 100%;
+  padding: 0;
+  height: 2em;
+}
+.entries-driver .entryName {
+  width: 30%;
   white-space: nowrap;
-  overflow: hidden;
 }
-.race-results .race-results-entry .shortName {
-  position: relative;
-  width: 17%;
-  text-overflow: ellipsis;
+.entries-driver .entryTeam {
+  width: 30%;
   white-space: nowrap;
-  overflow: hidden;
 }
-.race-results .race-results-entry .raceResultTeam {
-  position: relative;
+.entries-driver .entryLivery {
   width: 20%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  padding: 0;
 }
-.race-results .race-results-entry .livery {
-  width: 10%;
-  position: relative;
-}
-.race-results .race-results-entry .livery img {
-  position: relative;
-  height: 3em;
-  right: 1.5em;
-  top: -0.5em;
-}
-.race-results .race-results-entry .fastest-time,
-.race-results .race-results-entry .lap-time {
-  width: 10%;
-  text-align: center;
-  position: relative;
-}
-.winnerColumn {
-  position: fixed;
-  font-size: 17px;
-  width: 14.5em;
-  background: black;
-  left: 2em;
-  height: 13em;
-  top: 40%;
-  -webkit-transform: translate(0, -40%);
-  z-index: 2;
-  border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, #ffd113 90%);
-}
-.winnerColumn .winnerTitle {
-  font-size: 25.5px;
-  color: white;
+.entries-driver .entryLivery img {
   height: 2em;
-  text-align: center;
-  line-height: 2em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.winnerColumn .winnerImageContainer {
-  left: 7em;
-  width: 7em;
-  z-index: 2;
-}
-.winnerColumn .winnerImageContainer img {
-  width: 7em;
-  filter: drop-shadow(13px 13px 13px #000000);
-}
-.winnerColumn .winner {
-  font-size: 20.4px;
-  text-align: center;
-  line-height: 1.5em;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
   width: 100%;
-  height: 1.5em;
-  color: white;
-}
-.winnerColumn .livery {
-  position: fixed;
-  left: 2em;
-  top: 90%;
-  -webkit-transform: translate(0, -90%);
-  z-index: 1;
-}
-.winnerColumn .livery img {
-  width: 12.5em;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
-}
-.winnerColumn .driverFlagContainer {
-  position: fixed;
-  content: url(results/logos/adac-gt-masters.png);
-  width: 5em;
-  top: 35%;
-  -webkit-transform: translate(0, -35%);
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-  left: 9em;
-  z-index: 1;
-}
-.winnerColumn .driverName {
-  font-size: 15.3px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 2em;
-  top: 7%;
-  line-height: 1.5em;
-  color: white;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0.25em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn {
-  position: fixed;
-  font-size: 17px;
-  width: 14.5em;
-  background: black;
-  right: 2em;
-  top: 40%;
-  -webkit-transform: translate(0, -40%);
-  z-index: 2;
-  border-radius: 0.5em;
-  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, #71229a 90%);
-}
-.fastestDriverColumn .fastestTitle {
-  font-size: 25.5px;
-  color: white;
-  height: 2em;
-  text-align: center;
-  line-height: 2em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn .fastestDriverImageContainer {
-  left: 7em;
-  width: 7em;
-  z-index: 2;
-}
-.fastestDriverColumn .fastestDriverImageContainer img {
-  width: 7em;
-  filter: drop-shadow(13px 13px 13px #000000);
-}
-.fastestDriverColumn .fastestDriverLogo {
-  font-size: 20.4px;
-  text-align: center;
-  line-height: 1.5em;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  width: 100%;
-  height: 1.5em;
-  color: white;
-}
-.fastestDriverColumn .fastestDriverLivery {
-  position: fixed;
-  left: 2em;
-  top: 90%;
-  -webkit-transform: translate(0, -90%);
-  z-index: 1;
-}
-.fastestDriverColumn .fastestDriverLivery img {
-  width: 12.5em;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn .fastestDriverFlagContainer {
-  position: fixed;
-  content: url(results/logos/adac-gt-masters.png);
-  width: 5em;
-  top: 35%;
-  -webkit-transform: translate(0, -35%);
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-  left: 9em;
-  z-index: 1;
-}
-.fastestDriverColumn .fastestDriverName {
-  font-size: 15.3px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 2em;
-  top: 7%;
-  line-height: 1.5em;
-  color: white;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0.25em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+  padding: 0;
 }
 @font-face {
   font-family: 'Hel';
@@ -738,7 +519,7 @@ select {
   font-weight: bold;
   filter: drop-shadow(2px 2px 2px #000000);
   padding: 4px 6px;
-  background: #212121;
+  background: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, #e21d38 99%);
 }
 @-webkit-keyframes "ani_4" {
   0% {
@@ -1450,9 +1231,9 @@ select {
 }
 .alert .raceControlAlert {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #212121;
-  background: #ffd113;
-  color: #212121;
+  border-top: 3px solid #e21d38;
+  background: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, #e21d38 90%);
+  color: white;
   font-size: 18.7px;
   padding: 0.05em;
 }
@@ -1509,9 +1290,9 @@ select {
 }
 .commentaryNameAlert .commentaryTitle {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #212121;
-  background: #ffd113;
-  color: #212121;
+  border-top: 3px solid #e21d38;
+  background: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, #e21d38 90%);
+  color: white;
   font-size: 18.7px;
   padding: 0.05em;
   top: 0.1em;
@@ -1546,14 +1327,14 @@ select {
 }
 .compare-race .delta .battle {
   text-transform: uppercase;
-  border-top: 0.25em solid #ffd113;
+  border-top: 0.25em solid #e21d38;
   color: white;
   padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
   transform: skew(-10deg);
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(31, 31, 30, 0.9);
   left: 0.3em;
 }
 .compare-race .delta .value {
@@ -1565,7 +1346,7 @@ select {
   bottom: 0.25em;
   left: -0.05em;
   transform: skew(-10deg);
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(31, 31, 30, 0.9);
 }
 .compare-race .delta .inner {
   position: absolute !important;
@@ -1618,10 +1399,10 @@ select {
 }
 .compare-race .inner .top .speed {
   transform: skew(-10deg);
-  background: #ffd113;
+  background: #ff9800;
   line-height: 0.5em;
   padding: 0.5em 0.5em;
-  color: #212121;
+  color: black;
   width: 5em;
   z-index: 0;
   height: 1.5em;
@@ -1647,8 +1428,8 @@ select {
   line-height: 3.75em;
 }
 .compare-race .inner .main .comparePositionContainer {
-  background: #ffd113;
-  color: #212121;
+  background: #e21d38;
+  color: white;
   width: 3.25em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -1656,17 +1437,17 @@ select {
   line-height: 3.5em;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  border-bottom: 0.1em solid #ffd113;
+  border-bottom: 0.1em solid #e21d38;
 }
 .compare-race .inner .main .comparePositionContainer .comparePosition {
   font-size: 34px;
 }
 .compare-race .inner .main .compareName {
-  background: #212121;
+  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
   color: white;
   padding: 0 1em;
   min-width: 16em;
-  border-bottom: 0.1em solid #ffd113;
+  border-bottom: 0.1em solid #e21d38;
 }
 .compare-race .inner .main .compareName .name {
   font-size: 22.1px;
@@ -1691,7 +1472,7 @@ select {
   position: relative;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid #e21d38;
 }
 .compare-race .inner .main .manufacturer img {
   position: absolute;
@@ -1708,8 +1489,8 @@ select {
 }
 .compare-race .inner .bottom .team {
   transform: skew(-10deg);
-  background: #ffd113;
-  color: #212121;
+  background: rgba(31, 31, 30, 0.9);
+  color: white;
   height: 1.5em;
   text-transform: uppercase;
   top: 3.5em;
@@ -1725,7 +1506,7 @@ select {
 }
 .compare-race .inner .compareAssists .drs.active .icon {
   transform: skew(-10deg);
-  background: rgba(76, 175, 80, 0.8);
+  background: rgba(76, 175, 80, 0.7);
   position: relative;
   top: -6.5em;
   left: 0.75em;
@@ -1773,92 +1554,31 @@ select {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
   z-index: 1;
 }
-.entries-bg {
+.error-screen {
+  z-index: 2147483627;
   position: fixed;
+  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
 }
-.entries {
+.error-screen pre {
   position: fixed;
   top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0.5em;
-  background-color: green;
-  white-space: pre;
-  font-family: Oswald;
-  width: 70%;
-  max-height: 20em;
-  filter: drop-shadow(9px 9px 9px #000000);
-}
-.entries .entries-title {
-  text-align: center;
-  background-color: red;
-  color: white;
-  height: 2em;
-}
-.entries-container ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  flex-flow: column wrap;
-  height: 100%;
-  color: white;
-}
-.entries-driver {
-  float: left;
-  position: relative;
-  height: 2em;
+  left: 50%;
+  color: #fff;
   font-size: 17px;
-  color: black;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+  font-family: Inconsolata;
 }
-.entries-driver .entrySlot,
-.entries-driver .entryFlag,
-.entries-driver .entryName,
-.entries-driver .entryTeam,
-.entries-driver .entryLivery {
-  vertical-align: top;
-  display: inline-block;
-  line-height: 2em;
-  text-align: center;
-  border: 1px solid rgba(96, 125, 139, 0.3);
-  background-color: white;
-}
-.entries-driver .entrySlot {
-  width: 10%;
-  white-space: nowrap;
-}
-.entries-driver .entryFlag {
-  width: 10%;
-  padding: 0;
-}
-.entries-driver .entryFlag img {
-  width: 100%;
-  padding: 0;
-  height: 2em;
-}
-.entries-driver .entryName {
-  width: 30%;
-  white-space: nowrap;
-}
-.entries-driver .entryTeam {
-  width: 30%;
-  white-space: nowrap;
-}
-.entries-driver .entryLivery {
-  width: 20%;
-  padding: 0;
-}
-.entries-driver .entryLivery img {
-  height: 2em;
-  width: 100%;
-  padding: 0;
+pre.preview {
+  background: #000;
+  white-space: pre;
+  text-align: left;
+  font-family: 'Inconsolata';
+  padding: 20px;
 }
 .event-info-bg {
   position: fixed;
@@ -1870,7 +1590,7 @@ select {
   background: rgba(0, 0, 0, 0.6);
 }
 .event-info {
-  background: #212121;
+  background: white;
   font-size: 17px;
   width: 50em;
   position: fixed;
@@ -1883,11 +1603,11 @@ select {
   white-space: pre;
   font-family: Oswald;
   border-radius: 10px;
-  border-top: 0.5em solid #ffd113;
-  border-bottom: 0.5em solid #ffd113;
+  border-top: 0.5em solid #e21d38;
+  border-bottom: 0.5em solid #e21d38;
 }
 .event-info .serverName {
-  color: #ffd113;
+  color: #323433;
   text-align: center;
   font-size: 25.5px;
   padding: 20px;
@@ -1921,7 +1641,7 @@ select {
   width: 70px;
 }
 .event-info .serverTrackName {
-  color: #ffd113;
+  color: #323433;
   text-align: center;
   font-size: 25.5px;
   padding: 15px;
@@ -1930,7 +1650,7 @@ select {
   margin: auto;
 }
 .event-info .trackDescription {
-  color: white;
+  color: #323433;
   display: block;
   width: 100%;
   font-size: 17px;
@@ -1943,7 +1663,7 @@ select {
 .event-info .weather .weatherIcons {
   display: flex;
   font-size: 17px;
-  color: white;
+  color: #323433;
   justify-content: space-around;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
@@ -2121,6 +1841,7 @@ select {
   height: 4em;
   line-height: 3.25em;
 }
+.focused-driver-info .ptpRemaining,
 .focused-driver-info .best-time,
 .focused-driver-info .positionInClass {
   vertical-align: top;
@@ -2131,6 +1852,17 @@ select {
   left: -1.2em;
   height: 1.75em;
   bottom: -0.25em;
+}
+.focused-driver-info .top .ptpRemaining {
+  transform: skew(-10deg);
+  line-height: 0.5em;
+  background: rgba(66, 165, 245, 0.7);
+  padding: 0.5em 0.5em;
+  color: white;
+  width: 4em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
 }
 .focused-driver-info .top .best-time {
   transform: skew(-10deg);
@@ -2146,7 +1878,7 @@ select {
 .focused-driver-info .top .positionInClass {
   transform: skew(-15deg);
   line-height: 0.5em;
-  background: #ffd113;
+  background: #e21d38;
   padding: 0.5em 0.5em;
   color: white;
   width: 3em;
@@ -2159,8 +1891,8 @@ select {
   background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
 }
 .focused-driver-info .main .positionContainer {
-  background: #ffd113;
-  color: #212121;
+  background: rgba(31, 31, 30, 0.9);
+  color: white;
   width: 5em;
   padding-left: 0.7em;
   text-align: center;
@@ -2168,17 +1900,17 @@ select {
   line-height: 3.7em;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  border-bottom: 0.1em solid #ffd113;
+  border-bottom: 0.1em solid #e21d38;
 }
 .focused-driver-info .main .positionContainer .position {
   font-size: 51px;
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: #212121;
+  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
   text-transform: uppercase;
   padding: 0px 1em;
   min-width: 23em;
-  border-bottom: 0.1em solid #ffd113;
+  border-bottom: 0.1em solid #e21d38;
 }
 .focused-driver-info .main .driverInfoDetails .name {
   line-height: 2em;
@@ -2189,7 +1921,7 @@ select {
   font-size: 16.15px;
   line-height: 0.7em;
   position: relative;
-  color: #ffd113;
+  color: white;
   text-transform: uppercase;
 }
 .focused-driver-info .main .vehicle {
@@ -2319,9 +2051,9 @@ select {
 .multiclass-standings .driver .positionContainer {
   margin: 0;
   font-size: 17px;
-  background: #ffd113;
+  background: rgba(226, 29, 56, 0.9);
   display: inline-block;
-  color: #212121;
+  color: white;
   font-size: 1em;
   text-align: center;
   width: 2em;
@@ -2338,7 +2070,7 @@ select {
   height: 2em;
   padding: 0.25em;
   z-index: 1;
-  border-right: 1px solid #ffd113;
+  border-right: 1px solid rgba(226, 29, 56, 0.9);
 }
 .multiclass-standings .driver .manufacturer img {
   transform: skew(15deg, 0deg);
@@ -2350,7 +2082,7 @@ select {
   font-family: Oswald;
   display: inline-block;
   color: white;
-  background: #212121;
+  background: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, #e21d38 99%);
   width: 4em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -2365,8 +2097,8 @@ select {
 }
 .multiclass-standings .driver .meta-info {
   font-size: 17px;
-  background: white;
-  color: #212121;
+  background: rgba(31, 31, 30, 0.9);
+  color: white;
   font-family: Oswald;
   display: inline-block;
   height: 1.2em;
@@ -2412,31 +2144,311 @@ select {
   font-size: 20.4px;
   background: #e21d38;
 }
-.error-screen {
-  z-index: 2147483627;
+.race-results-bg {
+  font-size: 17px;
   position: fixed;
-  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
-.error-screen pre {
+.race-results .entries-outer {
+  max-height: 40em;
+  overflow: hidden;
+}
+.race-results .entries-outer .entries-inner {
+  top: 0;
+  position: relative;
+  -webkit-transition: top 15s linear;
+}
+.race-results .livery {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.race-results {
+  filter: drop-shadow(9px 9px 9px #000000);
   position: fixed;
   top: 50%;
-  left: 50%;
-  color: #fff;
-  font-size: 17px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  line-height: 1.5;
-  font-family: Inconsolata;
-}
-pre.preview {
-  background: #000;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
+  z-index: -1;
+  padding: 0px;
+  color: white;
   white-space: pre;
-  text-align: left;
-  font-family: 'Inconsolata';
-  padding: 20px;
+  font-family: Oswald;
+  width: 60%;
+}
+.race-results .title .text {
+  position: inherit;
+  height: 3em;
+  text-align: right;
+  padding: 0 0.75em 0 0;
+  line-height: 4em;
+  font-size: 25.5px;
+  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  border-top: 0.25em solid #e21d38;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  z-index: 0;
+}
+.race-results .title .text .logo {
+  position: absolute;
+  content: url(results/logos/base.png);
+  height: 2.2em;
+  top: 0.5em;
+  left: 1em;
+  z-index: 1;
+}
+.race-results .race-results-entry {
+  height: 2em;
+  line-height: 2em;
+  color: white;
+  background: rgba(31, 31, 30, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  border-bottom: 0.1em solid #e21d38;
+}
+.race-results .race-results-entry.title {
+  padding: 0 0 0 0em;
+  font-size: 18.7px;
+}
+.race-results .race-results-entry.fastest .fastest-time {
+  color: #a3229a;
+}
+.race-results .race-results-entry > div {
+  height: 37px;
+  padding: 0 0 0 5px;
+  float: left;
+}
+.race-results .race-results-entry.title .classPosition {
+  color: white;
+  -ms-transform: skew(0deg, 0deg);
+  -webkit-transform: skew(0deg, 0deg);
+  transform: skew(0deg, 0deg);
+}
+.race-results .race-results-entry .position {
+  text-align: center;
+  width: 7%;
+  position: relative;
+}
+.race-results .race-results-entry .classPosition {
+  width: 10%;
+  position: relative;
+  text-align: center;
+  color: white;
+  right: 0.5em;
+  -ms-transform: skew(-15deg, 0deg);
+  -webkit-transform: skew(-15deg, 0deg);
+  transform: skew(-15deg, 0deg);
+}
+.race-results .race-results-entry .manufacturer {
+  width: 5%;
+  position: relative;
+}
+.race-results .race-results-entry .manufacturer img {
+  position: absolute;
+  top: 0.3em;
+  left: 0.5em;
+  width: 1.5em;
+  height: auto;
+}
+.race-results .race-results-entry .penaltyTime {
+  width: 10%;
+  position: relative;
+  text-align: center;
+}
+.race-results .race-results-entry .longName {
+  position: relative;
+  width: 27%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.race-results .race-results-entry .shortName {
+  position: relative;
+  width: 17%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.race-results .race-results-entry .raceResultTeam {
+  position: relative;
+  width: 20%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.race-results .race-results-entry .livery {
+  width: 10%;
+  position: relative;
+}
+.race-results .race-results-entry .livery img {
+  position: relative;
+  height: 3em;
+  right: 1.5em;
+  top: -0.5em;
+}
+.race-results .race-results-entry .fastest-time,
+.race-results .race-results-entry .lap-time {
+  width: 10%;
+  text-align: center;
+  position: relative;
+}
+.winnerColumn {
+  position: fixed;
+  font-size: 17px;
+  width: 14.5em;
+  background: black;
+  left: 2em;
+  height: 13em;
+  top: 40%;
+  -webkit-transform: translate(0, -40%);
+  z-index: 2;
+  border-radius: 0.5em;
+  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, #e21d38 90%);
+}
+.winnerColumn .winnerTitle {
+  font-size: 25.5px;
+  color: white;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+}
+.winnerColumn .winnerImageContainer {
+  left: 7em;
+  width: 7em;
+  z-index: 2;
+}
+.winnerColumn .winnerImageContainer img {
+  width: 7em;
+  filter: drop-shadow(13px 13px 13px #000000);
+}
+.winnerColumn .winner {
+  font-size: 20.4px;
+  text-align: center;
+  line-height: 1.5em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  width: 100%;
+  height: 1.5em;
+  color: white;
+}
+.winnerColumn .livery {
+  position: fixed;
+  left: 2em;
+  top: 90%;
+  -webkit-transform: translate(0, -90%);
+  z-index: 1;
+}
+.winnerColumn .livery img {
+  width: 12.5em;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
+}
+.winnerColumn .driverFlagContainer {
+  position: fixed;
+  content: url(results/logos/base.png);
+  width: 5em;
+  top: 35%;
+  -webkit-transform: translate(0, -35%);
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+  left: 9em;
+  z-index: 1;
+}
+.winnerColumn .driverName {
+  font-size: 15.3px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 2em;
+  top: 7%;
+  line-height: 1.5em;
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0.25em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+}
+.fastestDriverColumn {
+  position: fixed;
+  font-size: 17px;
+  width: 14.5em;
+  background: black;
+  right: 2em;
+  top: 40%;
+  -webkit-transform: translate(0, -40%);
+  z-index: 2;
+  border-radius: 0.5em;
+  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, #71229a 90%);
+}
+.fastestDriverColumn .fastestTitle {
+  font-size: 25.5px;
+  color: white;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+}
+.fastestDriverColumn .fastestDriverImageContainer {
+  left: 7em;
+  width: 7em;
+  z-index: 2;
+}
+.fastestDriverColumn .fastestDriverImageContainer img {
+  width: 7em;
+  filter: drop-shadow(13px 13px 13px #000000);
+}
+.fastestDriverColumn .fastestDriverLogo {
+  font-size: 20.4px;
+  text-align: center;
+  line-height: 1.5em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  width: 100%;
+  height: 1.5em;
+  color: white;
+}
+.fastestDriverColumn .fastestDriverLivery {
+  position: fixed;
+  left: 2em;
+  top: 90%;
+  -webkit-transform: translate(0, -90%);
+  z-index: 1;
+}
+.fastestDriverColumn .fastestDriverLivery img {
+  width: 12.5em;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
+}
+.fastestDriverColumn .fastestDriverFlagContainer {
+  position: fixed;
+  content: url(results/logos/base.png);
+  width: 5em;
+  top: 35%;
+  -webkit-transform: translate(0, -35%);
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+  left: 9em;
+  z-index: 1;
+}
+.fastestDriverColumn .fastestDriverName {
+  font-size: 15.3px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 2em;
+  top: 7%;
+  line-height: 1.5em;
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0.25em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
 }
 .overallQuai {
   font-size: 17px;
@@ -2480,15 +2492,15 @@ pre.preview {
   padding: 0 0.75em 0 0;
   line-height: 4em;
   font-size: 25.5px;
-  background: #212121;
-  border-top: 0.25em solid #ffd113;
+  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  border-top: 0.25em solid #e21d38;
   text-transform: uppercase;
   margin-bottom: 0.5em;
   z-index: 0;
 }
 .qualify-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/adac-gt-masters.png);
+  content: url(results/logos/base.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -2498,10 +2510,10 @@ pre.preview {
   height: 2em;
   line-height: 2em;
   color: white;
-  background: #212121;
+  background: rgba(31, 31, 30, 0.9);
   white-space: nowrap;
   overflow: hidden;
-  border-bottom: 0.1em solid #ffd113;
+  border-bottom: 0.1em solid #e21d38;
 }
 .qualify-results .qualify-results-entry.title {
   padding: 0 0 0 0em;
@@ -2594,9 +2606,9 @@ pre.preview {
 }
 .safetyCarDeployedContainer .safetyCarDeployed {
   font-family: Oswald;
-  background: #ffd113;
+  background: rgba(255, 193, 7, 0.9);
   text-transform: uppercase;
-  color: #212121;
+  color: black;
   height: 2em;
   width: 7em;
   line-height: 2em;
@@ -2618,9 +2630,9 @@ pre.preview {
 }
 .safetyAlert .raceControl {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #212121;
-  background: #ffd113;
-  color: #212121;
+  border-top: 3px solid #e21d38;
+  background: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, #e21d38 90%);
+  color: white;
   font-size: 18.7px;
   padding: 0.05em;
   top: 0.1em;
@@ -2662,14 +2674,14 @@ pre.preview {
 }
 .session-info .inner .sessionName {
   min-width: 4em;
-  background: #212121;
+  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
   text-transform: uppercase;
-  border-top: 0.2em solid #ffd113;
-  color: #ffd113;
+  border-top: 0.2em solid #e21d38;
+  color: white;
 }
 .session-info .inner .timer {
   min-width: 5em;
-  border-top: 0.2em solid #ffd113;
+  border-top: 0.2em solid #e21d38;
   background: white;
   text-transform: uppercase;
   color: #323433;
@@ -2691,7 +2703,7 @@ pre.preview {
 .session-info .inner .countdown {
   padding: 0em 0.3em;
   min-width: 4em;
-  border-top: 0.2em solid #ffd113;
+  border-top: 0.2em solid #e21d38;
   background: white;
   text-transform: uppercase;
   color: #323433;
@@ -2722,7 +2734,7 @@ pre.preview {
   font-size: 17px;
 }
 .session-info .inner .checkered img {
-  border-top: 0.2em solid #ffd113;
+  border-top: 0.2em solid #e21d38;
   height: 2em;
   width: 4em;
   z-index: 2;
@@ -2730,8 +2742,8 @@ pre.preview {
 .session-info .inner .serverName {
   margin: 0;
   min-width: 4em;
-  border-top: 0.2em solid #ffd113;
-  border-left: 0.1em solid #ffd113;
+  border-top: 0.2em solid #e21d38;
+  border-left: 0.1em solid #e21d38;
   background: white;
   text-transform: uppercase;
   color: #323433;
@@ -2800,12 +2812,12 @@ pre.preview {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   color: white;
-  background: #212121;
+  background: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, #e21d38 99%);
 }
 .track-map .dot .driverName {
   position: relative;
   top: -3.5em;
-  background-color: #212121;
+  background-color: rgba(38, 50, 56, 0.8);
   width: 6em;
 }
 .track-map .dot .manufacturer {
@@ -2854,7 +2866,7 @@ pre.preview {
   z-index: 1;
 }
 .track-map .dot.active {
-  background: #ffd113;
+  background: #4caf50;
   color: #4caf50;
   z-index: 2;
 }
