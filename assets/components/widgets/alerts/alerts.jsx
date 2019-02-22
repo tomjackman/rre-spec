@@ -6,11 +6,11 @@ UI.widgets.Alert = React.createClass({
 		var self = this;
     var event = self.props.event;
 
-    var driveThroughPenalty = "a Drive Through Penalty has been awarded for ";
+    var driveThroughPenalty = "Drive Through Penalty, ";
 
-    var stopAndGoPenalty = "a Stop & Go Penalty has been awarded for ";
+    var stopAndGoPenalty = "Stop & Go Penalty, ";
 
-    var disqualification = "has been disqualified for ";
+    var disqualification = "Disqualified, ";
 
     var penaltyMeanings = {
       // Drive Through
@@ -22,7 +22,7 @@ UI.widgets.Alert = React.createClass({
           text: driveThroughPenalty + "Speeding in the Pitlane"
         },
         '3': {
-          text: driveThroughPenalty + "a False Start"
+          text: driveThroughPenalty + "False Start"
         },
         '4': {
           text: driveThroughPenalty + "Ignoring Blue Flags"
@@ -58,7 +58,7 @@ UI.widgets.Alert = React.createClass({
       // Pitstop
       '2': {
         '1': {
-          text: "a Mandatory Pit was not taken within the Pitstop Window"
+          text: "Mandatory Pit not taken within the Pitstop Window"
         }
       },
       // Time Penalty
@@ -68,16 +68,16 @@ UI.widgets.Alert = React.createClass({
       // Slowdown Penalty
       '4': {
         '1': {
-          text: "a Slow Down Penalty has been awarded for track limits abuse"
+          text: "Slow Down Penalty, track limits abuse"
         },
         '2': {
-          text: "a Slow Down Penalty has been awarded for continuing to abuse track limits"
+          text: "Slow Down Penalty, continuing to abuse track limits"
         }
       },
       // Disqualified
       '5': {
         '0': {
-          text: disqualification + "a false start"
+          text: disqualification + "false start"
         },
         '1': {
           text: disqualification + "speeding in the pitlane"
@@ -117,9 +117,9 @@ UI.widgets.Alert = React.createClass({
         {UI.state.activeWidgets.Alert.active && event != null && event.driverName != null && penaltyMeanings[event.type] != null && penaltyMeanings[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null ?
         <div>
           {UI.state.controllerOptions.options.showSlowDownAlerts.value === "true" || event.type != 4 ?
-            <div className={"alert animated fadeInRight "+(event.removing ? 'removing' : '')}>
+            <div key={event.driverName} className={"alert animated fadeInRight "+(event.removing ? 'removing' : '')}>
               <div className="raceControlAlert">Stewards</div>
-        			<div className="alertMessage">Incident involving {event.driverName}, {penaltyMeanings[event.type][event.reason].text}</div>
+        			<div className="alertMessage">{event.driverName} - {penaltyMeanings[event.type][event.reason].text}</div>
             </div>
           :
             null
