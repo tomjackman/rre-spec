@@ -9,6 +9,7 @@
 * [Feature] Set qualifying results table scroll delay to 60% of the qualifying table display length (config setting) instead of a constant 10 seconds.
 * [Feature] Add raceroom special event theme.
 * [Feature] Tweaked ADAC GT Masters theme.
+* [Feature] Reduced the amount of text shown in alerts from the stewards.
 * [Feature] Allow slow down alerts to be disabled in races (now disabled by default for less noise).
 * [Feature] Added country flag and name to new broadcast controller UI.
 * [Feature] Added damage indicator to new broadcast controller UI.
