@@ -73,6 +73,12 @@ UI.widgets.CompareRace = React.createClass({
 	formatTime: UI.formatTime,
 	render: function() {
 		var self = this;
+
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
+			return null;
+		}
+
 		if (!UI.state.sessionInfo.type.match(/^RACE/)) {
 			return null;
 		}
@@ -133,11 +139,6 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			'animated fadeIn': true
 		};
 		classes[self.props.position] = true;
-
-		// hide when the event info widget is open.
-		if (UI.state.activeWidgets.EventInfo.active === true) {
-			return null;
-		}
 
 		return (
 			<div className={cx(classes)}>
