@@ -1,3 +1,6 @@
+### Version 1.7.1
+* [Bug Fix] Fixed a bug where the compare race delta timer would not hide when the event info widget was shown.
+
 ### Version 1.7.0
 * [Feature] Set the new broadcast controller as the default.
 * [Feature] Added 'Code 60' indicator in race sessions as used in the 24H series.
