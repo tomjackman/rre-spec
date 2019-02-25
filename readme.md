@@ -1,9 +1,9 @@
 # R3E TV Overlay
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/S4DGAMofoE4/0.jpg)](https://www.youtube.com/watch?v=S4DGAMofoE4&feature=youtu.be&t=951)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/8YHOo2PFTso/0.jpg)](https://youtu.be/8YHOo2PFTso?t=1368)
 
 ### Changelog
-[Version Changelogs](changelog.md).
+* [Version Changelogs](changelog.md)
 
 ## Getting Started
 1. Install http://nodejs.org/.
