@@ -47,7 +47,7 @@ var r3eClassColours = {
     },
     1712: {
       Name: "Touring Classics",
-      colour: "rgba(255, 120, 0, 0.8)",
+      colour: "rgba(27, 94, 32, 0.8)",
       Id: 1712
     },
     1713: {
@@ -107,7 +107,7 @@ var r3eClassColours = {
     },
     3499: {
       Name: "DTM 1992",
-      colour: "rgba(255, 120, 0, 0.8)",
+      colour: "rgba(27, 94, 32, 0.8)",
       Id: 3499
     },
     3905: {
@@ -152,7 +152,7 @@ var r3eClassColours = {
     },
     5234: {
       Name: "Audi TT RS cup",
-      colour: "rgba(62, 63, 58, 0.8)",
+      colour: "rgba(183, 28, 28, 0.8)",
       Id: 5234
     },
     5262: {
@@ -227,7 +227,7 @@ var r3eClassColours = {
     },
     6783: {
       Name: "Esports WTCR Prologue",
-      colour: "rgba(30, 21, 21, 0.8)",
+      colour: "rgba(66, 66, 66, 0.8)",
       Id: 6783
     },
     6794: {
@@ -237,7 +237,7 @@ var r3eClassColours = {
     },
     7009: {
       Name: "WTCR 2018",
-      colour: "rgba(30, 21, 21, 0.8)",
+      colour: "rgba(66, 66, 66, 0.8)",
       Id: 7009
     },
     7041: {
