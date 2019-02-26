@@ -1,7 +1,8 @@
 ### Version 1.7.1
 * [Bug Fix] Fixed a bug where the compare race delta timer would not hide when the event info widget was shown.
 * [Bug Fix] Fixed the delta timer of the compare driver widget in the adac gt masters theme have the wrong colour.
-* [Bug Fix] Fixed the commentary widget animation entry positioning to center.
+* [Bug Fix] Fixed the commentary widget animation entry positioning to be in the center.
+* [Bug Fix] Fixed a bug with the lap count for the leading driver in the broadcast control panel in race sessions.
 * [Feature] Add new multiclass colours for some VLN series classes.
 
 ### Version 1.7.0
