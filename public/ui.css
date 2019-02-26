@@ -1492,42 +1492,6 @@ select {
   line-height: 2em;
   text-align: center;
 }
-.slit-in-commentary {
-  -webkit-animation: slit-in-hor 0.45s ease-out both;
-  animation: slit-in-hor 0.45s ease-out both;
-}
-@-webkit-keyframes slit-in-hor {
-  0% {
-    -webkit-transform: translateZ(-800px) rotateX(90deg);
-    transform: translateZ(-800px) rotateX(90deg);
-    opacity: 0;
-  }
-  54% {
-    -webkit-transform: translateZ(-160px) rotateX(87deg);
-    transform: translateZ(-160px) rotateX(87deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateZ(0) rotateX(-10);
-    transform: translateZ(0) rotateX(-10);
-  }
-}
-@keyframes slit-in-hor {
-  0% {
-    -webkit-transform: translateZ(-800px) rotateX(90deg);
-    transform: translateZ(-800px) rotateX(90deg);
-    opacity: 0;
-  }
-  54% {
-    -webkit-transform: translateZ(-160px) rotateX(87deg);
-    transform: translateZ(-160px) rotateX(87deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateZ(0) rotateX(-10);
-    transform: translateZ(0) rotateX(-10);
-  }
-}
 .commentaryNameAlert {
   font-size: 18.7px;
   font-family: Oswald;

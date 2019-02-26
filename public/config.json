@@ -13,9 +13,9 @@
       "type": "checkbox"
     },
     "tvStyleAnimations": {
-      "displayName": "Use TV Style Animations",
+      "displayName": "Fade Out Driver Info In Race",
       "value": "true",
-      "tooltip": "Auto-hide the driver information widgets on screen after a few seconds. (Default: true).",
+      "tooltip": "Auto-hide the driver information widgets on screen after a few seconds in race sessions. (Default: true).",
       "type": "checkbox"
     },
     "showStandingsManufacturer": {

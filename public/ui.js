@@ -92,7 +92,7 @@ var r3eClassColours = {
     },
     1712: {
       Name: "Touring Classics",
-      colour: "rgba(255, 120, 0, 0.8)",
+      colour: "rgba(27, 94, 32, 0.8)",
       Id: 1712
     },
     1713: {
@@ -152,7 +152,7 @@ var r3eClassColours = {
     },
     3499: {
       Name: "DTM 1992",
-      colour: "rgba(255, 120, 0, 0.8)",
+      colour: "rgba(27, 94, 32, 0.8)",
       Id: 3499
     },
     3905: {
@@ -197,7 +197,7 @@ var r3eClassColours = {
     },
     5234: {
       Name: "Audi TT RS cup",
-      colour: "rgba(62, 63, 58, 0.8)",
+      colour: "rgba(183, 28, 28, 0.8)",
       Id: 5234
     },
     5262: {
@@ -272,7 +272,7 @@ var r3eClassColours = {
     },
     6783: {
       Name: "Esports WTCR Prologue",
-      colour: "rgba(30, 21, 21, 0.8)",
+      colour: "rgba(66, 66, 66, 0.8)",
       Id: 6783
     },
     6794: {
@@ -282,7 +282,7 @@ var r3eClassColours = {
     },
     7009: {
       Name: "WTCR 2018",
-      colour: "rgba(30, 21, 21, 0.8)",
+      colour: "rgba(66, 66, 66, 0.8)",
       Id: 7009
     },
     7041: {
@@ -815,7 +815,7 @@ UI.widgets.CommentaryNames = React.createClass({
 
     return React.createElement(
       "div",
-      { className: "commentaryNameAlert slit-in-commentary" },
+      { className: "commentaryNameAlert animated fadeIn" },
       React.createElement(
         "div",
         { className: "commentaryTitle" },
@@ -905,6 +905,12 @@ UI.widgets.CompareRace = React.createClass({
 	formatTime: UI.formatTime,
 	render: function () {
 		var self = this;
+
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
+			return null;
+		}
+
 		if (!UI.state.sessionInfo.type.match(/^RACE/)) {
 			return null;
 		}
@@ -975,11 +981,6 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			'animated fadeIn': true
 		};
 		classes[self.props.position] = true;
-
-		// hide when the event info widget is open.
-		if (UI.state.activeWidgets.EventInfo.active === true) {
-			return null;
-		}
 
 		return React.createElement(
 			'div',
@@ -1809,7 +1810,11 @@ UI.widgets.FocusedDriver = React.createClass({
 						'div',
 						{ className: cx({ 'ptp': true, 'active': self.state.pushToPassInfo.active }) },
 						self.getPtpState(),
-						React.createElement(
+						UI.state.sessionInfo.type === 'PRACTICE' ? React.createElement(
+							'div',
+							{ className: 'text' },
+							'Remaining - \u221E'
+						) : React.createElement(
 							'div',
 							{ className: 'text' },
 							'Remaining - ',
@@ -4173,7 +4178,11 @@ var TabledDriver = React.createClass({
 				{ className: cx({ 'ptp': true, 'active': driver.pushToPassInfo.active }), title: 'PTP Remaining' },
 				driver.pushToPassInfo.allowed ? driver.pushToPassInfo.amountLeft : 'N/A'
 			),
-			React.createElement(
+			UI.state.sessionInfo.type === 'PRACTICE' ? React.createElement(
+				'div',
+				{ className: cx({ 'drs': true, 'active': driver.vehicleInfo.drsEnabled }), title: 'DRS Remaining' },
+				'\u221E'
+			) : React.createElement(
 				'div',
 				{ className: cx({ 'drs': true, 'active': driver.vehicleInfo.drsEnabled }), title: 'DRS Remaining' },
 				driver.vehicleInfo.drsLeft > -1 ? driver.vehicleInfo.drsLeft : 'N/A'

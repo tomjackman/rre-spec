@@ -772,7 +772,7 @@ var TabledDriver = React.createClass({
 		// Race
 		if (UI.state.sessionInfo.type.match(/^race/i)) {
 			if (driver.scoreInfo.positionOverall === 1) {
-				return  "Lap " + (driver.scoreInfo.laps + 1);
+				return  "Lap " + driver.scoreInfo.laps + 1;
 			} else if (driver.scoreInfo.lapDiff === 1) {
 				return "+1 Lap";
 			} else if (driver.scoreInfo.lapDiff > 0) {
@@ -846,7 +846,11 @@ var TabledDriver = React.createClass({
 					 <div className={cx({'yellowFlag': true, 'active': driver.scoreInfo.flagInfo.yellow === 1})} title="Yellow Flag">!</div>
 					</div>
 					<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})} title="PTP Remaining">{driver.pushToPassInfo.allowed ? driver.pushToPassInfo.amountLeft : 'N/A'}</div>
-					<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})} title="DRS Remaining">{driver.vehicleInfo.drsLeft > -1 ? driver.vehicleInfo.drsLeft : 'N/A'}</div>
+					{ UI.state.sessionInfo.type === 'PRACTICE' ?
+						<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})} title="DRS Remaining">∞</div>
+					:
+						<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})} title="DRS Remaining">{driver.vehicleInfo.drsLeft > -1 ? driver.vehicleInfo.drsLeft : 'N/A'}</div>
+					}
 					<div className="best-lap-s1">{driver.scoreInfo.bestLapInfo.sector1 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector1, {ignoreSign: true}) : 'N/A'}</div>
 					<div className="best-lap-s2">{driver.scoreInfo.bestLapInfo.sector2 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector2, {ignoreSign: true}) : 'N/A'}</div>
 					{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?

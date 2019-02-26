@@ -328,7 +328,11 @@ UI.widgets.FocusedDriver = React.createClass({
 						{self.state.pushToPassInfo.allowed ?
 							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active})}>
 								{self.getPtpState()}
-								<div className="text">Remaining - {self.state.pushToPassInfo.amountLeft}</div>
+								{ UI.state.sessionInfo.type === 'PRACTICE' ?
+									<div className="text">Remaining - ∞</div>
+								:
+									<div className="text">Remaining - {self.state.pushToPassInfo.amountLeft}</div>
+								}
 							</div>
 							:
 							null
