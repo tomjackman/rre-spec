@@ -694,7 +694,7 @@ UI.components.Controller = React.createClass({
 				<div className="widgets-list">
 				<select value={UI.state.activeTheme} onChange={self.changeTheme}>
 					{Object.keys(UI.state.themes).map(function(key) {
-						return <option key={key} value={key}>{key}</option>
+						return <option key={key} value={key}>{key.toUpperCase()}</option>
 					})}
 				</select>
 					<div className="widget-buttons">
@@ -772,7 +772,7 @@ var TabledDriver = React.createClass({
 		// Race
 		if (UI.state.sessionInfo.type.match(/^race/i)) {
 			if (driver.scoreInfo.positionOverall === 1) {
-				return  "Lap " + driver.scoreInfo.laps + 1;
+				return  "Lap " + (driver.scoreInfo.laps + 1);
 			} else if (driver.scoreInfo.lapDiff === 1) {
 				return "+1 Lap";
 			} else if (driver.scoreInfo.lapDiff > 0) {
