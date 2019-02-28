@@ -1,12 +1,12 @@
 ### Version 1.7.1
 * [Bug Fix] Fixed a bug where the compare race delta timer would not hide when the event info widget was shown.
-* [Bug Fix] Fixed the delta timer of the compare driver widget in the adac gt masters theme have the wrong colour.
+* [Bug Fix] Fixed the delta timer of the compare driver widget in the adac gt masters theme having the wrong colour.
 * [Bug Fix] Fixed the commentary widget animation entry positioning to be in the center when fading in.
-* [Bug Fix] Fixed a bug with the lap count for the leading driver in the broadcast control panel in race sessions.
-* [Feature] Added new multiclass colours for some VLN series classes.
-* [Feature] Added DTM theme.
+* [Bug Fix] Fixed a bug where the lap count for the leading driver in the broadcast control panel was shown incorrectly in race sessions.
 * [Bug Fix] Set DRS remaining activations value to infinite in practice sessions.
-* [Bug Fix] Fixed a bug in the driver info and compare info where very long team names would make the widget very wide in the UI. Team names are now cropped after 40 characters.
+* [Bug Fix] Fixed a bug in the driver info and compare driver widgets where very long team names would make the widget very wide in the UI. Team names are now cropped after 40 characters.
+* [Feature] Added new multiclass colours for some VLN series classes (Audi TT RS, WTCR 2018, DTM 92).
+* [Feature] Added DTM theme.
 
 ### Version 1.7.0
 * [Feature] Set the new broadcast controller as the default.
