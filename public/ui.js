@@ -1801,6 +1801,12 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
+
+		// shorten long team names
+		if (teamName.length > 40) {
+			teamName = teamName.substring(0, 40) + "..";
+		}
+
 		return teamName;
 	},
 	render: function () {
@@ -2043,6 +2049,12 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
+
+		// shorten long team names
+		if (teamName.length > 40) {
+			teamName = teamName.substring(0, 40) + "..";
+		}
+
 		return teamName;
 	},
 	render: function () {
@@ -3097,6 +3109,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			teamName = r3eData.teams[teamId].Name;
 		}
 
+		// shorten long team names
 		if (teamName.length > 40) {
 			teamName = teamName.substring(0, 40) + "..";
 		}
@@ -3520,6 +3533,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			teamName = r3eData.teams[teamId].Name;
 		}
 
+		// shorten long team names
 		if (teamName.length > 40) {
 			teamName = teamName.substring(0, 40) + "..";
 		}
