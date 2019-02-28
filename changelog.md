@@ -3,7 +3,8 @@
 * [Bug Fix] Fixed the delta timer of the compare driver widget in the adac gt masters theme have the wrong colour.
 * [Bug Fix] Fixed the commentary widget animation entry positioning to be in the center.
 * [Bug Fix] Fixed a bug with the lap count for the leading driver in the broadcast control panel in race sessions.
-* [Feature] Add new multiclass colours for some VLN series classes.
+* [Feature] Added new multiclass colours for some VLN series classes.
+* [Feature] Added DTM theme.
 * [Bug Fix] Set DRS remaining activations value to infinite in practice sessions.
 
 ### Version 1.7.0
