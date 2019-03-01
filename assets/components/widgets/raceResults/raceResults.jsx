@@ -31,7 +31,7 @@ UI.widgets.RaceResults = React.createClass({
 		});
 
 		if (self.props.results[fastestTimeIndex]) {
-			self.props.results[fastestTimeIndex].isFastest = true
+			self.props.results[fastestTimeIndex].isFastest = true;
 		}
 
 		var fastestDriver = self.props.results[fastestTimeIndex];
