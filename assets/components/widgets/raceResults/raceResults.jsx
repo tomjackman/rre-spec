@@ -79,7 +79,7 @@ UI.widgets.RaceResults = React.createClass({
 			<div className="race-results-bg">
 			<div className="race-results animated fadeIn">
 			<div className="title">
-				<div className="text">{UI.state.sessionInfo.type === "Race 1" ? "Race" : UI.state.sessionInfo.type} Results<div className="logo"></div></div>
+				<div className="text">{UI.state.sessionInfo.type.match(/^Race 1/i) ? "Race" : UI.state.sessionInfo.type} Results<div className="logo"></div></div>
 			</div>
 				<div className="race-results-entry title">
 					{ UI.state.controllerOptions.options.multiclass.value === "true" ?

@@ -5512,7 +5512,7 @@ UI.widgets.RaceResults = React.createClass({
 						React.createElement(
 							'div',
 							{ className: 'text' },
-							UI.state.sessionInfo.type === "Race 1" ? "Race" : UI.state.sessionInfo.type,
+							UI.state.sessionInfo.type.match(/^Race 1/i) ? "Race" : UI.state.sessionInfo.type,
 							' Results',
 							React.createElement('div', { className: 'logo' })
 						)
