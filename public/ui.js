@@ -2342,7 +2342,7 @@ UI.widgets.Results = React.createClass({
 				return setTimeout(checkRefs, 100);
 			}
 
-			var scrollDelay = UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value > 0 ? UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value / 100 * 60 : 10;
+			var scrollDelay = UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value > 0 ? UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value / 100 * 80 : 10;
 			var diff = self.refs['entries-outer'].clientHeight - self.refs['entries-inner'].clientHeight;
 			setTimeout(function () {
 				if (!self.refs['entries-inner']) {
