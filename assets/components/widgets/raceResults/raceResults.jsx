@@ -41,20 +41,20 @@ UI.widgets.RaceResults = React.createClass({
 		return (
 			<div>
 			{ winningDriver != null ?
-			<div className="winnerColumn animated fadeInLeft delay-2s">
-			<div className="winnerTitle">Race Winner</div>
-				<div className="winnerImageContainer">
-					<img className="winnerImage" src={'/img/winner.png'} />
+				<div className="winnerColumn animated fadeInLeft delay-2s">
+				<div className="winnerTitle">Race Winner</div>
+					<div className="winnerImageContainer">
+						<img className="winnerImage" src={'/img/winner.png'} />
+					</div>
+					<div className="winnerLogo"></div>
+					<div className="livery">
+						<img src={'/render/'+winningDriver.liveryId+'/small/'}/>
+					</div>
+					<div className="driverFlagContainer">
+						<img className="driveFlag" src={'/img/flags/'+UI.getUserInfo(winningDriver.portalId).country+'.png'} />
+					</div>
+					<div className="driverName">{winningDriver.name.toUpperCase()}</div>
 				</div>
-				<div className="winnerLogo"></div>
-				<div className="livery">
-					<img src={'/render/'+winningDriver.liveryId+'/small/'}/>
-				</div>
-				<div className="driverFlagContainer">
-					<img className="driveFlag" src={'/img/flags/'+UI.getUserInfo(winningDriver.portalId).country+'.png'} />
-				</div>
-				<div className="driverName">{winningDriver.name.toUpperCase()}</div>
-			</div>
 			:
 				null
 			}
@@ -79,7 +79,7 @@ UI.widgets.RaceResults = React.createClass({
 			<div className="race-results-bg">
 			<div className="race-results animated fadeIn">
 			<div className="title">
-				<div className="text">Race Results<div className="logo"></div></div>
+				<div className="text">{UI.state.sessionInfo.type === "Race 1" ? "Race" : UI.state.sessionInfo.type} Results<div className="logo"></div></div>
 			</div>
 				<div className="race-results-entry title">
 					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
