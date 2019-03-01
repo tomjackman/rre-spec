@@ -6,6 +6,7 @@
 * [Bug Fix] Set DRS remaining activations value to infinite in practice sessions.
 * [Bug Fix] Fixed a bug in the driver info and compare driver widgets where very long team names would make the widget very wide in the UI. Team names are now cropped after 40 characters.
 * [Feature] Added new multiclass colours for some VLN series classes (Audi TT RS, WTCR 2018, DTM 92).
+* [Feature] Added the race number to the results table for reverse grid/multiple races.
 * [Feature] Added DTM theme.
 
 ### Version 1.7.0
