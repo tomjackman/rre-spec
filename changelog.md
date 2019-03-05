@@ -1,3 +1,6 @@
+### Version 1.7.2
+* [Feature] Add DNS & DQ finish status to the race results table.
+
 ### Version 1.7.1
 * [Bug Fix] Fixed a bug where the compare race delta timer would not hide when the event info widget was shown.
 * [Bug Fix] Fixed the delta timer of the compare driver widget in the adac gt masters theme having the wrong colour.
