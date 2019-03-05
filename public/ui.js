@@ -5615,6 +5615,18 @@ var RaceResultEntry = React.createClass({
 				{ className: 'lap-time' },
 				'DNF'
 			);
+		} else if (entry.finishStatus === 'DNS') {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				'DNS'
+			);
+		} else if (entry.finishStatus === 'DQ') {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				'DQ'
+			);
 		} else if (self.props.index === 0) {
 			lapTime = React.createElement(
 				'div',
