@@ -1,6 +1,12 @@
-# R3E TV Overlay
+# RRE TV Overlay
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/8YHOo2PFTso/0.jpg)](https://youtu.be/8YHOo2PFTso?t=1368)
+As used by:
+
+* [German ADAC GT Masters](https://www.adac-gt-masters.de/uk)
+* [AVIA Racing](https://www.avia-racing.de/nc/startseite.html)
+* [VirtualRacing.org](https://www.virtualracing.org/home/)
+* R3E Special Events
+* ... any many more championships.
 
 ### Changelog
 * [Version Changelogs](changelog.md)
@@ -10,7 +16,7 @@
 2. Run `start.bat`.
 3. Add `-broadcastUrl=http://localhost:9090` in Steam Game launch options.
 4. Open http://localhost:9090 in a browser.
-5. Start RaceRoom and join a multiplayer server.
+5. Join a server.
 
 ### Using UI Toggles
 Inside the broadcasting control panel in the browser, there is a settings icon in the top left hand corner. Clicking on this will bring up a popup with toggles and input boxes that can be used to change the appearance and functionality of the UI.
