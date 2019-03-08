@@ -50,7 +50,7 @@
 			background: @QualiResultTitleBackground;
 			border-top: 0.25em solid @QualiResultTitleBorderTop;
 			text-transform: uppercase;
-			margin-bottom: 0.5em;
+			padding-bottom: 0.5em;
 			z-index: 0;
 			.logo {
 				position: absolute;
@@ -69,7 +69,9 @@
 		background: @QualiResultEntryBackground;
 		white-space: nowrap;
   	overflow: hidden;
-		border-bottom: 0.1em solid @QualiResultEntryBorderBottom;
+		&.striped {
+			opacity: 0.85;
+		}
 		&.title {
 			padding: 0 0 0 0em;
 			font-size: @fontSize * 1.1;

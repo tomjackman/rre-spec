@@ -156,7 +156,7 @@ var ResultEntry = React.createClass({
 		return (
 			<div className="overall">
 			{ session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ?
-			<div className={cx({'qualify-results-entry': true})}>
+			<div className={cx({'qualify-results-entry': true, 'striped': entry.scoreInfo.positionOverall % 2})}>
 			{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
 			:
