@@ -48,7 +48,7 @@
 			background: @RaceResultTitleBackground;
 			border-top: 0.25em solid @RaceResultTitleBorderTop;
 			text-transform: uppercase;
-			margin-bottom: 0.5em;
+			padding-bottom: 0.5em;
 			z-index: 0;
 			.logo {
 				position: absolute;
@@ -67,7 +67,9 @@
 		background: @RaceResultEntryBackground;
 		white-space: nowrap;
 		overflow: hidden;
-		border-bottom: 0.1em solid @RaceResultEntryBorderBottom;
+		&.striped {
+			opacity: 0.85;
+		}
 		&.title {
 			padding: 0 0 0 0em;
 			font-size: @fontSize * 1.1;
