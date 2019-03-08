@@ -200,11 +200,11 @@ UI.widgets.MulticlassStandings = React.createClass({
 									{UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" || UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
 										<div className="manufacturer">
 											{ UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
-												<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="standingsFlag animated flipInY">
+												<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="standingsFlag">
 													<img src={'/img/flags/'+UI.getUserInfo(driversLookup[i].portalId).country+'.svg'} />
 												</div>
 												:
-												<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="manufacturerFlag animated flipInY">
+												<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="manufacturerFlag">
 													<img src={'/render/'+driversLookup[i].manufacturerId+'/small/'}/>
 												</div>
 											}
