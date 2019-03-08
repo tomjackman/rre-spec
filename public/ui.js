@@ -2132,11 +2132,11 @@ UI.widgets.MulticlassStandings = React.createClass({
 								{ className: 'manufacturer' },
 								UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
 									'div',
-									{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'standingsFlag animated flipInY' },
+									{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'standingsFlag' },
 									React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(driversLookup[i].portalId).country + '.svg' })
 								) : React.createElement(
 									'div',
-									{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'manufacturerFlag animated flipInY' },
+									{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'manufacturerFlag' },
 									React.createElement('img', { src: '/render/' + driversLookup[i].manufacturerId + '/small/' })
 								)
 							) : null,
@@ -2535,7 +2535,7 @@ var ResultEntry = React.createClass({
 			{ className: 'overall' },
 			session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ? React.createElement(
 				'div',
-				{ className: cx({ 'qualify-results-entry': true }) },
+				{ className: cx({ 'qualify-results-entry': true, 'striped': entry.scoreInfo.positionOverall % 2 }) },
 				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 					'div',
 					{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
@@ -5698,7 +5698,7 @@ var RaceResultEntry = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: cx({ 'fastest': entry.isFastest, 'race-results-entry': true }) },
+			{ className: cx({ 'fastest': entry.isFastest, 'race-results-entry': true, 'striped': entry.scoreInfo.positionOverall % 2 }) },
 			UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 				'div',
 				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
