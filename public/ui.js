@@ -1755,7 +1755,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'top animated fadeInUp delay-3s' },
-					self.state.pushToPassInfo.allowed ? React.createElement(
+					self.state.pushToPassInfo.allowed && UI.state.sessionInfo.type.match(/^race/i) ? React.createElement(
 						'div',
 						{ className: 'ptpRemaining' },
 						'PTP: ',

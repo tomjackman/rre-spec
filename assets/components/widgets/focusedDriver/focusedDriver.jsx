@@ -281,7 +281,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			<div className={focusedDriverClasses} key={self.state.driverInfo.portalId}>
 				<div className="inner animated slit-in">
 					<div className="top animated fadeInUp delay-3s">
-						{self.state.pushToPassInfo.allowed ?
+						{self.state.pushToPassInfo.allowed && UI.state.sessionInfo.type.match(/^race/i) ?
 							<div className="ptpRemaining">PTP: {self.state.pushToPassInfo.amountLeft}</div>
 							:
 							null
