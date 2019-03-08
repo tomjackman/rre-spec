@@ -1,6 +1,7 @@
 ### Version 1.7.2
 * [Feature] Add DNS & DQ finish status to the race results table.
 * [Feature] Reduce the height of each entry in the standings tower.
+* [Feature] Added an option to allow the drivers flag to be shown in the standings tower replacing the car logo (Show Standings Country Flag).
 * [Bug Fix] Set the remaining PTP activations to only show in race sessions in the driver info widget.
 
 ### Version 1.7.1
