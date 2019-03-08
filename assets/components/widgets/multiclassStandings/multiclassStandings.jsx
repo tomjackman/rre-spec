@@ -197,9 +197,17 @@ UI.widgets.MulticlassStandings = React.createClass({
 								<div className="inner">
 									<div className="positionContainer"><div className="position">{driversLookup[i].scoreInfo.positionOverall}</div></div>
 									{self.renderName(driversLookup[i].name, driversLookup[i].classId)}
-									{UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ?
+									{UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" || UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
 										<div className="manufacturer">
-											<img src={'/render/'+driversLookup[i].manufacturerId+'/small/'}/>
+											{ UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
+												<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="standingsFlag animated flipInY">
+													<img src={'/img/flags/'+UI.getUserInfo(driversLookup[i].portalId).country+'.svg'} />
+												</div>
+												:
+												<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="manufacturerFlag animated flipInY">
+													<img src={'/render/'+driversLookup[i].manufacturerId+'/small/'}/>
+												</div>
+											}
 										</div>
 									:
 										null

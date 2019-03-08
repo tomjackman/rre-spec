@@ -51,14 +51,24 @@
 		.manufacturer {
 			background: @StandingsManufacturerBackground;
 			display: inline-block;
-			width: 1.8em;
+			width: 1.6em;
 			height: 2em;
-			padding: 0.25em;
 			z-index: 1;
-			border-right: 1px solid @StandingsPositionBackground;
-			img {
-				transform: skew(+15deg, 0deg);
+			.manufacturerFlag {
+				border-right: 1px solid @StandingsPositionBackground;
+				padding: 0.2em;
 				height: 100%;
+				img {
+					transform: skew(+15deg, 0deg);
+					height: 100%;
+				}
+			}
+			.standingsFlag {
+				height: 100%;
+				padding: 0em;
+				img {
+					height: 100%;
+				}
 			}
 		}
 		.nameContainer {

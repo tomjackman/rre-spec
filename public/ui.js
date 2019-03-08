@@ -2127,10 +2127,18 @@ UI.widgets.MulticlassStandings = React.createClass({
 								)
 							),
 							self.renderName(driversLookup[i].name, driversLookup[i].classId),
-							UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ? React.createElement(
+							UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" || UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
 								'div',
 								{ className: 'manufacturer' },
-								React.createElement('img', { src: '/render/' + driversLookup[i].manufacturerId + '/small/' })
+								UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
+									'div',
+									{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'standingsFlag animated flipInY' },
+									React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(driversLookup[i].portalId).country + '.svg' })
+								) : React.createElement(
+									'div',
+									{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'manufacturerFlag animated flipInY' },
+									React.createElement('img', { src: '/render/' + driversLookup[i].manufacturerId + '/small/' })
+								)
 							) : null,
 							self.getMetaInfo(driversLookup[i], drivers),
 							React.createElement(
