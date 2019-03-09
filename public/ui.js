@@ -5698,7 +5698,7 @@ var RaceResultEntry = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: cx({ 'fastest': entry.isFastest, 'race-results-entry': true, 'striped': entry.scoreInfo.positionOverall % 2 }) },
+			{ className: cx({ 'fastest': entry.isFastest, 'race-results-entry': true, 'striped': entry.positionOverall % 2 }) },
 			UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 				'div',
 				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
