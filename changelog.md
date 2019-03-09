@@ -1,4 +1,5 @@
 ### Version 1.7.2
+* [Feature] Improved results styling - removed underlines, added striped entries, condensed title header.
 * [Feature] Add DNS & DQ finish status to the race results table.
 * [Feature] Reduce the height of each entry in the standings tower.
 * [Feature] Added an option to allow the drivers flag to be shown in the standings tower replacing the car logo (Show Standings Country Flag).
