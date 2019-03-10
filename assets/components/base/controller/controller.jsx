@@ -651,6 +651,7 @@ UI.components.Controller = React.createClass({
 										<div className="manufacturer">M</div>
 										<div className="livery">L</div>
 										<div className="cameras">Cameras</div>
+										<div className="currentSpeed">KM/H</div>
 										<div className="pit"># Pit</div>
 										<div className="mandatoryPit">M Pit</div>
 										<div className="tyre">Tyre</div>
@@ -808,6 +809,7 @@ var TabledDriver = React.createClass({
 		var timeDiff = driver.scoreInfo.timeDiff;
 		var fastestDriver = self.props.fastest;
 		var isRace = UI.state.sessionInfo.type.match(/^race/i);
+
 		return (
 			<div className={classes} style={{'zIndex': (1000-this.props.position)}}>
 					{self.renderPostion(driver)}
@@ -827,6 +829,7 @@ var TabledDriver = React.createClass({
 					<div className="frontCam" onClick={() => {this.changeCamera('frontCam', driver.slotId)}} title="Front Camera">F</div>
 					<div className="rearCam" onClick={() => {this.changeCamera('rearCam', driver.slotId)}} title="Rear Camera">R</div>
 					<div className="wingCam" onClick={() => {this.changeCamera('wing', driver.slotId)}} title="Wing Camera">W</div>
+					<div className="currentSpeed" title="Current Speed (KM/H)">{driver.vehicleInfo.speed}</div>
 					<div className="pit" title="Pit Count & Pit Status">N/A</div>
 					{self.renderMandatoryPit(driver.mandatoryPitstopPerformed)}
 					{r3eTyreDB.classes[driver.classId] != null || ["Soft", "Hard", "Primary", "Alternate", "Medium"].indexOf(driver.pitInfo.tyreType) > -1 ?

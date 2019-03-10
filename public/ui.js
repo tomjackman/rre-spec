@@ -3803,6 +3803,11 @@ UI.components.Controller = React.createClass({
 							),
 							React.createElement(
 								'div',
+								{ className: 'currentSpeed' },
+								'KM/H'
+							),
+							React.createElement(
+								'div',
 								{ className: 'pit' },
 								'# Pit'
 							),
@@ -4077,6 +4082,7 @@ var TabledDriver = React.createClass({
 		var timeDiff = driver.scoreInfo.timeDiff;
 		var fastestDriver = self.props.fastest;
 		var isRace = UI.state.sessionInfo.type.match(/^race/i);
+
 		return React.createElement(
 			'div',
 			{ className: classes, style: { 'zIndex': 1000 - this.props.position } },
@@ -4152,6 +4158,11 @@ var TabledDriver = React.createClass({
 						this.changeCamera('wing', driver.slotId);
 					}, title: 'Wing Camera' },
 				'W'
+			),
+			React.createElement(
+				'div',
+				{ className: 'currentSpeed', title: 'Current Speed (KM/H)' },
+				driver.vehicleInfo.speed
 			),
 			React.createElement(
 				'div',
