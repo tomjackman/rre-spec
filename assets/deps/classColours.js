@@ -115,6 +115,11 @@ var r3eClassColours = {
       colour: "rgba(45, 196, 242, 0.8)",
       Id: 3905
     },
+    4121: {
+      Name: "Group C",
+      colour: "rgba(30, 101, 116, 0.8)",
+      Id: 4121
+    },
     4260: {
       Name: "DTM 2015",
       colour: "rgba(13, 39, 80, 0.8)",
@@ -265,15 +270,20 @@ var r3eClassColours = {
       colour: "rgba(35, 131, 169, 0.8)",
       Id: 7168
     },
-    7304: {
-      Name: "Group 4",
-      colour: "rgba(193, 62, 54, 0.8)",
-      Id: 7304
-    },
     7278: {
       Name: "ADAC GT Masters 2018",
       colour: "rgba(0, 154, 223, 0.8)",
       Id: 7278
+    },
+    7287: {
+      Name: "Porsche Carrera Cup Classic",
+      colour: "rgba(42, 56, 105, 0.8)",
+      Id: 7287
+    },
+    7304: {
+      Name: "Group 4",
+      colour: "rgba(193, 62, 54, 0.8)",
+      Id: 7304
     }
   }
 };
