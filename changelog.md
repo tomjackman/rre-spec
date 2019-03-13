@@ -5,6 +5,8 @@
 * [Feature] Added an option to allow the drivers flag to be shown in the standings tower replacing the car logo (Show Standings Country Flag).
 * [Bug Fix] Set the remaining PTP activations to only show in race sessions in the driver info widget.
 * [Feature] Add current speed indicator to the broadcast controller table.
+* [Sector3] Added offline mode for fetching local resources.
+* [Feature] Added Group C & Porsche 964 Class Colors.
 
 ### Version 1.7.1
 * [Bug Fix] Fixed a bug where the compare race delta timer would not hide when the event info widget was shown.
