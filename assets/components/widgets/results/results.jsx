@@ -93,7 +93,11 @@ UI.widgets.Results = React.createClass({
 						<div className="longName">Name</div>
 					}
 					<div className="livery"></div>
-					<div className="resultTeam">Team</div>
+					{ window.settings.teamEvent ?
+						<div className="resultTeam"></div>
+						:
+						<div className="resultTeam">Team</div>
+					}
 					<div className="fastest-time">Delta</div>
 					<div className="lap-time">Best Lap</div>
 				</div>
@@ -130,13 +134,22 @@ var ResultEntry = React.createClass({
 		var self = this;
 		var teamName = "";
 		var portalTeamName = UI.getUserInfo(portalId).team;
-		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+		if (window.settings.teamEvent) {
+			return "";
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			// add star for portal team names
 			teamName = "✪ " + portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
 		return teamName;
+	},
+	getName: function(name) {
+		if (window.settings.teamEvent) {
+			return name.substr(name.indexOf(" ") + 1);
+		} else {
+			return UI.fixName(name);
+		}
 	},
 	render: function() {
 		var self = this;
@@ -167,9 +180,9 @@ var ResultEntry = React.createClass({
 					<img src={'/render/'+entry.manufacturerId+'/small/?type=manufacturer'}/>
 				</div>
 				{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-					<div className="shortName">{UI.fixName(entry.name)}</div>
-				:
-					<div className="longName">{UI.fixName(entry.name)}</div>
+						<div className="shortName">{self.getName(entry.name)}</div>
+					:
+						<div className="longName">{self.getName(entry.name)}</div>
 				}
 				<div className="livery">
 					<img src={'/render/'+entry.liveryId+'/small/'}/>

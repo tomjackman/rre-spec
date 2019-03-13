@@ -118,14 +118,26 @@ UI.widgets.MulticlassStandings = React.createClass({
 		var parts = name.split(' ');
 		var divStyle = {};
 
+		// show full name and increase width
 		if (UI.state.controllerOptions.options.showFullStandingsName.value === "true") {
-			// show full name and increase width
-			var lastNames = parts.slice(1);
-			var name = lastNames.map(item=> item.toUpperCase());
+			// show second name only for team event mode
+			if (window.settings.teamEvent) {
+				var name = name.substr(name.indexOf(" ") + 1).toUpperCase();
+				firstInitial = "";
+			} else {
+				var lastNames = parts.slice(1);
+				var name = lastNames.map(item=> item.toUpperCase());
+			}
 			divStyle.width = "8em";
 		} else {
-			// Show characters of last name by default
-			var name = parts[parts.length-1].substr(0, 3).toUpperCase();
+			if (window.settings.teamEvent) {
+				var name = name.substr(name.indexOf(" ") + 1).toUpperCase();
+				firstInitial = "";
+				divStyle.width = "8em";
+			} else {
+				// Show 3 characters of last name by default
+				var name = parts[parts.length-1].substr(0, 3).toUpperCase();
+			}
 		}
 
 		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {

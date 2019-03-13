@@ -173,7 +173,13 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					<img className="compare-flag animated fadeIn" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
 				}
 				</div>
-				<div className="compareName"><div className="name">{self.fixName(driver.name)}</div></div>
+				<div className="compareName">
+					{ window.settings.teamEvent ?
+						<div className="name">{driver.name.substr(driver.name.indexOf(" ") + 1).toUpperCase()}</div>
+					:
+						<div className="name">{self.fixName(driver.name)}</div>
+					}
+				</div>
 				{UI.state.controllerOptions.options.showLiveryPreview.value === "true" ?
 				<div className="vehicle">
 					<img src={`/render/${driver.liveryId}/small/?type=livery`} />
@@ -187,7 +193,11 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			</div>
 
 				<div className="bottom">
-					<div className="team">{self.getTeamName(driver.teamId, driver.portalId)}</div>
+				   { window.settings.teamEvent ?
+						 null
+						:
+						 <div className="team">{self.getTeamName(driver.teamId, driver.portalId)}</div>
+					 }
 				</div>
 
 				<div className="compareAssists">

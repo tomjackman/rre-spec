@@ -13,7 +13,14 @@ UI.widgets.RaceResults = React.createClass({
 				}
 				self.refs['entries-inner'].style.top = diff+'px';
 			}, 25 * 1000);
-		})();
+		})();1
+	},
+	getName: function(name) {
+		if (window.settings.teamEvent) {
+			return name.substr(name.indexOf(" ") + 1);
+		} else {
+			return UI.fixName(name);
+		}
 	},
 	render: function() {
 		var self = this;
@@ -53,7 +60,7 @@ UI.widgets.RaceResults = React.createClass({
 					<div className="driverFlagContainer">
 						<img className="driveFlag" src={'/img/flags/'+UI.getUserInfo(winningDriver.portalId).country+'.png'} />
 					</div>
-					<div className="driverName">{winningDriver.name.toUpperCase()}</div>
+					<div className="driverName">{self.getName(winningDriver.name)}</div>
 				</div>
 			:
 				null
@@ -71,7 +78,7 @@ UI.widgets.RaceResults = React.createClass({
 				<div className="fastestDriverFlagContainer">
 					<img className="fastestDriverFlag" src={'/img/flags/'+UI.getUserInfo(fastestDriver.portalId).country+'.png'} />
 				</div>
-				<div className="fastestDriverName">{fastestDriver.name.toUpperCase()}</div>
+				<div className="fastestDriverName">{self.getName(fastestDriver.name)}</div>
 			</div>
 			:
 				null
@@ -95,7 +102,11 @@ UI.widgets.RaceResults = React.createClass({
 						<div className="longName">Name</div>
 					}
 					<div className="livery"></div>
-					<div className="raceResultTeam">Team</div>
+					{ window.settings.teamEvent ?
+						<div className="raceResultTeam"></div>
+						:
+						<div className="raceResultTeam">Team</div>
+					}
 					<div className="penaltyTime">Penalties</div>
 					<div className="lap-time">Finish Time</div>
 					<div className="fastest-time">Best Lap</div>
@@ -130,13 +141,22 @@ var RaceResultEntry = React.createClass({
 		var self = this;
 		var teamName = "";
 		var portalTeamName = UI.getUserInfo(portalId).team;
-		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+		if (window.settings.teamEvent) {
+			return "";
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			// add star for portal team names
 			teamName = "✪ " + portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
 		return teamName;
+	},
+	getName: function(name) {
+		if (window.settings.teamEvent) {
+			return name.substr(name.indexOf(" ") + 1);
+		} else {
+			return UI.fixName(name);
+		}
 	},
 	render: function() {
 		var self = this;
@@ -180,9 +200,9 @@ var RaceResultEntry = React.createClass({
 					<img src={'/render/'+entry.manufacturerId+'/small/?type=manufacturer'}/>
 				</div>
 				{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-					<div className="shortName">{UI.fixName(entry.name)}</div>
-				:
-					<div className="longName">{UI.fixName(entry.name)}</div>
+							<div className="shortName">{self.getName(entry.name)}</div>
+						:
+							<div className="longName">{self.getName(entry.name)}</div>
 				}
 				<div className="livery">
 					<img src={'/render/'+entry.liveryId+'/small/'}/>

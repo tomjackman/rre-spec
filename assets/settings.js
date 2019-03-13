@@ -1,5 +1,6 @@
 var settings = {
-	"offline": false
+	"offline": false,
+	"teamEvent": true
 }
 
 if (typeof module !== 'undefined') {

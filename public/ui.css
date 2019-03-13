@@ -2002,6 +2002,12 @@ pre.preview {
   color: white;
   font-size: 22.1px;
 }
+.focused-driver-info .main .driverInfoDetails .teamEventName {
+  margin-top: 0.5em;
+  line-height: 2em;
+  color: white;
+  font-size: 22.1px;
+}
 .focused-driver-info .main .driverInfoDetails .team {
   font-size: 16.15px;
   line-height: 0.7em;

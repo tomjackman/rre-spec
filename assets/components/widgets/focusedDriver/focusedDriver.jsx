@@ -217,17 +217,20 @@ UI.widgets.FocusedDriver = React.createClass({
 	getTeamName: function(teamId, portalId) {
 		var self = this;
 		var teamName = "";
-		var portalTeamName = UI.getUserInfo(portalId).team;
-		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
-			// add star for portal team names
-			teamName = "✪ " + portalTeamName;
-		} else if (r3eData.teams[teamId] != null) {
-			teamName = r3eData.teams[teamId].Name;
-		}
 
-		// shorten long team names
-		if (teamName.length > 40) {
-			teamName = teamName.substring(0, 40) + "..";
+		if (!window.settings.teamEvent) {
+			var portalTeamName = UI.getUserInfo(portalId).team;
+			if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+				// add star for portal team names
+				teamName = "✪ " + portalTeamName;
+			} else if (r3eData.teams[teamId] != null) {
+				teamName = r3eData.teams[teamId].Name;
+			}
+
+			// shorten long team names
+			if (teamName.length > 40) {
+				teamName = teamName.substring(0, 40) + "..";
+			}
 		}
 
 		return teamName;
@@ -303,7 +306,11 @@ UI.widgets.FocusedDriver = React.createClass({
 					}
 					</div>
 					<div className="driverInfoDetails">
-						<div className="name">{self.fixName(driverInfo.name)}</div>
+					  { window.settings.teamEvent ?
+							<div className="teamEventName">{driverInfo.name.substr(driverInfo.name.indexOf(" ") + 1).toUpperCase()}</div>
+						:
+							<div className="name">{self.fixName(driverInfo.name)}</div>
+						}
 						<div className="team">{self.getTeamName(driverInfo.teamId, driverInfo.portalId)}</div>
 					</div>
 					{UI.state.controllerOptions.options.showTyreCompound.value === "true" && r3eTyreDB.classes[driverInfo.classId] != null ?
