@@ -167,7 +167,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			<div className="main">
 				<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionOverall}</div></div>
 				<div className="compare-flag-container">
-				{UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
+				{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
 					<img className="compare-flag animated fadeIn" src={UI.getUserInfo(driver.portalId).avatar} />
 				:
 					<img className="compare-flag animated fadeIn" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
@@ -176,13 +176,13 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				<div className="compareName"><div className="name">{self.fixName(driver.name)}</div></div>
 				{UI.state.controllerOptions.options.showLiveryPreview.value === "true" ?
 				<div className="vehicle">
-					<img src={'http://game.raceroom.com/store/image_redirect?id='+driver.liveryId+'&size=small'} />
+					<img src={`/render/${driver.liveryId}/small/?type=livery`} />
 				</div>
 				:
 					null
 				}
 				<div className="manufacturer">
-					<img src={'/render/'+driver.manufacturerId+'/small/'}/>
+					<img src={'/render/'+driver.manufacturerId+'/small/?type=manufacturer'}/>
 				</div>
 			</div>
 

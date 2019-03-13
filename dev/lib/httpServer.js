@@ -15,6 +15,8 @@ require('./websocketServer')(io);
 
 var transformJsxFile = require('./transformJsxFile');
 
+var settings = require('./../../assets/settings.js');
+
 module.exports = function(assetsDir) {
 	var reloadQueue = [];
 	app.use(function(req, res, next) {
@@ -49,8 +51,42 @@ module.exports = function(assetsDir) {
 
 	// Decide where to fetch the render from
 	app.get('/render/:id/:size', function(req, res) {
-		request('http://game.raceroom.com/store/image_redirect?id='+req.params.id+'&size='+req.params.size).pipe(res);
-		//request('http://localhost:8000/image/liveries/selection-thumb-big-/'+req.params.id+'/').pipe(res);
+		if (settings.offline !== true) {
+			request('http://game.raceroom.com/store/image_redirect?id='+req.params.id+'&size='+req.params.size).pipe(res);
+		} else {
+			var url = '';
+			switch (req.query.type) {
+				case 'manufacturer':
+					url =
+						'http://localhost:8000/image/manufacturers/selection-thumb-/' +
+						req.params.id +
+						'/';
+				break;
+
+				case 'track':
+					url =
+						'http://localhost:8000/image/tracks/thumb-/' +
+						req.params.id +
+						'/';
+				break;
+
+				case 'avatar':
+					url =
+						'http://localhost:8000/image/avatars/small-/' +
+						req.params.id +
+						'/';
+				break;
+
+				default:
+					url =
+						'http://localhost:8000/image/liveries/selection-thumb-big-/' +
+						req.params.id +
+						'/';
+					break;
+			}
+
+			request(url).pipe(res);
+		}
 	});
 
 	var userInfoCache = {};

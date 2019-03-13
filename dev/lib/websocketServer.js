@@ -3,6 +3,7 @@ var async = require('async');
 var fs = require('fs');
 var chokidar = require('chokidar');
 var path = require('path');
+var settings = require('./../../assets/settings.js');
 
 function updateWidgets(widgetsPath, globalState, callback) {
 	var jobs = [];
@@ -26,6 +27,12 @@ function updateWidgets(widgetsPath, globalState, callback) {
 				meta.active = meta.defaultActive || false;
 				if (globalState.activeWidgets[meta.elementName]) {
 					meta.active = globalState.activeWidgets[meta.elementName].active;
+				}
+
+				// Force AutoDirector to be enabled by default if in offline mode
+				if (settings.offline === true && meta.elementName === 'AutoDirector') {
+					meta.defaultActive = true;
+					meta.active = true;
 				}
 
 				globalState.activeWidgets[meta.elementName] = meta;

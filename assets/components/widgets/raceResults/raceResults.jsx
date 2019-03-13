@@ -177,7 +177,7 @@ var RaceResultEntry = React.createClass({
 			}
 			<div className="position">P{entry.positionOverall}.</div>
 				<div className="manufacturer">
-					<img src={'/render/'+entry.manufacturerId+'/small/'}/>
+					<img src={'/render/'+entry.manufacturerId+'/small/?type=manufacturer'}/>
 				</div>
 				{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 					<div className="shortName">{UI.fixName(entry.name)}</div>
@@ -191,8 +191,8 @@ var RaceResultEntry = React.createClass({
 				{penaltyTime}
 				{lapTime}
 				{entry.bestLapInfo.sector3 !== -1 ?
-					<div className="fastest-time">{UI.formatTime(entry.bestLapInfo.sector3, {ignoreSign: true})}</div>
-					:
+	        <div className="fastest-time">{UI.formatTime(entry.bestLapInfo.sector3, {ignoreSign: true})}</div>
+	          :
 					<div className="fastest-time">-</div>
 				}
 			</div>

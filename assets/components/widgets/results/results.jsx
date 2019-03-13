@@ -164,7 +164,7 @@ var ResultEntry = React.createClass({
 			}
 			<div className="position">P{entry.scoreInfo.positionOverall}.</div>
 				<div className="manufacturer">
-					<img src={'/render/'+entry.manufacturerId+'/small/'}/>
+					<img src={'/render/'+entry.manufacturerId+'/small/?type=manufacturer'}/>
 				</div>
 				{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 					<div className="shortName">{UI.fixName(entry.name)}</div>

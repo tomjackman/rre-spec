@@ -203,7 +203,7 @@ var TrackMapDot = React.createClass({
 				{self.getPosition(driver)}
 				<div className="driverName">{self.shortenDriverName(driver.name)}</div>
 				<div className="manufacturer">
-					<img src={'/render/'+driver.manufacturerId+'/small/'}/>
+					<img src={'/render/'+driver.manufacturerId+'/small/?type=manufacturer'}/>
 				</div>
 			</div>
 		);

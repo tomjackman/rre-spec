@@ -19,6 +19,14 @@ UI.spectatorUpdateRate = 1000/6;
 UI.getUserInfo = (function() {
 	var userCache = {};
 	return function(id) {
+		if (window.settings.offline === true) {
+			return {
+				country: 'zz',
+				avatar: `/render/${id}/small/?type=avatar`,
+				team: ''
+			};
+		}
+
 		if (userCache[id]) {
 			return userCache[id];
 		}

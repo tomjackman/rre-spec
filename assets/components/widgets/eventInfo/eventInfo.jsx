@@ -62,9 +62,9 @@ UI.widgets.EventInfo = React.createClass({
   			<div className="event-info animated fadeIn">
   				<div className="serverName">{info.serverName}</div>
           <div className="trackImage">
-						<img src={'http://game.raceroom.com/store/image_redirect?id='+info.trackId+'&size=big'} />
+						<img src={`/render/${info.trackId}/big/?type=track`} />
 						<div className="trackLogo">
-							<img src={trackLogo} />
+						{!window.settings.offline && <img src={trackLogo} />}
 						</div>
 					</div>
 					<div className="countryFlag">

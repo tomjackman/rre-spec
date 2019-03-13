@@ -304,7 +304,7 @@ var Driver = React.createClass({
 			<div className={classes} onMouseDown={this.mouseDown} onTouchStart={this.touchStart} style={{'zIndex': (1000-this.props.position)}}>
 				<div className="inner">
 					<div className="meta">
-						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
+						{!window.settings.offline && <img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />}
 						<div className="name">{UI.fixName(driver.name)}</div>
 					</div>
 					<img className="livery" src={'/render/'+driver.liveryId+'/'+this.props.imageSize+'/'}/>
@@ -396,7 +396,7 @@ UI.components.Controller = React.createClass({
 		const local = await fetch(localVersionUrl);
 		const localVersion = await local.json();
 
-		if(publishedVersion.version > localVersion.version) {
+		if(publishedVersion.version > localVersion.version && window.settings.offline !== true) {
 			var confirmText = "A New Update (v" + publishedVersion.version + ") is now available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
 			if (confirm(confirmText)) {
 				// Overlay thread on S3 forum

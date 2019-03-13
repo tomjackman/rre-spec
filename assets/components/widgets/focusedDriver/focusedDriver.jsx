@@ -296,7 +296,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					<div className="main">
 					<div className="positionContainer"><div className="position">{driverInfo.scoreInfo.positionOverall}</div></div>
 					<div className="flag-container">
-					{UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
+					{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
 						<img className="flag" src={UI.getUserInfo(driverInfo.portalId).avatar} />
 					:
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
@@ -312,14 +312,12 @@ UI.widgets.FocusedDriver = React.createClass({
 						</div>
 							:
 							<div className="manufacturer">
-								<img src={'/render/'+driverInfo.manufacturerId+'/small/'}/>
+								<img src={'/render/'+driverInfo.manufacturerId+'/small/?type=manufacturer'}/>
 							</div>
 						}
-
-
 						{UI.state.controllerOptions.options.showLiveryPreview.value === "true" ?
 						<div className="vehicle">
-							<img src={'http://game.raceroom.com/store/image_redirect?id='+driverInfo.liveryId+'&size=small'} />
+							<img src={`/render/${driverInfo.liveryId}/small/?type=livery`} />
 						</div>
 						:
 							null
