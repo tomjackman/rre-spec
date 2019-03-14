@@ -22,6 +22,13 @@ UI.widgets.RaceResults = React.createClass({
 			return UI.fixName(name);
 		}
 	},
+	getNameColumnTitle: function() {
+		if (window.settings.teamEvent) {
+			return "Team";
+		} else {
+			return "Name";
+		}
+	},
 	render: function() {
 		var self = this;
 		var fastestTime = 999999;
@@ -97,9 +104,9 @@ UI.widgets.RaceResults = React.createClass({
 					<div className="position">Overall</div>
 					<div className="manufacturer"/>
 					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-						<div className="shortName">Name</div>
+						<div className="shortName">{self.getNameColumnTitle()}</div>
 					:
-						<div className="longName">Name</div>
+						<div className="longName">{self.getNameColumnTitle()}</div>
 					}
 					<div className="livery"></div>
 					{ window.settings.teamEvent ?

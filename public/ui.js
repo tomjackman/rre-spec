@@ -2233,6 +2233,13 @@ UI.widgets.RaceResults = React.createClass({
 			return UI.fixName(name);
 		}
 	},
+	getNameColumnTitle: function () {
+		if (window.settings.teamEvent) {
+			return "Team";
+		} else {
+			return "Name";
+		}
+	},
 	render: function () {
 		var self = this;
 		var fastestTime = 999999;
@@ -2353,11 +2360,11 @@ UI.widgets.RaceResults = React.createClass({
 						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 							'div',
 							{ className: 'shortName' },
-							'Name'
+							self.getNameColumnTitle()
 						) : React.createElement(
 							'div',
 							{ className: 'longName' },
-							'Name'
+							self.getNameColumnTitle()
 						),
 						React.createElement('div', { className: 'livery' }),
 						window.settings.teamEvent ? React.createElement('div', { className: 'raceResultTeam' }) : React.createElement(
@@ -5640,6 +5647,13 @@ UI.widgets.Results = React.createClass({
 			return -1;
 		}
 	},
+	getNameColumnTitle: function () {
+		if (window.settings.teamEvent) {
+			return "Team";
+		} else {
+			return "Name";
+		}
+	},
 	render: function () {
 		var self = this;
 		if (this.state.driversInfo.driversInfo.length === 0) {
@@ -5702,11 +5716,11 @@ UI.widgets.Results = React.createClass({
 						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 							'div',
 							{ className: 'shortName' },
-							'Name'
+							self.getNameColumnTitle()
 						) : React.createElement(
 							'div',
 							{ className: 'longName' },
-							'Name'
+							self.getNameColumnTitle()
 						),
 						React.createElement('div', { className: 'livery' }),
 						window.settings.teamEvent ? React.createElement('div', { className: 'resultTeam' }) : React.createElement(
