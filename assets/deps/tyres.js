@@ -5,7 +5,7 @@ var r3eTyreDB = {
     },
     4121: {
       name: "Group C"
-    }
+    },
     5383: {
       name: "FR US Cup"
     },
