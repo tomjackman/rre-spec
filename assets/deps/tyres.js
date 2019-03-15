@@ -3,6 +3,9 @@ var r3eTyreDB = {
     1704: {
       name: "GTR 2"
     },
+    4121: {
+      name: "Group C"
+    }
     5383: {
       name: "FR US Cup"
     },
