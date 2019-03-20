@@ -6,8 +6,8 @@
 * [Bug Fix] Set the remaining PTP activations to only show in race sessions in the driver info widget.
 * [Feature] Add current speed indicator to the broadcast controller table.
 * [Sector3] Added offline mode for fetching local resources.
-* [Raceroom] Added team race mode for event software.
-* [Feature] Added Group C & Porsche 964 Class Colors.
+* [Feature] Added team race mode for raceroom event software.
+* [Feature] Added Group C & Porsche 964 class colors.
 * [Feature] Added Group C tyre choice indicators.
 * [Tooling] Updated r3e data file.
 
