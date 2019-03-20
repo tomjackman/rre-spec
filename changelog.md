@@ -9,6 +9,7 @@
 * [Raceroom] Added team race mode for event software.
 * [Feature] Added Group C & Porsche 964 Class Colors.
 * [Feature] Added Group C tyre choice indicators.
+* [Tooling] Updated r3e data file.
 
 ### Version 1.7.1
 * [Bug Fix] Fixed a bug where the compare race delta timer would not hide when the event info widget was shown.
