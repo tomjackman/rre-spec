@@ -828,7 +828,7 @@ var TabledDriver = React.createClass({
 					}
 					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} title={"Country - " + UI.getUserInfo(driver.portalId).countryName}/>
 					<div className={cx({'name': true, 'focused': this.props.focused})} onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={"Portal ID - " + driver.portalId}>{self.getName(driver.name)}</div>
-					<img className="manufacturer" src={'/render/'+driver.manufacturerId+'/small/'}/>
+					<img className="manufacturer" src={'/render/'+driver.manufacturerId+'/small/?type=manufacturer'}/>
 					<img className="livery" onClick={() => {this.changeCamera('trackside', driver.slotId)}} src={'/render/'+driver.liveryId+'/'+this.props.imageSize+'/'}/>
 					<div className="tvCam" onClick={() => {this.changeCamera('trackside', driver.slotId)}} title="TV Trackside Camera">TV</div>
 					<div className="dashCam" onClick={() => {this.changeCamera('onboard1', driver.slotId)}} title="Dash Camera">D</div>
