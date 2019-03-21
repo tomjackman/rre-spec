@@ -695,7 +695,7 @@ UI.components.Controller = React.createClass({
 				<div className="widgets-list">
 				<select value={UI.state.activeTheme} onChange={self.changeTheme}>
 					{Object.keys(UI.state.themes).map(function(key) {
-						return <option key={key} value={key}>{key.toUpperCase()}</option>
+						return <option key={key} value={key}>{key.toUpperCase().replace(/-/g, " ")}</option>
 					})}
 				</select>
 					<div className="widget-buttons">
