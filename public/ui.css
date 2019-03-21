@@ -903,6 +903,7 @@ select {
   color: white;
   font-family: Oswald;
   border-bottom: 1px solid white;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
 }
 .drivers-container-beta {
   position: fixed;
@@ -968,7 +969,6 @@ select {
   height: 1.3em;
   line-height: 1.2em;
   text-align: center;
-  border-left: 0.05em solid white;
 }
 .tabled-driver-entry .position {
   width: 2%;
