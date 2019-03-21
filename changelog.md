@@ -10,6 +10,7 @@
 * [Feature] Added Group C & Porsche 964 class colors.
 * [Feature] Added Group C tyre choice indicators.
 * [Tooling] Updated r3e data file.
+* [Feature] Add raceroom adac gt masters esports theme.
 
 ### Version 1.7.1
 * [Bug Fix] Fixed a bug where the compare race delta timer would not hide when the event info widget was shown.
