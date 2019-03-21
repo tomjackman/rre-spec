@@ -1,7 +1,7 @@
 ### Version 1.7.2
 * [Feature] Improved results styling - removed underlines, added striped entries, condensed title header.
 * [Feature] Add DNS & DQ finish status to the race results table.
-* [Feature] Reduce the height of each entry in the standings tower.
+* [Feature] Condensed the height of each entry in the standings tower.
 * [Feature] Added an option to allow the drivers flag to be shown in the standings tower replacing the car logo (Show Standings Country Flag).
 * [Bug Fix] Set the remaining PTP activations to only show in race sessions in the driver info widget.
 * [Feature] Add current speed indicator to the broadcast controller table.
@@ -9,7 +9,7 @@
 * [Feature] Added team race mode for raceroom event software.
 * [Feature] Added Group C & Porsche 964 class colors.
 * [Feature] Added Group C tyre choice indicators.
-* [Tooling] Updated r3e data file.
+* [Tooling] Updated r3e data file with latest classes and team names.
 * [Feature] Add raceroom adac gt masters esports theme.
 * [Feature] Add pretty name display of themes instead of filename.
 * [Bug Fix] Fixed autodirector timing error on race starts.
