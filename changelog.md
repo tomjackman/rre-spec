@@ -12,6 +12,7 @@
 * [Tooling] Updated r3e data file.
 * [Feature] Add raceroom adac gt masters esports theme.
 * [Feature] Add pretty name display of themes instead of filename.
+* [Bug Fix] Fixed autodirector timing error on race starts.
 
 ### Version 1.7.1
 * [Bug Fix] Fixed a bug where the compare race delta timer would not hide when the event info widget was shown.

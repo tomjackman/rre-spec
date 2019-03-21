@@ -4072,7 +4072,7 @@ UI.components.Controller = React.createClass({
 						return React.createElement(
 							'option',
 							{ key: key, value: key },
-							key.toUpperCase()
+							key.toUpperCase().replace(/-/g, " ")
 						);
 					})
 				),
@@ -4974,7 +4974,7 @@ UI.scoringRules = {
 			return score;
 		}
 
-		var secondsPassed = session.timeTotal - session.timeLeft;
+		var secondsPassed = UI.state.sessionInfo.timeTotal / 3600 * 60 - UI.state.sessionInfo.timeLeft;
 		if (secondsPassed < 20 && driver.scoreInfo.positionOverall === 4) {
 			score += 30;
 		}
