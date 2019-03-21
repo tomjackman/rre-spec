@@ -302,7 +302,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
 						<img className="flag" src={UI.getUserInfo(driverInfo.portalId).avatar} />
 					:
-						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.svg'} />
+						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.png'} />
 					}
 					</div>
 					<div className="driverInfoDetails">

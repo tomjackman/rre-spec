@@ -304,7 +304,7 @@ var Driver = React.createClass({
 			<div className={classes} onMouseDown={this.mouseDown} onTouchStart={this.touchStart} style={{'zIndex': (1000-this.props.position)}}>
 				<div className="inner">
 					<div className="meta">
-						{!window.settings.offline && <img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />}
+						{!window.settings.offline && <img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.png'} />}
 						<div className="name">{UI.fixName(driver.name)}</div>
 					</div>
 					<img className="livery" src={'/render/'+driver.liveryId+'/'+this.props.imageSize+'/'}/>
@@ -826,7 +826,7 @@ var TabledDriver = React.createClass({
 						:
 						<div className="interesting" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{self.getTimeDiff(driver, fastestDriver)}</div>
 					}
-					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} title={"Country - " + UI.getUserInfo(driver.portalId).countryName}/>
+					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.png'} title={"Country - " + UI.getUserInfo(driver.portalId).countryName}/>
 					<div className={cx({'name': true, 'focused': this.props.focused})} onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={"Portal ID - " + driver.portalId}>{self.getName(driver.name)}</div>
 					<img className="manufacturer" src={'/render/'+driver.manufacturerId+'/small/?type=manufacturer'}/>
 					<img className="livery" onClick={() => {this.changeCamera('trackside', driver.slotId)}} src={'/render/'+driver.liveryId+'/'+this.props.imageSize+'/'}/>

@@ -87,7 +87,7 @@ UI.widgets.SessionInfo = React.createClass({
 					{p.sessionInfo.phase === 'GARAGE' ?
 						<div>
 							<div className="sessionInfoFlag">
-								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
+								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.png'} />
 							</div>
 							<div className="sessionName">{nameLookup[p.sessionInfo.phase]}</div>
 							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
@@ -100,7 +100,7 @@ UI.widgets.SessionInfo = React.createClass({
 						:
 						<div>
 							<div className="sessionInfoFlag">
-								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.svg'} />
+								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.png'} />
 							</div>
 							<div className="sessionName">{nameLookup[p.sessionInfo.type]}</div>
 								{p.sessionInfo.phase === 'CHECKERED' ?

@@ -68,7 +68,7 @@ UI.widgets.EventInfo = React.createClass({
 						</div>
 					</div>
 					<div className="countryFlag">
-						<img src={'/img/flags/'+self.getCountryCode(info.trackId)+'.svg'} />
+						<img src={'/img/flags/'+self.getCountryCode(info.trackId)+'.png'} />
 					</div>
 					<div className="serverTrackName">{info.trackName} {info.layoutName}</div>
 					<div className="trackDescription">{trackDescription}</div>

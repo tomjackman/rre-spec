@@ -82,7 +82,7 @@ var EntryDriver = React.createClass({
       {UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
         <img src={UI.getUserInfo(driver.portalId).avatar} />
       :
-        <img src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
+        <img src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.png'} />
       }
       </div>
       <div className="entryName">{driver.name}</div>

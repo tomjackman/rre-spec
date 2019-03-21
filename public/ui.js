@@ -1023,7 +1023,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'compare-flag-container' },
-					window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'compare-flag animated fadeIn', src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { className: 'compare-flag animated fadeIn', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
+					window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'compare-flag animated fadeIn', src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { className: 'compare-flag animated fadeIn', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.png' })
 				),
 				React.createElement(
 					'div',
@@ -1270,7 +1270,7 @@ var EntryDriver = React.createClass({
       React.createElement(
         'div',
         { className: 'entryFlag' },
-        UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' })
+        UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.png' })
       ),
       React.createElement(
         'div',
@@ -1375,7 +1375,7 @@ UI.widgets.EventInfo = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'countryFlag' },
-					React.createElement('img', { src: '/img/flags/' + self.getCountryCode(info.trackId) + '.svg' })
+					React.createElement('img', { src: '/img/flags/' + self.getCountryCode(info.trackId) + '.png' })
 				),
 				React.createElement(
 					'div',
@@ -1788,7 +1788,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'flag-container' },
-						window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'flag', src: UI.getUserInfo(driverInfo.portalId).avatar }) : React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.svg' })
+						window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'flag', src: UI.getUserInfo(driverInfo.portalId).avatar }) : React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driverInfo.portalId).country + '.png' })
 					),
 					React.createElement(
 						'div',
@@ -2162,7 +2162,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 								window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
 									'div',
 									{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'standingsFlag' },
-									React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(driversLookup[i].portalId).country + '.svg' })
+									React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(driversLookup[i].portalId).country + '.png' })
 								) : React.createElement(
 									'div',
 									{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'manufacturerFlag' },
@@ -2868,7 +2868,7 @@ UI.widgets.SessionInfo = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'sessionInfoFlag' },
-						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
+						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.png' })
 					),
 					React.createElement(
 						'div',
@@ -2891,7 +2891,7 @@ UI.widgets.SessionInfo = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'sessionInfoFlag' },
-						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.svg' })
+						React.createElement('img', { src: '/img/flags/' + self.getCountryCode(p.eventInfo.trackId) + '.png' })
 					),
 					React.createElement(
 						'div',
@@ -3549,7 +3549,7 @@ var Driver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'meta' },
-					!window.settings.offline && React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg' }),
+					!window.settings.offline && React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.png' }),
 					React.createElement(
 						'div',
 						{ className: 'name' },
@@ -4253,7 +4253,7 @@ var TabledDriver = React.createClass({
 					} },
 				self.getTimeDiff(driver, fastestDriver)
 			),
-			React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.svg', title: "Country - " + UI.getUserInfo(driver.portalId).countryName }),
+			React.createElement('img', { className: 'flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.png', title: "Country - " + UI.getUserInfo(driver.portalId).countryName }),
 			React.createElement(
 				'div',
 				{ className: cx({ 'name': true, 'focused': this.props.focused }), onClick: () => {

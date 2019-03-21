@@ -23,9 +23,9 @@
 	color: #fff;
 	white-space: pre;
 	font-family: Oswald;
-  border-radius: 10px;
 	border-top: 0.5em solid @EventInfoBorderTop;
 	border-bottom: 0.5em solid @EventInfoBorderBottom;
+	filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
 
   .serverName {
     color: @EventInfoServerNameText;
@@ -39,10 +39,11 @@
      margin-left: auto;
      margin-right: auto;
      width: 100%;
+		 filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
 	 }
 		 .trackLogo {
 			 position: relative;
-
+			 filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
 			 img {
 				 top: -110px;
 				 left: 10px;
@@ -57,6 +58,7 @@
 	.countryFlag {
 		text-align: center;
 		padding-top: 15px;
+		filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
 		img {
 			position: relative;
 			opacity: 1;
@@ -65,6 +67,7 @@
 		}
 	}
 	.serverTrackName {
+		-webkit-transform: skew(-10deg, 0deg);
 		color: @EventInfoServerTrackNameText;
 		text-align: center;
 		font-size: @fontSize * 1.5;
@@ -86,6 +89,7 @@
 	}
   .weather {
     .weatherIcons {
+			-webkit-transform: skew(-10deg, 0deg);
       display: flex;
 			font-size: @fontSize;
 			color: @EventInfoWeatherText;

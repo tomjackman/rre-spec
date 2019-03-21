@@ -170,7 +170,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
 					<img className="compare-flag animated fadeIn" src={UI.getUserInfo(driver.portalId).avatar} />
 				:
-					<img className="compare-flag animated fadeIn" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.svg'} />
+					<img className="compare-flag animated fadeIn" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.png'} />
 				}
 				</div>
 				<div className="compareName">
