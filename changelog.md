@@ -16,7 +16,7 @@
 * [Feature] Minor UI improvements to the events info widget.
 * [Tooling] Switched country flags from SVG's to PNG's to prevent artifacting when skewed.
 * [Feature] Increased sizing of standings and session info timer country flags.
-* [Feature] Increased sizing of standings tower flags.
+* [Feature] Increased sizing of standings tower manufacturer logos.
 
 ### Version 1.7.1
 * [Bug Fix] Fixed a bug where the compare race delta timer would not hide when the event info widget was shown.
