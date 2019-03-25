@@ -1,3 +1,6 @@
+### Version 1.7.3
+* [Tooling] Dependency update.
+
 ### Version 1.7.2
 * [Feature] Improved results styling - removed underlines, added striped entries, condensed title header.
 * [Feature] Add DNS & DQ finish status to the race results table.
