@@ -1,3 +1,6 @@
+### Version 1.7.4
+* [Bug Fix] Fix stuttering when the driver info shows on screen.
+
 ### Version 1.7.3
 * [Tooling] Dependency update.
 
