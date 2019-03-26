@@ -1742,7 +1742,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		var focusedDriverClasses = cx({
 			'hide-flags': UI.state.activeWidgets.FocusedDriver.disableFlags,
 			'focused-driver-info': true,
-			'slit-out': UI.state.sessionInfo.type.match(/^race/i) && UI.state.controllerOptions.options.tvStyleAnimations.value === "true" && !self.state.vehicleInfo.drsEnabled && !self.state.pushToPassInfo.active
+			'animated fadeOutDown delay-10s': UI.state.sessionInfo.type.match(/^race/i) && UI.state.controllerOptions.options.tvStyleAnimations.value === "true" && !self.state.vehicleInfo.drsEnabled && !self.state.pushToPassInfo.active
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
@@ -1760,7 +1760,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			{ className: focusedDriverClasses, key: self.state.driverInfo.portalId },
 			React.createElement(
 				'div',
-				{ className: 'inner animated slit-in' },
+				{ className: 'inner animated fadeInUp delay-2s' },
 				React.createElement(
 					'div',
 					{ className: 'top animated fadeInUp delay-3s' },
