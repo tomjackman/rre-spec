@@ -966,9 +966,8 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		var self = this;
 		var teamName = "";
 		var portalTeamName = UI.getUserInfo(portalId).team;
-		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
-			// add star for portal team names
-			teamName = "✪ " + portalTeamName;
+		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null) {
+			teamName = portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
@@ -1679,9 +1678,8 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		if (!window.settings.teamEvent) {
 			var portalTeamName = UI.getUserInfo(portalId).team;
-			if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
-				// add star for portal team names
-				teamName = "✪ " + portalTeamName;
+			if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null) {
+				teamName = portalTeamName;
 			} else if (r3eData.teams[teamId] != null) {
 				teamName = r3eData.teams[teamId].Name;
 			}
@@ -2408,9 +2406,8 @@ var RaceResultEntry = React.createClass({
 		var portalTeamName = UI.getUserInfo(portalId).team;
 		if (window.settings.teamEvent) {
 			return "";
-		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
-			// add star for portal team names
-			teamName = "✪ " + portalTeamName;
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null) {
+			teamName = portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
@@ -5671,9 +5668,8 @@ var ResultEntry = React.createClass({
 		var portalTeamName = UI.getUserInfo(portalId).team;
 		if (window.settings.teamEvent) {
 			return "";
-		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
-			// add star for portal team names
-			teamName = "✪ " + portalTeamName;
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null) {
+			teamName = portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}

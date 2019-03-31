@@ -143,9 +143,8 @@ var ResultEntry = React.createClass({
 		var portalTeamName = UI.getUserInfo(portalId).team;
 		if (window.settings.teamEvent) {
 			return "";
-		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
-			// add star for portal team names
-			teamName = "✪ " + portalTeamName;
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null) {
+			teamName = portalTeamName;
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
