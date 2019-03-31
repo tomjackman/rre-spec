@@ -19,9 +19,9 @@
       "type": "checkbox"
     },
     "showStandingsFlag": {
-      "displayName": "Show Standings Country Flag",
+      "displayName": "Show Driver Country Flags",
       "value": "false",
-      "tooltip": "Show the driver country flag in the standings tower, replacing the manufacturer logo. (Default: false).",
+      "tooltip": "Show the driver country flag in the standings tower and results tables, replacing the manufacturer logo. (Default: false).",
       "type": "checkbox"
     },
     "showTyreCompound": {
@@ -104,7 +104,7 @@
     },
     "qualifyingResultsDisplayTime": {
       "displayName": "Qualifying Results Display Time (Seconds)",
-      "value": "25",
+      "value": "925",
       "tooltip": "The amount of seconds before the end of qualifying to display the results on screen (Default: 25 Seconds)",
       "type": "number"
     },
