@@ -1759,7 +1759,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			{ className: focusedDriverClasses, key: self.state.driverInfo.portalId },
 			React.createElement(
 				'div',
-				{ className: 'inner animated fadeInUp delay-2s' },
+				{ className: 'inner animated fadeInUp delay-1s' },
 				React.createElement(
 					'div',
 					{ className: 'top' },

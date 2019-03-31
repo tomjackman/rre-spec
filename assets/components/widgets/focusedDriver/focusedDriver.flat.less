@@ -129,15 +129,17 @@
 		background: @DriverInfoPositionBackground;
 		color: @DriverInfoPositionText;
 		width: 5em;
-		padding-left: 0.7em;
+    position: relative;
+    left: 0.4em;
+		padding-left: 0.1em;
 		text-align: center;
 		padding-right: 0.75em;
 		line-height: 3.7em;
-		border-top-left-radius: 1em;
-		border-bottom-left-radius: 1em;
+    transform: skew(-10deg);
 		border-bottom: 0.1em solid @DriverInfoPositionBorder;
 		.position {
-			font-size: @fontSize * 3;
+			font-size: @fontSize * 3.5;
+      font-family: Oswald;
 		}
 	}
 	.driverInfoDetails {
@@ -194,11 +196,12 @@
 		background: @DriverInfoManufacturerBackground;
 		width: 4em;
 		position: relative;
-		border-top-right-radius: 1em;
-		border-bottom-right-radius: 1em;
+    left: -0.3em;
 		border-bottom: 0.1em solid @DriverInfoManufacturerBorder;
+    transform: skew(-10deg);
 		img {
 			position: absolute;
+      transform: skew(10deg);
 			top: 0.5em;
 			left: 0.5em;
 			height: 3em;
