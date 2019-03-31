@@ -1,6 +1,7 @@
 ### Version 1.7.4
 * [Bug Fix] Fix stuttering when the driver info shows on screen.
 * [Removed] Removed tv style animation sequence due to performance issues.
+* [Feature] Added flags to results tables (Show Driver Country Flags in control options).
 
 ### Version 1.7.3
 * [Tooling] Dependency update.
