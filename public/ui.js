@@ -1741,8 +1741,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		// show exit animation only in races, if the user has it enabled in the control options and when DRS or PTP us bit being deployed.
 		var focusedDriverClasses = cx({
 			'hide-flags': UI.state.activeWidgets.FocusedDriver.disableFlags,
-			'focused-driver-info': true,
-			'animated fadeOutDown delay-10s': UI.state.sessionInfo.type.match(/^race/i) && UI.state.controllerOptions.options.tvStyleAnimations.value === "true" && !self.state.vehicleInfo.drsEnabled && !self.state.pushToPassInfo.active
+			'focused-driver-info': true
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
@@ -1763,7 +1762,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				{ className: 'inner animated fadeInUp delay-2s' },
 				React.createElement(
 					'div',
-					{ className: 'top animated fadeInUp delay-3s' },
+					{ className: 'top' },
 					self.state.pushToPassInfo.allowed && UI.state.sessionInfo.type.match(/^race/i) ? React.createElement(
 						'div',
 						{ className: 'ptpRemaining' },
@@ -1825,7 +1824,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				),
 				React.createElement(
 					'div',
-					{ className: 'bottom animated fadeInDown delay-4s' },
+					{ className: 'bottom' },
 					self.getExtraInfo()
 				),
 				React.createElement(
