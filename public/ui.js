@@ -4753,11 +4753,15 @@ UI.widgets.Alert = React.createClass({
       // Pitstop
       '2': {
         '1': {
-          text: "Mandatory Pit not taken within the Pitstop Window"
+          text: "Penalty for Mandatory Pit not taken within the Pitstop Window"
         }
       },
       // Time Penalty
-      '3': {},
+      '3': {
+        '1': {
+          text: "Time Penalty for Mandatory Pit taken Outside the Pitstop Window"
+        }
+      },
       // Slowdown Penalty
       '4': {
         '1': {
