@@ -105,12 +105,22 @@
 		.manufacturer {
 			width: 5%;
 			position: relative;
-			img {
+			.manufacturerFlag {
 				position: absolute;
-				top: 0.3em;
-				left: 0.5em;
-				width: 1.5em;
-				height: auto;
+				top: 0.1em;
+				height: 100%;
+				img {
+					height: 100%;
+				}
+			}
+			.standingsFlag {
+				height: 80%;
+				position: absolute;
+				top: 0.2em;
+				img {
+					transform: skew(-15deg, 0deg);
+					height: 100%;
+				}
 			}
 		}
 		.longName {

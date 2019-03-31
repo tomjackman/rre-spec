@@ -204,7 +204,15 @@ var RaceResultEntry = React.createClass({
 			}
 			<div className="position">P{entry.positionOverall}.</div>
 				<div className="manufacturer">
-					<img src={'/render/'+entry.manufacturerId+'/small/?type=manufacturer'}/>
+				{window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
+					<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="standingsFlag">
+						<img src={'/img/flags/'+UI.getUserInfo(entry.portalId).country+'.png'} />
+					</div>
+					:
+					<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="manufacturerFlag">
+						<img src={'/render/'+entry.manufacturerId+'/small/?type=manufacturer'}/>
+					</div>
+				}
 				</div>
 				{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 							<div className="shortName">{self.getName(entry.name)}</div>

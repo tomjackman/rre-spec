@@ -2526,7 +2526,15 @@ var RaceResultEntry = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'manufacturer' },
-				React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/?type=manufacturer' })
+				window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
+					'div',
+					{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'standingsFlag' },
+					React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(entry.portalId).country + '.png' })
+				) : React.createElement(
+					'div',
+					{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'manufacturerFlag' },
+					React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/?type=manufacturer' })
+				)
 			),
 			UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 				'div',
@@ -5724,7 +5732,15 @@ var ResultEntry = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'manufacturer' },
-					React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/?type=manufacturer' })
+					window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
+						'div',
+						{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'standingsFlag' },
+						React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(entry.portalId).country + '.png' })
+					) : React.createElement(
+						'div',
+						{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'manufacturerFlag' },
+						React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/?type=manufacturer' })
+					)
 				),
 				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
 					'div',
