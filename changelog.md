@@ -7,6 +7,7 @@
 * [Feature] Allow user profile team names to be empty, remove star prefix.
 * [Bug Fix] Fixed some small theme coloring issues in the adac gt masters, dtm and special event themes.
 * [Feature] Add time and pitstop penalty notices to steward alerts.
+* [Bug Fix] Fixed a bug where all onscreen widgets would not show when you turn off the qualifying results table within the qualifying results display time.
 
 ### Version 1.7.3
 * [Tooling] Dependency update.
