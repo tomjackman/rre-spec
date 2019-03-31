@@ -20,8 +20,8 @@
     },
     "showStandingsFlag": {
       "displayName": "Show Driver Country Flags",
-      "value": "false",
-      "tooltip": "Show the driver country flag in the standings tower and results tables, replacing the manufacturer logo. (Default: false).",
+      "value": "true",
+      "tooltip": "Show the driver country flag in the standings tower and results tables, replacing the manufacturer logo. (Default: true).",
       "type": "checkbox"
     },
     "showTyreCompound": {
@@ -38,7 +38,7 @@
     },
     "showPortalTeam": {
       "displayName": "Show Portal Team Names",
-      "value": "true",
+      "value": "false",
       "tooltip": "Show a drivers portal team name if they have added one (Default: False).",
       "type": "checkbox"
     },

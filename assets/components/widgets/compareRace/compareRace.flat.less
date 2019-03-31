@@ -60,16 +60,16 @@
 	.comparePositionContainer {
 		background: @CompareRacePositionBackground;
 		color: @CompareRacePositionText;
-		width: 3.25em;
+		width: 3.75em;
 		text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
 		text-align: center;
-		padding-left: 0px;
 		line-height: 3.5em;
-		border-top-left-radius: 1em;
-		border-bottom-left-radius: 1em;
 		border-bottom: 0.1em solid @CompareRacePositionBorder;
+		transform: skew(-10deg);
 		.comparePosition {
-			font-size: @fontSize * 2;
+			position: relative;
+			left: -0.075em;
+			font-size: @fontSize * 3;
 		}
 	}
 	.compareName {
@@ -100,11 +100,12 @@
 		width: 4em;
 		z-index: 1;
 		position: relative;
-		border-top-right-radius: 1em;
-		border-bottom-right-radius: 1em;
+		left: -0.3em;
+		transform: skew(-10deg);
 		border-bottom: 0.1em solid @CompareRaceManufacturerBorder;
 		img {
 			position: absolute;
+			transform: skew(10deg);
 			top: 0.25em;
 			right: 0.5em;
 			height: 3em;
