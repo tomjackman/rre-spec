@@ -6,6 +6,7 @@
 * [Feature] Added sharper skewed design to the compare info widget.
 * [Feature] Allow user profile team names to be empty, remove star prefix.
 * [Bug Fix] Fixed some small theme coloring issues in the adac gt masters, dtm and special event themes.
+* [Feature] Add time and pitstop penalty notices to steward alerts.
 
 ### Version 1.7.3
 * [Tooling] Dependency update.
