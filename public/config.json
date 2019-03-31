@@ -12,12 +12,6 @@
       "tooltip": "Enable Multiclass UI elements (Default: False).",
       "type": "checkbox"
     },
-    "tvStyleAnimations": {
-      "displayName": "Fade Out Driver Info In Race",
-      "value": "true",
-      "tooltip": "Auto-hide the driver information widgets on screen after a few seconds in race sessions. (Default: true).",
-      "type": "checkbox"
-    },
     "showStandingsManufacturer": {
       "displayName": "Show Standings Manufacturer",
       "value": "true",
