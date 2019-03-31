@@ -1346,7 +1346,7 @@ UI.widgets.EventInfo = React.createClass({
 		var trackLogo = r3eTracks.tracks[info.trackId] && r3eTracks.tracks[info.trackId].trackLogoUrl ? r3eTracks.tracks[info.trackId].trackLogoUrl : null;
 		var trackDescription = r3eTracks.tracks[info.trackId] && r3eTracks.tracks[info.trackId].description ? r3eTracks.tracks[info.trackId].description : null;
 
-		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value && UI.state.activeWidgets.Results.active) {
 			return null;
 		}
 
@@ -1743,7 +1743,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		});
 
 		// On end phase user portalId is not sent anymore so do not show
-		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value && UI.state.activeWidgets.Results.active) {
 			return null;
 		}
 
@@ -2115,7 +2115,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 			'multiclass-standings': true
 		});
 
-		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value && UI.state.activeWidgets.Results.active) {
 			return null;
 		}
 
@@ -2850,7 +2850,7 @@ UI.widgets.SessionInfo = React.createClass({
 			return null;
 		}
 
-		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value && UI.state.activeWidgets.Results.active) {
 			return null;
 		}
 

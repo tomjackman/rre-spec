@@ -185,7 +185,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 			, 'multiclass-standings': true
 		});
 
-		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value && UI.state.activeWidgets.Results.active) {
 			return null;
 		}
 

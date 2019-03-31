@@ -53,7 +53,7 @@ UI.widgets.EventInfo = React.createClass({
 		var trackLogo = r3eTracks.tracks[info.trackId] && r3eTracks.tracks[info.trackId].trackLogoUrl ? r3eTracks.tracks[info.trackId].trackLogoUrl : null;
 		var trackDescription = r3eTracks.tracks[info.trackId] && r3eTracks.tracks[info.trackId].description ? r3eTracks.tracks[info.trackId].description : null;
 
-		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value) {
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value && UI.state.activeWidgets.Results.active) {
 			return null;
 		}
 
