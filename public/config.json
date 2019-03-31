@@ -38,7 +38,7 @@
     },
     "showPortalTeam": {
       "displayName": "Show Portal Team Names",
-      "value": "false",
+      "value": "true",
       "tooltip": "Show a drivers portal team name if they have added one (Default: False).",
       "type": "checkbox"
     },
