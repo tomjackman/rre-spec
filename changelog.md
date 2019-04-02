@@ -1,3 +1,6 @@
+### Version 1.7.5
+* [Tooling] Add correct track name and description for Autodrome Most.
+
 ### Version 1.7.4
 * [Bug Fix] Fix stuttering when the driver info shows on screen.
 * [Removed] Removed tv style animation sequence due to performance issues.
