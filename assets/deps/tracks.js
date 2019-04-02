@@ -259,10 +259,10 @@ var r3eTracks = {
       description: "This track is located near Motegi in Japan. The 4.8 km long road course is built in a stop-start straight-hairpin style, providing great overtaking opportunities, and is mostly known for hosting series such as the WTCC, Formula Nippon, Super GT, Formula 4 and MotoGP, making it one of the most popular tracks on the Asian continent."
     },
     '7111': {
-      Name: 'Most Autodrom',
+      Name: 'Autodrom Most',
       countryCode: "cz",
       trackLogoUrl: "http://game.raceroom.com/assets/content/track/most-autodrom-7111-logo-original.png",
-      description: "Most became the first permanent motor racing facility in Czechoslavakia (now the Czech Republic) when it opened in 1983, though the history of racing in the local area goes back many decades. Always somewhat overshadowed by Brno, Most has nevertheless carved out a successful business as host for the Czech Truck Grand Prix, alongside national motorsport, general testing and driver training."
+      description: "This 4.2 km long circuit located in the northwest of the Czech Republic was built in 1983 and has since then regularly hosted many motorcycle, truck and car racing events. In 2018 it became part of the ADAC GT Masters calendar, proving to be an excellent motorsport venue and a real challenge for the drivers, with its high speed sections nicely embedded in the environment and a distinct lack of artificial run-off areas."
     }
   }
 };
