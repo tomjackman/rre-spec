@@ -220,8 +220,10 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		if (!window.settings.teamEvent) {
 			var portalTeamName = UI.getUserInfo(portalId).team;
-			if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null) {
+			if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 				teamName = portalTeamName;
+			} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length === 0) {
+				teamName = "Privateer";
 			} else if (r3eData.teams[teamId] != null) {
 				teamName = r3eData.teams[teamId].Name;
 			}
