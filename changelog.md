@@ -5,7 +5,6 @@
 * [Feature] Added privateer indicator for drivers without a team name set in their raceroom profile.
 * [Feature] Condensed driver info and compare widgets with small ui improvements.
 
-
 ### Version 1.7.4
 * [Bug Fix] Fix stuttering when the driver info shows on screen.
 * [Removed] Removed tv style animation sequence due to performance issues.
