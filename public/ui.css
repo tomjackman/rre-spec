@@ -291,7 +291,7 @@ a {
   font-size: 17px;
   background: white;
   display: inline-block;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   font-size: 1em;
   text-align: center;
   width: 2em;
@@ -330,7 +330,7 @@ a {
   font-family: Oswald;
   display: inline-block;
   color: white;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: #c4122f;
   width: 4em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -345,8 +345,8 @@ a {
 }
 .multiclass-standings .driver .meta-info {
   font-size: 17px;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  color: white;
+  background: white;
+  color: #212121;
   font-family: Oswald;
   display: inline-block;
   height: 1.2em;
@@ -406,7 +406,7 @@ a {
 }
 .multiclass-standings .driver .pit-info .unpitted {
   font-size: 20.4px;
-  background: #e21d38;
+  background: #c4122f;
 }
 .error-screen {
   z-index: 2147483627;
@@ -844,7 +844,7 @@ select {
   font-weight: bold;
   filter: drop-shadow(2px 2px 2px #000000);
   padding: 4px 6px;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: #c4122f;
 }
 @-webkit-keyframes "ani_11" {
   0% {
@@ -1764,7 +1764,7 @@ select {
   font-weight: bold;
   filter: drop-shadow(2px 2px 2px #000000);
   padding: 4px 6px;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: #c4122f;
 }
 @-webkit-keyframes "ani_15" {
   0% {
@@ -2599,8 +2599,8 @@ select {
 }
 .alert .raceControlAlert {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #e21d38;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  border-top: 3px solid white;
+  background: #c4122f;
   color: white;
   font-size: 18.7px;
   padding: 0.05em;
@@ -2632,8 +2632,8 @@ select {
 }
 .alert .raceControlAlert {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #e21d38;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  border-top: 3px solid white;
+  background: #c4122f;
   color: white;
   font-size: 18.7px;
   padding: 0.05em;
@@ -2719,8 +2719,8 @@ select {
 }
 .commentaryNameAlert .commentaryTitle {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #e21d38;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  border-top: 3px solid #ffffff;
+  background: #c4122f;
   color: white;
   font-size: 18.7px;
   padding: 0.05em;
@@ -2753,8 +2753,8 @@ select {
 }
 .commentaryNameAlert .commentaryTitle {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #e21d38;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  border-top: 3px solid #ffffff;
+  background: #c4122f;
   color: white;
   font-size: 18.7px;
   padding: 0.05em;
@@ -2781,7 +2781,7 @@ select {
 .compare-race .delta {
   font-size: 17px;
   text-transform: uppercase;
-  color: white;
+  color: #212121;
   padding: 0.25em 0.5em;
   min-width: 6.5em;
   display: inline-block;
@@ -2789,26 +2789,26 @@ select {
 }
 .compare-race .delta .battle {
   text-transform: uppercase;
-  border-top: 0.25em solid #e21d38;
-  color: white;
+  border-top: 0.25em solid #c4122f;
+  color: #212121;
   padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
   transform: skew(-10deg);
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: white;
   left: 0.3em;
 }
 .compare-race .delta .value {
   text-transform: uppercase;
-  color: white;
+  color: #212121;
   padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
   left: -0.05em;
   transform: skew(-10deg);
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: white;
 }
 .compare-race .delta .inner {
   position: absolute !important;
@@ -2865,7 +2865,7 @@ select {
   background: #ff9800;
   line-height: 0.5em;
   padding: 0.5em 0.5em;
-  color: black;
+  color: #212121;
   width: 5em;
   z-index: 0;
   height: 1.5em;
@@ -2892,7 +2892,7 @@ select {
 }
 .compare-race .inner .main .comparePositionContainer {
   background: white;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   width: 3.75em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -2906,11 +2906,11 @@ select {
   font-size: 51px;
 }
 .compare-race .inner .main .compareName {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  color: white;
+  background: white;
+  color: #c4122f;
   padding: 0 1em;
   min-width: 12em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .compareName .name {
   font-size: 22.1px;
@@ -2935,7 +2935,7 @@ select {
   position: relative;
   left: -0.3em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .manufacturer img {
   position: absolute;
@@ -2953,7 +2953,7 @@ select {
 }
 .compare-race .inner .bottom .team {
   transform: skew(-10deg);
-  background: rgba(31, 31, 30, 0.9);
+  background: #c4122f;
   color: white;
   height: 1.5em;
   text-transform: uppercase;
@@ -3048,7 +3048,7 @@ select {
   background: #ff9800;
   line-height: 0.5em;
   padding: 0.5em 0.5em;
-  color: black;
+  color: #212121;
   width: 5em;
   z-index: 0;
   height: 1.5em;
@@ -3075,7 +3075,7 @@ select {
 }
 .compare-race .inner .main .comparePositionContainer {
   background: white;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   width: 3.75em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -3089,11 +3089,11 @@ select {
   font-size: 51px;
 }
 .compare-race .inner .main .compareName {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  color: white;
+  background: white;
+  color: #c4122f;
   padding: 0 1em;
   min-width: 12em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .compareName .name {
   font-size: 22.1px;
@@ -3118,7 +3118,7 @@ select {
   position: relative;
   left: -0.3em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .manufacturer img {
   position: absolute;
@@ -3136,7 +3136,7 @@ select {
 }
 .compare-race .inner .bottom .team {
   transform: skew(-10deg);
-  background: rgba(31, 31, 30, 0.9);
+  background: #c4122f;
   color: white;
   height: 1.5em;
   text-transform: uppercase;
@@ -3212,7 +3212,7 @@ select {
 .compare-race .delta {
   font-size: 17px;
   text-transform: uppercase;
-  color: white;
+  color: #212121;
   padding: 0.25em 0.5em;
   min-width: 6.5em;
   display: inline-block;
@@ -3220,26 +3220,26 @@ select {
 }
 .compare-race .delta .battle {
   text-transform: uppercase;
-  border-top: 0.25em solid #e21d38;
-  color: white;
+  border-top: 0.25em solid #c4122f;
+  color: #212121;
   padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
   transform: skew(-10deg);
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: white;
   left: 0.3em;
 }
 .compare-race .delta .value {
   text-transform: uppercase;
-  color: white;
+  color: #212121;
   padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
   left: -0.05em;
   transform: skew(-10deg);
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: white;
 }
 .compare-race .delta .inner {
   position: absolute !important;
@@ -3296,7 +3296,7 @@ select {
   background: #ff9800;
   line-height: 0.5em;
   padding: 0.5em 0.5em;
-  color: black;
+  color: #212121;
   width: 5em;
   z-index: 0;
   height: 1.5em;
@@ -3323,7 +3323,7 @@ select {
 }
 .compare-race .inner .main .comparePositionContainer {
   background: white;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   width: 3.75em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -3337,11 +3337,11 @@ select {
   font-size: 51px;
 }
 .compare-race .inner .main .compareName {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  color: white;
+  background: white;
+  color: #c4122f;
   padding: 0 1em;
   min-width: 12em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .compareName .name {
   font-size: 22.1px;
@@ -3366,7 +3366,7 @@ select {
   position: relative;
   left: -0.3em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .manufacturer img {
   position: absolute;
@@ -3384,7 +3384,7 @@ select {
 }
 .compare-race .inner .bottom .team {
   transform: skew(-10deg);
-  background: rgba(31, 31, 30, 0.9);
+  background: #c4122f;
   color: white;
   height: 1.5em;
   text-transform: uppercase;
@@ -3479,7 +3479,7 @@ select {
   background: #ff9800;
   line-height: 0.5em;
   padding: 0.5em 0.5em;
-  color: black;
+  color: #212121;
   width: 5em;
   z-index: 0;
   height: 1.5em;
@@ -3506,7 +3506,7 @@ select {
 }
 .compare-race .inner .main .comparePositionContainer {
   background: white;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   width: 3.75em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -3520,11 +3520,11 @@ select {
   font-size: 51px;
 }
 .compare-race .inner .main .compareName {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  color: white;
+  background: white;
+  color: #c4122f;
   padding: 0 1em;
   min-width: 12em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .compareName .name {
   font-size: 22.1px;
@@ -3549,7 +3549,7 @@ select {
   position: relative;
   left: -0.3em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .manufacturer img {
   position: absolute;
@@ -3567,7 +3567,7 @@ select {
 }
 .compare-race .inner .bottom .team {
   transform: skew(-10deg);
-  background: rgba(31, 31, 30, 0.9);
+  background: #c4122f;
   color: white;
   height: 1.5em;
   text-transform: uppercase;
@@ -3816,7 +3816,7 @@ select {
   background: rgba(0, 0, 0, 0.2);
 }
 .event-info {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.6) 10%, rgba(31, 31, 30, 0.6) 90%);
+  background: white;
   font-size: 17px;
   width: 50em;
   position: fixed;
@@ -3828,12 +3828,12 @@ select {
   color: #fff;
   white-space: pre;
   font-family: Oswald;
-  border-top: 0.3em solid white;
-  border-bottom: 0.3em solid white;
+  border-top: 0.3em solid #c4122f;
+  border-bottom: 0.3em solid #c4122f;
   filter: drop-shadow(2px 2px 2px #000000);
 }
 .event-info .serverName {
-  color: #ffffff;
+  color: #323433;
   text-align: center;
   font-size: 25.5px;
   padding: 20px;
@@ -3871,7 +3871,7 @@ select {
 }
 .event-info .serverTrackName {
   -webkit-transform: skew(-10deg, 0deg);
-  color: #ffffff;
+  color: #323433;
   text-align: center;
   font-size: 25.5px;
   padding: 15px;
@@ -3880,7 +3880,7 @@ select {
   margin: auto;
 }
 .event-info .trackDescription {
-  color: #ffffff;
+  color: #323433;
   display: block;
   width: 100%;
   font-size: 17px;
@@ -3894,7 +3894,7 @@ select {
   -webkit-transform: skew(-10deg, 0deg);
   display: flex;
   font-size: 17px;
-  color: #ffffff;
+  color: #323433;
   justify-content: space-around;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
@@ -3909,7 +3909,7 @@ select {
   background: rgba(0, 0, 0, 0.2);
 }
 .event-info {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.6) 10%, rgba(31, 31, 30, 0.6) 90%);
+  background: white;
   font-size: 17px;
   width: 50em;
   position: fixed;
@@ -3921,12 +3921,12 @@ select {
   color: #fff;
   white-space: pre;
   font-family: Oswald;
-  border-top: 0.3em solid white;
-  border-bottom: 0.3em solid white;
+  border-top: 0.3em solid #c4122f;
+  border-bottom: 0.3em solid #c4122f;
   filter: drop-shadow(2px 2px 2px #000000);
 }
 .event-info .serverName {
-  color: #ffffff;
+  color: #323433;
   text-align: center;
   font-size: 25.5px;
   padding: 20px;
@@ -3964,7 +3964,7 @@ select {
 }
 .event-info .serverTrackName {
   -webkit-transform: skew(-10deg, 0deg);
-  color: #ffffff;
+  color: #323433;
   text-align: center;
   font-size: 25.5px;
   padding: 15px;
@@ -3973,7 +3973,7 @@ select {
   margin: auto;
 }
 .event-info .trackDescription {
-  color: #ffffff;
+  color: #323433;
   display: block;
   width: 100%;
   font-size: 17px;
@@ -3987,7 +3987,7 @@ select {
   -webkit-transform: skew(-10deg, 0deg);
   display: flex;
   font-size: 17px;
-  color: #ffffff;
+  color: #323433;
   justify-content: space-around;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
@@ -4207,7 +4207,7 @@ select {
 .focused-driver-info .top .positionInClass {
   transform: skew(-10deg);
   line-height: 0.5em;
-  background: #e21d38;
+  background: #212121;
   padding: 0.5em 0.5em;
   color: white;
   width: 3em;
@@ -4221,7 +4221,7 @@ select {
 }
 .focused-driver-info .main .positionContainer {
   background: white;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   width: 5em;
   position: relative;
   left: 0.4em;
@@ -4230,35 +4230,35 @@ select {
   padding-right: 0.75em;
   line-height: 3.7em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid rgba(20, 57, 52, 0.8);
+  border-bottom: 0.1em solid #c4122f;
 }
 .focused-driver-info .main .positionContainer .position {
   font-size: 59.5px;
   font-family: Oswald;
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: white;
   text-transform: uppercase;
   padding: 0px 1em;
   min-width: 19em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
 }
 .focused-driver-info .main .driverInfoDetails .name {
   line-height: 2em;
-  color: white;
+  color: #c4122f;
   font-size: 22.1px;
 }
 .focused-driver-info .main .driverInfoDetails .teamEventName {
   margin-top: 0.5em;
   line-height: 2em;
-  color: white;
+  color: #c4122f;
   font-size: 22.1px;
 }
 .focused-driver-info .main .driverInfoDetails .team {
   font-size: 16.15px;
   line-height: 0.7em;
   position: relative;
-  color: white;
+  color: #212121;
   text-transform: uppercase;
 }
 .focused-driver-info .main .vehicle {
@@ -4273,10 +4273,10 @@ select {
   height: 5.5em;
 }
 .focused-driver-info .main .tyre {
-  background: rgba(31, 31, 30, 0.9);
+  background: #212121;
   width: 4em;
   position: relative;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
   left: -0.3em;
   transform: skew(-10deg);
 }
@@ -4292,7 +4292,7 @@ select {
   width: 4em;
   position: relative;
   left: -0.4em;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid #c4122f;
   transform: skew(-10deg);
 }
 .focused-driver-info .main .manufacturer img {
@@ -4306,7 +4306,7 @@ select {
   width: 3em;
   position: relative;
   background: #263238;
-  border-bottom: 0.1em solid #ff5252;
+  border-bottom: 0.1em solid #c4122f;
   transform: skew(-10deg);
   margin: 1;
 }
@@ -4424,7 +4424,7 @@ select {
 .focused-driver-info .top .positionInClass {
   transform: skew(-10deg);
   line-height: 0.5em;
-  background: #e21d38;
+  background: #212121;
   padding: 0.5em 0.5em;
   color: white;
   width: 3em;
@@ -4438,7 +4438,7 @@ select {
 }
 .focused-driver-info .main .positionContainer {
   background: white;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   width: 5em;
   position: relative;
   left: 0.4em;
@@ -4447,35 +4447,35 @@ select {
   padding-right: 0.75em;
   line-height: 3.7em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid rgba(20, 57, 52, 0.8);
+  border-bottom: 0.1em solid #c4122f;
 }
 .focused-driver-info .main .positionContainer .position {
   font-size: 59.5px;
   font-family: Oswald;
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: white;
   text-transform: uppercase;
   padding: 0px 1em;
   min-width: 19em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
 }
 .focused-driver-info .main .driverInfoDetails .name {
   line-height: 2em;
-  color: white;
+  color: #c4122f;
   font-size: 22.1px;
 }
 .focused-driver-info .main .driverInfoDetails .teamEventName {
   margin-top: 0.5em;
   line-height: 2em;
-  color: white;
+  color: #c4122f;
   font-size: 22.1px;
 }
 .focused-driver-info .main .driverInfoDetails .team {
   font-size: 16.15px;
   line-height: 0.7em;
   position: relative;
-  color: white;
+  color: #212121;
   text-transform: uppercase;
 }
 .focused-driver-info .main .vehicle {
@@ -4490,10 +4490,10 @@ select {
   height: 5.5em;
 }
 .focused-driver-info .main .tyre {
-  background: rgba(31, 31, 30, 0.9);
+  background: #212121;
   width: 4em;
   position: relative;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
   left: -0.3em;
   transform: skew(-10deg);
 }
@@ -4509,7 +4509,7 @@ select {
   width: 4em;
   position: relative;
   left: -0.4em;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid #c4122f;
   transform: skew(-10deg);
 }
 .focused-driver-info .main .manufacturer img {
@@ -4523,7 +4523,7 @@ select {
   width: 3em;
   position: relative;
   background: #263238;
-  border-bottom: 0.1em solid #ff5252;
+  border-bottom: 0.1em solid #c4122f;
   transform: skew(-10deg);
   margin: 1;
 }
@@ -4751,7 +4751,7 @@ select {
 .focused-driver-info .top .positionInClass {
   transform: skew(-10deg);
   line-height: 0.5em;
-  background: #e21d38;
+  background: #212121;
   padding: 0.5em 0.5em;
   color: white;
   width: 3em;
@@ -4765,7 +4765,7 @@ select {
 }
 .focused-driver-info .main .positionContainer {
   background: white;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   width: 5em;
   position: relative;
   left: 0.4em;
@@ -4774,35 +4774,35 @@ select {
   padding-right: 0.75em;
   line-height: 3.7em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid rgba(20, 57, 52, 0.8);
+  border-bottom: 0.1em solid #c4122f;
 }
 .focused-driver-info .main .positionContainer .position {
   font-size: 59.5px;
   font-family: Oswald;
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: white;
   text-transform: uppercase;
   padding: 0px 1em;
   min-width: 19em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
 }
 .focused-driver-info .main .driverInfoDetails .name {
   line-height: 2em;
-  color: white;
+  color: #c4122f;
   font-size: 22.1px;
 }
 .focused-driver-info .main .driverInfoDetails .teamEventName {
   margin-top: 0.5em;
   line-height: 2em;
-  color: white;
+  color: #c4122f;
   font-size: 22.1px;
 }
 .focused-driver-info .main .driverInfoDetails .team {
   font-size: 16.15px;
   line-height: 0.7em;
   position: relative;
-  color: white;
+  color: #212121;
   text-transform: uppercase;
 }
 .focused-driver-info .main .vehicle {
@@ -4817,10 +4817,10 @@ select {
   height: 5.5em;
 }
 .focused-driver-info .main .tyre {
-  background: rgba(31, 31, 30, 0.9);
+  background: #212121;
   width: 4em;
   position: relative;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
   left: -0.3em;
   transform: skew(-10deg);
 }
@@ -4836,7 +4836,7 @@ select {
   width: 4em;
   position: relative;
   left: -0.4em;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid #c4122f;
   transform: skew(-10deg);
 }
 .focused-driver-info .main .manufacturer img {
@@ -4850,7 +4850,7 @@ select {
   width: 3em;
   position: relative;
   background: #263238;
-  border-bottom: 0.1em solid #ff5252;
+  border-bottom: 0.1em solid #c4122f;
   transform: skew(-10deg);
   margin: 1;
 }
@@ -4968,7 +4968,7 @@ select {
 .focused-driver-info .top .positionInClass {
   transform: skew(-10deg);
   line-height: 0.5em;
-  background: #e21d38;
+  background: #212121;
   padding: 0.5em 0.5em;
   color: white;
   width: 3em;
@@ -4982,7 +4982,7 @@ select {
 }
 .focused-driver-info .main .positionContainer {
   background: white;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   width: 5em;
   position: relative;
   left: 0.4em;
@@ -4991,35 +4991,35 @@ select {
   padding-right: 0.75em;
   line-height: 3.7em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid rgba(20, 57, 52, 0.8);
+  border-bottom: 0.1em solid #c4122f;
 }
 .focused-driver-info .main .positionContainer .position {
   font-size: 59.5px;
   font-family: Oswald;
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: white;
   text-transform: uppercase;
   padding: 0px 1em;
   min-width: 19em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
 }
 .focused-driver-info .main .driverInfoDetails .name {
   line-height: 2em;
-  color: white;
+  color: #c4122f;
   font-size: 22.1px;
 }
 .focused-driver-info .main .driverInfoDetails .teamEventName {
   margin-top: 0.5em;
   line-height: 2em;
-  color: white;
+  color: #c4122f;
   font-size: 22.1px;
 }
 .focused-driver-info .main .driverInfoDetails .team {
   font-size: 16.15px;
   line-height: 0.7em;
   position: relative;
-  color: white;
+  color: #212121;
   text-transform: uppercase;
 }
 .focused-driver-info .main .vehicle {
@@ -5034,10 +5034,10 @@ select {
   height: 5.5em;
 }
 .focused-driver-info .main .tyre {
-  background: rgba(31, 31, 30, 0.9);
+  background: #212121;
   width: 4em;
   position: relative;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid #c4122f;
   left: -0.3em;
   transform: skew(-10deg);
 }
@@ -5053,7 +5053,7 @@ select {
   width: 4em;
   position: relative;
   left: -0.4em;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid #c4122f;
   transform: skew(-10deg);
 }
 .focused-driver-info .main .manufacturer img {
@@ -5067,7 +5067,7 @@ select {
   width: 3em;
   position: relative;
   background: #263238;
-  border-bottom: 0.1em solid #ff5252;
+  border-bottom: 0.1em solid #c4122f;
   transform: skew(-10deg);
   margin: 1;
 }
@@ -5221,7 +5221,7 @@ body {
   font-size: 17px;
   background: white;
   display: inline-block;
-  color: rgba(20, 57, 52, 0.8);
+  color: #212121;
   font-size: 1em;
   text-align: center;
   width: 2em;
@@ -5260,7 +5260,7 @@ body {
   font-family: Oswald;
   display: inline-block;
   color: white;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: #c4122f;
   width: 4em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -5275,8 +5275,8 @@ body {
 }
 .multiclass-standings .driver .meta-info {
   font-size: 17px;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  color: white;
+  background: white;
+  color: #212121;
   font-family: Oswald;
   display: inline-block;
   height: 1.2em;
@@ -5336,7 +5336,7 @@ body {
 }
 .multiclass-standings .driver .pit-info .unpitted {
   font-size: 20.4px;
-  background: #e21d38;
+  background: #c4122f;
 }
 .race-results-bg {
   font-size: 17px;
@@ -5368,7 +5368,7 @@ body {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: white;
+  color: #c4122f;
   white-space: pre;
   font-family: Oswald;
   width: 60%;
@@ -5380,15 +5380,15 @@ body {
   padding: 0 0.75em 0 0;
   line-height: 4em;
   font-size: 25.5px;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  border-top: 0.25em solid white;
+  background: white;
+  border-top: 0.25em solid #c4122f;
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .race-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/rrvln.png);
+  content: url(results/logos/audi-tt-cup.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -5397,8 +5397,8 @@ body {
 .race-results .race-results-entry {
   height: 2em;
   line-height: 2em;
-  color: white;
-  background: rgba(20, 57, 52, 0.8);
+  color: #212121;
+  background: white;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -5418,7 +5418,7 @@ body {
   float: left;
 }
 .race-results .race-results-entry.title .classPosition {
-  color: white;
+  color: #212121;
   -ms-transform: skew(0deg, 0deg);
   -webkit-transform: skew(0deg, 0deg);
   transform: skew(0deg, 0deg);
@@ -5512,7 +5512,7 @@ body {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, #e21d38 90%);
+  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(255, 255, 255, 0.8) 90%);
 }
 .winnerColumn .winnerTitle {
   font-size: 25.5px;
@@ -5554,7 +5554,7 @@ body {
 }
 .winnerColumn .driverFlagContainer {
   position: fixed;
-  content: url(results/logos/rrvln.png);
+  content: url(results/logos/audi-tt-cup.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -5589,7 +5589,7 @@ body {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, #71229a 90%);
+  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, rgba(255, 255, 255, 0.8) 90%);
 }
 .fastestDriverColumn .fastestTitle {
   font-size: 25.5px;
@@ -5631,7 +5631,7 @@ body {
 }
 .fastestDriverColumn .fastestDriverFlagContainer {
   position: fixed;
-  content: url(results/logos/rrvln.png);
+  content: url(results/logos/audi-tt-cup.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -5686,7 +5686,7 @@ body {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: white;
+  color: #c4122f;
   white-space: pre;
   font-family: Oswald;
   width: 60%;
@@ -5698,15 +5698,15 @@ body {
   padding: 0 0.75em 0 0;
   line-height: 4em;
   font-size: 25.5px;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  border-top: 0.25em solid white;
+  background: white;
+  border-top: 0.25em solid #c4122f;
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .race-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/rrvln.png);
+  content: url(results/logos/audi-tt-cup.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -5715,8 +5715,8 @@ body {
 .race-results .race-results-entry {
   height: 2em;
   line-height: 2em;
-  color: white;
-  background: rgba(20, 57, 52, 0.8);
+  color: #212121;
+  background: white;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -5736,7 +5736,7 @@ body {
   float: left;
 }
 .race-results .race-results-entry.title .classPosition {
-  color: white;
+  color: #212121;
   -ms-transform: skew(0deg, 0deg);
   -webkit-transform: skew(0deg, 0deg);
   transform: skew(0deg, 0deg);
@@ -5830,7 +5830,7 @@ body {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, #e21d38 90%);
+  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(255, 255, 255, 0.8) 90%);
 }
 .winnerColumn .winnerTitle {
   font-size: 25.5px;
@@ -5872,7 +5872,7 @@ body {
 }
 .winnerColumn .driverFlagContainer {
   position: fixed;
-  content: url(results/logos/rrvln.png);
+  content: url(results/logos/audi-tt-cup.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -5907,7 +5907,7 @@ body {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, #71229a 90%);
+  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, rgba(255, 255, 255, 0.8) 90%);
 }
 .fastestDriverColumn .fastestTitle {
   font-size: 25.5px;
@@ -5949,7 +5949,7 @@ body {
 }
 .fastestDriverColumn .fastestDriverFlagContainer {
   position: fixed;
-  content: url(results/logos/rrvln.png);
+  content: url(results/logos/audi-tt-cup.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -6003,7 +6003,7 @@ body {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: white;
+  color: #c4122f;
   white-space: pre;
   font-family: Oswald;
   width: 60%;
@@ -6016,15 +6016,15 @@ body {
   padding: 0 0.75em 0 0;
   line-height: 4em;
   font-size: 25.5px;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  border-top: 0.25em solid white;
+  background: white;
+  border-top: 0.25em solid #c4122f;
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .qualify-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/rrvln.png);
+  content: url(results/logos/audi-tt-cup.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -6033,8 +6033,8 @@ body {
 .qualify-results .qualify-results-entry {
   height: 2em;
   line-height: 2em;
-  color: white;
-  background: rgba(20, 57, 52, 0.8);
+  color: #212121;
+  background: white;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -6046,7 +6046,7 @@ body {
   font-size: 18.7px;
 }
 .qualify-results .qualify-results-entry.title .classPosition {
-  color: white;
+  color: #212121;
   -ms-transform: skew(0deg, 0deg);
   -webkit-transform: skew(0deg, 0deg);
   transform: skew(0deg, 0deg);
@@ -6161,7 +6161,7 @@ body {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: white;
+  color: #c4122f;
   white-space: pre;
   font-family: Oswald;
   width: 60%;
@@ -6174,15 +6174,15 @@ body {
   padding: 0 0.75em 0 0;
   line-height: 4em;
   font-size: 25.5px;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
-  border-top: 0.25em solid white;
+  background: white;
+  border-top: 0.25em solid #c4122f;
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .qualify-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/rrvln.png);
+  content: url(results/logos/audi-tt-cup.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -6191,8 +6191,8 @@ body {
 .qualify-results .qualify-results-entry {
   height: 2em;
   line-height: 2em;
-  color: white;
-  background: rgba(20, 57, 52, 0.8);
+  color: #212121;
+  background: white;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -6204,7 +6204,7 @@ body {
   font-size: 18.7px;
 }
 .qualify-results .qualify-results-entry.title .classPosition {
-  color: white;
+  color: #212121;
   -ms-transform: skew(0deg, 0deg);
   -webkit-transform: skew(0deg, 0deg);
   transform: skew(0deg, 0deg);
@@ -6302,7 +6302,7 @@ body {
   font-family: Oswald;
   background: rgba(255, 193, 7, 0.9);
   text-transform: uppercase;
-  color: black;
+  color: #212121;
   height: 2em;
   width: 7em;
   line-height: 2em;
@@ -6320,7 +6320,7 @@ body {
   font-family: Oswald;
   background: rgba(255, 193, 7, 0.9);
   text-transform: uppercase;
-  color: black;
+  color: #212121;
   height: 2em;
   width: 7em;
   line-height: 2em;
@@ -6342,8 +6342,8 @@ body {
 }
 .safetyAlert .raceControl {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #e21d38;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  border-top: 3px solid white;
+  background: #c4122f;
   color: white;
   font-size: 18.7px;
   padding: 0.05em;
@@ -6375,8 +6375,8 @@ body {
 }
 .safetyAlert .raceControl {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #e21d38;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  border-top: 3px solid white;
+  background: #c4122f;
   color: white;
   font-size: 18.7px;
   padding: 0.05em;
@@ -6419,17 +6419,17 @@ body {
 }
 .session-info .inner .sessionName {
   min-width: 4em;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: #c4122f;
   text-transform: uppercase;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid white;
   color: white;
 }
 .session-info .inner .timer {
   min-width: 5em;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid white;
   background: white;
   text-transform: uppercase;
-  color: #323433;
+  color: #212121;
   z-index: 2;
 }
 .session-info .inner .yellowFlag {
@@ -6448,10 +6448,10 @@ body {
 .session-info .inner .countdown {
   padding: 0em 0.3em;
   min-width: 4em;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid white;
   background: white;
   text-transform: uppercase;
-  color: #323433;
+  color: #212121;
   line-height: 1.6em;
   transform: skew(-15deg, 0deg);
   z-index: -2;
@@ -6479,7 +6479,7 @@ body {
   font-size: 17px;
 }
 .session-info .inner .checkered img {
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid white;
   height: 2em;
   width: 4em;
   z-index: 2;
@@ -6487,11 +6487,11 @@ body {
 .session-info .inner .serverName {
   margin: 0;
   min-width: 4em;
-  border-top: 0.2em solid #e21d38;
-  border-left: 0.1em solid #e21d38;
+  border-top: 0.2em solid white;
+  border-left: 0.1em solid white;
   background: white;
   text-transform: uppercase;
-  color: #323433;
+  color: #212121;
   z-index: 2;
 }
 .session-info .inner {
@@ -6521,17 +6521,17 @@ body {
 }
 .session-info .inner .sessionName {
   min-width: 4em;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: #c4122f;
   text-transform: uppercase;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid white;
   color: white;
 }
 .session-info .inner .timer {
   min-width: 5em;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid white;
   background: white;
   text-transform: uppercase;
-  color: #323433;
+  color: #212121;
   z-index: 2;
 }
 .session-info .inner .yellowFlag {
@@ -6550,10 +6550,10 @@ body {
 .session-info .inner .countdown {
   padding: 0em 0.3em;
   min-width: 4em;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid white;
   background: white;
   text-transform: uppercase;
-  color: #323433;
+  color: #212121;
   line-height: 1.6em;
   transform: skew(-15deg, 0deg);
   z-index: -2;
@@ -6581,7 +6581,7 @@ body {
   font-size: 17px;
 }
 .session-info .inner .checkered img {
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid white;
   height: 2em;
   width: 4em;
   z-index: 2;
@@ -6589,11 +6589,11 @@ body {
 .session-info .inner .serverName {
   margin: 0;
   min-width: 4em;
-  border-top: 0.2em solid #e21d38;
-  border-left: 0.1em solid #e21d38;
+  border-top: 0.2em solid white;
+  border-left: 0.1em solid white;
   background: white;
   text-transform: uppercase;
-  color: #323433;
+  color: #212121;
   z-index: 2;
 }
 .track-map-bg {
@@ -6667,7 +6667,7 @@ body {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   color: white;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: #c4122f;
 }
 .track-map .dot .driverName {
   position: relative;
@@ -6796,7 +6796,7 @@ body {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   color: white;
-  background: linear-gradient(80deg, rgba(20, 57, 52, 0.8) 10%, rgba(31, 31, 30, 0.8) 90%);
+  background: #c4122f;
 }
 .track-map .dot .driverName {
   position: relative;

@@ -4606,8 +4606,10 @@ var RaceResultEntry = React.createClass({
 		var portalTeamName = UI.getUserInfo(portalId).team;
 		if (window.settings.teamEvent) {
 			return "";
-		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null) {
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			teamName = portalTeamName;
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length === 0) {
+			teamName = "Privateer";
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
@@ -4984,8 +4986,10 @@ var RaceResultEntry = React.createClass({
 		var portalTeamName = UI.getUserInfo(portalId).team;
 		if (window.settings.teamEvent) {
 			return "";
-		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null) {
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			teamName = portalTeamName;
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length === 0) {
+			teamName = "Privateer";
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
