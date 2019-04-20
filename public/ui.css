@@ -222,33 +222,191 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.logo-overlay {
-  font-size: 17px;
-  position: absolute;
-  top: 2em;
-  right: 2em;
-  z-index: 5;
+.multiclass-standings {
   filter: drop-shadow(2px 2px 2px #000000);
-  -webkit-animation: "ani_1" 0.5s ease, "ani_2" 0.5s ease;
+  position: fixed;
+  top: 1em;
+  color: #fff;
+  left: 1em;
+  -webkit-animation: "ani_1" 0.1s ease, "ani_2" 0.1s ease;
+}
+.multiclass-standings.hide-flags .driver .flag-container {
+  display: none;
 }
 @-webkit-keyframes "ani_1" {
   0% {
-    opacity: 0;
+    -webkit-transform: translate(-10em, 0);
   }
   100% {
-    opacity: 1;
+    -webkit-transform: translate(0, 0);
   }
 }
 @-webkit-keyframes "ani_2" {
   0% {
+    -webkit-transform: translate(-10em, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+.multiclass-standings .driver {
+  font-size: 17px;
+  -webkit-animation: "ani_3" 0.2s ease, "ani_4" 0.2s ease;
+  position: absolute;
+  top: 0;
+  height: 1.7em;
+  z-index: 1;
+  -webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
+  white-space: nowrap;
+}
+@-webkit-keyframes "ani_3" {
+  0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
   }
 }
-.logo-overlay img {
-  width: 12em;
+@-webkit-keyframes "ani_4" {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.multiclass-standings .driver .inner {
+  height: 1.6em;
+  position: relative;
+  z-index: 1;
+  transform: skew(-15deg, 0deg);
+}
+.multiclass-standings .driver .inner > div {
+  vertical-align: top;
+  height: 100%;
+  line-height: 1.6em;
+}
+.multiclass-standings .driver .positionContainer {
+  margin: 0;
+  font-size: 17px;
+  background: white;
+  display: inline-block;
+  color: #212121;
+  font-size: 1em;
+  text-align: center;
+  width: 2em;
+  height: 80%;
+  font-family: Oswald;
+}
+.multiclass-standings .driver .positionContainer .position {
+  transform: skew(15deg, 0deg);
+}
+.multiclass-standings .driver .manufacturer {
+  background: white;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  z-index: 1;
+}
+.multiclass-standings .driver .manufacturer .manufacturerFlag {
+  position: relative;
+  left: 0.2em;
+  height: 100%;
+}
+.multiclass-standings .driver .manufacturer .manufacturerFlag img {
+  transform: skew(15deg, 0deg);
+  height: 100%;
+}
+.multiclass-standings .driver .manufacturer .standingsFlag {
+  height: 100%;
+  padding: 0em;
+}
+.multiclass-standings .driver .manufacturer .standingsFlag img {
+  height: 100%;
+}
+.multiclass-standings .driver .nameContainer {
+  font-size: 17px;
+  background-color: #b71c1c;
+  font-family: Oswald;
+  display: inline-block;
+  color: white;
+  background: #c4122f;
+  width: 4em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: inherit;
+  z-index: 1;
+}
+.multiclass-standings .driver .nameContainer .name {
+  transform: skew(15deg, 0deg);
+}
+.multiclass-standings .driver .meta-info {
+  font-size: 17px;
+  background: white;
+  color: #212121;
+  font-family: Oswald;
+  display: inline-block;
+  height: 1.2em;
+  text-align: center;
+  line-height: 1em;
+  padding: 0 0.5em 0 0.5em;
+  min-width: 6em;
+  z-index: -1;
+  -webkit-animation: "ani_5" 0.1s ease, "ani_6" 0.1s ease;
+}
+@-webkit-keyframes "ani_5" {
+  0% {
+    -webkit-transform: translate(-100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes "ani_6" {
+  0% {
+    -webkit-transform: translate(-100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+.multiclass-standings .driver .fastest {
+  color: white;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
+}
+.multiclass-standings .driver .pit-info {
+  -webkit-animation: "ani_7" 0.5s ease, "ani_8" 0.5s ease;
+  margin: 0;
+  display: inline-block;
+  width: 1.5em;
+  text-align: center;
+}
+@-webkit-keyframes "ani_7" {
+  0% {
+    -webkit-transform: translate(-100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes "ani_8" {
+  0% {
+    -webkit-transform: translate(-100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+.multiclass-standings .driver .pit-info .pitted {
+  font-size: 20.4px;
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
+}
+.multiclass-standings .driver .pit-info .unpitted {
+  font-size: 20.4px;
+  background: #c4122f;
 }
 .error-screen {
   z-index: 2147483627;
@@ -2694,7 +2852,7 @@ select {
   bottom: -0.2em;
   text-align: center;
   height: 1.75em;
-  left: -0.5em;
+  left: -5.5em;
   margin: 0;
 }
 .compare-race .inner .top .speed,
@@ -2751,7 +2909,7 @@ select {
   background: white;
   color: #c4122f;
   padding: 0 1em;
-  min-width: 16em;
+  min-width: 12em;
   border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .compareName .name {
@@ -2790,7 +2948,7 @@ select {
   position: relative;
   height: 1.5em;
   width: 20em;
-  left: 4em;
+  left: 1em;
   z-index: -1;
 }
 .compare-race .inner .bottom .team {
@@ -2877,7 +3035,7 @@ select {
   bottom: -0.2em;
   text-align: center;
   height: 1.75em;
-  left: -0.5em;
+  left: -5.5em;
   margin: 0;
 }
 .compare-race .inner .top .speed,
@@ -2934,7 +3092,7 @@ select {
   background: white;
   color: #c4122f;
   padding: 0 1em;
-  min-width: 16em;
+  min-width: 12em;
   border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .compareName .name {
@@ -2973,7 +3131,7 @@ select {
   position: relative;
   height: 1.5em;
   width: 20em;
-  left: 4em;
+  left: 1em;
   z-index: -1;
 }
 .compare-race .inner .bottom .team {
@@ -3125,7 +3283,7 @@ select {
   bottom: -0.2em;
   text-align: center;
   height: 1.75em;
-  left: -0.5em;
+  left: -5.5em;
   margin: 0;
 }
 .compare-race .inner .top .speed,
@@ -3182,7 +3340,7 @@ select {
   background: white;
   color: #c4122f;
   padding: 0 1em;
-  min-width: 16em;
+  min-width: 12em;
   border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .compareName .name {
@@ -3221,7 +3379,7 @@ select {
   position: relative;
   height: 1.5em;
   width: 20em;
-  left: 4em;
+  left: 1em;
   z-index: -1;
 }
 .compare-race .inner .bottom .team {
@@ -3308,7 +3466,7 @@ select {
   bottom: -0.2em;
   text-align: center;
   height: 1.75em;
-  left: -0.5em;
+  left: -5.5em;
   margin: 0;
 }
 .compare-race .inner .top .speed,
@@ -3365,7 +3523,7 @@ select {
   background: white;
   color: #c4122f;
   padding: 0 1em;
-  min-width: 16em;
+  min-width: 12em;
   border-bottom: 0.1em solid #c4122f;
 }
 .compare-race .inner .main .compareName .name {
@@ -3404,7 +3562,7 @@ select {
   position: relative;
   height: 1.5em;
   width: 20em;
-  left: 4em;
+  left: 1em;
   z-index: -1;
 }
 .compare-race .inner .bottom .team {
@@ -4008,7 +4166,7 @@ select {
 .focused-driver-info .vehicle {
   vertical-align: top;
   display: inline-block;
-  height: 4em;
+  height: 3.9em;
   line-height: 3.25em;
 }
 .focused-driver-info .ptpRemaining,
@@ -4225,7 +4383,7 @@ select {
 .focused-driver-info .vehicle {
   vertical-align: top;
   display: inline-block;
-  height: 4em;
+  height: 3.9em;
   line-height: 3.25em;
 }
 .focused-driver-info .ptpRemaining,
@@ -4552,7 +4710,7 @@ select {
 .focused-driver-info .vehicle {
   vertical-align: top;
   display: inline-block;
-  height: 4em;
+  height: 3.9em;
   line-height: 3.25em;
 }
 .focused-driver-info .ptpRemaining,
@@ -4769,7 +4927,7 @@ select {
 .focused-driver-info .vehicle {
   vertical-align: top;
   display: inline-block;
-  height: 4em;
+  height: 3.9em;
   line-height: 3.25em;
 }
 .focused-driver-info .ptpRemaining,
@@ -4950,6 +5108,34 @@ select {
 .logo-overlay img {
   width: 12em;
 }
+.logo-overlay {
+  font-size: 17px;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  z-index: 5;
+  filter: drop-shadow(2px 2px 2px #000000);
+  -webkit-animation: "ani_27" 0.5s ease, "ani_28" 0.5s ease;
+}
+@-webkit-keyframes "ani_27" {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes "ani_28" {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.logo-overlay img {
+  width: 12em;
+}
 @font-face {
   font-family: 'Hel';
   font-style: normal;
@@ -4972,12 +5158,12 @@ body {
   top: 1em;
   color: #fff;
   left: 1em;
-  -webkit-animation: "ani_27" 0.1s ease, "ani_28" 0.1s ease;
+  -webkit-animation: "ani_29" 0.1s ease, "ani_30" 0.1s ease;
 }
 .multiclass-standings.hide-flags .driver .flag-container {
   display: none;
 }
-@-webkit-keyframes "ani_27" {
+@-webkit-keyframes "ani_29" {
   0% {
     -webkit-transform: translate(-10em, 0);
   }
@@ -4985,7 +5171,7 @@ body {
     -webkit-transform: translate(0, 0);
   }
 }
-@-webkit-keyframes "ani_28" {
+@-webkit-keyframes "ani_30" {
   0% {
     -webkit-transform: translate(-10em, 0);
   }
@@ -4995,7 +5181,7 @@ body {
 }
 .multiclass-standings .driver {
   font-size: 17px;
-  -webkit-animation: "ani_29" 0.2s ease, "ani_30" 0.2s ease;
+  -webkit-animation: "ani_31" 0.2s ease, "ani_32" 0.2s ease;
   position: absolute;
   top: 0;
   height: 1.7em;
@@ -5003,7 +5189,7 @@ body {
   -webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
   white-space: nowrap;
 }
-@-webkit-keyframes "ani_29" {
+@-webkit-keyframes "ani_31" {
   0% {
     opacity: 0;
   }
@@ -5011,7 +5197,7 @@ body {
     opacity: 1;
   }
 }
-@-webkit-keyframes "ani_30" {
+@-webkit-keyframes "ani_32" {
   0% {
     opacity: 0;
   }
@@ -5099,34 +5285,7 @@ body {
   padding: 0 0.5em 0 0.5em;
   min-width: 6em;
   z-index: -1;
-  -webkit-animation: "ani_31" 0.1s ease, "ani_32" 0.1s ease;
-}
-@-webkit-keyframes "ani_31" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@-webkit-keyframes "ani_32" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-}
-.multiclass-standings .driver .pit-info {
-  -webkit-animation: "ani_33" 0.5s ease, "ani_34" 0.5s ease;
-  margin: 0;
-  display: inline-block;
-  width: 1.5em;
-  text-align: center;
+  -webkit-animation: "ani_33" 0.1s ease, "ani_34" 0.1s ease;
 }
 @-webkit-keyframes "ani_33" {
   0% {
@@ -5144,185 +5303,26 @@ body {
     -webkit-transform: translate(0, 0);
   }
 }
-.multiclass-standings .driver .pit-info .pitted {
-  font-size: 20.4px;
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
+.multiclass-standings .driver .fastest {
+  color: white;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
 }
-.multiclass-standings .driver .pit-info .unpitted {
-  font-size: 20.4px;
-  background: #c4122f;
-}
-.multiclass-standings {
-  filter: drop-shadow(2px 2px 2px #000000);
-  position: fixed;
-  top: 1em;
-  color: #fff;
-  left: 1em;
-  -webkit-animation: "ani_35" 0.1s ease, "ani_36" 0.1s ease;
-}
-.multiclass-standings.hide-flags .driver .flag-container {
-  display: none;
+.multiclass-standings .driver .pit-info {
+  -webkit-animation: "ani_35" 0.5s ease, "ani_36" 0.5s ease;
+  margin: 0;
+  display: inline-block;
+  width: 1.5em;
+  text-align: center;
 }
 @-webkit-keyframes "ani_35" {
   0% {
-    -webkit-transform: translate(-10em, 0);
+    -webkit-transform: translate(-100%, 0);
   }
   100% {
     -webkit-transform: translate(0, 0);
   }
 }
 @-webkit-keyframes "ani_36" {
-  0% {
-    -webkit-transform: translate(-10em, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver {
-  font-size: 17px;
-  -webkit-animation: "ani_37" 0.2s ease, "ani_38" 0.2s ease;
-  position: absolute;
-  top: 0;
-  height: 1.7em;
-  z-index: 1;
-  -webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
-  white-space: nowrap;
-}
-@-webkit-keyframes "ani_37" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_38" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.multiclass-standings .driver .inner {
-  height: 1.6em;
-  position: relative;
-  z-index: 1;
-  transform: skew(-15deg, 0deg);
-}
-.multiclass-standings .driver .inner > div {
-  vertical-align: top;
-  height: 100%;
-  line-height: 1.6em;
-}
-.multiclass-standings .driver .positionContainer {
-  margin: 0;
-  font-size: 17px;
-  background: white;
-  display: inline-block;
-  color: #212121;
-  font-size: 1em;
-  text-align: center;
-  width: 2em;
-  height: 80%;
-  font-family: Oswald;
-}
-.multiclass-standings .driver .positionContainer .position {
-  transform: skew(15deg, 0deg);
-}
-.multiclass-standings .driver .manufacturer {
-  background: white;
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  z-index: 1;
-}
-.multiclass-standings .driver .manufacturer .manufacturerFlag {
-  position: relative;
-  left: 0.2em;
-  height: 100%;
-}
-.multiclass-standings .driver .manufacturer .manufacturerFlag img {
-  transform: skew(15deg, 0deg);
-  height: 100%;
-}
-.multiclass-standings .driver .manufacturer .standingsFlag {
-  height: 100%;
-  padding: 0em;
-}
-.multiclass-standings .driver .manufacturer .standingsFlag img {
-  height: 100%;
-}
-.multiclass-standings .driver .nameContainer {
-  font-size: 17px;
-  background-color: #b71c1c;
-  font-family: Oswald;
-  display: inline-block;
-  color: white;
-  background: #c4122f;
-  width: 4em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  line-height: inherit;
-  z-index: 1;
-}
-.multiclass-standings .driver .nameContainer .name {
-  transform: skew(15deg, 0deg);
-}
-.multiclass-standings .driver .meta-info {
-  font-size: 17px;
-  background: white;
-  color: #212121;
-  font-family: Oswald;
-  display: inline-block;
-  height: 1.2em;
-  text-align: center;
-  line-height: 1em;
-  padding: 0 0.5em 0 0.5em;
-  min-width: 6em;
-  z-index: -1;
-  -webkit-animation: "ani_39" 0.1s ease, "ani_40" 0.1s ease;
-}
-@-webkit-keyframes "ani_39" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@-webkit-keyframes "ani_40" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-}
-.multiclass-standings .driver .pit-info {
-  -webkit-animation: "ani_41" 0.5s ease, "ani_42" 0.5s ease;
-  margin: 0;
-  display: inline-block;
-  width: 1.5em;
-  text-align: center;
-}
-@-webkit-keyframes "ani_41" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@-webkit-keyframes "ani_42" {
   0% {
     -webkit-transform: translate(-100%, 0);
   }
@@ -6603,10 +6603,10 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  -webkit-animation: "ani_43" 0.3s ease, "ani_44" 0.3s ease;
+  -webkit-animation: "ani_37" 0.3s ease, "ani_38" 0.3s ease;
   z-index: 0;
 }
-@-webkit-keyframes "ani_43" {
+@-webkit-keyframes "ani_37" {
   0% {
     opacity: 0;
   }
@@ -6614,7 +6614,7 @@ body {
     opacity: 1;
   }
 }
-@-webkit-keyframes "ani_44" {
+@-webkit-keyframes "ani_38" {
   0% {
     opacity: 0;
   }
@@ -6732,10 +6732,10 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  -webkit-animation: "ani_45" 0.3s ease, "ani_46" 0.3s ease;
+  -webkit-animation: "ani_39" 0.3s ease, "ani_40" 0.3s ease;
   z-index: 0;
 }
-@-webkit-keyframes "ani_45" {
+@-webkit-keyframes "ani_39" {
   0% {
     opacity: 0;
   }
@@ -6743,7 +6743,7 @@ body {
     opacity: 1;
   }
 }
-@-webkit-keyframes "ani_46" {
+@-webkit-keyframes "ani_40" {
   0% {
     opacity: 0;
   }
