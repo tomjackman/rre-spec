@@ -1,5 +1,8 @@
 ### Version 1.7.5
-* [Tooling] Add correct track name and description for Autodrome Most.
+* [Tooling] Added correct track name and description for Autodrome Most.
+* [Feature] Added Audi TT Cup theme.
+* [Feature] Condensed driver info and compare widgets.
+
 
 ### Version 1.7.4
 * [Bug Fix] Fix stuttering when the driver info shows on screen.
