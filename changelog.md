@@ -1,7 +1,9 @@
 ### Version 1.7.5
 * [Tooling] Added correct track name and description for Autodrome Most.
 * [Feature] Added Audi TT Cup theme.
-* [Feature] Condensed driver info and compare widgets.
+* [Feature] Added RRVLN theme.
+* [Feature] Added privateer indicator for drivers without a team name set in their raceroom profile.
+* [Feature] Condensed driver info and compare widgets with small ui improvements.
 
 
 ### Version 1.7.4
