@@ -110,329 +110,23 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-/**
- * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
- * http://cssreset.com
- */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-div,
-span,
-input,
-a {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none;
-  -webkit-user-select: none;
-}
-.multiclass-standings {
-  filter: drop-shadow(2px 2px 2px #000000);
+.safetyCarDeployedContainer {
+  font-size: 17px;
   position: fixed;
-  top: 1em;
-  color: #fff;
-  left: 1em;
-  -webkit-animation: "ani_1" 0.1s ease, "ani_2" 0.1s ease;
-}
-.multiclass-standings.hide-flags .driver .flag-container {
-  display: none;
-}
-@-webkit-keyframes "ani_1" {
-  0% {
-    -webkit-transform: translate(-10em, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@-webkit-keyframes "ani_2" {
-  0% {
-    -webkit-transform: translate(-10em, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver {
-  font-size: 17px;
-  -webkit-animation: "ani_3" 0.2s ease, "ani_4" 0.2s ease;
-  position: absolute;
-  top: 0;
-  height: 1.7em;
-  z-index: 1;
-  -webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
-  white-space: nowrap;
-}
-@-webkit-keyframes "ani_3" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_4" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.multiclass-standings .driver .inner {
-  height: 1.6em;
-  position: relative;
-  z-index: 1;
-  transform: skew(-15deg, 0deg);
-}
-.multiclass-standings .driver .inner > div {
-  vertical-align: top;
-  height: 100%;
-  line-height: 1.6em;
-}
-.multiclass-standings .driver .positionContainer {
-  margin: 0;
-  font-size: 17px;
-  background: white;
-  display: inline-block;
-  color: #212121;
-  font-size: 1em;
-  text-align: center;
-  width: 2em;
-  height: 80%;
-  font-family: Oswald;
-}
-.multiclass-standings .driver .positionContainer .position {
-  transform: skew(15deg, 0deg);
-}
-.multiclass-standings .driver .manufacturer {
-  background: white;
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  z-index: 1;
-}
-.multiclass-standings .driver .manufacturer .manufacturerFlag {
-  position: relative;
-  left: 0.2em;
-  height: 100%;
-}
-.multiclass-standings .driver .manufacturer .manufacturerFlag img {
-  transform: skew(15deg, 0deg);
-  height: 100%;
-}
-.multiclass-standings .driver .manufacturer .standingsFlag {
-  height: 100%;
-  padding: 0em;
-}
-.multiclass-standings .driver .manufacturer .standingsFlag img {
-  height: 100%;
-}
-.multiclass-standings .driver .nameContainer {
-  font-size: 17px;
-  background-color: #b71c1c;
-  font-family: Oswald;
-  display: inline-block;
-  color: white;
-  background: #c4122f;
-  width: 4em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  line-height: inherit;
-  z-index: 1;
-}
-.multiclass-standings .driver .nameContainer .name {
-  transform: skew(15deg, 0deg);
-}
-.multiclass-standings .driver .meta-info {
-  font-size: 17px;
-  background: white;
-  color: #212121;
-  font-family: Oswald;
-  display: inline-block;
-  height: 1.2em;
-  text-align: center;
-  line-height: 1em;
-  padding: 0 0.5em 0 0.5em;
-  min-width: 6em;
-  z-index: -1;
-  -webkit-animation: "ani_5" 0.1s ease, "ani_6" 0.1s ease;
-}
-@-webkit-keyframes "ani_5" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@-webkit-keyframes "ani_6" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-}
-.multiclass-standings .driver .pit-info {
-  -webkit-animation: "ani_7" 0.5s ease, "ani_8" 0.5s ease;
-  margin: 0;
-  display: inline-block;
-  width: 1.5em;
-  text-align: center;
-}
-@-webkit-keyframes "ani_7" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@-webkit-keyframes "ani_8" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver .pit-info .pitted {
-  font-size: 20.4px;
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-}
-.multiclass-standings .driver .pit-info .unpitted {
-  font-size: 20.4px;
-  background: #c4122f;
-}
-.error-screen {
-  z-index: 2147483627;
-  position: fixed;
-  background: #af0000;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.error-screen pre {
-  position: fixed;
-  top: 50%;
+  top: 4em;
   left: 50%;
-  color: #fff;
-  font-size: 17px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  line-height: 1.5;
-  font-family: Inconsolata;
+  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
+  filter: drop-shadow(2px 2px 2px #000000);
 }
-pre.preview {
-  background: #000;
-  white-space: pre;
-  text-align: left;
-  font-family: 'Inconsolata';
-  padding: 20px;
+.safetyCarDeployedContainer .safetyCarDeployed {
+  font-family: Oswald;
+  background: #ffc107;
+  text-transform: uppercase;
+  color: black;
+  height: 2em;
+  width: 7em;
+  line-height: 2em;
+  text-align: center;
 }
 @font-face {
   font-family: 'Hel';
@@ -450,34 +144,8 @@ body {
 body {
   padding: 10px;
 }
-.error-screen {
-  z-index: 2147483627;
-  position: fixed;
-  background: #af0000;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.error-screen pre {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  color: #fff;
-  font-size: 17px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  line-height: 1.5;
-  font-family: Inconsolata;
-}
-pre.preview {
-  background: #000;
-  white-space: pre;
-  text-align: left;
-  font-family: 'Inconsolata';
-  padding: 20px;
-}
 .spectator-app {
-  -webkit-animation: "ani_1" 1s ease, "ani_2" 1s ease, "ani_3" 1s ease, "ani_4" 1s ease;
+  -webkit-animation: "ani_1" 1s ease, "ani_2" 1s ease;
   display: inline-block;
   background: #000;
   color: #fff;
@@ -492,61 +160,6 @@ pre.preview {
   }
 }
 @-webkit-keyframes "ani_2" {
-  0% {
-    -webkit-transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-  }
-}
-@-webkit-keyframes "ani_3" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_4" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.spectator-app {
-  -webkit-animation: "ani_5" 1s ease, "ani_6" 1s ease, "ani_7" 1s ease, "ani_8" 1s ease;
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  padding: 20px;
-}
-@-webkit-keyframes "ani_5" {
-  0% {
-    -webkit-transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-  }
-}
-@-webkit-keyframes "ani_6" {
-  0% {
-    -webkit-transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-  }
-}
-@-webkit-keyframes "ani_7" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_8" {
   0% {
     opacity: 0;
   }
@@ -784,7 +397,7 @@ select {
   white-space: nowrap;
 }
 .app-controller .drivers-container .driver-entry .best-lap-time {
-  -webkit-animation: "ani_9" 1s ease, "ani_10" 1s ease;
+  -webkit-animation: "ani_3" 1s ease;
   position: absolute;
   bottom: 25%;
   left: 0;
@@ -795,6 +408,1643 @@ select {
   transform: skew(-15deg, 0deg);
   filter: drop-shadow(2px 2px 2px #000000);
   background: linear-gradient(135deg, rgba(0, 200, 83, 0.9) 10%, rgba(0, 200, 83, 0.9) 90%);
+}
+@-webkit-keyframes "ani_3" {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.app-controller .drivers-container .driver-entry .interesting {
+  position: absolute;
+  bottom: 80%;
+  left: 0;
+  padding: 6px 6px;
+  font-size: 20px;
+  color: white;
+  background: #333;
+  transform: skew(-15deg, 0deg);
+}
+.app-controller .drivers-container .driver-entry .interesting.close {
+  background: #FF9800;
+  color: black;
+  transform: skew(-15deg, 0deg);
+}
+.app-controller .drivers-container .driver-entry .interesting.veryClose {
+  background: red;
+  color: white;
+  transform: skew(-15deg, 0deg);
+}
+.app-controller .drivers-container .driver-entry .position {
+  -webkit-animation: "ani_4" 1s ease;
+  position: absolute;
+  left: 0;
+  color: #fff;
+  transform: skew(-15deg, 0deg);
+  bottom: 50%;
+  opacity: 1.0;
+  font-size: 22px;
+  font-weight: bold;
+  filter: drop-shadow(2px 2px 2px #000000);
+  padding: 4px 6px;
+  background: rgba(0, 0, 0, 0.8);
+}
+@-webkit-keyframes "ani_4" {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.app-controller .drivers-container .driver-entry img.livery {
+  width: 100%;
+  display: block;
+  margin: -5% auto;
+}
+.app-controller .widgets-list,
+.app-controller .suggestions {
+  position: fixed;
+  top: 40px;
+  width: 250px;
+  color: white;
+  bottom: 0;
+  font-size: 16px;
+  background: #263238;
+}
+.app-controller .widgets-list select,
+.app-controller .suggestions select {
+  margin: 10px 5%;
+  width: 90%;
+}
+.app-controller .widgets-list .widget-buttons,
+.app-controller .suggestions .widget-buttons,
+.app-controller .widgets-list .holder,
+.app-controller .suggestions .holder {
+  position: absolute;
+  top: 40px;
+  bottom: 5px;
+  left: 2px;
+  right: 5px;
+  flex-direction: column;
+  display: flex;
+  margin-top: 15px;
+}
+.app-controller .widgets-list .widget-buttons .widget-manager,
+.app-controller .suggestions .widget-buttons .widget-manager,
+.app-controller .widgets-list .holder .widget-manager,
+.app-controller .suggestions .holder .widget-manager,
+.app-controller .widgets-list .widget-buttons .suggestion,
+.app-controller .suggestions .widget-buttons .suggestion,
+.app-controller .widgets-list .holder .suggestion,
+.app-controller .suggestions .holder .suggestion {
+  flex: auto;
+  margin: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  border-top: 4px solid;
+  box-shadow: 1px 1px 3px #222222;
+  font-family: Oswald;
+}
+.app-controller .widgets-list .widget-buttons .widget-manager .text,
+.app-controller .suggestions .widget-buttons .widget-manager .text,
+.app-controller .widgets-list .holder .widget-manager .text,
+.app-controller .suggestions .holder .widget-manager .text,
+.app-controller .widgets-list .widget-buttons .suggestion .text,
+.app-controller .suggestions .widget-buttons .suggestion .text,
+.app-controller .widgets-list .holder .suggestion .text,
+.app-controller .suggestions .holder .suggestion .text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translate(0, -50%);
+  padding: 0 10px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+.app-controller .widgets-list .widget-buttons .widget-manager:hover,
+.app-controller .suggestions .widget-buttons .widget-manager:hover,
+.app-controller .widgets-list .holder .widget-manager:hover,
+.app-controller .suggestions .holder .widget-manager:hover,
+.app-controller .widgets-list .widget-buttons .suggestion:hover,
+.app-controller .suggestions .widget-buttons .suggestion:hover,
+.app-controller .widgets-list .holder .suggestion:hover,
+.app-controller .suggestions .holder .suggestion:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+.app-controller .widgets-list .widget-buttons .widget-manager.active,
+.app-controller .suggestions .widget-buttons .widget-manager.active,
+.app-controller .widgets-list .holder .widget-manager.active,
+.app-controller .suggestions .holder .widget-manager.active,
+.app-controller .widgets-list .widget-buttons .suggestion.active,
+.app-controller .suggestions .widget-buttons .suggestion.active,
+.app-controller .widgets-list .holder .suggestion.active,
+.app-controller .suggestions .holder .suggestion.active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  background: #004D40;
+  border-top-color: #76FF03;
+  border-left-color: #76FF03;
+}
+.app-controller .widgets-list .widget-buttons .widget-manager.inactive,
+.app-controller .suggestions .widget-buttons .widget-manager.inactive,
+.app-controller .widgets-list .holder .widget-manager.inactive,
+.app-controller .suggestions .holder .widget-manager.inactive,
+.app-controller .widgets-list .widget-buttons .suggestion.inactive,
+.app-controller .suggestions .widget-buttons .suggestion.inactive,
+.app-controller .widgets-list .holder .suggestion.inactive,
+.app-controller .suggestions .holder .suggestion.inactive {
+  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+  background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+  background: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.2)), color-stop(1, rgba(0, 0, 0, 0.4)));
+  border-top-color: #e21d38;
+  border-left-color: #e21d38;
+}
+.app-controller .widgets-list .widget-buttons .widget-manager.inactive.warning,
+.app-controller .suggestions .widget-buttons .widget-manager.inactive.warning,
+.app-controller .widgets-list .holder .widget-manager.inactive.warning,
+.app-controller .suggestions .holder .widget-manager.inactive.warning,
+.app-controller .widgets-list .widget-buttons .suggestion.inactive.warning,
+.app-controller .suggestions .widget-buttons .suggestion.inactive.warning,
+.app-controller .widgets-list .holder .suggestion.inactive.warning,
+.app-controller .suggestions .holder .suggestion.inactive.warning {
+  background: rgba(200, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.45);
+}
+.app-controller .suggestions {
+  left: 0;
+  z-index: 15;
+}
+.app-controller .suggestions .holder {
+  display: block;
+  top: 10px;
+}
+.app-controller .suggestions .holder .suggestion {
+  text-align: left;
+  padding: 10px;
+  line-height: 1.4;
+  text-transform: capitalize;
+  white-space: pre;
+  color: #fff;
+  font-size: 14px;
+}
+.app-controller .suggestions .holder .suggestion:hover {
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.3);
+}
+.app-controller .suggestions .holder .suggestion label {
+  font-size: 130%;
+}
+.app-controller .suggestions .holder .suggestion .log {
+  padding-left: 5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.app-controller .widgets-list {
+  right: 0;
+}
+.app-controller .camera-control {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  margin: -50px 0 0 -50px;
+  width: 100px;
+  height: 100px;
+  display: none;
+  z-index: 11;
+}
+.app-controller .camera-control .control {
+  width: 150%;
+  height: 150%;
+  line-height: 150px;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  text-transform: uppercase;
+  position: absolute;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 50%;
+}
+.app-controller .camera-control .control:hover,
+.app-controller .camera-control .control.active {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+.app-controller .camera-control .control.top {
+  left: -25%;
+  bottom: 100%;
+}
+.app-controller .camera-control .control.right {
+  top: -25%;
+  left: 100%;
+}
+.app-controller .camera-control .control.bottom {
+  top: 100%;
+  left: -25%;
+}
+.app-controller .camera-control .control.bottomLeft {
+  top: 100%;
+  right: 100%;
+}
+.app-controller .camera-control .control.left {
+  top: -25%;
+  right: 100%;
+}
+.app-controller .camera-control .control.center {
+  top: -25%;
+  left: -25%;
+  -webkit-transform: scale(0.6);
+}
+.app-controller .camera-control .control.bottomLeft {
+  top: 100%;
+  right: 100%;
+}
+.track-map-controller-bg {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #222;
+  z-index: 1;
+}
+.track-map-controller {
+  position: fixed;
+  z-index: 11;
+  width: 512px;
+  height: 512px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: scale(2) translate(-50%, -50%);
+  -webkit-transform-origin: top left;
+}
+.track-map-controller .dot {
+  position: absolute;
+  top: 0;
+  font-family: hel;
+  left: 0;
+  -webkit-transition: -webkit-transform 0.3s linear;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  margin: -20px 0 0 -20px;
+  font-weight: bold;
+  line-height: 38px;
+  text-align: center;
+  color: #fff;
+  border-radius: 100%;
+  background: #111;
+  border: 2px solid #000;
+  cursor: pointer;
+  z-index: 2;
+}
+.track-map-controller .dot.idle {
+  opacity: 0.3;
+}
+.track-map-controller .dot.start {
+  z-index: 1;
+  background: #aaa;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+}
+.track-map-controller .dot.speed-trap {
+  z-index: 1;
+  background: red;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+}
+.track-map-controller .dot .name,
+.track-map-controller .dot .speed {
+  position: absolute;
+  -webkit-transform: translate(-50%, 0);
+  font-size: 14px;
+  line-height: 1;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-family: Inconsolata;
+  color: #fff;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+.track-map-controller .dot .name {
+  bottom: 100%;
+  margin: 0 0 5px 0;
+}
+.track-map-controller .dot .speed {
+  margin: 5px 0 0 0;
+  top: 100%;
+}
+.track-map-controller .dot:active {
+  opacity: 0.6;
+}
+.track-map-controller .dot.leader {
+  background: green;
+  z-index: 3;
+}
+.track-map-controller .dot.active {
+  background: yellow;
+  color: #000;
+  z-index: 4;
+}
+.drivers-container-beta-title {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 10px;
+  right: 237px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: white;
+  font-family: Oswald;
+  border-bottom: 1px solid white;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}
+.drivers-container-beta {
+  position: fixed;
+  top: 72px;
+  bottom: 0;
+  left: 10px;
+  right: 220px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  color: white;
+  overflow: hidden;
+  overflow-y: scroll;
+  font-family: Arial;
+}
+.tabled-driver-entry:nth-child(odd) {
+  opacity: 0.9;
+}
+.tabled-driver-entry {
+  float: left;
+  position: relative;
+  opacity: 1;
+  height: 1.3em;
+  font-size: 17px;
+  color: white;
+}
+.tabled-driver-entry.idle {
+  opacity: 0.4;
+}
+.tabled-driver-entry.focused {
+  opacity: 1;
+}
+.tabled-driver-entry .position,
+.tabled-driver-entry .lap,
+.tabled-driver-entry .interesting,
+.tabled-driver-entry .name,
+.tabled-driver-entry .flag,
+.tabled-driver-entry .manufacturer,
+.tabled-driver-entry .livery,
+.tabled-driver-entry .cameras,
+.tabled-driver-entry .currentSpeed,
+.tabled-driver-entry .pit,
+.tabled-driver-entry .mandatoryPit,
+.tabled-driver-entry .tvCam,
+.tabled-driver-entry .dashCam,
+.tabled-driver-entry .cockpitCam,
+.tabled-driver-entry .frontCam,
+.tabled-driver-entry .rearCam,
+.tabled-driver-entry .wingCam,
+.tabled-driver-entry .tyre,
+.tabled-driver-entry .tyreWear,
+.tabled-driver-entry .damage,
+.tabled-driver-entry .flags,
+.tabled-driver-entry .ptp,
+.tabled-driver-entry .drs,
+.tabled-driver-entry .best-lap-s1,
+.tabled-driver-entry .best-lap-s2,
+.tabled-driver-entry .best-lap-time,
+.tabled-driver-entry .last-lap-time {
+  vertical-align: top;
+  display: inline-block;
+  height: 1.3em;
+  line-height: 1.2em;
+  text-align: center;
+}
+.tabled-driver-entry .position {
+  width: 2%;
+  color: #fff;
+  opacity: 1.0;
+  background: #F44336;
+}
+.tabled-driver-entry .lap {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #3F51B5;
+}
+.tabled-driver-entry .flag {
+  border: 0px;
+  background: #37474F;
+  width: 2%;
+  padding: 0;
+}
+.tabled-driver-entry .flag img {
+  padding: 0;
+}
+.tabled-driver-entry .name {
+  width: 14%;
+  background: #263238;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.tabled-driver-entry .name.focused {
+  background-color: yellow;
+  color: black;
+}
+.tabled-driver-entry .manufacturer {
+  border: 0px;
+  background: #37474F;
+  width: 1.5%;
+  padding: 0;
+}
+.tabled-driver-entry .manufacturer img {
+  padding: 0;
+}
+.tabled-driver-entry .livery {
+  border: 0px;
+  background: #37474F;
+  width: 3%;
+  padding: 0;
+}
+.tabled-driver-entry .livery img {
+  padding: 0;
+}
+.tabled-driver-entry .cameras {
+  color: white;
+  background: #4CAF50;
+  width: 12%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .tvCam {
+  color: white;
+  background: #4CAF50;
+  width: 2%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .cockpitCam {
+  background: #4CAF50;
+  color: white;
+  min-width: 2%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .dashCam {
+  background: #4CAF50;
+  color: white;
+  min-width: 2%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .frontCam {
+  background: #4CAF50;
+  color: white;
+  min-width: 2%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .rearCam {
+  background: #4CAF50;
+  color: white;
+  min-width: 2%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .wingCam {
+  color: white;
+  background: #4CAF50;
+  min-width: 2%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .pit {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #673AB7;
+}
+.tabled-driver-entry .currentSpeed {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #FF9800;
+}
+.tabled-driver-entry .mandatoryPit {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #7E57C2;
+}
+.tabled-driver-entry .tyre {
+  border: 0px;
+  background: #333;
+  width: 3%;
+  padding: 0;
+  color: white;
+}
+.tabled-driver-entry .tyre img {
+  width: 45%;
+  padding: 0;
+  vertical-align: middle;
+}
+.tabled-driver-entry .tyreWear {
+  background: #515050;
+  width: 3%;
+  padding: 0;
+  color: white;
+}
+.tabled-driver-entry .damage {
+  width: 4%;
+  color: #fff;
+  opacity: 1.0;
+  background: #8BC34A;
+}
+.tabled-driver-entry .flags {
+  width: 4%;
+  opacity: 1.0;
+  color: white;
+  background: grey;
+}
+.tabled-driver-entry .flags .blackFlag {
+  background: black;
+  display: inline-block;
+  min-width: 33%;
+  opacity: 0.1;
+}
+.tabled-driver-entry .flags .blackFlag.active {
+  opacity: 1;
+}
+.tabled-driver-entry .flags .blueFlag {
+  background: blue;
+  display: inline-block;
+  min-width: 33%;
+  opacity: 0.1;
+}
+.tabled-driver-entry .flags .blueFlag.active {
+  opacity: 1;
+}
+.tabled-driver-entry .flags .yellowFlag {
+  background: yellow;
+  display: inline-block;
+  color: black;
+  min-width: 34%;
+  opacity: 0.1;
+}
+.tabled-driver-entry .flags .yellowFlag.active {
+  opacity: 1;
+}
+.tabled-driver-entry .best-lap-s1 {
+  width: 5%;
+  background: #4DB6AC;
+}
+.tabled-driver-entry .best-lap-s1.invalid {
+  background: #607d8b;
+}
+.tabled-driver-entry .best-lap-s2 {
+  width: 5%;
+  background: #26A69A;
+}
+.tabled-driver-entry .best-lap-s2.invalid {
+  background: #607d8b;
+}
+.tabled-driver-entry .best-lap-time {
+  width: 7%;
+  opacity: 1.0;
+  color: white;
+  background: #009688;
+}
+.tabled-driver-entry .best-lap-time.invalid {
+  background: #607d8b;
+}
+.tabled-driver-entry .last-lap-time {
+  width: 7%;
+  opacity: 1.0;
+  color: white;
+  background: #00695C;
+}
+.tabled-driver-entry .last-lap-time.invalid {
+  background: #F44336;
+}
+.tabled-driver-entry .drs {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #B71C1C;
+}
+.tabled-driver-entry .drs.active {
+  background: #00C853;
+}
+.tabled-driver-entry .ptp {
+  width: 2.5%;
+  color: #fff;
+  opacity: 1.0;
+  background: #1976D2;
+}
+.tabled-driver-entry .ptp.active {
+  background: #00BCD4;
+}
+.tabled-driver-entry .interesting {
+  width: 6%;
+  color: white;
+  background: #333;
+}
+.tabled-driver-entry .interesting.close {
+  background: #FF9800;
+  color: black;
+}
+.tabled-driver-entry .interesting.veryClose {
+  background: red;
+  color: white;
+}
+@font-face {
+  font-family: 'DaimlerCS-Demi';
+  font-style: oblique;
+  font-weight: 400;
+  src: local('DaimlerCS-Demi'), url(/fonts/DaimlerCS-Demi.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'DaimlerCS-ExtraBoldItalic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('DaimlerCS-ExtraBoldItalic'), url(/fonts/DaimlerCS-ExtraBoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'DaimlerCS-Light';
+  font-style: normal;
+  font-weight: 400;
+  src: local('DaimlerCS-Light'), url(/fonts/DaimlerCS-Light.woff2) format('woff2');
+}
+.app-spectator .camera-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.01;
+  -webkit-transition: opacity 0.1s;
+}
+.app-spectator .camera-fade.active {
+  opacity: 1;
+}
+.app-spectator .pit-window-information {
+  -webkit-animation: "ani_5" 0.5s ease, "ani_6" 0.2s ease;
+  font-family: Oswald;
+  position: fixed;
+  top: 120px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  font-size: 30px;
+  text-transform: uppercase;
+  background: #000000;
+  background: linear-gradient(bottom, #111111, #2e2d2d);
+  background: -ms-linear-gradient(bottom, #111111, #2e2d2d);
+  background: -moz-linear-gradient(center bottom, #111111 0%, #2e2d2d 100%);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #111111), color-stop(1, #2e2d2d));
+  border-radius: 5px;
+  border: 1px solid #333;
+  color: #fff;
+  height: 50px;
+  padding: 0 20px;
+  line-height: 50px;
+  text-align: center;
+  display: inline-block;
+  -webkit-transition: opacity 1s;
+}
+@-webkit-keyframes "ani_5" {
+  0% {
+    -webkit-transform: translate(-50%, -200px);
+  }
+  100% {
+    -webkit-transform: translate(-50%, 0);
+  }
+}
+@-webkit-keyframes "ani_6" {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.app-spectator .pit-window-information .closing {
+  color: #a00;
+}
+.app-spectator .pit-window-information.removing {
+  opacity: 0;
+}
+.alert {
+  font-size: 18.7px;
+  font-family: Oswald;
+  position: fixed;
+  top: 15em;
+  right: 1.5em;
+  text-transform: uppercase;
+  min-height: 1em;
+  width: 15em;
+  line-height: 1.7em;
+  text-align: center;
+  display: inline-block;
+  filter: drop-shadow(2px 2px 2px #000000);
+}
+.alert.removing {
+  opacity: 0.5;
+}
+.alert .raceControlAlert {
+  -webkit-transform: skew(-10deg, 0deg);
+  border-top: 3px solid #dc2525;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 18.7px;
+  padding: 0.05em;
+}
+.alert .alertMessage {
+  background: rgba(120, 144, 156, 0.7);
+  color: white;
+  -webkit-transform: skew(-10deg, 0deg);
+  padding: 0.15em;
+  font-size: 18.7px;
+  text-transform: capitalize;
+}
+.code60Container {
+  font-size: 17px;
+  position: fixed;
+  top: 4em;
+  background: #e12f82;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
+  filter: drop-shadow(2px 2px 2px #000000);
+  display: inline-block;
+}
+.code60Container .code60Img {
+  background: #e12f82;
+  float: left;
+  font-family: Oswald;
+  text-transform: uppercase;
+  height: 2em;
+  width: 3em;
+}
+.code60Container .code60 {
+  font-family: Oswald;
+  background: #e12f82;
+  text-transform: uppercase;
+  color: white;
+  height: 2em;
+  width: 8em;
+  line-height: 2em;
+  text-align: center;
+}
+.commentaryNameAlert {
+  font-size: 18.7px;
+  font-family: Oswald;
+  position: fixed;
+  bottom: 11em;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  text-align: center;
+  text-transform: uppercase;
+  min-height: 1em;
+  width: 14em;
+  line-height: 1.7em;
+  display: inline-block;
+  filter: drop-shadow(2px 2px 2px #000000);
+}
+.commentaryNameAlert .commentaryTitle {
+  -webkit-transform: skew(-10deg, 0deg);
+  border-top: 3px solid #dc2525;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 18.7px;
+  padding: 0.05em;
+  top: 0.1em;
+  z-index: 0;
+}
+.commentaryNameAlert .commentaryName {
+  background: rgba(120, 144, 156, 0.7);
+  color: white;
+  -webkit-transform: skew(-10deg, 0deg);
+  font-size: 18.7px;
+  padding: 0.15em;
+  text-transform: capitalize;
+  z-index: -1;
+}
+.compare-race {
+  position: fixed;
+  bottom: 6em;
+  height: 3.5em;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.compare-race .delta {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: white;
+  padding: 0.25em 0.5em;
+  min-width: 6.5em;
+  display: inline-block;
+  position: relative;
+}
+.compare-race .delta .battle {
+  text-transform: uppercase;
+  border-top: 0.25em solid #dc2525;
+  color: white;
+  padding: 0.4em 0.7em;
+  width: inherit;
+  position: relative;
+  bottom: 0.25em;
+  transform: skew(-10deg);
+  background: rgba(0, 0, 0, 0.8);
+  left: 0.3em;
+}
+.compare-race .delta .value {
+  text-transform: uppercase;
+  color: white;
+  padding: 0.4em 0.7em;
+  width: inherit;
+  position: relative;
+  bottom: 0.25em;
+  left: -0.05em;
+  transform: skew(-10deg);
+  background: rgba(0, 0, 0, 0.8);
+}
+.compare-race .delta .inner {
+  position: absolute !important;
+  top: 0.5em;
+}
+.compare-race .delta .inner.first {
+  left: auto;
+  right: 100%;
+  margin-right: 2em;
+}
+.compare-race .delta .inner.second {
+  right: auto;
+  left: 100%;
+  margin-left: 2em;
+}
+.compare-race .inner {
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: Oswald;
+  color: #fff;
+  /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
+  position: fixed !important;
+  bottom: 68px;
+}
+.compare-race .inner .inner {
+  font-size: 17px;
+  white-space: nowrap;
+  width: auto;
+  height: 4em;
+  display: inline-block;
+  position: relative;
+  filter: drop-shadow(2px 2px 2px #000000);
+}
+.compare-race .inner .extra-info {
+  display: none;
+}
+.compare-race .inner .top {
+  position: relative;
+  bottom: -0.2em;
+  text-align: center;
+  height: 1.75em;
+  left: -5.5em;
+  margin: 0;
+}
+.compare-race .inner .top .speed,
+.compare-race .inner .top .best-time {
+  vertical-align: top;
+  display: inline-block;
+}
+.compare-race .inner .top .speed {
+  transform: skew(-10deg);
+  background: #ff9800;
+  line-height: 0.5em;
+  padding: 0.5em 0.5em;
+  color: black;
+  width: 5em;
+  z-index: 0;
+  height: 1.5em;
+}
+.compare-race .inner .top .best-time {
+  transform: skew(-10deg);
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
+  line-height: 0.5em;
+  padding: 0.5em 0.5em;
+  color: white;
+  width: 5em;
+  z-index: 0;
+  height: 1.5em;
+}
+.compare-race .inner .comparePositionContainer,
+.compare-race .inner .compareName,
+.compare-race .inner .vehicle,
+.compare-race .inner .manufacturer,
+.compare-race .inner .compare-flag-container {
+  vertical-align: top;
+  display: inline-block;
+  height: 3.5em;
+  line-height: 3.75em;
+}
+.compare-race .inner .main .comparePositionContainer {
+  background: #dc2525;
+  color: white;
+  width: 3.75em;
+  text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+  text-align: center;
+  line-height: 3.5em;
+  border-bottom: 0.1em solid #dc2525;
+  transform: skew(-10deg);
+}
+.compare-race .inner .main .comparePositionContainer .comparePosition {
+  position: relative;
+  left: -0.075em;
+  font-size: 51px;
+}
+.compare-race .inner .main .compareName {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0 1em;
+  min-width: 12em;
+  border-bottom: 0.1em solid black;
+}
+.compare-race .inner .main .compareName .name {
+  font-size: 22.1px;
+}
+.compare-race .inner .main .vehicle {
+  width: 1.75em;
+  position: fixed;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  z-index: 2;
+}
+.compare-race .inner .main .vehicle img {
+  position: absolute;
+  top: -3.2em;
+  left: -4.2em;
+  height: 4.5em;
+}
+.compare-race .inner .main .manufacturer {
+  background: white;
+  width: 4em;
+  z-index: 1;
+  position: relative;
+  left: -0.3em;
+  transform: skew(-10deg);
+  border-bottom: 0.1em solid white;
+}
+.compare-race .inner .main .manufacturer img {
+  position: absolute;
+  transform: skew(10deg);
+  top: 0.25em;
+  right: 0.5em;
+  height: 3em;
+}
+.compare-race .inner .bottom {
+  position: relative;
+  height: 1.5em;
+  width: 20em;
+  left: 1em;
+  z-index: -1;
+}
+.compare-race .inner .bottom .team {
+  transform: skew(-10deg);
+  background: rgba(120, 144, 156, 0.7);
+  color: white;
+  height: 1.5em;
+  text-transform: uppercase;
+  top: 3.5em;
+  line-height: 1.5em;
+  border: 0.1em;
+}
+.compare-race .inner .compareAssists {
+  height: 1.5em;
+}
+.compare-race .inner .compareAssists .drs .icon {
+  width: 0;
+  font-size: 0;
+}
+.compare-race .inner .compareAssists .drs.active .icon {
+  transform: skew(-10deg);
+  background: rgba(76, 175, 80, 0.7);
+  position: relative;
+  top: -6.5em;
+  left: 0.75em;
+  right: 0.5em;
+  height: 1.5em;
+  line-height: 1.75em;
+  font-family: Oswald;
+  width: 3em;
+  font-size: 17px;
+  bottom: 0;
+}
+.compare-race .inner .compareAssists .ptp .icon {
+  width: 0;
+  font-size: 0;
+}
+.compare-race .inner .compareAssists .ptp.active .icon {
+  transform: skew(-10deg);
+  background: rgba(66, 165, 245, 0.7);
+  position: relative;
+  top: -6.5em;
+  left: 0.75em;
+  right: 0.5em;
+  height: 1.5em;
+  line-height: 1.75em;
+  font-family: Oswald;
+  width: 3em;
+  font-size: 17px;
+  bottom: 0;
+}
+.compare-race .inner .compare-flag-container {
+  width: 3em;
+  position: relative;
+  margin-right: 0.25em;
+  transform: skew(-10deg);
+}
+.compare-race .inner .compare-flag-container .compare-flag {
+  background: rgba(38, 50, 56, 0.8);
+  position: fixed;
+  display: block;
+  content: '';
+  width: 4em;
+  height: 3.5em;
+  position: absolute;
+  left: -0.3em;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
+  z-index: 1;
+}
+.entries-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+}
+.entries {
+  position: fixed;
+  top: 50%;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
+  z-index: -1;
+  padding: 0.5em;
+  background-color: green;
+  white-space: pre;
+  font-family: Oswald;
+  width: 70%;
+  max-height: 20em;
+  filter: drop-shadow(9px 9px 9px #000000);
+}
+.entries .entries-title {
+  text-align: center;
+  background-color: red;
+  color: white;
+  height: 2em;
+}
+.entries-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  height: 100%;
+  color: white;
+}
+.entries-driver {
+  float: left;
+  position: relative;
+  height: 2em;
+  font-size: 17px;
+  color: black;
+}
+.entries-driver .entrySlot,
+.entries-driver .entryFlag,
+.entries-driver .entryName,
+.entries-driver .entryTeam,
+.entries-driver .entryLivery {
+  vertical-align: top;
+  display: inline-block;
+  line-height: 2em;
+  text-align: center;
+  border: 1px solid rgba(96, 125, 139, 0.3);
+  background-color: white;
+}
+.entries-driver .entrySlot {
+  width: 10%;
+  white-space: nowrap;
+}
+.entries-driver .entryFlag {
+  width: 10%;
+  padding: 0;
+}
+.entries-driver .entryFlag img {
+  width: 100%;
+  padding: 0;
+  height: 2em;
+}
+.entries-driver .entryName {
+  width: 30%;
+  white-space: nowrap;
+}
+.entries-driver .entryTeam {
+  width: 30%;
+  white-space: nowrap;
+}
+.entries-driver .entryLivery {
+  width: 20%;
+  padding: 0;
+}
+.entries-driver .entryLivery img {
+  height: 2em;
+  width: 100%;
+  padding: 0;
+}
+.event-info-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
+.event-info {
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 17px;
+  width: 50em;
+  position: fixed;
+  top: 8em;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: -1;
+  padding: 0em;
+  color: #fff;
+  white-space: pre;
+  font-family: Oswald;
+  border-top: 0.3em solid #dc2525;
+  border-bottom: 0.3em solid white;
+  filter: drop-shadow(2px 2px 2px #000000);
+}
+.event-info .serverName {
+  color: white;
+  text-align: center;
+  font-size: 25.5px;
+  padding: 20px;
+}
+.event-info .trackImage img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}
+.event-info .trackImage .trackLogo {
+  position: relative;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}
+.event-info .trackImage .trackLogo img {
+  top: -110px;
+  left: 10px;
+  position: absolute;
+  opacity: 1;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+}
+.event-info .countryFlag {
+  text-align: center;
+  padding-top: 15px;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}
+.event-info .countryFlag img {
+  position: relative;
+  opacity: 1;
+  height: 50px;
+  width: 70px;
+}
+.event-info .serverTrackName {
+  -webkit-transform: skew(-10deg, 0deg);
+  color: rgba(120, 144, 156, 0.7);
+  text-align: center;
+  font-size: 25.5px;
+  padding: 15px;
+  border-bottom: 1px solid white;
+  width: 80%;
+  margin: auto;
+}
+.event-info .trackDescription {
+  color: white;
+  display: block;
+  width: 100%;
+  font-size: 17px;
+  padding: 10px;
+  min-height: 100px;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.5;
+}
+.event-info .weather .weatherIcons {
+  -webkit-transform: skew(-10deg, 0deg);
+  display: flex;
+  font-size: 17px;
+  color: white;
+  justify-content: space-around;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+.animated.delay-10s {
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
+}
+/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
+.assists .drs {
+  position: relative;
+  height: 5em;
+}
+.assists .drs .icon {
+  background: rgba(76, 175, 80, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+  transform: skew(-10deg);
+}
+.assists .drs .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+  transform: skew(-10deg);
+}
+.assists .drs.active .icon {
+  background: rgba(76, 175, 80, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 17px;
+  transform: skew(-10deg);
+}
+.assists .drs.active .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 17px;
+  transform: skew(-10deg);
+}
+.assists .ptp {
+  position: relative;
+  height: 5em;
+}
+.assists .ptp .icon {
+  background: rgba(66, 165, 245, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+  transform: skew(-10deg);
+}
+.assists .ptp .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+  transform: skew(-10deg);
+}
+.assists .ptp.active .icon {
+  background: rgba(66, 165, 245, 0.7);
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 17px;
+  transform: skew(-10deg);
+}
+.assists .ptp.active .text {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 17px;
+  transform: skew(-10deg);
+}
+.focused-driver-info {
+  text-align: center;
+  font-family: Oswald;
+  color: #fff;
+  position: fixed;
+  bottom: 153px;
+  left: 0;
+  right: 0;
+}
+.focused-driver-info.hide-flags .flag-container {
+  display: none;
+}
+.focused-driver-info .inner {
+  filter: drop-shadow(2px 2px 2px #000000);
+  font-size: 17px;
+  height: 3.5em;
+  display: inline-block;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
+}
+.focused-driver-info .extra-info {
+  vertical-align: top;
+  display: inline-block;
+}
+.focused-driver-info .bottom .extra-info {
+  height: 1em;
+  position: relative;
+  top: 0.5em;
+  z-index: -1;
+  margin-top: 0em;
+  font-family: Oswald;
+}
+.focused-driver-info .bottom .extra-info ul {
+  margin: 0;
+  padding: 0.25em;
+  transform: skew(-10deg);
+}
+.focused-driver-info .bottom .extra-info ul li {
+  float: left;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 0.5em;
+  margin-right: 0.5em;
+  border: 0.1em;
+  color: white;
+  position: relative;
+  min-width: 8em;
+  -webkit-transition: top 0.5s;
+  font-size: 15.3px;
+}
+.focused-driver-info .bottom .extra-info ul li.active {
+  top: 0;
+}
+.focused-driver-info .bottom .extra-info ul li.finished {
+  color: #ffffff;
+}
+.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
+  color: white;
+}
+.focused-driver-info .bottom .extra-info ul li.finished.global-best {
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
+  color: white;
+}
+.focused-driver-info .positionContainer,
+.focused-driver-info .flag-container,
+.focused-driver-info .driverInfoDetails,
+.focused-driver-info .tyre,
+.focused-driver-info .manufacturer,
+.focused-driver-info .vehicle {
+  vertical-align: top;
+  display: inline-block;
+  height: 4em;
+  line-height: 3.25em;
+}
+.focused-driver-info .ptpRemaining,
+.focused-driver-info .best-time,
+.focused-driver-info .positionInClass {
+  vertical-align: top;
+  display: inline-block;
+}
+.focused-driver-info .top {
+  position: relative;
+  left: -5.2em;
+  height: 1.75em;
+  bottom: -0.25em;
+  z-index: -2;
+}
+.focused-driver-info .top .ptpRemaining {
+  transform: skew(-10deg);
+  line-height: 0.5em;
+  background: rgba(66, 165, 245, 0.7);
+  padding: 0.5em 0.5em;
+  color: white;
+  width: 4em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
+}
+.focused-driver-info .top .best-time {
+  transform: skew(-10deg);
+  line-height: 0.5em;
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
+  padding: 0.5em 0.5em;
+  color: white;
+  width: 6em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
+}
+.focused-driver-info .top .positionInClass {
+  transform: skew(-10deg);
+  line-height: 0.5em;
+  background: rgba(38, 50, 56, 0.5);
+  padding: 0.5em 0.5em;
+  color: white;
+  width: 3em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
+}
+.focused-driver-info .top .fastest {
+  color: white;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
+}
+.focused-driver-info .main .positionContainer {
+  background: #dc2525;
+  color: white;
+  width: 5em;
+  position: relative;
+  left: 0.4em;
+  padding-left: 0.1em;
+  text-align: center;
+  padding-right: 0.75em;
+  line-height: 3.7em;
+  transform: skew(-10deg);
+  border-bottom: 0.1em solid #dc2525;
+}
+.focused-driver-info .main .positionContainer .position {
+  font-size: 59.5px;
+  font-family: Oswald;
+}
+.focused-driver-info .main .driverInfoDetails {
+  background: rgba(0, 0, 0, 0.9);
+  text-transform: uppercase;
+  padding: 0px 1em;
+  min-width: 19em;
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0.9);
+}
+.focused-driver-info .main .driverInfoDetails .name {
+  line-height: 2em;
+  color: white;
+  font-size: 22.1px;
+}
+.focused-driver-info .main .driverInfoDetails .teamEventName {
+  margin-top: 0.5em;
+  line-height: 2em;
+  color: white;
+  font-size: 22.1px;
+}
+.focused-driver-info .main .driverInfoDetails .team {
+  font-size: 16.15px;
+  line-height: 0.7em;
+  position: relative;
+  color: rgba(120, 144, 156, 0.9);
+  text-transform: uppercase;
+}
+.focused-driver-info .main .vehicle {
+  width: 1.75em;
+  position: relative;
+  left: -11.5em;
+}
+.focused-driver-info .main .vehicle img {
+  position: absolute;
+  top: -4em;
+  left: 1.5em;
+  height: 5.5em;
+}
+.focused-driver-info .main .tyre {
+  background: black;
+  width: 4em;
+  position: relative;
+  border-bottom: 0.1em solid black;
+  left: -0.3em;
+  transform: skew(-10deg);
+}
+.focused-driver-info .main .tyre img {
+  position: absolute;
+  transform: skew(10deg);
+  top: 0.5em;
+  left: 0.5em;
+  height: 3em;
+}
+.focused-driver-info .main .manufacturer {
+  background: white;
+  width: 4em;
+  position: relative;
+  left: -0.4em;
+  border-bottom: 0.1em solid white;
+  transform: skew(-10deg);
+}
+.focused-driver-info .main .manufacturer img {
+  position: absolute;
+  transform: skew(10deg);
+  top: 0.5em;
+  left: 0.5em;
+  height: 3em;
+}
+.focused-driver-info .main .flag-container {
+  width: 3em;
+  position: relative;
+  background: #263238;
+  border-bottom: 0.1em solid #ff5252;
+  transform: skew(-10deg);
+  margin: 1;
+}
+.focused-driver-info .main .flag-container .flag {
+  background: rgba(38, 50, 56, 0.8);
+  position: absolute;
+  display: block;
+  left: -0.4em;
+  width: 4.5em;
+  height: 4em;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
+}
+.logo-overlay {
+  font-size: 17px;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  z-index: 5;
+  filter: drop-shadow(2px 2px 2px #000000);
+  -webkit-animation: "ani_7" 0.5s ease;
+}
+@-webkit-keyframes "ani_7" {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.logo-overlay img {
+  width: 12em;
+}
+.multiclass-standings {
+  filter: drop-shadow(2px 2px 2px #000000);
+  position: fixed;
+  top: 1em;
+  color: #fff;
+  left: 1em;
+  -webkit-animation: "ani_8" 0.1s ease;
+}
+.multiclass-standings.hide-flags .driver .flag-container {
+  display: none;
+}
+@-webkit-keyframes "ani_8" {
+  0% {
+    -webkit-transform: translate(-10em, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+.multiclass-standings .driver {
+  font-size: 17px;
+  -webkit-animation: "ani_9" 0.2s ease;
+  position: absolute;
+  top: 0;
+  height: 1.7em;
+  z-index: 1;
+  -webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
+  white-space: nowrap;
 }
 @-webkit-keyframes "ani_9" {
   0% {
@@ -804,4407 +2054,6 @@ select {
     opacity: 1;
   }
 }
-@-webkit-keyframes "ani_10" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.app-controller .drivers-container .driver-entry .interesting {
-  position: absolute;
-  bottom: 80%;
-  left: 0;
-  padding: 6px 6px;
-  font-size: 20px;
-  color: white;
-  background: #333;
-  transform: skew(-15deg, 0deg);
-}
-.app-controller .drivers-container .driver-entry .interesting.close {
-  background: #FF9800;
-  color: black;
-  transform: skew(-15deg, 0deg);
-}
-.app-controller .drivers-container .driver-entry .interesting.veryClose {
-  background: red;
-  color: white;
-  transform: skew(-15deg, 0deg);
-}
-.app-controller .drivers-container .driver-entry .position {
-  -webkit-animation: "ani_11" 1s ease, "ani_12" 1s ease;
-  position: absolute;
-  left: 0;
-  color: #fff;
-  transform: skew(-15deg, 0deg);
-  bottom: 50%;
-  opacity: 1.0;
-  font-size: 22px;
-  font-weight: bold;
-  filter: drop-shadow(2px 2px 2px #000000);
-  padding: 4px 6px;
-  background: #c4122f;
-}
-@-webkit-keyframes "ani_11" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_12" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.app-controller .drivers-container .driver-entry img.livery {
-  width: 100%;
-  display: block;
-  margin: -5% auto;
-}
-.app-controller .widgets-list,
-.app-controller .suggestions {
-  position: fixed;
-  top: 40px;
-  width: 250px;
-  color: white;
-  bottom: 0;
-  font-size: 16px;
-  background: #263238;
-}
-.app-controller .widgets-list select,
-.app-controller .suggestions select {
-  margin: 10px 5%;
-  width: 90%;
-}
-.app-controller .widgets-list .widget-buttons,
-.app-controller .suggestions .widget-buttons,
-.app-controller .widgets-list .holder,
-.app-controller .suggestions .holder {
-  position: absolute;
-  top: 40px;
-  bottom: 5px;
-  left: 2px;
-  right: 5px;
-  flex-direction: column;
-  display: flex;
-  margin-top: 15px;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager,
-.app-controller .suggestions .widget-buttons .widget-manager,
-.app-controller .widgets-list .holder .widget-manager,
-.app-controller .suggestions .holder .widget-manager,
-.app-controller .widgets-list .widget-buttons .suggestion,
-.app-controller .suggestions .widget-buttons .suggestion,
-.app-controller .widgets-list .holder .suggestion,
-.app-controller .suggestions .holder .suggestion {
-  flex: auto;
-  margin: 5px;
-  color: #fff;
-  text-transform: uppercase;
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  position: relative;
-  text-align: center;
-  border-top: 4px solid;
-  box-shadow: 1px 1px 3px #222222;
-  font-family: Oswald;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager .text,
-.app-controller .suggestions .widget-buttons .widget-manager .text,
-.app-controller .widgets-list .holder .widget-manager .text,
-.app-controller .suggestions .holder .widget-manager .text,
-.app-controller .widgets-list .widget-buttons .suggestion .text,
-.app-controller .suggestions .widget-buttons .suggestion .text,
-.app-controller .widgets-list .holder .suggestion .text,
-.app-controller .suggestions .holder .suggestion .text {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  -webkit-transform: translate(0, -50%);
-  padding: 0 10px;
-  font-size: 18px;
-  line-height: 1.4;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager:hover,
-.app-controller .suggestions .widget-buttons .widget-manager:hover,
-.app-controller .widgets-list .holder .widget-manager:hover,
-.app-controller .suggestions .holder .widget-manager:hover,
-.app-controller .widgets-list .widget-buttons .suggestion:hover,
-.app-controller .suggestions .widget-buttons .suggestion:hover,
-.app-controller .widgets-list .holder .suggestion:hover,
-.app-controller .suggestions .holder .suggestion:hover {
-  color: rgba(255, 255, 255, 0.5);
-}
-.app-controller .widgets-list .widget-buttons .widget-manager.active,
-.app-controller .suggestions .widget-buttons .widget-manager.active,
-.app-controller .widgets-list .holder .widget-manager.active,
-.app-controller .suggestions .holder .widget-manager.active,
-.app-controller .widgets-list .widget-buttons .suggestion.active,
-.app-controller .suggestions .widget-buttons .suggestion.active,
-.app-controller .widgets-list .holder .suggestion.active,
-.app-controller .suggestions .holder .suggestion.active {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  color: #fff;
-  background: #004D40;
-  border-top-color: #76FF03;
-  border-left-color: #76FF03;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager.inactive,
-.app-controller .suggestions .widget-buttons .widget-manager.inactive,
-.app-controller .widgets-list .holder .widget-manager.inactive,
-.app-controller .suggestions .holder .widget-manager.inactive,
-.app-controller .widgets-list .widget-buttons .suggestion.inactive,
-.app-controller .suggestions .widget-buttons .suggestion.inactive,
-.app-controller .widgets-list .holder .suggestion.inactive,
-.app-controller .suggestions .holder .suggestion.inactive {
-  background: rgba(0, 0, 0, 0.4);
-  background: linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-  background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-  background: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.2)), color-stop(1, rgba(0, 0, 0, 0.4)));
-  border-top-color: #e21d38;
-  border-left-color: #e21d38;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager.inactive.warning,
-.app-controller .suggestions .widget-buttons .widget-manager.inactive.warning,
-.app-controller .widgets-list .holder .widget-manager.inactive.warning,
-.app-controller .suggestions .holder .widget-manager.inactive.warning,
-.app-controller .widgets-list .widget-buttons .suggestion.inactive.warning,
-.app-controller .suggestions .widget-buttons .suggestion.inactive.warning,
-.app-controller .widgets-list .holder .suggestion.inactive.warning,
-.app-controller .suggestions .holder .suggestion.inactive.warning {
-  background: rgba(200, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.45);
-}
-.app-controller .suggestions {
-  left: 0;
-  z-index: 15;
-}
-.app-controller .suggestions .holder {
-  display: block;
-  top: 10px;
-}
-.app-controller .suggestions .holder .suggestion {
-  text-align: left;
-  padding: 10px;
-  line-height: 1.4;
-  text-transform: capitalize;
-  white-space: pre;
-  color: #fff;
-  font-size: 14px;
-}
-.app-controller .suggestions .holder .suggestion:hover {
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.3);
-}
-.app-controller .suggestions .holder .suggestion label {
-  font-size: 130%;
-}
-.app-controller .suggestions .holder .suggestion .log {
-  padding-left: 5px;
-  color: rgba(255, 255, 255, 0.8);
-}
-.app-controller .widgets-list {
-  right: 0;
-}
-.app-controller .camera-control {
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  margin: -50px 0 0 -50px;
-  width: 100px;
-  height: 100px;
-  display: none;
-  z-index: 11;
-}
-.app-controller .camera-control .control {
-  width: 150%;
-  height: 150%;
-  line-height: 150px;
-  background: rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  text-transform: uppercase;
-  position: absolute;
-  text-align: center;
-  font-size: 30px;
-  border-radius: 50%;
-}
-.app-controller .camera-control .control:hover,
-.app-controller .camera-control .control.active {
-  background: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-}
-.app-controller .camera-control .control.top {
-  left: -25%;
-  bottom: 100%;
-}
-.app-controller .camera-control .control.right {
-  top: -25%;
-  left: 100%;
-}
-.app-controller .camera-control .control.bottom {
-  top: 100%;
-  left: -25%;
-}
-.app-controller .camera-control .control.bottomLeft {
-  top: 100%;
-  right: 100%;
-}
-.app-controller .camera-control .control.left {
-  top: -25%;
-  right: 100%;
-}
-.app-controller .camera-control .control.center {
-  top: -25%;
-  left: -25%;
-  -webkit-transform: scale(0.6);
-}
-.app-controller .camera-control .control.bottomLeft {
-  top: 100%;
-  right: 100%;
-}
-.track-map-controller-bg {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #222;
-  z-index: 1;
-}
-.track-map-controller {
-  position: fixed;
-  z-index: 11;
-  width: 512px;
-  height: 512px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: scale(2) translate(-50%, -50%);
-  -webkit-transform-origin: top left;
-}
-.track-map-controller .dot {
-  position: absolute;
-  top: 0;
-  font-family: hel;
-  left: 0;
-  -webkit-transition: -webkit-transform 0.3s linear;
-  width: 40px;
-  height: 40px;
-  font-size: 30px;
-  margin: -20px 0 0 -20px;
-  font-weight: bold;
-  line-height: 38px;
-  text-align: center;
-  color: #fff;
-  border-radius: 100%;
-  background: #111;
-  border: 2px solid #000;
-  cursor: pointer;
-  z-index: 2;
-}
-.track-map-controller .dot.idle {
-  opacity: 0.3;
-}
-.track-map-controller .dot.start {
-  z-index: 1;
-  background: #aaa;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-}
-.track-map-controller .dot.speed-trap {
-  z-index: 1;
-  background: red;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-}
-.track-map-controller .dot .name,
-.track-map-controller .dot .speed {
-  position: absolute;
-  -webkit-transform: translate(-50%, 0);
-  font-size: 14px;
-  line-height: 1;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 5px;
-  font-family: Inconsolata;
-  color: #fff;
-  white-space: nowrap;
-  border-radius: 5px;
-}
-.track-map-controller .dot .name {
-  bottom: 100%;
-  margin: 0 0 5px 0;
-}
-.track-map-controller .dot .speed {
-  margin: 5px 0 0 0;
-  top: 100%;
-}
-.track-map-controller .dot:active {
-  opacity: 0.6;
-}
-.track-map-controller .dot.leader {
-  background: green;
-  z-index: 3;
-}
-.track-map-controller .dot.active {
-  background: yellow;
-  color: #000;
-  z-index: 4;
-}
-.drivers-container-beta-title {
-  position: fixed;
-  top: 50px;
-  bottom: 0;
-  left: 10px;
-  right: 237px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  color: white;
-  font-family: Oswald;
-  border-bottom: 1px solid white;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-.drivers-container-beta {
-  position: fixed;
-  top: 72px;
-  bottom: 0;
-  left: 10px;
-  right: 220px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  height: 90%;
-  color: white;
-  overflow: hidden;
-  overflow-y: scroll;
-  font-family: Arial;
-}
-.tabled-driver-entry:nth-child(odd) {
-  opacity: 0.9;
-}
-.tabled-driver-entry {
-  float: left;
-  position: relative;
-  opacity: 1;
-  height: 1.3em;
-  font-size: 17px;
-  color: white;
-}
-.tabled-driver-entry.idle {
-  opacity: 0.4;
-}
-.tabled-driver-entry.focused {
-  opacity: 1;
-}
-.tabled-driver-entry .position,
-.tabled-driver-entry .lap,
-.tabled-driver-entry .interesting,
-.tabled-driver-entry .name,
-.tabled-driver-entry .flag,
-.tabled-driver-entry .manufacturer,
-.tabled-driver-entry .livery,
-.tabled-driver-entry .cameras,
-.tabled-driver-entry .currentSpeed,
-.tabled-driver-entry .pit,
-.tabled-driver-entry .mandatoryPit,
-.tabled-driver-entry .tvCam,
-.tabled-driver-entry .dashCam,
-.tabled-driver-entry .cockpitCam,
-.tabled-driver-entry .frontCam,
-.tabled-driver-entry .rearCam,
-.tabled-driver-entry .wingCam,
-.tabled-driver-entry .tyre,
-.tabled-driver-entry .tyreWear,
-.tabled-driver-entry .damage,
-.tabled-driver-entry .flags,
-.tabled-driver-entry .ptp,
-.tabled-driver-entry .drs,
-.tabled-driver-entry .best-lap-s1,
-.tabled-driver-entry .best-lap-s2,
-.tabled-driver-entry .best-lap-time,
-.tabled-driver-entry .last-lap-time {
-  vertical-align: top;
-  display: inline-block;
-  height: 1.3em;
-  line-height: 1.2em;
-  text-align: center;
-}
-.tabled-driver-entry .position {
-  width: 2%;
-  color: #fff;
-  opacity: 1.0;
-  background: #F44336;
-}
-.tabled-driver-entry .lap {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #3F51B5;
-}
-.tabled-driver-entry .flag {
-  border: 0px;
-  background: #37474F;
-  width: 2%;
-  padding: 0;
-}
-.tabled-driver-entry .flag img {
-  padding: 0;
-}
-.tabled-driver-entry .name {
-  width: 14%;
-  background: #263238;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.tabled-driver-entry .name.focused {
-  background-color: yellow;
-  color: black;
-}
-.tabled-driver-entry .manufacturer {
-  border: 0px;
-  background: #37474F;
-  width: 1.5%;
-  padding: 0;
-}
-.tabled-driver-entry .manufacturer img {
-  padding: 0;
-}
-.tabled-driver-entry .livery {
-  border: 0px;
-  background: #37474F;
-  width: 3%;
-  padding: 0;
-}
-.tabled-driver-entry .livery img {
-  padding: 0;
-}
-.tabled-driver-entry .cameras {
-  color: white;
-  background: #4CAF50;
-  width: 12%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .tvCam {
-  color: white;
-  background: #4CAF50;
-  width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .cockpitCam {
-  background: #4CAF50;
-  color: white;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .dashCam {
-  background: #4CAF50;
-  color: white;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .frontCam {
-  background: #4CAF50;
-  color: white;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .rearCam {
-  background: #4CAF50;
-  color: white;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .wingCam {
-  color: white;
-  background: #4CAF50;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .pit {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #673AB7;
-}
-.tabled-driver-entry .currentSpeed {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #FF9800;
-}
-.tabled-driver-entry .mandatoryPit {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #7E57C2;
-}
-.tabled-driver-entry .tyre {
-  border: 0px;
-  background: #333;
-  width: 3%;
-  padding: 0;
-  color: white;
-}
-.tabled-driver-entry .tyre img {
-  width: 45%;
-  padding: 0;
-  vertical-align: middle;
-}
-.tabled-driver-entry .tyreWear {
-  background: #515050;
-  width: 3%;
-  padding: 0;
-  color: white;
-}
-.tabled-driver-entry .damage {
-  width: 4%;
-  color: #fff;
-  opacity: 1.0;
-  background: #8BC34A;
-}
-.tabled-driver-entry .flags {
-  width: 4%;
-  opacity: 1.0;
-  color: white;
-  background: grey;
-}
-.tabled-driver-entry .flags .blackFlag {
-  background: black;
-  display: inline-block;
-  min-width: 33%;
-  opacity: 0.1;
-}
-.tabled-driver-entry .flags .blackFlag.active {
-  opacity: 1;
-}
-.tabled-driver-entry .flags .blueFlag {
-  background: blue;
-  display: inline-block;
-  min-width: 33%;
-  opacity: 0.1;
-}
-.tabled-driver-entry .flags .blueFlag.active {
-  opacity: 1;
-}
-.tabled-driver-entry .flags .yellowFlag {
-  background: yellow;
-  display: inline-block;
-  color: black;
-  min-width: 34%;
-  opacity: 0.1;
-}
-.tabled-driver-entry .flags .yellowFlag.active {
-  opacity: 1;
-}
-.tabled-driver-entry .best-lap-s1 {
-  width: 5%;
-  background: #4DB6AC;
-}
-.tabled-driver-entry .best-lap-s1.invalid {
-  background: #607d8b;
-}
-.tabled-driver-entry .best-lap-s2 {
-  width: 5%;
-  background: #26A69A;
-}
-.tabled-driver-entry .best-lap-s2.invalid {
-  background: #607d8b;
-}
-.tabled-driver-entry .best-lap-time {
-  width: 7%;
-  opacity: 1.0;
-  color: white;
-  background: #009688;
-}
-.tabled-driver-entry .best-lap-time.invalid {
-  background: #607d8b;
-}
-.tabled-driver-entry .last-lap-time {
-  width: 7%;
-  opacity: 1.0;
-  color: white;
-  background: #00695C;
-}
-.tabled-driver-entry .last-lap-time.invalid {
-  background: #F44336;
-}
-.tabled-driver-entry .drs {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #B71C1C;
-}
-.tabled-driver-entry .drs.active {
-  background: #00C853;
-}
-.tabled-driver-entry .ptp {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #1976D2;
-}
-.tabled-driver-entry .ptp.active {
-  background: #00BCD4;
-}
-.tabled-driver-entry .interesting {
-  width: 6%;
-  color: white;
-  background: #333;
-}
-.tabled-driver-entry .interesting.close {
-  background: #FF9800;
-  color: black;
-}
-.tabled-driver-entry .interesting.veryClose {
-  background: red;
-  color: white;
-}
-/* ---- Abel ---- */
-@font-face {
-  font-family: 'Abel';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Abel'), local('Abel Regular'), local('Abel-Regular'), url(/fonts/Abel.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* ---- Oswald ---- */
-/* cyrillic */
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(/fonts/Oswald-cyrilic.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(/fonts/Oswald-lat-ext.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(/fonts/Oswald-lat.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* ---- Inconsolata ---- */
-/* latin-ext */
-@font-face {
-  font-family: 'Inconsolata';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(/fonts/Inconsolata-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Inconsolata';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(/fonts/Inconsolata-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-select {
-  background-position: center right;
-  background-repeat: no-repeat;
-  border: 2px solid white;
-  background: #1f1f1e;
-  border-radius: 35px;
-  text-align: center;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-  color: #fff;
-  font-size: inherit;
-  overflow: hidden;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 400px;
-  text-align-last: center;
-  margin-bottom: 40px;
-}
-[data-title]:hover:after {
-  opacity: 1;
-  transition: all 0.1s ease 0.5s;
-  visibility: visible;
-}
-[data-title]:after {
-  content: attr(data-title);
-  background-color: #0e0e0e;
-  color: white;
-  font-size: 19px;
-  position: absolute;
-  padding: 15px;
-  min-height: 50px;
-  min-width: 250px;
-  right: 120%;
-  top: -140%;
-  white-space: normal;
-  border-top: 5px solid;
-  border-top-color: #e21d38;
-  box-shadow: 1px 1px 3px #222222;
-  opacity: 0;
-  z-index: 99999;
-  visibility: hidden;
-  filter: drop-shadow(1px 1px 1px #000000);
-}
-[data-title] {
-  position: relative;
-}
-.app-controller {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #212121;
-  font-family: Abel;
-}
-.app-controller .title {
-  position: absolute;
-  top: 0px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  height: 40px;
-  left: 0px;
-  right: 0;
-  padding: 10px;
-  font-size: 25px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
-  color: white;
-  background: #263238;
-  z-index: 2;
-}
-.app-controller .title .toggle-track-map {
-  float: right;
-  height: 30px;
-  margin: -5px 0 0;
-}
-.app-controller .title .toggle-track-map:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-.app-controller .title .toggle-track-map:hover:active {
-  -webkit-transform: scale(0.9);
-}
-.app-controller .title .toggleControlPanel {
-  float: left;
-  height: 30px;
-  margin: -5px 0 0;
-}
-.app-controller .title .toggleControlPanel:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-.app-controller .title .toggleControlPanel:hover:active {
-  -webkit-transform: scale(0.9);
-}
-.app-controller .drivers-controls .controlPanel {
-  position: absolute;
-  transition: opacity 0.2s, visibility 0.2s, margin-top 0s 0.2s;
-  bottom: 0px;
-  height: auto;
-  background: #0e0e0e;
-  color: white;
-  font-family: Oswald;
-  border-top: 2px solid #37474F;
-  background: #263238;
-  width: 100%;
-  z-index: 4;
-}
-.app-controller .drivers-controls .controlPanel .controlPanelOption {
-  float: left;
-  position: relative;
-  font-size: 20px;
-}
-.app-controller .drivers-controls .controlPanel .controlPanelOption .option {
-  text-align: center;
-  margin: 15px;
-}
-.app-controller .drivers-controls .controlPanel .controlPanelOption input[type=checkbox] {
-  display: none;
-}
-.app-controller .drivers-controls .controlPanel .controlPanelOption input[type=number] {
-  width: 40px;
-}
-.app-controller .drivers-controls .controlPanel .controlPanelOption label {
-  display: block;
-}
-.app-controller .drivers-controls .controlPanel .controlPanelOption input {
-  margin-left: 10px;
-  display: inline;
-}
-.app-controller .drivers-container {
-  position: fixed;
-  top: 80px;
-  bottom: 0;
-  left: 20px;
-  right: 270px;
-}
-.app-controller .drivers-container.has-suggestions {
-  left: 270px;
-}
-.app-controller .drivers-container .drivers {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-.app-controller .drivers-container .driver-entry {
-  float: left;
-  position: relative;
-  opacity: 0.5;
-  border-left: 5px solid rgba(0, 0, 0, 0);
-  margin-right: -5px;
-}
-.app-controller .drivers-container .driver-entry.focused {
-  opacity: 1;
-}
-.app-controller .drivers-container .driver-entry.idle {
-  opacity: 0.1;
-}
-.app-controller .drivers-container .driver-entry .meta {
-  right: 0;
-  color: #fff;
-  position: absolute;
-  bottom: 0;
-  text-shadow: 0 0 10px #000;
-  -webkit-transform-origin: bottom right;
-}
-.app-controller .drivers-container .driver-entry .meta .flag {
-  height: 30px;
-  position: relative;
-  top: 5px;
-}
-.app-controller .drivers-container .driver-entry .meta .name {
-  display: inline-block;
-  font-size: 40px;
-  padding: 10px;
-  white-space: nowrap;
-}
-.app-controller .drivers-container .driver-entry .best-lap-time {
-  -webkit-animation: "ani_13" 1s ease, "ani_14" 1s ease;
-  position: absolute;
-  bottom: 25%;
-  left: 0;
-  padding: 4px 6px;
-  font-size: 20px;
-  opacity: 1.0;
-  color: white;
-  transform: skew(-15deg, 0deg);
-  filter: drop-shadow(2px 2px 2px #000000);
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.9) 10%, rgba(0, 200, 83, 0.9) 90%);
-}
-@-webkit-keyframes "ani_13" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_14" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.app-controller .drivers-container .driver-entry .interesting {
-  position: absolute;
-  bottom: 80%;
-  left: 0;
-  padding: 6px 6px;
-  font-size: 20px;
-  color: white;
-  background: #333;
-  transform: skew(-15deg, 0deg);
-}
-.app-controller .drivers-container .driver-entry .interesting.close {
-  background: #FF9800;
-  color: black;
-  transform: skew(-15deg, 0deg);
-}
-.app-controller .drivers-container .driver-entry .interesting.veryClose {
-  background: red;
-  color: white;
-  transform: skew(-15deg, 0deg);
-}
-.app-controller .drivers-container .driver-entry .position {
-  -webkit-animation: "ani_15" 1s ease, "ani_16" 1s ease;
-  position: absolute;
-  left: 0;
-  color: #fff;
-  transform: skew(-15deg, 0deg);
-  bottom: 50%;
-  opacity: 1.0;
-  font-size: 22px;
-  font-weight: bold;
-  filter: drop-shadow(2px 2px 2px #000000);
-  padding: 4px 6px;
-  background: #c4122f;
-}
-@-webkit-keyframes "ani_15" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_16" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.app-controller .drivers-container .driver-entry img.livery {
-  width: 100%;
-  display: block;
-  margin: -5% auto;
-}
-.app-controller .widgets-list,
-.app-controller .suggestions {
-  position: fixed;
-  top: 40px;
-  width: 250px;
-  color: white;
-  bottom: 0;
-  font-size: 16px;
-  background: #263238;
-}
-.app-controller .widgets-list select,
-.app-controller .suggestions select {
-  margin: 10px 5%;
-  width: 90%;
-}
-.app-controller .widgets-list .widget-buttons,
-.app-controller .suggestions .widget-buttons,
-.app-controller .widgets-list .holder,
-.app-controller .suggestions .holder {
-  position: absolute;
-  top: 40px;
-  bottom: 5px;
-  left: 2px;
-  right: 5px;
-  flex-direction: column;
-  display: flex;
-  margin-top: 15px;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager,
-.app-controller .suggestions .widget-buttons .widget-manager,
-.app-controller .widgets-list .holder .widget-manager,
-.app-controller .suggestions .holder .widget-manager,
-.app-controller .widgets-list .widget-buttons .suggestion,
-.app-controller .suggestions .widget-buttons .suggestion,
-.app-controller .widgets-list .holder .suggestion,
-.app-controller .suggestions .holder .suggestion {
-  flex: auto;
-  margin: 5px;
-  color: #fff;
-  text-transform: uppercase;
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  position: relative;
-  text-align: center;
-  border-top: 4px solid;
-  box-shadow: 1px 1px 3px #222222;
-  font-family: Oswald;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager .text,
-.app-controller .suggestions .widget-buttons .widget-manager .text,
-.app-controller .widgets-list .holder .widget-manager .text,
-.app-controller .suggestions .holder .widget-manager .text,
-.app-controller .widgets-list .widget-buttons .suggestion .text,
-.app-controller .suggestions .widget-buttons .suggestion .text,
-.app-controller .widgets-list .holder .suggestion .text,
-.app-controller .suggestions .holder .suggestion .text {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  -webkit-transform: translate(0, -50%);
-  padding: 0 10px;
-  font-size: 18px;
-  line-height: 1.4;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager:hover,
-.app-controller .suggestions .widget-buttons .widget-manager:hover,
-.app-controller .widgets-list .holder .widget-manager:hover,
-.app-controller .suggestions .holder .widget-manager:hover,
-.app-controller .widgets-list .widget-buttons .suggestion:hover,
-.app-controller .suggestions .widget-buttons .suggestion:hover,
-.app-controller .widgets-list .holder .suggestion:hover,
-.app-controller .suggestions .holder .suggestion:hover {
-  color: rgba(255, 255, 255, 0.5);
-}
-.app-controller .widgets-list .widget-buttons .widget-manager.active,
-.app-controller .suggestions .widget-buttons .widget-manager.active,
-.app-controller .widgets-list .holder .widget-manager.active,
-.app-controller .suggestions .holder .widget-manager.active,
-.app-controller .widgets-list .widget-buttons .suggestion.active,
-.app-controller .suggestions .widget-buttons .suggestion.active,
-.app-controller .widgets-list .holder .suggestion.active,
-.app-controller .suggestions .holder .suggestion.active {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  color: #fff;
-  background: #004D40;
-  border-top-color: #76FF03;
-  border-left-color: #76FF03;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager.inactive,
-.app-controller .suggestions .widget-buttons .widget-manager.inactive,
-.app-controller .widgets-list .holder .widget-manager.inactive,
-.app-controller .suggestions .holder .widget-manager.inactive,
-.app-controller .widgets-list .widget-buttons .suggestion.inactive,
-.app-controller .suggestions .widget-buttons .suggestion.inactive,
-.app-controller .widgets-list .holder .suggestion.inactive,
-.app-controller .suggestions .holder .suggestion.inactive {
-  background: rgba(0, 0, 0, 0.4);
-  background: linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-  background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-  background: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.2)), color-stop(1, rgba(0, 0, 0, 0.4)));
-  border-top-color: #e21d38;
-  border-left-color: #e21d38;
-}
-.app-controller .widgets-list .widget-buttons .widget-manager.inactive.warning,
-.app-controller .suggestions .widget-buttons .widget-manager.inactive.warning,
-.app-controller .widgets-list .holder .widget-manager.inactive.warning,
-.app-controller .suggestions .holder .widget-manager.inactive.warning,
-.app-controller .widgets-list .widget-buttons .suggestion.inactive.warning,
-.app-controller .suggestions .widget-buttons .suggestion.inactive.warning,
-.app-controller .widgets-list .holder .suggestion.inactive.warning,
-.app-controller .suggestions .holder .suggestion.inactive.warning {
-  background: rgba(200, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.45);
-}
-.app-controller .suggestions {
-  left: 0;
-  z-index: 15;
-}
-.app-controller .suggestions .holder {
-  display: block;
-  top: 10px;
-}
-.app-controller .suggestions .holder .suggestion {
-  text-align: left;
-  padding: 10px;
-  line-height: 1.4;
-  text-transform: capitalize;
-  white-space: pre;
-  color: #fff;
-  font-size: 14px;
-}
-.app-controller .suggestions .holder .suggestion:hover {
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.3);
-}
-.app-controller .suggestions .holder .suggestion label {
-  font-size: 130%;
-}
-.app-controller .suggestions .holder .suggestion .log {
-  padding-left: 5px;
-  color: rgba(255, 255, 255, 0.8);
-}
-.app-controller .widgets-list {
-  right: 0;
-}
-.app-controller .camera-control {
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  margin: -50px 0 0 -50px;
-  width: 100px;
-  height: 100px;
-  display: none;
-  z-index: 11;
-}
-.app-controller .camera-control .control {
-  width: 150%;
-  height: 150%;
-  line-height: 150px;
-  background: rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  text-transform: uppercase;
-  position: absolute;
-  text-align: center;
-  font-size: 30px;
-  border-radius: 50%;
-}
-.app-controller .camera-control .control:hover,
-.app-controller .camera-control .control.active {
-  background: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-}
-.app-controller .camera-control .control.top {
-  left: -25%;
-  bottom: 100%;
-}
-.app-controller .camera-control .control.right {
-  top: -25%;
-  left: 100%;
-}
-.app-controller .camera-control .control.bottom {
-  top: 100%;
-  left: -25%;
-}
-.app-controller .camera-control .control.bottomLeft {
-  top: 100%;
-  right: 100%;
-}
-.app-controller .camera-control .control.left {
-  top: -25%;
-  right: 100%;
-}
-.app-controller .camera-control .control.center {
-  top: -25%;
-  left: -25%;
-  -webkit-transform: scale(0.6);
-}
-.app-controller .camera-control .control.bottomLeft {
-  top: 100%;
-  right: 100%;
-}
-.track-map-controller-bg {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #222;
-  z-index: 1;
-}
-.track-map-controller {
-  position: fixed;
-  z-index: 11;
-  width: 512px;
-  height: 512px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: scale(2) translate(-50%, -50%);
-  -webkit-transform-origin: top left;
-}
-.track-map-controller .dot {
-  position: absolute;
-  top: 0;
-  font-family: hel;
-  left: 0;
-  -webkit-transition: -webkit-transform 0.3s linear;
-  width: 40px;
-  height: 40px;
-  font-size: 30px;
-  margin: -20px 0 0 -20px;
-  font-weight: bold;
-  line-height: 38px;
-  text-align: center;
-  color: #fff;
-  border-radius: 100%;
-  background: #111;
-  border: 2px solid #000;
-  cursor: pointer;
-  z-index: 2;
-}
-.track-map-controller .dot.idle {
-  opacity: 0.3;
-}
-.track-map-controller .dot.start {
-  z-index: 1;
-  background: #aaa;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-}
-.track-map-controller .dot.speed-trap {
-  z-index: 1;
-  background: red;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-}
-.track-map-controller .dot .name,
-.track-map-controller .dot .speed {
-  position: absolute;
-  -webkit-transform: translate(-50%, 0);
-  font-size: 14px;
-  line-height: 1;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 5px;
-  font-family: Inconsolata;
-  color: #fff;
-  white-space: nowrap;
-  border-radius: 5px;
-}
-.track-map-controller .dot .name {
-  bottom: 100%;
-  margin: 0 0 5px 0;
-}
-.track-map-controller .dot .speed {
-  margin: 5px 0 0 0;
-  top: 100%;
-}
-.track-map-controller .dot:active {
-  opacity: 0.6;
-}
-.track-map-controller .dot.leader {
-  background: green;
-  z-index: 3;
-}
-.track-map-controller .dot.active {
-  background: yellow;
-  color: #000;
-  z-index: 4;
-}
-.drivers-container-beta-title {
-  position: fixed;
-  top: 50px;
-  bottom: 0;
-  left: 10px;
-  right: 237px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  color: white;
-  font-family: Oswald;
-  border-bottom: 1px solid white;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-.drivers-container-beta {
-  position: fixed;
-  top: 72px;
-  bottom: 0;
-  left: 10px;
-  right: 220px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  height: 90%;
-  color: white;
-  overflow: hidden;
-  overflow-y: scroll;
-  font-family: Arial;
-}
-.tabled-driver-entry:nth-child(odd) {
-  opacity: 0.9;
-}
-.tabled-driver-entry {
-  float: left;
-  position: relative;
-  opacity: 1;
-  height: 1.3em;
-  font-size: 17px;
-  color: white;
-}
-.tabled-driver-entry.idle {
-  opacity: 0.4;
-}
-.tabled-driver-entry.focused {
-  opacity: 1;
-}
-.tabled-driver-entry .position,
-.tabled-driver-entry .lap,
-.tabled-driver-entry .interesting,
-.tabled-driver-entry .name,
-.tabled-driver-entry .flag,
-.tabled-driver-entry .manufacturer,
-.tabled-driver-entry .livery,
-.tabled-driver-entry .cameras,
-.tabled-driver-entry .currentSpeed,
-.tabled-driver-entry .pit,
-.tabled-driver-entry .mandatoryPit,
-.tabled-driver-entry .tvCam,
-.tabled-driver-entry .dashCam,
-.tabled-driver-entry .cockpitCam,
-.tabled-driver-entry .frontCam,
-.tabled-driver-entry .rearCam,
-.tabled-driver-entry .wingCam,
-.tabled-driver-entry .tyre,
-.tabled-driver-entry .tyreWear,
-.tabled-driver-entry .damage,
-.tabled-driver-entry .flags,
-.tabled-driver-entry .ptp,
-.tabled-driver-entry .drs,
-.tabled-driver-entry .best-lap-s1,
-.tabled-driver-entry .best-lap-s2,
-.tabled-driver-entry .best-lap-time,
-.tabled-driver-entry .last-lap-time {
-  vertical-align: top;
-  display: inline-block;
-  height: 1.3em;
-  line-height: 1.2em;
-  text-align: center;
-}
-.tabled-driver-entry .position {
-  width: 2%;
-  color: #fff;
-  opacity: 1.0;
-  background: #F44336;
-}
-.tabled-driver-entry .lap {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #3F51B5;
-}
-.tabled-driver-entry .flag {
-  border: 0px;
-  background: #37474F;
-  width: 2%;
-  padding: 0;
-}
-.tabled-driver-entry .flag img {
-  padding: 0;
-}
-.tabled-driver-entry .name {
-  width: 14%;
-  background: #263238;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.tabled-driver-entry .name.focused {
-  background-color: yellow;
-  color: black;
-}
-.tabled-driver-entry .manufacturer {
-  border: 0px;
-  background: #37474F;
-  width: 1.5%;
-  padding: 0;
-}
-.tabled-driver-entry .manufacturer img {
-  padding: 0;
-}
-.tabled-driver-entry .livery {
-  border: 0px;
-  background: #37474F;
-  width: 3%;
-  padding: 0;
-}
-.tabled-driver-entry .livery img {
-  padding: 0;
-}
-.tabled-driver-entry .cameras {
-  color: white;
-  background: #4CAF50;
-  width: 12%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .tvCam {
-  color: white;
-  background: #4CAF50;
-  width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .cockpitCam {
-  background: #4CAF50;
-  color: white;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .dashCam {
-  background: #4CAF50;
-  color: white;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .frontCam {
-  background: #4CAF50;
-  color: white;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .rearCam {
-  background: #4CAF50;
-  color: white;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .wingCam {
-  color: white;
-  background: #4CAF50;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .pit {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #673AB7;
-}
-.tabled-driver-entry .currentSpeed {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #FF9800;
-}
-.tabled-driver-entry .mandatoryPit {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #7E57C2;
-}
-.tabled-driver-entry .tyre {
-  border: 0px;
-  background: #333;
-  width: 3%;
-  padding: 0;
-  color: white;
-}
-.tabled-driver-entry .tyre img {
-  width: 45%;
-  padding: 0;
-  vertical-align: middle;
-}
-.tabled-driver-entry .tyreWear {
-  background: #515050;
-  width: 3%;
-  padding: 0;
-  color: white;
-}
-.tabled-driver-entry .damage {
-  width: 4%;
-  color: #fff;
-  opacity: 1.0;
-  background: #8BC34A;
-}
-.tabled-driver-entry .flags {
-  width: 4%;
-  opacity: 1.0;
-  color: white;
-  background: grey;
-}
-.tabled-driver-entry .flags .blackFlag {
-  background: black;
-  display: inline-block;
-  min-width: 33%;
-  opacity: 0.1;
-}
-.tabled-driver-entry .flags .blackFlag.active {
-  opacity: 1;
-}
-.tabled-driver-entry .flags .blueFlag {
-  background: blue;
-  display: inline-block;
-  min-width: 33%;
-  opacity: 0.1;
-}
-.tabled-driver-entry .flags .blueFlag.active {
-  opacity: 1;
-}
-.tabled-driver-entry .flags .yellowFlag {
-  background: yellow;
-  display: inline-block;
-  color: black;
-  min-width: 34%;
-  opacity: 0.1;
-}
-.tabled-driver-entry .flags .yellowFlag.active {
-  opacity: 1;
-}
-.tabled-driver-entry .best-lap-s1 {
-  width: 5%;
-  background: #4DB6AC;
-}
-.tabled-driver-entry .best-lap-s1.invalid {
-  background: #607d8b;
-}
-.tabled-driver-entry .best-lap-s2 {
-  width: 5%;
-  background: #26A69A;
-}
-.tabled-driver-entry .best-lap-s2.invalid {
-  background: #607d8b;
-}
-.tabled-driver-entry .best-lap-time {
-  width: 7%;
-  opacity: 1.0;
-  color: white;
-  background: #009688;
-}
-.tabled-driver-entry .best-lap-time.invalid {
-  background: #607d8b;
-}
-.tabled-driver-entry .last-lap-time {
-  width: 7%;
-  opacity: 1.0;
-  color: white;
-  background: #00695C;
-}
-.tabled-driver-entry .last-lap-time.invalid {
-  background: #F44336;
-}
-.tabled-driver-entry .drs {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #B71C1C;
-}
-.tabled-driver-entry .drs.active {
-  background: #00C853;
-}
-.tabled-driver-entry .ptp {
-  width: 2.5%;
-  color: #fff;
-  opacity: 1.0;
-  background: #1976D2;
-}
-.tabled-driver-entry .ptp.active {
-  background: #00BCD4;
-}
-.tabled-driver-entry .interesting {
-  width: 6%;
-  color: white;
-  background: #333;
-}
-.tabled-driver-entry .interesting.close {
-  background: #FF9800;
-  color: black;
-}
-.tabled-driver-entry .interesting.veryClose {
-  background: red;
-  color: white;
-}
-@font-face {
-  font-family: 'DaimlerCS-Demi';
-  font-style: oblique;
-  font-weight: 400;
-  src: local('DaimlerCS-Demi'), url(/fonts/DaimlerCS-Demi.woff2) format('woff2');
-}
-@font-face {
-  font-family: 'DaimlerCS-ExtraBoldItalic';
-  font-style: normal;
-  font-weight: 400;
-  src: local('DaimlerCS-ExtraBoldItalic'), url(/fonts/DaimlerCS-ExtraBoldItalic.woff2) format('woff2');
-}
-@font-face {
-  font-family: 'DaimlerCS-Light';
-  font-style: normal;
-  font-weight: 400;
-  src: local('DaimlerCS-Light'), url(/fonts/DaimlerCS-Light.woff2) format('woff2');
-}
-.app-spectator .camera-fade {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #000;
-  opacity: 0.01;
-  -webkit-transition: opacity 0.1s;
-}
-.app-spectator .camera-fade.active {
-  opacity: 1;
-}
-.app-spectator .pit-window-information {
-  -webkit-animation: "ani_17" 0.5s ease, "ani_18" 0.5s ease, "ani_19" 0.2s ease, "ani_20" 0.2s ease;
-  font-family: Oswald;
-  position: fixed;
-  top: 120px;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  font-size: 30px;
-  text-transform: uppercase;
-  background: #000000;
-  background: linear-gradient(bottom, #111111, #2e2d2d);
-  background: -ms-linear-gradient(bottom, #111111, #2e2d2d);
-  background: -moz-linear-gradient(center bottom, #111111 0%, #2e2d2d 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #111111), color-stop(1, #2e2d2d));
-  border-radius: 5px;
-  border: 1px solid #333;
-  color: #fff;
-  height: 50px;
-  padding: 0 20px;
-  line-height: 50px;
-  text-align: center;
-  display: inline-block;
-  -webkit-transition: opacity 1s;
-}
-@-webkit-keyframes "ani_17" {
-  0% {
-    -webkit-transform: translate(-50%, -200px);
-  }
-  100% {
-    -webkit-transform: translate(-50%, 0);
-  }
-}
-@-webkit-keyframes "ani_18" {
-  0% {
-    -webkit-transform: translate(-50%, -200px);
-  }
-  100% {
-    -webkit-transform: translate(-50%, 0);
-  }
-}
-@-webkit-keyframes "ani_19" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_20" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.app-spectator .pit-window-information .closing {
-  color: #a00;
-}
-.app-spectator .pit-window-information.removing {
-  opacity: 0;
-}
-@font-face {
-  font-family: 'DaimlerCS-Demi';
-  font-style: oblique;
-  font-weight: 400;
-  src: local('DaimlerCS-Demi'), url(/fonts/DaimlerCS-Demi.woff2) format('woff2');
-}
-@font-face {
-  font-family: 'DaimlerCS-ExtraBoldItalic';
-  font-style: normal;
-  font-weight: 400;
-  src: local('DaimlerCS-ExtraBoldItalic'), url(/fonts/DaimlerCS-ExtraBoldItalic.woff2) format('woff2');
-}
-@font-face {
-  font-family: 'DaimlerCS-Light';
-  font-style: normal;
-  font-weight: 400;
-  src: local('DaimlerCS-Light'), url(/fonts/DaimlerCS-Light.woff2) format('woff2');
-}
-.app-spectator .camera-fade {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #000;
-  opacity: 0.01;
-  -webkit-transition: opacity 0.1s;
-}
-.app-spectator .camera-fade.active {
-  opacity: 1;
-}
-.app-spectator .pit-window-information {
-  -webkit-animation: "ani_21" 0.5s ease, "ani_22" 0.5s ease, "ani_23" 0.2s ease, "ani_24" 0.2s ease;
-  font-family: Oswald;
-  position: fixed;
-  top: 120px;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  font-size: 30px;
-  text-transform: uppercase;
-  background: #000000;
-  background: linear-gradient(bottom, #111111, #2e2d2d);
-  background: -ms-linear-gradient(bottom, #111111, #2e2d2d);
-  background: -moz-linear-gradient(center bottom, #111111 0%, #2e2d2d 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #111111), color-stop(1, #2e2d2d));
-  border-radius: 5px;
-  border: 1px solid #333;
-  color: #fff;
-  height: 50px;
-  padding: 0 20px;
-  line-height: 50px;
-  text-align: center;
-  display: inline-block;
-  -webkit-transition: opacity 1s;
-}
-@-webkit-keyframes "ani_21" {
-  0% {
-    -webkit-transform: translate(-50%, -200px);
-  }
-  100% {
-    -webkit-transform: translate(-50%, 0);
-  }
-}
-@-webkit-keyframes "ani_22" {
-  0% {
-    -webkit-transform: translate(-50%, -200px);
-  }
-  100% {
-    -webkit-transform: translate(-50%, 0);
-  }
-}
-@-webkit-keyframes "ani_23" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_24" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.app-spectator .pit-window-information .closing {
-  color: #a00;
-}
-.app-spectator .pit-window-information.removing {
-  opacity: 0;
-}
-.alert {
-  font-size: 18.7px;
-  font-family: Oswald;
-  position: fixed;
-  top: 15em;
-  right: 1.5em;
-  text-transform: uppercase;
-  min-height: 1em;
-  width: 15em;
-  line-height: 1.7em;
-  text-align: center;
-  display: inline-block;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.alert.removing {
-  opacity: 0.5;
-}
-.alert .raceControlAlert {
-  -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid white;
-  background: #c4122f;
-  color: white;
-  font-size: 18.7px;
-  padding: 0.05em;
-}
-.alert .alertMessage {
-  background: white;
-  color: #323433;
-  -webkit-transform: skew(-10deg, 0deg);
-  padding: 0.15em;
-  font-size: 18.7px;
-  text-transform: capitalize;
-}
-.alert {
-  font-size: 18.7px;
-  font-family: Oswald;
-  position: fixed;
-  top: 15em;
-  right: 1.5em;
-  text-transform: uppercase;
-  min-height: 1em;
-  width: 15em;
-  line-height: 1.7em;
-  text-align: center;
-  display: inline-block;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.alert.removing {
-  opacity: 0.5;
-}
-.alert .raceControlAlert {
-  -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid white;
-  background: #c4122f;
-  color: white;
-  font-size: 18.7px;
-  padding: 0.05em;
-}
-.alert .alertMessage {
-  background: white;
-  color: #323433;
-  -webkit-transform: skew(-10deg, 0deg);
-  padding: 0.15em;
-  font-size: 18.7px;
-  text-transform: capitalize;
-}
-.code60Container {
-  font-size: 17px;
-  position: fixed;
-  top: 4em;
-  background: #e12f82;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
-  filter: drop-shadow(2px 2px 2px #000000);
-  display: inline-block;
-}
-.code60Container .code60Img {
-  background: #e12f82;
-  float: left;
-  font-family: Oswald;
-  text-transform: uppercase;
-  height: 2em;
-  width: 3em;
-}
-.code60Container .code60 {
-  font-family: Oswald;
-  background: #e12f82;
-  text-transform: uppercase;
-  color: white;
-  height: 2em;
-  width: 8em;
-  line-height: 2em;
-  text-align: center;
-}
-.code60Container {
-  font-size: 17px;
-  position: fixed;
-  top: 4em;
-  background: #e12f82;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
-  filter: drop-shadow(2px 2px 2px #000000);
-  display: inline-block;
-}
-.code60Container .code60Img {
-  background: #e12f82;
-  float: left;
-  font-family: Oswald;
-  text-transform: uppercase;
-  height: 2em;
-  width: 3em;
-}
-.code60Container .code60 {
-  font-family: Oswald;
-  background: #e12f82;
-  text-transform: uppercase;
-  color: white;
-  height: 2em;
-  width: 8em;
-  line-height: 2em;
-  text-align: center;
-}
-.commentaryNameAlert {
-  font-size: 18.7px;
-  font-family: Oswald;
-  position: fixed;
-  bottom: 11em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  text-align: center;
-  text-transform: uppercase;
-  min-height: 1em;
-  width: 14em;
-  line-height: 1.7em;
-  display: inline-block;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.commentaryNameAlert .commentaryTitle {
-  -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #ffffff;
-  background: #c4122f;
-  color: white;
-  font-size: 18.7px;
-  padding: 0.05em;
-  top: 0.1em;
-  z-index: 0;
-}
-.commentaryNameAlert .commentaryName {
-  background: white;
-  color: #323433;
-  -webkit-transform: skew(-10deg, 0deg);
-  font-size: 18.7px;
-  padding: 0.15em;
-  text-transform: capitalize;
-  z-index: -1;
-}
-.commentaryNameAlert {
-  font-size: 18.7px;
-  font-family: Oswald;
-  position: fixed;
-  bottom: 11em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  text-align: center;
-  text-transform: uppercase;
-  min-height: 1em;
-  width: 14em;
-  line-height: 1.7em;
-  display: inline-block;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.commentaryNameAlert .commentaryTitle {
-  -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #ffffff;
-  background: #c4122f;
-  color: white;
-  font-size: 18.7px;
-  padding: 0.05em;
-  top: 0.1em;
-  z-index: 0;
-}
-.commentaryNameAlert .commentaryName {
-  background: white;
-  color: #323433;
-  -webkit-transform: skew(-10deg, 0deg);
-  font-size: 18.7px;
-  padding: 0.15em;
-  text-transform: capitalize;
-  z-index: -1;
-}
-.compare-race {
-  position: fixed;
-  bottom: 6em;
-  height: 3.5em;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-.compare-race .delta {
-  font-size: 17px;
-  text-transform: uppercase;
-  color: #212121;
-  padding: 0.25em 0.5em;
-  min-width: 6.5em;
-  display: inline-block;
-  position: relative;
-}
-.compare-race .delta .battle {
-  text-transform: uppercase;
-  border-top: 0.25em solid #c4122f;
-  color: #212121;
-  padding: 0.4em 0.7em;
-  width: inherit;
-  position: relative;
-  bottom: 0.25em;
-  transform: skew(-10deg);
-  background: white;
-  left: 0.3em;
-}
-.compare-race .delta .value {
-  text-transform: uppercase;
-  color: #212121;
-  padding: 0.4em 0.7em;
-  width: inherit;
-  position: relative;
-  bottom: 0.25em;
-  left: -0.05em;
-  transform: skew(-10deg);
-  background: white;
-}
-.compare-race .delta .inner {
-  position: absolute !important;
-  top: 0.5em;
-}
-.compare-race .delta .inner.first {
-  left: auto;
-  right: 100%;
-  margin-right: 2em;
-}
-.compare-race .delta .inner.second {
-  right: auto;
-  left: 100%;
-  margin-left: 2em;
-}
-.compare-race .inner {
-  /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-family: Oswald;
-  color: #fff;
-  /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-  position: fixed !important;
-  bottom: 68px;
-}
-.compare-race .inner .inner {
-  font-size: 17px;
-  white-space: nowrap;
-  width: auto;
-  height: 4em;
-  display: inline-block;
-  position: relative;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.compare-race .inner .extra-info {
-  display: none;
-}
-.compare-race .inner .top {
-  position: relative;
-  bottom: -0.2em;
-  text-align: center;
-  height: 1.75em;
-  left: -5.5em;
-  margin: 0;
-}
-.compare-race .inner .top .speed,
-.compare-race .inner .top .best-time {
-  vertical-align: top;
-  display: inline-block;
-}
-.compare-race .inner .top .speed {
-  transform: skew(-10deg);
-  background: #ff9800;
-  line-height: 0.5em;
-  padding: 0.5em 0.5em;
-  color: #212121;
-  width: 5em;
-  z-index: 0;
-  height: 1.5em;
-}
-.compare-race .inner .top .best-time {
-  transform: skew(-10deg);
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  line-height: 0.5em;
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 5em;
-  z-index: 0;
-  height: 1.5em;
-}
-.compare-race .inner .comparePositionContainer,
-.compare-race .inner .compareName,
-.compare-race .inner .vehicle,
-.compare-race .inner .manufacturer,
-.compare-race .inner .compare-flag-container {
-  vertical-align: top;
-  display: inline-block;
-  height: 3.5em;
-  line-height: 3.75em;
-}
-.compare-race .inner .main .comparePositionContainer {
-  background: white;
-  color: #212121;
-  width: 3.75em;
-  text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
-  text-align: center;
-  line-height: 3.5em;
-  border-bottom: 0.1em solid white;
-  transform: skew(-10deg);
-}
-.compare-race .inner .main .comparePositionContainer .comparePosition {
-  position: relative;
-  left: -0.075em;
-  font-size: 51px;
-}
-.compare-race .inner .main .compareName {
-  background: white;
-  color: #c4122f;
-  padding: 0 1em;
-  min-width: 12em;
-  border-bottom: 0.1em solid #c4122f;
-}
-.compare-race .inner .main .compareName .name {
-  font-size: 22.1px;
-}
-.compare-race .inner .main .vehicle {
-  width: 1.75em;
-  position: fixed;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-  z-index: 2;
-}
-.compare-race .inner .main .vehicle img {
-  position: absolute;
-  top: -3.2em;
-  left: -4.2em;
-  height: 4.5em;
-}
-.compare-race .inner .main .manufacturer {
-  background: white;
-  width: 4em;
-  z-index: 1;
-  position: relative;
-  left: -0.3em;
-  transform: skew(-10deg);
-  border-bottom: 0.1em solid #c4122f;
-}
-.compare-race .inner .main .manufacturer img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.25em;
-  right: 0.5em;
-  height: 3em;
-}
-.compare-race .inner .bottom {
-  position: relative;
-  height: 1.5em;
-  width: 20em;
-  left: 1em;
-  z-index: -1;
-}
-.compare-race .inner .bottom .team {
-  transform: skew(-10deg);
-  background: #c4122f;
-  color: white;
-  height: 1.5em;
-  text-transform: uppercase;
-  top: 3.5em;
-  line-height: 1.5em;
-  border: 0.1em;
-}
-.compare-race .inner .compareAssists {
-  height: 1.5em;
-}
-.compare-race .inner .compareAssists .drs .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .drs.active .icon {
-  transform: skew(-10deg);
-  background: rgba(76, 175, 80, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 17px;
-  bottom: 0;
-}
-.compare-race .inner .compareAssists .ptp .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .ptp.active .icon {
-  transform: skew(-10deg);
-  background: rgba(66, 165, 245, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 17px;
-  bottom: 0;
-}
-.compare-race .inner .compare-flag-container {
-  width: 3em;
-  position: relative;
-  margin-right: 0.25em;
-  transform: skew(-10deg);
-}
-.compare-race .inner .compare-flag-container .compare-flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: fixed;
-  display: block;
-  content: '';
-  width: 4em;
-  height: 3.5em;
-  position: absolute;
-  left: -0.3em;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
-  z-index: 1;
-}
-.compare-race .inner .inner {
-  font-size: 17px;
-  white-space: nowrap;
-  width: auto;
-  height: 4em;
-  display: inline-block;
-  position: relative;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.compare-race .inner .extra-info {
-  display: none;
-}
-.compare-race .inner .top {
-  position: relative;
-  bottom: -0.2em;
-  text-align: center;
-  height: 1.75em;
-  left: -5.5em;
-  margin: 0;
-}
-.compare-race .inner .top .speed,
-.compare-race .inner .top .best-time {
-  vertical-align: top;
-  display: inline-block;
-}
-.compare-race .inner .top .speed {
-  transform: skew(-10deg);
-  background: #ff9800;
-  line-height: 0.5em;
-  padding: 0.5em 0.5em;
-  color: #212121;
-  width: 5em;
-  z-index: 0;
-  height: 1.5em;
-}
-.compare-race .inner .top .best-time {
-  transform: skew(-10deg);
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  line-height: 0.5em;
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 5em;
-  z-index: 0;
-  height: 1.5em;
-}
-.compare-race .inner .comparePositionContainer,
-.compare-race .inner .compareName,
-.compare-race .inner .vehicle,
-.compare-race .inner .manufacturer,
-.compare-race .inner .compare-flag-container {
-  vertical-align: top;
-  display: inline-block;
-  height: 3.5em;
-  line-height: 3.75em;
-}
-.compare-race .inner .main .comparePositionContainer {
-  background: white;
-  color: #212121;
-  width: 3.75em;
-  text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
-  text-align: center;
-  line-height: 3.5em;
-  border-bottom: 0.1em solid white;
-  transform: skew(-10deg);
-}
-.compare-race .inner .main .comparePositionContainer .comparePosition {
-  position: relative;
-  left: -0.075em;
-  font-size: 51px;
-}
-.compare-race .inner .main .compareName {
-  background: white;
-  color: #c4122f;
-  padding: 0 1em;
-  min-width: 12em;
-  border-bottom: 0.1em solid #c4122f;
-}
-.compare-race .inner .main .compareName .name {
-  font-size: 22.1px;
-}
-.compare-race .inner .main .vehicle {
-  width: 1.75em;
-  position: fixed;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-  z-index: 2;
-}
-.compare-race .inner .main .vehicle img {
-  position: absolute;
-  top: -3.2em;
-  left: -4.2em;
-  height: 4.5em;
-}
-.compare-race .inner .main .manufacturer {
-  background: white;
-  width: 4em;
-  z-index: 1;
-  position: relative;
-  left: -0.3em;
-  transform: skew(-10deg);
-  border-bottom: 0.1em solid #c4122f;
-}
-.compare-race .inner .main .manufacturer img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.25em;
-  right: 0.5em;
-  height: 3em;
-}
-.compare-race .inner .bottom {
-  position: relative;
-  height: 1.5em;
-  width: 20em;
-  left: 1em;
-  z-index: -1;
-}
-.compare-race .inner .bottom .team {
-  transform: skew(-10deg);
-  background: #c4122f;
-  color: white;
-  height: 1.5em;
-  text-transform: uppercase;
-  top: 3.5em;
-  line-height: 1.5em;
-  border: 0.1em;
-}
-.compare-race .inner .compareAssists {
-  height: 1.5em;
-}
-.compare-race .inner .compareAssists .drs .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .drs.active .icon {
-  transform: skew(-10deg);
-  background: rgba(76, 175, 80, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 17px;
-  bottom: 0;
-}
-.compare-race .inner .compareAssists .ptp .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .ptp.active .icon {
-  transform: skew(-10deg);
-  background: rgba(66, 165, 245, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 17px;
-  bottom: 0;
-}
-.compare-race .inner .compare-flag-container {
-  width: 3em;
-  position: relative;
-  margin-right: 0.25em;
-  transform: skew(-10deg);
-}
-.compare-race .inner .compare-flag-container .compare-flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: fixed;
-  display: block;
-  content: '';
-  width: 4em;
-  height: 3.5em;
-  position: absolute;
-  left: -0.3em;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
-  z-index: 1;
-}
-.compare-race {
-  position: fixed;
-  bottom: 6em;
-  height: 3.5em;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-.compare-race .delta {
-  font-size: 17px;
-  text-transform: uppercase;
-  color: #212121;
-  padding: 0.25em 0.5em;
-  min-width: 6.5em;
-  display: inline-block;
-  position: relative;
-}
-.compare-race .delta .battle {
-  text-transform: uppercase;
-  border-top: 0.25em solid #c4122f;
-  color: #212121;
-  padding: 0.4em 0.7em;
-  width: inherit;
-  position: relative;
-  bottom: 0.25em;
-  transform: skew(-10deg);
-  background: white;
-  left: 0.3em;
-}
-.compare-race .delta .value {
-  text-transform: uppercase;
-  color: #212121;
-  padding: 0.4em 0.7em;
-  width: inherit;
-  position: relative;
-  bottom: 0.25em;
-  left: -0.05em;
-  transform: skew(-10deg);
-  background: white;
-}
-.compare-race .delta .inner {
-  position: absolute !important;
-  top: 0.5em;
-}
-.compare-race .delta .inner.first {
-  left: auto;
-  right: 100%;
-  margin-right: 2em;
-}
-.compare-race .delta .inner.second {
-  right: auto;
-  left: 100%;
-  margin-left: 2em;
-}
-.compare-race .inner {
-  /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-family: Oswald;
-  color: #fff;
-  /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-  position: fixed !important;
-  bottom: 68px;
-}
-.compare-race .inner .inner {
-  font-size: 17px;
-  white-space: nowrap;
-  width: auto;
-  height: 4em;
-  display: inline-block;
-  position: relative;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.compare-race .inner .extra-info {
-  display: none;
-}
-.compare-race .inner .top {
-  position: relative;
-  bottom: -0.2em;
-  text-align: center;
-  height: 1.75em;
-  left: -5.5em;
-  margin: 0;
-}
-.compare-race .inner .top .speed,
-.compare-race .inner .top .best-time {
-  vertical-align: top;
-  display: inline-block;
-}
-.compare-race .inner .top .speed {
-  transform: skew(-10deg);
-  background: #ff9800;
-  line-height: 0.5em;
-  padding: 0.5em 0.5em;
-  color: #212121;
-  width: 5em;
-  z-index: 0;
-  height: 1.5em;
-}
-.compare-race .inner .top .best-time {
-  transform: skew(-10deg);
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  line-height: 0.5em;
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 5em;
-  z-index: 0;
-  height: 1.5em;
-}
-.compare-race .inner .comparePositionContainer,
-.compare-race .inner .compareName,
-.compare-race .inner .vehicle,
-.compare-race .inner .manufacturer,
-.compare-race .inner .compare-flag-container {
-  vertical-align: top;
-  display: inline-block;
-  height: 3.5em;
-  line-height: 3.75em;
-}
-.compare-race .inner .main .comparePositionContainer {
-  background: white;
-  color: #212121;
-  width: 3.75em;
-  text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
-  text-align: center;
-  line-height: 3.5em;
-  border-bottom: 0.1em solid white;
-  transform: skew(-10deg);
-}
-.compare-race .inner .main .comparePositionContainer .comparePosition {
-  position: relative;
-  left: -0.075em;
-  font-size: 51px;
-}
-.compare-race .inner .main .compareName {
-  background: white;
-  color: #c4122f;
-  padding: 0 1em;
-  min-width: 12em;
-  border-bottom: 0.1em solid #c4122f;
-}
-.compare-race .inner .main .compareName .name {
-  font-size: 22.1px;
-}
-.compare-race .inner .main .vehicle {
-  width: 1.75em;
-  position: fixed;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-  z-index: 2;
-}
-.compare-race .inner .main .vehicle img {
-  position: absolute;
-  top: -3.2em;
-  left: -4.2em;
-  height: 4.5em;
-}
-.compare-race .inner .main .manufacturer {
-  background: white;
-  width: 4em;
-  z-index: 1;
-  position: relative;
-  left: -0.3em;
-  transform: skew(-10deg);
-  border-bottom: 0.1em solid #c4122f;
-}
-.compare-race .inner .main .manufacturer img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.25em;
-  right: 0.5em;
-  height: 3em;
-}
-.compare-race .inner .bottom {
-  position: relative;
-  height: 1.5em;
-  width: 20em;
-  left: 1em;
-  z-index: -1;
-}
-.compare-race .inner .bottom .team {
-  transform: skew(-10deg);
-  background: #c4122f;
-  color: white;
-  height: 1.5em;
-  text-transform: uppercase;
-  top: 3.5em;
-  line-height: 1.5em;
-  border: 0.1em;
-}
-.compare-race .inner .compareAssists {
-  height: 1.5em;
-}
-.compare-race .inner .compareAssists .drs .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .drs.active .icon {
-  transform: skew(-10deg);
-  background: rgba(76, 175, 80, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 17px;
-  bottom: 0;
-}
-.compare-race .inner .compareAssists .ptp .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .ptp.active .icon {
-  transform: skew(-10deg);
-  background: rgba(66, 165, 245, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 17px;
-  bottom: 0;
-}
-.compare-race .inner .compare-flag-container {
-  width: 3em;
-  position: relative;
-  margin-right: 0.25em;
-  transform: skew(-10deg);
-}
-.compare-race .inner .compare-flag-container .compare-flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: fixed;
-  display: block;
-  content: '';
-  width: 4em;
-  height: 3.5em;
-  position: absolute;
-  left: -0.3em;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
-  z-index: 1;
-}
-.compare-race .inner .inner {
-  font-size: 17px;
-  white-space: nowrap;
-  width: auto;
-  height: 4em;
-  display: inline-block;
-  position: relative;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.compare-race .inner .extra-info {
-  display: none;
-}
-.compare-race .inner .top {
-  position: relative;
-  bottom: -0.2em;
-  text-align: center;
-  height: 1.75em;
-  left: -5.5em;
-  margin: 0;
-}
-.compare-race .inner .top .speed,
-.compare-race .inner .top .best-time {
-  vertical-align: top;
-  display: inline-block;
-}
-.compare-race .inner .top .speed {
-  transform: skew(-10deg);
-  background: #ff9800;
-  line-height: 0.5em;
-  padding: 0.5em 0.5em;
-  color: #212121;
-  width: 5em;
-  z-index: 0;
-  height: 1.5em;
-}
-.compare-race .inner .top .best-time {
-  transform: skew(-10deg);
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  line-height: 0.5em;
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 5em;
-  z-index: 0;
-  height: 1.5em;
-}
-.compare-race .inner .comparePositionContainer,
-.compare-race .inner .compareName,
-.compare-race .inner .vehicle,
-.compare-race .inner .manufacturer,
-.compare-race .inner .compare-flag-container {
-  vertical-align: top;
-  display: inline-block;
-  height: 3.5em;
-  line-height: 3.75em;
-}
-.compare-race .inner .main .comparePositionContainer {
-  background: white;
-  color: #212121;
-  width: 3.75em;
-  text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
-  text-align: center;
-  line-height: 3.5em;
-  border-bottom: 0.1em solid white;
-  transform: skew(-10deg);
-}
-.compare-race .inner .main .comparePositionContainer .comparePosition {
-  position: relative;
-  left: -0.075em;
-  font-size: 51px;
-}
-.compare-race .inner .main .compareName {
-  background: white;
-  color: #c4122f;
-  padding: 0 1em;
-  min-width: 12em;
-  border-bottom: 0.1em solid #c4122f;
-}
-.compare-race .inner .main .compareName .name {
-  font-size: 22.1px;
-}
-.compare-race .inner .main .vehicle {
-  width: 1.75em;
-  position: fixed;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-  z-index: 2;
-}
-.compare-race .inner .main .vehicle img {
-  position: absolute;
-  top: -3.2em;
-  left: -4.2em;
-  height: 4.5em;
-}
-.compare-race .inner .main .manufacturer {
-  background: white;
-  width: 4em;
-  z-index: 1;
-  position: relative;
-  left: -0.3em;
-  transform: skew(-10deg);
-  border-bottom: 0.1em solid #c4122f;
-}
-.compare-race .inner .main .manufacturer img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.25em;
-  right: 0.5em;
-  height: 3em;
-}
-.compare-race .inner .bottom {
-  position: relative;
-  height: 1.5em;
-  width: 20em;
-  left: 1em;
-  z-index: -1;
-}
-.compare-race .inner .bottom .team {
-  transform: skew(-10deg);
-  background: #c4122f;
-  color: white;
-  height: 1.5em;
-  text-transform: uppercase;
-  top: 3.5em;
-  line-height: 1.5em;
-  border: 0.1em;
-}
-.compare-race .inner .compareAssists {
-  height: 1.5em;
-}
-.compare-race .inner .compareAssists .drs .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .drs.active .icon {
-  transform: skew(-10deg);
-  background: rgba(76, 175, 80, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 17px;
-  bottom: 0;
-}
-.compare-race .inner .compareAssists .ptp .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .ptp.active .icon {
-  transform: skew(-10deg);
-  background: rgba(66, 165, 245, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 17px;
-  bottom: 0;
-}
-.compare-race .inner .compare-flag-container {
-  width: 3em;
-  position: relative;
-  margin-right: 0.25em;
-  transform: skew(-10deg);
-}
-.compare-race .inner .compare-flag-container .compare-flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: fixed;
-  display: block;
-  content: '';
-  width: 4em;
-  height: 3.5em;
-  position: absolute;
-  left: -0.3em;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
-  z-index: 1;
-}
-.entries-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
-}
-.entries {
-  position: fixed;
-  top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0.5em;
-  background-color: green;
-  white-space: pre;
-  font-family: Oswald;
-  width: 70%;
-  max-height: 20em;
-  filter: drop-shadow(9px 9px 9px #000000);
-}
-.entries .entries-title {
-  text-align: center;
-  background-color: red;
-  color: white;
-  height: 2em;
-}
-.entries-container ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  flex-flow: column wrap;
-  height: 100%;
-  color: white;
-}
-.entries-driver {
-  float: left;
-  position: relative;
-  height: 2em;
-  font-size: 17px;
-  color: black;
-}
-.entries-driver .entrySlot,
-.entries-driver .entryFlag,
-.entries-driver .entryName,
-.entries-driver .entryTeam,
-.entries-driver .entryLivery {
-  vertical-align: top;
-  display: inline-block;
-  line-height: 2em;
-  text-align: center;
-  border: 1px solid rgba(96, 125, 139, 0.3);
-  background-color: white;
-}
-.entries-driver .entrySlot {
-  width: 10%;
-  white-space: nowrap;
-}
-.entries-driver .entryFlag {
-  width: 10%;
-  padding: 0;
-}
-.entries-driver .entryFlag img {
-  width: 100%;
-  padding: 0;
-  height: 2em;
-}
-.entries-driver .entryName {
-  width: 30%;
-  white-space: nowrap;
-}
-.entries-driver .entryTeam {
-  width: 30%;
-  white-space: nowrap;
-}
-.entries-driver .entryLivery {
-  width: 20%;
-  padding: 0;
-}
-.entries-driver .entryLivery img {
-  height: 2em;
-  width: 100%;
-  padding: 0;
-}
-.entries-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
-}
-.entries {
-  position: fixed;
-  top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0.5em;
-  background-color: green;
-  white-space: pre;
-  font-family: Oswald;
-  width: 70%;
-  max-height: 20em;
-  filter: drop-shadow(9px 9px 9px #000000);
-}
-.entries .entries-title {
-  text-align: center;
-  background-color: red;
-  color: white;
-  height: 2em;
-}
-.entries-container ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  flex-flow: column wrap;
-  height: 100%;
-  color: white;
-}
-.entries-driver {
-  float: left;
-  position: relative;
-  height: 2em;
-  font-size: 17px;
-  color: black;
-}
-.entries-driver .entrySlot,
-.entries-driver .entryFlag,
-.entries-driver .entryName,
-.entries-driver .entryTeam,
-.entries-driver .entryLivery {
-  vertical-align: top;
-  display: inline-block;
-  line-height: 2em;
-  text-align: center;
-  border: 1px solid rgba(96, 125, 139, 0.3);
-  background-color: white;
-}
-.entries-driver .entrySlot {
-  width: 10%;
-  white-space: nowrap;
-}
-.entries-driver .entryFlag {
-  width: 10%;
-  padding: 0;
-}
-.entries-driver .entryFlag img {
-  width: 100%;
-  padding: 0;
-  height: 2em;
-}
-.entries-driver .entryName {
-  width: 30%;
-  white-space: nowrap;
-}
-.entries-driver .entryTeam {
-  width: 30%;
-  white-space: nowrap;
-}
-.entries-driver .entryLivery {
-  width: 20%;
-  padding: 0;
-}
-.entries-driver .entryLivery img {
-  height: 2em;
-  width: 100%;
-  padding: 0;
-}
-.event-info-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.2);
-}
-.event-info {
-  background: white;
-  font-size: 17px;
-  width: 50em;
-  position: fixed;
-  top: 8em;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: -1;
-  padding: 0em;
-  color: #fff;
-  white-space: pre;
-  font-family: Oswald;
-  border-top: 0.3em solid #c4122f;
-  border-bottom: 0.3em solid #c4122f;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.event-info .serverName {
-  color: #323433;
-  text-align: center;
-  font-size: 25.5px;
-  padding: 20px;
-}
-.event-info .trackImage img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-.event-info .trackImage .trackLogo {
-  position: relative;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-.event-info .trackImage .trackLogo img {
-  top: -110px;
-  left: 10px;
-  position: absolute;
-  opacity: 1;
-  height: 100px;
-  width: 100px;
-  background-color: white;
-}
-.event-info .countryFlag {
-  text-align: center;
-  padding-top: 15px;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-.event-info .countryFlag img {
-  position: relative;
-  opacity: 1;
-  height: 50px;
-  width: 70px;
-}
-.event-info .serverTrackName {
-  -webkit-transform: skew(-10deg, 0deg);
-  color: #323433;
-  text-align: center;
-  font-size: 25.5px;
-  padding: 15px;
-  border-bottom: 1px solid white;
-  width: 80%;
-  margin: auto;
-}
-.event-info .trackDescription {
-  color: #323433;
-  display: block;
-  width: 100%;
-  font-size: 17px;
-  padding: 10px;
-  min-height: 100px;
-  white-space: pre-line;
-  text-align: center;
-  line-height: 1.5;
-}
-.event-info .weather .weatherIcons {
-  -webkit-transform: skew(-10deg, 0deg);
-  display: flex;
-  font-size: 17px;
-  color: #323433;
-  justify-content: space-around;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-}
-.event-info-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.2);
-}
-.event-info {
-  background: white;
-  font-size: 17px;
-  width: 50em;
-  position: fixed;
-  top: 8em;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: -1;
-  padding: 0em;
-  color: #fff;
-  white-space: pre;
-  font-family: Oswald;
-  border-top: 0.3em solid #c4122f;
-  border-bottom: 0.3em solid #c4122f;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.event-info .serverName {
-  color: #323433;
-  text-align: center;
-  font-size: 25.5px;
-  padding: 20px;
-}
-.event-info .trackImage img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-.event-info .trackImage .trackLogo {
-  position: relative;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-.event-info .trackImage .trackLogo img {
-  top: -110px;
-  left: 10px;
-  position: absolute;
-  opacity: 1;
-  height: 100px;
-  width: 100px;
-  background-color: white;
-}
-.event-info .countryFlag {
-  text-align: center;
-  padding-top: 15px;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-.event-info .countryFlag img {
-  position: relative;
-  opacity: 1;
-  height: 50px;
-  width: 70px;
-}
-.event-info .serverTrackName {
-  -webkit-transform: skew(-10deg, 0deg);
-  color: #323433;
-  text-align: center;
-  font-size: 25.5px;
-  padding: 15px;
-  border-bottom: 1px solid white;
-  width: 80%;
-  margin: auto;
-}
-.event-info .trackDescription {
-  color: #323433;
-  display: block;
-  width: 100%;
-  font-size: 17px;
-  padding: 10px;
-  min-height: 100px;
-  white-space: pre-line;
-  text-align: center;
-  line-height: 1.5;
-}
-.event-info .weather .weatherIcons {
-  -webkit-transform: skew(-10deg, 0deg);
-  display: flex;
-  font-size: 17px;
-  color: #323433;
-  justify-content: space-around;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-}
-.animated.delay-10s {
-  -webkit-animation-delay: 10s;
-  animation-delay: 10s;
-}
-/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-.assists .drs {
-  position: relative;
-  height: 5em;
-}
-.assists .drs .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .drs .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .drs.active .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 17px;
-  transform: skew(-10deg);
-}
-.assists .drs.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 17px;
-  transform: skew(-10deg);
-}
-.assists .ptp {
-  position: relative;
-  height: 5em;
-}
-.assists .ptp .icon {
-  background: rgba(66, 165, 245, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .ptp .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .ptp.active .icon {
-  background: rgba(66, 165, 245, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 17px;
-  transform: skew(-10deg);
-}
-.assists .ptp.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 17px;
-  transform: skew(-10deg);
-}
-.focused-driver-info {
-  text-align: center;
-  font-family: Oswald;
-  color: #fff;
-  position: fixed;
-  bottom: 153px;
-  left: 0;
-  right: 0;
-}
-.focused-driver-info.hide-flags .flag-container {
-  display: none;
-}
-.focused-driver-info .inner {
-  filter: drop-shadow(2px 2px 2px #000000);
-  font-size: 17px;
-  height: 3.5em;
-  display: inline-block;
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-}
-.focused-driver-info .extra-info {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .bottom .extra-info {
-  height: 1em;
-  position: relative;
-  top: 0.5em;
-  z-index: -1;
-  margin-top: 0em;
-  font-family: Oswald;
-}
-.focused-driver-info .bottom .extra-info ul {
-  margin: 0;
-  padding: 0.25em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .bottom .extra-info ul li {
-  float: left;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 0.5em;
-  margin-right: 0.5em;
-  border: 0.1em;
-  color: white;
-  position: relative;
-  min-width: 8em;
-  -webkit-transition: top 0.5s;
-  font-size: 15.3px;
-}
-.focused-driver-info .bottom .extra-info ul li.active {
-  top: 0;
-}
-.focused-driver-info .bottom .extra-info ul li.finished {
-  color: #ffffff;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  color: white;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.global-best {
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-  color: white;
-}
-.focused-driver-info .positionContainer,
-.focused-driver-info .flag-container,
-.focused-driver-info .driverInfoDetails,
-.focused-driver-info .tyre,
-.focused-driver-info .manufacturer,
-.focused-driver-info .vehicle {
-  vertical-align: top;
-  display: inline-block;
-  height: 4em;
-  line-height: 3.25em;
-}
-.focused-driver-info .ptpRemaining,
-.focused-driver-info .best-time,
-.focused-driver-info .positionInClass {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .top {
-  position: relative;
-  left: -5.2em;
-  height: 1.75em;
-  bottom: -0.25em;
-  z-index: -2;
-}
-.focused-driver-info .top .ptpRemaining {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: rgba(66, 165, 245, 0.7);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 4em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .best-time {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 6em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .positionInClass {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: #212121;
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 3em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-}
-.focused-driver-info .main .positionContainer {
-  background: white;
-  color: #212121;
-  width: 5em;
-  position: relative;
-  left: 0.4em;
-  padding-left: 0.1em;
-  text-align: center;
-  padding-right: 0.75em;
-  line-height: 3.7em;
-  transform: skew(-10deg);
-  border-bottom: 0.1em solid #c4122f;
-}
-.focused-driver-info .main .positionContainer .position {
-  font-size: 59.5px;
-  font-family: Oswald;
-}
-.focused-driver-info .main .driverInfoDetails {
-  background: white;
-  text-transform: uppercase;
-  padding: 0px 1em;
-  min-width: 19em;
-  border-bottom: 0.1em solid #c4122f;
-}
-.focused-driver-info .main .driverInfoDetails .name {
-  line-height: 2em;
-  color: #c4122f;
-  font-size: 22.1px;
-}
-.focused-driver-info .main .driverInfoDetails .teamEventName {
-  margin-top: 0.5em;
-  line-height: 2em;
-  color: #c4122f;
-  font-size: 22.1px;
-}
-.focused-driver-info .main .driverInfoDetails .team {
-  font-size: 16.15px;
-  line-height: 0.7em;
-  position: relative;
-  color: #212121;
-  text-transform: uppercase;
-}
-.focused-driver-info .main .vehicle {
-  width: 1.75em;
-  position: relative;
-  left: -11.5em;
-}
-.focused-driver-info .main .vehicle img {
-  position: absolute;
-  top: -4em;
-  left: 1.5em;
-  height: 5.5em;
-}
-.focused-driver-info .main .tyre {
-  background: #212121;
-  width: 4em;
-  position: relative;
-  border-bottom: 0.1em solid #c4122f;
-  left: -0.3em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .main .tyre img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .manufacturer {
-  background: white;
-  width: 4em;
-  position: relative;
-  left: -0.4em;
-  border-bottom: 0.1em solid #c4122f;
-  transform: skew(-10deg);
-}
-.focused-driver-info .main .manufacturer img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .flag-container {
-  width: 3em;
-  position: relative;
-  background: #263238;
-  border-bottom: 0.1em solid #c4122f;
-  transform: skew(-10deg);
-  margin: 1;
-}
-.focused-driver-info .main .flag-container .flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  display: block;
-  left: -0.4em;
-  width: 4.5em;
-  height: 4em;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
-}
-.focused-driver-info.hide-flags .flag-container {
-  display: none;
-}
-.focused-driver-info .inner {
-  filter: drop-shadow(2px 2px 2px #000000);
-  font-size: 17px;
-  height: 3.5em;
-  display: inline-block;
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-}
-.focused-driver-info .extra-info {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .bottom .extra-info {
-  height: 1em;
-  position: relative;
-  top: 0.5em;
-  z-index: -1;
-  margin-top: 0em;
-  font-family: Oswald;
-}
-.focused-driver-info .bottom .extra-info ul {
-  margin: 0;
-  padding: 0.25em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .bottom .extra-info ul li {
-  float: left;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 0.5em;
-  margin-right: 0.5em;
-  border: 0.1em;
-  color: white;
-  position: relative;
-  min-width: 8em;
-  -webkit-transition: top 0.5s;
-  font-size: 15.3px;
-}
-.focused-driver-info .bottom .extra-info ul li.active {
-  top: 0;
-}
-.focused-driver-info .bottom .extra-info ul li.finished {
-  color: #ffffff;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  color: white;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.global-best {
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-  color: white;
-}
-.focused-driver-info .positionContainer,
-.focused-driver-info .flag-container,
-.focused-driver-info .driverInfoDetails,
-.focused-driver-info .tyre,
-.focused-driver-info .manufacturer,
-.focused-driver-info .vehicle {
-  vertical-align: top;
-  display: inline-block;
-  height: 4em;
-  line-height: 3.25em;
-}
-.focused-driver-info .ptpRemaining,
-.focused-driver-info .best-time,
-.focused-driver-info .positionInClass {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .top {
-  position: relative;
-  left: -5.2em;
-  height: 1.75em;
-  bottom: -0.25em;
-  z-index: -2;
-}
-.focused-driver-info .top .ptpRemaining {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: rgba(66, 165, 245, 0.7);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 4em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .best-time {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 6em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .positionInClass {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: #212121;
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 3em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-}
-.focused-driver-info .main .positionContainer {
-  background: white;
-  color: #212121;
-  width: 5em;
-  position: relative;
-  left: 0.4em;
-  padding-left: 0.1em;
-  text-align: center;
-  padding-right: 0.75em;
-  line-height: 3.7em;
-  transform: skew(-10deg);
-  border-bottom: 0.1em solid #c4122f;
-}
-.focused-driver-info .main .positionContainer .position {
-  font-size: 59.5px;
-  font-family: Oswald;
-}
-.focused-driver-info .main .driverInfoDetails {
-  background: white;
-  text-transform: uppercase;
-  padding: 0px 1em;
-  min-width: 19em;
-  border-bottom: 0.1em solid #c4122f;
-}
-.focused-driver-info .main .driverInfoDetails .name {
-  line-height: 2em;
-  color: #c4122f;
-  font-size: 22.1px;
-}
-.focused-driver-info .main .driverInfoDetails .teamEventName {
-  margin-top: 0.5em;
-  line-height: 2em;
-  color: #c4122f;
-  font-size: 22.1px;
-}
-.focused-driver-info .main .driverInfoDetails .team {
-  font-size: 16.15px;
-  line-height: 0.7em;
-  position: relative;
-  color: #212121;
-  text-transform: uppercase;
-}
-.focused-driver-info .main .vehicle {
-  width: 1.75em;
-  position: relative;
-  left: -11.5em;
-}
-.focused-driver-info .main .vehicle img {
-  position: absolute;
-  top: -4em;
-  left: 1.5em;
-  height: 5.5em;
-}
-.focused-driver-info .main .tyre {
-  background: #212121;
-  width: 4em;
-  position: relative;
-  border-bottom: 0.1em solid #c4122f;
-  left: -0.3em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .main .tyre img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .manufacturer {
-  background: white;
-  width: 4em;
-  position: relative;
-  left: -0.4em;
-  border-bottom: 0.1em solid #c4122f;
-  transform: skew(-10deg);
-}
-.focused-driver-info .main .manufacturer img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .flag-container {
-  width: 3em;
-  position: relative;
-  background: #263238;
-  border-bottom: 0.1em solid #c4122f;
-  transform: skew(-10deg);
-  margin: 1;
-}
-.focused-driver-info .main .flag-container .flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  display: block;
-  left: -0.4em;
-  width: 4.5em;
-  height: 4em;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
-}
-.animated.delay-10s {
-  -webkit-animation-delay: 10s;
-  animation-delay: 10s;
-}
-/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-.assists .drs {
-  position: relative;
-  height: 5em;
-}
-.assists .drs .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .drs .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .drs.active .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 17px;
-  transform: skew(-10deg);
-}
-.assists .drs.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 17px;
-  transform: skew(-10deg);
-}
-.assists .ptp {
-  position: relative;
-  height: 5em;
-}
-.assists .ptp .icon {
-  background: rgba(66, 165, 245, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .ptp .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .ptp.active .icon {
-  background: rgba(66, 165, 245, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 17px;
-  transform: skew(-10deg);
-}
-.assists .ptp.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 17px;
-  transform: skew(-10deg);
-}
-.focused-driver-info {
-  text-align: center;
-  font-family: Oswald;
-  color: #fff;
-  position: fixed;
-  bottom: 153px;
-  left: 0;
-  right: 0;
-}
-.focused-driver-info.hide-flags .flag-container {
-  display: none;
-}
-.focused-driver-info .inner {
-  filter: drop-shadow(2px 2px 2px #000000);
-  font-size: 17px;
-  height: 3.5em;
-  display: inline-block;
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-}
-.focused-driver-info .extra-info {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .bottom .extra-info {
-  height: 1em;
-  position: relative;
-  top: 0.5em;
-  z-index: -1;
-  margin-top: 0em;
-  font-family: Oswald;
-}
-.focused-driver-info .bottom .extra-info ul {
-  margin: 0;
-  padding: 0.25em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .bottom .extra-info ul li {
-  float: left;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 0.5em;
-  margin-right: 0.5em;
-  border: 0.1em;
-  color: white;
-  position: relative;
-  min-width: 8em;
-  -webkit-transition: top 0.5s;
-  font-size: 15.3px;
-}
-.focused-driver-info .bottom .extra-info ul li.active {
-  top: 0;
-}
-.focused-driver-info .bottom .extra-info ul li.finished {
-  color: #ffffff;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  color: white;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.global-best {
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-  color: white;
-}
-.focused-driver-info .positionContainer,
-.focused-driver-info .flag-container,
-.focused-driver-info .driverInfoDetails,
-.focused-driver-info .tyre,
-.focused-driver-info .manufacturer,
-.focused-driver-info .vehicle {
-  vertical-align: top;
-  display: inline-block;
-  height: 4em;
-  line-height: 3.25em;
-}
-.focused-driver-info .ptpRemaining,
-.focused-driver-info .best-time,
-.focused-driver-info .positionInClass {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .top {
-  position: relative;
-  left: -5.2em;
-  height: 1.75em;
-  bottom: -0.25em;
-  z-index: -2;
-}
-.focused-driver-info .top .ptpRemaining {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: rgba(66, 165, 245, 0.7);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 4em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .best-time {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 6em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .positionInClass {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: #212121;
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 3em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-}
-.focused-driver-info .main .positionContainer {
-  background: white;
-  color: #212121;
-  width: 5em;
-  position: relative;
-  left: 0.4em;
-  padding-left: 0.1em;
-  text-align: center;
-  padding-right: 0.75em;
-  line-height: 3.7em;
-  transform: skew(-10deg);
-  border-bottom: 0.1em solid #c4122f;
-}
-.focused-driver-info .main .positionContainer .position {
-  font-size: 59.5px;
-  font-family: Oswald;
-}
-.focused-driver-info .main .driverInfoDetails {
-  background: white;
-  text-transform: uppercase;
-  padding: 0px 1em;
-  min-width: 19em;
-  border-bottom: 0.1em solid #c4122f;
-}
-.focused-driver-info .main .driverInfoDetails .name {
-  line-height: 2em;
-  color: #c4122f;
-  font-size: 22.1px;
-}
-.focused-driver-info .main .driverInfoDetails .teamEventName {
-  margin-top: 0.5em;
-  line-height: 2em;
-  color: #c4122f;
-  font-size: 22.1px;
-}
-.focused-driver-info .main .driverInfoDetails .team {
-  font-size: 16.15px;
-  line-height: 0.7em;
-  position: relative;
-  color: #212121;
-  text-transform: uppercase;
-}
-.focused-driver-info .main .vehicle {
-  width: 1.75em;
-  position: relative;
-  left: -11.5em;
-}
-.focused-driver-info .main .vehicle img {
-  position: absolute;
-  top: -4em;
-  left: 1.5em;
-  height: 5.5em;
-}
-.focused-driver-info .main .tyre {
-  background: #212121;
-  width: 4em;
-  position: relative;
-  border-bottom: 0.1em solid #c4122f;
-  left: -0.3em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .main .tyre img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .manufacturer {
-  background: white;
-  width: 4em;
-  position: relative;
-  left: -0.4em;
-  border-bottom: 0.1em solid #c4122f;
-  transform: skew(-10deg);
-}
-.focused-driver-info .main .manufacturer img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .flag-container {
-  width: 3em;
-  position: relative;
-  background: #263238;
-  border-bottom: 0.1em solid #c4122f;
-  transform: skew(-10deg);
-  margin: 1;
-}
-.focused-driver-info .main .flag-container .flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  display: block;
-  left: -0.4em;
-  width: 4.5em;
-  height: 4em;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
-}
-.focused-driver-info.hide-flags .flag-container {
-  display: none;
-}
-.focused-driver-info .inner {
-  filter: drop-shadow(2px 2px 2px #000000);
-  font-size: 17px;
-  height: 3.5em;
-  display: inline-block;
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-}
-.focused-driver-info .extra-info {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .bottom .extra-info {
-  height: 1em;
-  position: relative;
-  top: 0.5em;
-  z-index: -1;
-  margin-top: 0em;
-  font-family: Oswald;
-}
-.focused-driver-info .bottom .extra-info ul {
-  margin: 0;
-  padding: 0.25em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .bottom .extra-info ul li {
-  float: left;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 0.5em;
-  margin-right: 0.5em;
-  border: 0.1em;
-  color: white;
-  position: relative;
-  min-width: 8em;
-  -webkit-transition: top 0.5s;
-  font-size: 15.3px;
-}
-.focused-driver-info .bottom .extra-info ul li.active {
-  top: 0;
-}
-.focused-driver-info .bottom .extra-info ul li.finished {
-  color: #ffffff;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  color: white;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.global-best {
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-  color: white;
-}
-.focused-driver-info .positionContainer,
-.focused-driver-info .flag-container,
-.focused-driver-info .driverInfoDetails,
-.focused-driver-info .tyre,
-.focused-driver-info .manufacturer,
-.focused-driver-info .vehicle {
-  vertical-align: top;
-  display: inline-block;
-  height: 4em;
-  line-height: 3.25em;
-}
-.focused-driver-info .ptpRemaining,
-.focused-driver-info .best-time,
-.focused-driver-info .positionInClass {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .top {
-  position: relative;
-  left: -5.2em;
-  height: 1.75em;
-  bottom: -0.25em;
-  z-index: -2;
-}
-.focused-driver-info .top .ptpRemaining {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: rgba(66, 165, 245, 0.7);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 4em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .best-time {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.5) 90%);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 6em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .positionInClass {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: #212121;
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 3em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-}
-.focused-driver-info .main .positionContainer {
-  background: white;
-  color: #212121;
-  width: 5em;
-  position: relative;
-  left: 0.4em;
-  padding-left: 0.1em;
-  text-align: center;
-  padding-right: 0.75em;
-  line-height: 3.7em;
-  transform: skew(-10deg);
-  border-bottom: 0.1em solid #c4122f;
-}
-.focused-driver-info .main .positionContainer .position {
-  font-size: 59.5px;
-  font-family: Oswald;
-}
-.focused-driver-info .main .driverInfoDetails {
-  background: white;
-  text-transform: uppercase;
-  padding: 0px 1em;
-  min-width: 19em;
-  border-bottom: 0.1em solid #c4122f;
-}
-.focused-driver-info .main .driverInfoDetails .name {
-  line-height: 2em;
-  color: #c4122f;
-  font-size: 22.1px;
-}
-.focused-driver-info .main .driverInfoDetails .teamEventName {
-  margin-top: 0.5em;
-  line-height: 2em;
-  color: #c4122f;
-  font-size: 22.1px;
-}
-.focused-driver-info .main .driverInfoDetails .team {
-  font-size: 16.15px;
-  line-height: 0.7em;
-  position: relative;
-  color: #212121;
-  text-transform: uppercase;
-}
-.focused-driver-info .main .vehicle {
-  width: 1.75em;
-  position: relative;
-  left: -11.5em;
-}
-.focused-driver-info .main .vehicle img {
-  position: absolute;
-  top: -4em;
-  left: 1.5em;
-  height: 5.5em;
-}
-.focused-driver-info .main .tyre {
-  background: #212121;
-  width: 4em;
-  position: relative;
-  border-bottom: 0.1em solid #c4122f;
-  left: -0.3em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .main .tyre img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .manufacturer {
-  background: white;
-  width: 4em;
-  position: relative;
-  left: -0.4em;
-  border-bottom: 0.1em solid #c4122f;
-  transform: skew(-10deg);
-}
-.focused-driver-info .main .manufacturer img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .flag-container {
-  width: 3em;
-  position: relative;
-  background: #263238;
-  border-bottom: 0.1em solid #c4122f;
-  transform: skew(-10deg);
-  margin: 1;
-}
-.focused-driver-info .main .flag-container .flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  display: block;
-  left: -0.4em;
-  width: 4.5em;
-  height: 4em;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
-}
-.logo-overlay {
-  font-size: 17px;
-  position: absolute;
-  top: 2em;
-  right: 2em;
-  z-index: 5;
-  filter: drop-shadow(2px 2px 2px #000000);
-  -webkit-animation: "ani_25" 0.5s ease, "ani_26" 0.5s ease;
-}
-@-webkit-keyframes "ani_25" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_26" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.logo-overlay img {
-  width: 12em;
-}
-.logo-overlay {
-  font-size: 17px;
-  position: absolute;
-  top: 2em;
-  right: 2em;
-  z-index: 5;
-  filter: drop-shadow(2px 2px 2px #000000);
-  -webkit-animation: "ani_27" 0.5s ease, "ani_28" 0.5s ease;
-}
-@-webkit-keyframes "ani_27" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_28" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.logo-overlay img {
-  width: 12em;
-}
-@font-face {
-  font-family: 'Hel';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Hel'), local('Hel'), url(/fonts/hel.woff) format('woff');
-}
-/* ---------------------------------------------------------------------------------------- */
-html,
-body {
-  background: transparent;
-  font: 14px/1 Helvetica, verdana, arial, sans-serif;
-  color: #000;
-}
-body {
-  padding: 10px;
-}
-.multiclass-standings {
-  filter: drop-shadow(2px 2px 2px #000000);
-  position: fixed;
-  top: 1em;
-  color: #fff;
-  left: 1em;
-  -webkit-animation: "ani_29" 0.1s ease, "ani_30" 0.1s ease;
-}
-.multiclass-standings.hide-flags .driver .flag-container {
-  display: none;
-}
-@-webkit-keyframes "ani_29" {
-  0% {
-    -webkit-transform: translate(-10em, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@-webkit-keyframes "ani_30" {
-  0% {
-    -webkit-transform: translate(-10em, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver {
-  font-size: 17px;
-  -webkit-animation: "ani_31" 0.2s ease, "ani_32" 0.2s ease;
-  position: absolute;
-  top: 0;
-  height: 1.7em;
-  z-index: 1;
-  -webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
-  white-space: nowrap;
-}
-@-webkit-keyframes "ani_31" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_32" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .multiclass-standings .driver .inner {
   height: 1.6em;
   position: relative;
@@ -5219,9 +2068,9 @@ body {
 .multiclass-standings .driver .positionContainer {
   margin: 0;
   font-size: 17px;
-  background: white;
+  background: #dc2525;
   display: inline-block;
-  color: #212121;
+  color: white;
   font-size: 1em;
   text-align: center;
   width: 2em;
@@ -5260,7 +2109,7 @@ body {
   font-family: Oswald;
   display: inline-block;
   color: white;
-  background: #c4122f;
+  background: rgba(0, 0, 0, 0.8);
   width: 4em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -5275,8 +2124,8 @@ body {
 }
 .multiclass-standings .driver .meta-info {
   font-size: 17px;
-  background: white;
-  color: #212121;
+  background: rgba(120, 144, 156, 0.7);
+  color: white;
   font-family: Oswald;
   display: inline-block;
   height: 1.2em;
@@ -5285,17 +2134,9 @@ body {
   padding: 0 0.5em 0 0.5em;
   min-width: 6em;
   z-index: -1;
-  -webkit-animation: "ani_33" 0.1s ease, "ani_34" 0.1s ease;
+  -webkit-animation: "ani_10" 0.1s ease;
 }
-@-webkit-keyframes "ani_33" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@-webkit-keyframes "ani_34" {
+@-webkit-keyframes "ani_10" {
   0% {
     -webkit-transform: translate(-100%, 0);
   }
@@ -5308,21 +2149,13 @@ body {
   background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
 }
 .multiclass-standings .driver .pit-info {
-  -webkit-animation: "ani_35" 0.5s ease, "ani_36" 0.5s ease;
+  -webkit-animation: "ani_11" 0.5s ease;
   margin: 0;
   display: inline-block;
   width: 1.5em;
   text-align: center;
 }
-@-webkit-keyframes "ani_35" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@-webkit-keyframes "ani_36" {
+@-webkit-keyframes "ani_11" {
   0% {
     -webkit-transform: translate(-100%, 0);
   }
@@ -5336,7 +2169,7 @@ body {
 }
 .multiclass-standings .driver .pit-info .unpitted {
   font-size: 20.4px;
-  background: #c4122f;
+  background: #e21d38;
 }
 .race-results-bg {
   font-size: 17px;
@@ -5368,7 +2201,7 @@ body {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: #c4122f;
+  color: white;
   white-space: pre;
   font-family: Oswald;
   width: 60%;
@@ -5380,15 +2213,15 @@ body {
   padding: 0 0.75em 0 0;
   line-height: 4em;
   font-size: 25.5px;
-  background: white;
-  border-top: 0.25em solid #c4122f;
+  background: linear-gradient(200deg, rgba(38, 50, 56, 0.5) 10%, #ba1d0d 90%);
+  border-top: 0.25em solid #ba1d0d;
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .race-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/audi-tt-cup.png);
+  content: url(results/logos/wtcr.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -5397,8 +2230,8 @@ body {
 .race-results .race-results-entry {
   height: 2em;
   line-height: 2em;
-  color: #212121;
-  background: white;
+  color: white;
+  background: rgba(38, 50, 56, 0.5);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -5418,7 +2251,7 @@ body {
   float: left;
 }
 .race-results .race-results-entry.title .classPosition {
-  color: #212121;
+  color: white;
   -ms-transform: skew(0deg, 0deg);
   -webkit-transform: skew(0deg, 0deg);
   transform: skew(0deg, 0deg);
@@ -5512,7 +2345,7 @@ body {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(255, 255, 255, 0.8) 90%);
+  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, #ba1d0d 90%);
 }
 .winnerColumn .winnerTitle {
   font-size: 25.5px;
@@ -5554,7 +2387,7 @@ body {
 }
 .winnerColumn .driverFlagContainer {
   position: fixed;
-  content: url(results/logos/audi-tt-cup.png);
+  content: url(results/logos/wtcr.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -5589,7 +2422,7 @@ body {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, rgba(255, 255, 255, 0.8) 90%);
+  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, #71229a 90%);
 }
 .fastestDriverColumn .fastestTitle {
   font-size: 25.5px;
@@ -5631,325 +2464,7 @@ body {
 }
 .fastestDriverColumn .fastestDriverFlagContainer {
   position: fixed;
-  content: url(results/logos/audi-tt-cup.png);
-  width: 5em;
-  top: 35%;
-  -webkit-transform: translate(0, -35%);
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-  left: 9em;
-  z-index: 1;
-}
-.fastestDriverColumn .fastestDriverName {
-  font-size: 15.3px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 2em;
-  top: 7%;
-  line-height: 1.5em;
-  color: white;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0.25em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.race-results-bg {
-  font-size: 17px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-.race-results .entries-outer {
-  max-height: 40em;
-  overflow: hidden;
-}
-.race-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
-}
-.race-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.race-results {
-  filter: drop-shadow(9px 9px 9px #000000);
-  position: fixed;
-  top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0px;
-  color: #c4122f;
-  white-space: pre;
-  font-family: Oswald;
-  width: 60%;
-}
-.race-results .title .text {
-  position: inherit;
-  height: 3em;
-  text-align: right;
-  padding: 0 0.75em 0 0;
-  line-height: 4em;
-  font-size: 25.5px;
-  background: white;
-  border-top: 0.25em solid #c4122f;
-  text-transform: uppercase;
-  padding-bottom: 0.5em;
-  z-index: 0;
-}
-.race-results .title .text .logo {
-  position: absolute;
-  content: url(results/logos/audi-tt-cup.png);
-  height: 2.2em;
-  top: 0.5em;
-  left: 1em;
-  z-index: 1;
-}
-.race-results .race-results-entry {
-  height: 2em;
-  line-height: 2em;
-  color: #212121;
-  background: white;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry.striped {
-  opacity: 0.85;
-}
-.race-results .race-results-entry.title {
-  padding: 0 0 0 0em;
-  font-size: 18.7px;
-}
-.race-results .race-results-entry.fastest .fastest-time {
-  color: #a3229a;
-}
-.race-results .race-results-entry > div {
-  height: 37px;
-  padding: 0 0 0 5px;
-  float: left;
-}
-.race-results .race-results-entry.title .classPosition {
-  color: #212121;
-  -ms-transform: skew(0deg, 0deg);
-  -webkit-transform: skew(0deg, 0deg);
-  transform: skew(0deg, 0deg);
-}
-.race-results .race-results-entry .position {
-  text-align: center;
-  width: 7%;
-  position: relative;
-}
-.race-results .race-results-entry .classPosition {
-  width: 10%;
-  position: relative;
-  text-align: center;
-  color: white;
-  right: 0.5em;
-  -ms-transform: skew(-15deg, 0deg);
-  -webkit-transform: skew(-15deg, 0deg);
-  transform: skew(-15deg, 0deg);
-}
-.race-results .race-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
-}
-.race-results .race-results-entry .manufacturer .manufacturerFlag {
-  position: absolute;
-  top: 0.1em;
-  height: 100%;
-}
-.race-results .race-results-entry .manufacturer .manufacturerFlag img {
-  height: 100%;
-}
-.race-results .race-results-entry .manufacturer .standingsFlag {
-  height: 80%;
-  position: absolute;
-  top: 0.2em;
-}
-.race-results .race-results-entry .manufacturer .standingsFlag img {
-  transform: skew(-15deg, 0deg);
-  height: 100%;
-}
-.race-results .race-results-entry .penaltyTime {
-  width: 10%;
-  position: relative;
-  text-align: center;
-}
-.race-results .race-results-entry .longName {
-  position: relative;
-  width: 27%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry .shortName {
-  position: relative;
-  width: 17%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry .raceResultTeam {
-  position: relative;
-  width: 20%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry .livery {
-  width: 10%;
-  position: relative;
-}
-.race-results .race-results-entry .livery img {
-  position: relative;
-  height: 3em;
-  right: 1.5em;
-  top: -0.5em;
-}
-.race-results .race-results-entry .fastest-time,
-.race-results .race-results-entry .lap-time {
-  width: 10%;
-  text-align: center;
-  position: relative;
-}
-.winnerColumn {
-  position: fixed;
-  font-size: 17px;
-  width: 14.5em;
-  background: black;
-  left: 2em;
-  height: 13em;
-  top: 40%;
-  -webkit-transform: translate(0, -40%);
-  z-index: 2;
-  border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(255, 255, 255, 0.8) 90%);
-}
-.winnerColumn .winnerTitle {
-  font-size: 25.5px;
-  color: white;
-  height: 2em;
-  text-align: center;
-  line-height: 2em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.winnerColumn .winnerImageContainer {
-  left: 7em;
-  width: 7em;
-  z-index: 2;
-}
-.winnerColumn .winnerImageContainer img {
-  width: 7em;
-  filter: drop-shadow(13px 13px 13px #000000);
-}
-.winnerColumn .winner {
-  font-size: 20.4px;
-  text-align: center;
-  line-height: 1.5em;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  width: 100%;
-  height: 1.5em;
-  color: white;
-}
-.winnerColumn .livery {
-  position: fixed;
-  left: 2em;
-  top: 90%;
-  -webkit-transform: translate(0, -90%);
-  z-index: 1;
-}
-.winnerColumn .livery img {
-  width: 12.5em;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
-}
-.winnerColumn .driverFlagContainer {
-  position: fixed;
-  content: url(results/logos/audi-tt-cup.png);
-  width: 5em;
-  top: 35%;
-  -webkit-transform: translate(0, -35%);
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-  left: 9em;
-  z-index: 1;
-}
-.winnerColumn .driverName {
-  font-size: 15.3px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 2em;
-  top: 7%;
-  line-height: 1.5em;
-  color: white;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0.25em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn {
-  position: fixed;
-  font-size: 17px;
-  width: 14.5em;
-  background: black;
-  right: 2em;
-  top: 40%;
-  -webkit-transform: translate(0, -40%);
-  z-index: 2;
-  border-radius: 0.5em;
-  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, rgba(255, 255, 255, 0.8) 90%);
-}
-.fastestDriverColumn .fastestTitle {
-  font-size: 25.5px;
-  color: white;
-  height: 2em;
-  text-align: center;
-  line-height: 2em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn .fastestDriverImageContainer {
-  left: 7em;
-  width: 7em;
-  z-index: 2;
-}
-.fastestDriverColumn .fastestDriverImageContainer img {
-  width: 7em;
-  filter: drop-shadow(13px 13px 13px #000000);
-}
-.fastestDriverColumn .fastestDriverLogo {
-  font-size: 20.4px;
-  text-align: center;
-  line-height: 1.5em;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  width: 100%;
-  height: 1.5em;
-  color: white;
-}
-.fastestDriverColumn .fastestDriverLivery {
-  position: fixed;
-  left: 2em;
-  top: 90%;
-  -webkit-transform: translate(0, -90%);
-  z-index: 1;
-}
-.fastestDriverColumn .fastestDriverLivery img {
-  width: 12.5em;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn .fastestDriverFlagContainer {
-  position: fixed;
-  content: url(results/logos/audi-tt-cup.png);
+  content: url(results/logos/wtcr.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -6003,7 +2518,7 @@ body {
   -webkit-transform: translate(0, -50%);
   z-index: -1;
   padding: 0px;
-  color: #c4122f;
+  color: white;
   white-space: pre;
   font-family: Oswald;
   width: 60%;
@@ -6016,15 +2531,15 @@ body {
   padding: 0 0.75em 0 0;
   line-height: 4em;
   font-size: 25.5px;
-  background: white;
-  border-top: 0.25em solid #c4122f;
+  background: linear-gradient(200deg, rgba(38, 50, 56, 0.5) 10%, #ba1d0d 90%);
+  border-top: 0.25em solid #ba1d0d;
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .qualify-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/audi-tt-cup.png);
+  content: url(results/logos/wtcr.png);
   height: 2.2em;
   top: 0.5em;
   left: 1em;
@@ -6033,8 +2548,8 @@ body {
 .qualify-results .qualify-results-entry {
   height: 2em;
   line-height: 2em;
-  color: #212121;
-  background: white;
+  color: white;
+  background: rgba(38, 50, 56, 0.5);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -6046,7 +2561,7 @@ body {
   font-size: 18.7px;
 }
 .qualify-results .qualify-results-entry.title .classPosition {
-  color: #212121;
+  color: white;
   -ms-transform: skew(0deg, 0deg);
   -webkit-transform: skew(0deg, 0deg);
   transform: skew(0deg, 0deg);
@@ -6132,199 +2647,31 @@ body {
 .qualify-results .qualify-results-entry .lap-time.fastest {
   color: #f500f5;
 }
-.overallQuai {
-  font-size: 17px;
+.error-screen {
+  z-index: 2147483627;
   position: fixed;
+  background: #af0000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
 }
-.qualify-results .entries-outer {
-  max-height: 40em;
-  overflow: hidden;
-}
-.qualify-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
-}
-.qualify-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.qualify-results {
+.error-screen pre {
   position: fixed;
   top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0px;
-  color: #c4122f;
+  left: 50%;
+  color: #fff;
+  font-size: 17px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+  font-family: Inconsolata;
+}
+pre.preview {
+  background: #000;
   white-space: pre;
-  font-family: Oswald;
-  width: 60%;
-  filter: drop-shadow(9px 9px 9px #000000);
-}
-.qualify-results .title .text {
-  position: inherit;
-  height: 3em;
-  text-align: right;
-  padding: 0 0.75em 0 0;
-  line-height: 4em;
-  font-size: 25.5px;
-  background: white;
-  border-top: 0.25em solid #c4122f;
-  text-transform: uppercase;
-  padding-bottom: 0.5em;
-  z-index: 0;
-}
-.qualify-results .title .text .logo {
-  position: absolute;
-  content: url(results/logos/audi-tt-cup.png);
-  height: 2.2em;
-  top: 0.5em;
-  left: 1em;
-  z-index: 1;
-}
-.qualify-results .qualify-results-entry {
-  height: 2em;
-  line-height: 2em;
-  color: #212121;
-  background: white;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry.striped {
-  opacity: 0.85;
-}
-.qualify-results .qualify-results-entry.title {
-  padding: 0 0 0 0em;
-  font-size: 18.7px;
-}
-.qualify-results .qualify-results-entry.title .classPosition {
-  color: #212121;
-  -ms-transform: skew(0deg, 0deg);
-  -webkit-transform: skew(0deg, 0deg);
-  transform: skew(0deg, 0deg);
-}
-.qualify-results .qualify-results-entry > div {
-  height: 2em;
-  padding: 0 0 0 0.25em;
-  float: left;
-}
-.qualify-results .qualify-results-entry .position {
-  text-align: center;
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .classPosition {
-  width: 10%;
-  position: relative;
-  text-align: center;
-  color: white;
-  right: 0.5em;
-  -ms-transform: skew(-15deg, 0deg);
-  -webkit-transform: skew(-15deg, 0deg);
-  transform: skew(-15deg, 0deg);
-}
-.qualify-results .qualify-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .manufacturer .manufacturerFlag {
-  position: absolute;
-  top: 0.1em;
-  height: 100%;
-}
-.qualify-results .qualify-results-entry .manufacturer .manufacturerFlag img {
-  height: 100%;
-}
-.qualify-results .qualify-results-entry .manufacturer .standingsFlag {
-  height: 80%;
-  position: absolute;
-  top: 0.2em;
-}
-.qualify-results .qualify-results-entry .manufacturer .standingsFlag img {
-  transform: skew(-15deg, 0deg);
-  height: 100%;
-}
-.qualify-results .qualify-results-entry .longName {
-  position: relative;
-  width: 30%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .shortName {
-  position: relative;
-  width: 20%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .resultTeam {
-  position: relative;
-  width: 25%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .livery {
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .livery img {
-  position: relative;
-  height: 3em;
-  right: 1.5em;
-  top: -0.5em;
-}
-.qualify-results .qualify-results-entry .fastest-time,
-.qualify-results .qualify-results-entry .lap-time {
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .fastest-time.fastest,
-.qualify-results .qualify-results-entry .lap-time.fastest {
-  color: #f500f5;
-}
-.safetyCarDeployedContainer {
-  font-size: 17px;
-  position: fixed;
-  top: 4em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.safetyCarDeployedContainer .safetyCarDeployed {
-  font-family: Oswald;
-  background: rgba(255, 193, 7, 0.9);
-  text-transform: uppercase;
-  color: #212121;
-  height: 2em;
-  width: 7em;
-  line-height: 2em;
-  text-align: center;
-}
-.safetyCarDeployedContainer {
-  font-size: 17px;
-  position: fixed;
-  top: 4em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.safetyCarDeployedContainer .safetyCarDeployed {
-  font-family: Oswald;
-  background: rgba(255, 193, 7, 0.9);
-  text-transform: uppercase;
-  color: #212121;
-  height: 2em;
-  width: 7em;
-  line-height: 2em;
-  text-align: center;
+  text-align: left;
+  font-family: 'Inconsolata';
+  padding: 20px;
 }
 .safetyAlert {
   font-size: 18.7px;
@@ -6342,8 +2689,8 @@ body {
 }
 .safetyAlert .raceControl {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid white;
-  background: #c4122f;
+  border-top: 3px solid #dc2525;
+  background: rgba(0, 0, 0, 0.8);
   color: white;
   font-size: 18.7px;
   padding: 0.05em;
@@ -6351,41 +2698,8 @@ body {
   z-index: 0;
 }
 .safetyAlert .safetyCarIn {
-  background: white;
-  color: #323433;
-  -webkit-transform: skew(-10deg, 0deg);
-  font-size: 18.7px;
-  padding: 0.15em;
-  text-transform: capitalize;
-  z-index: -1;
-}
-.safetyAlert {
-  font-size: 18.7px;
-  font-family: Oswald;
-  position: fixed;
-  top: 10em;
-  right: 1.5em;
-  text-transform: uppercase;
-  min-height: 1em;
-  width: 11em;
-  line-height: 1.7em;
-  text-align: center;
-  display: inline-block;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.safetyAlert .raceControl {
-  -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid white;
-  background: #c4122f;
+  background: rgba(120, 144, 156, 0.7);
   color: white;
-  font-size: 18.7px;
-  padding: 0.05em;
-  top: 0.1em;
-  z-index: 0;
-}
-.safetyAlert .safetyCarIn {
-  background: white;
-  color: #323433;
   -webkit-transform: skew(-10deg, 0deg);
   font-size: 18.7px;
   padding: 0.15em;
@@ -6419,17 +2733,17 @@ body {
 }
 .session-info .inner .sessionName {
   min-width: 4em;
-  background: #c4122f;
+  background: rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
-  border-top: 0.2em solid white;
+  border-top: 0.2em solid #dc2525;
   color: white;
 }
 .session-info .inner .timer {
   min-width: 5em;
-  border-top: 0.2em solid white;
-  background: white;
+  border-top: 0.2em solid #dc2525;
+  background: rgba(120, 144, 156, 0.7);
   text-transform: uppercase;
-  color: #212121;
+  color: white;
   z-index: 2;
 }
 .session-info .inner .yellowFlag {
@@ -6448,10 +2762,10 @@ body {
 .session-info .inner .countdown {
   padding: 0em 0.3em;
   min-width: 4em;
-  border-top: 0.2em solid white;
-  background: white;
+  border-top: 0.2em solid #dc2525;
+  background: rgba(120, 144, 156, 0.7);
   text-transform: uppercase;
-  color: #212121;
+  color: white;
   line-height: 1.6em;
   transform: skew(-15deg, 0deg);
   z-index: -2;
@@ -6479,7 +2793,7 @@ body {
   font-size: 17px;
 }
 .session-info .inner .checkered img {
-  border-top: 0.2em solid white;
+  border-top: 0.2em solid #dc2525;
   height: 2em;
   width: 4em;
   z-index: 2;
@@ -6487,113 +2801,11 @@ body {
 .session-info .inner .serverName {
   margin: 0;
   min-width: 4em;
-  border-top: 0.2em solid white;
-  border-left: 0.1em solid white;
-  background: white;
+  border-top: 0.2em solid #dc2525;
+  border-left: 0.1em solid #dc2525;
+  background: rgba(120, 144, 156, 0.7);
   text-transform: uppercase;
-  color: #212121;
-  z-index: 2;
-}
-.session-info .inner {
-  font-size: 18.7px;
-  font-family: Oswald;
-  position: fixed;
-  top: 0.5em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  text-align: center;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.session-info .inner .sessionInfoFlag,
-.session-info .inner .sessionName,
-.session-info .inner .timer,
-.session-info .inner .checkered,
-.session-info .inner .serverName,
-.session-info .inner .countdown,
-.session-info .inner .yellowFlag {
-  display: inline-block;
-  vertical-align: top;
-  height: 2em;
-  padding: 0em 1em;
-  transform: skew(-15deg, 0deg);
-  line-height: 1.8em;
-  margin: 0px;
-}
-.session-info .inner .sessionName {
-  min-width: 4em;
-  background: #c4122f;
-  text-transform: uppercase;
-  border-top: 0.2em solid white;
   color: white;
-}
-.session-info .inner .timer {
-  min-width: 5em;
-  border-top: 0.2em solid white;
-  background: white;
-  text-transform: uppercase;
-  color: #212121;
-  z-index: 2;
-}
-.session-info .inner .yellowFlag {
-  font-size: 17px;
-  position: fixed;
-  background-color: yellow;
-  top: 1.8em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  height: 2em;
-  width: 9em;
-  z-index: 2;
-}
-.session-info .inner .countdown {
-  padding: 0em 0.3em;
-  min-width: 4em;
-  border-top: 0.2em solid white;
-  background: white;
-  text-transform: uppercase;
-  color: #212121;
-  line-height: 1.6em;
-  transform: skew(-15deg, 0deg);
-  z-index: -2;
-}
-.session-info .inner .countdown .countdownIndicatorsRed {
-  z-index: -1;
-  font-size: 25.5px;
-  color: #e21d38;
-}
-.session-info .inner .sessionInfoFlag {
-  margin: 0;
-  padding: 0;
-  height: 2em;
-  width: 3em;
-}
-.session-info .inner .sessionInfoFlag img {
-  height: 2em;
-  width: 3em;
-  opacity: 1;
-}
-.session-info .inner .checkered {
-  margin: 0;
-  padding: 0;
-  width: 4em;
-  font-size: 17px;
-}
-.session-info .inner .checkered img {
-  border-top: 0.2em solid white;
-  height: 2em;
-  width: 4em;
-  z-index: 2;
-}
-.session-info .inner .serverName {
-  margin: 0;
-  min-width: 4em;
-  border-top: 0.2em solid white;
-  border-left: 0.1em solid white;
-  background: white;
-  text-transform: uppercase;
-  color: #212121;
   z-index: 2;
 }
 .track-map-bg {
@@ -6603,18 +2815,10 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  -webkit-animation: "ani_37" 0.3s ease, "ani_38" 0.3s ease;
+  -webkit-animation: "ani_12" 0.3s ease;
   z-index: 0;
 }
-@-webkit-keyframes "ani_37" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_38" {
+@-webkit-keyframes "ani_12" {
   0% {
     opacity: 0;
   }
@@ -6667,12 +2871,12 @@ body {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   color: white;
-  background: #c4122f;
+  background: rgba(0, 0, 0, 0.8);
 }
 .track-map .dot .driverName {
   position: relative;
   top: -3.5em;
-  background-color: rgba(38, 50, 56, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 6em;
 }
 .track-map .dot .manufacturer {
@@ -6717,136 +2921,7 @@ body {
 }
 .track-map .dot.leader {
   background: #ff9800;
-  color: #ff9800;
-  z-index: 1;
-}
-.track-map .dot.active {
-  background: #4caf50;
-  color: #4caf50;
-  z-index: 2;
-}
-.track-map-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  -webkit-animation: "ani_39" 0.3s ease, "ani_40" 0.3s ease;
-  z-index: 0;
-}
-@-webkit-keyframes "ani_39" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes "ani_40" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.track-map {
-  position: fixed;
-  font-size: 17px;
-  width: 25em;
-  height: 25em;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: scale(2) translate(-50%, -50%);
-  -webkit-transform-origin: top left;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s;
-}
-.track-map.loaded {
-  opacity: 1;
-}
-.track-map .dot {
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transition: -webkit-transform 0.3s linear;
-  width: 1em;
-  height: 1em;
-  margin: -0.5em 0 0 -0.5em;
-  font-weight: bold;
-  line-height: 2em;
-  text-align: center;
-  color: #fff;
-  border-radius: 100%;
-  z-index: 2;
-}
-.track-map .dot .dot .position .driverName,
-.track-map .dot .manufacturer .vehicle {
-  vertical-align: top;
-  display: inline-block;
-  height: 4em;
-  line-height: 4em;
-}
-.track-map .dot .position {
-  position: relative;
-  left: -2.5em;
-  width: 2.5em;
-  top: -1.5em;
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
-  color: white;
-  background: #c4122f;
-}
-.track-map .dot .driverName {
-  position: relative;
-  top: -3.5em;
-  background-color: rgba(38, 50, 56, 0.8);
-  width: 6em;
-}
-.track-map .dot .manufacturer {
-  position: relative;
-  background-color: white;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-  left: 5.8em;
-  width: 2.5em;
-  height: 2em;
-  top: -5.5em;
-}
-.track-map .dot .manufacturer img {
-  position: absolute;
-  background-color: white;
-  top: 0.25em;
-  left: 0.25em;
-  height: 1.6em;
-  width: 1.6em;
-}
-.track-map .dot.idle {
-  opacity: 0.3;
-}
-.track-map .dot.start {
-  z-index: 1;
-  background: #aaa;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-}
-.track-map .dot .name {
-  position: absolute;
-  -webkit-transform: translate(-50%, 0);
-  line-height: 1;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 0.25em;
-  color: #fff;
-  white-space: nowrap;
-  border-radius: 0.25em;
-  bottom: 100%;
-  margin: 0 0 0.25em 0;
-}
-.track-map .dot.leader {
-  background: #ff9800;
-  color: #ff9800;
+  color: #dc2525;
   z-index: 1;
 }
 .track-map .dot.active {

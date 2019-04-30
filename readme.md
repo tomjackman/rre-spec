@@ -1,12 +1,17 @@
 # RRE TV Overlay
 
+![alt text](public/img/vw.jpg "Logo Title Text 1")
+
 As used by:
 
 * [German ADAC GT Masters](https://www.adac-gt-masters.de/uk)
 * [AVIA Racing](https://www.avia-racing.de/nc/startseite.html)
 * [VirtualRacing.org](https://www.virtualracing.org/home/)
+* [Volkswagen I.D R Nurburgring Launch Event](https://www.gtplanet.net/volkswagen-partners-with-raceroom-for-id-r-nurburgring-competition/)
 * R3E Special Events
 * ... any many more championships.
+
+
 
 ### Changelog
 * [Version Changelogs](changelog.md)
