@@ -1,3 +1,7 @@
+### Version 1.7.6
+* [Feature] Updated r3e data file.
+* [Tooling] Added a check on resultsUpdate to check if the session is a race.
+
 ### Version 1.7.5
 * [Tooling] Added correct track name and description for Autodrome Most.
 * [Feature] Added Audi TT Cup theme.

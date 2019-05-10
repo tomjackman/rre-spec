@@ -168,7 +168,7 @@ UI.components.Spectator = React.createClass({
 				{Object.keys(UI.state.activeWidgets).map(function(type) {
 					return (!self.state.results && UI.state.activeWidgets[type].active) ? React.createElement(UI.widgets[type], {'key': type}) : null
 				})}
-				{self.state.results ?
+				{self.state.results && UI.state.sessionInfo.type.match(/^race/i) ?
 					<UI.widgets.RaceResults results={self.state.results}/>
 					:
 					null

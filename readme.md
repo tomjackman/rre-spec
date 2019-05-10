@@ -8,6 +8,7 @@ As used by:
 * [AVIA Racing](https://www.avia-racing.de/nc/startseite.html)
 * [VirtualRacing.org](https://www.virtualracing.org/home/)
 * [Volkswagen I.D R Nurburgring Launch Event](https://www.gtplanet.net/volkswagen-partners-with-raceroom-for-id-r-nurburgring-competition/)
+* [Tuning World Bodensee](https://www.raceroom.com/en/raceroom-esports-event-at-the-tuning-world-bodensee-2019/)
 * R3E Special Event Series
 * ... any many more events.
 
