@@ -130,10 +130,9 @@
 		color: @DriverInfoPositionText;
 		width: 5em;
     position: relative;
-    left: 0.4em;
 		padding-left: 0.1em;
 		text-align: center;
-		padding-right: 0.75em;
+		padding-right: 0.5em;
 		line-height: 3.7em;
     transform: skew(-10deg);
 		border-bottom: 0.1em solid @DriverInfoPositionBorder;
@@ -148,22 +147,26 @@
 		padding: 0px 1em;
 		min-width: 19em;
 		border-bottom: 0.1em solid @DriverInfoNameBorder;
+    transform: skew(-10deg);
 		.name {
 			line-height: 2em;
 			color: @DriverInfoNameText;
 			font-size: @fontSize * 1.3;
+      transform: skew(+10deg);
 		}
     .teamEventName {
       margin-top: 0.5em;
       line-height: 2em;
       color: @DriverInfoNameText;
       font-size: @fontSize * 1.3;
+      transform: skew(+10deg);
     }
 		.team {
 			font-size: @fontSize * 0.95;
 			line-height: 0.7em;
 			position: relative;
 			color: @DriverInfoTeamNameText;
+      transform: skew(+10deg);
 			text-transform: uppercase;
 		}
 	}
@@ -183,7 +186,7 @@
 		width: 4em;
 		position: relative;
 		border-bottom: 0.1em solid @DriverInfoTyreBorder;
-    left: -0.3em;
+    left: -0em;
     transform: skew(-10deg);
 		img {
 			position: absolute;
@@ -197,7 +200,7 @@
 		background: @DriverInfoManufacturerBackground;
 		width: 4em;
 		position: relative;
-    left: -0.4em;
+    left: 0em;
 		border-bottom: 0.1em solid @DriverInfoManufacturerBorder;
     transform: skew(-10deg);
 		img {
@@ -215,6 +218,7 @@
 		border-bottom: 0.1em solid @DriverInfoFlagBorder;
 		transform: skew(-10deg);
 		margin: 1;
+    z-index: 5;
 		.flag {
 			background: @backgroundDark;
 			position: absolute;
