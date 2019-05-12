@@ -1,9 +1,9 @@
 ### Version 1.7.6
 * [Feature] Updated r3e data file.
-* [Tooling] Added a check on resultsUpdate to check if the session is a race.
-* [Feature] Added RRVGT theme.
+* [Tooling] Added a check on resultsUpdate to check if the session is a race to prevent race result screen showing in quali.
 * [Feature] Added WTCR 2019 colored theme.
-* [Removed] KTM/Porsche themes.
+* [Removed] Removed KTM/Porsche themes.
+* [Feature] Added RRVGT theme.
 * [Feature] Added custom overlay logos for themes.
 
 ### Version 1.7.5
