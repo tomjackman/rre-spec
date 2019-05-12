@@ -4,7 +4,7 @@
 * [Feature] Added RRVGT theme.
 * [Feature] Added WTCR 2019 colored theme.
 * [Removed] KTM/Porsche themes.
-* [Feature] Added custom corner logos for themes.
+* [Feature] Added custom overlay logos for themes.
 
 ### Version 1.7.5
 * [Tooling] Added correct track name and description for Autodrome Most.
