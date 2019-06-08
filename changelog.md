@@ -1,3 +1,6 @@
+### Version 1.7.7
+* [Feature] Updated r3e data file to include FR90 content.
+
 ### Version 1.7.6
 * [Feature] Updated r3e data file.
 * [Bug Fix] Added a check on resultsUpdate to check if the session is a race to prevent race result screen showing in quali.
