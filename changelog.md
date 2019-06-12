@@ -1,3 +1,6 @@
+### Version 1.7.8
+* [Bug Fix] Fixed driver country flag check on broadcast controller table.
+
 ### Version 1.7.7
 * [Feature] Updated r3e data file to include FR90 content.
 
