@@ -750,22 +750,22 @@ var TabledDriver = React.createClass({
 		var highestDamage = Math.max(damage.engine, damage.transmission, damage.frontAero, damage.rearAero);
 
 		if (damage.engine > 70 || damage.transmission > 70 || damage.frontAero > 70 || damage.rearAero > 70) {
-			return <div className="damage" style={{background: '#F44336'}} title={damageTooltip}>{highestDamage + "%"}</div>
+			return <div className="damage" style={{color: '#F44336'}} title={damageTooltip}>{highestDamage + "%"}</div>
 		} else if (damage.engine > 50 || damage.transmission > 30 || damage.frontAero > 50 || damage.rearAero > 50) {
-			return <div className="damage" style={{background: '#FF5722'}} title={damageTooltip}>{highestDamage + "%"}</div>
+			return <div className="damage" style={{color: '#FF5722'}} title={damageTooltip}>{highestDamage + "%"}</div>
 		} else if (damage.engine > 25 || damage.transmission > 25 || damage.frontAero > 25 || damage.rearAero > 25) {
-			return <div className="damage" style={{background: '#FFC107'}} title={damageTooltip}>{highestDamage + "%"}</div>
+			return <div className="damage" style={{color: '#FFC107'}} title={damageTooltip}>{highestDamage + "%"}</div>
 		}	else {
-			return <div className="damage" style={{background: '#8BC34A'}} title={damageTooltip}>{highestDamage + "%"}</div>
+			return <div className="damage" style={{color: '#8BC34A'}} title={damageTooltip}>{highestDamage + "%"}</div>
 		}
 	},
 	renderMandatoryPit: function(mandatoryPit) {
 		if (mandatoryPit === 1) {
-			return <div className="mandatoryPit" style={{background: '#2E7D32'}} title="Mandatory Pit Taken">⭗</div>
+			return <div className="mandatoryPit" style={{color: '#2E7D32'}} title="Mandatory Pit Taken">⭗</div>
 		} else if (mandatoryPit === 0) {
-			return <div className="mandatoryPit" style={{background: 'rgba(226, 29, 56, 1)'}} title="Mandatory Pit Not Taken">⭗</div>
+			return <div className="mandatoryPit" style={{color: 'rgba(226, 29, 56, 1)'}} title="Mandatory Pit Not Taken">⭗</div>
 		}	else {
-			return <div className="mandatoryPit" style={{background: '#607D8B'}} title="No Mandatory Pit Required">N/A</div>
+			return <div className="mandatoryPit" style={{color: '#607D8B'}} title="No Mandatory Pit Required">N/A</div>
 		}
 	},
 	getTimeDiff: function(driver, fastestDriver) {
