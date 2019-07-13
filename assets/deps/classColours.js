@@ -270,6 +270,11 @@ var r3eClassColours = {
       colour: "rgba(35, 131, 169, 0.8)",
       Id: 7168
     },
+    7214: {
+      Name: "FR X-90 Cup",
+      colour: "rgba(20, 115, 3, 0.8)",
+      Id: 7214
+    },
     7278: {
       Name: "ADAC GT Masters 2018",
       colour: "rgba(0, 154, 223, 0.8)",
@@ -284,6 +289,16 @@ var r3eClassColours = {
       Name: "Group 4",
       colour: "rgba(193, 62, 54, 0.8)",
       Id: 7304
+    },
+    7765: {
+      Name: "Volkswagen ID. R",
+      colour: "rgba(56, 153, 208, 0.8)",
+      Id: 7765
+    },
+    7844: {
+      Name: "WTCR 2018",
+      colour: "rgba(66, 66, 66, 0.8)",
+      Id: 7009
     }
   }
 };
