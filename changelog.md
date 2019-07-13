@@ -1,5 +1,9 @@
 ### Version 1.7.8
 * [Bug Fix] Fixed driver country flag check on broadcast controller table.
+* [Feature] Minor updates to WTCR 2019 theme.
+* [Feature] Updated r3e data file to include WTCR 2019 data.
+* [Feature] Updated controller UI.
+* [Feature] Added class colours for FRX 90, WTCR 2019 and VW I.D R.
 
 ### Version 1.7.7
 * [Feature] Updated r3e data file to include FR90 content.
