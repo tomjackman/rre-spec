@@ -79,9 +79,9 @@ module.exports = function(io) {
 		'camera': 'trackside',
 		'activeWidgets': {},
 		'themes': {
-			'raceroom-red': true
+			'raceroom-base': true
 		},
-		'activeTheme': 'raceroom-red',
+		'activeTheme': 'raceroom-base',
 		'controllerOptions': {}
 	};
 
