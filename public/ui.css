@@ -110,23 +110,38 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.safetyCarDeployedContainer {
-  font-size: 17px;
+.safetyAlert {
+  font-size: 18.7px;
+  font-family: Oswald;
   position: fixed;
-  top: 4em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
+  top: 10em;
+  right: 1.5em;
+  text-transform: uppercase;
+  min-height: 1em;
+  width: 11em;
+  line-height: 1.7em;
+  text-align: center;
+  display: inline-block;
   filter: drop-shadow(2px 2px 2px #000000);
 }
-.safetyCarDeployedContainer .safetyCarDeployed {
-  font-family: Oswald;
-  background: rgba(255, 193, 7, 0.9);
-  text-transform: uppercase;
-  color: black;
-  height: 2em;
-  width: 7em;
-  line-height: 2em;
-  text-align: center;
+.safetyAlert .raceControl {
+  -webkit-transform: skew(-10deg, 0deg);
+  border-top: 3px solid rgba(226, 29, 56, 0.9);
+  background: rgba(31, 31, 30, 0.9);
+  color: white;
+  font-size: 18.7px;
+  padding: 0.05em;
+  top: 0.1em;
+  z-index: 0;
+}
+.safetyAlert .safetyCarIn {
+  background: white;
+  color: #323433;
+  -webkit-transform: skew(-10deg, 0deg);
+  font-size: 18.7px;
+  padding: 0.15em;
+  text-transform: capitalize;
+  z-index: -1;
 }
 @font-face {
   font-family: 'Hel';
@@ -449,7 +464,7 @@ select {
   font-weight: bold;
   filter: drop-shadow(2px 2px 2px #000000);
   padding: 4px 6px;
-  background: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, #e21d38 99%);
+  background: rgba(31, 31, 30, 0.9);
 }
 @-webkit-keyframes "ani_4" {
   0% {
@@ -859,7 +874,6 @@ select {
 }
 .tabled-driver-entry .name {
   width: 14%;
-  background: #15202b;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -927,12 +941,12 @@ select {
   opacity: 1.0;
 }
 .tabled-driver-entry .currentSpeed {
-  width: 2.5%;
+  width: 3%;
   color: #FF9800;
   opacity: 1.0;
 }
 .tabled-driver-entry .mandatoryPit {
-  width: 2.5%;
+  width: 3%;
   color: #7E57C2;
   opacity: 1.0;
 }
@@ -959,7 +973,7 @@ select {
   background: transparent;
 }
 .tabled-driver-entry .flags {
-  width: 4%;
+  width: 5%;
   opacity: 1.0;
   color: white;
   background: transparent;
@@ -1023,7 +1037,7 @@ select {
   color: #F44336;
 }
 .tabled-driver-entry .drs {
-  width: 2.5%;
+  width: 3%;
   opacity: 1.0;
   color: #F44336;
 }
@@ -1031,7 +1045,7 @@ select {
   color: #00C853;
 }
 .tabled-driver-entry .ptp {
-  width: 2.5%;
+  width: 3%;
   opacity: 1.0;
   color: #1976D2;
 }
@@ -1150,8 +1164,8 @@ select {
 }
 .alert .raceControlAlert {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #e21d38;
-  background: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, #e21d38 90%);
+  border-top: 3px solid rgba(226, 29, 56, 0.9);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   font-size: 18.7px;
   padding: 0.05em;
@@ -1209,8 +1223,8 @@ select {
 }
 .commentaryNameAlert .commentaryTitle {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #e21d38;
-  background: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, #e21d38 90%);
+  border-top: 3px solid rgba(226, 29, 56, 0.9);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   font-size: 18.7px;
   padding: 0.05em;
@@ -1245,7 +1259,7 @@ select {
 }
 .compare-race .delta .battle {
   text-transform: uppercase;
-  border-top: 0.25em solid #e21d38;
+  border-top: 0.25em solid rgba(226, 29, 56, 0.9);
   color: white;
   padding: 0.4em 0.7em;
   width: inherit;
@@ -1346,13 +1360,13 @@ select {
   line-height: 3.75em;
 }
 .compare-race .inner .main .comparePositionContainer {
-  background: #e21d38;
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   width: 3.75em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
   line-height: 3.5em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid rgba(226, 29, 56, 0.9);
   transform: skew(-10deg);
 }
 .compare-race .inner .main .comparePositionContainer .comparePosition {
@@ -1361,11 +1375,11 @@ select {
   font-size: 51px;
 }
 .compare-race .inner .main .compareName {
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   padding: 0 1em;
   min-width: 12em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid rgba(226, 29, 56, 0.9);
 }
 .compare-race .inner .main .compareName .name {
   font-size: 22.1px;
@@ -1390,7 +1404,7 @@ select {
   position: relative;
   left: -0.3em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid rgba(226, 29, 56, 0.9);
 }
 .compare-race .inner .main .manufacturer img {
   position: absolute;
@@ -1570,7 +1584,7 @@ select {
   background: rgba(0, 0, 0, 0.2);
 }
 .event-info {
-  background: white;
+  background: rgba(31, 31, 30, 0.9);
   font-size: 17px;
   width: 50em;
   position: fixed;
@@ -1582,12 +1596,12 @@ select {
   color: #fff;
   white-space: pre;
   font-family: Oswald;
-  border-top: 0.3em solid #e21d38;
-  border-bottom: 0.3em solid #e21d38;
+  border-top: 0.3em solid rgba(226, 29, 56, 0.9);
+  border-bottom: 0.3em solid rgba(226, 29, 56, 0.9);
   filter: drop-shadow(2px 2px 2px #000000);
 }
 .event-info .serverName {
-  color: #323433;
+  color: #ffffff;
   text-align: center;
   font-size: 25.5px;
   padding: 20px;
@@ -1625,7 +1639,7 @@ select {
 }
 .event-info .serverTrackName {
   -webkit-transform: skew(-10deg, 0deg);
-  color: #323433;
+  color: #ffffff;
   text-align: center;
   font-size: 25.5px;
   padding: 15px;
@@ -1634,7 +1648,7 @@ select {
   margin: auto;
 }
 .event-info .trackDescription {
-  color: #323433;
+  color: #ffffff;
   display: block;
   width: 100%;
   font-size: 17px;
@@ -1648,7 +1662,7 @@ select {
   -webkit-transform: skew(-10deg, 0deg);
   display: flex;
   font-size: 17px;
-  color: #323433;
+  color: #ffffff;
   justify-content: space-around;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
@@ -1868,7 +1882,7 @@ select {
 .focused-driver-info .top .positionInClass {
   transform: skew(-10deg);
   line-height: 0.5em;
-  background: #e21d38;
+  background: rgba(31, 31, 30, 0.9);
   padding: 0.5em 0.5em;
   color: white;
   width: 3em;
@@ -1890,7 +1904,7 @@ select {
   padding-right: 0.5em;
   line-height: 3.7em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid rgba(226, 29, 56, 0.9);
 }
 .focused-driver-info .main .positionContainer .position {
   font-size: 59.5px;
@@ -1898,11 +1912,11 @@ select {
   transform: skew(10deg);
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  background: rgba(31, 31, 30, 0.9);
   text-transform: uppercase;
   padding: 0px 1em;
   min-width: 19em;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid rgba(226, 29, 56, 0.9);
   transform: skew(-10deg);
 }
 .focused-driver-info .main .driverInfoDetails .name {
@@ -1941,7 +1955,7 @@ select {
   background: rgba(31, 31, 30, 0.9);
   width: 4em;
   position: relative;
-  border-bottom: 0.1em solid #e21d38;
+  border-bottom: 0.1em solid rgba(31, 31, 30, 0.9);
   left: 0em;
   transform: skew(-10deg);
 }
@@ -2004,7 +2018,6 @@ select {
 }
 .logo-overlay img {
   width: 12em;
-  content: url(results/logos/base.png);
 }
 .multiclass-standings {
   filter: drop-shadow(2px 2px 2px #000000);
@@ -2054,6 +2067,19 @@ select {
   height: 100%;
   line-height: 1.6em;
 }
+.multiclass-standings .driver .classIndicator {
+  margin-right: 0.3em;
+  background: transparent;
+  display: inline-block;
+  font-size: 1em;
+  text-align: center;
+  width: 0.8em;
+  height: 80%;
+  font-family: Oswald;
+}
+.multiclass-standings .driver .classIndicator .position {
+  transform: skew(15deg, 0deg);
+}
 .multiclass-standings .driver .positionContainer {
   margin: 0;
   font-size: 17px;
@@ -2098,7 +2124,7 @@ select {
   font-family: Oswald;
   display: inline-block;
   color: white;
-  background: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, #e21d38 99%);
+  background: rgba(31, 31, 30, 0.9);
   width: 4em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -2158,7 +2184,7 @@ select {
 }
 .multiclass-standings .driver .pit-info .unpitted {
   font-size: 20.4px;
-  background: #e21d38;
+  background: rgba(31, 31, 30, 0.9);
 }
 .race-results-bg {
   font-size: 17px;
@@ -2167,7 +2193,7 @@ select {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
 }
 .race-results .entries-outer {
   max-height: 40em;
@@ -2197,13 +2223,13 @@ select {
 }
 .race-results .title .text {
   position: inherit;
-  height: 3em;
+  height: 3.8em;
   text-align: right;
   padding: 0 0.75em 0 0;
-  line-height: 4em;
+  line-height: 5em;
   font-size: 25.5px;
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
-  border-top: 0.25em solid #e21d38;
+  background: #1f1f1e;
+  border-top: 0.25em solid rgba(226, 29, 56, 0.9);
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
@@ -2212,7 +2238,7 @@ select {
   position: absolute;
   content: url(results/logos/base.png);
   height: 2.2em;
-  top: 0.5em;
+  top: 0.9em;
   left: 1em;
   z-index: 1;
 }
@@ -2220,7 +2246,7 @@ select {
   height: 2em;
   line-height: 2em;
   color: white;
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(31, 31, 30, 0.8);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -2485,7 +2511,7 @@ select {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
 }
 .qualify-results .entries-outer {
   max-height: 40em;
@@ -2515,13 +2541,13 @@ select {
 }
 .qualify-results .title .text {
   position: inherit;
-  height: 3em;
+  height: 3.8em;
   text-align: right;
   padding: 0 0.75em 0 0;
-  line-height: 4em;
+  line-height: 5em;
   font-size: 25.5px;
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
-  border-top: 0.25em solid #e21d38;
+  background: #1f1f1e;
+  border-top: 0.25em solid rgba(226, 29, 56, 0.9);
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
@@ -2530,7 +2556,7 @@ select {
   position: absolute;
   content: url(results/logos/base.png);
   height: 2.2em;
-  top: 0.5em;
+  top: 0.9em;
   left: 1em;
   z-index: 1;
 }
@@ -2538,7 +2564,7 @@ select {
   height: 2em;
   line-height: 2em;
   color: white;
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(31, 31, 30, 0.8);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -2636,6 +2662,24 @@ select {
 .qualify-results .qualify-results-entry .lap-time.fastest {
   color: #f500f5;
 }
+.safetyCarDeployedContainer {
+  font-size: 17px;
+  position: fixed;
+  top: 4em;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
+  filter: drop-shadow(2px 2px 2px #000000);
+}
+.safetyCarDeployedContainer .safetyCarDeployed {
+  font-family: Oswald;
+  background: rgba(255, 193, 7, 0.9);
+  text-transform: uppercase;
+  color: black;
+  height: 2em;
+  width: 7em;
+  line-height: 2em;
+  text-align: center;
+}
 .error-screen {
   z-index: 2147483627;
   position: fixed;
@@ -2661,39 +2705,6 @@ pre.preview {
   text-align: left;
   font-family: 'Inconsolata';
   padding: 20px;
-}
-.safetyAlert {
-  font-size: 18.7px;
-  font-family: Oswald;
-  position: fixed;
-  top: 10em;
-  right: 1.5em;
-  text-transform: uppercase;
-  min-height: 1em;
-  width: 11em;
-  line-height: 1.7em;
-  text-align: center;
-  display: inline-block;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
-.safetyAlert .raceControl {
-  -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #e21d38;
-  background: linear-gradient(80deg, rgba(31, 31, 30, 0.9) 10%, #e21d38 90%);
-  color: white;
-  font-size: 18.7px;
-  padding: 0.05em;
-  top: 0.1em;
-  z-index: 0;
-}
-.safetyAlert .safetyCarIn {
-  background: white;
-  color: #323433;
-  -webkit-transform: skew(-10deg, 0deg);
-  font-size: 18.7px;
-  padding: 0.15em;
-  text-transform: capitalize;
-  z-index: -1;
 }
 .session-info .inner {
   font-size: 18.7px;
@@ -2722,14 +2733,14 @@ pre.preview {
 }
 .session-info .inner .sessionName {
   min-width: 4em;
-  background: linear-gradient(240deg, #e21d38 10%, rgba(31, 31, 30, 0.9) 90%);
+  background: rgba(31, 31, 30, 0.9);
   text-transform: uppercase;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid rgba(226, 29, 56, 0.9);
   color: white;
 }
 .session-info .inner .timer {
   min-width: 5em;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid rgba(226, 29, 56, 0.9);
   background: white;
   text-transform: uppercase;
   color: #323433;
@@ -2751,7 +2762,7 @@ pre.preview {
 .session-info .inner .countdown {
   padding: 0em 0.3em;
   min-width: 4em;
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid rgba(226, 29, 56, 0.9);
   background: white;
   text-transform: uppercase;
   color: #323433;
@@ -2782,7 +2793,7 @@ pre.preview {
   font-size: 17px;
 }
 .session-info .inner .checkered img {
-  border-top: 0.2em solid #e21d38;
+  border-top: 0.2em solid rgba(226, 29, 56, 0.9);
   height: 2em;
   width: 4em;
   z-index: 2;
@@ -2790,8 +2801,8 @@ pre.preview {
 .session-info .inner .serverName {
   margin: 0;
   min-width: 4em;
-  border-top: 0.2em solid #e21d38;
-  border-left: 0.1em solid #e21d38;
+  border-top: 0.2em solid rgba(226, 29, 56, 0.9);
+  border-left: 0.1em solid rgba(226, 29, 56, 0.9);
   background: white;
   text-transform: uppercase;
   color: #323433;
@@ -2860,7 +2871,7 @@ pre.preview {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   color: white;
-  background: linear-gradient(240deg, rgba(31, 31, 30, 0.9) 1%, #e21d38 99%);
+  background: rgba(31, 31, 30, 0.9);
 }
 .track-map .dot .driverName {
   position: relative;
