@@ -4,7 +4,7 @@
 * [Feature] Added RaceRoom dark base theme.
 * [Feature] Improved how multiclass indicators that are shown in the standings tower.
 * [Feature] Added more spacing between columns in the broadcast controller to make it easier to read.
-* [Removed] Removed custom event logos by default for better recognition of the sim. (these can still be set manually  by changing `assets\components\widgets\logoOverlay\flat\logo-overlay.png`)
+* [Removed] Removed custom event logos by default for better recognition of the sim. (these can still be set manually by changing `assets\components\widgets\logoOverlay\flat\logo-overlay.png`).
 * [Feature] Various minor UI improvements.
 
 ### Version 1.7.8
