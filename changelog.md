@@ -1,3 +1,6 @@
+### Version 1.8.1
+* [Feature] Added Cupra esport theme.
+
 ### Version 1.8.0
 * [Feature] Improved the WTCR 2019 esports theme.
 * [Feature] Added Super Racer esports theme.
