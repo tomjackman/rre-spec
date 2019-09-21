@@ -82,6 +82,7 @@ module.exports = function(io) {
 			'raceroom-base': true
 		},
 		'activeTheme': 'raceroom-base',
+		'languages': {},
 		'controllerOptions': {}
 	};
 
@@ -131,6 +132,27 @@ module.exports = function(io) {
 		});
 	}
 	loadThemes();
+
+	function loadLanguages() {
+		var languagesDir = __dirname + '/../../languages';
+		var languages = {};
+		fs.readdirSync(languagesDir).forEach(file => {
+			var languageName = file.slice(0, -5);
+			// don't add the base language template as a choice
+			if (languageName != "base") {
+				var languageConfig = require(languagesDir + '/' + languageName + '.json');
+
+				try {
+					 JSON.parse(JSON.stringify(languageConfig));
+					 globalState.languages[languageName] = languageConfig;
+					 console.log(('<*> Successfully Loaded Language File - ' + languageName).yellow);
+				} catch (e) {
+					console.log(('Failed to Parse Language JSON File: ' + languageName + ".json - " + e).red);
+				}
+			}
+		});
+	}
+	loadLanguages();
 
 	function updateControllerOptions() {
 		var config = require(__dirname + '/../../public/config.json');
