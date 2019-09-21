@@ -1,0 +1,15 @@
+{
+  "general": {
+
+  },
+  "controller": {
+    "driver": "Водитель",
+    "cameras": "камеры",
+    "tyre": "шина",
+    "tyreWear": "носить",
+    "damage": "наносить ущерб",
+    "flags": "флаги",
+    "bestLap": "лучший круг",
+    "lastLap": "последний круг"
+  }
+}

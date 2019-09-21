@@ -1,0 +1,15 @@
+{
+  "general": {
+
+  },
+  "controller": {
+    "driver": "司机",
+    "cameras": "相机",
+    "tyre": "累",
+    "tyreWear": "穿",
+    "damage": "损伤",
+    "flags": "旗",
+    "bestLap": "最好的一圈",
+    "lastLap": "最后一圈"
+  }
+}

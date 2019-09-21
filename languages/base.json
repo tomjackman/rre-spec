@@ -1,0 +1,16 @@
+{
+  "general": {
+
+  },
+  "controller": {
+    "driver": "",
+    "cameras": "",
+    "tyre": "",
+    "tyreWear": "",
+    "damage": "",
+    "flags": "",
+    "ptp": "",
+    "drs": "",
+    "bestLap": "",
+    "lastLap": ""
+  }

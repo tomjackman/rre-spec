@@ -1,0 +1,77 @@
+{
+  "general": {
+
+  },
+  "controller": {
+    "position": "Position",
+    "lap": "Lap",
+    "difference": "Difference",
+    "driver": "Driver",
+    "cameras": "Cameras",
+    "speed": "Speed (KM/H)",
+    "pitCount": "Pit Count",
+    "mandatoryPit": "Mandatory Pit",
+    "tyre": "Tyre",
+    "tyreWear": "Wear",
+    "damage": "Damage",
+    "flags": "Flags",
+    "ptp": "PTP",
+    "drs": "DRS",
+    "sector1": "S1",
+    "sector2": "S2",
+    "bestLap": "Best Lap",
+    "lastLap": "Last Lap",
+    "mandatoryPitTaken": "Mandatory Pit Taken",
+    "mandatoryPitNotTaken": "Mandatory Pit Not Taken",
+    "mandatoryPitNotRequired": "Mandatory Pit Not Required"
+  },
+  "alertsWidget": {
+
+  },
+  "autoDirectorWidget": {
+
+  },
+  "code60Widget": {
+
+  },
+  "commentaryNamesWidget": {
+
+  },
+  "compareRaceWidget": {
+
+  },
+  "directorSuggestionsWidget": {
+
+  },
+  "eventInfoWidget": {
+
+  },
+  "focusedDriverWidget": {
+
+  },
+  "logoOverlayWidget": {
+
+  },
+  "multiclassStandingsWidget": {
+
+  },
+  "raceResultsWidget": {
+
+  },
+  "resultsWidget": {
+
+  },
+  "safetyCarDeployedWidget": {
+
+  },
+  "safetyCarInWidget": {
+    "raceControl": "Race Control",
+    "safetyCarInThisLap": "Safety Car In This Lap"
+  },
+  "sessionInfoWidget": {
+
+  },
+  "trackMapWidget": {
+
+  }
+}
