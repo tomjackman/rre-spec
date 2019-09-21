@@ -11,6 +11,7 @@ As used by:
 * [Volkswagen I.D R Nurburgring Launch Event](https://www.gtplanet.net/volkswagen-partners-with-raceroom-for-id-r-nurburgring-competition/)
 * [Tuning World Bodensee](https://www.raceroom.com/en/raceroom-esports-event-at-the-tuning-world-bodensee-2019/)
 * [Super Racer](http://www.super-racer.me/)
+* [AvD Masters 2019](https://www.avd.de/)
 * R3E Special Event Series
 * ... any many more events.
 
