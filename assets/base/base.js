@@ -65,6 +65,21 @@ UI.getClassColour = function(classId) {
 	}
 };
 
+UI.getStringTranslation = function(category, key) {
+	var language = window.settings.language;
+	var languages = UI.state.languages;
+
+	if (languages != null &&
+		languages[language] != null &&
+		languages[language][category] != null &&
+		languages[language][category][key] != null) {
+			return languages[language][category][key];
+	} else {
+		return "";
+	}
+
+};
+
 UI.formatSessionTime = function(seconds) {
 	if (seconds <= 0) {
 		seconds = 0;
