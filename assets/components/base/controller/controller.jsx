@@ -233,7 +233,7 @@ var WidgetManager = React.createClass({
 
 		return (
 			<div className={cx(classes)} onClick={this.onClickDriver}>
-				<span className="text" data-title={this.props.widget.description}>{this.props.widget.buttonText}</span>
+				<span className="text" data-title={UI.getStringTranslation("widgetButtons", this.props.widget.translationDescription)}>{UI.getStringTranslation("widgetButtons", this.props.widget.translationLabel)}</span>
 			</div>
 		);
 	}
@@ -367,7 +367,7 @@ var ControlOption = React.createClass({
 					<form>
 							<div className="option">
 				        <label>
-				          <span title={self.state.tooltip} style={{'font-size': '20px', 'color': color}}>🛈 {self.state.displayName}</span>
+				          <span title={UI.getStringTranslation("configFile", self.state.translationDescription)} style={{'font-size': '20px', 'color': color}}>🛈 {UI.getStringTranslation("configFile", self.state.translationDisplayName)}</span>
 				          <input
 				            defaultValue={self.state.value}
 				            type={self.state.type}
@@ -604,7 +604,7 @@ UI.components.Controller = React.createClass({
 					}
 					</a>
 					{session.type && session.phase ?
-						<span>{session.type} - {session.phase}: {UI.formatSessionTime(session.timeLeft)}/{UI.formatSessionTime(session.timeTotal)} - {UI.state.eventInfo.serverName}</span>
+						<span>{UI.getStringTranslation("sessionInfoWidget", session.type.toLowerCase().replace(/ /g,""))} - {UI.getStringTranslation("sessionInfoWidget", session.phase.toLowerCase().replace(/ /g,""))}: {UI.formatSessionTime(session.timeLeft)}/{UI.formatSessionTime(session.timeTotal)} - {UI.state.eventInfo.serverName}</span>
 						:
 						null
 					}
@@ -643,27 +643,27 @@ UI.components.Controller = React.createClass({
 							<div className="scrap"></div>
 								<div className="drivers-container-beta-title">
 									<div className="tabled-driver-entry">
-										<div className="position">Pos</div>
-										<div className="lap">Lap</div>
-										<div className="interesting">Diff</div>
-										<div className="flag">C</div>
-										<div className="name">Driver</div>
-										<div className="manufacturer">M</div>
-										<div className="livery">L</div>
-										<div className="cameras">Cameras</div>
-										<div className="currentSpeed">KM/H</div>
-										<div className="pit"># Pit</div>
-										<div className="mandatoryPit">M Pit</div>
-										<div className="tyre">Tyre</div>
-										<div className="tyreWear">Wear</div>
-										<div className="damage">Damage</div>
-										<div className="flags">Flags</div>
-										<div className="ptp">PTP</div>
-										<div className="drs">DRS</div>
-										<div className="best-lap-s1">S1</div>
-										<div className="best-lap-s2">S2</div>
-										<div className="best-lap-time">Best Lap</div>
-										<div className="last-lap-time">Last Lap</div>
+										<div className="position">{UI.getStringTranslation("controller", "position")}</div>
+										<div className="lap">{UI.getStringTranslation("controller", "lap")}</div>
+										<div className="interesting">{UI.getStringTranslation("controller", "difference")}</div>
+										<div className="flag"></div>
+										<div className="name">{UI.getStringTranslation("controller", "driver")}</div>
+										<div className="manufacturer"></div>
+										<div className="livery"></div>
+										<div className="cameras">{UI.getStringTranslation("controller", "cameras")}</div>
+										<div className="currentSpeed">{UI.getStringTranslation("controller", "speed")}</div>
+										<div className="pit">{UI.getStringTranslation("controller", "pitCount")}</div>
+										<div className="mandatoryPit">{UI.getStringTranslation("controller", "mandatoryPit")}</div>
+										<div className="tyre">{UI.getStringTranslation("controller", "tyre")}</div>
+										<div className="tyreWear">{UI.getStringTranslation("controller", "tyreWear")}</div>
+										<div className="damage">{UI.getStringTranslation("controller", "damage")}</div>
+										<div className="flags">{UI.getStringTranslation("controller", "flags")}</div>
+										<div className="ptp">{UI.getStringTranslation("controller", "ptp")}</div>
+										<div className="drs">{UI.getStringTranslation("controller", "drs")}</div>
+										<div className="best-lap-s1">{UI.getStringTranslation("controller", "sector1")}</div>
+										<div className="best-lap-s2">{UI.getStringTranslation("controller", "sector2")}</div>
+										<div className="best-lap-time">{UI.getStringTranslation("controller", "bestLap")}</div>
+										<div className="last-lap-time">{UI.getStringTranslation("controller", "lastLap")}</div>
 								 </div>
 							 </div>
 
@@ -735,17 +735,17 @@ var TabledDriver = React.createClass({
 			divStyle = {
 					background: classColour
 			};
-			return <div className="position" style={divStyle} title={"Overall - P" + driver.scoreInfo.positionOverall + ", Class - P" + driver.scoreInfo.positionClass}>{driver.scoreInfo.positionClass}</div>
+			return <div className="position" style={divStyle} title={UI.getStringTranslation("controller", "overall") + " - P" + driver.scoreInfo.positionOverall + ", " + UI.getStringTranslation("controller", "class") + " - P" + driver.scoreInfo.positionClass}>{driver.scoreInfo.positionClass}</div>
 		} else {
-			return <div className="position" style={divStyle} title={"Overall - P" + driver.scoreInfo.positionOverall + ", Class - P" + driver.scoreInfo.positionClass}>{driver.scoreInfo.positionOverall}</div>
+			return <div className="position" style={divStyle} title={UI.getStringTranslation("controller", "overall") + " - P" + driver.scoreInfo.positionOverall + ", " + UI.getStringTranslation("controller", "class") + " - P" + driver.scoreInfo.positionClass}>{driver.scoreInfo.positionOverall}</div>
 		}
 	},
 	renderDamage: function(damage) {
 		var damageAverage = ((damage.engine + damage.transmission + damage.frontAero + damage.rearAero)/4);
-		var damageTooltip = "Engine Damage: " + damage.engine + "%, " +
-		"Transmission Damage: " + damage.transmission + "%, " +
-		"Front Aero Damage: " + damage.frontAero + "%, " +
-		"Rear Aero Damage: " + damage.rearAero + "%";
+		var damageTooltip = UI.getStringTranslation("controller", "engineDamage") + ": " + damage.engine + "%, " +
+		UI.getStringTranslation("controller", "transmissionDamage") + ": " + damage.transmission + "%, " +
+		UI.getStringTranslation("controller", "fronteAeroDamage") + ": " + damage.frontAero + "%, " +
+		UI.getStringTranslation("controller", "rearAeroDamage") + ": " + damage.rearAero + "%";
 
 		var highestDamage = Math.max(damage.engine, damage.transmission, damage.frontAero, damage.rearAero);
 
@@ -761,11 +761,11 @@ var TabledDriver = React.createClass({
 	},
 	renderMandatoryPit: function(mandatoryPit) {
 		if (mandatoryPit === 1) {
-			return <div className="mandatoryPit" style={{color: '#2E7D32'}} title="Mandatory Pit Taken">⭗</div>
+			return <div className="mandatoryPit" style={{color: '#2E7D32'}} title={UI.getStringTranslation("controller", "mandatoryPitTaken")}>⭗</div>
 		} else if (mandatoryPit === 0) {
-			return <div className="mandatoryPit" style={{color: 'rgba(226, 29, 56, 1)'}} title="Mandatory Pit Not Taken">⭗</div>
+			return <div className="mandatoryPit" style={{color: 'rgba(226, 29, 56, 1)'}} title={UI.getStringTranslation("controller", "mandatoryPitNotTaken")}>⭗</div>
 		}	else {
-			return <div className="mandatoryPit" style={{color: '#607D8B'}} title="No Mandatory Pit Required">N/A</div>
+			return <div className="mandatoryPit" style={{color: '#607D8B'}} title={UI.getStringTranslation("controller", "mandatoryPitNotRequired")}>{UI.getStringTranslation("controller", "notAvailable")}</div>
 		}
 	},
 	getTimeDiff: function(driver, fastestDriver) {
@@ -773,11 +773,11 @@ var TabledDriver = React.createClass({
 		// Race
 		if (UI.state.sessionInfo.type.match(/^race/i)) {
 			if (driver.scoreInfo.positionOverall === 1) {
-				return  "Lap " + (driver.scoreInfo.laps + 1);
+				return  UI.getStringTranslation("controller", "lap") + " " + (driver.scoreInfo.laps + 1);
 			} else if (driver.scoreInfo.lapDiff === 1) {
-				return "+1 Lap";
+				return "+1 " + UI.getStringTranslation("controller", "lap");
 			} else if (driver.scoreInfo.lapDiff > 0) {
-				return "+" + driver.scoreInfo.lapDiff + " Laps";
+				return "+" + driver.scoreInfo.lapDiff + " " + UI.getStringTranslation("controller", "laps");
 			} else {
 				return "+" + (driver.scoreInfo.timeDiff/1000).toFixed(2);
 			}
@@ -789,7 +789,7 @@ var TabledDriver = React.createClass({
 				if (driver.scoreInfo.bestLapInfo.valid) {
 					return UI.formatTime(driver.scoreInfo.bestLapInfo.sector3 - fastestDriver.scoreInfo.bestLapInfo.sector3);
 				} else {
-					return "N/A";
+					return UI.getStringTranslation("controller", "notAvailable");
 				}
 			}
 		} else {
@@ -827,55 +827,55 @@ var TabledDriver = React.createClass({
 						<div className="interesting" onClick={() => {this.changeCamera('trackside', driver.slotId)}}>{self.getTimeDiff(driver, fastestDriver)}</div>
 					}
 					{!window.settings.offline ?
-						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.png'} title={"Country - " + UI.getUserInfo(driver.portalId).countryName}/>
+						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.png'} title={UI.getStringTranslation("controller", "country") + " - " + UI.getUserInfo(driver.portalId).countryName}/>
 							:
 						<img className="flag" src={'/img/flags/rr.png'}/>
 					}
-					<div className={cx({'name': true, 'focused': this.props.focused})} onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={"Portal ID - " + driver.portalId}>{self.getName(driver.name)}</div>
+					<div className={cx({'name': true, 'focused': this.props.focused})} onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={UI.getStringTranslation("controller", "portalId") + " - " + driver.portalId}>{self.getName(driver.name)}</div>
 					<img className="manufacturer" src={'/render/'+driver.manufacturerId+'/small/?type=manufacturer'}/>
 					<img className="livery" onClick={() => {this.changeCamera('trackside', driver.slotId)}} src={'/render/'+driver.liveryId+'/'+this.props.imageSize+'/'}/>
-					<div className="tvCam" onClick={() => {this.changeCamera('trackside', driver.slotId)}} title="TV Trackside Camera">TV</div>
-					<div className="dashCam" onClick={() => {this.changeCamera('onboard1', driver.slotId)}} title="Dash Camera">D</div>
-					<div className="cockpitCam" onClick={() => {this.changeCamera('onboard2', driver.slotId)}} title="Cockpit Camera">C</div>
-					<div className="frontCam" onClick={() => {this.changeCamera('frontCam', driver.slotId)}} title="Front Camera">F</div>
-					<div className="rearCam" onClick={() => {this.changeCamera('rearCam', driver.slotId)}} title="Rear Camera">R</div>
-					<div className="wingCam" onClick={() => {this.changeCamera('wing', driver.slotId)}} title="Wing Camera">W</div>
-					<div className="currentSpeed" title="Current Speed (KM/H)">{driver.vehicleInfo.speed}</div>
-					<div className="pit" title="Pit Count & Pit Status">N/A</div>
+					<div className="tvCam" onClick={() => {this.changeCamera('trackside', driver.slotId)}} title={UI.getStringTranslation("controller", "tvTracksideCamera")}>TV</div>
+					<div className="dashCam" onClick={() => {this.changeCamera('onboard1', driver.slotId)}} title={UI.getStringTranslation("controller", "dashCamera")}>D</div>
+					<div className="cockpitCam" onClick={() => {this.changeCamera('onboard2', driver.slotId)}} title={UI.getStringTranslation("controller", "cockpitCamera")}>C</div>
+					<div className="frontCam" onClick={() => {this.changeCamera('frontCam', driver.slotId)}} title={UI.getStringTranslation("controller", "frontCamera")}>F</div>
+					<div className="rearCam" onClick={() => {this.changeCamera('rearCam', driver.slotId)}} title={UI.getStringTranslation("controller", "rearCamera")}>R</div>
+					<div className="wingCam" onClick={() => {this.changeCamera('wing', driver.slotId)}} title={UI.getStringTranslation("controller", "wingCamera")}>W</div>
+					<div className="currentSpeed" title={UI.getStringTranslation("controller", "currentSpeed")}>{driver.vehicleInfo.speed}</div>
+					<div className="pit" title={UI.getStringTranslation("controller", "pitCountStatus")}>{UI.getStringTranslation("controller", "notAvailable")}</div>
 					{self.renderMandatoryPit(driver.mandatoryPitstopPerformed)}
 					{r3eTyreDB.classes[driver.classId] != null || ["Soft", "Hard", "Primary", "Alternate", "Medium"].indexOf(driver.pitInfo.tyreType) > -1 ?
 						<div className="tyre">
-							<img src={'/img/tyres/'+driver.pitInfo.tyreType+'.png'} title={driver.pitInfo.tyreType} />
+							<img src={'/img/tyres/'+driver.pitInfo.tyreType+'.png'} />
 						</div>
 						:
 						<div className="tyre">
-							<img src={'/img/tyres/dedicated.png'} title={"Dedicated Tyre: " + driver.pitInfo.tyreType} />
+							<img src={'/img/tyres/dedicated.png'} title={driver.pitInfo.tyreType} />
 						</div>
 					}
-					<div className="tyreWear" title="Tyre Wear Status">N/A</div>
+					<div className="tyreWear" title={UI.getStringTranslation("controller", "tyreWearStatus")}>{UI.getStringTranslation("controller", "notAvailable")}</div>
 					{self.renderDamage(driver.pitInfo.damage)}
 					<div className="flags">
-					 <div className={cx({'blackFlag': true, 'active': driver.scoreInfo.flagInfo.black === 1})} title="Black Flag">!</div>
-					 <div className={cx({'blueFlag': true, 'active': driver.scoreInfo.flagInfo.blue === 1})} title="Blue Flag">!</div>
-					 <div className={cx({'yellowFlag': true, 'active': driver.scoreInfo.flagInfo.yellow === 1})} title="Yellow Flag">!</div>
+					 <div className={cx({'blackFlag': true, 'active': driver.scoreInfo.flagInfo.black === 1})} title={UI.getStringTranslation("controller", "blackFlag")}>!</div>
+					 <div className={cx({'blueFlag': true, 'active': driver.scoreInfo.flagInfo.blue === 1})} title={UI.getStringTranslation("controller", "blueFlag")}>!</div>
+					 <div className={cx({'yellowFlag': true, 'active': driver.scoreInfo.flagInfo.yellow === 1})} title={UI.getStringTranslation("controller", "yellowFlag")}>!</div>
 					</div>
-					<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})} title="PTP Remaining">{driver.pushToPassInfo.allowed ? driver.pushToPassInfo.amountLeft : 'N/A'}</div>
+					<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})} title={UI.getStringTranslation("controller", "ptpRemaining")}>{driver.pushToPassInfo.allowed ? driver.pushToPassInfo.amountLeft : UI.getStringTranslation("controller", "notAvailable")}</div>
 					{ UI.state.sessionInfo.type === 'PRACTICE' ?
-						<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})} title="DRS Remaining">∞</div>
+						<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})} title={UI.getStringTranslation("controller", "drsRemaining")}>99</div>
 					:
-						<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})} title="DRS Remaining">{driver.vehicleInfo.drsLeft > -1 ? driver.vehicleInfo.drsLeft : 'N/A'}</div>
+						<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})} title={UI.getStringTranslation("controller", "drsRemaining")}>{driver.vehicleInfo.drsLeft > -1 ? driver.vehicleInfo.drsLeft : UI.getStringTranslation("controller", "notAvailable")}</div>
 					}
-					<div className="best-lap-s1">{driver.scoreInfo.bestLapInfo.sector1 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector1, {ignoreSign: true}) : 'N/A'}</div>
-					<div className="best-lap-s2">{driver.scoreInfo.bestLapInfo.sector2 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector2, {ignoreSign: true}) : 'N/A'}</div>
+					<div className="best-lap-s1">{driver.scoreInfo.bestLapInfo.sector1 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector1, {ignoreSign: true}) : UI.getStringTranslation("controller", "notAvailable")}</div>
+					<div className="best-lap-s2">{driver.scoreInfo.bestLapInfo.sector2 != -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector2, {ignoreSign: true}) : UI.getStringTranslation("controller", "notAvailable")}</div>
 					{driver.scoreInfo.bestLapInfo.sector3 !== -1 ?
 						<div className="best-lap-time">{UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
 						:
-						<div className="best-lap-time invalid">None Set</div>
+						<div className="best-lap-time invalid">{UI.getStringTranslation("controller", "noneSet")}</div>
 					}
 					{driver.extendedInfo.lastTenLapsInfo.length > 0 && driver.extendedInfo.lastTenLapsInfo[0].valid ?
 						<div className="last-lap-time">{UI.formatTime(driver.extendedInfo.lastTenLapsInfo[0].sector3, {ignoreSign: true})}</div>
 						:
-						<div className="last-lap-time invalid">Invalid</div>
+						<div className="last-lap-time invalid">{UI.getStringTranslation("controller", "invalid")}</div>
 					}
 				</div>
 		);

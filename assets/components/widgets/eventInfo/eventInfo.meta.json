@@ -2,8 +2,8 @@
 	"version": "1.0.0",
 	"elementName": "EventInfo",
 	"name": "Event Info",
-	"buttonText": "Event Info",
 	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
 	"keepOnSessionChange": false,
-	"description": "Show information about the track and conditions on screen."
+	"translationLabel": "eventInfoLabel",
+	"translationDescription": "eventInfoDescription"
 }

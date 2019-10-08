@@ -2,9 +2,9 @@
 	"version": "1.0.0",
 	"elementName": "Alert",
 	"name": "Alert",
-	"buttonText": "Steward Penalty Alerts",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Race"],
 	"defaultActive": true,
-	"description": "Display penalty and disqualification alerts on screen during race sessions."
+	"translationLabel": "alertLabel",
+	"translationDescription": "alertDescription"
 }

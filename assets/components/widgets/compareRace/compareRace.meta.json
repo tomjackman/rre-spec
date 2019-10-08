@@ -2,8 +2,8 @@
 	"version": "1.0.0",
 	"elementName": "CompareRace",
 	"name": "Compare next car",
-	"buttonText": "Compare next car",
 	"activeInSessions": ["Race"],
 	"keepOnSessionChange": false,
-	"description": "Compared the currently focus driver to the driver ahead of them in the same class."
+	"translationLabel": "compareRaceLabel",
+	"translationDescription": "compareRaceDescription"
 }

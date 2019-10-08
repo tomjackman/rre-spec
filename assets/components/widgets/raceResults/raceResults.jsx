@@ -24,9 +24,9 @@ UI.widgets.RaceResults = React.createClass({
 	},
 	getNameColumnTitle: function() {
 		if (window.settings.teamEvent) {
-			return "Team";
+			return UI.getStringTranslation("raceResultsWidget", "team");
 		} else {
-			return "Name";
+			return UI.getStringTranslation("raceResultsWidget", "name");
 		}
 	},
 	render: function() {
@@ -56,7 +56,7 @@ UI.widgets.RaceResults = React.createClass({
 			<div>
 			{ winningDriver != null ?
 				<div className="winnerColumn animated fadeInLeft delay-2s">
-				<div className="winnerTitle">Race Winner</div>
+				<div className="winnerTitle">{UI.getStringTranslation("raceResultsWidget", "raceWinner")}</div>
 					<div className="winnerImageContainer">
 						<img className="winnerImage" src={'/img/winner.png'} />
 					</div>
@@ -74,7 +74,7 @@ UI.widgets.RaceResults = React.createClass({
 			}
 			{ fastestDriver != null ?
 			<div className="fastestDriverColumn animated fadeInRight delay-2s">
-			<div className="fastestTitle">Fastest Lap</div>
+			<div className="fastestTitle">{UI.getStringTranslation("raceResultsWidget", "fastestLap")}</div>
 				<div className="fastestDriverImageContainer">
 					<img className="fastestDriverImage" src={'/img/fastest.png'} />
 				</div>
@@ -93,15 +93,15 @@ UI.widgets.RaceResults = React.createClass({
 			<div className="race-results-bg">
 			<div className="race-results animated fadeIn">
 			<div className="title">
-				<div className="text">{UI.state.sessionInfo.type.match(/^Race 1/i) ? "Race" : UI.state.sessionInfo.type} Results<div className="logo"></div></div>
+				<div className="text">{UI.state.sessionInfo.type.match(/^Race 1/i) ? UI.getStringTranslation("raceResultsWidget", "race") : UI.state.sessionInfo.type} Results<div className="logo"></div></div>
 			</div>
 				<div className="race-results-entry title">
 					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-						<div className="classPosition">Class</div>
+						<div className="classPosition">{UI.getStringTranslation("raceResultsWidget", "classPosition")}</div>
 					:
 						null
 					}
-					<div className="position">Overall</div>
+					<div className="position">{UI.getStringTranslation("raceResultsWidget", "overall")}</div>
 					<div className="manufacturer"/>
 					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 						<div className="shortName">{self.getNameColumnTitle()}</div>
@@ -112,11 +112,11 @@ UI.widgets.RaceResults = React.createClass({
 					{ window.settings.teamEvent ?
 						<div className="raceResultTeam"></div>
 						:
-						<div className="raceResultTeam">Team</div>
+						<div className="raceResultTeam">{UI.getStringTranslation("raceResultsWidget", "team")}</div>
 					}
-					<div className="penaltyTime">Penalties</div>
-					<div className="lap-time">Finish Time</div>
-					<div className="fastest-time">Best Lap</div>
+					<div className="penaltyTime">{UI.getStringTranslation("raceResultsWidget", "penalties")}</div>
+					<div className="lap-time">{UI.getStringTranslation("raceResultsWidget", "finishTime")}</div>
+					<div className="fastest-time">{UI.getStringTranslation("raceResultsWidget", "bestLap")}</div>
 				</div>
 				<div className="entries-outer" ref="entries-outer">
 					<div className="entries-inner" ref="entries-inner">
@@ -153,7 +153,7 @@ var RaceResultEntry = React.createClass({
 		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			teamName = portalTeamName;
 		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length === 0) {
-			teamName = "Privateer";
+			teamName = UI.getStringTranslation("raceResultsWidget", "privateer");
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
@@ -171,17 +171,17 @@ var RaceResultEntry = React.createClass({
 		var entry = self.props.entry;
 		var lapTime = null;
 		if (entry.finishStatus === 'DNF') {
-			lapTime = <div className="lap-time">DNF</div>
+			lapTime = <div className="lap-time">{UI.getStringTranslation("raceResultsWidget", "dnf")}</div>
 		} else if (entry.finishStatus === 'DNS') {
-			lapTime = <div className="lap-time">DNS</div>
+			lapTime = <div className="lap-time">{UI.getStringTranslation("raceResultsWidget", "dns")}</div>
 		} else if (entry.finishStatus === 'DQ') {
-			lapTime = <div className="lap-time">DQ</div>
+			lapTime = <div className="lap-time">{UI.getStringTranslation("raceResultsWidget", "dq")}</div>
 		}	else if (self.props.index === 0) {
 			lapTime = <div className="lap-time">{UI.formatTime(entry.totalTime, {ignoreSign: true})}</div>
 		} else if (entry.lapsBehind === 1) {
-			lapTime = <div className="lap-time">+{entry.lapsBehind} Lap</div>
+			lapTime = <div className="lap-time">+{entry.lapsBehind} {UI.getStringTranslation("raceResultsWidget", "laps")}</div>
 		} else if (entry.lapsBehind > 1) {
-			lapTime = <div className="lap-time">+{entry.lapsBehind} Laps</div>
+			lapTime = <div className="lap-time">+{entry.lapsBehind} {UI.getStringTranslation("raceResultsWidget", "laps")}</div>
 		} else {
 			lapTime = <div className="lap-time">{UI.formatTime(entry.totalTime-self.props.firstEntry.totalTime)}</div>
 		}
@@ -199,7 +199,7 @@ var RaceResultEntry = React.createClass({
 		return (
 			<div className={cx({'fastest': entry.isFastest, 'race-results-entry': true, 'striped': entry.positionOverall % 2})}>
 			{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.positionClass}.</div>
+				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>{UI.getStringTranslation("raceResultsWidget", "class")} P{entry.positionClass}.</div>
 			:
 				null
 			}

@@ -58,13 +58,13 @@ UI.widgets.SessionInfo = React.createClass({
 		var p = this.state;
 
 		var nameLookup = {
-			'QUALIFYING': 'Qualifying',
-			'PRACTICE': 'Practice',
-			'RACE 1': 'Race',
-			'RACE 2': 'Race 2',
-			'RACE 3': 'Race 3',
-			'GARAGE': 'Garage',
-			'WARMUP': 'Warmup'
+			'QUALIFYING': UI.getStringTranslation("sessionInfoWidget", "qualifying"),
+			'PRACTICE': UI.getStringTranslation("sessionInfoWidget", "practice"),
+			'RACE 1': UI.getStringTranslation("sessionInfoWidget", "race1"),
+			'RACE 2': UI.getStringTranslation("sessionInfoWidget", "race2"),
+			'RACE 3': UI.getStringTranslation("sessionInfoWidget", "race3"),
+			'GARAGE': UI.getStringTranslation("sessionInfoWidget", "garage"),
+			'WARMUP': UI.getStringTranslation("sessionInfoWidget", "warmup")
 		};
 
 		if (!p.sessionInfo.type || p.sessionInfo.type === 'EVENT RESULTS') {

@@ -164,7 +164,9 @@ UI.widgets.FocusedDriver = React.createClass({
 			globalBest = personalBest;
 		}
 
-		var sectorMap = {"sector1": "Sector 1", "sector2": "Sector 2", "sector3": "Sector 3"}
+		var sectorMap = {"sector1": UI.getStringTranslation("focusedDriverWidget", "sector1"),
+		"sector2": UI.getStringTranslation("focusedDriverWidget", "sector2"),
+		"sector3": UI.getStringTranslation("focusedDriverWidget", "sector3")};
 
 		var classes = cx({
 			'sector-entry': true
@@ -223,7 +225,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 				teamName = portalTeamName;
 			} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length === 0) {
-				teamName = "Privateer";
+				teamName = UI.getStringTranslation("focusedDriverWidget", "privateer");
 			} else if (r3eData.teams[teamId] != null) {
 				teamName = r3eData.teams[teamId].Name;
 			}
@@ -239,9 +241,9 @@ UI.widgets.FocusedDriver = React.createClass({
 	getPtpState: function() {
 		var self = this;
 		if (self.state.pushToPassInfo.active) {
-			return <div className="icon animated infinite flash">PTP</div>
+			return <div className="icon animated infinite flash">{UI.getStringTranslation("focusedDriverWidget", "ptp")}</div>
 		} else {
-			return <div className="icon">PTP</div>
+			return <div className="icon">{UI.getStringTranslation("focusedDriverWidget", "ptp")}</div>
 		}
 	},
 	getPersonalBestTime: function(driverInfo) {
@@ -287,7 +289,7 @@ UI.widgets.FocusedDriver = React.createClass({
 				<div className="inner animated fadeInUp delay-1s">
 					<div className="top">
 						{self.state.pushToPassInfo.allowed && UI.state.sessionInfo.type.match(/^race/i) ?
-							<div className="ptpRemaining">PTP: {self.state.pushToPassInfo.amountLeft}</div>
+							<div className="ptpRemaining">{UI.getStringTranslation("focusedDriverWidget", "ptp")}: {self.state.pushToPassInfo.amountLeft}</div>
 							:
 							null
 						}
@@ -342,9 +344,9 @@ UI.widgets.FocusedDriver = React.createClass({
 							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active})}>
 								{self.getPtpState()}
 								{ UI.state.sessionInfo.type === 'PRACTICE' ?
-									<div className="text">Remaining - ∞</div>
+									<div className="text">{UI.getStringTranslation("focusedDriverWidget", "remaining")} - ∞</div>
 								:
-									<div className="text">Remaining - {self.state.pushToPassInfo.amountLeft}</div>
+									<div className="text">{UI.getStringTranslation("focusedDriverWidget", "remaining")} - {self.state.pushToPassInfo.amountLeft}</div>
 								}
 							</div>
 							:
@@ -352,8 +354,8 @@ UI.widgets.FocusedDriver = React.createClass({
 						}
 
 						<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled})}>
-							<div className={cx({'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled})}>DRS</div>
-							<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>Remaining - {self.state.vehicleInfo.drsLeft}</div>
+							<div className={cx({'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("focusedDriverWidget", "drs")}</div>
+							<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("focusedDriverWidget", "remaining")} - {self.state.vehicleInfo.drsLeft}</div>
 						</div>
 					</div>
 				</div>

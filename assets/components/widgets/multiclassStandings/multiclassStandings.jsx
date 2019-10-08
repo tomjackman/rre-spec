@@ -145,7 +145,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		var divStyle = {};
 		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {
 			classColour = UI.getClassColour(classId);
-			divStyle.background = classColour;
+			divStyle.background = classColour
 		}
 		return <div className="classIndicator" style={divStyle}></div>
 	},

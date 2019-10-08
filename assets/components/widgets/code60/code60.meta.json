@@ -2,9 +2,9 @@
 	"version": "1.0.0",
 	"elementName": "Code60",
 	"name": "Code 60",
-	"buttonText": "Code 60",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Race"],
 	"defaultActive": false,
-	"description": "Displays a blinking Code 60 message on screen below the timer."
+	"translationLabel": "code60Label",
+	"translationDescription": "code60Description"
 }

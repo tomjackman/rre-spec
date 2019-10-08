@@ -2,9 +2,9 @@
 	"version": "1.0.0",
 	"elementName": "AutoDirector",
 	"name": "Auto Director",
-	"buttonText": "Auto Director",
 	"keepOnSessionChange": true,
 	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
 	"defaultActive": true,
-	"description": "Allow the tool to automatically switch between drivers on the grid that are producing the most action."
+	"translationLabel": "autoDirectorLabel",
+	"translationDescription": "autoDirectorDescription"
 }

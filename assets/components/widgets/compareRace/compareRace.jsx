@@ -97,7 +97,7 @@ UI.widgets.CompareRace = React.createClass({
 				<div className="inner">
 					{drivers[0].scoreInfo.timeDiff !== -1 ?
 						<div className="delta animated fadeIn">
-							<div className="battle">Battle For P{drivers[0].scoreInfo.positionOverall - 1}</div>
+							<div className="battle">{UI.getStringTranslation("compareRaceWidget", "battleFor")} P{drivers[0].scoreInfo.positionOverall - 1}</div>
 							<div className="value">{self.formatTime(Math.max(0, drivers[0].scoreInfo.timeDiff))}</div>
 							<UI.widgets.CompareRaceDriver position="first" driver={drivers[1]}/>
 							<UI.widgets.CompareRaceDriver position="second" driver={drivers[0]}/>
@@ -121,11 +121,11 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		var self = this;
 		var teamName = "";
 		var portalTeamName = UI.getUserInfo(portalId).team;
-		
+
 		if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
 			teamName = portalTeamName;
 		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length === 0) {
-			teamName = "Privateer";
+			teamName = UI.getStringTranslation("compareRaceWidget", "privateer");
 		} else if (r3eData.teams[teamId] != null) {
 			teamName = r3eData.teams[teamId].Name;
 		}
@@ -153,7 +153,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			<div className="top">
 			{UI.state.controllerOptions.options.showComparisonSpeed.value === "true" ?
 					<div className="speed">
-						{driver.vehicleInfo.speed} KM/H
+						{driver.vehicleInfo.speed} {UI.getStringTranslation("compareRaceWidget", "kmh")}
 					</div>
 					:
 					null
@@ -205,14 +205,14 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				<div className="compareAssists">
 					{driver.pushToPassInfo.allowed ?
 						<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})}>
-							<div className={cx({'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active})}>PTP</div>
+							<div className={cx({'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active})}>{UI.getStringTranslation("compareRaceWidget", "ptp")}</div>
 						</div>
 						:
 						null
 					}
 
 					<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})}>
-						<div className={cx({'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled})}>DRS</div>
+						<div className={cx({'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("compareRaceWidget", "drs")}</div>
 					</div>
 				</div>
 

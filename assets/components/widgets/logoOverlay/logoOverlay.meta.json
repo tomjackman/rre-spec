@@ -2,9 +2,9 @@
 	"version": "1.0.0",
 	"elementName": "LogoOverlay",
 	"name": "Logo overlay",
-	"buttonText": "Logo overlay",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Practice", "Qualifying", "Race"],
 	"defaultActive": true,
-	"description": "Show a logo on screen."
+	"translationLabel": "logoOverlayLabel",
+	"translationDescription": "logoOverlayDescription"
 }

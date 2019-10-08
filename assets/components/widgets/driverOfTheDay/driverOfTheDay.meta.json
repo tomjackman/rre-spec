@@ -1,0 +1,10 @@
+{
+	"version": "1.0.0",
+	"elementName": "DriverOfTheDay",
+	"name": "Driver Of The Day",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Race"],
+	"defaultActive": false,
+	"translationLabel": "driverOfTheDayLabel",
+	"translationDescription": "driverOfTheDayDescription"
+}

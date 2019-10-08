@@ -2,9 +2,9 @@
 	"version": "1.0.0",
 	"elementName": "SafetyCarIn",
 	"name": "Safety Car In",
-	"buttonText": "Safety Car In This Lap",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Race"],
 	"defaultActive": false,
-	"description": "Displays a 'Safety Car in this lap' alert on screen to show that the safety car will be pitting in on the current lap."
+	"translationLabel": "safetyCarInLabel",
+	"translationDescription": "safetyCarInDescription"
 }

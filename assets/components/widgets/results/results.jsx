@@ -47,9 +47,9 @@ UI.widgets.Results = React.createClass({
 	},
 	getNameColumnTitle: function() {
 		if (window.settings.teamEvent) {
-			return "Team";
+			return UI.getStringTranslation("resultsWidget", "team");
 		} else {
-			return "Name";
+			return UI.getStringTranslation("resultsWidget", "name");
 		}
 	},
 	render: function() {
@@ -84,15 +84,15 @@ UI.widgets.Results = React.createClass({
 			<div className="overallQuai animated fadeIn">
 			<div className="qualify-results">
 				<div className="title">
-					<div className="text">Qualifying Results<div className="logo"></div></div>
+					<div className="text">{UI.getStringTranslation("resultsWidget", "qualifyingResults")}<div className="logo"></div></div>
 				</div>
 				<div className="qualify-results-entry title">
 					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-				  	<div className="classPosition">Class</div>
+				  	<div className="classPosition">{UI.getStringTranslation("resultsWidget", "classPosition")}</div>
 					:
 						null
 				  }
-					<div className="position">Overall</div>
+					<div className="position">{UI.getStringTranslation("resultsWidget", "overall")}</div>
 					<div className="manufacturer"/>
 					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
 						<div className="shortName">{self.getNameColumnTitle()}</div>
@@ -103,10 +103,10 @@ UI.widgets.Results = React.createClass({
 					{ window.settings.teamEvent ?
 						<div className="resultTeam"></div>
 						:
-						<div className="resultTeam">Team</div>
+						<div className="resultTeam">{UI.getStringTranslation("resultsWidget", "team")}</div>
 					}
-					<div className="fastest-time">Delta</div>
-					<div className="lap-time">Best Lap</div>
+					<div className="fastest-time">{UI.getStringTranslation("resultsWidget", "delta")}</div>
+					<div className="lap-time">{UI.getStringTranslation("resultsWidget", "bestLap")}</div>
 				</div>
 				<div className="entries-outer" ref="entries-outer">
 					<div className="entries-inner" ref="entries-inner">
@@ -177,7 +177,7 @@ var ResultEntry = React.createClass({
 			{ session.type === 'QUALIFYING' && session.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value ?
 			<div className={cx({'qualify-results-entry': true, 'striped': entry.scoreInfo.positionOverall % 2})}>
 			{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>Class P{entry.scoreInfo.positionClass}.</div>
+				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>{UI.getStringTranslation("resultsWidget", "class")} P{entry.scoreInfo.positionClass}.</div>
 			:
 				null
 			}

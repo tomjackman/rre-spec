@@ -1,10 +1,10 @@
 {
 	"version": "1.0.0",
 	"elementName": "Results",
-	"name": "Results",
-	"buttonText": "Show Results on End of Qualifying",
+	"name": "Show Results on End of Qualifying",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Qualifying"],
 	"defaultActive": true,
-	"description": "Allows the Qualifying results to be shown automatically on screen at the end of a session."
+	"translationLabel": "resultsLabel",
+	"translationDescription": "resultsDescription"
 }

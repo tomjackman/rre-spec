@@ -2,9 +2,9 @@
 	"version": "1.0.0",
 	"elementName": "SafetyCarDeployed",
 	"name": "Safety Car Deploy",
-	"buttonText": "Safety Car Deploy",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Race"],
 	"defaultActive": false,
-	"description": "Displays a blinking safety car message on screen below the timer."
+	"translationLabel": "safetyCarDeployedLabel",
+	"translationDescription": "safetyCarDeployedDescription"
 }

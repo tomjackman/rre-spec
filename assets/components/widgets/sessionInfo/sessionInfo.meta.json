@@ -1,10 +1,10 @@
 {
 	"version": "1.0.0",
 	"elementName": "SessionInfo",
-	"name": "Session countdown",
-	"buttonText": "Session countdown",
+	"name": "Session Information",
 	"keepOnSessionChange": false,
 	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
 	"defaultActive": true,
-	"description": "Shows the name of the current session or phase along with the timer and country flag."
+	"translationLabel": "sessionInfoLabel",
+	"translationDescription": "sessionInfoDescription"
 }

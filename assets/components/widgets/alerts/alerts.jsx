@@ -6,110 +6,112 @@ UI.widgets.Alert = React.createClass({
 		var self = this;
     var event = self.props.event;
 
-    var driveThroughPenalty = "Drive Through Penalty, ";
+    var spaceComma = ", ";
 
-    var stopAndGoPenalty = "Stop & Go Penalty, ";
+    var driveThroughPenalty = UI.getStringTranslation("alertsWidget", "driveThroughPenalty") + spaceComma;
 
-    var disqualification = "Disqualified, ";
+    var stopAndGoPenalty = UI.getStringTranslation("alertsWidget", "stopAndGoPenalty") + spaceComma;
+
+    var disqualification = UI.getStringTranslation("alertsWidget", "disqualified") + spaceComma;
 
     var penaltyMeanings = {
       // Drive Through
       '0': {
         '1': {
-          text: driveThroughPenalty + "Track Limits Abuse"
+          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "trackLimitsAbuse")
         },
         '2': {
-          text: driveThroughPenalty + "Speeding in the Pitlane"
+          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "speedingInThePitlane")
         },
         '3': {
-          text: driveThroughPenalty + "False Start"
+          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "falseStart")
         },
         '4': {
-          text: driveThroughPenalty + "Ignoring Blue Flags"
+          text: driveThroughPenalty +  UI.getStringTranslation("alertsWidget", "ignoringBlueFlags")
         },
         '5': {
-          text: driveThroughPenalty + "Driving Too Slow"
+          text: driveThroughPenalty +  UI.getStringTranslation("alertsWidget", "drivingTooSlow")
         },
         '6': {
-          text: driveThroughPenalty + "Illegally Passing Before Green"
+          text: driveThroughPenalty +  UI.getStringTranslation("alertsWidget", "illegallyPassingBeforeGreen")
         },
         '7': {
-          text: driveThroughPenalty + "Illegally Passing Before the Finish"
+          text: driveThroughPenalty +  UI.getStringTranslation("alertsWidget", "illegallyPassingBeforeFinish")
         },
         '8': {
-          text: driveThroughPenalty + "Illegally Passing Before the Pit Entrance"
+          text: driveThroughPenalty +  UI.getStringTranslation("alertsWidget", "illegallyPassingBeforePitEntrance")
         },
         '9': {
-          text: driveThroughPenalty + "Ignoring Slow Down Warnings"
+          text: driveThroughPenalty +  UI.getStringTranslation("alertsWidget", "ignoringSlowDownWarnings")
         },
         '10': {
-          text: driveThroughPenalty + "Accumulating the Maximum Number of Penalties Permitted"
+          text: driveThroughPenalty +  UI.getStringTranslation("alertsWidget", "accumulatingTheMaxNumberOfPenalties")
         }
       },
       // Stop and Go
       '1': {
         '2': {
-          text: stopAndGoPenalty + "Track Limits Abuse"
+          text: stopAndGoPenalty + UI.getStringTranslation("alertsWidget", "trackLimitsAbuse")
         },
         '3': {
-          text: stopAndGoPenalty + "Overtaking Under Yellows"
+          text: stopAndGoPenalty + UI.getStringTranslation("alertsWidget", "overtakingUnderYellow")
         }
       },
       // Pitstop
       '2': {
         '1': {
-          text: "Penalty for Mandatory Pit not taken within the Pitstop Window"
+          text: UI.getStringTranslation("alertsWidget", "missedMandatoryPit")
         }
       },
       // Time Penalty
       '3': {
         '1': {
-          text: "Time Penalty for Mandatory Pit taken Outside the Pitstop Window"
+          text: UI.getStringTranslation("alertsWidget", "mandatoryPitOutsideWindow")
         }
       },
       // Slowdown Penalty
       '4': {
         '1': {
-          text: "Slow Down Penalty, track limits abuse"
+          text: UI.getStringTranslation("alertsWidget", "slowDownTrackLimits")
         },
         '2': {
-          text: "Slow Down Penalty, continuing to abuse track limits"
+          text: UI.getStringTranslation("alertsWidget", "slowDownTrackLimitsContinuing")
         }
       },
       // Disqualified
       '5': {
         '0': {
-          text: disqualification + "false start"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "falseStart")
         },
         '1': {
-          text: disqualification + "speeding in the pitlane"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "speedingInThePitlane")
         },
         '2': {
-          text: disqualification + "driving the wrong way on track"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "drivingWrongWayTrack")
         },
         '3': {
-          text: disqualification + "entering the pits under red"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "enteringPitsRed")
         },
         '4': {
-          text: disqualification + "exiting the pits under red"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "exitingPitsRed")
         },
         '8': {
-          text: disqualification + "ignoring a drive through penalty"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringDriveThrough")
         },
         '9': {
-          text: disqualification + "ignoring a stop & go penalty"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringStopGoPenalty")
         },
         '10': {
-          text: disqualification + "ignoring a pitstop penalty"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringPitPenalty")
         },
         '11': {
-          text: disqualification + "ignoring a time penalty"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringTimePenalty")
         },
         '12': {
-          text: disqualification + "excessive cutting"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "excessiveCutting")
         },
         '13': {
-          text: disqualification + "ignoring blue flags"
+          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringBlueFlags")
         }
       }
     };
@@ -120,7 +122,7 @@ UI.widgets.Alert = React.createClass({
         <div>
           {UI.state.controllerOptions.options.showSlowDownAlerts.value === "true" || event.type != 4 ?
             <div key={event.driverName} className={"alert animated fadeInRight "+(event.removing ? 'removing' : '')}>
-              <div className="raceControlAlert">Stewards</div>
+              <div className="raceControlAlert">{UI.getStringTranslation("alertsWidget", "stewardsDecision")}</div>
               { window.settings.teamEvent ?
         			<div className="alertMessage">{event.driverName.substr(event.driverName.indexOf(" ") + 1)} - {penaltyMeanings[event.type][event.reason].text}</div>
                 :
