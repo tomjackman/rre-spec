@@ -1,5 +1,12 @@
-### Version 1.8.1
+### Version 1.9.0
+* [Feature] Added localisation support for languages in future.
 * [Feature] Added Cupra esport theme.
+* [Feature] Added Porsche Carrera Cup Scandinavia class colours.
+* [Feature] Added Dubai Autodrome information.
+* [Feature] Updated r3e data file.
+* [Feature] Improved multiclass colour indicator look.
+* [Feature] Added driver of the day widget.
+* [Feature] Small controller UI improvements.
 
 ### Version 1.8.0
 * [Feature] Improved the WTCR 2019 esports theme.
