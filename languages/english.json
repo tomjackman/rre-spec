@@ -2,6 +2,82 @@
   "general": {
 
   },
+  "widgetButtons": {
+    "alertLabel": "Steward Penalty Alerts",
+    "alertDescription": "Display penalty and disqualification alerts on screen during race sessions.",
+    "autoDirectorLabel": "Auto Director",
+    "autoDirectorDescription": "Allow the tool to automatically switch between drivers on the grid that are producing the most action.",
+    "code60Label": "Code 60",
+    "code60Description": "Displays a blinking Code 60 message on screen below the timer.",
+    "commentaryNamesLabel": "Commentators Names",
+    "commentaryNamesDescription": "Show the commentators names. The names text can be set in the control panel settings.",
+    "compareRaceLabel": "Compare next car",
+    "compareRaceDescription": "Compared the currently focus driver to the driver ahead of them in the same class.",
+    "directorSuggestionsLabel": "Director suggestions",
+    "directorSuggestionsDescription": "Show the auto director driver weightings in a sidebar within the broadcaster control panel. The higher the weighting, the higher the chance the auto director will focus on that driver.",
+    "driverOfTheDayLabel": "Driver of the Day",
+    "driverOfTheDayDescription": "Show a driver of the day. The name text can be set in the control panel settings.",
+    "eventInfoLabel": "Event Info",
+    "eventInfoDescription": "Show information about the track and conditions on screen.",
+    "focusedDriverLabel": "Driver info",
+    "focusedDriverDescription": "Show information on screen about the currently selected driver.",
+    "logoOverlayLabel": "Logo overlay",
+    "logoOverlayDescription": "Show a logo on screen.",
+    "multiclassStandingsLabel": "Standings",
+    "multiclassStandingsDescription": "Display a list of the standings on screen. The multiclass colours are chosen based on the dominant colour in the class icon from the store.",
+    "resultsLabel": "Show Results on End of Qualifying",
+    "resultsDescription": "Allows the Qualifying results to be shown automatically on screen at the end of a session.",
+    "safetyCarDeployedLabel": "Safety Car Deploy",
+    "safetyCarDeployedDescription": "Displays a blinking safety car message on screen below the timer.",
+    "safetyCarInLabel": "Safety Car In This Lap",
+    "safetyCarInDescription": "Displays a 'Safety Car in this lap' alert on screen to show that the safety car will be pitting in on the current lap.",
+    "sessionInfoLabel": "Session Information",
+    "sessionInfoDescription": "Shows the name of the current session or phase along with the timer and country flag.",
+    "trackMapLabel": "Track map",
+    "trackMapDescription": "Overlays a track map on screen showing the drivers and class positions."
+  },
+  "configFile": {
+    "useNewBroadcastUI": "Use New Broadcaster UI",
+    "useNewBroadcastUIDescription": "Enable a beta version of the broadcaster controller UI (Default: false).",
+    "multiclass": "Show Multiclass UI",
+    "multiclassDescription": "Enable Multiclass UI elements (Default: False).",
+    "showStandingsManufacturer": "Show Standings Manufacturer",
+    "showStandingsManufacturerDescription": "Show the manufacturer logo in the standings tower. A use case to disable this would be in single car cup classes like NSU or Porsche GT3 Cup (Default: true).",
+    "showStandingsFlag": "Show Driver Country Flags",
+    "showStandingsFlagDescription": "Show the driver country flag in the standings tower and results tables, replacing the manufacturer logo. (Default: true).",
+    "showTyreCompound": "Show Tyre Compound",
+    "showTyreCompoundDescription": "Show the tyre compound in the driver info widget for applicable classes. (Default: True)",
+    "indentFocusedDriver": "Indent Focused Driver",
+    "indentFocusedDriverDescription": "Indent the focused driver in the standings widget (Default: False).",
+    "showPortalTeam": "Show Portal Team Names",
+    "showPortalTeamDescription": "Show a drivers portal team name if they have added one (Default: False).",
+    "showPortalAvatar": "Show Driver Avatar",
+    "showPortalAvatarDescription": "Show a drivers portal avatar in place of the country flag (Default: False).",
+    "showFullStandingsName": "Show Full Surnames in Standings",
+    "showFullStandingsNameDescription": "Show the full middle and last names of drivers in the standings tower (Default: False).",
+    "showRelativeStandingsTiming": "Show Relative Standings Timings",
+    "showRelativeStandingsTimingDescription": "Show relative timings on the standings tower to the driver in front rather than the leader during race sessions (Default: False).",
+    "autoDirectorOnlyMode": "Auto Director Only Mode",
+    "autoDirectorOnlyModeDescription": "When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time (Default: False).",
+    "showLiveryPreview": "Show Livery Preview",
+    "showLiveryPreviewDescription": "Show the livery of the car on the driver info and compare driver widgets (Default: True).",
+    "showComparisonSpeed": "Show Comparison Speed",
+    "showComparisonSpeedDescription": "Show the comparison speed (in KM/H) between 2 drivers in the compare info widget (Default: False).",
+    "showSlowDownAlerts": "Show Slow Down Alerts",
+    "showSlowDownAlertsDescription": "Show slow down alerts from the stewards (Default: False).",
+    "showServerNameInTimer": "Show Server Name in Timer",
+    "showServerNameInTimerDescription": "Shows the name of the server in the session info timer widget (Default: False).",
+    "commentaryNames": "Show Commentary Name(s)",
+    "commentaryNamesDescription": "Show commentary names (Default: 'Blank').",
+    "driverOfTheDay": "Show Driver of the Day",
+    "driverOfTheDayDescription": "Show Driver of the Day (Default False).",
+    "alertLength": "Steward Message Display Time (Seconds)",
+    "alertLengthDescription": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
+    "qualifyingResultsDisplayTime": "Qualifying Results Display Time (Seconds)",
+    "qualifyingResultsDisplayTimeDescription": "The amount of seconds before the end of qualifying to display the results on screen (Default: 25 Seconds)",
+    "continueToNextSessionTime": "Continue to Next Session Time (Seconds)",
+    "continueToNextSessionTimeDescription": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for. A value lower than 30 seconds is not recommended! (Default: 45 Seconds)."
+  },
   "controller": {
     "position": "Position",
     "lap": "Lap",
@@ -23,31 +99,100 @@
     "lastLap": "Last Lap",
     "mandatoryPitTaken": "Mandatory Pit Taken",
     "mandatoryPitNotTaken": "Mandatory Pit Not Taken",
-    "mandatoryPitNotRequired": "Mandatory Pit Not Required"
+    "mandatoryPitNotRequired": "Mandatory Pit Not Required",
+    "tyreWearStatus": "Tyre Wear Status",
+    "pitCountStatus": "Pit Stop Count and Status",
+    "currentSpeed": "Current Speed (KM/H)",
+    "portalId": "Portal ID",
+    "ptpRemaining": "Push to Pass Remaining",
+    "drsRemaining": "DRS Remaining",
+    "noneSet": "None Set",
+    "invalid": "Invalid",
+    "notAvailable": "N/A",
+    "overall": "Overall",
+    "class": "Class",
+    "engineDamage": "Engine Damage",
+    "transmissionDamage": "Transmission Damage",
+    "fronteAeroDamage": "Front Aero Damage",
+    "rearAeroDamage": "Rear Aero Damage",
+    "tvTracksideCamera": "TV Trackside Camera",
+    "dashCamera": "Dash Camera",
+    "cockpitCamera": "Cockpit Camera",
+    "frontCamera": "Front Camera",
+    "rearCamera": "Rear Camera",
+    "wingCamera": "Wing Camera",
+    "blackFlag": "Black Flag",
+    "blueFlag": "Blue Flag",
+    "yellowFlag": "Yellow Flag",
+    "country": "Country",
+    "lap": "Lap",
+    "laps": "Laps"
+
   },
   "alertsWidget": {
-
+    "driveThroughPenalty": "Drive Through Penalty",
+    "stopAndGoPenalty": "Stop & Go Penalty",
+    "disqualified": "Disqualified",
+    "trackLimitsAbuse": "Track Limits Abuse",
+    "speedingInThePitlane": "Speeding in the Pitlane",
+    "falseStart": "False Start",
+    "ignoringBlueFlags": "Ignoring Blue Flags",
+    "drivingTooSlow": "Driving Too Slow",
+    "illegallyPassingBeforeGreen": "Illegally Passing Before Green",
+    "illegallyPassingBeforeFinish": "Illegally Passing Before the Finish",
+    "illegallyPassingBeforePitEntrance": "Illegally Passing Before the Pit Entrance",
+    "ignoringSlowDownWarnings": "Ignoring Slow Down Warnings",
+    "accumulatingTheMaxNumberOfPenalties": "Accumulating the Maximum Number of Penalties Permitted",
+    "overtakingUnderYellow": "Overtaking Under Yellows",
+    "excessiveCutting": "Excessive Cutting",
+    "drivingWrongWayTrack": "Driving the wrong way on track",
+    "missedMandatoryPit": "Penalty awarded for not taking Mandatory Pit within the Pitstop Window",
+    "mandatoryPitOutsideWindow": "Time Penalty for Mandatory Pit taken Outside the Pitstop Window",
+    "slowDownTrackLimits": "Slow Down Penalty, track limits abuse",
+    "slowDownTrackLimitsContinuing": "Slow Down Penalty, continuing to abuse track limits",
+    "enteringPitsRed": "entering the pits under red",
+    "exitingPitsRed": "exiting the pits under red",
+    "ignoringDriveThrough": "ignoring a drive through penalty",
+    "ignoringStopGoPenalty": "ignoring a pitstop penalty",
+    "ignoringPitPenalty": "ignoring a pitstop penalty",
+    "ignoringTimePenalty": "ignoring a time penalty",
+    "stewardsDecision": "Stewards Decision"
   },
   "autoDirectorWidget": {
 
   },
   "code60Widget": {
-
+    "code60": "Code 60"
   },
   "commentaryNamesWidget": {
-
+    "commentary": "Commentary"
   },
   "compareRaceWidget": {
+    "battleFor": "Battle For",
+    "privateer": "Privateer",
+    "kmh": "KM/H",
+    "ptp": "PTP",
+    "drs": "DRS"
 
   },
   "directorSuggestionsWidget": {
 
   },
+  "driverOfTheDayWidget": {
+    "driverOfTheDay": "Driver of the Day"
+  },
   "eventInfoWidget": {
-
+    "air": "Air",
+    "track": "Track"
   },
   "focusedDriverWidget": {
-
+    "sector1": "Sector 1",
+    "sector2": "Sector 2",
+    "sector3": "Sector 3",
+    "privateer": "Privateer",
+    "ptp": "PTP",
+    "drs": "DRS",
+    "remaining": "Remaining"
   },
   "logoOverlayWidget": {
 
@@ -56,20 +201,55 @@
 
   },
   "raceResultsWidget": {
-
+    "name": "Name",
+    "team": "Team",
+    "raceWinner": "Race Winner",
+    "fastestLap": "Fastest Lap",
+    "classPosition": "Class Position",
+    "overall": "Overall",
+    "penalties": "Penalties",
+    "finishTime": "Finish Time",
+    "bestLap": "Best Lap",
+    "privateer": "Privateer",
+    "race": "Race",
+    "dnf": "DNF",
+    "dns": "DNS",
+    "dq": "DQ",
+    "laps": "Laps",
+    "class": "Class"
   },
   "resultsWidget": {
-
+    "name": "Name",
+    "team": "Team",
+    "qualifyingResults": "Qualifying Results",
+    "classPosition": "Class Position",
+    "overall": "Overall",
+    "delta": "Delta",
+    "bestLap": "Best Lap",
+    "class": "Class"
   },
   "safetyCarDeployedWidget": {
-
+    "safetyCar": "Safety Car"
   },
   "safetyCarInWidget": {
     "raceControl": "Race Control",
     "safetyCarInThisLap": "Safety Car In This Lap"
   },
   "sessionInfoWidget": {
-
+    "qualifying": "Qualifying",
+    "practice": "Practice",
+    "race1": "Race",
+    "race2": "Race 2",
+    "race3": "Race 3",
+    "garage": "Garage",
+    "warmup": "Warmup",
+    "green": "Green",
+    "checkered": "Checkered",
+    "countdown": "Countdown",
+    "formation": "Formation",
+    "gridwalk": "Gridwalk",
+    "garage": "Garage",
+    "unavailable": "Unavailable"
   },
   "trackMapWidget": {
 
