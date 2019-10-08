@@ -252,6 +252,11 @@ var r3eTracks = {
       trackLogoUrl: "http://game.raceroom.com/assets/content/track/sepang-6340-logo-original.png",
       description: "This 5.54 km circuit located near Kuala Lumpur in Malaysia was opened in 1999, and since then has been host to many racing series such as the F1 & Moto GP as well as the Super GT, Asian Le Mans Series, Blancpain GT Series Asia and TCR International. RaceRoom has once again partnered directly with Tilke GmbH to bring you the best possibly level of accuracy of the layout and its surroundings. The track consists of long straights followed by tight and slow corners providing good overtaking opportunities as well as incredibly fast corner combinations and some very technical turns that will challenge your driving techniques."
     },
+    '6586': {
+      Name: 'Dubai Autodrome',
+      countryCode: "ae",
+      trackLogoUrl: "http://game.raceroom.com/assets/content/track/dubai-autodrome-6586-logo-original.png"
+    },
     '6657': {
       Name: 'Twin Ring Motegi',
       countryCode: "jp",
@@ -263,6 +268,11 @@ var r3eTracks = {
       countryCode: "cz",
       trackLogoUrl: "http://game.raceroom.com/assets/content/track/most-autodrom-7111-logo-original.png",
       description: "This 4.2 km long circuit located in the northwest of the Czech Republic was built in 1983 and has since then regularly hosted many motorcycle, truck and car racing events. In 2018 it became part of the ADAC GT Masters calendar, proving to be an excellent motorsport venue and a real challenge for the drivers, with its high speed sections nicely embedded in the environment and a distinct lack of artificial run-off areas."
+    },
+    '7818': {
+      Name: 'Bilster Berg',
+      countryCode: "de",
+      trackLogoUrl: "http://game.raceroom.com/assets/content/track/bilster-berg-7818-logo-original.png"
     }
   }
 };
