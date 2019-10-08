@@ -48,7 +48,7 @@ module.exports = function(assetsDir) {
 			res.send(output + '; UI.updateApplication();');
 		});
 	});
-
+	
 	// Decide where to fetch the render from
 	app.get('/render/:id/:size', function(req, res) {
 		if (settings.offline !== true) {

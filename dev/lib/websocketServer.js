@@ -121,7 +121,7 @@ module.exports = function(io) {
 		});
 
 		// set default theme on start: raceroom-red.less
-		var defaultTheme = 'raceroom-red';
+		var defaultTheme = 'raceroom-base';
 		var themeLessFile = themesDir + '/z.less';
 		var activeThemeLessFile = themesDir + '/' + defaultTheme + '.less';
 		replaceContents(themeLessFile, activeThemeLessFile, err => {
@@ -145,9 +145,9 @@ module.exports = function(io) {
 				try {
 					 JSON.parse(JSON.stringify(languageConfig));
 					 globalState.languages[languageName] = languageConfig;
-					 console.log(('<*> Successfully Loaded Language File - ' + languageName).yellow);
+					 console.log(('> Successfully Loaded Language File - ' + languageName).green);
 				} catch (e) {
-					console.log(('Failed to Parse Language JSON File: ' + languageName + ".json - " + e).red);
+					console.log(('Failed to Parse Language JSON File: ' + languageName + ".json - " + e).yellow);
 				}
 			}
 		});
