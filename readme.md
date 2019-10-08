@@ -15,8 +15,6 @@ As used by:
 * R3E Special Event Series
 * ... any many more events.
 
-
-
 ### Changelog
 * [Version Changelogs](changelog.md)
 
