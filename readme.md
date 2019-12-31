@@ -4,12 +4,13 @@
 
 As used by:
 
-* [German ADAC GT Masters](https://www.adac-gt-masters.de/uk)
-* [FIA World Touring Car Cup (WTCR)](https://www.fiawtcr.com/esports-wtcr/)
-* [AVIA Racing](https://www.avia-racing.de/nc/startseite.html)
-* [VirtualRacing.org](https://www.virtualracing.org/home/)
 * [Volkswagen I.D R Nurburgring Launch Event](https://www.gtplanet.net/volkswagen-partners-with-raceroom-for-id-r-nurburgring-competition/)
+* [FIA World Touring Car Cup (WTCR)](https://www.fiawtcr.com/esports-wtcr/)
+* [Porsche Esports Carrera Cup Scandinavia](https://www.carreracup.se/esports/)
+* [Lada E-Championship Russia](https://www.lada.ru/press-releases/116243.html)
+* [ADAC GT Masters Germany](https://www.adac-gt-masters.de/uk)
 * [Tuning World Bodensee](https://www.raceroom.com/en/raceroom-esports-event-at-the-tuning-world-bodensee-2019/)
+* [AVIA Racing](https://www.avia-racing.de/nc/startseite.html)
 * [Super Racer](http://www.super-racer.me/)
 * [AvD Masters 2019](https://www.avd.de/)
 * R3E Special Event Series
