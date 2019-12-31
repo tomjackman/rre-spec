@@ -61,6 +61,8 @@
     "autoDirectorOnlyModeDescription": "Lorsqu'il est activé, le directeur auto va uniquement diriger une course et ne va pas activer les widgets. Utile pour changer entre mode manuel et auto sans avoir à activer/désactiver à chaque fois des widgets spécifiques (Par défaut : Faux).",
     "showLiveryPreview": "Afficher l'aperçu de la livrée",
     "showLiveryPreviewDescription": "Affiche la livrée de la voiture sur les widgets infos pilote et comparer pilotes (Par défaut : Vrai).",
+    "showVehicleInfo": "Afficher Infos Véhicule",
+    "showVehicleInfoDescription": "Afficher la vitesse, le régime et rapport de boîte du véhicule (Par défaut : Faux).",
     "showComparisonSpeed": "Afficher la vitesse de comparaison",
     "showComparisonSpeedDescription": "Affiche la vitesse de comparaison (en km/h) entre 2 pilotes dans le widget comparer infos (Par défaut : Faux).",
     "showSlowDownAlerts": "Afficher les alertes ralentissements",

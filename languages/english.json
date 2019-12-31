@@ -61,6 +61,8 @@
     "autoDirectorOnlyModeDescription": "When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time (Default: False).",
     "showLiveryPreview": "Show Livery Preview",
     "showLiveryPreviewDescription": "Show the livery of the car on the driver info and compare driver widgets (Default: True).",
+    "showVehicleInfo": "Show Vehicle Info",
+    "showVehicleInfoDescription": "Show the speed, rpm and gear of the vehicle (Default: False).",
     "showComparisonSpeed": "Show Comparison Speed",
     "showComparisonSpeedDescription": "Show the comparison speed (in KM/H) between 2 drivers in the compare info widget (Default: False).",
     "showSlowDownAlerts": "Show Slow Down Alerts",
