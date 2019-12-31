@@ -1,3 +1,10 @@
+### Version 1.9.1
+* [Feature] Updated r3e data file to include all new cars, tracks and class colours.
+* [Feature] Minor animation and ui improvements.
+* [Feature] Updated logic to allow both drivers country flag and car manufacturer logo to show in the tower at the same time.
+* [Feature] Updated adac gt masters esport theme.
+* [Feature] Add a "Show Vehicle Info" option to allow a vehicles speed, gear and rpm be shown on screen. Turned off by default.
+
 ### Version 1.9.0
 * [Feature] Added localisation support for languages in future.
 * [Feature] Added Cupra esport theme.
