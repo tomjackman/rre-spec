@@ -61,7 +61,21 @@
 				transform: skew(+15deg, 0deg);
 			}
 		}
-		.manufacturer {
+		.flagContainer {
+			background: @StandingsDriverNameClassColour;
+			display: inline-block;
+			width: 2em;
+			height: 2em;
+			z-index: 1;
+			.standingsFlag {
+				height: 100%;
+				padding: 0.15em;
+				img {
+					height: 100%;
+				}
+			}
+		}
+		.manufacturerContainer {
 			background: @StandingsManufacturerBackground;
 			display: inline-block;
 			width: 2em;
@@ -73,13 +87,6 @@
 				height: 100%;
 				img {
 					transform: skew(+15deg, 0deg);
-					height: 100%;
-				}
-			}
-			.standingsFlag {
-				height: 100%;
-				padding: 0em;
-				img {
 					height: 100%;
 				}
 			}
@@ -112,8 +119,7 @@
 			height: 1.2em;
 			text-align: center;
 			line-height: 1em;
-			padding: 0 0.5em 0 0.5em;
-			min-width: 6em;
+			min-width: 5em;
 			z-index: -1;
 			.onCreation(-webkit-transform, translate(-100%, 0), translate(0, 0), 0.1s);
 		}

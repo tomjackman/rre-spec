@@ -65,24 +65,25 @@ UI.getClassColour = function(classId) {
 	}
 };
 
-UI.getCurrentLanguage = function() {
-	let locationSearch = window.location.search;
-	let params = new URLSearchParams(locationSearch);
-	let languageParam = params.get('language');
-
-	// allow a url path language to override the settings file.
-	if (languageParam != null) {
-		UI.state.language = languageParam;
-		return languageParam;
-	} else {
-		UI.state.language = window.settings.language;
-		return window.settings.language;
-	}
-}
+// UI.getCurrentLanguage = function() {
+// 	let locationSearch = window.location.search;
+// 	let params = new URLSearchParams(locationSearch);
+// 	let languageParam = params.get('language');
+//
+// 	// allow a url path language to override the settings file.
+// 	if (languageParam != null) {
+// 		UI.state.language = languageParam;
+// 		return languageParam;
+// 	} else {
+// 		UI.state.language = window.settings.language;
+// 		return window.settings.language;
+// 	}
+// }
 
 // get the translation for a given category and key
 UI.getStringTranslation = function(category, key) {
-	var language = UI.getCurrentLanguage();
+	UI.state.language = window.settings.language;
+	var language = UI.state.language;
 	var languages = UI.state.languages;
 
 	if (languages != null &&

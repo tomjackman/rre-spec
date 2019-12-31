@@ -269,6 +269,11 @@ var r3eTracks = {
       trackLogoUrl: "http://game.raceroom.com/assets/content/track/most-autodrom-7111-logo-original.png",
       description: "This 4.2 km long circuit located in the northwest of the Czech Republic was built in 1983 and has since then regularly hosted many motorcycle, truck and car racing events. In 2018 it became part of the ADAC GT Masters calendar, proving to be an excellent motorsport venue and a real challenge for the drivers, with its high speed sections nicely embedded in the environment and a distinct lack of artificial run-off areas."
     },
+    '7272': {
+      Name: 'Ningbo International Speedpark',
+      countryCode: "cn",
+      trackLogoUrl: "http://game.raceroom.com/assets/content/track/ningbo-circuit-7272-logo-original.png"
+    },
     '7818': {
       Name: 'Bilster Berg',
       countryCode: "de",

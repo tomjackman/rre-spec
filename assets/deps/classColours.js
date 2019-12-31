@@ -304,6 +304,11 @@ var r3eClassColours = {
       Name: "Porsche Carrera Cup Scandinavia",
       colour: "rgba(60, 65, 71, 0.8)",
       Id: 8165
+    },
+    8248: {
+      Name: "Porsche 911 GT2 RS Clubsport",
+      colour: "rgba(56, 153, 208, 0.8)",
+      Id: 8248
     }
   }
 };

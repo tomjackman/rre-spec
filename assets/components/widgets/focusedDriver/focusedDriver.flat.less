@@ -33,7 +33,7 @@
 	.extra-info {
 		height: 1em;
 		position: relative;
-		top: 0.5em;
+		top: -0.5em;
 		z-index: -1;
 		margin-top: 0em;
 		font-family: Oswald;
@@ -50,10 +50,9 @@
 				color: white;
 				position: relative;
 				min-width: 8em;
-				-webkit-transition: top 0.5s;
-				font-size: @fontSize * 0.9;
+				font-size: @fontSize * 1;
 				&.active {
-					top: 0;
+					top: 6em;
 				}
 				&.finished {
 					color: rgba(255, 255, 255, 1);
@@ -234,6 +233,55 @@
 }
 /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 .assists {
+  .params {
+  position: relative;
+  height: 4em;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+  .gear {
+    font-size: @fontSize * 4;
+    line-height: 0.95em;
+  }
+  .rpm {
+    font-size: @fontSize * 1.5;
+    line-height: 1.2em;
+    text-align: right;
+    padding-right: 0.2em;
+  }
+  .speed {
+    font-size: @fontSize * 1.5;
+    line-height: 1.2em;
+    text-align: right;
+    padding-right: 0.2em;
+  }
+  .gearContainer {
+  	background: linear-gradient(135deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0.9) 90%);;
+    color: #212121;
+  	position: absolute;
+  	bottom: @fontSize*8.9;
+  	right: 12em;
+  	height: 4em;
+    width: 3em;
+  	transform: skew(-10deg);
+  }
+  .rpmContainer {
+    background: linear-gradient(135deg, rgba(226, 29, 56, 0.8) 20%, rgba(226, 29, 56, 0.3) 80%);
+    position: absolute;
+    bottom: @fontSize*11;
+    right: 4.3em;
+    height: 1.9em;
+    width: 7em;
+    transform: skew(-10deg);
+  }
+  .speedContainer {
+    background: linear-gradient(135deg, rgba(0, 200, 83, 0.8) 20%, rgba(0, 200, 83, 0.3) 80%);
+    position: absolute;
+    bottom: @fontSize*8.9;
+    right: 4.7em;
+    height: 1.9em;
+    width: 7em;
+    transform: skew(-10deg);
+  }
+}
 .drs {
 position: relative;
 height: 5em;
@@ -338,7 +386,7 @@ height: 5em;
 .focused-driver-info {
 	.driverInfoFocusedDriverFlat;
 	position: fixed;
-	bottom: @fontSize*9;
+	bottom: @fontSize*8;
 	left: 0;
 	right: 0;
 }

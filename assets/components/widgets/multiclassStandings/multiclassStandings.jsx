@@ -212,22 +212,30 @@ UI.widgets.MulticlassStandings = React.createClass({
 								<div className="inner">
 								{self.getClassIndicator(driversLookup[i].classId)}
 									<div className="positionContainer"><div className="position">{driversLookup[i].scoreInfo.positionOverall}</div></div>
+
+									{UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ?
+									<div className="manufacturerContainer">
+										<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="manufacturerFlag">
+											<img src={'/render/'+driversLookup[i].manufacturerId+'/small/?type=manufacturer'}/>
+										</div>
+										</div>
+										:
+										null
+									}
+
 									{self.renderName(driversLookup[i].name)}
-									{UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" || UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
-										<div className="manufacturer">
-											{window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
+
+										{window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
+											<div className="flagContainer">
 												<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="standingsFlag">
 													<img src={'/img/flags/'+UI.getUserInfo(driversLookup[i].portalId).country+'.png'} />
 												</div>
-												:
-												<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="manufacturerFlag">
-													<img src={'/render/'+driversLookup[i].manufacturerId+'/small/?type=manufacturer'}/>
-												</div>
-											}
-										</div>
-									:
-										null
-									}
+											</div>
+											:
+											null
+										}
+
+
 									{self.getMetaInfo(driversLookup[i], drivers)}
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?

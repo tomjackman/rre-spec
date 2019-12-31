@@ -174,7 +174,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			, 'active': sector.time > 0
 			, 'personal-best': sector.time <= personalBest
 			, 'global-best': sector.time <= globalBest
-			, 'animated fadeInRight': true
+			, 'animated fadeInUp delay-2s': true
 		});
 		if (sector.time === -1) {
 			return null;
@@ -286,7 +286,7 @@ UI.widgets.FocusedDriver = React.createClass({
 
 		return (
 			<div className={focusedDriverClasses} key={self.state.driverInfo.portalId}>
-				<div className="inner animated fadeInUp delay-1s">
+				<div className="inner animated fadeIn delay-1s">
 					<div className="top">
 						{self.state.pushToPassInfo.allowed && UI.state.sessionInfo.type.match(/^race/i) ?
 							<div className="ptpRemaining">{UI.getStringTranslation("focusedDriverWidget", "ptp")}: {self.state.pushToPassInfo.amountLeft}</div>
@@ -335,10 +335,6 @@ UI.widgets.FocusedDriver = React.createClass({
 						}
 					</div>
 
-					<div className="bottom">
-						{self.getExtraInfo()}
-					</div>
-
 					<div className="assists">
 						{self.state.pushToPassInfo.allowed ?
 							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active})}>
@@ -357,8 +353,23 @@ UI.widgets.FocusedDriver = React.createClass({
 							<div className={cx({'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("focusedDriverWidget", "drs")}</div>
 							<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("focusedDriverWidget", "remaining")} - {self.state.vehicleInfo.drsLeft}</div>
 						</div>
+
+						{UI.state.controllerOptions.options.showVehicleInfo.value === "true" ?
+							<div className={cx({'params': self.state.vehicleInfo.speed > 0})}>
+								<div className={cx({'gearContainer': true})}><div className="gear">{self.state.vehicleInfo.gear}</div></div>
+								<div className={cx({'rpmContainer': true})}><div className="rpm">{self.state.vehicleInfo.rpm} RPM</div></div>
+								<div className={cx({'speedContainer': true})}><div className="speed">{self.state.vehicleInfo.speed} KM/H</div></div>
+							</div>
+							:
+							null
+						}
 					</div>
 				</div>
+
+				<div className="bottom">
+					{self.getExtraInfo()}
+				</div>
+
 			</div>
 		);
 	}
