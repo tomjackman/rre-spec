@@ -96,6 +96,14 @@
       "translationDisplayName": "showLiveryPreview",
       "translationDescription": "showLiveryPreviewDescription"
     },
+    "showVehicleInfo": {
+      "displayName": "Show Vehicle Info",
+      "value": "false",
+      "tooltip": "Show the speed, rpm and gear of the vehicle (Default: False).",
+      "type": "checkbox",
+      "translationDisplayName": "showVehicleInfo",
+      "translationDescription": "showVehicleInfoDescription"
+    },
     "showComparisonSpeed": {
       "displayName": "Show Comparison Speed",
       "value": "false",
