@@ -278,6 +278,16 @@ var r3eTracks = {
       Name: 'Bilster Berg',
       countryCode: "de",
       trackLogoUrl: "http://game.raceroom.com/assets/content/track/bilster-berg-7818-logo-original.png"
+    },
+    '8074': {
+      Name: 'Zhejiang Circuit',
+      countryCode: "cn",
+      trackLogoUrl: "http://game.raceroom.com/assets/content/track/zhejiang-circuit-8074-logo-original.png"
+    },
+    '8367': {
+      Name: 'Daytona Road Course',
+      countryCode: "us",
+      trackLogoUrl: "http://game.raceroom.com/assets/content/track/daytona-road-course-8367-logo-original.png"
     }
   }
 };

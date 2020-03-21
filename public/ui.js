@@ -990,7 +990,7 @@ UI.widgets.CompareRace = React.createClass({
 				{ className: 'inner' },
 				drivers[0].scoreInfo.timeDiff !== -1 ? React.createElement(
 					'div',
-					{ className: 'delta animated fadeIn' },
+					{ className: 'delta' },
 					React.createElement(
 						'div',
 						{ className: 'battle' },
@@ -1017,7 +1017,8 @@ UI.widgets.CompareRaceDriver = React.createClass({
 	fixName: function (str) {
 		str = UI.fixName(str);
 		var parts = str.split(' ');
-		return parts[0][0] + '. ' + parts[parts.length - 1].toUpperCase();
+		parts[parts.length - 1] = parts[parts.length - 1].toUpperCase();
+		return parts.join(' ');
 	},
 	getTeamName: function (teamId, portalId) {
 		var self = this;
@@ -1044,8 +1045,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		var driver = self.props.driver;
 
 		var classes = {
-			'inner': true,
-			'animated fadeIn': true
+			'inner': true
 		};
 		classes[self.props.position] = true;
 
@@ -1083,7 +1083,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				React.createElement(
 					'div',
 					{ className: 'compare-flag-container' },
-					window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'compare-flag animated fadeIn', src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { className: 'compare-flag animated fadeIn', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.png' })
+					window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ? React.createElement('img', { className: 'compare-flag', src: UI.getUserInfo(driver.portalId).avatar }) : React.createElement('img', { className: 'compare-flag', src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.png' })
 				),
 				React.createElement(
 					'div',
@@ -1585,7 +1585,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		}
 		updateInfo();
 
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate * 2);
 	},
 	handleSectorTimes: function (data) {
 		var self = this;
@@ -1704,8 +1704,7 @@ UI.widgets.FocusedDriver = React.createClass({
 			'finished': sector.finished,
 			'active': sector.time > 0,
 			'personal-best': sector.time <= personalBest,
-			'global-best': sector.time <= globalBest,
-			'animated fadeInUp delay-2s': true
+			'global-best': sector.time <= globalBest
 		});
 		if (sector.time === -1) {
 			return null;
@@ -1919,7 +1918,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					{ className: 'assists' },
 					self.state.pushToPassInfo.allowed ? React.createElement(
 						'div',
-						{ className: cx({ 'ptp': true, 'active': self.state.pushToPassInfo.active }) },
+						{ className: cx({ 'ptp': true, 'active': self.state.pushToPassInfo.active && UI.state.sessionInfo.type.match(/^race/i) }) },
 						self.getPtpState(),
 						UI.state.sessionInfo.type === 'PRACTICE' ? React.createElement(
 							'div',
@@ -1936,7 +1935,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					) : null,
 					React.createElement(
 						'div',
-						{ className: cx({ 'drs': true, 'active': self.state.vehicleInfo.drsEnabled }) },
+						{ className: cx({ 'drs': true, 'active': self.state.vehicleInfo.drsEnabled && UI.state.sessionInfo.type.match(/^race/i) }) },
 						React.createElement(
 							'div',
 							{ className: cx({ 'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled }) },
@@ -2029,7 +2028,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		}
 		updateInfo();
 
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate * 20);
 		self.updateLooperInterval = setInterval(this.updateLooperBasedOnPlayerCount, 1000);
 	},
 	updateLooperBasedOnPlayerCount: function () {
@@ -5521,6 +5520,16 @@ var r3eTracks = {
       Name: 'Bilster Berg',
       countryCode: "de",
       trackLogoUrl: "http://game.raceroom.com/assets/content/track/bilster-berg-7818-logo-original.png"
+    },
+    '8074': {
+      Name: 'Zhejiang Circuit',
+      countryCode: "cn",
+      trackLogoUrl: "http://game.raceroom.com/assets/content/track/zhejiang-circuit-8074-logo-original.png"
+    },
+    '8367': {
+      Name: 'Daytona Road Course',
+      countryCode: "us",
+      trackLogoUrl: "http://game.raceroom.com/assets/content/track/daytona-road-course-8367-logo-original.png"
     }
   }
 };
@@ -5538,6 +5547,9 @@ var r3eTyreDB = {
     },
     5824: {
       name: "FR X-17 Cup"
+    },
+    7214: {
+      name: "FR 90 X Cup"
     }
   }
 };

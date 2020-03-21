@@ -1,3 +1,14 @@
+### Version 1.9.2
+* [Bug Fix] Show full names in compare race widget (fixes missing middle names).
+* [Feature] Add track info for Zhejiang Circuit.
+* [Feature] Added new tyre indicator to new classes with tyre choices.
+* [Bug Fix] Various theme colour corrections.
+* [Feature] Tweaked RRVGT theme color gradient angle.
+* [Bug Fix] Prevented DRS remaining value showing in practice sessions incorrectly.
+* [Performance] Lowered standings tower refresh rate.
+* [Performance] Removed some animations.
+* [Feature] Added TWB theme.
+
 ### Version 1.9.1
 * [Feature] Updated r3e data file to include all new cars, tracks and class colours.
 * [Feature] Minor animation and ui improvements.
