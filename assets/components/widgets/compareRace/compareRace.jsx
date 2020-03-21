@@ -96,7 +96,7 @@ UI.widgets.CompareRace = React.createClass({
 			<div className="compare-race">
 				<div className="inner">
 					{drivers[0].scoreInfo.timeDiff !== -1 ?
-						<div className="delta animated fadeIn">
+						<div className="delta">
 							<div className="battle">{UI.getStringTranslation("compareRaceWidget", "battleFor")} P{drivers[0].scoreInfo.positionOverall - 1}</div>
 							<div className="value">{self.formatTime(Math.max(0, drivers[0].scoreInfo.timeDiff))}</div>
 							<UI.widgets.CompareRaceDriver position="first" driver={drivers[1]}/>
@@ -115,7 +115,8 @@ UI.widgets.CompareRaceDriver = React.createClass({
 	fixName: function(str) {
 		str = UI.fixName(str);
 		var parts = str.split(' ');
-		return parts[0][0]+'. '+parts[parts.length-1].toUpperCase();
+		parts[parts.length-1] = parts[parts.length-1].toUpperCase();
+		return parts.join(' ');
 	},
 	getTeamName: function(teamId, portalId) {
 		var self = this;
@@ -143,8 +144,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 
 
 		var classes = {
-			'inner': true,
-			'animated fadeIn': true
+			'inner': true
 		};
 		classes[self.props.position] = true;
 
@@ -170,9 +170,9 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionOverall}</div></div>
 				<div className="compare-flag-container">
 				{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
-					<img className="compare-flag animated fadeIn" src={UI.getUserInfo(driver.portalId).avatar} />
+					<img className="compare-flag" src={UI.getUserInfo(driver.portalId).avatar} />
 				:
-					<img className="compare-flag animated fadeIn" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.png'} />
+					<img className="compare-flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.png'} />
 				}
 				</div>
 				<div className="compareName">

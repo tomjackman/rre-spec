@@ -58,7 +58,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		}
 		updateInfo();
 
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate*2);
 	},
 	handleSectorTimes: function(data) {
 		var self = this;
@@ -174,7 +174,6 @@ UI.widgets.FocusedDriver = React.createClass({
 			, 'active': sector.time > 0
 			, 'personal-best': sector.time <= personalBest
 			, 'global-best': sector.time <= globalBest
-			, 'animated fadeInUp delay-2s': true
 		});
 		if (sector.time === -1) {
 			return null;
@@ -337,7 +336,7 @@ UI.widgets.FocusedDriver = React.createClass({
 
 					<div className="assists">
 						{self.state.pushToPassInfo.allowed ?
-							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active})}>
+							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active && UI.state.sessionInfo.type.match(/^race/i)})}>
 								{self.getPtpState()}
 								{ UI.state.sessionInfo.type === 'PRACTICE' ?
 									<div className="text">{UI.getStringTranslation("focusedDriverWidget", "remaining")} - ∞</div>
@@ -349,7 +348,7 @@ UI.widgets.FocusedDriver = React.createClass({
 							null
 						}
 
-						<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled})}>
+						<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled && UI.state.sessionInfo.type.match(/^race/i)})}>
 							<div className={cx({'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("focusedDriverWidget", "drs")}</div>
 							<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("focusedDriverWidget", "remaining")} - {self.state.vehicleInfo.drsLeft}</div>
 						</div>

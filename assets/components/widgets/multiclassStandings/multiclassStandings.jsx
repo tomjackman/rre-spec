@@ -16,7 +16,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 		}
 		updateInfo();
 
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate);
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate*20);
 		self.updateLooperInterval = setInterval(this.updateLooperBasedOnPlayerCount, 1000);
 	},
 	updateLooperBasedOnPlayerCount: function() {
