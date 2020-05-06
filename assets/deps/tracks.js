@@ -284,10 +284,10 @@ var r3eTracks = {
       countryCode: "cn",
       trackLogoUrl: "http://game.raceroom.com/assets/content/track/zhejiang-circuit-8074-logo-original.png"
     },
-    '8367': {
+    '8366': {
       Name: 'Daytona Road Course',
       countryCode: "us",
-      trackLogoUrl: "http://game.raceroom.com/assets/content/track/daytona-road-course-8367-logo-original.png"
+      trackLogoUrl: "http://game.raceroom.com/assets/content/track/daytona-road-course-8366-logo-original.png"
     }
   }
 };

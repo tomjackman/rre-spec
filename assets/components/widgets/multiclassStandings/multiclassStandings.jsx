@@ -215,7 +215,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 									{UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ?
 									<div className="manufacturerContainer">
-										<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="manufacturerFlag">
+										<div className="manufacturerFlag">
 											<img src={'/render/'+driversLookup[i].manufacturerId+'/small/?type=manufacturer'}/>
 										</div>
 										</div>
@@ -227,7 +227,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 										{window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
 											<div className="flagContainer">
-												<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="standingsFlag">
+												<div className="standingsFlag animated fadeIn delay-2s" >
 													<img src={'/img/flags/'+UI.getUserInfo(driversLookup[i].portalId).country+'.png'} />
 												</div>
 											</div>

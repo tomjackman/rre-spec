@@ -14,6 +14,9 @@ var r3eTyreDB = {
     },
     7214: {
       name: "FR 90 X Cup"
+    },
+    8600: {
+      name: "GTE"
     }
   }
 };

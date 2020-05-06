@@ -309,6 +309,21 @@ var r3eClassColours = {
       Name: "Porsche 911 GT2 RS Clubsport",
       colour: "rgba(56, 153, 208, 0.8)",
       Id: 8248
+    },
+    8600: {
+      Name: "GTE",
+      colour: "rgba(44, 181, 82, 0.8)",
+      Id: 8600
+    },
+    8656: {
+      Name: "WTCR 2020",
+      colour: "rgba(66, 66, 66, 0.8)",
+      Id: 8656
+    },
+    8248: {
+      Name: "Touring Cars Cup",
+      colour: "rgba(66, 66, 66, 0.8)",
+      Id: 8248
     }
   }
 };
