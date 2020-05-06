@@ -1,3 +1,9 @@
+### Version 1.9.3
+* [Feature] Added support for new cars and tracks.
+* [Feature] Added Hungaroring esport theme.
+* [Feature] Theme updates.
+* [Feature] Tweaked animations.
+
 ### Version 1.9.2
 * [Bug Fix] Show full names in compare race widget (fixes missing middle names).
 * [Feature] Add track info for Zhejiang Circuit.
