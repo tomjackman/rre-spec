@@ -288,6 +288,11 @@ var r3eTracks = {
       Name: 'Daytona Road Course',
       countryCode: "us",
       trackLogoUrl: "http://game.raceroom.com/assets/content/track/daytona-road-course-8366-logo-original.png"
+    },
+    '8703': {
+      Name: 'Motorland Aragón',
+      countryCode: "es",
+      trackLogoUrl: "http://game.raceroom.com/r3e/assets/content/track/motorland-aragon-8703-logo-original.webp"
     }
   }
 };

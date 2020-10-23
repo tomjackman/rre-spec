@@ -295,10 +295,20 @@ var r3eClassColours = {
       colour: "rgba(56, 153, 208, 0.8)",
       Id: 7765
     },
+    7767: {
+      Name: "ADAC GT Masters 2020",
+      colour: "rgba(0, 154, 223, 0.8)",
+      Id: 7278
+    },
     7844: {
       Name: "WTCR 2019",
       colour: "rgba(66, 66, 66, 0.8)",
-      Id: 7844
+      Id: 7767
+    },
+    7982: {
+      Name: "Porsche Carrera Cup Deutschland 2019",
+      7982: "rgba(60, 65, 71, 0.8)",
+      Id: 8165
     },
     8165: {
       Name: "Porsche Carrera Cup Scandinavia",
@@ -306,7 +316,7 @@ var r3eClassColours = {
       Id: 8165
     },
     8248: {
-      Name: "Porsche 911 GT2 RS Clubsport",
+      Name: "GT2",
       colour: "rgba(56, 153, 208, 0.8)",
       Id: 8248
     },
@@ -316,7 +326,7 @@ var r3eClassColours = {
       Id: 8600
     },
     8656: {
-      Name: "WTCR 2020",
+      Name: "eSports WTCR",
       colour: "rgba(66, 66, 66, 0.8)",
       Id: 8656
     },
@@ -324,6 +334,31 @@ var r3eClassColours = {
       Name: "Touring Cars Cup",
       colour: "rgba(66, 66, 66, 0.8)",
       Id: 8248
+    },
+    8681: {
+      Name: "Porsche Carrera Cup Deutschland 2020",
+      colour: "rgba(60, 65, 71, 0.8)",
+      Id: 8681
+    },
+    8682: {
+      Name: "CUPRA Leon e-Racer",
+      colour: "rgba(44, 126, 121, 0.8)",
+      Id: 8682
+    },
+    9101: {
+      Name: "DTM 2020 Esport",
+      colour: "rgba(0, 42, 84, 0.8)",
+      Id: 9101
+    },
+    9205: {
+      Name: "DTM 2020",
+      colour: "rgba(0, 42, 84, 0.8)",
+      Id: 9205
+    },
+    9233: {
+      Name: "DTM 2020",
+      colour: "rgba(66, 66, 66, 0.8)",
+      Id: 9233
     }
   }
 };
