@@ -80,6 +80,14 @@
       "translationDisplayName": "showRelativeStandingsTiming",
       "translationDescription": "showRelativeStandingsTimingDescription"
     },
+    "showSponsorLogo": {
+      "displayName": "Show Sponsor Logo",
+      "value": "true",
+      "tooltip": "Show the sponsors logo above the standings tower (Default: False).",
+      "type": "checkbox",
+      "translationDisplayName": "showSponsorLogo",
+      "translationDescription": "showSponsorLogoDescription"
+    },
     "autoDirectorOnlyMode": {
       "displayName": "Auto Director Only Mode",
       "value": "false",
