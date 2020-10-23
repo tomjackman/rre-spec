@@ -57,6 +57,8 @@
     "showFullStandingsNameDescription": "CN",
     "showRelativeStandingsTiming": "CN",
     "showRelativeStandingsTimingDescription": "CN",
+    "showSponsorLogo": "CN",
+    "showSponsorLogoDescription" : "CN",
     "autoDirectorOnlyMode": "CN",
     "autoDirectorOnlyModeDescription": "CN",
     "showLiveryPreview": "CN",

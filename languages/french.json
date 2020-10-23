@@ -57,6 +57,8 @@
     "showFullStandingsNameDescription": "Affiche le nom complet du pilote dans la tour de classement (Par défaut : Faux).",
     "showRelativeStandingsTiming": "Afficher les classements relatifs",
     "showRelativeStandingsTimingDescription": "Affiche les temps relatifs au pilote de devant dans la tour de classement au lieu du temps par rapport au leader pendant la course (Par défaut : Faux).",
+    "showSponsorLogo": "Afficher logo du sponsor",
+    "showSponsorLogoDescription" : "Afficher le logo du sponsor au-dessus de la tour de classement (Par défaut : Faux)",
     "autoDirectorOnlyMode": "Mode directeur auto uniquement",
     "autoDirectorOnlyModeDescription": "Lorsqu'il est activé, le directeur auto va uniquement diriger une course et ne va pas activer les widgets. Utile pour changer entre mode manuel et auto sans avoir à activer/désactiver à chaque fois des widgets spécifiques (Par défaut : Faux).",
     "showLiveryPreview": "Afficher l'aperçu de la livrée",

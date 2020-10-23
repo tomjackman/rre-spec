@@ -57,6 +57,8 @@
     "showFullStandingsNameDescription": "Show the full middle and last names of drivers in the standings tower (Default: False).",
     "showRelativeStandingsTiming": "Show Relative Standings Timings",
     "showRelativeStandingsTimingDescription": "Show relative timings on the standings tower to the driver in front rather than the leader during race sessions (Default: False).",
+    "showSponsorLogo": "Show Sponsor Logo",
+    "showSponsorLogoDescription" : "Show the sponsors logo above the standings tower (Default: False).",
     "autoDirectorOnlyMode": "Auto Director Only Mode",
     "autoDirectorOnlyModeDescription": "When enabled, the auto director will only direct a race and won't turn on widgets by itself. Useful for jumping between manual & auto directing without having to turn on/off specific widgets each time (Default: False).",
     "showLiveryPreview": "Show Livery Preview",
