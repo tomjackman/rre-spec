@@ -48,11 +48,11 @@ module.exports = function(assetsDir) {
 			res.send(output + '; UI.updateApplication();');
 		});
 	});
-	
+
 	// Decide where to fetch the render from
 	app.get('/render/:id/:size', function(req, res) {
 		if (settings.offline !== true) {
-			request('http://game.raceroom.com/store/image_redirect?id='+req.params.id+'&size='+req.params.size).pipe(res);
+			res.redirect('http://game.raceroom.com/store/image_redirect?id='+req.params.id+'&size='+req.params.size);
 		} else {
 			var url = '';
 			switch (req.query.type) {
