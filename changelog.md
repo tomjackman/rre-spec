@@ -1,3 +1,17 @@
+### Version 1.9.4
+* [Feature] Added new sponsors logo element to standings tower (changeable in the theme file, sponsorLogo variable).
+* [Feature] Added new BMW logo.
+* [Feature] Updated r3e data file to include all new cars.
+* [Feature] TV Safe Zones.
+* [Feature] Driver info UI improvements.
+* [Feature] Standings tower UI improvements.
+* [Feature] Alerts UI improvements.
+* [Feature] Session info UI improvements.
+* [Feature] Compare driver info UI improvements.
+* [Sector3] Improved rendering speed of images.
+* [Feature] Update with new class colours.
+* [Feature] Update with new tracks.
+
 ### Version 1.9.3
 * [Feature] Added support for new cars and tracks.
 * [Feature] Added Hungaroring esport theme.
