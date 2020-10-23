@@ -40,7 +40,7 @@ To create your own theme, its recommended to create a copy of the `raceroom-red.
 Select the theme from the dropdown to view the results on screen.
 
 ### Changing Sponsors Tower Logo
-This can be changed per theme by changing the path to the file using the `sponsorLogo` variable in any theme file.
+This can be changed per theme by changing the path to the file using the `sponsorLogo` variable in any theme file. By default the logos are found in `public\img\sponsors`. The image dimensions should be 300x80px. You can use any image format like .PNG, .GIF, .JPG etc.
 
 ### License
 The [Unlicense](LICENSE).

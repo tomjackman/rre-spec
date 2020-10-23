@@ -136,17 +136,17 @@ a {
 }
 .session-info .inner .sessionName {
   min-width: 4em;
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(31, 31, 30, 0.9);
   text-transform: uppercase;
-  border-top: 0.2em solid #0c2e4d;
-  color: #dcff80;
+  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
+  color: white;
 }
 .session-info .inner .timer {
   min-width: 5em;
-  border-top: 0.2em solid #0c2e4d;
-  background: rgba(0, 42, 84, 0.6);
+  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
+  background: white;
   text-transform: uppercase;
-  color: white;
+  color: #323433;
   z-index: 2;
   border-bottom-right-radius: 10px;
 }
@@ -166,10 +166,10 @@ a {
 .session-info .inner .countdown {
   padding: 0em 0.3em;
   min-width: 4em;
-  border-top: 0.2em solid #0c2e4d;
-  background: rgba(0, 42, 84, 0.6);
+  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
+  background: white;
   text-transform: uppercase;
-  color: white;
+  color: #323433;
   line-height: 1.6em;
   z-index: -2;
 }
@@ -197,7 +197,7 @@ a {
   font-size: 16px;
 }
 .session-info .inner .checkered img {
-  border-top: 0.2em solid #0c2e4d;
+  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
   height: 2em;
   width: 4em;
   z-index: 2;
@@ -205,11 +205,11 @@ a {
 .session-info .inner .serverName {
   margin: 0;
   min-width: 4em;
-  border-top: 0.2em solid #0c2e4d;
-  border-left: 0.1em solid #0c2e4d;
-  background: rgba(0, 42, 84, 0.6);
+  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
+  border-left: 0.1em solid rgba(255, 255, 255, 0.9);
+  background: white;
   text-transform: uppercase;
-  color: white;
+  color: #323433;
   z-index: 2;
 }
 @font-face {
@@ -531,7 +531,7 @@ select {
   font-size: 22px;
   font-weight: bold;
   padding: 4px 6px;
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(31, 31, 30, 0.9);
 }
 @-webkit-keyframes "ani_4" {
   0% {
@@ -1228,15 +1228,15 @@ select {
 .alert .raceControlAlert {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-top: 3px solid #0c2e4d;
-  background: #002a54;
+  border-top: 3px solid rgba(255, 255, 255, 0.9);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   font-size: 17.6px;
   padding: 0.05em;
 }
 .alert .alertMessage {
   background: white;
-  color: #002a54;
+  color: #323433;
   padding: 0.15em;
   font-size: 17.6px;
   text-transform: capitalize;
@@ -1287,8 +1287,8 @@ select {
 }
 .commentaryNameAlert .commentaryTitle {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #0c2e4d;
-  background: #002a54;
+  border-top: 3px solid rgba(255, 255, 255, 0.9);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   font-size: 17.6px;
   padding: 0.05em;
@@ -1298,7 +1298,7 @@ select {
 .commentaryNameAlert .commentaryName {
   -webkit-transform: skew(-10deg, 0deg);
   background: white;
-  color: #002a54;
+  color: #323433;
   font-size: 17.6px;
   padding: 0.15em;
   text-transform: capitalize;
@@ -1323,14 +1323,14 @@ select {
 }
 .compare-race .delta .battle {
   text-transform: uppercase;
-  border-top: 0.25em solid #0c2e4d;
+  border-top: 0.25em solid rgba(255, 255, 255, 0.9);
   color: white;
   padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
   transform: skew(-10deg);
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(31, 31, 30, 0.9);
   left: 0.3em;
 }
 .compare-race .delta .value {
@@ -1342,7 +1342,7 @@ select {
   bottom: 0.25em;
   left: -0.05em;
   transform: skew(-10deg);
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(31, 31, 30, 0.9);
 }
 .compare-race .delta .inner {
   position: absolute !important;
@@ -1404,10 +1404,10 @@ select {
 }
 .compare-race .inner .top .best-time {
   transform: skew(-10deg);
-  background: white;
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.7) 90%);
   line-height: 0.5em;
   padding: 0.5em 0.5em;
-  color: #0c2e4d;
+  color: white;
   width: 5em;
   z-index: 0;
   height: 1.5em;
@@ -1423,13 +1423,13 @@ select {
   line-height: 3.75em;
 }
 .compare-race .inner .main .comparePositionContainer {
-  background: rgba(29, 21, 8, 0.8);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   width: 3.75em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
   line-height: 3.5em;
-  border-bottom: 0.1em solid rgba(0, 42, 84, 0.6);
+  border-bottom: 0.1em solid rgba(149, 87, 43, 0.9);
   border-top-left-radius: 10px;
   transform: skew(-10deg);
 }
@@ -1439,11 +1439,11 @@ select {
   font-size: 48px;
 }
 .compare-race .inner .main .compareName {
-  background: #0c2e4d;
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   padding: 0 1em;
   min-width: 12em;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid rgba(149, 87, 43, 0.9);
 }
 .compare-race .inner .main .compareName .name {
   font-size: 20.8px;
@@ -1468,7 +1468,7 @@ select {
   position: relative;
   left: -0.3em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid rgba(255, 255, 255, 0.9);
   border-bottom-right-radius: 10px;
 }
 .compare-race .inner .main .manufacturer img {
@@ -1489,8 +1489,8 @@ select {
   border-bottom-left-radius: 10px;
   transform: skew(-10deg);
   border-bottom-right-radius: 10px;
-  background: #0c2e4d;
-  color: rgba(135, 255, 145, 0.8);
+  background: rgba(31, 31, 30, 0.9);
+  color: white;
   height: 1.5em;
   text-transform: uppercase;
   top: 3.5em;
@@ -1506,7 +1506,7 @@ select {
 }
 .compare-race .inner .compareAssists .drs.active .icon {
   transform: skew(-10deg);
-  background: rgba(135, 255, 145, 0.8);
+  background: rgba(76, 175, 80, 0.7);
   position: relative;
   top: -6.5em;
   left: 0.75em;
@@ -1570,8 +1570,8 @@ select {
 }
 .driverOfTheDayAlert .dotdTitle {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #0c2e4d;
-  background: #002a54;
+  border-top: 3px solid rgba(255, 255, 255, 0.9);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   font-size: 17.6px;
   padding: 0.05em;
@@ -1580,7 +1580,7 @@ select {
 }
 .driverOfTheDayAlert .dotdName {
   background: white;
-  color: #002a54;
+  color: #323433;
   -webkit-transform: skew(-10deg, 0deg);
   font-size: 17.6px;
   padding: 0.15em;
@@ -1684,7 +1684,7 @@ select {
   background: rgba(0, 0, 0, 0.2);
 }
 .event-info {
-  background: rgba(12, 46, 77, 0.8);
+  background: rgba(31, 31, 30, 0.9);
   font-size: 16px;
   width: 50em;
   position: fixed;
@@ -1696,11 +1696,11 @@ select {
   color: #fff;
   white-space: pre;
   font-family: Oswald;
-  border-top: 0.3em solid rgba(135, 255, 145, 0.8);
-  border-bottom: 0.3em solid white;
+  border-top: 0.3em solid rgba(255, 255, 255, 0.9);
+  border-bottom: 0.3em solid rgba(255, 255, 255, 0.9);
 }
 .event-info .serverName {
-  color: white;
+  color: #ffffff;
   text-align: center;
   font-size: 24px;
   padding: 20px;
@@ -1738,7 +1738,7 @@ select {
 }
 .event-info .serverTrackName {
   -webkit-transform: skew(-10deg, 0deg);
-  color: white;
+  color: #ffffff;
   text-align: center;
   font-size: 24px;
   padding: 15px;
@@ -1747,7 +1747,7 @@ select {
   margin: auto;
 }
 .event-info .trackDescription {
-  color: white;
+  color: #ffffff;
   display: block;
   width: 100%;
   font-size: 16px;
@@ -1760,7 +1760,7 @@ select {
 .event-info .weather .weatherIcons {
   display: flex;
   font-size: 16px;
-  color: white;
+  color: #ffffff;
   justify-content: space-around;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
@@ -1824,7 +1824,7 @@ select {
   height: 5em;
 }
 .assists .drs .icon {
-  background: rgba(135, 255, 145, 0.8);
+  background: rgba(76, 175, 80, 0.7);
   position: absolute;
   top: -5.5em;
   left: -1em;
@@ -1846,7 +1846,7 @@ select {
   transform: skew(-10deg);
 }
 .assists .drs.active .icon {
-  background: rgba(135, 255, 145, 0.8);
+  background: rgba(76, 175, 80, 0.7);
   position: absolute;
   top: -5.5em;
   left: -1em;
@@ -1955,7 +1955,7 @@ select {
 }
 .focused-driver-info .bottom .extra-info ul li {
   float: left;
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(38, 50, 56, 0.8);
   padding: 0.5em;
   margin-right: 0.5em;
   border: 0.1em;
@@ -1971,11 +1971,11 @@ select {
   color: #ffffff;
 }
 .focused-driver-info .bottom .extra-info ul li.finished.personal-best {
-  background: linear-gradient(135deg, rgba(0, 42, 84, 0.7) 5%, rgba(135, 255, 145, 0.8) 95%);
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.7) 90%);
   color: white;
 }
 .focused-driver-info .bottom .extra-info ul li.finished.global-best {
-  background: linear-gradient(135deg, rgba(0, 42, 84, 0.7) 5%, rgba(223, 100, 194, 0.9) 95%);
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
   color: white;
 }
 .focused-driver-info .positionContainer,
@@ -2016,9 +2016,9 @@ select {
 .focused-driver-info .top .best-time {
   transform: skew(-15deg);
   line-height: 0.5em;
-  background: white;
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.7) 90%);
   padding: 0.5em 0.5em;
-  color: #0c2e4d;
+  color: white;
   width: 6em;
   z-index: 0;
   margin-bottom: 0px;
@@ -2027,7 +2027,7 @@ select {
 .focused-driver-info .top .positionInClass {
   transform: skew(-10deg);
   line-height: 0.5em;
-  background: rgba(38, 50, 56, 0.5);
+  background: rgba(31, 31, 30, 0.9);
   padding: 0.5em 0.5em;
   color: white;
   width: 3em;
@@ -2037,10 +2037,10 @@ select {
 }
 .focused-driver-info .top .fastest {
   color: white;
-  background: linear-gradient(135deg, rgba(0, 42, 84, 0.7) 5%, rgba(223, 100, 194, 0.9) 95%);
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
 }
 .focused-driver-info .main .positionContainer {
-  background: rgba(29, 21, 8, 0.8);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   width: 5em;
   position: relative;
@@ -2049,7 +2049,7 @@ select {
   padding-right: 0.5em;
   line-height: 3.7em;
   transform: skew(-10deg);
-  border-top: 0.1em solid rgba(0, 42, 84, 0.6);
+  border-top: 0.1em solid rgba(255, 255, 255, 0.9);
   border-top-left-radius: 10px;
 }
 .focused-driver-info .main .positionContainer .position {
@@ -2058,11 +2058,11 @@ select {
   transform: skew(10deg);
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(31, 31, 30, 0.9);
   text-transform: uppercase;
   padding: 0px 1em;
   min-width: 19em;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid rgba(255, 255, 255, 0.9);
   transform: skew(-10deg);
 }
 .focused-driver-info .main .driverInfoDetails .name {
@@ -2098,10 +2098,10 @@ select {
   height: 5.5em;
 }
 .focused-driver-info .main .tyre {
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(31, 31, 30, 0.9);
   width: 4em;
   position: relative;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid rgba(149, 87, 43, 0.9);
   left: 0em;
   transform: skew(-10deg);
   border-bottom-right-radius: 10px;
@@ -2133,7 +2133,7 @@ select {
   width: 3em;
   position: relative;
   background: #263238;
-  border-bottom: 0.1em solid rgba(0, 42, 84, 0.6);
+  border-bottom: 0.1em solid rgba(255, 255, 255, 0.9);
   transform: skew(-10deg);
   margin: 1;
   z-index: 5;
@@ -2172,7 +2172,7 @@ select {
   left: 6.5em;
   max-height: 4.7em;
   max-width: 24em;
-  content: url(img/sponsors/raceroom.gif);
+  content: url(img/sponsors/raceroom.jpg);
 }
 .multiclass-standings {
   position: fixed;
@@ -2236,9 +2236,9 @@ select {
 .multiclass-standings .driver .positionContainer {
   margin: 0;
   font-size: 16px;
-  background: rgba(29, 21, 8, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   display: inline-block;
-  color: white;
+  color: black;
   font-size: 1em;
   text-align: center;
   width: 2em;
@@ -2250,7 +2250,7 @@ select {
   transform: skew(15deg, 0deg);
 }
 .multiclass-standings .driver .flagContainer {
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(31, 31, 30, 0.9);
   display: inline-block;
   width: 2em;
   height: 2em;
@@ -2285,7 +2285,7 @@ select {
   font-family: Oswald;
   display: inline-block;
   color: white;
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(31, 31, 30, 0.9);
   width: 4em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -2301,7 +2301,7 @@ select {
 }
 .multiclass-standings .driver .meta-info-container {
   font-size: 16px;
-  background: rgba(64, 64, 66, 0.5);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   font-family: Oswald;
   display: inline-block;
@@ -2326,7 +2326,7 @@ select {
 }
 .multiclass-standings .driver .meta-info-container .fastest {
   color: white;
-  background: linear-gradient(135deg, rgba(0, 42, 84, 0.7) 5%, rgba(223, 100, 194, 0.9) 95%);
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
   border-bottom-right-radius: 10px;
   transform: skew(0deg, 0deg);
 }
@@ -2347,11 +2347,11 @@ select {
 }
 .multiclass-standings .driver .pit-info .pitted {
   font-size: 19.2px;
-  background: linear-gradient(135deg, rgba(135, 255, 145, 0.8) 10%, rgba(135, 255, 145, 0.8) 90%);
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.7) 90%);
 }
 .multiclass-standings .driver .pit-info .unpitted {
   font-size: 19.2px;
-  background: #e21d38;
+  background: rgba(31, 31, 30, 0.9);
 }
 .race-results-bg {
   font-size: 16px;
@@ -2395,15 +2395,15 @@ select {
   padding: 0 0.75em 0 0;
   line-height: 5em;
   font-size: 24px;
-  background: rgba(9, 43, 81, 0.9);
-  border-top: 0.25em solid #0c2e4d;
+  background: #1f1f1e;
+  border-top: 0.25em solid rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .race-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/dtm.png);
+  content: url(results/logos/EracingLogoWhite.png);
   height: 2.2em;
   top: 0.9em;
   left: 1em;
@@ -2413,7 +2413,7 @@ select {
   height: 2em;
   line-height: 2em;
   color: white;
-  background: rgba(47, 82, 110, 0.7);
+  background: rgba(31, 31, 30, 0.8);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -2528,7 +2528,7 @@ select {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(0, 42, 84, 0.7) 10%, #0c2e4d 90%);
+  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, #e21d38 90%);
 }
 .winnerColumn .winnerTitle {
   font-size: 24px;
@@ -2570,7 +2570,7 @@ select {
 }
 .winnerColumn .driverFlagContainer {
   position: fixed;
-  content: url(results/logos/dtm.png);
+  content: url(results/logos/EracingLogoWhite.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -2605,7 +2605,7 @@ select {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(240deg, rgba(0, 42, 84, 0.7) 10%, #df64c2 90%);
+  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, #71229a 90%);
 }
 .fastestDriverColumn .fastestTitle {
   font-size: 24px;
@@ -2647,7 +2647,7 @@ select {
 }
 .fastestDriverColumn .fastestDriverFlagContainer {
   position: fixed;
-  content: url(results/logos/dtm.png);
+  content: url(results/logos/EracingLogoWhite.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -2714,15 +2714,15 @@ select {
   padding: 0 0.75em 0 0;
   line-height: 5em;
   font-size: 24px;
-  background: rgba(9, 43, 81, 0.9);
-  border-top: 0.25em solid #0c2e4d;
+  background: #1f1f1e;
+  border-top: 0.25em solid rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .qualify-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/dtm.png);
+  content: url(results/logos/EracingLogoWhite.png);
   height: 2.2em;
   top: 0.9em;
   left: 1em;
@@ -2732,7 +2732,7 @@ select {
   height: 2em;
   line-height: 2em;
   color: white;
-  background: rgba(47, 82, 110, 0.7);
+  background: rgba(31, 31, 30, 0.8);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -2839,7 +2839,7 @@ select {
 }
 .safetyCarDeployedContainer .safetyCarDeployed {
   font-family: Oswald;
-  background: #ffc107;
+  background: rgba(255, 193, 7, 0.9);
   text-transform: uppercase;
   color: black;
   height: 2em;
@@ -2862,8 +2862,8 @@ select {
 }
 .safetyAlert .raceControl {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid #0c2e4d;
-  background: #002a54;
+  border-top: 3px solid rgba(255, 255, 255, 0.9);
+  background: rgba(31, 31, 30, 0.9);
   color: white;
   font-size: 17.6px;
   padding: 0.05em;
@@ -2872,7 +2872,7 @@ select {
 }
 .safetyAlert .safetyCarIn {
   background: white;
-  color: #002a54;
+  color: #323433;
   -webkit-transform: skew(-10deg, 0deg);
   font-size: 17.6px;
   padding: 0.15em;
@@ -2968,12 +2968,12 @@ pre.preview {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   color: white;
-  background: rgba(0, 42, 84, 0.6);
+  background: rgba(31, 31, 30, 0.9);
 }
 .track-map .dot .driverName {
   position: relative;
   top: -3.5em;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(38, 50, 56, 0.8);
   width: 6em;
 }
 .track-map .dot .manufacturer {
@@ -3018,7 +3018,7 @@ pre.preview {
 }
 .track-map .dot.leader {
   background: #ff9800;
-  color: #dc2525;
+  color: #ff9800;
   z-index: 1;
 }
 .track-map .dot.active {

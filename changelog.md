@@ -11,6 +11,7 @@
 * [Sector3] Improved rendering speed of images.
 * [Feature] Update with new class colours.
 * [Feature] Update with new tracks.
+* [Raceroom] Added Cupra E esport theme.
 
 ### Version 1.9.3
 * [Feature] Added support for new cars and tracks.
