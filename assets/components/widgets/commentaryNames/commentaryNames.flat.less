@@ -4,18 +4,15 @@
   font-size: @fontSize * 1.1;
   font-family: Oswald;
   position: fixed;
-  bottom: 11em;
+  bottom: 14em;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   text-align: center;
-  filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
 	text-transform: uppercase;
 	min-height: 1em;
 	width: 14em;
 	line-height: 1.7em;
 	display: inline-block;
-  filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
-
   .commentaryTitle {
     -webkit-transform: skew(-10deg, 0deg);
     border-top: 3px solid @CommentaryTitleBorderTop;
@@ -27,9 +24,9 @@
     z-index: 0;
   }
   .commentaryName {
+    -webkit-transform: skew(-10deg, 0deg);
     background: @CommentaryMessageBackground;
     color: @CommentaryMessageText;
-    -webkit-transform: skew(-10deg, 0deg);
     font-size: @fontSize * 1.1;
     padding: 0.15em;
     text-transform: capitalize;

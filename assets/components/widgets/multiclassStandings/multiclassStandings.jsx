@@ -145,9 +145,13 @@ UI.widgets.MulticlassStandings = React.createClass({
 		var divStyle = {};
 		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {
 			classColour = UI.getClassColour(classId);
-			divStyle.background = classColour
+			divStyle.background = classColour;
+			return <div className="classIndicator" style={divStyle}></div>
+		} else {
+			divStyle.display = 'none';
+			return <div className="classIndicator" style={divStyle}></div>
 		}
-		return <div className="classIndicator" style={divStyle}></div>
+
 	},
 	shouldShow: function(driver) {
 		if (!driver) {
@@ -204,15 +208,21 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 		// Need to clone it to keep the base array sorted by slotId
 		return (
+			<div>
+			{UI.state.controllerOptions.options.showSponsorLogo.value === "true" ?
+				<div className="sponsorLogo"></div>
+			:
+				<div className="sponsorLogo" style={{height: 0 }}></div>
+			}
 			<div className={multiclassStandingsClasses}>
+
 				{self.looper.map(function(non, i) {
 					return <div key={i}>
 						{self.shouldShow(driversLookup[i]) ?
 							<div className={cx({'driver': true, 'active': (driversLookup[i].slotId === UI.state.focusedSlot)})} key={driversLookup[i].slotId} style={self.getDriverStyle(driversLookup[i])}>
 								<div className="inner">
-								{self.getClassIndicator(driversLookup[i].classId)}
 									<div className="positionContainer"><div className="position">{driversLookup[i].scoreInfo.positionOverall}</div></div>
-
+									{self.getClassIndicator(driversLookup[i].classId)}
 									{UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ?
 									<div className="manufacturerContainer">
 										<div className="manufacturerFlag">
@@ -236,7 +246,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 										}
 
 
-									{self.getMetaInfo(driversLookup[i], drivers)}
+									<div className="meta-info-container">{self.getMetaInfo(driversLookup[i], drivers)}</div>
 									<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?
 											<div className="pitted">⭗</div>
@@ -256,6 +266,7 @@ UI.widgets.MulticlassStandings = React.createClass({
 						}
 					</div>
 				})}
+			</div>
 			</div>
 		);
 	}

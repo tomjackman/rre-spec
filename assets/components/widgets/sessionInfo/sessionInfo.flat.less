@@ -5,13 +5,13 @@
 	font-size: @fontSize * 1.1;
 	font-family: Oswald;
 	position: fixed;
-	top: 0.5em;
+	top: 2em;
 	left: 50%;
 	-webkit-transform: translate(-50%, 0);
 	text-align: center;
-	filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
 
-.sessionInfoFlag, .sessionName, .timer, .checkered, .serverName, .countdown, .yellowFlag, {
+
+.sessionInfoFlag, .sessionName, .checkered, .serverName, .countdown, .yellowFlag, .timer {
 	display: inline-block;
 	vertical-align: top;
 	height: 2em;
@@ -36,6 +36,7 @@
 	text-transform: uppercase;
 	color: @SessionInfoTimerTextColor;
 	z-index: 2;
+	border-bottom-right-radius: 10px;
 }
 
 .yellowFlag {
@@ -60,7 +61,6 @@
 	text-transform: uppercase;
 	color: @SessionInfoTimerTextColor;
 	line-height: 1.6em;
-	transform: skew(-15deg, 0deg);
 	z-index: -2;
 	.countdownIndicatorsRed {
 		z-index: -1;
@@ -75,6 +75,7 @@
 	height: 2em;
 	width: 3em;
 	img {
+		border-top-left-radius: 10px;
 		height: 2em;
 		width: 3em;
 		opacity: 1;

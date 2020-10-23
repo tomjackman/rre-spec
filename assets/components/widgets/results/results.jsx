@@ -181,7 +181,7 @@ var ResultEntry = React.createClass({
 			:
 				null
 			}
-			<div className="position">P{entry.scoreInfo.positionOverall}.</div>
+			<div className="position">#{entry.scoreInfo.positionOverall}</div>
 				<div className="manufacturer">
 				{window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
 					<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="standingsFlag">
@@ -198,7 +198,7 @@ var ResultEntry = React.createClass({
 					:
 						<div className="longName">{self.getName(entry.name)}</div>
 				}
-				<div className="livery">
+				<div className="livery animated fadeInRight delay-1s">
 					<img src={'/render/'+entry.liveryId+'/small/'}/>
 				</div>
 				<div className="resultTeam">{self.getTeamName(entry.teamId, entry.portalId)}</div>

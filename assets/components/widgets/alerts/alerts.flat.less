@@ -4,20 +4,21 @@
   font-size: @fontSize * 1.1;
   font-family: Oswald;
 	position: fixed;
-	top: 15em;
-  right: 1.5em;
+	top: 17em;
+  right: 5em;
 	text-transform: uppercase;
 	min-height: 1em;
 	width: 15em;
 	line-height: 1.7em;
 	text-align: center;
 	display: inline-block;
-  filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
+
   &.removing {
     opacity: 0.5;
   }
   .raceControlAlert {
-    -webkit-transform: skew(-10deg, 0deg);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     border-top: 3px solid @AlertTitleBorderTop;
     background: @AlertTitleBackgroundColor;
     color: @AlertTitleText;
@@ -27,7 +28,6 @@
   .alertMessage {
     background: @AlertMessageBackground;
     color: @AlertMessageText;
-    -webkit-transform: skew(-10deg, 0deg);
     padding: 0.15em;
     font-size: @fontSize * 1.1;
     text-transform: capitalize;

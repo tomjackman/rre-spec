@@ -16,7 +16,6 @@
 	font-family: Oswald;
 	color: #fff;
 	.inner {
-		filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
 		font-size: @fontSize;
 		height: 3.5em;
 		display: inline-block;
@@ -97,7 +96,7 @@
 			height: 1.5em;
 		}
 		.best-time {
-			transform: skew(-10deg);
+			transform: skew(-15deg);
 			line-height: 0.5em;
 			background: @DriverInfoBestTimeBackground;
 			padding: 0.5em 0.5em;
@@ -134,7 +133,8 @@
 		padding-right: 0.5em;
 		line-height: 3.7em;
     transform: skew(-10deg);
-		border-bottom: 0.1em solid @DriverInfoPositionBorder;
+		border-top: 0.1em solid @DriverInfoPositionBorder;
+    border-top-left-radius: 10px;
 		.position {
 			font-size: @fontSize * 3.5;
       font-family: Oswald;
@@ -188,6 +188,7 @@
 		border-bottom: 0.1em solid @DriverInfoTyreBorder;
     left: -0em;
     transform: skew(-10deg);
+    border-bottom-right-radius: 10px;
 		img {
 			position: absolute;
       transform: skew(10deg);
@@ -203,11 +204,12 @@
     left: 0em;
 		border-bottom: 0.1em solid @DriverInfoManufacturerBorder;
     transform: skew(-10deg);
+    border-bottom-right-radius: 10px;
 		img {
 			position: absolute;
       transform: skew(10deg);
-			top: 0.5em;
-			left: 0.5em;
+			top: 0.4em;
+			left: 0.4em;
 			height: 3em;
 		}
 	}
@@ -386,7 +388,7 @@ height: 5em;
 .focused-driver-info {
 	.driverInfoFocusedDriverFlat;
 	position: fixed;
-	bottom: @fontSize*8;
+	bottom: @fontSize*10;
 	left: 0;
 	right: 0;
 }

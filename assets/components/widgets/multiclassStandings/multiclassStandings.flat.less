@@ -1,16 +1,24 @@
 @import '../theme/z';
 
+.sponsorLogo {
+	position: fixed;
+	top: 5em;
+	left: 6.5em;
+	max-height: 4.7em;
+	max-width: 24em;
+	content: @sponsorLogo;
+}
 .multiclass-standings {
 	&.hide-flags {
 		.driver .flag-container {
 			display: none;
 		}
 	}
-	filter: drop-shadow(2px 2px 2px rgba(0,0,0,1));
+
 	position: fixed;
-	top: 1em;
+	top: 10em;
 	color: #fff;
-	left: 1em;
+	left: 6.5em;
 	.onCreation(-webkit-transform, translate(-10em, 0), translate(0, 0), 0.1s);
 	.driver {
 		font-size: @fontSize;
@@ -34,7 +42,6 @@
 			}
 		}
 		.classIndicator {
-			margin-right: 0.3em;
 			background: transparent;
 			display: inline-block;
 			font-size: 1em;
@@ -57,6 +64,7 @@
 			width: 2em;
 			height: 80%;
 			font-family: Oswald;
+			border-top-left-radius: 10px;
 			.position {
 				transform: skew(+15deg, 0deg);
 			}
@@ -69,7 +77,7 @@
 			z-index: 1;
 			.standingsFlag {
 				height: 100%;
-				padding: 0.15em;
+				padding: 0.05em;
 				img {
 					height: 100%;
 				}
@@ -105,12 +113,13 @@
 			white-space: nowrap;
 			overflow: hidden;
 			line-height: inherit;
+			text-align: center;
 			z-index: 1;
 			.name {
 				transform: skew(+15deg, 0deg);
 			}
 		}
-		.meta-info {
+		.meta-info-container {
 			font-size: @fontSize;
 			background: @StandingsTimingBackground;
 			color: @StandingsTimingText;
@@ -122,11 +131,18 @@
 			min-width: 5em;
 			z-index: -1;
 			.onCreation(-webkit-transform, translate(-100%, 0), translate(0, 0), 0.1s);
+			border-bottom-right-radius: 10px;
+			.meta-info {
+				transform: skew(+15deg, 0deg);
+			}
+			.fastest {
+				color: white;
+				background: @DriverInfoGlobalBestSplitBackground;
+				border-bottom-right-radius: 10px;
+				transform: skew(0deg, 0deg);
+			}
 		}
-		.fastest {
-			color: white;
-			background: @DriverInfoGlobalBestSplitBackground;
-		}
+
 		.pit-info {
 			.onCreation(-webkit-transform, translate(-100%, 0), translate(0, 0), 0.5s);
 			margin: 0;

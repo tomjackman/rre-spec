@@ -335,7 +335,8 @@ UI.widgets.FocusedDriver = React.createClass({
 					</div>
 
 					<div className="assists">
-						{self.state.pushToPassInfo.allowed ?
+						{
+							self.state.pushToPassInfo.allowed && false ?
 							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active && UI.state.sessionInfo.type.match(/^race/i)})}>
 								{self.getPtpState()}
 								{ UI.state.sessionInfo.type === 'PRACTICE' ?

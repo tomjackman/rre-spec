@@ -103,13 +103,6 @@ UI.widgets.SessionInfo = React.createClass({
 								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.png'} />
 							</div>
 							<div className="sessionName">{nameLookup[p.sessionInfo.type]}</div>
-								{p.sessionInfo.phase === 'CHECKERED' ?
-									<div className="checkered">
-										<img src={'/img/checkered.jpg'} />
-									</div>
-								:
-									<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
-								}
 								{UI.state.controllerOptions.options.showServerNameInTimer.value === "true" ?
 									<div className="serverName">{p.eventInfo.serverName}</div>
 								:
@@ -128,6 +121,13 @@ UI.widgets.SessionInfo = React.createClass({
 								<div className="yellowFlag animated flash infinite"></div>
 								:
 								null
+								}
+								{p.sessionInfo.phase === 'CHECKERED' ?
+									<div className="checkered">
+										<img src={'/img/checkered.jpg'} />
+									</div>
+								:
+									<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
 								}
 
 						</div>
