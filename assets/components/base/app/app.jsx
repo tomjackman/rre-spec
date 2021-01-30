@@ -1,9 +1,15 @@
 UI.components.App = React.createClass({
 	render: function() {
 		if (window.gameClient) {
-			return <UI.components.Spectator></UI.components.Spectator>
+			return <UI.components.Spectator />
 		} else {
-			return <UI.components.Controller></UI.components.Controller>
+			if (window.location.pathname === '/dashboard') {
+				return <UI.components.CommentatorDashboard />
+			} else if (window.location.pathname === '/overview') {
+				return <UI.components.Overview />
+			} else {
+				return <UI.components.Controller />
+			}
 		}
 	}
 });

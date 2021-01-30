@@ -1,5 +1,6 @@
 var settings = {
 	"offline": false, // turns on or off offline mode
+	"generateExport": false, // exports all data for use in external tools
 	"teamEvent": false, // tweaks overlay to suit team races
 	"language": "english" // choose a language, english, french, chinese, russian etc. Supported can be seen in the 'languages' folder in the main directory.
 }

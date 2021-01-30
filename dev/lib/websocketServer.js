@@ -4,6 +4,7 @@ var fs = require('fs');
 var chokidar = require('chokidar');
 var path = require('path');
 var settings = require('./../../assets/settings.js');
+var broadcastDataExport = require('./broadcastDataExport.js');
 
 function updateWidgets(widgetsPath, globalState, callback) {
 	var jobs = [];
@@ -242,6 +243,9 @@ module.exports = function(io) {
 		socket.on('directorSuggestions', function(directorSuggestions) {
 			io.sockets.emit('directorSuggestions', directorSuggestions);
 		});
+		socket.on('incident', function(incidentInfo) {
+			io.sockets.emit('incident', incidentInfo);
+		});
 
 		socket.on('join', function(room) {
 			console.log('Joined', room);
@@ -281,4 +285,10 @@ module.exports = function(io) {
 			});
 		});
 	});
+
+	if (settings.generateExport) {
+		broadcastDataExport(io, function(){
+			return globalState;
+		});
+	}
 };

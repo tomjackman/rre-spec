@@ -64,6 +64,9 @@ UI.components.Spectator = React.createClass({
 		// Race control alerts
 		var eventTimeout;
 		r3e.on.eventOccurred(function(event) {
+			// Emit incidents so we can use them on the admin side
+			io.emit('incident', event);
+
 			var alertLength = UI.state.controllerOptions.options.alertLength.value * 1000;
 
 			r3e.getDriverInfo({'slotId': event.slotId
@@ -95,6 +98,9 @@ UI.components.Spectator = React.createClass({
 			self.setState({
 				'results': results.Results
 			});
+
+			// Emit results so xml exporter can use data
+			io.emit('resultsUpdate', results);
 
 			setTimeout(function() {
 				r3e.goToNextEvent();
@@ -166,6 +172,12 @@ UI.components.Spectator = React.createClass({
 			<div>
 			<div className="app-spectator">
 				{Object.keys(UI.state.activeWidgets).map(function(type) {
+					// Hot-reload sometime casues issues so we prevent the overlay
+					// from crashing/big red error.
+					if (!UI.widgets[type]) {
+						console.error('Issue spawning', type)
+						return null;
+					}
 					return (!self.state.results && UI.state.activeWidgets[type].active) ? React.createElement(UI.widgets[type], {'key': type}) : null
 				})}
 				{self.state.results && UI.state.sessionInfo.type.match(/^race/i) ?

@@ -47,10 +47,11 @@
 		// corresponds to that component which then overrides the
 		// old one and updates the application.
 		if (path.match(/jsx/)) {
+			// Added \ to deal with path issues in Windows
 			path = '/generate/'+path
-				.replace(/.*components\//, '')
+				.replace(/.*components(\/|\\)/, '')
 				.replace(/.jsx$/, '')
-				.replace(/\//g, '_');
+				.replace(/(\/|\\)/g, '_');
 
 			var name = path.split('_');
 			name = name[name.length-1];

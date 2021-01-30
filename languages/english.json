@@ -80,11 +80,12 @@
     "qualifyingResultsDisplayTime": "Qualifying Results Display Time (Seconds)",
     "qualifyingResultsDisplayTimeDescription": "The amount of seconds before the end of qualifying to display the results on screen (Default: 25 Seconds)",
     "continueToNextSessionTime": "Continue to Next Session Time (Seconds)",
-    "continueToNextSessionTimeDescription": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for. A value lower than 30 seconds is not recommended! (Default: 45 Seconds)."
+    "continueToNextSessionTimeDescription": "The amount of seconds before the continuing to the next session after a race has finished. This also affects how long the results screen is shown for. A value lower than 30 seconds is not recommended! (Default: 45 Seconds).",
+    "dediManager": "Dedicated server url",
+    "dediManagerDescription": "Enter dedicated server url http://user:pass@ip (Default: 'Blank')."
   },
   "controller": {
     "position": "Position",
-    "lap": "Lap",
     "difference": "Difference",
     "driver": "Driver",
     "cameras": "Cameras",
@@ -130,8 +131,17 @@
     "yellowFlag": "Yellow Flag",
     "country": "Country",
     "lap": "Lap",
-    "laps": "Laps"
-
+    "laps": "Laps",
+    "Close": "Close",
+    "Disqualify": "Disqualify",
+    "Drive Through": "Drive Through",
+    "Penalize": "Penalize",
+    "Send slowdown": "Send slowdown",
+    "Send warning": "Send warning",
+    "Slowdown": "Slowdown",
+    "Stop And Go": "Stop And Go",
+    "Warn": "Warn",
+    "warning": "warning"
   },
   "alertsWidget": {
     "driveThroughPenalty": "Drive Through Penalty",
@@ -160,7 +170,17 @@
     "ignoringStopGoPenalty": "ignoring a pitstop penalty",
     "ignoringPitPenalty": "ignoring a pitstop penalty",
     "ignoringTimePenalty": "ignoring a time penalty",
-    "stewardsDecision": "Stewards Decision"
+    "stewardsDecision": "Stewards Decision",
+    "classLeaderPitting": "is pitting as the class leader",
+    "classNewLeader": "became the leader",
+    "classNewFastestLap": "set a new fastest lap",
+    "classNewFastestSector": "set a new fastest sector",
+    "collision": "was in a collision",
+    "offTrack": "went off track",
+    "stationary": "is stationary",
+    "lostControl": "lost control",
+    "criticalDamage": "sustained critical damage",
+    "puncture": "sustained a puncture"
   },
   "autoDirectorWidget": {
 
@@ -245,7 +265,6 @@
     "race1": "Race",
     "race2": "Race 2",
     "race3": "Race 3",
-    "garage": "Garage",
     "warmup": "Warmup",
     "green": "Green",
     "checkered": "Checkered",

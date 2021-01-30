@@ -160,7 +160,17 @@
     "ignoringStopGoPenalty": "CN",
     "ignoringPitPenalty": "CN",
     "ignoringTimePenalty": "CN",
-    "stewardsDecision": "CN"
+    "stewardsDecision": "CN",
+    "classLeaderPitting": "CN",
+    "classNewLeader": "CN",
+    "classNewFastestLap": "CN",
+    "classNewFastestSector": "CN",
+    "collision": "CN",
+    "offTrack": "CN",
+    "stationary": "CN",
+    "lostControl": "CN",
+    "criticalDamage": "CN",
+    "puncture": "CN"
   },
   "autoDirectorWidget": {
 

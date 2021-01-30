@@ -160,7 +160,17 @@
     "ignoringStopGoPenalty": "ignore une pénalité de ravitaillement",
     "ignoringPitPenalty": "ignore une pénalité de ravitaillement",
     "ignoringTimePenalty": "ignore une pénalité de temps",
-    "stewardsDecision": "Décision des commissaires"
+    "stewardsDecision": "Décision des commissaires",
+    "classLeaderPitting": "FR",
+    "classNewLeader": "FR",
+    "classNewFastestLap": "FR",
+    "classNewFastestSector": "FR",
+    "collision": "FR",
+    "offTrack": "FR",
+    "stationary": "FR",
+    "lostControl": "FR",
+    "criticalDamage": "FR",
+    "puncture": "FR"
   },
   "autoDirectorWidget": {
 

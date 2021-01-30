@@ -77642,250 +77642,8 @@ var r3eData={
 	}
 };
 
-window.r3e = (function r3eBridge() {
-	if (!window.gameClient) {
-		return console.warn('This depends on the R3E game client');
-	}
-
-	var getRequestPool = (function() {
-		var requestPool = {
-			'vehicleInfo': {},
-			'pitInfo': {},
-			'ptpInfo': {},
-			'extendedInfo': {},
-			'driverInfo': {},
-			'driversInfo': [],
-			'sessionInfo': [],
-			'eventInfo': [],
-			'resultsUpdate': [],
-			'eventOccurred': []
-		};
-
-		return {
-			'driverInfo': function getdriverInfoPool(data) {
-				if (!requestPool.driverInfo[data.slotId]) {
-					requestPool.driverInfo[data.slotId] = [];
-				}
-				return requestPool.driverInfo[data.slotId];
-			},
-			'vehicleInfo': function getVehicleInfoPool(data) {
-				if (!requestPool.vehicleInfo[data.slotId]) {
-					requestPool.vehicleInfo[data.slotId] = [];
-				}
-				return requestPool.vehicleInfo[data.slotId];
-			},
-			'pitInfo': function getPitInfoPool(data) {
-				if (!requestPool.pitInfo[data.slotId]) {
-					requestPool.pitInfo[data.slotId] = [];
-				}
-				return requestPool.pitInfo[data.slotId];
-			},
-			'ptPInfo': function getPtpInfoPool(data) {
-				if (!requestPool.ptpInfo[data.slotId]) {
-					requestPool.ptpInfo[data.slotId] = [];
-				}
-				return requestPool.ptpInfo[data.slotId];
-			},
-			'extendedInfo': function getExtendedInfo(data) {
-				if (!requestPool.extendedInfo[data.slotId]) {
-					requestPool.extendedInfo[data.slotId] = [];
-				}
-				return requestPool.extendedInfo[data.slotId];
-			},
-			'driversInfo': function getDriversInfoPool() {
-				return requestPool.driversInfo;
-			},
-			'sessionInfo': function getSessionInfoPool() {
-				return requestPool.sessionInfo;
-			},
-			'eventInfo': function getEventInfoPool() {
-				return requestPool.eventInfo;
-			},
-			'resultsUpdate': function getResultsUpdatePool() {
-				return requestPool.resultsUpdate;
-			},
-			'eventOccurred': function getEventOccurredPool() {
-				return requestPool.eventOccurred;
-			}
-		};
-	})();
-
-	window.communicator = function(type, data) {
-		var poolFetcher = getRequestPool[type];
-		if (!poolFetcher) {
-			return;
-		}
-
-		var pool = poolFetcher(data);
-
-		var callbacksToTrigger = [];
-		pool.forEach(function(callback) {
-			callbacksToTrigger.push(callback);
-		});
-
-		// Reset pool
-		if (!pool.persistent) {
-			pool.length = 0;
-		}
-
-		callbacksToTrigger.forEach(function runCallback(callback) {
-			callback(data);
-		});
-	};
-
-	function get(opts) {
-		return function getter(argsOrCallback, callback) {
-			var args = {};
-			if (opts.requiresArguments) {
-				args = argsOrCallback;
-				if (!callback) {
-					throw new Error('Callback is not set: '+opts.call);
-				}
-			} else {
-				callback = argsOrCallback;
-			}
-
-			if (typeof callback !== 'function') {
-				throw new Error('Callback is not a function: '+opts.call);
-			}
-
-			var pool = getRequestPool[opts.pool](args);
-			pool.push(callback);
-
-			if (pool.length > 1) {
-				return;
-			}
-
-			var gameClientData = {};
-			gameClientData[opts.call] = args;
-
-			var jsonStr = JSON.stringify(gameClientData);
-
-			window.r3e.gameClient(null, jsonStr);
-		};
-	}
-
-	function set(opts) {
-		return function seter(args) {
-			if (typeof args === 'undefined' && !opts.noArgs) {
-				throw new Error('Args are not set: '+opts.call);
-			}
-
-			var gameClientData = {};
-			gameClientData[opts.call] = args || {};
-
-			var jsonStr = JSON.stringify(gameClientData);
-			window.r3e.gameClient(null, jsonStr);
-		};
-	}
-
-	function cameraChanger(cameraId) {
-		return function cameraChangers(slotId) {
-			if (!Number.isInteger(slotId)) {
-				throw new Error('slotId is not an integer');
-			}
-
-			window.r3e.gameClient(null, JSON.stringify({
-				'ChangeCamera': {
-					'slotId': slotId,
-					'camera': cameraId
-				}
-			}));
-		};
-	}
-
-	function listener(opts) {
-		return function listeners(callback) {
-			var pool = getRequestPool[opts.pool]();
-
-			// Set property on array so it doesn't get cleared
-			pool.persistent = true;
-			pool.push(callback);
-		};
-	}
-
-	return {
-		'getVehicleInfo': get({
-			'call': 'GetVehicleInfo',
-			'pool': 'vehicleInfo',
-			'requiresArguments': true
-		}),
-		'getPitInfo': get({
-			'call': 'GetPitInfo',
-			'pool': 'pitInfo',
-			'requiresArguments': true
-		}),
-		'getPushToPassInfo': get({
-			'call': 'GetPtPInfo',
-			'pool': 'ptPInfo',
-			'requiresArguments': true
-		}),
-		'getExtendedInfo': get({
-			'call': 'GetExtendedInfo',
-			'pool': 'extendedInfo',
-			'requiresArguments': true
-		}),
-		'getDriverInfo': get({
-			'call': 'GetDriverInfo',
-			'pool': 'driverInfo',
-			'requiresArguments': true
-		}),
-		'getDriversInfo': get({
-			'call': 'GetDriversInfo',
-			'pool': 'driversInfo'
-		}),
-		'getSessionInfo': get({
-			'call': 'GetSessionInfo',
-			'pool': 'sessionInfo'
-		}),
-		'getEventInfo': get({
-			'call': 'GetEventInfo',
-			'pool': 'eventInfo'
-		}),
-		'showCursor': set({
-			'call': 'ShowCursor'
-		}),
-		'waitOnResults': set({
-			'call': 'WaitForMe'
-		}),
-		'goToNextEvent': set({
-			'call': 'Proceed',
-			'noArgs': true
-		}),
-		'exit': set({
-			'call': 'Exit',
-			'noArgs': true
-		}),
-		'setCamera': {
-			'nosecam': cameraChanger('nosecam'),
-			'cockpit': cameraChanger('cockpit'),
-			'swingman': cameraChanger('swingman'),
-			'onboard': cameraChanger('onboard'),
-			'trackside': cameraChanger('trackside1'),
-			'onboard1': cameraChanger('onboard_1'),
-			'onboard2': cameraChanger('onboard_2'),
-			'frontCam': cameraChanger('front_cam'),
-			'rearCam': cameraChanger('rear_cam'),
-			'flFront': cameraChanger('fl_front'),
-			'frFront': cameraChanger('fr_front'),
-			'rlRear': cameraChanger('rl_rear'),
-			'rrRear': cameraChanger('rr_rear'),
-			'rlFront': cameraChanger('rl_front'),
-			'rrFront': cameraChanger('rr_front'),
-			'exhaust': cameraChanger('exhaust'),
-			'wing': cameraChanger('wing')
-		},
-		'on': {
-			'resultsUpdate': listener({
-				'pool': 'resultsUpdate'
-			}),
-			'eventOccurred': listener({
-				pool: 'eventOccurred'
-			})
-		},
-		'gameClient': window.gameClient
-	};
-})();
+window.r3e=function(){if(!window.gameClient)return console.warn("This depends on the R3E game client");var n,e=(n={vehicleInfo:{},pitInfo:{},ptpInfo:{},extendedInfo:{},driverInfo:{},driversInfo:[],sessionInfo:[],eventInfo:[],resultsUpdate:[],eventOccurred:[]},{driverInfo:function(e){return n.driverInfo[e.slotId]||(n.driverInfo[e.slotId]=[]),n.driverInfo[e.slotId]},vehicleInfo:function(e){return n.vehicleInfo[e.slotId]||(n.vehicleInfo[e.slotId]=[]),n.vehicleInfo[e.slotId]},pitInfo:function(e){return n.pitInfo[e.slotId]||(n.pitInfo[e.slotId]=[]),n.pitInfo[e.slotId]},ptPInfo:function(e){return n.ptpInfo[e.slotId]||(n.ptpInfo[e.slotId]=[]),n.ptpInfo[e.slotId]},extendedInfo:function(e){return n.extendedInfo[e.slotId]||(n.extendedInfo[e.slotId]=[]),n.extendedInfo[e.slotId]},driversInfo:function(){return n.driversInfo},sessionInfo:function(){return n.sessionInfo},eventInfo:function(){return n.eventInfo},resultsUpdate:function(){return n.resultsUpdate},eventOccurred:function(){return n.eventOccurred}});function o(n){return function(o,r){var t={};if(n.requiresArguments){if(t=o,!r)throw new Error("Callback is not set: "+n.call)}else r=o;if("function"!=typeof r)throw new Error("Callback is not a function: "+n.call);var i=e[n.pool](t);if(i.push(r),!(i.length>1)){var f={};f[n.call]=t;var l=JSON.stringify(f);window.r3e.gameClient(null,l)}}}function r(n){return function(e){if(void 0===e&&!n.noArgs)throw new Error("Args are not set: "+n.call);var o={};o[n.call]=e||{};var r=JSON.stringify(o);window.r3e.gameClient(null,r)}}function t(n){return function(e){if(!Number.isInteger(e))throw new Error("slotId is not an integer");window.r3e.gameClient(null,JSON.stringify({ChangeCamera:{slotId:e,camera:n}}))}}function i(n){return function(o){var r=e[n.pool]();r.persistent=!0,r.push(o)}}return window.communicator=function(n,o){var r=e[n];if(r){var t=r(o),i=[];t.forEach(function(n){i.push(n)}),t.persistent||(t.length=0),i.forEach(function(n){n(o)})}},{getVehicleInfo:o({call:"GetVehicleInfo",pool:"vehicleInfo",requiresArguments:!0}),getPitInfo:o({call:"GetPitInfo",pool:"pitInfo",requiresArguments:!0}),getPushToPassInfo:o({call:"GetPtPInfo",pool:"ptPInfo",requiresArguments:!0}),getExtendedInfo:o({call:"GetExtendedInfo",pool:"extendedInfo",requiresArguments:!0}),getDriverInfo:o({call:"GetDriverInfo",pool:"driverInfo",requiresArguments:!0}),getDriversInfo:o({call:"GetDriversInfo",pool:"driversInfo"}),getSessionInfo:o({call:"GetSessionInfo",pool:"sessionInfo"}),getEventInfo:o({call:"GetEventInfo",pool:"eventInfo"}),showCursor:r({call:"ShowCursor"}),waitOnResults:r({call:"WaitForMe"}),goToNextEvent:r({call:"Proceed",noArgs:!0}),exit:r({call:"Exit",noArgs:!0}),setCamera:{nosecam:t("nosecam"),cockpit:t("cockpit"),swingman:t("swingman"),onboard:t("onboard"),trackside:t("trackside1"),onboard1:t("onboard_1"),onboard2:t("onboard_2"),frontCam:t("front_cam"),rearCam:t("rear_cam"),flFront:t("fl_front"),frFront:t("fr_front"),rlRear:t("rl_rear"),rrRear:t("rr_rear"),rlFront:t("rl_front"),rrFront:t("rr_front"),exhaust:t("exhaust"),wing:t("wing"),tv:t("1_tv"),action:t("2_action"),heli:t("3_heli"),static:t("4_static")},on:{resultsUpdate:i({pool:"resultsUpdate"}),eventOccurred:i({pool:"eventOccurred"})},gameClient:window.gameClient}}();
+//# sourceMappingURL=r3e.min.js.map
 
 var UI = {
 	'baseEl': document.querySelector('#content'),
@@ -78138,6 +77896,419 @@ window.addEventListener('message', function(event) {
 	}
 });
 
+function getPenaltyMeanings() {
+  var spaceComma = ", ";
+
+  var driveThroughPenalty = UI.getStringTranslation("alertsWidget", "driveThroughPenalty") + spaceComma;
+  var stopAndGoPenalty = UI.getStringTranslation("alertsWidget", "stopAndGoPenalty") + spaceComma;
+  var disqualification = UI.getStringTranslation("alertsWidget", "disqualified") + spaceComma;
+
+  var penaltyMeanings = {
+    // Drive Through
+    '0': {
+      '1': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "trackLimitsAbuse") },
+      '2': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "speedingInThePitlane") },
+      '3': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "falseStart") },
+      '4': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "ignoringBlueFlags") },
+      '5': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "drivingTooSlow") },
+      '6': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "illegallyPassingBeforeGreen") },
+      '7': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "illegallyPassingBeforeFinish") },
+      '8': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "illegallyPassingBeforePitEntrance") },
+      '9': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "ignoringSlowDownWarnings") },
+      '10': { text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "accumulatingTheMaxNumberOfPenalties") }
+    },
+    // Stop and Go
+    '1': {
+      '2': { text: stopAndGoPenalty + UI.getStringTranslation("alertsWidget", "trackLimitsAbuse") },
+      '3': { text: stopAndGoPenalty + UI.getStringTranslation("alertsWidget", "overtakingUnderYellow") }
+    },
+    // Pitstop
+    '2': {
+      '1': { text: UI.getStringTranslation("alertsWidget", "missedMandatoryPit") }
+    },
+    // Time Penalty
+    '3': {
+      '1': { text: UI.getStringTranslation("alertsWidget", "mandatoryPitOutsideWindow") }
+    },
+    // Slowdown Penalty
+    '4': {
+      '1': { text: UI.getStringTranslation("alertsWidget", "slowDownTrackLimits") },
+      '2': { text: UI.getStringTranslation("alertsWidget", "slowDownTrackLimitsContinuing") }
+    },
+    // Disqualified
+    '5': {
+      '0': { text: disqualification + UI.getStringTranslation("alertsWidget", "falseStart") },
+      '1': { text: disqualification + UI.getStringTranslation("alertsWidget", "speedingInThePitlane") },
+      '2': { text: disqualification + UI.getStringTranslation("alertsWidget", "drivingWrongWayTrack") },
+      '3': { text: disqualification + UI.getStringTranslation("alertsWidget", "enteringPitsRed") },
+      '4': { text: disqualification + UI.getStringTranslation("alertsWidget", "exitingPitsRed") },
+      '8': { text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringDriveThrough") },
+      '9': { text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringStopGoPenalty") },
+      '10': { text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringPitPenalty") },
+      '11': { text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringTimePenalty") },
+      '12': { text: disqualification + UI.getStringTranslation("alertsWidget", "excessiveCutting") },
+      '13': { text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringBlueFlags") }
+    },
+    // Misc
+    '6': {
+      '0': { text: UI.getStringTranslation("alertsWidget", "classLeaderPitting") },
+      '1': { text: UI.getStringTranslation("alertsWidget", "classNewLeader") },
+      '2': { text: UI.getStringTranslation("alertsWidget", "classNewFastestLap") },
+      '3': { text: UI.getStringTranslation("alertsWidget", "classNewFastestSector") },
+      '4': { text: UI.getStringTranslation("alertsWidget", "collision") },
+      '5': { text: UI.getStringTranslation("alertsWidget", "offTrack") },
+      '6': { text: UI.getStringTranslation("alertsWidget", "stationary") },
+      '7': { text: UI.getStringTranslation("alertsWidget", "lostControl") },
+      '8': { text: UI.getStringTranslation("alertsWidget", "criticalDamage") },
+      '9': { text: UI.getStringTranslation("alertsWidget", "puncture") }
+    }
+  };
+
+  return penaltyMeanings;
+}
+UI.scoringRules = {
+	// Give a small intial edge to leaders
+	'priorizeLeaders': function (score, driver, drivers) {
+		score += 1 - driver.scoreInfo.positionOverall / drivers.length;
+
+		return score;
+	},
+	// make sure they don't stand still
+	'standingStill': function (score, driver, drivers) {
+		if (driver.vehicleInfo.speed < 10) {
+			score += -20;
+		}
+
+		return score;
+	},
+	// people running an invalid lap aren't as interesting
+	'hasInvalidLaps': function (score, driver, drivers) {
+		//console.log(driver.name, driver.extendedInfo.currentLapInfo.sector1);
+		if (driver.extendedInfo.currentLapInfo.valid === false) {
+			score += -2;
+		}
+
+		return score;
+	},
+	// people in yellow flag zones may be interesting, particulary those who might be cuasing it
+	'causingYellowFlag': function (score, driver, drivers) {
+		if (UI.state.sessionInfo.type.match(/^race/i) && driver.scoreInfo.flagInfo.yellow > 0 && driver.vehicleInfo.speed > 10 && driver.vehicleInfo.speed < 50) {
+			score += 10;
+		}
+
+		return score;
+	},
+	// Interesting if they don't have a time already in non race
+	'noBestTime': function (score, driver, drivers) {
+		if (UI.state.sessionInfo.type.match(/^race/i)) {
+			return score;
+		}
+
+		if (driver.scoreInfo.bestLapInfo.sector3 === -1) {
+			score += 1;
+		}
+
+		return score;
+	},
+	// Close racing is really interesting
+	'closeRacing': function (score, driver, drivers) {
+		if (!UI.state.sessionInfo.type.match(/^race/i)) {
+			return score;
+		}
+
+		var timeDiff = Math.max(0, driver.scoreInfo.timeDiff);
+		var secondsGap = 3;
+		var normalized = secondsGap * 1000;
+
+		// Give back between 0 and 2 depending on how close
+		if (timeDiff > 0 && timeDiff < normalized) {
+			var delta = (1 - timeDiff / normalized) * (normalized / 1000);
+			score += delta * 2;
+		}
+
+		return score;
+	},
+	// If the car already has focus give it a bit of a boost,
+	// the boost is based on how long we plan on keeping a shot.
+	// So with 15s shot they get 15points, after 7s they get 8points.
+	'alreadyHasFocus': function (score, driver, drivers) {
+		if (!this.cameraChangedTimestamp) {
+			return score;
+		}
+
+		var averageCameraShotLength = 15;
+		if (driver.slotId === UI.state.focusedSlot) {
+			var elapsed = (Date.now() - this.cameraChangedTimestamp) / 1000;
+			var delta = Math.max(0, averageCameraShotLength - elapsed);
+			score += delta;
+		}
+		return score;
+	},
+	// Current sectors is faster then personal best
+	'fasterInPrivateSectors': function (score, driver, drivers) {
+		var self = this;
+		if (UI.state.sessionInfo.type.match(/^race/i)) {
+			return score;
+		}
+
+		var best = driver.scoreInfo.bestLapInfo;
+		var current = driver.extendedInfo.currentLapInfo;
+		var sectors = ['sector1', 'sector2', 'sector3'];
+		sectors.forEach(function (sector, i) {
+			if (sector === 'sector3' || current[sectors[i + 1]] === -1 || current[sector] === -1 || best[sector] === -1) {
+				return;
+			}
+
+			if (current[sector] < best[sector]) {
+				var delta = (best[sector] - current[sector]) / 1000;
+				score += (3 - i) / 2 + Math.min(1, delta);
+
+				// Reset cam change so they keep focus after finishing sector3, less abrupt
+				if (driver.slotId === UI.state.focusedSlot) {
+					self.cameraChangedTimestamp = Date.now() - 5 * 1000;
+				}
+			}
+		});
+
+		return score;
+	},
+	// Current sectors is faster then global best
+	'fasterInGlobalSectors': function (score, driver, drivers) {
+		var self = this;
+		if (UI.state.sessionInfo.type.match(/^race/i)) {
+			return score;
+		}
+
+		var best = drivers[0].scoreInfo.bestLapInfo;
+		var current = driver.extendedInfo.currentLapInfo;
+		var sectors = ['sector1', 'sector2', 'sector3'];
+		sectors.forEach(function (sector, i) {
+			if (sector === 'sector3' || current[sectors[i + 1]] === -1 || current[sector] === -1 || best[sector] === -1) {
+				return;
+			}
+
+			if (current[sector] < best[sector]) {
+				var delta = (best[sector] - current[sector]) / 1000;
+				score += (3 - i) / 2 + Math.min(1, delta);
+
+				// Reset cam change so they keep focus after finishing sector3, less abrupt
+				if (driver.slotId === UI.state.focusedSlot) {
+					self.cameraChangedTimestamp = Date.now() - 5 * 1000;
+				}
+			}
+		});
+
+		return score;
+	},
+	// Focus on players at the start of a race
+	'focusOnPoleDuringRaceStart': function (score, driver, drivers) {
+		var session = UI.state.sessionInfo;
+		if (!session.type.match(/^race/i)) {
+			return score;
+		}
+
+		var secondsPassed = UI.state.sessionInfo.timeTotal / 3600 * 60 - UI.state.sessionInfo.timeLeft;
+		if (secondsPassed < 20 && driver.scoreInfo.positionOverall === 4) {
+			score += 30;
+		}
+
+		return score;
+	},
+	// Don't focus on drivers that have passed the finish line
+	'passedFinishline': function (score, driver, drivers) {
+		if (UI.state.sessionInfo.phase.match(/(green)/i)) {
+			return score;
+		}
+
+		var currentLapsForWinner = drivers[0].scoreInfo.laps;
+		if (driver.scoreInfo.laps === currentLapsForWinner) {
+			score += -20;
+		}
+
+		return score;
+	},
+	// Weight overall score on position
+	'weightOverallPosition': function (score, driver, drivers) {
+		if (!UI.state.sessionInfo.type.match(/^race/i)) {
+			return score;
+		}
+		var ratio = (1 - driver.scoreInfo.positionClass / drivers.length) / 3 + 0.7;
+		score += score * ratio;
+		return score;
+	}
+};
+UI.widgets.AutoDirector = React.createClass({
+	displayName: 'AutoDirector',
+
+	// These rules are checked top to bottom, must return score
+	rules: UI.scoringRules,
+	activateDefaultWidgets: function () {
+		if (UI.state.controllerOptions.options.autoDirectorOnlyMode.value === "false") {
+			UI.state.activeWidgets.MulticlassStandings.active = true;
+			UI.state.activeWidgets.LogoOverlay.active = true;
+			UI.state.activeWidgets.SessionInfo.active = true;
+			UI.state.activeWidgets.Alert.active = true;
+		}
+	},
+	usedCockpitCam: false,
+	usedCockpitTimeout: null,
+	cameraChangedTimestamp: Date.now(),
+	componentWillMount: function () {
+		var self = this;
+		self.activateDefaultWidgets();
+		io.emit('setState', UI.state);
+
+		function updateInfo() {
+			r3e.getDriversInfo(function (data) {
+				var jobs = [];
+				data.driversInfo.forEach(function (driver) {
+					jobs.push(function (done) {
+						UI.batch({
+							'vehicleInfo': function (done) {
+								r3e.getVehicleInfo({
+									'slotId': driver.slotId
+								}, done);
+							},
+							'pitInfo': function (done) {
+								r3e.getPitInfo({
+									'slotId': driver.slotId
+								}, done);
+							},
+							'extendedInfo': function (done) {
+								r3e.getExtendedInfo({
+									'slotId': driver.slotId
+								}, done);
+							}
+						}, function (data) {
+							driver.pitInfo = data.pitInfo;
+							driver.vehicleInfo = data.vehicleInfo;
+							driver.extendedInfo = data.extendedInfo;
+							done(driver);
+						});
+					});
+				});
+
+				// Find out which one should get the focus
+				UI.batch(jobs, function (drivers) {
+					var focusedSlot = 0;
+					var camera = UI.state.camera;
+
+					// Default to showing #1 driver
+					if (drivers[0]) {
+						focusedSlot = drivers[0].slotId;
+					}
+
+					var possibleDrivers = [];
+					var logs = [];
+					drivers.forEach(function (driver) {
+						var points = 0;
+						var log = [];
+						log.push('Driver: ' + driver.name + ' (#' + driver.scoreInfo.positionOverall + ')');
+						Object.keys(self.rules).forEach(function (key) {
+							var rule = self.rules[key];
+							var prePoint = points;
+							points = rule.bind(self)(points, driver, drivers);
+							var delta = points - prePoint;
+							if (delta) {
+								log.push('  - ' + key + ': ' + delta.toFixed(2));
+							}
+						});
+						log.push('Total: ' + points.toFixed(2) + '\n');
+						logs.push([log, points]);
+						possibleDrivers.push({
+							'score': points,
+							'slotId': driver.slotId,
+							'driver': driver
+						});
+					});
+
+					// Sort based on score from the rules
+					possibleDrivers = possibleDrivers.sort(function (a, b) {
+						if (a.score > b.score) {
+							return -1;
+						} else if (b.score > a.score) {
+							return 1;
+						} else {
+							return 0;
+						}
+					});
+
+					if (possibleDrivers.length) {
+						focusedSlot = possibleDrivers[0].slotId;
+
+						// change to hood cam if driver is close
+						var timeDiff = possibleDrivers[0].driver.scoreInfo.timeDiff;
+						var sinceLastCamChange = (Date.now() - self.cameraChangedTimestamp) / 1000;
+						var moreThenTenSeconds = sinceLastCamChange > 10;
+						if (moreThenTenSeconds) {
+							if (!self.usedCockpitCam && timeDiff !== -1 && timeDiff < 300) {
+								camera = 'onboard1';
+								self.usedCockpitCam = true;
+								if (self.usedCockpitTimeout) {
+									clearTimeout(self.usedCockpitTimeout);
+								}
+								self.usedCockpitTimeout = setTimeout(function () {
+									self.usedCockpitCam = false;
+								}, 60 * 1000);
+							} else {
+								camera = 'trackside';
+							}
+						}
+					} else {
+						camera = 'trackside';
+						focusedSlot = 0;
+					}
+
+					// Don't update if they are already the same
+					if (UI.state.focusedSlot === focusedSlot && UI.state.camera === camera) {
+						return;
+					}
+					UI.state.focusedSlot = focusedSlot;
+
+					// Don't go from hood to hood
+					if (UI.state.camera === 'onboard1') {
+						camera = 'trackside';
+					}
+					UI.state.camera = camera;
+
+					// set the state and update camera
+					io.emit('setState', UI.state);
+					io.emit('updatedCamera', {
+						'automated': true
+					});
+
+					self.cameraChangedTimestamp = Date.now();
+				});
+			});
+		}
+		updateInfo();
+
+		self.updateInterval = setInterval(updateInfo, 1 * 500);
+	},
+	componentWillUnmount: function () {
+		clearInterval(this.updateInterval);
+	},
+	render: function () {
+		return null;
+	}
+});
+UI.widgets.Code60 = React.createClass({
+	displayName: "Code60",
+
+	render: function () {
+		var self = this;
+		return React.createElement(
+			"div",
+			{ className: "code60Container" },
+			React.createElement("img", { className: "code60Img animated flash infinite", src: "img/code60.png" }),
+			React.createElement(
+				"div",
+				{ className: "code60" },
+				UI.getStringTranslation("code60Widget", "code60")
+			)
+		);
+	}
+});
 UI.widgets.CommentaryNames = React.createClass({
   displayName: "CommentaryNames",
 
@@ -79290,336 +79461,6 @@ UI.widgets.LogoOverlay = React.createClass({
 		);
 	}
 });
-UI.widgets.MulticlassStandings = React.createClass({
-	displayName: 'MulticlassStandings',
-
-	componentWillMount: function () {
-		var self = this;
-
-		io.emit('setState', UI.state);
-
-		function updateInfo() {
-			UI.batch({
-				'pitInfo': function (done) {
-					r3e.getPitInfo({
-						'slotId': UI.state.focusedSlot
-					}, done);
-				},
-				'driversInfo': r3e.getDriversInfo
-			}, self.setState.bind(self));
-		}
-		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate * 20);
-		self.updateLooperInterval = setInterval(this.updateLooperBasedOnPlayerCount, 1000);
-	},
-	updateLooperBasedOnPlayerCount: function () {
-		var maxSlotIndex = 0;
-		var drivers = this.state.driversInfo.driversInfo;
-		drivers.forEach(function (driver) {
-			maxSlotIndex = Math.max(maxSlotIndex, driver.slotId);
-		});
-		this.looper = Array.apply(null, Array(maxSlotIndex + 3));
-	},
-	componentWillUnmount: function () {
-		clearInterval(this.updateInterval);
-		clearInterval(this.updateLooperInterval);
-	},
-	getInitialState: function () {
-		return {
-			'pitInfo': {},
-			'driversInfo': {
-				'driversInfo': []
-			}
-		};
-	},
-	getDriverStyle: function (driver) {
-		if (UI.state.controllerOptions.options.indentFocusedDriver.value === "true" && driver.slotId === UI.state.focusedSlot) {
-			return {
-				'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)',
-				'left': '1em'
-			};
-		} else {
-			return {
-				'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)'
-			};
-		}
-	},
-	formatTime: UI.formatTime,
-	getMetaInfo: function (driver, sortedByPosition) {
-		var self = this;
-		// Race
-		if (UI.state.sessionInfo.type.match(/^race/i)) {
-			// Leader should show lap count
-			if (driver.scoreInfo.positionOverall === 1) {
-				return React.createElement(
-					'div',
-					{ className: 'meta-info' },
-					'Lap ',
-					driver.scoreInfo.laps + 1
-				);
-			} else {
-				if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
-					if (driver.scoreInfo.lapDiff > 0) {
-						return React.createElement(
-							'div',
-							{ className: 'meta-info' },
-							'+',
-							driver.scoreInfo.lapDiff,
-							' Lap(s)'
-						);
-					} else {
-						return React.createElement(
-							'div',
-							{ className: 'meta-info' },
-							self.formatTime(driver.scoreInfo.timeDiff)
-						);
-					}
-				} else {
-					if (sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps > 1) {
-						return React.createElement(
-							'div',
-							{ className: 'meta-info' },
-							'+',
-							sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps - 1,
-							' Lap(s)'
-						);
-					} else {
-						var sortedIndex = 0;
-						sortedByPosition.forEach(function (sortedDriver, i) {
-							if (sortedDriver.slotId === driver.slotId) {
-								sortedIndex = i;
-							}
-						});
-						var timeDifference = sortedByPosition.slice(1, sortedIndex + 1).map(function (driver) {
-							return Math.max(0, driver.scoreInfo.timeDiff);
-						}).reduce(function (p, c) {
-							return p + c;
-						});
-						return React.createElement(
-							'div',
-							{ className: 'meta-info' },
-							self.formatTime(timeDifference)
-						);
-					}
-				}
-			}
-			// Qualify and Practice
-		} else if (UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') {
-			if (driver.scoreInfo.positionOverall === 1) {
-				if (driver.scoreInfo.bestLapInfo.sector3 !== -1) {
-					return React.createElement(
-						'div',
-						{ className: 'meta-info fastest' },
-						self.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
-					);
-				} else {
-					return React.createElement('div', { className: 'meta-info' });
-				}
-			} else {
-				if (driver.scoreInfo.bestLapInfo.valid) {
-					return React.createElement(
-						'div',
-						{ className: 'meta-info' },
-						self.formatTime(driver.scoreInfo.bestLapInfo.sector3 - sortedByPosition[0].scoreInfo.bestLapInfo.sector3)
-					);
-				} else if (driver.scoreInfo.laps !== sortedByPosition[0].scoreInfo.laps) {
-					return React.createElement(
-						'div',
-						{ className: 'meta-info' },
-						'+',
-						sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps,
-						' laps'
-					);
-				} else {
-					return React.createElement('div', { className: 'meta-info' });
-				}
-			}
-		}
-	},
-	sortFunctionPosition: function (a, b) {
-		if (a.scoreInfo.positionOverall > b.scoreInfo.positionOverall) {
-			return 1;
-		} else if (a.scoreInfo.positionOverall === b.scoreInfo.positionOverall) {
-			return 0;
-		} else {
-			return -1;
-		}
-	},
-	renderName: function (name) {
-		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
-		var parts = name.split(' ');
-		var divStyle = {};
-
-		// show full name and increase width
-		if (UI.state.controllerOptions.options.showFullStandingsName.value === "true") {
-			// show second name only for team event mode
-			if (window.settings.teamEvent) {
-				var name = name.substr(name.indexOf(" ") + 1).toUpperCase();
-				firstInitial = "";
-			} else {
-				var lastNames = parts.slice(1);
-				var name = lastNames.map(item => item.toUpperCase());
-			}
-			divStyle.width = "8em";
-		} else {
-			if (window.settings.teamEvent) {
-				var name = name.substr(name.indexOf(" ") + 1).toUpperCase();
-				firstInitial = "";
-				divStyle.width = "8em";
-			} else {
-				// Show 3 characters of last name by default
-				var name = parts[parts.length - 1].substr(0, 3).toUpperCase();
-			}
-		}
-		return React.createElement(
-			'div',
-			{ className: 'nameContainer', style: divStyle },
-			React.createElement(
-				'div',
-				{ className: 'name' },
-				firstInitial,
-				name
-			)
-		);
-	},
-	getClassIndicator: function (classId) {
-		var divStyle = {};
-		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {
-			classColour = UI.getClassColour(classId);
-			divStyle.background = classColour;
-			return React.createElement('div', { className: 'classIndicator', style: divStyle });
-		} else {
-			divStyle.display = 'none';
-			return React.createElement('div', { className: 'classIndicator', style: divStyle });
-		}
-	},
-	shouldShow: function (driver) {
-		if (!driver) {
-			return false;
-		}
-		if (UI.state.sessionInfo.type.match(/^RACE/)) {
-			return true;
-		}
-		if (UI.state.sessionInfo.type === 'PRACTICE' && !driver.scoreInfo.bestLapInfo.valid) {
-			return false;
-		}
-		return driver.scoreInfo.bestLapInfo.valid || driver.scoreInfo.timeDiff != -1;
-	},
-	looper: Array.apply(null, Array(UI.maxDriverCount)),
-	render: function () {
-		// On end phase user portalId is not sent anymore so do not show
-		if (UI.state.sessionInfo.phase === 'END') {
-			return null;
-		}
-
-		var self = this;
-		var p = this.state;
-		var pitInfo = self.state.pitInfo;
-
-		var drivers = this.state.driversInfo.driversInfo;
-		if (!drivers.length) {
-			return null;
-		}
-
-		var driversLookup = {};
-		drivers.forEach(function (driver) {
-			driversLookup[driver.slotId] = driver;
-		});
-
-		var multiclassStandingsClasses = cx({
-			'hide-flags': UI.state.activeWidgets.MulticlassStandings.disableFlags,
-			'multiclass-standings': true
-		});
-
-		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value && UI.state.activeWidgets.Results.active) {
-			return null;
-		}
-
-		// hide in garage phase since thw whole grid won't be shown which looks bad on screen
-		if (UI.state.sessionInfo.phase === 'GARAGE') {
-			return null;
-		}
-
-		// hide when the event info widget is open.
-		if (UI.state.activeWidgets.EventInfo.active === true) {
-			return null;
-		}
-
-		// Need to clone it to keep the base array sorted by slotId
-		return React.createElement(
-			'div',
-			null,
-			UI.state.controllerOptions.options.showSponsorLogo.value === "true" ? React.createElement('div', { className: 'sponsorLogo' }) : React.createElement('div', { className: 'sponsorLogo', style: { height: 0 } }),
-			React.createElement(
-				'div',
-				{ className: multiclassStandingsClasses },
-				self.looper.map(function (non, i) {
-					return React.createElement(
-						'div',
-						{ key: i },
-						self.shouldShow(driversLookup[i]) ? React.createElement(
-							'div',
-							{ className: cx({ 'driver': true, 'active': driversLookup[i].slotId === UI.state.focusedSlot }), key: driversLookup[i].slotId, style: self.getDriverStyle(driversLookup[i]) },
-							React.createElement(
-								'div',
-								{ className: 'inner' },
-								React.createElement(
-									'div',
-									{ className: 'positionContainer' },
-									React.createElement(
-										'div',
-										{ className: 'position' },
-										driversLookup[i].scoreInfo.positionOverall
-									)
-								),
-								self.getClassIndicator(driversLookup[i].classId),
-								UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ? React.createElement(
-									'div',
-									{ className: 'manufacturerContainer' },
-									React.createElement(
-										'div',
-										{ className: 'manufacturerFlag' },
-										React.createElement('img', { src: '/render/' + driversLookup[i].manufacturerId + '/small/?type=manufacturer' })
-									)
-								) : null,
-								self.renderName(driversLookup[i].name),
-								window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
-									'div',
-									{ className: 'flagContainer' },
-									React.createElement(
-										'div',
-										{ className: 'standingsFlag animated fadeIn delay-2s' },
-										React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(driversLookup[i].portalId).country + '.png' })
-									)
-								) : null,
-								React.createElement(
-									'div',
-									{ className: 'meta-info-container' },
-									self.getMetaInfo(driversLookup[i], drivers)
-								),
-								React.createElement(
-									'div',
-									{ className: 'pit-info' },
-									driversLookup[i].mandatoryPitstopPerformed === 1 ? React.createElement(
-										'div',
-										{ className: 'pitted' },
-										'\u2B57'
-									) : null,
-									driversLookup[i].mandatoryPitstopPerformed === 0 ? React.createElement(
-										'div',
-										{ className: 'unpitted' },
-										'\u2B57'
-									) : null
-								)
-							)
-						) : null
-					);
-				})
-			)
-		);
-	}
-});
 (function reload() {
 	// When a Less file has been updated
 	window.io.on('css', function(path, content) {
@@ -79669,10 +79510,11 @@ UI.widgets.MulticlassStandings = React.createClass({
 		// corresponds to that component which then overrides the
 		// old one and updates the application.
 		if (path.match(/jsx/)) {
+			// Added \ to deal with path issues in Windows
 			path = '/generate/'+path
-				.replace(/.*components\//, '')
+				.replace(/.*components(\/|\\)/, '')
 				.replace(/.jsx$/, '')
-				.replace(/\//g, '_');
+				.replace(/(\/|\\)/g, '_');
 
 			var name = path.split('_');
 			name = name[name.length-1];
@@ -79786,6 +79628,389 @@ $(document).keyup(function(e) {
 				});
 			});
 		});
+	}
+});
+
+UI.widgets.RaceResults = React.createClass({
+	displayName: 'RaceResults',
+
+	componentWillMount: function () {
+		var self = this;
+		(function checkRefs() {
+			if (!self.refs['entries-outer']) {
+				return setTimeout(checkRefs, 100);
+			}
+
+			var diff = self.refs['entries-outer'].clientHeight - self.refs['entries-inner'].clientHeight;
+			setTimeout(function () {
+				if (!self.refs['entries-inner']) {
+					return;
+				}
+				self.refs['entries-inner'].style.top = diff + 'px';
+			}, 25 * 1000);
+		})();1;
+	},
+	getName: function (name) {
+		if (window.settings.teamEvent) {
+			return name.substr(name.indexOf(" ") + 1);
+		} else {
+			return UI.fixName(name);
+		}
+	},
+	getNameColumnTitle: function () {
+		if (window.settings.teamEvent) {
+			return UI.getStringTranslation("raceResultsWidget", "team");
+		} else {
+			return UI.getStringTranslation("raceResultsWidget", "name");
+		}
+	},
+	render: function () {
+		var self = this;
+		var fastestTime = 999999;
+		var fastestTimeIndex = null;
+		var winnerIndex = null;
+		self.props.results.forEach(function (entry, i) {
+			if (entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
+				fastestTime = entry.bestLapInfo.sector3;
+				fastestTimeIndex = i;
+			}
+			if (entry.positionOverall === 1) {
+				winnerIndex = i;
+			}
+		});
+
+		if (self.props.results[fastestTimeIndex]) {
+			self.props.results[fastestTimeIndex].isFastest = true;
+		}
+
+		var fastestDriver = self.props.results[fastestTimeIndex];
+		var winningDriver = self.props.results[winnerIndex];
+
+		var self = this;
+		return React.createElement(
+			'div',
+			null,
+			winningDriver != null ? React.createElement(
+				'div',
+				{ className: 'winnerColumn animated fadeInLeft delay-2s' },
+				React.createElement(
+					'div',
+					{ className: 'winnerTitle' },
+					UI.getStringTranslation("raceResultsWidget", "raceWinner")
+				),
+				React.createElement(
+					'div',
+					{ className: 'winnerImageContainer' },
+					React.createElement('img', { className: 'winnerImage', src: '/img/winner.png' })
+				),
+				React.createElement('div', { className: 'winnerLogo' }),
+				React.createElement(
+					'div',
+					{ className: 'livery' },
+					React.createElement('img', { src: '/render/' + winningDriver.liveryId + '/small/' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'driverFlagContainer' },
+					React.createElement('img', { className: 'driveFlag', src: '/img/flags/' + UI.getUserInfo(winningDriver.portalId).country + '.png' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'driverName' },
+					self.getName(winningDriver.name)
+				)
+			) : null,
+			fastestDriver != null ? React.createElement(
+				'div',
+				{ className: 'fastestDriverColumn animated fadeInRight delay-2s' },
+				React.createElement(
+					'div',
+					{ className: 'fastestTitle' },
+					UI.getStringTranslation("raceResultsWidget", "fastestLap")
+				),
+				React.createElement(
+					'div',
+					{ className: 'fastestDriverImageContainer' },
+					React.createElement('img', { className: 'fastestDriverImage', src: '/img/fastest.png' })
+				),
+				React.createElement('div', { className: 'fastestDriverLogo' }),
+				React.createElement(
+					'div',
+					{ className: 'fastestDriverLivery' },
+					React.createElement('img', { src: '/render/' + fastestDriver.liveryId + '/small/' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'fastestDriverFlagContainer' },
+					React.createElement('img', { className: 'fastestDriverFlag', src: '/img/flags/' + UI.getUserInfo(fastestDriver.portalId).country + '.png' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'fastestDriverName' },
+					self.getName(fastestDriver.name)
+				)
+			) : null,
+			React.createElement(
+				'div',
+				{ className: 'race-results-bg' },
+				React.createElement(
+					'div',
+					{ className: 'race-results animated fadeIn' },
+					React.createElement(
+						'div',
+						{ className: 'title' },
+						React.createElement(
+							'div',
+							{ className: 'text' },
+							UI.state.sessionInfo.type.match(/^Race 1/i) ? UI.getStringTranslation("raceResultsWidget", "race") : UI.state.sessionInfo.type,
+							' Results',
+							React.createElement('div', { className: 'logo' })
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'race-results-entry title' },
+						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+							'div',
+							{ className: 'classPosition' },
+							UI.getStringTranslation("raceResultsWidget", "classPosition")
+						) : null,
+						React.createElement(
+							'div',
+							{ className: 'position' },
+							UI.getStringTranslation("raceResultsWidget", "overall")
+						),
+						React.createElement('div', { className: 'manufacturer' }),
+						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+							'div',
+							{ className: 'shortName' },
+							self.getNameColumnTitle()
+						) : React.createElement(
+							'div',
+							{ className: 'longName' },
+							self.getNameColumnTitle()
+						),
+						React.createElement('div', { className: 'livery' }),
+						window.settings.teamEvent ? React.createElement('div', { className: 'raceResultTeam' }) : React.createElement(
+							'div',
+							{ className: 'raceResultTeam' },
+							UI.getStringTranslation("raceResultsWidget", "team")
+						),
+						React.createElement(
+							'div',
+							{ className: 'penaltyTime' },
+							UI.getStringTranslation("raceResultsWidget", "penalties")
+						),
+						React.createElement(
+							'div',
+							{ className: 'lap-time' },
+							UI.getStringTranslation("raceResultsWidget", "finishTime")
+						),
+						React.createElement(
+							'div',
+							{ className: 'fastest-time' },
+							UI.getStringTranslation("raceResultsWidget", "bestLap")
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'entries-outer', ref: 'entries-outer' },
+						React.createElement(
+							'div',
+							{ className: 'entries-inner', ref: 'entries-inner' },
+							self.props.results.map(function (entry, i) {
+								return React.createElement(RaceResultEntry, { entry: entry, firstEntry: self.props.results[0], index: i });
+							})
+						)
+					)
+				)
+			)
+		);
+	}
+});
+
+var RaceResultEntry = React.createClass({
+	displayName: 'RaceResultEntry',
+
+	getClassColour: function (classId) {
+		var classColour = "rgba(38, 50, 56, 0.8)";
+		var className = "";
+
+		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
+			classColour = r3eClassColours.classes[classId].colour;
+			className = r3eData.classes[classId].Name;
+		}
+
+		return { 'background': classColour };
+	},
+	getTeamName: function (teamId, portalId) {
+		var self = this;
+		var teamName = "";
+		var portalTeamName = UI.getUserInfo(portalId).team;
+		if (window.settings.teamEvent) {
+			return "";
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
+			teamName = portalTeamName;
+		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length === 0) {
+			teamName = UI.getStringTranslation("raceResultsWidget", "privateer");
+		} else if (r3eData.teams[teamId] != null) {
+			teamName = r3eData.teams[teamId].Name;
+		}
+		return teamName;
+	},
+	getName: function (name) {
+		if (window.settings.teamEvent) {
+			return name.substr(name.indexOf(" ") + 1);
+		} else {
+			return UI.fixName(name);
+		}
+	},
+	render: function () {
+		var self = this;
+		var entry = self.props.entry;
+		var lapTime = null;
+		if (entry.finishStatus === 'DNF') {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				UI.getStringTranslation("raceResultsWidget", "dnf")
+			);
+		} else if (entry.finishStatus === 'DNS') {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				UI.getStringTranslation("raceResultsWidget", "dns")
+			);
+		} else if (entry.finishStatus === 'DQ') {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				UI.getStringTranslation("raceResultsWidget", "dq")
+			);
+		} else if (self.props.index === 0) {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				UI.formatTime(entry.totalTime, { ignoreSign: true })
+			);
+		} else if (entry.lapsBehind === 1) {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				'+',
+				entry.lapsBehind,
+				' ',
+				UI.getStringTranslation("raceResultsWidget", "laps")
+			);
+		} else if (entry.lapsBehind > 1) {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				'+',
+				entry.lapsBehind,
+				' ',
+				UI.getStringTranslation("raceResultsWidget", "laps")
+			);
+		} else {
+			lapTime = React.createElement(
+				'div',
+				{ className: 'lap-time' },
+				UI.formatTime(entry.totalTime - self.props.firstEntry.totalTime)
+			);
+		}
+
+		// race penalties
+		var penaltyTime = React.createElement(
+			'div',
+			{ className: 'penaltyTime', style: { 'min-width': '4.5em' } },
+			' - '
+		);
+		if (entry.penaltyTime && entry.penaltyWeight) {
+			penaltyTime = React.createElement(
+				'div',
+				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
+				entry.penaltyTime / 1000,
+				's/',
+				entry.penaltyWeight,
+				'KG'
+			);
+		} else if (entry.penaltyTime) {
+			penaltyTime = React.createElement(
+				'div',
+				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
+				entry.penaltyTime / 1000,
+				's'
+			);
+		} else if (entry.penaltyWeight) {
+			penaltyTime = React.createElement(
+				'div',
+				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
+				entry.penaltyWeight,
+				'KG'
+			);
+		}
+
+		return React.createElement(
+			'div',
+			{ className: cx({ 'fastest': entry.isFastest, 'race-results-entry': true, 'striped': entry.positionOverall % 2 }) },
+			UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+				'div',
+				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
+				UI.getStringTranslation("raceResultsWidget", "class"),
+				' P',
+				entry.positionClass,
+				'.'
+			) : null,
+			React.createElement(
+				'div',
+				{ className: 'position' },
+				'#',
+				entry.positionOverall
+			),
+			React.createElement(
+				'div',
+				{ className: 'manufacturer' },
+				window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
+					'div',
+					{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'standingsFlag' },
+					React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(entry.portalId).country + '.png' })
+				) : React.createElement(
+					'div',
+					{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'manufacturerFlag' },
+					React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/?type=manufacturer' })
+				)
+			),
+			UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+				'div',
+				{ className: 'shortName' },
+				self.getName(entry.name)
+			) : React.createElement(
+				'div',
+				{ className: 'longName' },
+				self.getName(entry.name)
+			),
+			React.createElement(
+				'div',
+				{ className: 'livery animated fadeInRight delay-1s' },
+				React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
+			),
+			React.createElement(
+				'div',
+				{ className: 'raceResultTeam' },
+				self.getTeamName(entry.teamId, entry.portalId)
+			),
+			penaltyTime,
+			lapTime,
+			entry.bestLapInfo.sector3 !== -1 ? React.createElement(
+				'div',
+				{ className: 'fastest-time' },
+				UI.formatTime(entry.bestLapInfo.sector3, { ignoreSign: true })
+			) : React.createElement(
+				'div',
+				{ className: 'fastest-time' },
+				'-'
+			)
+		);
 	}
 });
 UI.widgets.Results = React.createClass({
@@ -80508,6 +80733,7 @@ var TrackMapDot = React.createClass({
 
 var settings = {
 	"offline": false, // turns on or off offline mode
+	"generateExport": false, // exports all data for use in external tools
 	"teamEvent": false, // tweaks overlay to suit team races
 	"language": "english" // choose a language, english, french, chinese, russian etc. Supported can be seen in the 'languages' folder in the main directory.
 }
@@ -80523,14 +80749,363 @@ var r3eOverlaySettings = {
 };
 
 UI.components.App = React.createClass({
-	displayName: "App",
+	displayName: 'App',
 
 	render: function () {
 		if (window.gameClient) {
 			return React.createElement(UI.components.Spectator, null);
 		} else {
-			return React.createElement(UI.components.Controller, null);
+			if (window.location.pathname === '/dashboard') {
+				return React.createElement(UI.components.CommentatorDashboard, null);
+			} else if (window.location.pathname === '/overview') {
+				return React.createElement(UI.components.Overview, null);
+			} else {
+				return React.createElement(UI.components.Controller, null);
+			}
 		}
+	}
+});
+UI.components.CommentatorDashboard = React.createClass({
+	displayName: 'CommentatorDashboard',
+
+	maxIncidents: 100,
+	getInitialState: function () {
+		return {
+			driversInfo: [],
+			incidents: [],
+			facts: []
+		};
+	},
+	types: ['Drive Through', 'Stop And Go', 'Pitstop', 'Time', 'Slowdown', 'Disqualify'],
+	fastestLap: -1,
+	session: -1,
+	eventId: 0,
+	reasons: {},
+	componentWillMount: function () {
+		io.on('driversInfo', this.setDriversInfo);
+		io.on('incident', this.addIncident);
+
+		this.setupReasons();
+	},
+	setupReasons: function () {
+		this.reasons = getPenaltyMeanings();
+	},
+	componentWillUnmount: function () {
+		io.removeListener('driversInfo', this.setDriversInfo);
+		io.removeListener('incident', this.addIncident);
+	},
+
+	addIncident: function (incident) {
+		let incidents = this.state.incidents;
+		incident.time = Date.now();
+		this.eventId += 1;
+		incident.id = this.eventId;
+		incidents.unshift(incident);
+
+		if (incidents.length > this.maxIncidents) {
+			incidents = incidents.slice(0, this.maxIncidents);
+		}
+
+		this.setState({
+			incidents: incidents
+		});
+	},
+	addFact: function (fact) {
+		const facts = this.state.facts;
+
+		fact.time = Date.now();
+		this.eventId += 1;
+		fact.id = this.eventId;
+
+		facts.unshift(fact);
+		if (facts.length > this.maxfacts) {
+			facts = facts.slice(0, this.maxfacts);
+		}
+
+		this.setState({
+			facts: facts
+		});
+	},
+	checkFastestLap: function (driversInfo) {
+		let fastestLapTime = Number.MAX_SAFE_INTEGER;
+		let fastestLapDriver = null;
+		driversInfo.forEach(driver => {
+			const bestlap = driver.scoreInfo.bestLapInfo;
+			if (!bestlap || bestlap.valid === false) {
+				return;
+			}
+			if (bestlap.sector3 < fastestLapTime) {
+				fastestLapTime = bestlap.sector3;
+				fastestLapDriver = driver;
+			}
+		});
+		if (!fastestLapDriver) {
+			return;
+		}
+
+		if (this.fastestLap === -1) {
+			this.fastestLap = fastestLapTime;
+		} else if (this.fastestLap > fastestLapTime || this.fastestLap === -1) {
+			this.fastestLap = fastestLapTime;
+			this.addFact({
+				slotId: fastestLapDriver.slotId,
+				content: React.createElement(
+					'div',
+					null,
+					fastestLapDriver.name,
+					' posted a new fastest lap:',
+					' ',
+					UI.formatTime(this.fastestLap, { ignoreSign: true })
+				)
+			});
+		}
+	},
+	handleSessionReset: function () {
+		const session = UI.state.sessionInfo;
+		const newSession = session.type;
+		if (this.session === -1) {
+			this.session = newSession;
+		}
+		if (this.session !== newSession) {
+			this.fastestLap = -1;
+			this.setState({
+				incidents: [],
+				facts: []
+			});
+		}
+		this.session = newSession;
+	},
+	setDriversInfo: function (driversInfo) {
+		this.checkFastestLap(driversInfo);
+
+		this.setState({
+			driversInfo: driversInfo
+		});
+
+		this.handleSessionReset();
+	},
+	renderIncidents: function () {
+		const reasons = this.reasons;
+		const state = this.state;
+
+		return this.state.incidents.map(incident => {
+			let reason = '';
+			let driver = '';
+			try {
+				reason = reasons[incident.type][incident.reason].text;
+				driver = state.driversInfo.find(function (driver) {
+					return driver.slotId === incident.slotId;
+				});
+			} catch (e) {}
+
+			if (!driver || !reason || !driver) {
+				return null;
+			}
+
+			return React.createElement(
+				'div',
+				{
+					className: cx({
+						'row-entry': true,
+						focused: incident.slotId === UI.state.focusedSlot
+					}),
+					key: incident.id,
+					'data-id': incident.slotId,
+					onClick: this.changeCameraToDriver
+				},
+				React.createElement(
+					'div',
+					{ className: 'incident-data' },
+					React.createElement(
+						'span',
+						{ className: 'name' },
+						driver.name,
+						':'
+					),
+					React.createElement(
+						'span',
+						null,
+						reason
+					)
+				),
+				React.createElement('div', { className: 'timer' })
+			);
+		});
+	},
+	renderFacts: function () {
+		return this.state.facts.map(fact => {
+			return React.createElement(
+				'div',
+				{
+					className: cx({
+						'row-entry': true,
+						focused: fact.slotId === UI.state.focusedSlot
+					}),
+					key: fact.id,
+					'data-id': fact.slotId,
+					onClick: this.changeCameraToDriver
+				},
+				fact.content,
+				React.createElement('div', { className: 'timer' })
+			);
+		});
+	},
+	changeCamera: function (camera, slotId) {
+		UI.state.focusedSlot = slotId;
+		UI.state.camera = camera;
+		io.emit('setState', UI.state);
+		io.emit('updatedCamera', {});
+	},
+	changeCameraToDriver: function (e) {
+		const slotId = parseInt(e.currentTarget.getAttribute('data-id'), 10);
+		if (isNaN(slotId)) {
+			return;
+		}
+		this.changeCamera('trackside', slotId);
+	},
+	calculateEstimatedLapsLeft: function () {
+		const session = UI.state.sessionInfo;
+		const estimatedLapTimeFastestInSec = this.fastestLap !== -1 ? this.fastestLap / 1000 : -1;
+
+		let estimatedLapTimeLatestInSec = -1;
+		try {
+			if (this.state.driversInfo[0].extendedInfo.lastTenLapsInfo[0].sector3 !== -1) {
+				estimatedLapTimeLatestInSec = this.state.driversInfo[0].extendedInfo.lastTenLapsInfo[0].sector3 / 1000;
+			}
+		} catch (e) {}
+
+		const isLastLaps = this.fastestLap !== -1 && estimatedLapTimeFastestInSec > session.timeLeft;
+
+		let latestLapsLeft = -1;
+		let fastestLapsLeft = -1;
+		try {
+			if (estimatedLapTimeLatestInSec !== -1) {
+				latestLapsLeft = session.timeLeft / estimatedLapTimeLatestInSec;
+			}
+		} catch (e) {}
+
+		try {
+			if (estimatedLapTimeFastestInSec !== -1) {
+				fastestLapsLeft = session.timeLeft / estimatedLapTimeFastestInSec;
+			}
+		} catch (e) {}
+
+		if (session.phase === 'CHECKERED' || session.phase === 'END') {
+			latestLapsLeft = 0;
+			fastestLapsLeft = 0;
+		}
+
+		const minLapsLeft = Math.min(latestLapsLeft, fastestLapsLeft);
+		const maxLapsLeft = Math.max(latestLapsLeft, fastestLapsLeft);
+
+		return {
+			isLastLaps,
+			minLapsLeft,
+			maxLapsLeft
+		};
+	},
+	render: function () {
+		const session = UI.state.sessionInfo;
+		const {
+			isLastLaps,
+			minLapsLeft,
+			maxLapsLeft
+		} = this.calculateEstimatedLapsLeft();
+
+		return React.createElement(
+			'div',
+			{ className: 'commentator-dashboard' },
+			React.createElement(
+				'div',
+				{
+					className: cx({
+						title: true,
+						isLastLaps: isLastLaps
+					})
+				},
+				session.type && session.phase ? React.createElement(
+					'span',
+					null,
+					UI.getStringTranslation('sessionInfoWidget', session.type.toLowerCase().replace(/ /g, '')),
+					' ',
+					'-',
+					' ',
+					UI.getStringTranslation('sessionInfoWidget', session.phase.toLowerCase().replace(/ /g, '')),
+					': ',
+					UI.formatSessionTime(session.timeLeft),
+					'/',
+					UI.formatSessionTime(session.timeTotal)
+				) : null,
+				React.createElement(
+					'span',
+					{ className: 'estimated' },
+					'- Est laps left -',
+					' ',
+					minLapsLeft !== -1 && React.createElement(
+						'span',
+						null,
+						minLapsLeft.toFixed(2),
+						'x'
+					),
+					minLapsLeft !== -1 && minLapsLeft !== -1 && React.createElement(
+						'span',
+						null,
+						' - '
+					),
+					maxLapsLeft !== -1 && React.createElement(
+						'span',
+						null,
+						maxLapsLeft.toFixed(2),
+						'x'
+					),
+					minLapsLeft === -1 && maxLapsLeft === -1 && React.createElement(
+						'span',
+						null,
+						'?'
+					)
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'content' },
+				React.createElement(
+					'div',
+					{ className: 'row facts' },
+					React.createElement(
+						'div',
+						{ className: 'box' },
+						React.createElement(
+							'div',
+							{ className: 'row-title' },
+							'Interesting events'
+						),
+						React.createElement(
+							'div',
+							{ className: 'row-entries' },
+							this.renderFacts()
+						)
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'row incidents' },
+					React.createElement(
+						'div',
+						{ className: 'box' },
+						React.createElement(
+							'div',
+							{ className: 'row-title' },
+							'Incidents'
+						),
+						React.createElement(
+							'div',
+							{ className: 'row-entries' },
+							this.renderIncidents()
+						)
+					)
+				)
+			)
+		);
 	}
 });
 var clickEventType = 'ontouchstart' in window ? 'touchstart' : 'click';
@@ -81178,6 +81753,8 @@ UI.components.Controller = React.createClass({
 
 		var controlOptionsData = UI.state.controllerOptions.options;
 
+		var isRace = UI.state.sessionInfo.type.match(/^race/i);
+
 		return React.createElement(
 			'div',
 			{ className: classes },
@@ -81193,6 +81770,16 @@ UI.components.Controller = React.createClass({
 					'a',
 					{ onClick: this.toggleTrackMap },
 					window.location.hash.match(/trackmap/) && self.state.driversInfo.length ? React.createElement('img', { className: 'toggle-track-map', src: '/img/close.svg' }) : React.createElement('img', { className: 'toggle-track-map', src: '/img/map.svg' })
+				),
+				React.createElement(
+					'a',
+					{ className: 'dashboard', href: '/dashboard' },
+					'Dashboard'
+				),
+				React.createElement(
+					'a',
+					{ className: 'dashboard', href: '/overview' },
+					'Overview'
 				),
 				session.type && session.phase ? React.createElement(
 					'span',
@@ -81333,7 +81920,8 @@ UI.components.Controller = React.createClass({
 								'div',
 								{ className: 'last-lap-time' },
 								UI.getStringTranslation("controller", "lastLap")
-							)
+							),
+							isRace && React.createElement('div', { className: 'action' })
 						)
 					),
 					React.createElement(
@@ -81370,7 +81958,7 @@ UI.components.Controller = React.createClass({
 				),
 				React.createElement(
 					'div',
-					{ onMouseEnter: this.enter, onMouseUp: this.mouseUpCameraControl, className: 'control center', 'data-value': 'trackside' },
+					{ onMouseEnter: this.enter, onMouseUp: this.mouseUpCameraControl, className: 'control center', 'data-value': 'tv' },
 					'TV'
 				),
 				React.createElement(
@@ -81387,6 +81975,21 @@ UI.components.Controller = React.createClass({
 					'div',
 					{ onMouseEnter: this.enter, onMouseUp: this.mouseUpCameraControl, className: 'control bottomLeft', 'data-value': 'wing' },
 					'Rear wing'
+				),
+				React.createElement(
+					'div',
+					{ onMouseEnter: this.enter, onMouseUp: this.mouseUpCameraControl, className: 'control topLeft', 'data-value': 'action' },
+					'Action'
+				),
+				React.createElement(
+					'div',
+					{ onMouseEnter: this.enter, onMouseUp: this.mouseUpCameraControl, className: 'control topRight', 'data-value': 'heli' },
+					'Heli'
+				),
+				React.createElement(
+					'div',
+					{ onMouseEnter: this.enter, onMouseUp: this.mouseUpCameraControl, className: 'control bottomRight', 'data-value': 'static' },
+					'Static'
 				)
 			),
 			React.createElement(
@@ -81418,6 +82021,74 @@ UI.components.Controller = React.createClass({
 var TabledDriver = React.createClass({
 	displayName: 'TabledDriver',
 
+	getInitialState: function () {
+		return {
+			'actionModalActive': false,
+			'actionModalType': null
+		};
+	},
+	toggleActionModal: function (driver) {
+		this.setState({
+			actionModalActive: !this.state.actionModalActive
+		});
+	},
+	addPenalty: function (id, penaltyType, duration) {
+		var self = this;
+		var options = UI.state.controllerOptions.options;
+		var dediUrl = options.dediManager.value.replace(/\/$/, '');
+
+		// Validate that the url is proper
+		try {
+			new URL(dediUrl);
+		} catch (e) {
+			alert(e);
+			return false;
+		}
+
+		$.ajax({
+			url: '/penalty/',
+			method: 'POST',
+			json: true,
+			data: {
+				UserId: id,
+				PenaltyType: penaltyType,
+				Duration: duration
+			},
+			complete: function () {
+				self.setState({ 'actionModalType': null });
+				self.toggleActionModal();
+			},
+			success: function (json) {
+				if (json.error) {
+					return alert(json.error);
+				}
+			}
+		});
+	},
+	addSlowdown: function (id) {
+		var duration = parseFloat(this.refs.slowdownDuration.value);
+		this.addPenalty(id, 0, duration);
+	},
+	sendWarning: function () {
+		var self = this;
+		$.ajax({
+			url: '/chat/',
+			method: 'POST',
+			json: true,
+			data: {
+				message: this.refs.warningTextarea.value
+			},
+			complete: function () {
+				self.setState({ 'actionModalType': null });
+				self.toggleActionModal();
+			},
+			success: function (json) {
+				if (json.error) {
+					return alert(json.error);
+				}
+			}
+		});
+	},
 	changeCamera: function (camera, slotId) {
 		UI.state.focusedSlot = slotId;
 		UI.state.camera = camera;
@@ -81550,7 +82221,8 @@ var TabledDriver = React.createClass({
 		var classes = cx({
 			'tabled-driver-entry': true,
 			'focused': this.props.focused,
-			'idle': self.props.driver.vehicleInfo.speed < 5
+			'idle': self.props.driver.vehicleInfo.speed < 5,
+			'hasModal': this.state.actionModalActive
 		});
 		var driver = self.props.driver;
 		var state = self.state;
@@ -81560,7 +82232,7 @@ var TabledDriver = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: classes, style: { 'zIndex': 1000 - this.props.position } },
+			{ className: classes, style: { 'azIndex': 100 - this.props.position } },
 			self.renderPostion(driver),
 			React.createElement(
 				'div',
@@ -81720,6 +82392,111 @@ var TabledDriver = React.createClass({
 				'div',
 				{ className: 'last-lap-time invalid' },
 				UI.getStringTranslation("controller", "invalid")
+			),
+			(true || isRace) && React.createElement(
+				'div',
+				{ className: 'action' },
+				React.createElement(
+					'div',
+					{ className: 'actionIcon', onClick: () => {
+							this.toggleActionModal();
+						} },
+					'!'
+				)
+			),
+			this.state.actionModalActive && React.createElement(
+				'div',
+				{ className: 'actionModal' },
+				React.createElement(
+					'div',
+					{ className: 'inner' },
+					this.state.actionModalType === null && React.createElement(
+						'div',
+						{ className: 'optionContainer' },
+						React.createElement(
+							'div',
+							{ className: 'option', onClick: () => {
+									this.setState({ 'actionModalType': 'warning' });
+								} },
+							UI.getStringTranslation("controller", "Warn")
+						),
+						React.createElement(
+							'div',
+							{ className: 'option', onClick: () => {
+									this.setState({ 'actionModalType': 'penalty' });
+								} },
+							UI.getStringTranslation("controller", "Penalize")
+						)
+					),
+					this.state.actionModalType === 'warning' && React.createElement(
+						'div',
+						{ className: 'optionContainer' },
+						React.createElement('textarea', { ref: 'warningTextarea', maxlength: 128, defaultValue: self.getName(driver.name) + ', ' + UI.getStringTranslation("controller", "warning") + '!' }),
+						React.createElement(
+							'button',
+							{ onClick: () => {
+									this.sendWarning();
+								} },
+							UI.getStringTranslation("controller", "Send warning")
+						)
+					),
+					this.state.actionModalType === 'slowdown' && React.createElement(
+						'div',
+						{ className: 'optionContainer' },
+						React.createElement('input', { ref: 'slowdownDuration', type: 'number', defaultValue: 5, min: 0 }),
+						React.createElement(
+							'button',
+							{ onClick: () => {
+									this.addSlowdown(driver.portalId);
+								} },
+							UI.getStringTranslation("controller", "Send slowdown")
+						)
+					),
+					this.state.actionModalType === 'penalty' && React.createElement(
+						'div',
+						{ className: 'optionContainer' },
+						React.createElement(
+							'div',
+							{ className: 'option', onClick: () => {
+									this.setState({ 'actionModalType': 'slowdown' });
+								} },
+							UI.getStringTranslation("controller", "Slowdown")
+						),
+						React.createElement(
+							'div',
+							{ className: 'option', onClick: () => {
+									this.addPenalty(driver.portalId, 1);
+								} },
+							UI.getStringTranslation("controller", "Drive Through")
+						),
+						React.createElement(
+							'div',
+							{ className: 'option', onClick: () => {
+									this.addPenalty(driver.portalId, 2);
+								} },
+							UI.getStringTranslation("controller", "Stop And Go")
+						),
+						React.createElement(
+							'div',
+							{ className: 'option', onClick: () => {
+									this.addPenalty(driver.portalId, 3);
+								} },
+							UI.getStringTranslation("controller", "Disqualify")
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'userName' },
+						self.getName(driver.name)
+					),
+					React.createElement(
+						'div',
+						{ className: 'close', onClick: () => {
+								this.setState({ 'actionModalType': null });this.toggleActionModal();
+							} },
+						UI.getStringTranslation("controller", "Close")
+					)
+				)
 			)
 		);
 	}
@@ -81815,6 +82592,843 @@ $(window).resize(function () {
 		$(this).width(pos.targetWidth).height(pos.targetHeight);
 	});
 }).resize();
+UI.components.Overview = React.createClass({
+	displayName: 'Overview',
+
+	maxIncidents: 100,
+	getInitialState: function () {
+		return {
+			driversInfo: [],
+			deltaRelative: true,
+			favoriteRelative: true,
+			favorites: {}
+		};
+	},
+	closestFightSlotId: -1,
+	fastestLap: -1,
+	session: -1,
+	eventId: 0,
+	maxLapsLeft: -1,
+	favDrivers: [],
+	favoriteMaxLaps: 0,
+	reasons: {},
+	componentWillMount: function () {
+		io.on('driversInfo', this.setDriversInfo);
+
+		this.setupReasons();
+	},
+	setupReasons: function () {
+		this.reasons = getPenaltyMeanings();
+	},
+	componentWillUnmount: function () {},
+	checkFastestLap: function (driversInfo) {
+		let fastestLapTime = Number.MAX_SAFE_INTEGER;
+		let fastestLapDriver = null;
+		driversInfo.forEach(driver => {
+			const bestlap = driver.scoreInfo.bestLapInfo;
+			if (!bestlap || bestlap.valid === false) {
+				return;
+			}
+			if (bestlap.sector3 < fastestLapTime) {
+				fastestLapTime = bestlap.sector3;
+				fastestLapDriver = driver;
+			}
+		});
+		if (!fastestLapDriver) {
+			return;
+		}
+
+		if (this.fastestLap === -1) {
+			this.fastestLap = fastestLapTime;
+		} else if (this.fastestLap > fastestLapTime || this.fastestLap === -1) {
+			this.fastestLap = fastestLapTime;
+		}
+	},
+	handleSessionReset: function () {
+		const session = UI.state.sessionInfo;
+		const newSession = session.type;
+		if (this.session === -1) {
+			this.session = newSession;
+		}
+		if (this.session !== newSession) {
+			this.fastestLap = -1;
+			this.setState({
+				incidents: [],
+				facts: []
+			});
+		}
+		this.session = newSession;
+	},
+	setDriversInfo: function (driversInfo) {
+		this.checkFastestLap(driversInfo);
+		this.setState({
+			driversInfo: driversInfo
+		});
+
+		this.handleSessionReset();
+	},
+	changeCamera: function (camera, slotId) {
+		UI.state.focusedSlot = slotId;
+		UI.state.camera = camera;
+		io.emit('setState', UI.state);
+		io.emit('updatedCamera', {});
+	},
+	changeCameraToDriver: function (e) {
+		const slotId = parseInt(e.currentTarget.getAttribute('data-id'), 10);
+		if (isNaN(slotId)) {
+			return;
+		}
+		this.changeCamera('trackside', slotId);
+	},
+	toggleDeltaRelative: function (e) {
+		const checked = e.currentTarget.checked;
+		this.setState({
+			deltaRelative: checked
+		});
+	},
+	toggleFavoriteRelative: function (e) {
+		const checked = e.currentTarget.checked;
+		this.setState({
+			favoriteRelative: checked
+		});
+	},
+	toggleFavorite: function (e) {
+		const slotId = parseInt(e.currentTarget.getAttribute('data-id'), 10);
+		const checked = e.currentTarget.checked;
+		this.state.favorites[slotId] = checked;
+
+		this.setState({
+			favorites: this.state.favorites
+		});
+	},
+	calculateConsistency: function (laps) {
+		let min = Number.MAX_SAFE_INTEGER;
+		let max = Number.MIN_SAFE_INTEGER;
+		const correctLaps = laps.filter(lap => {
+			const time = lap.sector3;
+
+			return time > 0;
+		}).map(lap => {
+			const time = lap.sector3;
+
+			min = Math.min(min, time);
+			max = Math.max(max, time);
+		});
+
+		if (correctLaps.length <= 1) {
+			return '-';
+		}
+
+		const delta = max - min;
+		const proc = ((1 - delta / max) * 100).toFixed(2);
+		const str = proc + '% <> ' + (delta / 1000).toFixed(3) + 's';
+		return str;
+	},
+	getDriverFastestLap: function (driver) {
+		let fastestLap = '-';
+		let fastestLapFormatted = '-';
+		try {
+			fastestLapFormatted = driver.scoreInfo.bestLapInfo.sector3 !== -1 ? UI.formatTime(driver.scoreInfo.bestLapInfo.sector3, {
+				ignoreSign: true
+			}) : '-';
+
+			fastestLap = driver.scoreInfo.bestLapInfo.sector3 !== -1 ? driver.scoreInfo.bestLapInfo.sector3 : -1;
+		} catch (e) {}
+		return {
+			fastestLap,
+			fastestLapFormatted
+		};
+	},
+	getLastLap: function (driver) {
+		let lastLap = '-';
+		try {
+			lastLap = driver.extendedInfo.lastTenLapsInfo[0].sector3 !== -1 ? UI.formatTime(driver.extendedInfo.lastTenLapsInfo[0].sector3, {
+				ignoreSign: true
+			}) : '-';
+		} catch (e) {}
+
+		return lastLap;
+	},
+	getAverageLap: function (driver) {
+		let averageLap = '`?`';
+		let averageLapCount = '0';
+		try {
+			let averageLaps = driver.extendedInfo.lastTenLapsInfo.filter(function (lap) {
+				return lap.sector3 > -1;
+			}).slice(0, 5);
+
+			averageLap = averageLaps.reduce(function (avg, value, _, { length }) {
+				return avg + value.sector3 / length;
+			}, 0);
+			averageLapCount = averageLaps.length;
+
+			if (averageLapCount > 1) {
+				averageLap = UI.formatTime(averageLap, {
+					ignoreSign: true
+				});
+			} else {
+				averageLap = '-';
+			}
+		} catch (e) {}
+
+		return {
+			averageLap,
+			averageLapCount
+		};
+	},
+	getDriverDelta: function (driver, drivers) {
+		let delta = '-';
+		try {
+			if (this.state.deltaRelative) {
+				const driverIndex = drivers.findIndex(d => {
+					return driver === d;
+				});
+
+				delta = UI.formatTime(drivers.slice(1, driverIndex + 1).map(function (driver) {
+					return Math.max(0, driver.scoreInfo.timeDiff);
+				}).reduce(function (p, c) {
+					return p + c;
+				}));
+			} else {
+				delta = driver.scoreInfo.timeDiff !== -1 ? UI.formatTime(driver.scoreInfo.timeDiff) : '-';
+			}
+		} catch (e) {}
+
+		return delta;
+	},
+	renderRow: function (driver) {
+		const trackLength = UI.state.eventInfo.length;
+		const progress = driver.scoreInfo.distanceTravelled % trackLength / trackLength;
+
+		let { fastestLap, fastestLapFormatted } = this.getDriverFastestLap(driver);
+
+		let lastLap = this.getLastLap(driver);
+
+		let { averageLap, averageLapCount } = this.getAverageLap(driver);
+
+		let mandatoryPit = 'No';
+		try {
+			mandatoryPit = driver.mandatoryPitstopPerformed !== -1 ? 'Yes' : 'No';
+		} catch (e) {}
+
+		let pushToPassInfo = driver.pushToPassInfo.amountLeft;
+
+		let qDiff = 0;
+		try {
+			qDiff = '-';
+		} catch (e) {}
+
+		let delta = this.getDriverDelta(driver, this.state.driversInfo);
+
+		let drs = '-';
+		try {
+			drs = driver.vehicleInfo.drsLeft !== -1 && driver.vehicleInfo.drsLeft < 100 ? driver.vehicleInfo.drsLeft : '-';
+		} catch (e) {}
+
+		let incidents = '-';
+		let offTracks = '-';
+
+		return React.createElement(
+			'tr',
+			{
+				key: driver.slotId,
+				className: cx({
+					inactive: driver.vehicleInfo.speed < 10
+				})
+			},
+			React.createElement(
+				'td',
+				{ className: 'focused' },
+				driver.slotId === UI.state.focusedSlot && React.createElement('div', { className: 'focused' })
+			),
+			React.createElement(
+				'td',
+				{ className: 'favorite' },
+				React.createElement('input', {
+					type: 'checkbox',
+					'data-id': driver.slotId,
+					onChange: this.toggleFavorite,
+					checked: this.state.favorites[driver.slotId]
+				})
+			),
+			React.createElement(
+				'td',
+				null,
+				driver.scoreInfo.positionOverall
+			),
+			React.createElement(
+				'td',
+				{ 'data-id': driver.slotId, onClick: this.changeCameraToDriver },
+				driver.name,
+				' - ',
+				driver.slotId
+			),
+			React.createElement(
+				'td',
+				{ className: 'qDiff' },
+				qDiff
+			),
+			React.createElement(
+				'td',
+				{
+					className: cx({
+						delta: true,
+						important: this.closestFightSlotId === driver.slotId
+					})
+				},
+				delta
+			),
+			React.createElement(
+				'td',
+				{ className: 'lastLap' },
+				lastLap
+			),
+			React.createElement(
+				'td',
+				{
+					className: cx({
+						fastestLap: true,
+						important: fastestLap > 0 && this.fastestLap === fastestLap
+					})
+				},
+				fastestLapFormatted
+			),
+			React.createElement(
+				'td',
+				{ className: 'averageLap' },
+				averageLap,
+				averageLapCount > 1 && React.createElement(
+					'small',
+					null,
+					' (',
+					averageLapCount,
+					')'
+				)
+			),
+			React.createElement(
+				'td',
+				null,
+				this.calculateConsistency(driver.extendedInfo.lastTenLapsInfo)
+			),
+			React.createElement(
+				'td',
+				{ className: 'mandatoryPit' },
+				mandatoryPit
+			),
+			React.createElement(
+				'td',
+				{ className: 'p2p' },
+				pushToPassInfo
+			),
+			React.createElement(
+				'td',
+				{ className: 'drs' },
+				drs
+			),
+			React.createElement(
+				'td',
+				{ className: 'incidents' },
+				incidents
+			),
+			React.createElement(
+				'td',
+				{ className: 'offTracks' },
+				offTracks
+			),
+			React.createElement(
+				'td',
+				{ className: 'positionBar' },
+				React.createElement(
+					'div',
+					{ className: 'barContainer' },
+					React.createElement('div', {
+						className: cx({
+							bar: true,
+							closestFight: this.closestFightSlotId === driver.slotId
+						}),
+						style: {
+							width: progress * 100 + '%'
+						}
+					}),
+					driver.scoreInfo.positionOverall === 1 && React.createElement('div', {
+						className: 'bar lapLeft',
+						style: {
+							left: progress * 100 + '%',
+							width: this.maxLapsLeft * 100 + '%'
+						}
+					})
+				)
+			)
+		);
+	},
+	getNormalizedLastLaps: function (driver) {
+		let lastLaps = [...driver.extendedInfo.lastTenLapsInfo];
+		const lapDiff = this.favoriteMaxLaps - driver.scoreInfo.laps;
+
+		// Pad last laps so the index of last laps line up across favorites
+		for (let i = 0; i < lapDiff; i += 1) {
+			lastLaps.unshift({
+				valid: true,
+				sector3: -1
+			});
+		}
+		return lastLaps.slice(0, 9);
+	},
+	renderFavorite: function (driver) {
+		let lastLaps = this.getNormalizedLastLaps(driver);
+
+		const compareLapsRelative = this.state.favoriteRelative;
+		let driverCompareTo = null;
+		if (compareLapsRelative) {
+			driverCompareTo = [...this.favDrivers].sort((a, b) => {
+				return a.scoreInfo.positionOverall - b.scoreInfo.positionOverall;
+			})[0];
+		}
+
+		let { fastestLap, fastestLapFormatted } = this.getDriverFastestLap(driver);
+
+		let lastLap = this.getLastLap(driver);
+
+		let { averageLap, averageLapCount } = this.getAverageLap(driver);
+
+		const favoriteLeaderIndex = [...this.state.driversInfo].findIndex(d => {
+			return d.slotId === driverCompareTo ? driverCompareTo.slotId : -1;
+		});
+
+		let delta = this.getDriverDelta(driver, [...this.state.driversInfo].slice(favoriteLeaderIndex));
+
+		return React.createElement(
+			'div',
+			{
+				key: driver.slotId,
+				'data-id': driver.slotId,
+				className: 'box favorite'
+			},
+			React.createElement(
+				'div',
+				{ className: 'row-title' },
+				React.createElement('img', {
+					className: 'flag',
+					src: '/img/flags/' + UI.getUserInfo(driver.portalId).country + '.png'
+				}),
+				driver.name,
+				' ',
+				UI.getUserInfo(driver.portalId).team ? React.createElement(
+					'small',
+					null,
+					'(',
+					UI.getUserInfo(driver.portalId).team,
+					')'
+				) : ''
+			),
+			React.createElement(
+				'div',
+				{ className: 'info' },
+				React.createElement(
+					'div',
+					{ className: 'col meta' },
+					React.createElement(
+						'table',
+						null,
+						React.createElement(
+							'tbody',
+							null,
+							React.createElement(
+								'tr',
+								null,
+								React.createElement(
+									'td',
+									null,
+									'Pos'
+								),
+								React.createElement(
+									'td',
+									null,
+									'#',
+									driver.scoreInfo.positionOverall
+								)
+							),
+							React.createElement(
+								'tr',
+								null,
+								React.createElement(
+									'td',
+									null,
+									'Fastest'
+								),
+								React.createElement(
+									'td',
+									null,
+									fastestLapFormatted
+								)
+							),
+							React.createElement(
+								'tr',
+								null,
+								React.createElement(
+									'td',
+									null,
+									'Average'
+								),
+								React.createElement(
+									'td',
+									null,
+									averageLap
+								)
+							),
+							React.createElement(
+								'tr',
+								null,
+								React.createElement(
+									'td',
+									null,
+									'Delta'
+								),
+								React.createElement(
+									'td',
+									null,
+									delta
+								)
+							)
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'carRenderContainer' },
+						React.createElement('img', {
+							className: 'carRender',
+							src: `/render/${driver.liveryId}/small`
+						}),
+						React.createElement('div', { className: 'aspect' })
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'col lastLaps' },
+					React.createElement(
+						'div',
+						{ className: 'lap-title' },
+						'Last laps',
+						React.createElement(
+							'label',
+							{ className: 'relative' },
+							'Relative',
+							React.createElement('input', {
+								type: 'checkbox',
+								onChange: this.toggleFavoriteRelative,
+								checked: this.state.favoriteRelative
+							})
+						)
+					),
+					lastLaps.map((lap, i) => {
+						if (compareLapsRelative) {
+							if (!driverCompareTo) {
+								return null;
+							}
+							const compareLap = this.getNormalizedLastLaps(driverCompareTo)[i];
+							const compareTime = compareLap ? compareLap.sector3 : -1;
+
+							const delta = lap.sector3 - compareTime;
+							return React.createElement(
+								'div',
+								{
+									className: cx({
+										lap: true,
+										invalid: !lap.valid,
+										positive: delta < 0,
+										negative: delta > 0
+									}),
+									key: i
+								},
+								React.createElement(
+									'label',
+									null,
+									'Lap ',
+									this.favoriteMaxLaps - i,
+									':',
+									' '
+								),
+								lap.sector3 > 0 && compareTime > 0 ? UI.formatTime(delta, {}) : '-'
+							);
+						} else {
+							return React.createElement(
+								'div',
+								{
+									className: cx({
+										lap: true,
+										invalid: !lap.valid
+									}),
+									key: i
+								},
+								React.createElement(
+									'label',
+									null,
+									'Lap ',
+									this.favoriteMaxLaps - i,
+									':',
+									' '
+								),
+								lap.sector3 > 0 ? UI.formatTime(lap.sector3, {
+									ignoreSign: true
+								}) : '-'
+							);
+						}
+					})
+				)
+			)
+		);
+	},
+	renderFavorites: function () {
+		this.favDrivers = [...this.state.driversInfo].filter(driver => this.state.favorites[driver.slotId]);
+		//.sort((a, b) => a.name.localeCompare(b.name));
+		this.favoriteMaxLaps = 0;
+
+		this.favDrivers.forEach(driver => {
+			this.favoriteMaxLaps = Math.max(this.favoriteMaxLaps, driver.scoreInfo.laps);
+		});
+
+		return React.createElement(
+			'div',
+			{ className: 'favorites' },
+			this.favDrivers.map(this.renderFavorite)
+		);
+	},
+	renderDriverTable: function () {
+		const closestFight = this.state.driversInfo.filter(driver => {
+			return driver.scoreInfo.timeDiff > 0;
+		}).sort((a, b) => {
+			return a.scoreInfo.timeDiff - b.scoreInfo.timeDiff;
+		});
+		this.closestFightSlotId = closestFight[0] ? closestFight[0].slotId : -1;
+
+		return React.createElement(
+			'div',
+			{ className: 'box' },
+			React.createElement(
+				'table',
+				{ className: 'race-info' },
+				React.createElement(
+					'thead',
+					null,
+					React.createElement(
+						'tr',
+						null,
+						React.createElement('th', null),
+						React.createElement(
+							'th',
+							null,
+							'Fav'
+						),
+						React.createElement(
+							'th',
+							null,
+							'Pos'
+						),
+						React.createElement(
+							'th',
+							null,
+							'Name'
+						),
+						React.createElement(
+							'th',
+							null,
+							'Q-Dif'
+						),
+						React.createElement(
+							'th',
+							null,
+							React.createElement(
+								'label',
+								null,
+								'Delta',
+								React.createElement('input', {
+									type: 'checkbox',
+									onChange: this.toggleDeltaRelative,
+									checked: this.state.deltaRelative
+								})
+							)
+						),
+						React.createElement(
+							'th',
+							null,
+							'Last Lap'
+						),
+						React.createElement(
+							'th',
+							null,
+							'Fastest Lap'
+						),
+						React.createElement(
+							'th',
+							null,
+							'AVG Lap'
+						),
+						React.createElement(
+							'th',
+							null,
+							'Cons.'
+						),
+						React.createElement(
+							'th',
+							null,
+							'Man. Pit'
+						),
+						React.createElement(
+							'th',
+							null,
+							'P2P'
+						),
+						React.createElement(
+							'th',
+							null,
+							'DRS'
+						),
+						React.createElement(
+							'th',
+							null,
+							'Incidents'
+						),
+						React.createElement(
+							'th',
+							null,
+							'Off-Tracks'
+						),
+						React.createElement(
+							'th',
+							null,
+							'Track position'
+						)
+					)
+				),
+				React.createElement(
+					'tbody',
+					null,
+					this.state.driversInfo.map(this.renderRow)
+				)
+			)
+		);
+	},
+	calculateEstimatedLapsLeft: function () {
+		const session = UI.state.sessionInfo;
+		const estimatedLapTimeFastestInSec = this.fastestLap !== -1 ? this.fastestLap / 1000 : -1;
+
+		let estimatedLapTimeLatestInSec = -1;
+		try {
+			if (this.state.driversInfo[0].extendedInfo.lastTenLapsInfo[0].sector3 !== -1) {
+				estimatedLapTimeLatestInSec = this.state.driversInfo[0].extendedInfo.lastTenLapsInfo[0].sector3 / 1000;
+			}
+		} catch (e) {}
+
+		const isLastLaps = this.fastestLap !== -1 && estimatedLapTimeFastestInSec > session.timeLeft;
+
+		let latestLapsLeft = -1;
+		let fastestLapsLeft = -1;
+		try {
+			if (estimatedLapTimeLatestInSec !== -1) {
+				latestLapsLeft = session.timeLeft / estimatedLapTimeLatestInSec;
+			}
+		} catch (e) {}
+
+		try {
+			if (estimatedLapTimeFastestInSec !== -1) {
+				fastestLapsLeft = session.timeLeft / estimatedLapTimeFastestInSec;
+			}
+		} catch (e) {}
+
+		if (session.phase === 'CHECKERED' || session.phase === 'END') {
+			latestLapsLeft = 0;
+			fastestLapsLeft = 0;
+		}
+
+		const minLapsLeft = Math.min(latestLapsLeft, fastestLapsLeft);
+		const maxLapsLeft = Math.max(latestLapsLeft, fastestLapsLeft);
+
+		return {
+			isLastLaps,
+			minLapsLeft,
+			maxLapsLeft
+		};
+	},
+	render: function () {
+		const session = UI.state.sessionInfo;
+		const {
+			isLastLaps,
+			minLapsLeft,
+			maxLapsLeft
+		} = this.calculateEstimatedLapsLeft();
+
+		this.maxLapsLeft = maxLapsLeft;
+
+		return React.createElement(
+			'div',
+			{ className: 'overview' },
+			React.createElement(
+				'div',
+				{
+					className: cx({
+						title: true,
+						isLastLaps: isLastLaps
+					})
+				},
+				session.type && session.phase ? React.createElement(
+					'span',
+					null,
+					UI.getStringTranslation('sessionInfoWidget', session.type.toLowerCase().replace(/ /g, '')),
+					' ',
+					'-',
+					' ',
+					UI.getStringTranslation('sessionInfoWidget', session.phase.toLowerCase().replace(/ /g, '')),
+					': ',
+					UI.formatSessionTime(session.timeLeft),
+					'/',
+					UI.formatSessionTime(session.timeTotal)
+				) : null,
+				React.createElement(
+					'span',
+					{ className: 'estimated' },
+					'- Est laps left -',
+					' ',
+					minLapsLeft !== -1 && React.createElement(
+						'span',
+						null,
+						minLapsLeft.toFixed(2),
+						'x'
+					),
+					minLapsLeft !== -1 && minLapsLeft !== -1 && React.createElement(
+						'span',
+						null,
+						' - '
+					),
+					maxLapsLeft !== -1 && React.createElement(
+						'span',
+						null,
+						maxLapsLeft.toFixed(2),
+						'x'
+					),
+					minLapsLeft === -1 && maxLapsLeft === -1 && React.createElement(
+						'span',
+						null,
+						'?'
+					)
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'content favoritesContainer' },
+				this.renderFavorites()
+			),
+			React.createElement(
+				'div',
+				{ className: 'content' },
+				React.createElement(
+					'div',
+					{ className: 'row debug' },
+					this.renderDriverTable(maxLapsLeft)
+				)
+			)
+		);
+	}
+});
 UI.components.Spectator = React.createClass({
 	displayName: 'Spectator',
 
@@ -81883,6 +83497,9 @@ UI.components.Spectator = React.createClass({
 		// Race control alerts
 		var eventTimeout;
 		r3e.on.eventOccurred(function (event) {
+			// Emit incidents so we can use them on the admin side
+			io.emit('incident', event);
+
 			var alertLength = UI.state.controllerOptions.options.alertLength.value * 1000;
 
 			r3e.getDriverInfo({ 'slotId': event.slotId
@@ -81914,6 +83531,9 @@ UI.components.Spectator = React.createClass({
 			self.setState({
 				'results': results.Results
 			});
+
+			// Emit results so xml exporter can use data
+			io.emit('resultsUpdate', results);
 
 			setTimeout(function () {
 				r3e.goToNextEvent();
@@ -81988,6 +83608,12 @@ UI.components.Spectator = React.createClass({
 				'div',
 				{ className: 'app-spectator' },
 				Object.keys(UI.state.activeWidgets).map(function (type) {
+					// Hot-reload sometime casues issues so we prevent the overlay
+					// from crashing/big red error.
+					if (!UI.widgets[type]) {
+						console.error('Issue spawning', type);
+						return null;
+					}
 					return !self.state.results && UI.state.activeWidgets[type].active ? React.createElement(UI.widgets[type], { 'key': type }) : null;
 				}),
 				self.state.results && UI.state.sessionInfo.type.match(/^race/i) ? React.createElement(UI.widgets.RaceResults, { results: self.state.results }) : null,
@@ -82014,484 +83640,6 @@ UI.components.Spectator = React.createClass({
 		);
 	}
 });
-UI.widgets.Alert = React.createClass({
-  displayName: "Alert",
-
-  componentWillMount: function () {
-    var self = this;
-  },
-  render: function () {
-    var self = this;
-    var event = self.props.event;
-
-    var spaceComma = ", ";
-
-    var driveThroughPenalty = UI.getStringTranslation("alertsWidget", "driveThroughPenalty") + spaceComma;
-
-    var stopAndGoPenalty = UI.getStringTranslation("alertsWidget", "stopAndGoPenalty") + spaceComma;
-
-    var disqualification = UI.getStringTranslation("alertsWidget", "disqualified") + spaceComma;
-
-    var penaltyMeanings = {
-      // Drive Through
-      '0': {
-        '1': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "trackLimitsAbuse")
-        },
-        '2': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "speedingInThePitlane")
-        },
-        '3': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "falseStart")
-        },
-        '4': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "ignoringBlueFlags")
-        },
-        '5': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "drivingTooSlow")
-        },
-        '6': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "illegallyPassingBeforeGreen")
-        },
-        '7': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "illegallyPassingBeforeFinish")
-        },
-        '8': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "illegallyPassingBeforePitEntrance")
-        },
-        '9': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "ignoringSlowDownWarnings")
-        },
-        '10': {
-          text: driveThroughPenalty + UI.getStringTranslation("alertsWidget", "accumulatingTheMaxNumberOfPenalties")
-        }
-      },
-      // Stop and Go
-      '1': {
-        '2': {
-          text: stopAndGoPenalty + UI.getStringTranslation("alertsWidget", "trackLimitsAbuse")
-        },
-        '3': {
-          text: stopAndGoPenalty + UI.getStringTranslation("alertsWidget", "overtakingUnderYellow")
-        }
-      },
-      // Pitstop
-      '2': {
-        '1': {
-          text: UI.getStringTranslation("alertsWidget", "missedMandatoryPit")
-        }
-      },
-      // Time Penalty
-      '3': {
-        '1': {
-          text: UI.getStringTranslation("alertsWidget", "mandatoryPitOutsideWindow")
-        }
-      },
-      // Slowdown Penalty
-      '4': {
-        '1': {
-          text: UI.getStringTranslation("alertsWidget", "slowDownTrackLimits")
-        },
-        '2': {
-          text: UI.getStringTranslation("alertsWidget", "slowDownTrackLimitsContinuing")
-        }
-      },
-      // Disqualified
-      '5': {
-        '0': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "falseStart")
-        },
-        '1': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "speedingInThePitlane")
-        },
-        '2': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "drivingWrongWayTrack")
-        },
-        '3': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "enteringPitsRed")
-        },
-        '4': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "exitingPitsRed")
-        },
-        '8': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringDriveThrough")
-        },
-        '9': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringStopGoPenalty")
-        },
-        '10': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringPitPenalty")
-        },
-        '11': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringTimePenalty")
-        },
-        '12': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "excessiveCutting")
-        },
-        '13': {
-          text: disqualification + UI.getStringTranslation("alertsWidget", "ignoringBlueFlags")
-        }
-      }
-    };
-
-    return React.createElement(
-      "div",
-      null,
-      UI.state.activeWidgets.Alert.active && event != null && event.driverName != null && penaltyMeanings[event.type] != null && penaltyMeanings[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null ? React.createElement(
-        "div",
-        null,
-        UI.state.controllerOptions.options.showSlowDownAlerts.value === "true" || event.type != 4 ? React.createElement(
-          "div",
-          { key: event.driverName, className: "alert animated fadeInRight " + (event.removing ? 'removing' : '') },
-          React.createElement(
-            "div",
-            { className: "raceControlAlert" },
-            UI.getStringTranslation("alertsWidget", "stewardsDecision")
-          ),
-          window.settings.teamEvent ? React.createElement(
-            "div",
-            { className: "alertMessage" },
-            event.driverName.substr(event.driverName.indexOf(" ") + 1),
-            " - ",
-            penaltyMeanings[event.type][event.reason].text
-          ) : React.createElement(
-            "div",
-            { className: "alertMessage" },
-            event.driverName,
-            " - ",
-            penaltyMeanings[event.type][event.reason].text
-          )
-        ) : null
-      ) : null
-    );
-  }
-});
-UI.scoringRules = {
-	// Give a small intial edge to leaders
-	'priorizeLeaders': function (score, driver, drivers) {
-		score += 1 - driver.scoreInfo.positionOverall / drivers.length;
-
-		return score;
-	},
-	// make sure they don't stand still
-	'standingStill': function (score, driver, drivers) {
-		if (driver.vehicleInfo.speed < 10) {
-			score += -20;
-		}
-
-		return score;
-	},
-	// people running an invalid lap aren't as interesting
-	'hasInvalidLaps': function (score, driver, drivers) {
-		//console.log(driver.name, driver.extendedInfo.currentLapInfo.sector1);
-		if (driver.extendedInfo.currentLapInfo.valid === false) {
-			score += -2;
-		}
-
-		return score;
-	},
-	// people in yellow flag zones may be interesting, particulary those who might be cuasing it
-	'causingYellowFlag': function (score, driver, drivers) {
-		if (UI.state.sessionInfo.type.match(/^race/i) && driver.scoreInfo.flagInfo.yellow > 0 && driver.vehicleInfo.speed > 10 && driver.vehicleInfo.speed < 50) {
-			score += 10;
-		}
-
-		return score;
-	},
-	// Interesting if they don't have a time already in non race
-	'noBestTime': function (score, driver, drivers) {
-		if (UI.state.sessionInfo.type.match(/^race/i)) {
-			return score;
-		}
-
-		if (driver.scoreInfo.bestLapInfo.sector3 === -1) {
-			score += 1;
-		}
-
-		return score;
-	},
-	// Close racing is really interesting
-	'closeRacing': function (score, driver, drivers) {
-		if (!UI.state.sessionInfo.type.match(/^race/i)) {
-			return score;
-		}
-
-		var timeDiff = Math.max(0, driver.scoreInfo.timeDiff);
-		var secondsGap = 3;
-		var normalized = secondsGap * 1000;
-
-		// Give back between 0 and 2 depending on how close
-		if (timeDiff > 0 && timeDiff < normalized) {
-			var delta = (1 - timeDiff / normalized) * (normalized / 1000);
-			score += delta * 2;
-		}
-
-		return score;
-	},
-	// If the car already has focus give it a bit of a boost,
-	// the boost is based on how long we plan on keeping a shot.
-	// So with 15s shot they get 15points, after 7s they get 8points.
-	'alreadyHasFocus': function (score, driver, drivers) {
-		if (!this.cameraChangedTimestamp) {
-			return score;
-		}
-
-		var averageCameraShotLength = 15;
-		if (driver.slotId === UI.state.focusedSlot) {
-			var elapsed = (Date.now() - this.cameraChangedTimestamp) / 1000;
-			var delta = Math.max(0, averageCameraShotLength - elapsed);
-			score += delta;
-		}
-		return score;
-	},
-	// Current sectors is faster then personal best
-	'fasterInPrivateSectors': function (score, driver, drivers) {
-		var self = this;
-		if (UI.state.sessionInfo.type.match(/^race/i)) {
-			return score;
-		}
-
-		var best = driver.scoreInfo.bestLapInfo;
-		var current = driver.extendedInfo.currentLapInfo;
-		var sectors = ['sector1', 'sector2', 'sector3'];
-		sectors.forEach(function (sector, i) {
-			if (sector === 'sector3' || current[sectors[i + 1]] === -1 || current[sector] === -1 || best[sector] === -1) {
-				return;
-			}
-
-			if (current[sector] < best[sector]) {
-				var delta = (best[sector] - current[sector]) / 1000;
-				score += (3 - i) / 2 + Math.min(1, delta);
-
-				// Reset cam change so they keep focus after finishing sector3, less abrupt
-				if (driver.slotId === UI.state.focusedSlot) {
-					self.cameraChangedTimestamp = Date.now() - 5 * 1000;
-				}
-			}
-		});
-
-		return score;
-	},
-	// Current sectors is faster then global best
-	'fasterInGlobalSectors': function (score, driver, drivers) {
-		var self = this;
-		if (UI.state.sessionInfo.type.match(/^race/i)) {
-			return score;
-		}
-
-		var best = drivers[0].scoreInfo.bestLapInfo;
-		var current = driver.extendedInfo.currentLapInfo;
-		var sectors = ['sector1', 'sector2', 'sector3'];
-		sectors.forEach(function (sector, i) {
-			if (sector === 'sector3' || current[sectors[i + 1]] === -1 || current[sector] === -1 || best[sector] === -1) {
-				return;
-			}
-
-			if (current[sector] < best[sector]) {
-				var delta = (best[sector] - current[sector]) / 1000;
-				score += (3 - i) / 2 + Math.min(1, delta);
-
-				// Reset cam change so they keep focus after finishing sector3, less abrupt
-				if (driver.slotId === UI.state.focusedSlot) {
-					self.cameraChangedTimestamp = Date.now() - 5 * 1000;
-				}
-			}
-		});
-
-		return score;
-	},
-	// Focus on players at the start of a race
-	'focusOnPoleDuringRaceStart': function (score, driver, drivers) {
-		var session = UI.state.sessionInfo;
-		if (!session.type.match(/^race/i)) {
-			return score;
-		}
-
-		var secondsPassed = UI.state.sessionInfo.timeTotal / 3600 * 60 - UI.state.sessionInfo.timeLeft;
-		if (secondsPassed < 20 && driver.scoreInfo.positionOverall === 4) {
-			score += 30;
-		}
-
-		return score;
-	},
-	// Don't focus on drivers that have passed the finish line
-	'passedFinishline': function (score, driver, drivers) {
-		if (UI.state.sessionInfo.phase.match(/(green)/i)) {
-			return score;
-		}
-
-		var currentLapsForWinner = drivers[0].scoreInfo.laps;
-		if (driver.scoreInfo.laps === currentLapsForWinner) {
-			score += -20;
-		}
-
-		return score;
-	},
-	// Weight overall score on position
-	'weightOverallPosition': function (score, driver, drivers) {
-		if (!UI.state.sessionInfo.type.match(/^race/i)) {
-			return score;
-		}
-		var ratio = (1 - driver.scoreInfo.positionClass / drivers.length) / 3 + 0.7;
-		score += score * ratio;
-		return score;
-	}
-};
-UI.widgets.AutoDirector = React.createClass({
-	displayName: 'AutoDirector',
-
-	// These rules are checked top to bottom, must return score
-	rules: UI.scoringRules,
-	activateDefaultWidgets: function () {
-		if (UI.state.controllerOptions.options.autoDirectorOnlyMode.value === "false") {
-			UI.state.activeWidgets.MulticlassStandings.active = true;
-			UI.state.activeWidgets.LogoOverlay.active = true;
-			UI.state.activeWidgets.SessionInfo.active = true;
-			UI.state.activeWidgets.Alert.active = true;
-		}
-	},
-	usedCockpitCam: false,
-	usedCockpitTimeout: null,
-	cameraChangedTimestamp: Date.now(),
-	componentWillMount: function () {
-		var self = this;
-		self.activateDefaultWidgets();
-		io.emit('setState', UI.state);
-
-		function updateInfo() {
-			r3e.getDriversInfo(function (data) {
-				var jobs = [];
-				data.driversInfo.forEach(function (driver) {
-					jobs.push(function (done) {
-						UI.batch({
-							'vehicleInfo': function (done) {
-								r3e.getVehicleInfo({
-									'slotId': driver.slotId
-								}, done);
-							},
-							'pitInfo': function (done) {
-								r3e.getPitInfo({
-									'slotId': driver.slotId
-								}, done);
-							},
-							'extendedInfo': function (done) {
-								r3e.getExtendedInfo({
-									'slotId': driver.slotId
-								}, done);
-							}
-						}, function (data) {
-							driver.pitInfo = data.pitInfo;
-							driver.vehicleInfo = data.vehicleInfo;
-							driver.extendedInfo = data.extendedInfo;
-							done(driver);
-						});
-					});
-				});
-
-				// Find out which one should get the focus
-				UI.batch(jobs, function (drivers) {
-					var focusedSlot = 0;
-					var camera = UI.state.camera;
-
-					// Default to showing #1 driver
-					if (drivers[0]) {
-						focusedSlot = drivers[0].slotId;
-					}
-
-					var possibleDrivers = [];
-					var logs = [];
-					drivers.forEach(function (driver) {
-						var points = 0;
-						var log = [];
-						log.push('Driver: ' + driver.name + ' (#' + driver.scoreInfo.positionOverall + ')');
-						Object.keys(self.rules).forEach(function (key) {
-							var rule = self.rules[key];
-							var prePoint = points;
-							points = rule.bind(self)(points, driver, drivers);
-							var delta = points - prePoint;
-							if (delta) {
-								log.push('  - ' + key + ': ' + delta.toFixed(2));
-							}
-						});
-						log.push('Total: ' + points.toFixed(2) + '\n');
-						logs.push([log, points]);
-						possibleDrivers.push({
-							'score': points,
-							'slotId': driver.slotId,
-							'driver': driver
-						});
-					});
-
-					// Sort based on score from the rules
-					possibleDrivers = possibleDrivers.sort(function (a, b) {
-						if (a.score > b.score) {
-							return -1;
-						} else if (b.score > a.score) {
-							return 1;
-						} else {
-							return 0;
-						}
-					});
-
-					if (possibleDrivers.length) {
-						focusedSlot = possibleDrivers[0].slotId;
-
-						// change to hood cam if driver is close
-						var timeDiff = possibleDrivers[0].driver.scoreInfo.timeDiff;
-						var sinceLastCamChange = (Date.now() - self.cameraChangedTimestamp) / 1000;
-						var moreThenTenSeconds = sinceLastCamChange > 10;
-						if (moreThenTenSeconds) {
-							if (!self.usedCockpitCam && timeDiff !== -1 && timeDiff < 300) {
-								camera = 'onboard1';
-								self.usedCockpitCam = true;
-								if (self.usedCockpitTimeout) {
-									clearTimeout(self.usedCockpitTimeout);
-								}
-								self.usedCockpitTimeout = setTimeout(function () {
-									self.usedCockpitCam = false;
-								}, 60 * 1000);
-							} else {
-								camera = 'trackside';
-							}
-						}
-					} else {
-						camera = 'trackside';
-						focusedSlot = 0;
-					}
-
-					// Don't update if they are already the same
-					if (UI.state.focusedSlot === focusedSlot && UI.state.camera === camera) {
-						return;
-					}
-					UI.state.focusedSlot = focusedSlot;
-
-					// Don't go from hood to hood
-					if (UI.state.camera === 'onboard1') {
-						camera = 'trackside';
-					}
-					UI.state.camera = camera;
-
-					// set the state and update camera
-					io.emit('setState', UI.state);
-					io.emit('updatedCamera', {
-						'automated': true
-					});
-
-					self.cameraChangedTimestamp = Date.now();
-				});
-			});
-		}
-		updateInfo();
-
-		self.updateInterval = setInterval(updateInfo, 1 * 500);
-	},
-	componentWillUnmount: function () {
-		clearInterval(this.updateInterval);
-	},
-	render: function () {
-		return null;
-	}
-});
 function cx() {
 	var args = arguments;
 	var classes = [];
@@ -82516,19 +83664,109 @@ function cx() {
 }
 
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-UI.widgets.Code60 = React.createClass({
-	displayName: "Code60",
+UI.widgets.Alert = React.createClass({
+	displayName: 'Alert',
 
+	componentWillMount: function () {
+		var self = this;
+	},
 	render: function () {
 		var self = this;
+		var event = self.props.event;
+
+		var penaltyMeanings = getPenaltyMeanings();
+
+		var showAlerts = {
+			// Drive Through
+			0: {
+				1: true,
+				2: true,
+				3: true,
+				4: true,
+				5: true,
+				6: true,
+				7: true,
+				8: true,
+				9: true,
+				10: true
+			},
+			// Stop and Go
+			1: {
+				2: true,
+				3: true
+			},
+			// Pitstop
+			2: {
+				1: true
+			},
+			// Time Penalty
+			3: {
+				1: true
+			},
+			// Slowdown Penalty
+			4: {
+				1: true,
+				2: true
+			},
+			// Disqualified
+			5: {
+				0: true,
+				1: true,
+				2: true,
+				3: true,
+				4: true,
+				8: true,
+				9: true,
+				10: true,
+				11: true,
+				12: true,
+				13: true
+			}
+		};
+
+		// Don't show all events like the Misc ones, collision, stationary etc.
+		if (!event || !showAlerts[event.type] || !showAlerts[event.type][event.reason]) {
+			return null;
+		}
+
+		var hasTranslation = showAlerts[event.type][event.reason] != null && penaltyMeanings[event.type][event.reason].text != null;
+
+		var validAlert = UI.state.activeWidgets.Alert.active && event != null && event.driverName != null && penaltyMeanings[event.type] != null && hasTranslation;
+
+		if (!validAlert) {
+			return null;
+		}
+
+		var slowdownIndex = 4;
+		var slowdownAlerts = UI.state.controllerOptions.options.showSlowDownAlerts.value === 'true' || event.type !== slowdownIndex;
+
+		if (!slowdownAlerts) {
+			return null;
+		}
+
 		return React.createElement(
-			"div",
-			{ className: "code60Container" },
-			React.createElement("img", { className: "code60Img animated flash infinite", src: "img/code60.png" }),
+			'div',
+			{
+				key: event.driverName,
+				className: 'alert animated fadeInRight ' + (event.removing ? 'removing' : '')
+			},
 			React.createElement(
-				"div",
-				{ className: "code60" },
-				UI.getStringTranslation("code60Widget", "code60")
+				'div',
+				{ className: 'raceControlAlert' },
+				UI.getStringTranslation('alertsWidget', 'stewardsDecision')
+			),
+			window.settings.teamEvent ? React.createElement(
+				'div',
+				{ className: 'alertMessage' },
+				event.driverName.substr(event.driverName.indexOf(' ') + 1),
+				' - ',
+				penaltyMeanings[event.type][event.reason].text
+			) : React.createElement(
+				'div',
+				{ className: 'alertMessage' },
+				event.driverName,
+				' - ',
+				penaltyMeanings[event.type][event.reason].text
 			)
 		);
 	}
@@ -82828,6 +84066,16 @@ var r3eTracks = {
       Name: 'Motorland Aragón',
       countryCode: "es",
       trackLogoUrl: "http://game.raceroom.com/r3e/assets/content/track/motorland-aragon-8703-logo-original.webp"
+    },
+    '9176': {
+      Name: 'Watkins Glen International',
+      countryCode: "us",
+      trackLogoUrl: "https://game.raceroom.com/assets/content/track/watkins-glen-9176-logo-original.webp"
+    },
+    '9472': {
+      Name: 'Brands Hatch Grand Prix',
+      countryCode: "gb",
+      trackLogoUrl: "https://prod.r3eassets.com/assets/content/track/generic-9472-logo-original.webp"
     }
   }
 };
@@ -82855,384 +84103,335 @@ var r3eTyreDB = {
   }
 };
 
-UI.widgets.RaceResults = React.createClass({
-	displayName: 'RaceResults',
+UI.widgets.MulticlassStandings = React.createClass({
+	displayName: 'MulticlassStandings',
 
 	componentWillMount: function () {
 		var self = this;
-		(function checkRefs() {
-			if (!self.refs['entries-outer']) {
-				return setTimeout(checkRefs, 100);
-			}
 
-			var diff = self.refs['entries-outer'].clientHeight - self.refs['entries-inner'].clientHeight;
-			setTimeout(function () {
-				if (!self.refs['entries-inner']) {
-					return;
-				}
-				self.refs['entries-inner'].style.top = diff + 'px';
-			}, 25 * 1000);
-		})();1;
+		io.emit('setState', UI.state);
+
+		function updateInfo() {
+			UI.batch({
+				'pitInfo': function (done) {
+					r3e.getPitInfo({
+						'slotId': UI.state.focusedSlot
+					}, done);
+				},
+				'driversInfo': r3e.getDriversInfo
+			}, self.setState.bind(self));
+		}
+		updateInfo();
+
+		self.updateInterval = setInterval(updateInfo, UI.spectatorUpdateRate * 20);
+		self.updateLooperInterval = setInterval(this.updateLooperBasedOnPlayerCount, 1000);
 	},
-	getName: function (name) {
-		if (window.settings.teamEvent) {
-			return name.substr(name.indexOf(" ") + 1);
+	updateLooperBasedOnPlayerCount: function () {
+		var maxSlotIndex = 0;
+		var drivers = this.state.driversInfo.driversInfo;
+		drivers.forEach(function (driver) {
+			maxSlotIndex = Math.max(maxSlotIndex, driver.slotId);
+		});
+		this.looper = Array.apply(null, Array(maxSlotIndex + 3));
+	},
+	componentWillUnmount: function () {
+		clearInterval(this.updateInterval);
+		clearInterval(this.updateLooperInterval);
+	},
+	getInitialState: function () {
+		return {
+			'pitInfo': {},
+			'driversInfo': {
+				'driversInfo': []
+			}
+		};
+	},
+	getDriverStyle: function (driver) {
+		if (UI.state.controllerOptions.options.indentFocusedDriver.value === "true" && driver.slotId === UI.state.focusedSlot) {
+			return {
+				'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)',
+				'left': '1em'
+			};
 		} else {
-			return UI.fixName(name);
+			return {
+				'WebkitTransform': 'translate3d(0, ' + (driver.scoreInfo.positionOverall - 1) * 100 + '%, 0)'
+			};
 		}
 	},
-	getNameColumnTitle: function () {
-		if (window.settings.teamEvent) {
-			return UI.getStringTranslation("raceResultsWidget", "team");
-		} else {
-			return UI.getStringTranslation("raceResultsWidget", "name");
-		}
-	},
-	render: function () {
+	formatTime: UI.formatTime,
+	getMetaInfo: function (driver, sortedByPosition) {
 		var self = this;
-		var fastestTime = 999999;
-		var fastestTimeIndex = null;
-		var winnerIndex = null;
-		self.props.results.forEach(function (entry, i) {
-			if (entry.bestLapInfo.sector3 !== -1 && entry.bestLapInfo.sector3 < fastestTime) {
-				fastestTime = entry.bestLapInfo.sector3;
-				fastestTimeIndex = i;
+		// Race
+		if (UI.state.sessionInfo.type.match(/^race/i)) {
+			// Leader should show lap count
+			if (driver.scoreInfo.positionOverall === 1) {
+				return React.createElement(
+					'div',
+					{ className: 'meta-info' },
+					'Lap ',
+					driver.scoreInfo.laps + 1
+				);
+			} else {
+				if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
+					if (driver.scoreInfo.lapDiff > 0) {
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							'+',
+							driver.scoreInfo.lapDiff,
+							' Lap(s)'
+						);
+					} else {
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							self.formatTime(driver.scoreInfo.timeDiff)
+						);
+					}
+				} else {
+					if (sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps > 1) {
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							'+',
+							sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps - 1,
+							' Lap(s)'
+						);
+					} else {
+						var sortedIndex = 0;
+						sortedByPosition.forEach(function (sortedDriver, i) {
+							if (sortedDriver.slotId === driver.slotId) {
+								sortedIndex = i;
+							}
+						});
+						var timeDifference = sortedByPosition.slice(1, sortedIndex + 1).map(function (driver) {
+							return Math.max(0, driver.scoreInfo.timeDiff);
+						}).reduce(function (p, c) {
+							return p + c;
+						});
+						return React.createElement(
+							'div',
+							{ className: 'meta-info' },
+							self.formatTime(timeDifference)
+						);
+					}
+				}
 			}
-			if (entry.positionOverall === 1) {
-				winnerIndex = i;
+			// Qualify and Practice
+		} else if (UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') {
+			if (driver.scoreInfo.positionOverall === 1) {
+				if (driver.scoreInfo.bestLapInfo.sector3 !== -1) {
+					return React.createElement(
+						'div',
+						{ className: 'meta-info fastest' },
+						self.formatTime(driver.scoreInfo.bestLapInfo.sector3, { ignoreSign: true })
+					);
+				} else {
+					return React.createElement('div', { className: 'meta-info' });
+				}
+			} else {
+				if (driver.scoreInfo.bestLapInfo.valid) {
+					return React.createElement(
+						'div',
+						{ className: 'meta-info' },
+						self.formatTime(driver.scoreInfo.bestLapInfo.sector3 - sortedByPosition[0].scoreInfo.bestLapInfo.sector3)
+					);
+				} else if (driver.scoreInfo.laps !== sortedByPosition[0].scoreInfo.laps) {
+					return React.createElement(
+						'div',
+						{ className: 'meta-info' },
+						'+',
+						sortedByPosition[0].scoreInfo.laps - driver.scoreInfo.laps,
+						' laps'
+					);
+				} else {
+					return React.createElement('div', { className: 'meta-info' });
+				}
 			}
+		}
+	},
+	sortFunctionPosition: function (a, b) {
+		if (a.scoreInfo.positionOverall > b.scoreInfo.positionOverall) {
+			return 1;
+		} else if (a.scoreInfo.positionOverall === b.scoreInfo.positionOverall) {
+			return 0;
+		} else {
+			return -1;
+		}
+	},
+	renderName: function (name) {
+		var firstInitial = name.substr(0, 1).toUpperCase() + ". ";
+		var parts = name.split(' ');
+		var divStyle = {};
+
+		// show full name and increase width
+		if (UI.state.controllerOptions.options.showFullStandingsName.value === "true") {
+			// show second name only for team event mode
+			if (window.settings.teamEvent) {
+				var name = name.substr(name.indexOf(" ") + 1).toUpperCase();
+				firstInitial = "";
+			} else {
+				var lastNames = parts.slice(1);
+				var name = lastNames.map(item => item.toUpperCase());
+			}
+			divStyle.width = "8em";
+		} else {
+			if (window.settings.teamEvent) {
+				var name = name.substr(name.indexOf(" ") + 1).toUpperCase();
+				firstInitial = "";
+				divStyle.width = "8em";
+			} else {
+				// Show 3 characters of last name by default
+				var name = parts[parts.length - 1].substr(0, 3).toUpperCase();
+			}
+		}
+		return React.createElement(
+			'div',
+			{ className: 'nameContainer', style: divStyle },
+			React.createElement(
+				'div',
+				{ className: 'name' },
+				firstInitial,
+				name
+			)
+		);
+	},
+	getClassIndicator: function (classId) {
+		var divStyle = {};
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {
+			classColour = UI.getClassColour(classId);
+			divStyle.background = classColour;
+			return React.createElement('div', { className: 'classIndicator', style: divStyle });
+		} else {
+			divStyle.display = 'none';
+			return React.createElement('div', { className: 'classIndicator', style: divStyle });
+		}
+	},
+	shouldShow: function (driver) {
+		if (!driver) {
+			return false;
+		}
+		if (UI.state.sessionInfo.type.match(/^RACE/)) {
+			return true;
+		}
+		if (UI.state.sessionInfo.type === 'PRACTICE' && !driver.scoreInfo.bestLapInfo.valid) {
+			return false;
+		}
+		return driver.scoreInfo.bestLapInfo.valid || driver.scoreInfo.timeDiff != -1;
+	},
+	looper: Array.apply(null, Array(UI.maxDriverCount)),
+	render: function () {
+		// On end phase user portalId is not sent anymore so do not show
+		if (UI.state.sessionInfo.phase === 'END') {
+			return null;
+		}
+
+		var self = this;
+		var p = this.state;
+		var pitInfo = self.state.pitInfo;
+
+		var drivers = this.state.driversInfo.driversInfo;
+		if (!drivers.length) {
+			return null;
+		}
+
+		var driversLookup = {};
+		drivers.forEach(function (driver) {
+			driversLookup[driver.slotId] = driver;
 		});
 
-		if (self.props.results[fastestTimeIndex]) {
-			self.props.results[fastestTimeIndex].isFastest = true;
+		var multiclassStandingsClasses = cx({
+			'hide-flags': UI.state.activeWidgets.MulticlassStandings.disableFlags,
+			'multiclass-standings': true
+		});
+
+		if (UI.state.sessionInfo.type === 'QUALIFYING' && UI.state.sessionInfo.timeLeft <= UI.state.controllerOptions.options.qualifyingResultsDisplayTime.value && UI.state.activeWidgets.Results.active) {
+			return null;
 		}
 
-		var fastestDriver = self.props.results[fastestTimeIndex];
-		var winningDriver = self.props.results[winnerIndex];
+		// hide in garage phase since thw whole grid won't be shown which looks bad on screen
+		if (UI.state.sessionInfo.phase === 'GARAGE') {
+			return null;
+		}
 
-		var self = this;
+		// hide when the event info widget is open.
+		if (UI.state.activeWidgets.EventInfo.active === true) {
+			return null;
+		}
+
+		// Need to clone it to keep the base array sorted by slotId
+		// && driversLookup[1].scoreInfo.bestLapInfo.sector3 !== -1
+		// && driversLookup[1].scoreInfo.positionOverall === 1
+		// && drivers.length < 25
 		return React.createElement(
 			'div',
 			null,
-			winningDriver != null ? React.createElement(
-				'div',
-				{ className: 'winnerColumn animated fadeInLeft delay-2s' },
-				React.createElement(
-					'div',
-					{ className: 'winnerTitle' },
-					UI.getStringTranslation("raceResultsWidget", "raceWinner")
-				),
-				React.createElement(
-					'div',
-					{ className: 'winnerImageContainer' },
-					React.createElement('img', { className: 'winnerImage', src: '/img/winner.png' })
-				),
-				React.createElement('div', { className: 'winnerLogo' }),
-				React.createElement(
-					'div',
-					{ className: 'livery' },
-					React.createElement('img', { src: '/render/' + winningDriver.liveryId + '/small/' })
-				),
-				React.createElement(
-					'div',
-					{ className: 'driverFlagContainer' },
-					React.createElement('img', { className: 'driveFlag', src: '/img/flags/' + UI.getUserInfo(winningDriver.portalId).country + '.png' })
-				),
-				React.createElement(
-					'div',
-					{ className: 'driverName' },
-					self.getName(winningDriver.name)
-				)
-			) : null,
-			fastestDriver != null ? React.createElement(
-				'div',
-				{ className: 'fastestDriverColumn animated fadeInRight delay-2s' },
-				React.createElement(
-					'div',
-					{ className: 'fastestTitle' },
-					UI.getStringTranslation("raceResultsWidget", "fastestLap")
-				),
-				React.createElement(
-					'div',
-					{ className: 'fastestDriverImageContainer' },
-					React.createElement('img', { className: 'fastestDriverImage', src: '/img/fastest.png' })
-				),
-				React.createElement('div', { className: 'fastestDriverLogo' }),
-				React.createElement(
-					'div',
-					{ className: 'fastestDriverLivery' },
-					React.createElement('img', { src: '/render/' + fastestDriver.liveryId + '/small/' })
-				),
-				React.createElement(
-					'div',
-					{ className: 'fastestDriverFlagContainer' },
-					React.createElement('img', { className: 'fastestDriverFlag', src: '/img/flags/' + UI.getUserInfo(fastestDriver.portalId).country + '.png' })
-				),
-				React.createElement(
-					'div',
-					{ className: 'fastestDriverName' },
-					self.getName(fastestDriver.name)
-				)
-			) : null,
+			UI.state.controllerOptions.options.showSponsorLogo.value === "true" ? React.createElement('div', { className: 'sponsorLogo' }) : null,
 			React.createElement(
 				'div',
-				{ className: 'race-results-bg' },
-				React.createElement(
-					'div',
-					{ className: 'race-results animated fadeIn' },
-					React.createElement(
+				{ className: multiclassStandingsClasses, style: { top: UI.state.controllerOptions.options.showSponsorLogo.value === "true" ? '10em' : '6em' } },
+				self.looper.map(function (non, i) {
+					return React.createElement(
 						'div',
-						{ className: 'title' },
-						React.createElement(
+						{ key: i },
+						self.shouldShow(driversLookup[i]) ? React.createElement(
 							'div',
-							{ className: 'text' },
-							UI.state.sessionInfo.type.match(/^Race 1/i) ? UI.getStringTranslation("raceResultsWidget", "race") : UI.state.sessionInfo.type,
-							' Results',
-							React.createElement('div', { className: 'logo' })
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'race-results-entry title' },
-						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-							'div',
-							{ className: 'classPosition' },
-							UI.getStringTranslation("raceResultsWidget", "classPosition")
-						) : null,
-						React.createElement(
-							'div',
-							{ className: 'position' },
-							UI.getStringTranslation("raceResultsWidget", "overall")
-						),
-						React.createElement('div', { className: 'manufacturer' }),
-						UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-							'div',
-							{ className: 'shortName' },
-							self.getNameColumnTitle()
-						) : React.createElement(
-							'div',
-							{ className: 'longName' },
-							self.getNameColumnTitle()
-						),
-						React.createElement('div', { className: 'livery' }),
-						window.settings.teamEvent ? React.createElement('div', { className: 'raceResultTeam' }) : React.createElement(
-							'div',
-							{ className: 'raceResultTeam' },
-							UI.getStringTranslation("raceResultsWidget", "team")
-						),
-						React.createElement(
-							'div',
-							{ className: 'penaltyTime' },
-							UI.getStringTranslation("raceResultsWidget", "penalties")
-						),
-						React.createElement(
-							'div',
-							{ className: 'lap-time' },
-							UI.getStringTranslation("raceResultsWidget", "finishTime")
-						),
-						React.createElement(
-							'div',
-							{ className: 'fastest-time' },
-							UI.getStringTranslation("raceResultsWidget", "bestLap")
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'entries-outer', ref: 'entries-outer' },
-						React.createElement(
-							'div',
-							{ className: 'entries-inner', ref: 'entries-inner' },
-							self.props.results.map(function (entry, i) {
-								return React.createElement(RaceResultEntry, { entry: entry, firstEntry: self.props.results[0], index: i });
-							})
-						)
-					)
-				)
-			)
-		);
-	}
-});
-
-var RaceResultEntry = React.createClass({
-	displayName: 'RaceResultEntry',
-
-	getClassColour: function (classId) {
-		var classColour = "rgba(38, 50, 56, 0.8)";
-		var className = "";
-
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
-			className = r3eData.classes[classId].Name;
-		}
-
-		return { 'background': classColour };
-	},
-	getTeamName: function (teamId, portalId) {
-		var self = this;
-		var teamName = "";
-		var portalTeamName = UI.getUserInfo(portalId).team;
-		if (window.settings.teamEvent) {
-			return "";
-		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length > 0) {
-			teamName = portalTeamName;
-		} else if (UI.state.controllerOptions.options.showPortalTeam.value === "true" && portalTeamName != null && portalTeamName.length === 0) {
-			teamName = UI.getStringTranslation("raceResultsWidget", "privateer");
-		} else if (r3eData.teams[teamId] != null) {
-			teamName = r3eData.teams[teamId].Name;
-		}
-		return teamName;
-	},
-	getName: function (name) {
-		if (window.settings.teamEvent) {
-			return name.substr(name.indexOf(" ") + 1);
-		} else {
-			return UI.fixName(name);
-		}
-	},
-	render: function () {
-		var self = this;
-		var entry = self.props.entry;
-		var lapTime = null;
-		if (entry.finishStatus === 'DNF') {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				UI.getStringTranslation("raceResultsWidget", "dnf")
-			);
-		} else if (entry.finishStatus === 'DNS') {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				UI.getStringTranslation("raceResultsWidget", "dns")
-			);
-		} else if (entry.finishStatus === 'DQ') {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				UI.getStringTranslation("raceResultsWidget", "dq")
-			);
-		} else if (self.props.index === 0) {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				UI.formatTime(entry.totalTime, { ignoreSign: true })
-			);
-		} else if (entry.lapsBehind === 1) {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				'+',
-				entry.lapsBehind,
-				' ',
-				UI.getStringTranslation("raceResultsWidget", "laps")
-			);
-		} else if (entry.lapsBehind > 1) {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				'+',
-				entry.lapsBehind,
-				' ',
-				UI.getStringTranslation("raceResultsWidget", "laps")
-			);
-		} else {
-			lapTime = React.createElement(
-				'div',
-				{ className: 'lap-time' },
-				UI.formatTime(entry.totalTime - self.props.firstEntry.totalTime)
-			);
-		}
-
-		// race penalties
-		var penaltyTime = React.createElement(
-			'div',
-			{ className: 'penaltyTime', style: { 'min-width': '4.5em' } },
-			' - '
-		);
-		if (entry.penaltyTime && entry.penaltyWeight) {
-			penaltyTime = React.createElement(
-				'div',
-				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
-				entry.penaltyTime / 1000,
-				's/',
-				entry.penaltyWeight,
-				'KG'
-			);
-		} else if (entry.penaltyTime) {
-			penaltyTime = React.createElement(
-				'div',
-				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
-				entry.penaltyTime / 1000,
-				's'
-			);
-		} else if (entry.penaltyWeight) {
-			penaltyTime = React.createElement(
-				'div',
-				{ className: 'penaltyTime', style: { color: 'rgba(255, 82, 82, 1.0)' } },
-				entry.penaltyWeight,
-				'KG'
-			);
-		}
-
-		return React.createElement(
-			'div',
-			{ className: cx({ 'fastest': entry.isFastest, 'race-results-entry': true, 'striped': entry.positionOverall % 2 }) },
-			UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-				'div',
-				{ className: cx({ 'classPosition': true }), style: self.getClassColour(entry.classId) },
-				UI.getStringTranslation("raceResultsWidget", "class"),
-				' P',
-				entry.positionClass,
-				'.'
-			) : null,
-			React.createElement(
-				'div',
-				{ className: 'position' },
-				'#',
-				entry.positionOverall
-			),
-			React.createElement(
-				'div',
-				{ className: 'manufacturer' },
-				window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
-					'div',
-					{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'standingsFlag' },
-					React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(entry.portalId).country + '.png' })
-				) : React.createElement(
-					'div',
-					{ key: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40, className: 'manufacturerFlag' },
-					React.createElement('img', { src: '/render/' + entry.manufacturerId + '/small/?type=manufacturer' })
-				)
-			),
-			UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
-				'div',
-				{ className: 'shortName' },
-				self.getName(entry.name)
-			) : React.createElement(
-				'div',
-				{ className: 'longName' },
-				self.getName(entry.name)
-			),
-			React.createElement(
-				'div',
-				{ className: 'livery animated fadeInRight delay-1s' },
-				React.createElement('img', { src: '/render/' + entry.liveryId + '/small/' })
-			),
-			React.createElement(
-				'div',
-				{ className: 'raceResultTeam' },
-				self.getTeamName(entry.teamId, entry.portalId)
-			),
-			penaltyTime,
-			lapTime,
-			entry.bestLapInfo.sector3 !== -1 ? React.createElement(
-				'div',
-				{ className: 'fastest-time' },
-				UI.formatTime(entry.bestLapInfo.sector3, { ignoreSign: true })
-			) : React.createElement(
-				'div',
-				{ className: 'fastest-time' },
-				'-'
+							{ className: cx({ 'driver': true, 'active': driversLookup[i].slotId === UI.state.focusedSlot }), key: driversLookup[i].slotId, style: self.getDriverStyle(driversLookup[i]) },
+							React.createElement(
+								'div',
+								{ className: 'inner' },
+								React.createElement(
+									'div',
+									{ className: 'positionContainer' },
+									React.createElement(
+										'div',
+										{ className: 'position' },
+										driversLookup[i].scoreInfo.positionOverall
+									)
+								),
+								self.getClassIndicator(driversLookup[i].classId),
+								UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ? React.createElement(
+									'div',
+									{ className: 'manufacturerContainer' },
+									React.createElement(
+										'div',
+										{ className: 'manufacturerFlag' },
+										React.createElement('img', { src: '/render/' + driversLookup[i].manufacturerId + '/small/?type=manufacturer' })
+									)
+								) : null,
+								self.renderName(driversLookup[i].name),
+								window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ? React.createElement(
+									'div',
+									{ className: 'flagContainer' },
+									React.createElement(
+										'div',
+										{ className: 'standingsFlag animated fadeIn delay-2s' },
+										React.createElement('img', { src: '/img/flags/' + UI.getUserInfo(driversLookup[i].portalId).country + '.png' })
+									)
+								) : null,
+								React.createElement(
+									'div',
+									{ className: 'meta-info-container' },
+									self.getMetaInfo(driversLookup[i], drivers)
+								),
+								React.createElement(
+									'div',
+									{ className: 'pit-info' },
+									driversLookup[i].mandatoryPitstopPerformed === 1 ? React.createElement(
+										'div',
+										{ className: 'pitted' },
+										'\u2B57'
+									) : null,
+									driversLookup[i].mandatoryPitstopPerformed === 0 ? React.createElement(
+										'div',
+										{ className: 'unpitted' },
+										'\u2B57'
+									) : null
+								)
+							)
+						) : null
+					);
+				})
 			)
 		);
 	}

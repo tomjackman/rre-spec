@@ -160,7 +160,17 @@
     "ignoringStopGoPenalty": "RU",
     "ignoringPitPenalty": "RU",
     "ignoringTimePenalty": "RU",
-    "stewardsDecision": "RU"
+    "stewardsDecision": "RU",
+    "classLeaderPitting": "RU",
+    "classNewLeader": "RU",
+    "classNewFastestLap": "RU",
+    "classNewFastestSector": "RU",
+    "collision": "RU",
+    "offTrack": "RU",
+    "stationary": "RU",
+    "lostControl": "RU",
+    "criticalDamage": "RU",
+    "puncture": "RU"
   },
   "autoDirectorWidget": {
 

@@ -1,0 +1,258 @@
+@warningColor: rgb(117, 1, 1);
+
+.overview {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #15202b;
+	color: #fff;
+
+	.title {
+		position: absolute;
+		top: 0px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: center;
+		height: 40px;
+		left: 0px;
+		right: 0;
+		padding: 10px;
+		font-size: 25px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+		color: white;
+		background: #15202b;
+		z-index: 2;
+		font-family: Abel;
+		line-height: 0.9;
+		&.isLastLaps {
+			background: @warningColor;
+			color: orange;
+		}
+	}
+	.estimated {
+		padding: 0 0 0 5px;
+		opacity: 0.5;
+		.values {
+			font-family: arial;
+		}
+	}
+
+	.content {
+		padding: 0 20px 20px;
+		&.favoritesContainer {
+			padding: 60px 25px 0;
+		}
+		.favorites {
+			width: 100%;
+			display: flex;
+			.favorite {
+				margin: 5px;
+				flex: auto;
+			}
+		}
+		display: flex;
+		.row {
+			flex: auto;
+			width: 50%;
+		}
+		.box {
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			margin: 10px 10px 20px;
+		}
+	}
+	.row-title {
+		font-size: 25px;
+		padding: 10px 15px;
+		background: rgba(0, 0, 0, 0.3);
+		font-family: Abel;
+		.flag {
+			width: 25px;
+			margin-right: 10px;
+			border-radius: 5px;
+		}
+		small {
+			opacity: 0.5;
+			font-size: 60%;
+			position: relative;
+			top: -3px;
+		}
+	}
+
+	.race-info {
+		width: 100%;
+		th,
+		td {
+			padding: 6px 15px;
+			text-align: left;
+		}
+		tr {
+			th {
+				font-size: 15px;
+				background: rgba(0, 0, 0, 0.4);
+				font-family: Abel;
+				white-space: nowrap;
+			}
+
+			&.inactive {
+				color: rgba(255, 255, 255, 0.1);
+			}
+			&:nth-child(odd) {
+				background: rgba(0, 0, 0, 0.1);
+			}
+			&:hover {
+				background: rgba(0, 0, 0, 0.2);
+				cursor: pointer;
+			}
+		}
+		td {
+			font-size: 20px;
+			white-space: nowrap;
+			border-left: 5px solid rgba(0, 0, 0, 0.2);
+			small {
+				opacity: 0.2;
+			}
+			.focused {
+				background: orange;
+				height: 15px;
+				width: 15px;
+				border-radius: 100%;
+			}
+		}
+
+		.positionBar {
+			width: 100%;
+			.barContainer {
+				background: rgba(0, 0, 0, 0.5);
+				position: relative;
+				width: 100%;
+				height: 10px;
+				.bar {
+					height: 10px;
+					background: #fff;
+					position: absolute;
+					top: 0;
+					left: 0;
+					&.closestFight {
+						background: @warningColor;
+					}
+
+					&.lapLeft {
+						background: transparent;
+						border-right: 2px solid yellow;
+					}
+				}
+			}
+		}
+	}
+	.info {
+		font-size: 14px;
+		display: flex;
+		.col {
+			flex: auto;
+			width: 35%;
+			&.meta {
+				width: 50%;
+			}
+		}
+		.lastLaps {
+			.lap-title {
+				padding: 5px 10px;
+				background: rgba(0, 0, 0, 0.2);
+				.relative {
+					float: right;
+					color: rgba(255, 255, 255, 0.5);
+					font-size: 12px;
+					position: relative;
+					top: -4px;
+					input {
+						position: relative;
+						top: 2px;
+					}
+				}
+			}
+			.lap {
+				padding: 5px 10px;
+				label {
+					padding: 0 5px 0 0;
+				}
+				&:nth-child(odd) {
+					background: rgba(0, 0, 0, 0.1);
+				}
+			}
+		}
+		.carRenderContainer {
+			position: relative;
+			max-width: 200px;
+			margin: 10px auto 0;
+			.carRender {
+				max-width: 120%;
+				max-height: 150px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			.aspect {
+				padding-top: 40%;
+			}
+		}
+		table {
+			width: 100%;
+			th,
+			td {
+				padding: 6px 15px;
+				text-align: left;
+			}
+			tr {
+				th {
+					font-size: 15px;
+					background: rgba(0, 0, 0, 0.4);
+					font-family: Abel;
+					white-space: nowrap;
+				}
+
+				&.inactive {
+					color: rgba(255, 255, 255, 0.1);
+				}
+				&:nth-child(odd) {
+					background: rgba(0, 0, 0, 0.1);
+				}
+				&:hover {
+					background: rgba(0, 0, 0, 0.2);
+					cursor: pointer;
+				}
+			}
+			td {
+				white-space: nowrap;
+				border-left: 5px solid rgba(0, 0, 0, 0.2);
+				small {
+					opacity: 0.2;
+				}
+				&.important {
+					color: @warningColor;
+				}
+				.focused {
+					background: orange;
+					height: 15px;
+					width: 15px;
+					border-radius: 100%;
+				}
+			}
+		}
+	}
+	.important {
+		color: @warningColor;
+	}
+	.positive {
+		color: rgb(14, 173, 14);
+	}
+	.negative {
+		color: rgb(151, 12, 12);
+	}
+	.invalid {
+		background: rgba(255, 0, 0, 0.15) !important;
+	}
+}

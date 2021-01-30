@@ -293,6 +293,16 @@ var r3eTracks = {
       Name: 'Motorland Aragón',
       countryCode: "es",
       trackLogoUrl: "http://game.raceroom.com/r3e/assets/content/track/motorland-aragon-8703-logo-original.webp"
+    },
+    '9176': {
+      Name: 'Watkins Glen International',
+      countryCode: "us",
+      trackLogoUrl: "https://game.raceroom.com/assets/content/track/watkins-glen-9176-logo-original.webp"
+    },
+    '9472': {
+      Name: 'Brands Hatch Grand Prix',
+      countryCode: "gb",
+      trackLogoUrl: "https://prod.r3eassets.com/assets/content/track/generic-9472-logo-original.webp"
     }
   }
 };

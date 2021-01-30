@@ -136,17 +136,17 @@ a {
 }
 .session-info .inner .sessionName {
   min-width: 4em;
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(0, 45, 68, 0.8);
   text-transform: uppercase;
-  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
+  border-top: 0.2em solid cyan;
   color: white;
 }
 .session-info .inner .timer {
   min-width: 5em;
-  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
-  background: white;
+  border-top: 0.2em solid cyan;
+  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   text-transform: uppercase;
-  color: #323433;
+  color: white;
   z-index: 2;
   border-bottom-right-radius: 10px;
 }
@@ -166,10 +166,10 @@ a {
 .session-info .inner .countdown {
   padding: 0em 0.3em;
   min-width: 4em;
-  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
-  background: white;
+  border-top: 0.2em solid cyan;
+  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   text-transform: uppercase;
-  color: #323433;
+  color: white;
   line-height: 1.6em;
   z-index: -2;
 }
@@ -197,7 +197,7 @@ a {
   font-size: 16px;
 }
 .session-info .inner .checkered img {
-  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
+  border-top: 0.2em solid cyan;
   height: 2em;
   width: 4em;
   z-index: 2;
@@ -205,11 +205,11 @@ a {
 .session-info .inner .serverName {
   margin: 0;
   min-width: 4em;
-  border-top: 0.2em solid rgba(255, 255, 255, 0.9);
-  border-left: 0.1em solid rgba(255, 255, 255, 0.9);
-  background: white;
+  border-top: 0.2em solid cyan;
+  border-left: 0.1em solid cyan;
+  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   text-transform: uppercase;
-  color: #323433;
+  color: white;
   z-index: 2;
 }
 @font-face {
@@ -250,6 +250,135 @@ body {
   100% {
     opacity: 1;
   }
+}
+@keyframes addEntry {
+  from {
+    transform: scale(0);
+    opacity: 0;
+    background: #750101;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  10% {
+    transform: scale(1);
+    opacity: 1;
+    background: #750101;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  90% {
+    transform: scale(1);
+    opacity: 1;
+    background: #750101;
+    border: 1px solid rgba(255, 255, 255, 0);
+  }
+}
+@keyframes progress {
+  from {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+.commentator-dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #15202b;
+  color: #fff;
+}
+.commentator-dashboard .title {
+  position: absolute;
+  top: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  height: 40px;
+  left: 0px;
+  right: 0;
+  padding: 10px;
+  font-size: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+  color: white;
+  background: #15202b;
+  z-index: 2;
+  font-family: Abel;
+  line-height: 0.9;
+}
+.commentator-dashboard .title.isLastLaps {
+  background: #750101;
+  color: orange;
+}
+.commentator-dashboard .estimated {
+  padding: 0 0 0 5px;
+  opacity: 0.5;
+}
+.commentator-dashboard .estimated .values {
+  font-family: arial;
+}
+.commentator-dashboard .content {
+  padding: 60px 20px 20px;
+  display: flex;
+}
+.commentator-dashboard .content .row {
+  flex: auto;
+  width: 50%;
+}
+.commentator-dashboard .content .box {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 10px 10px 20px;
+}
+.commentator-dashboard .row-title {
+  font-size: 25px;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.3);
+  font-family: Abel;
+}
+.commentator-dashboard .row-entries {
+  padding: 5px;
+}
+.commentator-dashboard .row-entries .row-entry {
+  font-size: 17px;
+  padding: 10px;
+  animation: addEntry 5s ease-in-out;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  margin: 4px 0;
+  line-height: 1.4;
+  position: relative;
+  overflow: hidden;
+}
+.commentator-dashboard .row-entries .row-entry.focused {
+  border-left: 10px solid orange !important;
+}
+.commentator-dashboard .row-entries .row-entry .timer {
+  width: 0;
+  animation: progress 20s linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+}
+.commentator-dashboard .row-entries .row-entry .name {
+  color: orange;
+}
+.commentator-dashboard .row-entries .row-entry:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.1);
+}
+.commentator-dashboard .row-entries .row-entry:hover {
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.commentator-dashboard .row-entries .row-entry .incident-data span {
+  flex: auto;
+}
+.commentator-dashboard .row-entries .row-entry .incident-data span.name {
+  white-space: nowrap;
+  padding: 0 5px 0 0;
 }
 /* ---- Abel ---- */
 @font-face {
@@ -377,13 +506,27 @@ select {
 .app-controller .title .toggle-track-map {
   float: right;
   height: 30px;
-  margin: -5px 0 0;
+  margin: -5px 0 0 10px;
 }
 .app-controller .title .toggle-track-map:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 .app-controller .title .toggle-track-map:hover:active {
+  -webkit-transform: scale(0.9);
+}
+.app-controller .title .dashboard {
+  float: right;
+  height: 30px;
+  margin: -5px 0 0 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.app-controller .title .dashboard:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.app-controller .title .dashboard:hover:active {
   -webkit-transform: scale(0.9);
 }
 .app-controller .title .toggleControlPanel {
@@ -531,7 +674,7 @@ select {
   font-size: 22px;
   font-weight: bold;
   padding: 4px 6px;
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(0, 45, 68, 0.8);
 }
 @-webkit-keyframes "ani_4" {
   0% {
@@ -748,9 +891,17 @@ select {
   left: -25%;
   -webkit-transform: scale(0.6);
 }
-.app-controller .camera-control .control.bottomLeft {
-  top: 100%;
+.app-controller .camera-control .control.topLeft {
+  bottom: 100%;
   right: 100%;
+}
+.app-controller .camera-control .control.topRight {
+  bottom: 100%;
+  left: 100%;
+}
+.app-controller .camera-control .control.bottomRight {
+  top: 100%;
+  left: 100%;
 }
 .track-map-controller-bg {
   position: fixed;
@@ -874,6 +1025,9 @@ select {
 .tabled-driver-entry:nth-child(odd) {
   opacity: 0.9;
 }
+.tabled-driver-entry.hasModal {
+  opacity: 1 !important;
+}
 .tabled-driver-entry {
   float: left;
   position: relative;
@@ -914,7 +1068,8 @@ select {
 .tabled-driver-entry .best-lap-s1,
 .tabled-driver-entry .best-lap-s2,
 .tabled-driver-entry .best-lap-time,
-.tabled-driver-entry .last-lap-time {
+.tabled-driver-entry .last-lap-time,
+.tabled-driver-entry .action {
   vertical-align: top;
   display: inline-block;
   height: 1.3em;
@@ -941,7 +1096,7 @@ select {
   padding: 0;
 }
 .tabled-driver-entry .name {
-  width: 14%;
+  width: 11%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -1103,6 +1258,20 @@ select {
 .tabled-driver-entry .last-lap-time.invalid {
   color: #F44336;
 }
+.tabled-driver-entry .action {
+  width: 3%;
+  opacity: 1.0;
+}
+.tabled-driver-entry .action .actionIcon {
+  background: #000;
+  margin: 0 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.tabled-driver-entry .action .actionIcon:hover {
+  color: yellow;
+}
 .tabled-driver-entry .drs {
   width: 2.5%;
   opacity: 1.0;
@@ -1134,6 +1303,335 @@ select {
   border-radius: 25px;
   background: red;
   color: white;
+}
+.actionModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(21, 32, 43, 0.9);
+  z-index: 99999;
+}
+.actionModal .inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #15202b;
+}
+.actionModal .inner textarea {
+  width: 400px;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 0;
+}
+.actionModal .inner input {
+  width: 100px;
+  padding: 10px;
+  font-size: 40px;
+  border-radius: 5px;
+  border: 0;
+  text-align: center;
+}
+.actionModal .inner button {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  background: transparent;
+  text-transform: uppercase;
+  font-family: Oswald;
+  margin: 5px 5px 5px 10px;
+  padding: 13px 20px;
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.actionModal .inner .optionContainer {
+  display: flex;
+  padding: 5px;
+  border: 2px solid #76ff03;
+  border-radius: 10px;
+}
+.actionModal .inner .close {
+  position: absolute;
+  bottom: 110%;
+  right: -2px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  background: #15202b;
+}
+.actionModal .inner .close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.actionModal .inner .userName {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  font-size: 30px;
+  white-space: nowrap;
+}
+.actionModal .inner .option {
+  font-size: 25px;
+  padding: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.actionModal .inner .option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.overview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #15202b;
+  color: #fff;
+}
+.overview .title {
+  position: absolute;
+  top: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  height: 40px;
+  left: 0px;
+  right: 0;
+  padding: 10px;
+  font-size: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+  color: white;
+  background: #15202b;
+  z-index: 2;
+  font-family: Abel;
+  line-height: 0.9;
+}
+.overview .title.isLastLaps {
+  background: #750101;
+  color: orange;
+}
+.overview .estimated {
+  padding: 0 0 0 5px;
+  opacity: 0.5;
+}
+.overview .estimated .values {
+  font-family: arial;
+}
+.overview .content {
+  padding: 0 20px 20px;
+  display: flex;
+}
+.overview .content.favoritesContainer {
+  padding: 60px 25px 0;
+}
+.overview .content .favorites {
+  width: 100%;
+  display: flex;
+}
+.overview .content .favorites .favorite {
+  margin: 5px;
+  flex: auto;
+}
+.overview .content .row {
+  flex: auto;
+  width: 50%;
+}
+.overview .content .box {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 10px 10px 20px;
+}
+.overview .row-title {
+  font-size: 25px;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.3);
+  font-family: Abel;
+}
+.overview .row-title .flag {
+  width: 25px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+.overview .row-title small {
+  opacity: 0.5;
+  font-size: 60%;
+  position: relative;
+  top: -3px;
+}
+.overview .race-info {
+  width: 100%;
+}
+.overview .race-info th,
+.overview .race-info td {
+  padding: 6px 15px;
+  text-align: left;
+}
+.overview .race-info tr th {
+  font-size: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  font-family: Abel;
+  white-space: nowrap;
+}
+.overview .race-info tr.inactive {
+  color: rgba(255, 255, 255, 0.1);
+}
+.overview .race-info tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.1);
+}
+.overview .race-info tr:hover {
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.overview .race-info td {
+  font-size: 20px;
+  white-space: nowrap;
+  border-left: 5px solid rgba(0, 0, 0, 0.2);
+}
+.overview .race-info td small {
+  opacity: 0.2;
+}
+.overview .race-info td .focused {
+  background: orange;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+}
+.overview .race-info .positionBar {
+  width: 100%;
+}
+.overview .race-info .positionBar .barContainer {
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 100%;
+  height: 10px;
+}
+.overview .race-info .positionBar .barContainer .bar {
+  height: 10px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.overview .race-info .positionBar .barContainer .bar.closestFight {
+  background: #750101;
+}
+.overview .race-info .positionBar .barContainer .bar.lapLeft {
+  background: transparent;
+  border-right: 2px solid yellow;
+}
+.overview .info {
+  font-size: 14px;
+  display: flex;
+}
+.overview .info .col {
+  flex: auto;
+  width: 35%;
+}
+.overview .info .col.meta {
+  width: 50%;
+}
+.overview .info .lastLaps .lap-title {
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.overview .info .lastLaps .lap-title .relative {
+  float: right;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  position: relative;
+  top: -4px;
+}
+.overview .info .lastLaps .lap-title .relative input {
+  position: relative;
+  top: 2px;
+}
+.overview .info .lastLaps .lap {
+  padding: 5px 10px;
+}
+.overview .info .lastLaps .lap label {
+  padding: 0 5px 0 0;
+}
+.overview .info .lastLaps .lap:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.1);
+}
+.overview .info .carRenderContainer {
+  position: relative;
+  max-width: 200px;
+  margin: 10px auto 0;
+}
+.overview .info .carRenderContainer .carRender {
+  max-width: 120%;
+  max-height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.overview .info .carRenderContainer .aspect {
+  padding-top: 40%;
+}
+.overview .info table {
+  width: 100%;
+}
+.overview .info table th,
+.overview .info table td {
+  padding: 6px 15px;
+  text-align: left;
+}
+.overview .info table tr th {
+  font-size: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  font-family: Abel;
+  white-space: nowrap;
+}
+.overview .info table tr.inactive {
+  color: rgba(255, 255, 255, 0.1);
+}
+.overview .info table tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.1);
+}
+.overview .info table tr:hover {
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.overview .info table td {
+  white-space: nowrap;
+  border-left: 5px solid rgba(0, 0, 0, 0.2);
+}
+.overview .info table td small {
+  opacity: 0.2;
+}
+.overview .info table td.important {
+  color: #750101;
+}
+.overview .info table td .focused {
+  background: orange;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+}
+.overview .important {
+  color: #750101;
+}
+.overview .positive {
+  color: #0ead0e;
+}
+.overview .negative {
+  color: #970c0c;
+}
+.overview .invalid {
+  background: rgba(255, 0, 0, 0.15) !important;
 }
 @font-face {
   font-family: 'DaimlerCS-Demi';
@@ -1228,15 +1726,15 @@ select {
 .alert .raceControlAlert {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-top: 3px solid rgba(255, 255, 255, 0.9);
-  background: rgba(31, 31, 30, 0.9);
+  border-top: 3px solid cyan;
+  background: rgba(0, 45, 68, 0.8);
   color: white;
   font-size: 17.6px;
   padding: 0.05em;
 }
 .alert .alertMessage {
-  background: white;
-  color: #323433;
+  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  color: white;
   padding: 0.15em;
   font-size: 17.6px;
   text-transform: capitalize;
@@ -1287,8 +1785,8 @@ select {
 }
 .commentaryNameAlert .commentaryTitle {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid rgba(255, 255, 255, 0.9);
-  background: rgba(31, 31, 30, 0.9);
+  border-top: 3px solid cyan;
+  background: rgba(0, 45, 68, 0.8);
   color: white;
   font-size: 17.6px;
   padding: 0.05em;
@@ -1297,8 +1795,8 @@ select {
 }
 .commentaryNameAlert .commentaryName {
   -webkit-transform: skew(-10deg, 0deg);
-  background: white;
-  color: #323433;
+  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  color: white;
   font-size: 17.6px;
   padding: 0.15em;
   text-transform: capitalize;
@@ -1323,14 +1821,14 @@ select {
 }
 .compare-race .delta .battle {
   text-transform: uppercase;
-  border-top: 0.25em solid rgba(255, 255, 255, 0.9);
+  border-top: 0.25em solid cyan;
   color: white;
   padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
   transform: skew(-10deg);
-  background: rgba(31, 31, 30, 0.9);
+  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   left: 0.3em;
 }
 .compare-race .delta .value {
@@ -1342,7 +1840,7 @@ select {
   bottom: 0.25em;
   left: -0.05em;
   transform: skew(-10deg);
-  background: rgba(31, 31, 30, 0.9);
+  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
 }
 .compare-race .delta .inner {
   position: absolute !important;
@@ -1423,13 +1921,13 @@ select {
   line-height: 3.75em;
 }
 .compare-race .inner .main .comparePositionContainer {
-  background: rgba(31, 31, 30, 0.9);
+  background: linear-gradient(190deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   color: white;
   width: 3.75em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
   line-height: 3.5em;
-  border-bottom: 0.1em solid rgba(149, 87, 43, 0.9);
+  border-bottom: 0.1em solid cyan;
   border-top-left-radius: 10px;
   transform: skew(-10deg);
 }
@@ -1439,11 +1937,11 @@ select {
   font-size: 48px;
 }
 .compare-race .inner .main .compareName {
-  background: rgba(31, 31, 30, 0.9);
+  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   color: white;
   padding: 0 1em;
   min-width: 12em;
-  border-bottom: 0.1em solid rgba(149, 87, 43, 0.9);
+  border-bottom: 0.1em solid cyan;
 }
 .compare-race .inner .main .compareName .name {
   font-size: 20.8px;
@@ -1468,7 +1966,7 @@ select {
   position: relative;
   left: -0.3em;
   transform: skew(-10deg);
-  border-bottom: 0.1em solid rgba(255, 255, 255, 0.9);
+  border-bottom: 0.1em solid cyan;
   border-bottom-right-radius: 10px;
 }
 .compare-race .inner .main .manufacturer img {
@@ -1489,7 +1987,7 @@ select {
   border-bottom-left-radius: 10px;
   transform: skew(-10deg);
   border-bottom-right-radius: 10px;
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(0, 45, 68, 0.8);
   color: white;
   height: 1.5em;
   text-transform: uppercase;
@@ -1570,8 +2068,8 @@ select {
 }
 .driverOfTheDayAlert .dotdTitle {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid rgba(255, 255, 255, 0.9);
-  background: rgba(31, 31, 30, 0.9);
+  border-top: 3px solid cyan;
+  background: rgba(0, 45, 68, 0.8);
   color: white;
   font-size: 17.6px;
   padding: 0.05em;
@@ -1579,8 +2077,8 @@ select {
   z-index: 0;
 }
 .driverOfTheDayAlert .dotdName {
-  background: white;
-  color: #323433;
+  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  color: white;
   -webkit-transform: skew(-10deg, 0deg);
   font-size: 17.6px;
   padding: 0.15em;
@@ -1684,7 +2182,7 @@ select {
   background: rgba(0, 0, 0, 0.2);
 }
 .event-info {
-  background: rgba(31, 31, 30, 0.9);
+  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 45, 68, 0.5));
   font-size: 16px;
   width: 50em;
   position: fixed;
@@ -1696,11 +2194,11 @@ select {
   color: #fff;
   white-space: pre;
   font-family: Oswald;
-  border-top: 0.3em solid rgba(255, 255, 255, 0.9);
-  border-bottom: 0.3em solid rgba(255, 255, 255, 0.9);
+  border-top: 0.3em solid cyan;
+  border-bottom: 0.3em solid cyan;
 }
 .event-info .serverName {
-  color: #ffffff;
+  color: white;
   text-align: center;
   font-size: 24px;
   padding: 20px;
@@ -1738,7 +2236,7 @@ select {
 }
 .event-info .serverTrackName {
   -webkit-transform: skew(-10deg, 0deg);
-  color: #ffffff;
+  color: white;
   text-align: center;
   font-size: 24px;
   padding: 15px;
@@ -1747,7 +2245,7 @@ select {
   margin: auto;
 }
 .event-info .trackDescription {
-  color: #ffffff;
+  color: white;
   display: block;
   width: 100%;
   font-size: 16px;
@@ -1760,7 +2258,7 @@ select {
 .event-info .weather .weatherIcons {
   display: flex;
   font-size: 16px;
-  color: #ffffff;
+  color: white;
   justify-content: space-around;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
@@ -2027,7 +2525,7 @@ select {
 .focused-driver-info .top .positionInClass {
   transform: skew(-10deg);
   line-height: 0.5em;
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(38, 50, 56, 0.5);
   padding: 0.5em 0.5em;
   color: white;
   width: 3em;
@@ -2040,7 +2538,7 @@ select {
   background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
 }
 .focused-driver-info .main .positionContainer {
-  background: rgba(31, 31, 30, 0.9);
+  background: linear-gradient(190deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   color: white;
   width: 5em;
   position: relative;
@@ -2049,7 +2547,7 @@ select {
   padding-right: 0.5em;
   line-height: 3.7em;
   transform: skew(-10deg);
-  border-top: 0.1em solid rgba(255, 255, 255, 0.9);
+  border-top: 0.1em solid cyan;
   border-top-left-radius: 10px;
 }
 .focused-driver-info .main .positionContainer .position {
@@ -2058,11 +2556,11 @@ select {
   transform: skew(10deg);
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: rgba(31, 31, 30, 0.9);
+  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   text-transform: uppercase;
   padding: 0px 1em;
   min-width: 19em;
-  border-bottom: 0.1em solid rgba(255, 255, 255, 0.9);
+  border-bottom: 0.1em solid cyan;
   transform: skew(-10deg);
 }
 .focused-driver-info .main .driverInfoDetails .name {
@@ -2098,10 +2596,10 @@ select {
   height: 5.5em;
 }
 .focused-driver-info .main .tyre {
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(0, 45, 68, 0.8);
   width: 4em;
   position: relative;
-  border-bottom: 0.1em solid rgba(149, 87, 43, 0.9);
+  border-bottom: 0.1em solid cyan;
   left: 0em;
   transform: skew(-10deg);
   border-bottom-right-radius: 10px;
@@ -2118,7 +2616,7 @@ select {
   width: 4em;
   position: relative;
   left: 0em;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid cyan;
   transform: skew(-10deg);
   border-bottom-right-radius: 10px;
 }
@@ -2133,7 +2631,7 @@ select {
   width: 3em;
   position: relative;
   background: #263238;
-  border-bottom: 0.1em solid rgba(255, 255, 255, 0.9);
+  border-bottom: 0.1em solid #ff5252;
   transform: skew(-10deg);
   margin: 1;
   z-index: 5;
@@ -2236,9 +2734,9 @@ select {
 .multiclass-standings .driver .positionContainer {
   margin: 0;
   font-size: 16px;
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(190deg, rgba(0, 45, 68, 0.6), rgba(0, 188, 212, 0.6));
   display: inline-block;
-  color: black;
+  color: white;
   font-size: 1em;
   text-align: center;
   width: 2em;
@@ -2250,7 +2748,7 @@ select {
   transform: skew(15deg, 0deg);
 }
 .multiclass-standings .driver .flagContainer {
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(0, 45, 68, 0.8);
   display: inline-block;
   width: 2em;
   height: 2em;
@@ -2285,7 +2783,7 @@ select {
   font-family: Oswald;
   display: inline-block;
   color: white;
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(0, 45, 68, 0.8);
   width: 4em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -2301,7 +2799,7 @@ select {
 }
 .multiclass-standings .driver .meta-info-container {
   font-size: 16px;
-  background: rgba(31, 31, 30, 0.9);
+  background: linear-gradient(386deg, rgba(0, 45, 68, 0.6), rgba(0, 188, 212, 0.6));
   color: white;
   font-family: Oswald;
   display: inline-block;
@@ -2351,7 +2849,7 @@ select {
 }
 .multiclass-standings .driver .pit-info .unpitted {
   font-size: 19.2px;
-  background: rgba(31, 31, 30, 0.9);
+  background: #e21d38;
 }
 .race-results-bg {
   font-size: 16px;
@@ -2395,15 +2893,15 @@ select {
   padding: 0 0.75em 0 0;
   line-height: 5em;
   font-size: 24px;
-  background: #1f1f1e;
-  border-top: 0.25em solid rgba(255, 255, 255, 0.9);
+  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  border-top: 0.25em solid cyan;
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .race-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/EracingLogoWhite.png);
+  content: url(results/logos/mercedes.png);
   height: 2.2em;
   top: 0.9em;
   left: 1em;
@@ -2413,7 +2911,7 @@ select {
   height: 2em;
   line-height: 2em;
   color: white;
-  background: rgba(31, 31, 30, 0.8);
+  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   white-space: nowrap;
   overflow: hidden;
 }
@@ -2528,7 +3026,7 @@ select {
   -webkit-transform: translate(0, -40%);
   z-index: 2;
   border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, #e21d38 90%);
+  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(0, 188, 212, 0.8) 90%);
 }
 .winnerColumn .winnerTitle {
   font-size: 24px;
@@ -2570,7 +3068,7 @@ select {
 }
 .winnerColumn .driverFlagContainer {
   position: fixed;
-  content: url(results/logos/EracingLogoWhite.png);
+  content: url(results/logos/mercedes.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -2647,7 +3145,7 @@ select {
 }
 .fastestDriverColumn .fastestDriverFlagContainer {
   position: fixed;
-  content: url(results/logos/EracingLogoWhite.png);
+  content: url(results/logos/mercedes.png);
   width: 5em;
   top: 35%;
   -webkit-transform: translate(0, -35%);
@@ -2714,15 +3212,15 @@ select {
   padding: 0 0.75em 0 0;
   line-height: 5em;
   font-size: 24px;
-  background: #1f1f1e;
-  border-top: 0.25em solid rgba(255, 255, 255, 0.9);
+  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  border-top: 0.25em solid cyan;
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
 }
 .qualify-results .title .text .logo {
   position: absolute;
-  content: url(results/logos/EracingLogoWhite.png);
+  content: url(results/logos/mercedes.png);
   height: 2.2em;
   top: 0.9em;
   left: 1em;
@@ -2732,7 +3230,7 @@ select {
   height: 2em;
   line-height: 2em;
   color: white;
-  background: rgba(31, 31, 30, 0.8);
+  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
   white-space: nowrap;
   overflow: hidden;
 }
@@ -2839,9 +3337,9 @@ select {
 }
 .safetyCarDeployedContainer .safetyCarDeployed {
   font-family: Oswald;
-  background: rgba(255, 193, 7, 0.9);
+  background: rgba(255, 152, 0, 0.7);
   text-transform: uppercase;
-  color: black;
+  color: white;
   height: 2em;
   padding: 0.1em;
   line-height: 2em;
@@ -2862,8 +3360,8 @@ select {
 }
 .safetyAlert .raceControl {
   -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid rgba(255, 255, 255, 0.9);
-  background: rgba(31, 31, 30, 0.9);
+  border-top: 3px solid cyan;
+  background: rgba(0, 45, 68, 0.8);
   color: white;
   font-size: 17.6px;
   padding: 0.05em;
@@ -2871,8 +3369,8 @@ select {
   z-index: 0;
 }
 .safetyAlert .safetyCarIn {
-  background: white;
-  color: #323433;
+  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  color: white;
   -webkit-transform: skew(-10deg, 0deg);
   font-size: 17.6px;
   padding: 0.15em;
@@ -2968,7 +3466,7 @@ pre.preview {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   color: white;
-  background: rgba(31, 31, 30, 0.9);
+  background: rgba(0, 45, 68, 0.8);
 }
 .track-map .dot .driverName {
   position: relative;

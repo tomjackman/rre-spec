@@ -207,14 +207,19 @@ UI.widgets.MulticlassStandings = React.createClass({
 		}
 
 		// Need to clone it to keep the base array sorted by slotId
+		// && driversLookup[1].scoreInfo.bestLapInfo.sector3 !== -1
+		// && driversLookup[1].scoreInfo.positionOverall === 1
+		// && drivers.length < 25
 		return (
 			<div>
-			{UI.state.controllerOptions.options.showSponsorLogo.value === "true" ?
+			{UI.state.controllerOptions.options.showSponsorLogo.value === "true"
+
+			?
 				<div className="sponsorLogo"></div>
 			:
-				<div className="sponsorLogo" style={{height: 0 }}></div>
+				null
 			}
-			<div className={multiclassStandingsClasses}>
+			<div className={multiclassStandingsClasses} style={{ top: UI.state.controllerOptions.options.showSponsorLogo.value === "true"? '10em': '6em'}}>
 
 				{self.looper.map(function(non, i) {
 					return <div key={i}>

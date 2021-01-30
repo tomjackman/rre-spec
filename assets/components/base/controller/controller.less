@@ -124,7 +124,7 @@ select {
 		.toggle-track-map {
 			float: right;
 			height: 30px;
-			margin: -5px 0 0;
+			margin: -5px 0 0 10px;
 			&:hover {
 				opacity: 0.8;
 				cursor: pointer;
@@ -132,7 +132,21 @@ select {
 					-webkit-transform: scale(0.9);
 				}
 			}
-		}
+    }
+    .dashboard {
+      float: right;
+      height: 30px;
+      margin: -5px 0 0 10px;
+      color: #fff;
+      text-decoration: none;
+			&:hover {
+				opacity: 0.8;
+				cursor: pointer;
+				&:active {
+					-webkit-transform: scale(0.9);
+				}
+			}
+    }
     .toggleControlPanel {
         float: left;
         height: 30px;
@@ -453,9 +467,17 @@ select {
 				left: -25%;
 				-webkit-transform: scale(0.6);
 			}
-			&.bottomLeft {
-				top: 100%;
+			&.topLeft {
+				bottom: 100%;
 				right: 100%;
+			}
+			&.topRight {
+				bottom: 100%;
+				left: 100%;
+			}
+			&.bottomRight {
+				top: 100%;
+				left: 100%;
 			}
 		}
 	}
@@ -586,6 +608,9 @@ select {
 .tabled-driver-entry:nth-child(odd) {
   opacity: 0.9;
 }
+.tabled-driver-entry.hasModal {
+  opacity: 1 !important;
+}
 
 .tabled-driver-entry {
   float: left;
@@ -601,7 +626,7 @@ select {
     opacity: 1;
   }
 
-  .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .currentSpeed, .pit, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .tyreWear, .damage, .flags, .ptp, .drs, .best-lap-s1, .best-lap-s2, .best-lap-time, .last-lap-time {
+  .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .currentSpeed, .pit, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .tyreWear, .damage, .flags, .ptp, .drs, .best-lap-s1, .best-lap-s2, .best-lap-time, .last-lap-time, .action {
     vertical-align: top;
     display: inline-block;
     height: 1.3em;
@@ -628,7 +653,7 @@ select {
     }
   }
   .name {
-    width: 14%;
+    width: 11%;
     white-space: nowrap;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -791,6 +816,20 @@ select {
       color: #F44336;
     }
   }
+  .action {
+    width: 3%;
+    opacity: 1.0;
+    .actionIcon {
+      background: #000;
+      margin: 0 10px;
+      font-weight:bold;
+      cursor: pointer;
+      border-radius: 5px;
+      &:hover {
+        color: yellow;
+      }
+    }
+  }
   .drs {
     width: 2.5%;
     opacity: 1.0;
@@ -822,6 +861,94 @@ select {
       border-radius: 25px;
       background: red;
       color: white;
+    }
+  }
+}
+
+.actionModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(21, 32, 43, 0.9);
+  z-index: 99999;
+  .inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #15202b;
+
+    textarea {
+      width: 400px;
+      padding: 10px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: 0;
+    }
+    input {
+      width: 100px;
+      padding: 10px;
+      font-size: 40px;
+      border-radius: 5px;
+      border: 0;
+      text-align: center;
+    }
+    button {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        color: #fff;
+        background: transparent;
+        text-transform: uppercase;
+        font-family: Oswald;
+        margin: 5px 5px 5px 10px;
+        padding: 13px 20px;
+        font-size: 20px;
+        background: rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
+    .optionContainer {
+      display: flex;
+      padding: 5px;
+      border: 2px solid #76ff03;
+      border-radius: 10px;
+    }
+    .close {
+      position: absolute;
+      bottom: 110%;
+      right: -2px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+      background: #15202b;
+      &:hover {
+        background: rgba(255,255,255,0.1);
+      }
+    }
+    .userName {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      width: 100%;
+      padding: 20px;
+      font-size: 30px;
+      white-space: nowrap;
+    }
+    .option {
+      font-size: 25px;
+      padding: 30px;
+      border: 2px solid rgba(255,255,255,0.9);
+      border-radius: 10px;
+      margin: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      white-space: nowrap;
+      &:hover {
+        background: rgba(255,255,255,0.1);
+      }
     }
   }
 }

@@ -587,6 +587,8 @@ UI.components.Controller = React.createClass({
 
 		var controlOptionsData = UI.state.controllerOptions.options;
 
+		var isRace = UI.state.sessionInfo.type.match(/^race/i);
+
 		return (
 			<div className={classes}>
 
@@ -605,6 +607,12 @@ UI.components.Controller = React.createClass({
 						:
 						<img className="toggle-track-map" src="/img/map.svg" />
 					}
+					</a>
+					<a className="dashboard" href="/dashboard">
+						Dashboard
+					</a>
+					<a className="dashboard" href="/overview">
+						Overview
 					</a>
 					{session.type && session.phase ?
 						<span>{UI.getStringTranslation("sessionInfoWidget", session.type.toLowerCase().replace(/ /g,""))} - {UI.getStringTranslation("sessionInfoWidget", session.phase.toLowerCase().replace(/ /g,""))}: {UI.formatSessionTime(session.timeLeft)}/{UI.formatSessionTime(session.timeTotal)} - {UI.state.eventInfo.serverName}</span>
@@ -667,6 +675,7 @@ UI.components.Controller = React.createClass({
 										<div className="best-lap-s2">{UI.getStringTranslation("controller", "sector2")}</div>
 										<div className="best-lap-time">{UI.getStringTranslation("controller", "bestLap")}</div>
 										<div className="last-lap-time">{UI.getStringTranslation("controller", "lastLap")}</div>
+										{isRace && <div className="action"></div>}
 								 </div>
 							 </div>
 
@@ -690,10 +699,14 @@ UI.components.Controller = React.createClass({
 				<div onMouseUp={this.mouseUp} className="camera-control">
 					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control top" data-value="frontCam">Front</div>
 					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control bottom" data-value="rearCam">Rear</div>
-					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control center" data-value="trackside">TV</div>
+					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control center" data-value="tv">TV</div>
 					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control left" data-value="onboard1">Dash</div>
 					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control right" data-value="onboard2">Cockpit</div>
 					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control bottomLeft" data-value="wing">Rear wing</div>
+
+					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control topLeft" data-value="action">Action</div>
+					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control topRight" data-value="heli">Heli</div>
+					<div onMouseEnter={this.enter} onMouseUp={this.mouseUpCameraControl} className="control bottomRight" data-value="static">Static</div>
 				</div>
 				<div className="widgets-list">
 				<select value={UI.state.activeTheme} onChange={self.changeTheme}>
@@ -713,6 +726,74 @@ UI.components.Controller = React.createClass({
 });
 
 var TabledDriver = React.createClass({
+	getInitialState: function() {
+		return {
+			'actionModalActive': false,
+			'actionModalType': null
+		};
+	},
+	toggleActionModal: function(driver) {
+		this.setState({
+			actionModalActive: !this.state.actionModalActive
+		})
+	},
+	addPenalty: function(id, penaltyType, duration) {
+		var self = this;
+		var options = UI.state.controllerOptions.options;
+		var dediUrl = options.dediManager.value.replace(/\/$/, '');
+
+		// Validate that the url is proper
+		try {
+			new URL(dediUrl);
+		} catch (e) {
+			alert(e);
+			return false;
+		}
+
+		$.ajax({
+			url: '/penalty/',
+			method: 'POST',
+			json: true,
+			data: {
+				UserId: id,
+				PenaltyType: penaltyType,
+				Duration: duration
+			},
+			complete: function() {
+				self.setState({'actionModalType': null});
+				self.toggleActionModal()
+			},
+			success: function(json) {
+				if (json.error) {
+					return alert(json.error);
+				}
+			}
+		});
+	},
+	addSlowdown: function(id) {
+		var duration = parseFloat(this.refs.slowdownDuration.value);
+		this.addPenalty(id, 0, duration)
+	},
+	sendWarning: function() {
+		var self = this;
+		$.ajax({
+			url: '/chat/',
+			method: 'POST',
+			json: true,
+			data: {
+				message: this.refs.warningTextarea.value
+			},
+			complete: function() {
+				self.setState({'actionModalType': null});
+				self.toggleActionModal()
+			},
+			success: function(json) {
+				if (json.error) {
+					return alert(json.error);
+				}
+			}
+		});
+	},
 	changeCamera: function(camera, slotId) {
 		UI.state.focusedSlot = slotId;
 		UI.state.camera = camera;
@@ -812,7 +893,8 @@ var TabledDriver = React.createClass({
 		var classes = cx({
 			'tabled-driver-entry': true,
 			'focused': this.props.focused,
-			'idle': self.props.driver.vehicleInfo.speed < 5
+			'idle': self.props.driver.vehicleInfo.speed < 5,
+			'hasModal': this.state.actionModalActive
 		});
 		var driver = self.props.driver;
 		var state = self.state;
@@ -821,7 +903,7 @@ var TabledDriver = React.createClass({
 		var isRace = UI.state.sessionInfo.type.match(/^race/i);
 
 		return (
-			<div className={classes} style={{'zIndex': (1000-this.props.position)}}>
+			<div className={classes} style={{'azIndex': (100-this.props.position)}}>
 					{self.renderPostion(driver)}
 					<div className="lap">{driver.scoreInfo.laps + 1}</div>
 					{isRace ?
@@ -880,6 +962,64 @@ var TabledDriver = React.createClass({
 						:
 						<div className="last-lap-time invalid">{UI.getStringTranslation("controller", "invalid")}</div>
 					}
+					{(true || isRace) && <div className="action">
+						<div className="actionIcon" onClick={() => {this.toggleActionModal()}}>
+							!
+						</div>
+					</div>}
+					{this.state.actionModalActive &&
+						<div className="actionModal">
+							<div className="inner">
+								{this.state.actionModalType === null && 
+									<div className="optionContainer">
+										<div className="option" onClick={() => {this.setState({'actionModalType': 'warning'})}}>
+											{UI.getStringTranslation("controller", "Warn")}
+										</div>
+										<div className="option" onClick={() => {this.setState({'actionModalType': 'penalty'})}}>
+											{UI.getStringTranslation("controller", "Penalize")}
+										</div>
+									</div>
+								}
+								{this.state.actionModalType === 'warning' && 
+									<div className="optionContainer">
+										<textarea ref="warningTextarea" maxlength={128} defaultValue={self.getName(driver.name) + ', '+UI.getStringTranslation("controller", "warning")+'!'} />
+										<button onClick={() => {this.sendWarning()}}>
+											{UI.getStringTranslation("controller", "Send warning")}
+										</button>
+									</div>
+								}
+								{this.state.actionModalType === 'slowdown' && 
+									<div className="optionContainer">
+										<input ref="slowdownDuration" type="number" defaultValue={5} min={0} />
+										<button onClick={() => {this.addSlowdown(driver.portalId)}}>
+											{UI.getStringTranslation("controller", "Send slowdown")}
+										</button>
+									</div>
+								}
+								{this.state.actionModalType === 'penalty' && 
+									<div className="optionContainer">
+										<div className="option" onClick={() => {this.setState({'actionModalType': 'slowdown'});}}>
+											{UI.getStringTranslation("controller", "Slowdown")}
+										</div>
+										<div className="option" onClick={() => {this.addPenalty(driver.portalId, 1);}}>
+											{UI.getStringTranslation("controller", "Drive Through")}
+										</div>
+										<div className="option" onClick={() => {this.addPenalty(driver.portalId, 2);}}>
+											{UI.getStringTranslation("controller", "Stop And Go")}
+										</div>
+										<div className="option" onClick={() => {this.addPenalty(driver.portalId, 3);}}>
+											{UI.getStringTranslation("controller", "Disqualify")}
+										</div>
+									</div>
+								}
+							<div className="userName">
+								{self.getName(driver.name)}
+							</div>
+							<div className="close" onClick={() => {this.setState({'actionModalType': null}); this.toggleActionModal()}}>
+								{UI.getStringTranslation("controller", "Close")}
+							</div>
+						</div>
+					</div>}
 				</div>
 		);
 	}

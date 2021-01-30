@@ -48,7 +48,7 @@ module.exports = function(assetsDir) {
 			res.send(output + '; UI.updateApplication();');
 		});
 	});
-
+	
 	// Decide where to fetch the render from
 	app.get('/render/:id/:size', function(req, res) {
 		if (settings.offline !== true) {
@@ -152,6 +152,99 @@ module.exports = function(assetsDir) {
 		res.json(JSON.stringify(config));
 	});
 
+	// Allow admin to add penalty to a user (tries to penalize every single open instance)
+	app.post('/penalty/', function (req, res) {
+		var filePath = __dirname + '/../../public/config.json';
+		var config = require(filePath);
+		var dediUrl = config.options.dediManager.value.replace(/\/$/, '');
+
+		request({
+			url: dediUrl + '/dedi/',
+			json: true
+		}, function(err, _res, dedis) {
+			if (err) {
+				return res.json({error:err});
+			}
+
+			var userId = parseFloat(req.body.UserId);
+
+			var instances = dedis.filter(function(dedi) {
+				return dedi.ProcessState.Running;
+			});
+
+			if (instances.length === 0) {
+				return res.json({
+					error: 'No servers matching the user are active'
+				});
+			}
+
+			var duration = parseFloat(req.body.Duration);
+
+			instances.forEach(function(dedi) {
+				var processId = dedi.GameSetting.Id;
+				var data = {
+					UserId: userId,
+					ProcessId: processId,
+					PenaltyType: parseFloat(req.body.PenaltyType),
+					Duration: isNaN(duration) ? undefined : parseFloat(req.body.Duration)
+				};
+
+				request({
+					url: dediUrl + '/user/penalty',
+					method: 'post',
+					json: data,
+					'Content-Type': 'application/json'
+				}, function(err, _res, penaltyJson) {
+					if (err) {
+						console.log(err);
+						return res.json({error: 'Error giving driver penalty'});
+					}
+
+					res.json({success: true, penaltyResponse: penaltyJson});
+				});
+			});
+		});
+	});
+
+	// Allow admin to warn to a user through chat
+	app.post('/chat/', function (req, res) {
+		var filePath = __dirname + '/../../public/config.json';
+		var config = require(filePath);
+		var dediUrl = config.options.dediManager.value.replace(/\/$/, '');
+
+		request({
+			url: dediUrl + '/dedi/',
+			json: true
+		}, function(err, _res, dedis) {
+			if (err) {
+				return res.json({error:err});
+			}
+
+			var instances = dedis.filter(function(dedi) {
+				return dedi.ProcessState.Running;
+			});
+
+			instances.forEach(function(dedi) {
+				var processId = dedi.GameSetting.Id;
+				request({
+					url: dediUrl + '/chat/' + processId + '/admin',
+					method: 'post',
+					json: {
+						'Message': req.body.message
+					},
+					'Content-Type': 'application/json'
+				}, function(err, _res, chatJson) {
+					if (err) {
+						console.log(err);
+						return res.json({error: 'Error when sending chat message'});
+					}
+
+					res.json({success: true, chatResponse: chatJson});
+				});
+			});
+		});
+	});
+
 	function replaceContents(file, replacement, cb) {
 		fs.readFile(replacement, (err, contents) => {
 			if (err) return cb(err);
@@ -160,20 +253,20 @@ module.exports = function(assetsDir) {
 	}
 
 	app.post('/changeTheme/', function (req, res) {
-	// replace contents of file 'b' with contents of 'a'
-	var themesDir = __dirname + '/../../theme';
-	var themeLessFile = themesDir + '/z.less';
-	var activeThemeLessFile = themesDir + '/' + req.body.file + '.less';
-	replaceContents(themeLessFile, activeThemeLessFile, err => {
-		if (err) {
-			console.log('Error when switching theme: ' + err);
-			return res.json({
-				error: 'Error when switching theme: ' + err
-			});
-		}
-		res.json(JSON.stringify({'theme': req.body.file}));
+		// replace contents of file 'b' with contents of 'a'
+		var themesDir = __dirname + '/../../theme';
+		var themeLessFile = themesDir + '/z.less';
+		var activeThemeLessFile = themesDir + '/' + req.body.file + '.less';
+		replaceContents(themeLessFile, activeThemeLessFile, err => {
+			if (err) {
+				console.log('Error when switching theme: ' + err);
+				return res.json({
+					error: 'Error when switching theme: ' + err
+				});
+			}
+			res.json(JSON.stringify({'theme': req.body.file}));
+		});
 	});
-});
 
 	app.use(express.static(__dirname + '/../../public'));
 	app.use(express.static(__dirname + '/../../assets/components/widgets'));
@@ -187,6 +280,12 @@ module.exports = function(assetsDir) {
 		require(pluginsPath+'/'+filePath+'/'+filePath+'.js')(app, io);
 	});
 
+	app.get('/dashboard', function(req, res) {
+		fs.createReadStream(__dirname + '/../../public/index.html').pipe(res);
+	});
+	app.get('/overview', function(req, res) {
+		fs.createReadStream(__dirname + '/../../public/index.html').pipe(res);
+	});
 	app.get(/.*/, function(req, res) {
 		res.redirect('/');
 	});

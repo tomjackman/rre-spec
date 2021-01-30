@@ -144,6 +144,14 @@
       "translationDisplayName": "commentaryNames",
       "translationDescription": "commentaryNamesDescription"
     },
+    "dediManager": {
+      "displayName": "Dedi url(s)",
+      "value": "http://user:pass@127.0.0.1:8088/",
+      "tooltip": "Enter the dedi url http://user:pass@ip (Default: 'Blank').",
+      "type": "text",
+      "translationDisplayName": "dediManager",
+      "translationDescription": "dediManagerDescription"
+    },
     "driverOfTheDay": {
       "displayName": "Show Driver of the Day",
       "value": "Driver of the Day",
