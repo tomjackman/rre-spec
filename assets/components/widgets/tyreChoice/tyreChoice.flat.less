@@ -1,0 +1,37 @@
+@import '../theme/z';
+
+.tyreChoice {
+  font-size: @fontSize;
+  font-family: Formula1-Regular;
+	position: fixed;
+	top: 28em;
+  right: 5em;
+	text-transform: uppercase;
+	min-height: 1em;
+	width: 15em;
+	line-height: 1.7em;
+	text-align: center;
+	display: inline-block;
+  filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
+  .title {
+    border-left: 3px solid @primaryAccent;
+    background: @primaryAccentBackground;
+    color: @secondaryAccent;
+    font-size: @fontSize * 1.1;
+    padding: 0.05em;
+    top: 0.1em;
+    z-index: 0;
+  }
+  .tyreContainer {
+    background: linear-gradient(to bottom, @primaryAccentBackground, @tertiaryAccentBackground);
+    font-size: @fontSize * 1.1;
+    padding: 1em;
+    text-transform: capitalize;
+    z-index: -1;
+    height: 10.5em;
+    img {
+      height: 9em;
+      filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+	"version": "1.0.0",
+	"elementName": "TyreChoice",
+	"name": "Tyre Choice",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"defaultActive": false,
+	"translationLabel": "tyreChoiceLabel",
+	"translationDescription": "tyreChoiceDescription"
+}
