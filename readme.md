@@ -1,6 +1,6 @@
 # RRE TV Overlay
 
-![alt text](public/img/overlay2.jpg "Logo Title Text 1")
+![alt text](public/img/overlay2.png "Logo Title Text 1")
 
 As used by:
 
