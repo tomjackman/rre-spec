@@ -34,7 +34,11 @@
     "sessionInfoLabel": "",
     "sessionInfoDescription": "",
     "trackMapLabel": "",
-    "trackMapDescription": ""
+    "trackMapDescription": "",
+    "tyreChoiceLabel": "",
+    "tyreChoiceDescription": "",
+    "qrCodeLabel": "",
+    "qrCodeDescription": ""
   },
   "configFile": {
     "useNewBroadcastUI": "",
@@ -73,6 +77,10 @@
     "showServerNameInTimerDescription": "",
     "commentaryNames": "",
     "commentaryNamesDescription": "",
+    "qrCodeUrl": "",
+    "qrCodeUrlDescription": "",
+    "qrCodeText": "",
+    "qrCodeTextDescription": "",
     "driverOfTheDay": "",
     "driverOfTheDayDescription": "",
     "alertLength": "",

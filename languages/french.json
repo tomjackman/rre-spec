@@ -34,7 +34,11 @@
     "sessionInfoLabel": "Informations de session",
     "sessionInfoDescription": "Affiche le nom de la session ou phase actuelle avec le chrono et drapeau du pays.",
     "trackMapLabel": "Plan du circuit",
-    "trackMapDescription": "Affiche le plan du circuit montrant les pilotes et leurs positions dans leur classe à l'écran."
+    "trackMapDescription": "Affiche le plan du circuit montrant les pilotes et leurs positions dans leur classe à l'écran.",
+    "tyreChoiceLabel": "Choix de pneu",
+    "tyreChoiceDescription": "Affiche le choix de pneu pour le véhicule sélectionné.",
+    "qrCodeLabel": "QR Code",
+    "qrCodeDescription": "Affiche un QR lié au site web de votre ligue, d'un produit, d'un évènement ou ce que vous voulez."
   },
   "configFile": {
     "useNewBroadcastUI": "Utiliser le nouveau Broadcaster UI",
@@ -73,6 +77,10 @@
     "showServerNameInTimerDescription": "Shows the name of the server in the session info timer widget (Par défaut : Faux).",
     "commentaryNames": "Afficher les noms des commentateurs",
     "commentaryNamesDescription": "Affiche les noms des commentateurs (Par défaut : 'Vide').",
+    "qrCodeUrl": "QR Code URL",
+    "qrCodeUrlDescription": "Entrez l'URL pour le QR Code. (Default: 'Vide').",
+    "qrCodeText": "QR Code Text",
+    "qrCodeTextDescription": "Entrez le texte pour le QR Code. (Default: 'Vide').",
     "driverOfTheDay": "Afficher le pilote du jour",
     "driverOfTheDayDescription": "Affiche le pilote du jour (Par défaut : Faux).",
     "alertLength": "Durée d'affichage des messages des commissaires (secondes)",
@@ -247,7 +255,7 @@
   },
   "safetyCarInWidget": {
     "raceControl": "Contrôle de course",
-    "safetyCarInThisLap": "Voiture de sécurité rentre dans ce tour"
+    "safetyCarInThisLap": "Fin du Safety Car"
   },
   "sessionInfoWidget": {
     "qualifying": "Qualification",
@@ -262,7 +270,7 @@
     "countdown": "Compte à rebours",
     "formation": "Formation",
     "gridwalk": "Gridwalk",
-    "garage": "Garage",
+    "garage": "Formation",
     "unavailable": "Indisponible"
   },
   "trackMapWidget": {

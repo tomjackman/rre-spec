@@ -7,8 +7,8 @@
     "alertDescription": "Display penalty and disqualification alerts on screen during race sessions.",
     "autoDirectorLabel": "Auto Director",
     "autoDirectorDescription": "Allow the tool to automatically switch between drivers on the grid that are producing the most action.",
-    "code60Label": "Code 60",
-    "code60Description": "Displays a blinking Code 60 message on screen below the timer.",
+    "code60Label": "VSC",
+    "code60Description": "Displays a blinking VSC message on screen below the timer.",
     "commentaryNamesLabel": "Commentators Names",
     "commentaryNamesDescription": "Show the commentators names. The names text can be set in the control panel settings.",
     "compareRaceLabel": "Compare next car",
@@ -34,7 +34,11 @@
     "sessionInfoLabel": "Session Information",
     "sessionInfoDescription": "Shows the name of the current session or phase along with the timer and country flag.",
     "trackMapLabel": "Track map",
-    "trackMapDescription": "Overlays a track map on screen showing the drivers and class positions."
+    "trackMapDescription": "Overlays a track map on screen showing the drivers and class positions.",
+    "tyreChoiceLabel": "Tyre Choice",
+    "tyreChoiceDescription": "Display the tyre choice for the selected vehicle.",
+    "qrCodeLabel": "QR Code",
+    "qrCodeDescription": "Show a QR that links to your leagues website, a product, an event or anything you like."
   },
   "configFile": {
     "useNewBroadcastUI": "Use New Broadcaster UI",
@@ -71,9 +75,13 @@
     "showSlowDownAlertsDescription": "Show slow down alerts from the stewards (Default: False).",
     "showServerNameInTimer": "Show Server Name in Timer",
     "showServerNameInTimerDescription": "Shows the name of the server in the session info timer widget (Default: False).",
-    "commentaryNames": "Show Commentary Name(s)",
+    "commentaryNames": "Commentary Name(s)",
     "commentaryNamesDescription": "Show commentary names (Default: 'Blank').",
-    "driverOfTheDay": "Show Driver of the Day",
+    "qrCodeUrl": "QR Code URL",
+    "qrCodeUrlDescription": "Enter the URL for the QR Code. (Default: 'Blank').",
+    "qrCodeText": "QR Code Text",
+    "qrCodeTextDescription": "Enter the Text for the QR Code. (Default: 'Blank').",
+    "driverOfTheDay": "Driver of the Day",
     "driverOfTheDayDescription": "Show Driver of the Day (Default False).",
     "alertLength": "Steward Message Display Time (Seconds)",
     "alertLengthDescription": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
@@ -85,7 +93,7 @@
     "dediManagerDescription": "Enter dedicated server url http://user:pass@ip (Default: 'Blank')."
   },
   "controller": {
-    "position": "Position",
+    "position": "Pos",
     "difference": "Difference",
     "driver": "Driver",
     "cameras": "Cameras",
@@ -186,7 +194,7 @@
 
   },
   "code60Widget": {
-    "code60": "Code 60"
+    "code60": "VSC"
   },
   "commentaryNamesWidget": {
     "commentary": "Commentary"
@@ -256,8 +264,8 @@
     "safetyCar": "Safety Car"
   },
   "safetyCarInWidget": {
-    "raceControl": "Race Control",
-    "safetyCarInThisLap": "Safety Car In This Lap"
+    "raceControl": "RACE CONTROL",
+    "safetyCarInThisLap": "Safety Car Ending"
   },
   "sessionInfoWidget": {
     "qualifying": "Qualifying",
@@ -271,7 +279,7 @@
     "countdown": "Countdown",
     "formation": "Formation",
     "gridwalk": "Gridwalk",
-    "garage": "Garage",
+    "garage": "Formation",
     "unavailable": "Unavailable"
   },
   "trackMapWidget": {
