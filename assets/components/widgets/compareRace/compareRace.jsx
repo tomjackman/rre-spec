@@ -112,10 +112,17 @@ UI.widgets.CompareRace = React.createClass({
 });
 
 UI.widgets.CompareRaceDriver = React.createClass({
-	fixName: function(str) {
+	getFirstName: function(str) {
 		str = UI.fixName(str);
 		var parts = str.split(' ');
 		parts[parts.length-1] = parts[parts.length-1].toUpperCase();
+		return parts[0];
+	},
+	getLastName: function(str) {
+		str = UI.fixName(str);
+		var parts = str.split(' ');
+		parts[parts.length-1] = parts[parts.length-1].toUpperCase();
+		parts.shift();
 		return parts.join(' ');
 	},
 	getTeamName: function(teamId, portalId) {
@@ -151,6 +158,21 @@ UI.widgets.CompareRaceDriver = React.createClass({
 		return (
 			<div className={cx(classes)}>
 			<div className="top">
+					{driver.pushToPassInfo.active ?
+						<div className={cx({'ptp': true, 'active': true})}>
+							<div className={cx({'icon': true, 'active': driver.pushToPassInfo.active})}>{UI.getStringTranslation("compareRaceWidget", "ptp")}</div>
+						</div>
+						:
+						null
+					}
+
+					{driver.vehicleInfo.drsEnabled ?
+						<div className={cx({'drs': true, 'active': true})}>
+							<div className={cx({'icon': true, 'active': driver.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("compareRaceWidget", "drs")}</div>
+						</div>
+						:
+						null
+					}
 			{UI.state.controllerOptions.options.showComparisonSpeed.value === "true" ?
 					<div className="speed">
 						{driver.vehicleInfo.speed} {UI.getStringTranslation("compareRaceWidget", "kmh")}
@@ -170,7 +192,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionOverall}</div></div>
 				<div className="compare-flag-container">
 				{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
-					<img className="compare-flag" src={UI.getUserInfo(driver.portalId).avatar} />
+					<img className="compare-avatar" src={UI.getUserInfo(driver.portalId).avatar} />
 				:
 					<img className="compare-flag" src={'/img/flags/'+UI.getUserInfo(driver.portalId).country+'.png'} />
 				}
@@ -179,7 +201,10 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					{ window.settings.teamEvent ?
 						<div className="name">{driver.name.substr(driver.name.indexOf(" ") + 1).toUpperCase()}</div>
 					:
-						<div className="name">{self.fixName(driver.name)}</div>
+						<div>
+							<div className="firstName">{self.getFirstName(driver.name)}</div>
+							<div className="lastName">{self.getLastName(driver.name)}</div>
+						</div>
 					}
 				</div>
 				{UI.state.controllerOptions.options.showLiveryPreview.value === "true" ?
@@ -190,7 +215,7 @@ UI.widgets.CompareRaceDriver = React.createClass({
 					null
 				}
 				<div className="manufacturer">
-					<img src={'/render/'+driver.manufacturerId+'/small/?type=manufacturer'}/>
+					<img src={'/img/manufacturers/'+driver.manufacturerId+'.png'} />
 				</div>
 			</div>
 
@@ -201,21 +226,6 @@ UI.widgets.CompareRaceDriver = React.createClass({
 						 <div className="team">{self.getTeamName(driver.teamId, driver.portalId)}</div>
 					 }
 				</div>
-
-				<div className="compareAssists">
-					{driver.pushToPassInfo.allowed ?
-						<div className={cx({'ptp': true, 'active': driver.pushToPassInfo.active})}>
-							<div className={cx({'icon animated infinite flash': true, 'active': driver.pushToPassInfo.active})}>{UI.getStringTranslation("compareRaceWidget", "ptp")}</div>
-						</div>
-						:
-						null
-					}
-
-					<div className={cx({'drs': true, 'active': driver.vehicleInfo.drsEnabled})}>
-						<div className={cx({'icon animated infinite flash': true, 'active': driver.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("compareRaceWidget", "drs")}</div>
-					</div>
-				</div>
-
 			</div>
 		);
 	}

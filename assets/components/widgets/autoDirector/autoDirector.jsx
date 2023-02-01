@@ -24,7 +24,7 @@ UI.scoringRules = {
 	},
 	// people in yellow flag zones may be interesting, particulary those who might be cuasing it
 	'causingYellowFlag': function(score, driver, drivers) {
-		if (UI.state.sessionInfo.type.match(/^race/i) && driver.scoreInfo.flagInfo.yellow > 0 && driver.vehicleInfo.speed > 10 && driver.vehicleInfo.speed < 50) {
+		if (UI.state.sessionInfo.type.match(/^race/i) && driver.scoreInfo.flagInfo.causedYellow > 0 && driver.vehicleInfo.speed > 5) {
 			score += 10;
 		}
 
@@ -149,7 +149,7 @@ UI.scoringRules = {
 			return score;
 		}
 
-		var secondsPassed = ((UI.state.sessionInfo.timeTotal/3600)*60)-UI.state.sessionInfo.timeLeft
+		var secondsPassed = UI.state.sessionInfo.timeTotal;
 		if (secondsPassed < 20 && driver.scoreInfo.positionOverall === 4) {
 			score += 30;
 		}

@@ -1,36 +1,31 @@
 @import '../theme/z';
 
 .driverOfTheDayAlert {
-  font-size: @fontSize * 1.1;
-  font-family: Oswald;
+  font-size: @fontSize;
+  font-family: Formula1-Regular;
   position: fixed;
-  bottom: 14em;
+  bottom: 15em;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   text-align: center;
-   
-	text-transform: uppercase;
-	min-height: 1em;
-	width: 14em;
-	line-height: 1.7em;
-	display: inline-block;
-   
-
+  text-transform: uppercase;
+  min-height: 1em;
+  width: 25em;
+  line-height: 1.7em;
+  display: inline-block;
+  filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
+  background: @primaryAccentBackground;
+  border-left: 3px solid @primaryAccent;
   .dotdTitle {
-    -webkit-transform: skew(-10deg, 0deg);
-    border-top: 3px solid @CommentaryTitleBorderTop;
-    background: @CommentaryTitleBackgroundColor;
-    color: @CommentaryTitleText;
-    font-size: @fontSize * 1.1;
+    color: @primaryAccent;
+    font-size: @fontSize * 0.9;
     padding: 0.05em;
     top: 0.1em;
     z-index: 0;
   }
   .dotdName {
-    background: @CommentaryMessageBackground;
-    color: @CommentaryMessageText;
-    -webkit-transform: skew(-10deg, 0deg);
-    font-size: @fontSize * 1.1;
+    font-size: @fontSize * 1.5;
+    color: @secondaryAccent;
     padding: 0.15em;
     text-transform: capitalize;
     z-index: -1;

@@ -3,8 +3,8 @@ UI.widgets.Code60 = React.createClass({
 		var self = this;
 		return (
 			<div className="code60Container">
-				<img className="code60Img animated flash infinite" src="img/code60.png" />
-				<div className="code60">{UI.getStringTranslation("code60Widget", "code60")}</div>
+				<div className="raceControl">{UI.getStringTranslation("safetyCarInWidget", "raceControl")}</div>
+				<div className="vscDeployed">{UI.getStringTranslation("code60Widget", "code60")}</div>
 			</div>
 		);
 	}

@@ -14,7 +14,7 @@ UI.c = function createReactComponent(type, data) {
 };
 
 UI.controllerUpdateRate = 999;
-UI.spectatorUpdateRate = 1000/6;
+UI.spectatorUpdateRate = 1000/20;
 
 UI.getUserInfo = (function() {
 	var userCache = {};
@@ -41,9 +41,9 @@ UI.getUserInfo = (function() {
 
 		$.getJSON('/user-info/' + id, function(data) {
 			if (data.error) {
+				console.log(data.error)
 				return;
 			}
-
 			userCache[id] = data;
 		});
 
@@ -57,11 +57,17 @@ UI.fixName = function(name) {
 	});
 };
 
-UI.getClassColour = function(classId) {
-	if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-		return r3eClassColours.classes[classId].colour;
+UI.getClassColour = function(performanceIndex) {
+	var classColour = "rgba(38, 50, 56, 0.8)";
+	if (performanceIndex != null) {
+    	var b = -performanceIndex * 11000 & 0xFF,
+        g = (-performanceIndex * 11000 & 0xFF00) >>> 8,
+        r = (-performanceIndex * 111000 & 0xFF0000) >>> 16,
+        a = ( (-performanceIndex * 10000 & 0xFF000000) >>> 24 ) / 255 ;
+	    classColour = "rgba(" + [r, g, b, a].join(",") + ")";
+		return classColour;
 	} else {
-		return null;
+		return classColour;
 	}
 };
 
@@ -140,8 +146,9 @@ UI.formatTime = function(ms, options) {
 	}
 
 	if (minutesLeft) {
-		str += ('0'+minutesLeft).slice(-2)+':';
+		str += (''+minutesLeft).slice(-2)+':';
 	}
+	
 	return str+('0'+secondsLeft).slice(-2)+'.'+('00'+msLeft).slice(-3);
 };
 

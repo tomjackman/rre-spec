@@ -4,17 +4,27 @@
   font-size: @fontSize;
   position: fixed;
   top: 7em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
-   
+  left: 45%;
+  width: 15em;
+  line-height: 1.7em;
+  text-align: center;
+  filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
+
+  .raceControl {
+    
+    background: #212934;
+    color: yellow;
+    font-size: @fontSize;
+    padding: 0.05em;
+    top: 0.1em;
+    z-index: 0;
+  }
   .safetyCarDeployed {
-    font-family: Oswald;
-  	background: @SafetyCarDeployedBackground;
-  	text-transform: uppercase;
-  	color: @SafetyCarDeployedText;
-  	height: 2em;
-    padding: 0.1em;
-  	line-height: 2em;
-  	text-align: center;
+    background: yellow;
+    color: black;
+    font-size: @fontSize * 1.3;
+    padding: 0.15em;
+    text-transform: capitalize;
+    z-index: -1;
   }
 }

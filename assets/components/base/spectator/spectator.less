@@ -7,6 +7,22 @@
 }
 
 @font-face {
+  font-family: 'Formula1-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Formula1-Regular'),
+  url(/fonts/Formula1-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('roboto-regular'),
+  url(/fonts/roboto-regular.woff2) format('woff2');
+}
+
+@font-face {
   font-family: 'DaimlerCS-ExtraBoldItalic';
   font-style: normal;
   font-weight: 400;
@@ -29,8 +45,9 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		// opacity: 0.2;
-    // background-image: url('https://myrealdomain.com/images/vhs-effect-clipart-6.png');
+
+		opacity: 0.2;
+    background-image: url('https://myrealdomain.com/images/vhs-effect-clipart-6.png');
     // background-color: red;  /* fallback for old browsers */
     //background-blend-mode: difference;
 
@@ -41,7 +58,7 @@
 	.pit-window-information {
 		.onCreation(-webkit-transform, translate(-50%, -200px), translate(-50%, 0), 0.5s);
 		.onCreation(opacity, 0, 1, 0.2s);
-		font-family: Oswald;
+		font-family: Formula1-Regular;
 		position: fixed;
 		top: 120px;
 		left: 50%;

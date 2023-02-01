@@ -7,8 +7,8 @@ UI.widgets.SafetyCarIn = React.createClass({
 		var self = this;
 		return (
       <div className="safetyAlert animated fadeInRight">
+        <div className="safetyCarIn">{UI.getStringTranslation("safetyCarInWidget", "safetyCarInThisLap")}</div>
         <div className="raceControl">{UI.getStringTranslation("safetyCarInWidget", "raceControl")}</div>
-  			<div className="safetyCarIn">{UI.getStringTranslation("safetyCarInWidget", "safetyCarInThisLap")}</div>
       </div>
 		);
 	}

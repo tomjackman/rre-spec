@@ -147,8 +147,8 @@ UI.widgets.TrackMap = React.createClass({
 var TrackMapDot = React.createClass({
 	getPosition: function(driver) {
 		var divStyle = {};
-		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.classId) != null) {
-			classColour = UI.getClassColour(driver.classId);
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(driver.performanceIndex) != null) {
+			classColour = UI.getClassColour(driver.performanceIndex);
 			divStyle = {
 					background: classColour
 			};

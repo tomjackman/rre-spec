@@ -1,6 +1,17 @@
 UI.widgets.RaceResults = React.createClass({
 	componentWillMount: function() {
 		var self = this;
+
+
+		function updateInfo() {
+			UI.batch({
+				'eventInfo': function(done) {
+					r3e.getEventInfo(done);
+				}
+			}, self.setState.bind(self));
+		}
+		updateInfo();
+
 		(function checkRefs() {
 			if (!self.refs['entries-outer']) {
 				return setTimeout(checkRefs, 100);
@@ -15,18 +26,23 @@ UI.widgets.RaceResults = React.createClass({
 			}, 25 * 1000);
 		})();1
 	},
-	getName: function(name) {
-		if (window.settings.teamEvent) {
-			return name.substr(name.indexOf(" ") + 1);
-		} else {
-			return UI.fixName(name);
-		}
+	getInitialState: function() {
+		return {
+			'eventInfo': {}
+		};
 	},
 	getNameColumnTitle: function() {
 		if (window.settings.teamEvent) {
 			return UI.getStringTranslation("raceResultsWidget", "team");
 		} else {
 			return UI.getStringTranslation("raceResultsWidget", "name");
+		}
+	},
+	getName: function(name) {
+		if (window.settings.teamEvent) {
+			return name.substr(name.indexOf(" ") + 1);
+		} else {
+			return UI.fixName(name);
 		}
 	},
 	render: function() {
@@ -52,40 +68,22 @@ UI.widgets.RaceResults = React.createClass({
 		var winningDriver = self.props.results[winnerIndex];
 
 		var self = this;
+		var eventInfo = self.state.eventInfo;
+
 		return (
 			<div>
 			{ winningDriver != null ?
 				<div className="winnerColumn animated fadeInLeft delay-2s">
-				<div className="winnerTitle">{UI.getStringTranslation("raceResultsWidget", "raceWinner")}</div>
-					<div className="winnerImageContainer">
-						<img className="winnerImage" src={'/img/winner.png'} />
-					</div>
-					<div className="winnerLogo"></div>
-					<div className="livery">
-						<img src={'/render/'+winningDriver.liveryId+'/small/'}/>
-					</div>
-					<div className="driverFlagContainer">
-						<img className="driveFlag" src={'/img/flags/'+UI.getUserInfo(winningDriver.portalId).country+'.png'} />
-					</div>
 					<div className="driverName">{self.getName(winningDriver.name)}</div>
+					<div className="winnerTitle">{UI.getStringTranslation("raceResultsWidget", "raceWinner")}</div>
 				</div>
 			:
 				null
 			}
 			{ fastestDriver != null ?
 			<div className="fastestDriverColumn animated fadeInRight delay-2s">
-			<div className="fastestTitle">{UI.getStringTranslation("raceResultsWidget", "fastestLap")}</div>
-				<div className="fastestDriverImageContainer">
-					<img className="fastestDriverImage" src={'/img/fastest.png'} />
-				</div>
-				<div className="fastestDriverLogo"></div>
-				<div className="fastestDriverLivery">
-					<img src={'/render/'+fastestDriver.liveryId+'/small/'}/>
-				</div>
-				<div className="fastestDriverFlagContainer">
-					<img className="fastestDriverFlag" src={'/img/flags/'+UI.getUserInfo(fastestDriver.portalId).country+'.png'} />
-				</div>
 				<div className="fastestDriverName">{self.getName(fastestDriver.name)}</div>
+				<div className="fastestTitle">{UI.getStringTranslation("raceResultsWidget", "fastestLap")}</div>
 			</div>
 			:
 				null
@@ -93,27 +91,20 @@ UI.widgets.RaceResults = React.createClass({
 			<div className="race-results-bg">
 			<div className="race-results animated fadeIn">
 			<div className="title">
-				<div className="text">{UI.state.sessionInfo.type.match(/^Race 1/i) ? UI.getStringTranslation("raceResultsWidget", "race") : UI.state.sessionInfo.type} Results<div className="logo"></div></div>
+				<div className="text">{eventInfo.serverName} {UI.state.sessionInfo.type.match(/^Race 1/i) ? UI.getStringTranslation("raceResultsWidget", "race") : UI.state.sessionInfo.type} Results<div className="logo"></div></div>
+				<div className="trackName">{eventInfo.trackName} {eventInfo.layoutName}</div>
 			</div>
 				<div className="race-results-entry title">
 					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-						<div className="classPosition">{UI.getStringTranslation("raceResultsWidget", "classPosition")}</div>
+						<div className="classPosition"></div>
 					:
-						null
+						<div className="classPositionWhenHidden"></div>
 					}
-					<div className="position">{UI.getStringTranslation("raceResultsWidget", "overall")}</div>
+					<div className="position"></div>
 					<div className="manufacturer"/>
-					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-						<div className="shortName">{self.getNameColumnTitle()}</div>
-					:
-						<div className="longName">{self.getNameColumnTitle()}</div>
-					}
-					<div className="livery"></div>
-					{ window.settings.teamEvent ?
-						<div className="raceResultTeam"></div>
-						:
-						<div className="raceResultTeam">{UI.getStringTranslation("raceResultsWidget", "team")}</div>
-					}
+					<div className="raceResultFirstName"></div>
+					<div className="raceResultLastName"></div>
+					<div className="raceResultTeam"></div>
 					<div className="penaltyTime">{UI.getStringTranslation("raceResultsWidget", "penalties")}</div>
 					<div className="lap-time">{UI.getStringTranslation("raceResultsWidget", "finishTime")}</div>
 					<div className="fastest-time">{UI.getStringTranslation("raceResultsWidget", "bestLap")}</div>
@@ -133,16 +124,14 @@ UI.widgets.RaceResults = React.createClass({
 });
 
 var RaceResultEntry = React.createClass({
-	getClassColour: function(classId) {
+	getClassColour: function(performanceIndex) {
 		var classColour = "rgba(38, 50, 56, 0.8)";
-		var className = "";
 
-		if (r3eData.classes[classId] != null && r3eClassColours.classes[classId] != null) {
-			classColour = r3eClassColours.classes[classId].colour;
-			className = r3eData.classes[classId].Name;
+		if (performanceIndex != null) {
+			classColour = UI.getClassColour(performanceIndex)
 		}
 
-		return {	'background': classColour };
+		return {	'border-left': classColour + ' 0.5em solid' };
 	},
 	getTeamName: function(teamId, portalId) {
 		var self = this;
@@ -158,6 +147,19 @@ var RaceResultEntry = React.createClass({
 			teamName = r3eData.teams[teamId].Name;
 		}
 		return teamName;
+	},
+	getFirstName: function(str) {
+		str = UI.fixName(str);
+		var parts = str.split(' ');
+		parts[parts.length-1] = parts[parts.length-1].toUpperCase();
+		return parts[0];
+	},
+	getLastName: function(str) {
+		str = UI.fixName(str);
+		var parts = str.split(' ');
+		parts[parts.length-1] = parts[parts.length-1].toUpperCase();
+		parts.shift();
+		return parts.join(' ');
 	},
 	getName: function(name) {
 		if (window.settings.teamEvent) {
@@ -198,14 +200,18 @@ var RaceResultEntry = React.createClass({
 
 		return (
 			<div className={cx({'fastest': entry.isFastest, 'race-results-entry': true, 'striped': entry.positionOverall % 2})}>
-			{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-				<div className={cx({'classPosition': true})} style={self.getClassColour(entry.classId)}>{UI.getStringTranslation("raceResultsWidget", "class")} P{entry.positionClass}.</div>
-			:
-				null
-			}
-			<div className="position">#{entry.positionOverall}</div>
+				{ UI.state.controllerOptions.options.multiclass.value === "true" ?
+					<div className={cx({'classPosition': true, 'first': entry.positionClass === 1, 'second': entry.positionClass === 2, 'third': entry.positionClass === 3})} style={self.getClassColour(entry.performanceIndex)}>#{entry.positionClass}</div>
+				:
+					null
+				}
+				{ UI.state.controllerOptions.options.multiclass.value === "false" ?
+			  		<div className={cx({'overallPosition': true, 'first': entry.positionOverall === 1, 'second': entry.positionOverall === 2, 'third': entry.positionOverall === 3})}>#{entry.positionOverall}</div>
+				:
+					null
+			  	}
 				<div className="manufacturer">
-				{window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
+				{!window.settings.offline ?
 					<div key={UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 40} className="standingsFlag">
 						<img src={'/img/flags/'+UI.getUserInfo(entry.portalId).country+'.png'} />
 					</div>
@@ -215,19 +221,13 @@ var RaceResultEntry = React.createClass({
 					</div>
 				}
 				</div>
-				{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-							<div className="shortName">{self.getName(entry.name)}</div>
-						:
-							<div className="longName">{self.getName(entry.name)}</div>
-				}
-				<div className="livery animated fadeInRight delay-1s">
-					<img src={'/render/'+entry.liveryId+'/small/'}/>
-				</div>
+				<div className="raceResultFirstName">{self.getFirstName(entry.name)}</div>
+				<div className="raceResultLastName">{self.getLastName(entry.name)}</div>
 				<div className="raceResultTeam">{self.getTeamName(entry.teamId, entry.portalId)}</div>
 				{penaltyTime}
 				{lapTime}
 				{entry.bestLapInfo.sector3 !== -1 ?
-	        <div className="fastest-time">{UI.formatTime(entry.bestLapInfo.sector3, {ignoreSign: true})}</div>
+	        	<div className="fastest-time">{UI.formatTime(entry.bestLapInfo.sector3, {ignoreSign: true})}</div>
 	          :
 					<div className="fastest-time">-</div>
 				}

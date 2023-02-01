@@ -6,7 +6,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: @TrackMapOverlayBackground;
+	background: rgba(0, 0, 0, 0.7);
 	.onCreation(opacity, 0, 1, 0.3s);
 	z-index: 0;
 }
@@ -51,18 +51,18 @@
 		  top: -1.5em;
 			border-top-left-radius: 1em;
 			border-bottom-left-radius: 1em;
-			color: @TrackMapDriverPositionText;
-			background: @StandingsDriverNameClassColour;
+			color: white;
+			background: #212121;
 		}
 		.driverName {
 			position: relative;
 			top: -3.5em;
-			background-color: @TrackMapDriverNameBackground;
+			background-color: #212121;
 			width: 6em;
 		}
 		.manufacturer {
 			position: relative;
-			background-color: @TrackMapManufacturerBackground;
+			background-color: white;
 			border-top-right-radius: 1em;
 			border-bottom-right-radius: 1em;
 			left: 5.8em;
@@ -71,7 +71,7 @@
 			top: -5.5em;
 			img {
 				position: absolute;
-				background-color: @TrackMapManufacturerBackground;
+				background-color: white;
 				top: 0.25em;
 				left: 0.25em;
 				height: 1.6em;
@@ -92,7 +92,7 @@
 			position: absolute;
 			-webkit-transform: translate(-50%, 0);
 			line-height: 1;
-			background: @backgroundDark;
+			background: rgba(38, 50, 56, 0.8);
 			padding: 0.25em;
 			color: #fff;
 			white-space: nowrap;
@@ -101,13 +101,13 @@
 			margin: 0 0 0.25em 0;
 		}
 		&.leader {
-			background:@TrackMapLeaderDotBackground;
-			color: @TrackMapLeaderDotText;
+			background: rgba(255, 152, 0,1.0);
+			color: rgba(255, 152, 0,1.0);
 			z-index: 1;
 		}
 		&.active {
-			background: @TrackMapSelectedDriverBackground;
-			color: @TrackMapSelectedDriverText;
+			background: #ffd113;
+			color: rgba(76, 175, 80, 1.0);
 			z-index: 2;
 		}
 	}

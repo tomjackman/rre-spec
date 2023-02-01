@@ -13,8 +13,8 @@ UI.widgets.DriverOfTheDay = React.createClass({
 
 		return (
       <div className="driverOfTheDayAlert animated fadeIn">
-        <div className="dotdTitle">{UI.getStringTranslation("driverOfTheDayWidget", "driverOfTheDay")}</div>
   			<div className="dotdName">{UI.state.controllerOptions.options.driverOfTheDay.value ? UI.state.controllerOptions.options.driverOfTheDay.value : '-'}</div>
+        <div className="dotdTitle">{UI.getStringTranslation("driverOfTheDayWidget", "driverOfTheDay")}</div>
       </div>
 		);
 	}

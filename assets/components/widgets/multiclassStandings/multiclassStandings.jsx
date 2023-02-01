@@ -4,15 +4,50 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 		io.emit('setState', UI.state);
 
-		function updateInfo() {
-			UI.batch({
-				'pitInfo': function(done) {
-					r3e.getPitInfo({
-					'slotId': UI.state.focusedSlot
-					}, done)
-				},
-				'driversInfo': r3e.getDriversInfo
-			}, self.setState.bind(self));
+function updateInfo() {
+			r3e.getDriversInfo(function(data) {
+				var drivers = [];
+
+				data.driversInfo.forEach(function(driver) {
+						return drivers.push(driver);
+				});
+
+				var jobs = [];
+				drivers.forEach(function(driver) {
+					jobs.push(function(done) {
+						UI.batch({
+							'vehicleInfo': function(done) {
+								r3e.getVehicleInfo({
+									'slotId': driver.slotId
+								}, done);
+							},
+				              'pitInfo': function(done) {
+				                  r3e.getPitInfo({
+				                      'slotId': driver.slotId
+				                  }, done)
+				              },
+							'extendedInfo': function(done) {
+								r3e.getExtendedInfo({
+									'slotId': driver.slotId
+								}, done);
+							}
+						}, function(data) {
+							driver.vehicleInfo = data.vehicleInfo;
+							driver.extendedInfo = data.extendedInfo;
+							driver.pitInfo = data.pitInfo;
+							done(driver);
+						});
+
+					});
+				});
+				UI.batch(jobs, function(data) {
+					self.setState({
+						'driversInfo': {
+							'driversInfo': data
+						}
+					});
+				});
+			});
 		}
 		updateInfo();
 
@@ -54,21 +89,34 @@ UI.widgets.MulticlassStandings = React.createClass({
 	formatTime: UI.formatTime,
 	getMetaInfo: function(driver, sortedByPosition) {
 		var self = this;
+
+		const statusNames = [
+		    'NONE',
+		    'FINISHED',
+		    'DNF',
+		    'DNQ',
+		    'DNS',
+		    'DQ',
+		];
+
 		// Race
 		if (UI.state.sessionInfo.type.match(/^race/i)) {
 			// Leader should show lap count
 			if (driver.scoreInfo.positionOverall === 1) {
-					return <div className="meta-info">Lap {driver.scoreInfo.laps + 1}</div>;
-			} else {
+					return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}>Lap {driver.scoreInfo.laps + 1}</div>;
+			} else if (driver.scoreInfo.status > 1) {
+		    		return <div className={cx({'meta-info': true, 'grey': true})}>{statusNames[driver.scoreInfo.status]}</div>
+			}
+			else {
 				if (UI.state.controllerOptions.options.showRelativeStandingsTiming.value === "true") {
 					if (driver.scoreInfo.lapDiff > 0) {
-						return <div className="meta-info">+{driver.scoreInfo.lapDiff} Lap(s)</div>
+						return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}>+{driver.scoreInfo.lapDiff} Lap(s)</div>
 					} else {
-						return <div className="meta-info">{self.formatTime(driver.scoreInfo.timeDiff)}</div>
+						return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}>{self.formatTime(driver.scoreInfo.timeDiff).slice(0,-2)}</div>
 					}
 				} else {
 					if (sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps > 1) {
-						return <div className="meta-info">+{(sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps)-1} Lap(s)</div>
+						return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}>+{(sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps)-1} Lap(s)</div>
 					} else {
 						var sortedIndex = 0;
 						sortedByPosition.forEach(function(sortedDriver, i) {
@@ -76,12 +124,19 @@ UI.widgets.MulticlassStandings = React.createClass({
 								sortedIndex = i;
 							}
 						});
-						var timeDifference = sortedByPosition.slice(1, sortedIndex+1).map(function(driver) {
+
+						// this sometimes shows a red error when joining a race midway
+						try {
+							var timeDifference = sortedByPosition.slice(1, sortedIndex+1).map(function(driver) {
 							return Math.max(0, driver.scoreInfo.timeDiff);
-						}).reduce(function(p, c) {
-							return p+c;
-						});
-						return <div className="meta-info">{self.formatTime(timeDifference)}</div>
+							}).reduce(function(p, c) {
+								return p+c;
+							});
+						} catch (e) {
+							console.error('Caught error trying to reduce on null - this sometimes shows a red error when joining a race midway')
+						}
+
+						return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}>{self.formatTime(timeDifference).slice(0,-2)}</div>
 					}
 				}
 			}
@@ -89,17 +144,17 @@ UI.widgets.MulticlassStandings = React.createClass({
 		} else if(UI.state.sessionInfo.type === 'QUALIFYING' || UI.state.sessionInfo.type === 'PRACTICE') {
 			if (driver.scoreInfo.positionOverall === 1) {
 				if (driver.scoreInfo.bestLapInfo.sector3 !== -1) {
-					return <div className="meta-info fastest">{self.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
+					return <div className={cx({'meta-info': true, 'fastest': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}>{self.formatTime(driver.scoreInfo.bestLapInfo.sector3, {ignoreSign: true})}</div>
 				} else {
-					return <div className="meta-info"></div>;
+					return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}></div>;
 				}
 			} else {
 				if (driver.scoreInfo.bestLapInfo.valid) {
 					return <div className="meta-info">{self.formatTime(driver.scoreInfo.bestLapInfo.sector3 - sortedByPosition[0].scoreInfo.bestLapInfo.sector3)}</div>
 				} else if (driver.scoreInfo.laps !== sortedByPosition[0].scoreInfo.laps) {
-					return <div className="meta-info">+{sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps} laps</div>
+					return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}>+{sortedByPosition[0].scoreInfo.laps-driver.scoreInfo.laps} laps</div>
 				} else {
-					return <div className="meta-info"></div>;
+					return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}></div>;
 				}
 			}
 		}
@@ -128,23 +183,23 @@ UI.widgets.MulticlassStandings = React.createClass({
 				var lastNames = parts.slice(1);
 				var name = lastNames.map(item=> item.toUpperCase());
 			}
-			divStyle.width = "8em";
+			divStyle.width = "13em";
 		} else {
 			if (window.settings.teamEvent) {
 				var name = name.substr(name.indexOf(" ") + 1).toUpperCase();
 				firstInitial = "";
-				divStyle.width = "8em";
+				divStyle.width = "13em";
 			} else {
 				// Show 3 characters of last name by default
 				var name = parts[parts.length-1].substr(0, 3).toUpperCase();
 			}
 		}
-		return <div className="nameContainer" style={divStyle}><div className="name">{firstInitial}{name}</div></div>
+		return <div className="nameContainer" style={divStyle}><div className="firstname">{firstInitial}</div><div className="surname">{name}</div></div>
 	},
-	getClassIndicator: function(classId) {
+	getClassIndicator: function(performanceIndex) {
 		var divStyle = {};
-		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(classId) != null) {
-			classColour = UI.getClassColour(classId);
+		if (UI.state.controllerOptions.options.multiclass.value === "true" && UI.getClassColour(performanceIndex) != null) {
+			classColour = UI.getClassColour(performanceIndex);
 			divStyle.background = classColour;
 			return <div className="classIndicator" style={divStyle}></div>
 		} else {
@@ -165,6 +220,15 @@ UI.widgets.MulticlassStandings = React.createClass({
 		}
 		return driver.scoreInfo.bestLapInfo.valid || driver.scoreInfo.timeDiff != -1;
 	},
+	getPositionIncrease(value) {
+		if(value === 0) {
+			return '-';
+		} else if (value > 0) {
+			return '+' + value;
+		} else if (value < 0) {
+			return value;
+		}
+	},
 	looper: Array.apply(null, Array(UI.maxDriverCount)),
 	render: function() {
 		// On end phase user portalId is not sent anymore so do not show
@@ -174,7 +238,6 @@ UI.widgets.MulticlassStandings = React.createClass({
 
 		var self = this;
 		var p = this.state;
-		var pitInfo = self.state.pitInfo;
 
 		var drivers = this.state.driversInfo.driversInfo;
         if (!drivers.length) {
@@ -185,7 +248,6 @@ UI.widgets.MulticlassStandings = React.createClass({
 		drivers.forEach(function(driver) {
 			driversLookup[driver.slotId] = driver;
 		});
-
 
 		var multiclassStandingsClasses = cx({
 			'hide-flags': UI.state.activeWidgets.MulticlassStandings.disableFlags
@@ -225,45 +287,64 @@ UI.widgets.MulticlassStandings = React.createClass({
 					return <div key={i}>
 						{self.shouldShow(driversLookup[i]) ?
 							<div className={cx({'driver': true, 'active': (driversLookup[i].slotId === UI.state.focusedSlot)})} key={driversLookup[i].slotId} style={self.getDriverStyle(driversLookup[i])}>
-								<div className="inner">
+								<div className="inner animated fadeIn delay-1s">
+								{self.getClassIndicator(driversLookup[i].performanceIndex)}
 									<div className="positionContainer"><div className="position">{driversLookup[i].scoreInfo.positionOverall}</div></div>
-									{self.getClassIndicator(driversLookup[i].classId)}
-									{UI.state.controllerOptions.options.showStandingsManufacturer.value === "true" ?
+									
 									<div className="manufacturerContainer">
-										<div className="manufacturerFlag">
-											<img src={'/render/'+driversLookup[i].manufacturerId+'/small/?type=manufacturer'}/>
-										</div>
-										</div>
-										:
-										null
-									}
+										{ UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 30 || UI.state.sessionInfo.timeLeft < 60 || UI.state.sessionInfo.phase === 'CHECKERED' ?
+											<div className="standingsFlag">
+												{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
+													<img src={UI.getUserInfo(driversLookup[i].portalId).avatar} />
+												:
+													<img src={'/img/flags/'+UI.getUserInfo(driversLookup[i].portalId).country+'.png'} />
+												}
+											</div>
+											: UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 10 ?
+											<div className="manufacturerFlag" >
+												<img src={'/img/manufacturers/'+driversLookup[i].manufacturerId+'.png'}/>
+											</div>
+											: 
+											<div className="positionsChange">
+												{ UI.state.sessionInfo.type.match(/^race/i) ?
+											<div className={cx({'positionIncrease': true, 'level': driversLookup[i].scoreInfo.positionClass === driversLookup[i].scoreInfo.positionRaceGridClass, 'gained': driversLookup[i].scoreInfo.positionClass < driversLookup[i].scoreInfo.positionRaceGridClass, 'lost': driversLookup[i].scoreInfo.positionClass > driversLookup[i].scoreInfo.positionRaceGridClass})}>{self.getPositionIncrease(driversLookup[i].scoreInfo.positionRaceGridClass - driversLookup[i].scoreInfo.positionClass)}</div>
+											:
+												<div className={cx({'positionIncrease': true, 'level': true})}> - </div>
+											}
+											</div>
+										}
+									</div>
 
 									{self.renderName(driversLookup[i].name)}
 
-										{window.settings.offline === false && UI.state.controllerOptions.options.showStandingsFlag.value === "true" ?
-											<div className="flagContainer">
-												<div className="standingsFlag animated fadeIn delay-2s" >
-													<img src={'/img/flags/'+UI.getUserInfo(driversLookup[i].portalId).country+'.png'} />
-												</div>
-											</div>
-											:
-											null
-										}
-
 
 									<div className="meta-info-container">{self.getMetaInfo(driversLookup[i], drivers)}</div>
-									<div className="pit-info">
+
+									{driversLookup[i].mandatoryPitstopPerformed > -1 ?
+										<div className="pit-info">
 										{driversLookup[i].mandatoryPitstopPerformed === 1 ?
-											<div className="pitted">⭗</div>
+											<div className="pitted">PIT</div>
 											:
 											null
 										}
 										{driversLookup[i].mandatoryPitstopPerformed === 0 ?
-											<div className="unpitted">⭗</div>
+											<div className="unpitted">PIT</div>
 											:
 											null
 										}
-									</div>
+										</div>
+									: 
+										null
+									}
+
+									{ driversLookup[i].pitInfo.isPitting ?
+										<div className="pit-info">
+											<div className="pitted">PIT</div>
+										</div>
+											:
+										null
+									}
+									
 								</div>
 							</div>
 							:

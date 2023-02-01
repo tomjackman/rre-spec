@@ -4,8 +4,9 @@
 	left: 0;
 	right: 0;
 	text-align: center;
-	font-family: Oswald;
+	font-family: Formula1-Regular;
 	color: #fff;
+	filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
 	.inner {
 		font-size: @fontSize;
 		white-space: nowrap;
@@ -20,35 +21,68 @@
 	}
 	.top {
 		position: relative;
-		bottom: -0.2em;
+		bottom: -0.3em;
 		text-align: center;
 		height: 1.75em;
 		left: -4.5em;
 		margin: 0;
-		.speed, .best-time {
+		.drs, .ptp, .speed, .best-time  {
 			vertical-align: top;
 			display: inline-block;
+
 		}
 		.speed {
-			transform: skew(-10deg);
-			background: @CompareRaceSpeedBackground;
+			background: @primaryAccentBackground;
 			line-height: 0.5em;
 			padding: 0.5em 0.5em;
-			color: @CompareRaceSpeedText;
-			width: 5em;
+			color: yellow;
+			width: 7em;
 			z-index: 0;
 			height: 1.5em;
+			border-left: 0.1em solid yellow;
+			text-align: right;
 		}
 		.best-time {
-			transform: skew(-10deg);
-			background: @CompareRaceBestTimeBackground;
+			background: @primaryAccentBackground;
 			line-height: 0.5em;
 			padding: 0.5em 0.5em;
-			color: @CompareRaceBestTimeText;
-			width: 5em;
+			color: #76FF03;
+			width: 7em;
 			z-index: 0;
-			height: 1.5em;
+			height: 1.4em;
+			border-left: 0.1em solid #76FF03;
+			bottom: 0.1em;
 		}
+		.drs {
+		&.active {
+			.icon {
+				background: #76ff03;
+				color: black;
+				position: relative;
+				height: 1.4em;
+				line-height: 1.5em;
+				font-family: Formula1-Regular;
+				width: 4em;
+				font-size: @fontSize;
+				animation: drsGlow 1s infinite;
+			}
+		}
+	}
+	.ptp {
+		&.active {
+			.icon {
+				background: #00b8ff;
+				color: black;
+				position: relative;
+				height: 1.4em;
+				line-height: 1.5em;
+				font-family: Formula1-Regular;
+				width: 4em;
+				font-size: @fontSize;
+				animation: ptpGlow 1s infinite;
+			}
+		}
+	}
 	}
 	.comparePositionContainer, .compareName, .vehicle, .manufacturer, .compare-flag-container {
 		vertical-align: top;
@@ -58,56 +92,59 @@
 	}
 	.main {
 	.comparePositionContainer {
-		background: @CompareRacePositionBackground;
-		color: @CompareRacePositionText;
-		width: 3.75em;
+		background: @secondaryAccentBackground;
+		color: @quaternaryAccent;
+		width: 5.5em;
 		text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
 		text-align: center;
 		line-height: 3.5em;
-		border-bottom: 0.1em solid @CompareRacePositionBorder;
-		border-top-left-radius: 10px;
-		transform: skew(-10deg);
 		.comparePosition {
-			position: relative;
-			left: -0.075em;
 			font-size: @fontSize * 3;
 		}
 	}
 	.compareName {
-  	background: @CompareRaceNameBackground;
-		color: @CompareRaceNameText;
-		padding: 0 1em;
-		min-width: 12em;
-		border-bottom: 0.1em solid @CompareRaceNameBorder;
-		.name {
-			font-size: @fontSize * 1.3;
+  		background: @primaryAccentBackground;
+		color: @secondaryAccent;
+		padding: 0.1em;
+		min-width: 22em;
+		text-align: right;
+		border-bottom: 0.1em solid @secondaryAccentBackground;
+		.firstName {
+			line-height: 0.5em;
+			color: @secondaryAccent;
+			font-size: @fontSize;
+			display: inline-block;
+		}
+		.lastName {
+			padding: 0.2em;
+			line-height: 0.5em;
+			color: @primaryAccent;
+			font-size: @fontSize * 1.4;
+			display: inline-block;
 		}
 	}
 	.vehicle {
 		width: 1.75em;
 		position: fixed;
 		border-top-right-radius: 1em;
-		border-bottom-right-radius: 1em;
 		z-index: 2;
 		img {
 			position: absolute;
-			top: -3.2em;
-			left: -4.2em;
-			height: 4.5em;
+			top: -4.2em;
+			left: -7.5em;
+			height: 6em;
 		}
 	}
 	.manufacturer {
-		background: @CompareRaceManufacturerBackground;
+		background: @primaryAccentBackground;
 		width: 4em;
 		z-index: 1;
 		position: relative;
 		left: -0.3em;
-		transform: skew(-10deg);
-		border-bottom: 0.1em solid @CompareRaceManufacturerBorder;
-		border-bottom-right-radius: 10px;
+		border-bottom-right-radius: 5px;
+		border-bottom: 0.1em solid @secondaryAccentBackground;;
 		img {
 			position: absolute;
-			transform: skew(10deg);
 			top: 0.25em;
 			right: 0.5em;
 			height: 3em;
@@ -116,85 +153,53 @@
 	}
 	.bottom {
 		position: relative;
-		height: 1.5em;
-		width: 20em;
-		left: 1em;
-		z-index: -1;
+		height: 1.8em;
+		width: 25em;
+		left: 9.2em;
+		z-index: -3;
+		background: @primaryAccentBackground;
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;
 		.team {
-			border-bottom-left-radius: 10px;
-			transform: skew(-10deg);
-			border-bottom-right-radius: 10px;
-			background: @CompareRaceTeamNameBackground;
-			color: @CompareRaceTeamNameText;
+			font-size: @fontSize * 0.9;
+			padding: 0.35em;
+			color: @secondaryAccent;
 			height: 1.5em;
 			text-transform: uppercase;
 			top: 3.5em;
 			line-height: 1.5em;
 			border: 0.1em;
+			text-align: right;
 		}
-}
-	/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-	.compareAssists {
-		height: 1.5em;
-	.drs {
-		.icon {
-			width: 0;
-			font-size: 0;
-		}
-		&.active {
-			.icon {
-				transform: skew(-10deg);
-				background: @CompareRaceDRSActiveBackground;
-				position: relative;
-				top: -6.5em;
-				left: 0.75em;
-				right: 0.5em;
-				height: 1.5em;
-				line-height: 1.75em;
-				font-family: Oswald;
-				width: 3em;
-				font-size: @fontSize;
-				bottom: 0;
-			}
-		}
-	}
-	.ptp {
-		.icon {
-			width: 0;
-			font-size: 0;
-		}
-		&.active {
-			.icon {
-				transform: skew(-10deg);
-				background: rgba(66, 165, 245, 0.7);
-				position: relative;
-				top: -6.5em;
-				left: 0.75em;
-				right: 0.5em;
-				height: 1.5em;
-				line-height: 1.75em;
-				font-family: Oswald;
-				width: 3em;
-				font-size: @fontSize;
-				bottom: 0;
-			}
-		}
-	}
 }
 	.compare-flag-container {
+		border-bottom: 0.1em solid @secondaryAccentBackground;;
 		width: 3em;
 		position: relative;
-		margin-right: 0.25em;
-		transform: skew(-10deg);
+		background: @primaryAccentBackground;
 		.compare-flag {
-			background: @backgroundDark;
+			background: @primaryAccentBackground;
 			position: fixed;
 			display: block;
 			content: '';
 			width: 4em;
-			height: 3.5em;
+			height: 2.5em;
 			position: absolute;
-			left: -0.3em;
+			top: 0.5em;
+			left: 1em;
+			filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.9));
+			z-index: 1;
+		}
+		.compare-avatar {
+			background: @primaryAccentBackground;
+			position: fixed;
+			display: block;
+			content: '';
+			width: 3em;
+			height: 2.5em;
+			position: absolute;
+			top: 0.5em;
+			left: 1em;
 			filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.9));
 			z-index: 1;
 		}
@@ -212,7 +217,7 @@
 	.delta {
 		font-size: @fontSize;
 		text-transform: uppercase;
-		color: @CompareRaceDeltaText;
+		color: @secondaryAccent;
 		padding: 0.25em 0.5em;
 		min-width: 6.5em;
 		display: inline-block;
@@ -220,27 +225,23 @@
 
 		.battle {
 			text-transform: uppercase;
-			border-top: 0.25em solid @CompareRaceDeltaDeltaBorder;
-			color: @CompareRaceDeltaText;
+			border-left: 0.25em solid @primaryAccent;
+			color: @secondaryAccent;
 			padding: 0.4em 0.7em;
 			width: inherit;
 			position: relative;
 			bottom: 0.25em;
-			transform: skew(-10deg);
-			background: @CompareRaceDeltaBackground;
-			left: 0.3em;
+			background: @primaryAccentBackground;
 		}
 
 		.value {
 			text-transform: uppercase;
-			color: @CompareRaceDeltaText;
+			color: @primaryAccent;
 			padding: 0.4em 0.7em;
 			width: inherit;
 			position: relative;
 			bottom: 0.25em;
-			left: -0.05em;
-			transform: skew(-10deg);
-			background: @CompareRaceDeltaBackground;
+			background: @primaryAccentBackground;
 		}
 
 		.inner {

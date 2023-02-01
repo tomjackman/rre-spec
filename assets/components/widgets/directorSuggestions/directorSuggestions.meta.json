@@ -3,7 +3,7 @@
 	"elementName": "DirectorSuggestions",
 	"name": "Director suggestions",
 	"keepOnSessionChange": true,
-	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
+	"activeInSessions": [],
 	"defaultActive": false,
 	"translationLabel": "directorSuggestionsLabel",
 	"translationDescription": "directorSuggestionsDescription"

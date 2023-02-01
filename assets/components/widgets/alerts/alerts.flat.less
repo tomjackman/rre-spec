@@ -2,7 +2,7 @@
 
 .alert {
   font-size: @fontSize * 1.1;
-  font-family: Oswald;
+  font-family: Formula1-Regular;
 	position: fixed;
 	top: 17em;
   right: 5em;
@@ -17,19 +17,19 @@
     opacity: 0.5;
   }
   .raceControlAlert {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-top: 3px solid @AlertTitleBorderTop;
-    background: @AlertTitleBackgroundColor;
-    color: @AlertTitleText;
-    font-size: @fontSize * 1.1;
+    background: #212934;
+    color: yellow;
+    font-size: @fontSize;
     padding: 0.05em;
+    top: 0.1em;
+    z-index: 0;
   }
   .alertMessage {
-    background: @AlertMessageBackground;
-    color: @AlertMessageText;
+    background: yellow;
+    color: black;
+    font-size: @fontSize;
     padding: 0.15em;
-    font-size: @fontSize * 1.1;
     text-transform: capitalize;
+    z-index: -1;
   }
 }

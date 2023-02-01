@@ -11,10 +11,11 @@
 			display: none;
 		}
 	}
-
+	filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
 	text-align: center;
-	font-family: Oswald;
+	font-family: Formula1-Regular;
 	color: #fff;
+
 	.inner {
 		font-size: @fontSize;
 		height: 3.5em;
@@ -30,39 +31,51 @@
 	}
 	.bottom {
 	.extra-info {
-		height: 1em;
+		left: 25em;
+		height: 5em;
 		position: relative;
-		top: -0.5em;
+		top: -1.5em;
 		z-index: -1;
 		margin-top: 0em;
-		font-family: Oswald;
+		font-family: Formula1-Regular;
+		.currentLap {
+			background: @primaryAccentBackground;
+			color: #76FF03;
+			font-size: @fontSize * 1.1;
+			text-align: right;
+			padding: 0.5em;
+		}
 		ul {
 			margin: 0;
-			padding: 0.25em;
-			transform: skew(-10deg);
+			padding: 0.05em;
+			height: 3em;
 			li {
+				background: @primaryAccentBackground;
 				float: left;
-				background: @DriverInfoSplitTimesBackground;
 				padding: 0.5em;
-				margin-right: 0.5em;
-				border: 0.1em;
 				color: white;
 				position: relative;
-				min-width: 8em;
-				font-size: @fontSize * 1;
+				min-width: 10em;
+				font-size: @fontSize * 0.9;
 				&.active {
-					top: 6em;
+					color: white;
 				}
 				&.finished {
-					color: rgba(255, 255, 255, 1);
+					animation: none;
+					color: white;
 					&.personal-best {
-						background: @DriverInfoPersonalBestSplitBackground;
-						color: @DriverInfoPersonalBestSplitText;
+						animation: none;
+						color: #76FF03;
 					}
 					&.global-best {
-						background: @DriverInfoGlobalBestSplitBackground;
-						color: @DriverInfoGlobalBestSplitText;
+						animation: none;
+						color: #fb00ff;
 					}
+					@-webkit-keyframes sectorGlow { 
+				    0% { background-color: #76FF03; }
+				    50% { background-color: yellow; }
+				    100% { background-color: #76FF03; } 
+				  } 
 				}
 			}
 		}
@@ -77,134 +90,123 @@
 	.ptpRemaining, .best-time, .positionInClass {
 		vertical-align: top;
 		display: inline-block;
+		border-left: 2px solid;
 	}
 	.top {
 		position: relative;
-		left: -5.2em;
 		height: 1.75em;
 		bottom: -0.25em;
 		z-index: -2;
 		.ptpRemaining {
-			transform: skew(-10deg);
 			line-height: 0.5em;
-			background: rgba(66, 165, 245, 0.7);
+			background: @primaryAccentBackground;
 			padding: 0.5em 0.5em;
-			color: white;
-			width: 4em;
+			color: cyan;
+			width: 5em;
 			z-index: 0;
 			margin-bottom: 0px;
 			height: 1.5em;
 		}
 		.best-time {
-			transform: skew(-15deg);
 			line-height: 0.5em;
-			background: @DriverInfoBestTimeBackground;
+			background: @primaryAccentBackground;
 			padding: 0.5em 0.5em;
-			color: @DriverInfoBestTimeText;
-			width: 6em;
+			color: #76FF03;
+			width: 7em;
 			z-index: 0;
 			margin-bottom: 0px;
 			height: 1.5em;
 		}
 		.positionInClass {
-			transform: skew(-10deg);
 			line-height: 0.5em;
-			background: @DriverInfoPositionClassBackground;
+			background: @primaryAccentBackground;
 			padding: 0.5em 0.5em;
-			color: @DriverInfoPositionClassText;
+			color: black;
 			width: 3em;
 			z-index: 0;
 			margin-bottom: 0px;
 			height: 1.5em;
 		}
 		.fastest {
-			color: white;
-			background: @DriverInfoGlobalBestSplitBackground;
+			color: #fb00ff;
+			background: @primaryAccentBackground;
 		}
 	}
 	.main {
 	.positionContainer {
-		background: @DriverInfoPositionBackground;
-		color: @DriverInfoPositionText;
-		width: 5em;
+		background: @secondaryAccentBackground;
+		color: @quaternaryAccent;
+		width: 5.5em;
+		left: 0.5em;
     position: relative;
 		padding-left: 0.1em;
 		text-align: center;
 		padding-right: 0.5em;
 		line-height: 3.7em;
-    transform: skew(-10deg);
-		border-top: 0.1em solid @DriverInfoPositionBorder;
-    border-top-left-radius: 10px;
+		border-left: 0.1em solid @secondaryAccentBackground;
 		.position {
-			font-size: @fontSize * 3.5;
-      font-family: Oswald;
-      transform: skew(+10deg);
+			font-size: @fontSize * 3.3;
 		}
 	}
 	.driverInfoDetails {
-		background: @DriverInfoNameBackground;
+		background: @primaryAccentBackground;
 		text-transform: uppercase;
-		padding: 0px 1em;
-		min-width: 19em;
-		border-bottom: 0.1em solid @DriverInfoNameBorder;
+		border-bottom: 0.1em solid @secondaryAccentBackground;
     transform: skew(-10deg);
-		.name {
-			line-height: 2em;
-			color: @DriverInfoNameText;
-			font-size: @fontSize * 1.3;
-      transform: skew(+10deg);
+    width: 24em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: right;
+		.firstName {
+			line-height: 0.5em;
+			color: @secondaryAccent;
+			font-size: @fontSize  * 1.1;
+			transform: skew(+10deg);
+			display: inline-block;
+		}
+		.lastName {
+			padding: 0.2em;
+			line-height: 0.5em;
+			color: @primaryAccent;
+			font-size: @fontSize * 1.5;
+			transform: skew(+10deg);
+			display: inline-block;
 		}
     .teamEventName {
       margin-top: 0.5em;
       line-height: 2em;
-      color: @DriverInfoNameText;
+      color: @primaryAccent;
       font-size: @fontSize * 1.3;
-      transform: skew(+10deg);
     }
 		.team {
-			font-size: @fontSize * 0.95;
-			line-height: 0.7em;
+			font-size: @fontSize * 0.9;
+			line-height: 0em;
 			position: relative;
-			color: @DriverInfoTeamNameText;
-      transform: skew(+10deg);
+			color: @secondaryAccent;
 			text-transform: uppercase;
+			text-align: right;
 		}
 	}
 	.vehicle {
 		width: 1.75em;
 		position: relative;
-		left: -11.5em;
+		left: -11em;
 		img {
 			position: absolute;
-			top: -4em;
-			left: 1.5em;
-			height: 5.5em;
-		}
-	}
-	.tyre {
-		background: @DriverInfoTyreBackground;
-		width: 4em;
-		position: relative;
-		border-bottom: 0.1em solid @DriverInfoTyreBorder;
-    left: -0em;
-    transform: skew(-10deg);
-    border-bottom-right-radius: 10px;
-		img {
-			position: absolute;
-      transform: skew(10deg);
-			top: 0.5em;
-			left: 0.5em;
-			height: 3em;
+			top: -4.7em;
+			left: -0.5em;
+			height: 6.5em;
 		}
 	}
 	.manufacturer {
-		background: @DriverInfoManufacturerBackground;
+		background: @primaryAccentBackground;
 		width: 4em;
 		position: relative;
     left: 0em;
-		border-bottom: 0.1em solid @DriverInfoManufacturerBorder;
+		border-bottom: 0.1em solid @secondaryAccentBackground;
     transform: skew(-10deg);
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 5px;
 		img {
 			position: absolute;
       transform: skew(10deg);
@@ -215,20 +217,27 @@
 	}
 	.flag-container {
 		width: 3em;
+		left: 0.5em;
 		position: relative;
-		background: @DriverInfoFlagBackground;
-		border-bottom: 0.1em solid @DriverInfoFlagBorder;
-		transform: skew(-10deg);
+		background: @primaryAccentBackground;
+		border-bottom: 0.1em solid @secondaryAccentBackground;
 		margin: 1;
     z-index: 5;
 		.flag {
-			background: @backgroundDark;
+			background: @primaryAccentBackground;
 			position: absolute;
 			display: block;
-			left: -0.4em;
-			width: 4.5em;
-			height: 4em;
-      filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.9));
+			top: 0.7em;
+			width: 3.5em;
+			left: 0.5em;
+		}
+		.avatar {
+			background: @primaryAccentBackground;
+			position: absolute;
+			display: block;
+			top: 0.15em;
+			width: 3.5em;
+			left: 0.5em;
 		}
 	}
 }
@@ -237,58 +246,62 @@
 .assists {
   .params {
   position: relative;
-  height: 4em;
-  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+  height: 3.9em;
+  background: @primaryAccentBackground;
+  top: -5em;
   .gear {
-    font-size: @fontSize * 4;
-    line-height: 0.95em;
+    font-size: @fontSize * 3.5;
+    line-height: 1.15em;
+    color: @secondaryAccentBackground;
   }
   .rpm {
-    font-size: @fontSize * 1.5;
-    line-height: 1.2em;
+  	background: red;
+    font-size: @fontSize;
+    line-height: 1.7em;
     text-align: right;
-    padding-right: 0.2em;
+    padding-right: 0.4em;
+    color: white;
   }
   .speed {
-    font-size: @fontSize * 1.5;
-    line-height: 1.2em;
+  	background: #76FF03;
+  	color: black;
+    font-size: @fontSize;
+    line-height: 1.7em;
     text-align: right;
-    padding-right: 0.2em;
+    padding-right: 0.4em;
   }
   .gearContainer {
-  	background: linear-gradient(135deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0.9) 90%);;
+  	background: @primaryAccentBackground;
     color: #212121;
   	position: absolute;
   	bottom: @fontSize*8.9;
   	right: 12em;
   	height: 4em;
-    width: 3em;
-  	transform: skew(-10deg);
+    width: 3.5em;
+    border-left: 0.1em solid @secondaryAccentBackground;;
   }
   .rpmContainer {
-    background: linear-gradient(135deg, rgba(226, 29, 56, 0.8) 20%, rgba(226, 29, 56, 0.3) 80%);
+    padding: 0.3em;
     position: absolute;
     bottom: @fontSize*11;
-    right: 4.3em;
-    height: 1.9em;
-    width: 7em;
-    transform: skew(-10deg);
+    right: -2em;
+    height: 2.1em;
+    width: 14em;
   }
   .speedContainer {
-    background: linear-gradient(135deg, rgba(0, 200, 83, 0.8) 20%, rgba(0, 200, 83, 0.3) 80%);
+  	padding: 0.3em;
     position: absolute;
     bottom: @fontSize*8.9;
-    right: 4.7em;
-    height: 1.9em;
-    width: 7em;
-    transform: skew(-10deg);
+    right: -2em;
+    height: 2em;
+    width: 14em;
   }
 }
 .drs {
 position: relative;
 height: 5em;
 .icon {
-	background: @DriverInfoDrsActiveBackground;
+	background: #76FF03;
 	position: absolute;
 	top: -5.5em;
 	left: -1em;
@@ -296,10 +309,9 @@ height: 5em;
 	line-height: 2.5em;
 	width: 0;
 	font-size: 0;
-	transform: skew(-10deg);
 }
 .text {
-	background: @DriverInfoDrsRemainingBackground;
+	background: @primaryAccentBackground;
 	position: absolute;
 	top: -3em;
 	left: -1em;
@@ -307,30 +319,35 @@ height: 5em;
 	line-height: 2.5em;
 	width:0;
 	font-size: 0;
-	transform: skew(-10deg);
 }
 	&.active {
 		.icon {
-			background: @DriverInfoDrsActiveBackground;
+			background: #76FF03;
+			color: black;
 			position: absolute;
-			top: -5.5em;
-			left: -1em;
+			top: -10em;
+			left: 5em;
 			height: 2.5em;
 			line-height: 2.5em;
-			width: 7.5em;
+			width: 8.5em;
 			font-size: @fontSize;
-			transform: skew(-10deg);
-		}
+			animation: drsGlow 1s infinite;
+	}
+
+  @-webkit-keyframes drsGlow { 
+    0% { background-color:#76FF03; }
+    50% { background-color:white; }
+    100% { background-color:#76FF03; } 
+  } 
 		.text {
-			background: @DriverInfoDrsRemainingBackground;
+			background: @primaryAccentBackground;
 			position: absolute;
-			top: -3em;
-			left: -1em;
+			top: -7.5em;
+			left: 5em;
 			height: 2.5em;
 			line-height: 2.5em;
-			width: 7.5em;
+			width: 8.5em;
 			font-size: @fontSize;
-			transform: skew(-10deg);
 		}
 	}
 }
@@ -338,49 +355,53 @@ height: 5em;
 	position: relative;
 	height: 5em;
 	.icon {
-		background: rgba(66, 165, 245, 0.7);
+		background: @primaryAccentBackground;
 		position: absolute;
 		top: -5.5em;
-		left: -1em;
+		left: 5em;
 		height: 2.5em;
 		line-height: 2.5em;
 		width: 0;
 		font-size: 0;
-		transform: skew(-10deg);
 	}
 	.text {
-		background: @backgroundDark;
+		background: @primaryAccentBackground;
 		position: absolute;
 		top: -3em;
-		left: -1em;
+		left: 5em;
 		height: 2.5em;
 		line-height: 2.5em;
 		width:0;
 		font-size: 0;
-		transform: skew(-10deg);
 	}
 	&.active {
 		.icon {
-			background: rgba(66, 165, 245, 0.7);
+			background: #00b8ff;
+			color: black;
 			position: absolute;
-			top: -5.5em;
-			left: -1em;
+			top: -5em;
+			left: 5em;
 			height: 2.5em;
 			line-height: 2.5em;
 			width: 7.5em;
 			font-size: @fontSize;
-			transform: skew(-10deg);
-		}
+			animation: ptpGlow 1s infinite;
+	}
+
+  @-webkit-keyframes ptpGlow { 
+    0% { background-color:#00b8ff; }
+    50% { background-color:white; }
+    100% { background-color:#00b8ff; } 
+  } 
 		.text {
-			background: @backgroundDark;
+			background: @primaryAccentBackground;
 			position: absolute;
-			top: -3em;
-			left: -1em;
+			top: -2.5em;
+			left: 5em;
 			height: 2.5em;
 			line-height: 2.5em;
 			width: 7.5em;
 			font-size: @fontSize;
-			transform: skew(-10deg);
 		}
 	}
 }
@@ -388,7 +409,7 @@ height: 5em;
 .focused-driver-info {
 	.driverInfoFocusedDriverFlat;
 	position: fixed;
-	bottom: @fontSize*10;
+	bottom: @fontSize*9;
 	left: 0;
 	right: 0;
 }

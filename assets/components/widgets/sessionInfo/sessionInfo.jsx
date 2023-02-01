@@ -86,28 +86,23 @@ UI.widgets.SessionInfo = React.createClass({
 				<div className="inner">
 					{p.sessionInfo.phase === 'GARAGE' ?
 						<div>
-							<div className="sessionInfoFlag">
-								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.png'} />
-							</div>
-							<div className="sessionName">{nameLookup[p.sessionInfo.phase]}</div>
-							<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>
+							
 							{UI.state.controllerOptions.options.showServerNameInTimer.value === "true" ?
 								<div className="serverName">{p.eventInfo.serverName}</div>
 							:
 								null
 							}
+							<div className="sessionName">{nameLookup[p.sessionInfo.phase]}</div>
 						</div>
 						:
 						<div>
-							<div className="sessionInfoFlag">
-								<img src={'/img/flags/'+self.getCountryCode(p.eventInfo.trackId)+'.png'} />
-							</div>
-							<div className="sessionName">{nameLookup[p.sessionInfo.type]}</div>
+								
 								{UI.state.controllerOptions.options.showServerNameInTimer.value === "true" ?
 									<div className="serverName">{p.eventInfo.serverName}</div>
 								:
 									null
 								}
+								<div className="sessionName">{nameLookup[p.sessionInfo.type]}</div>
 								{p.sessionInfo.type.match(/^race/i) && p.sessionInfo.phase.match(/^countdown/i) ?
 									<div className="countdown">
 										<div className="animated fadeIn">
@@ -124,7 +119,7 @@ UI.widgets.SessionInfo = React.createClass({
 								}
 								{p.sessionInfo.phase === 'CHECKERED' ?
 									<div className="checkered">
-										<img src={'/img/checkered.jpg'} />
+										OVER
 									</div>
 								:
 									<div className="timer">{UI.formatSessionTime(Math.max(0, p.sessionInfo.timeLeft))}</div>

@@ -54,6 +54,12 @@ UI.widgets.Alert = React.createClass({
 				12: true,
 				13: true
 			}
+			// misc
+			// 6: {
+			// 	0: true,
+			// 	1: true,
+			// 	2: true
+			// }
 		};
 
 		// Don't show all events like the Misc ones, collision, stationary etc.
@@ -93,12 +99,6 @@ UI.widgets.Alert = React.createClass({
 					(event.removing ? 'removing' : '')
 				}
 			>
-				<div className="raceControlAlert">
-					{UI.getStringTranslation(
-						'alertsWidget',
-						'stewardsDecision'
-					)}
-				</div>
 
 				{window.settings.teamEvent ? (
 					<div className="alertMessage">
@@ -111,6 +111,13 @@ UI.widgets.Alert = React.createClass({
 						{event.driverName} - {penaltyMeanings[event.type][event.reason].text}
 					</div>
 				)}
+
+				<div className="raceControlAlert">
+					{UI.getStringTranslation(
+						'alertsWidget',
+						'stewardsDecision'
+					)}
+				</div>
 			</div>
 		);
 	}

@@ -7,11 +7,11 @@
 	right: 0;
 	bottom: 0;
 	z-index: 1;
-	background: rgba(0, 0, 0, 0.2);
+	filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
 }
 
 .event-info {
-  background: @EventInfoPanelBackground;
+  background: @primaryAccentBackground;
 	font-size: @fontSize;
 	width: 50em;
 	position: fixed;
@@ -20,18 +20,17 @@
   transform: translate(-50%, 0);
 	z-index: -1;
 	padding: 0em;
-	color: #fff;
+	color: @secondaryAccent;
 	white-space: pre;
-	font-family: Oswald;
-	border-top: 0.3em solid @EventInfoBorderTop;
-	border-bottom: 0.3em solid @EventInfoBorderBottom;
-	 
+	font-family: Formula1-Regular;
 
   .serverName {
-    color: @EventInfoServerNameText;
-    text-align: center;
-    font-size: @fontSize * 1.5;
-    padding: 20px;
+    color: @secondaryAccent;
+    text-align: right;
+    font-size: @fontSize * 1.2;
+    padding: 1.5em;
+    	border-left: 0.3em solid @primaryAccent;
+
   }
   .trackImage {
 		img {
@@ -55,46 +54,25 @@
 			 }
 		 }
   }
-	.countryFlag {
-		text-align: center;
-		padding-top: 15px;
-		filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
-		img {
-			position: relative;
-			opacity: 1;
-			height: 50px;
-			width: 70px;
-		}
-	}
 	.serverTrackName {
-		-webkit-transform: skew(-10deg, 0deg);
-		color: @EventInfoServerTrackNameText;
+		color: @primaryAccent;
 		text-align: center;
 		font-size: @fontSize * 1.5;
-		padding: 15px;
-		border-bottom: 1px solid white;
+		padding-top: 1em;
 		width: 80%;
 		margin: auto;
-	}
-	.trackDescription {
-		color: @EventInfoDescriptionText;
-		display: block;
-		width: 100%;
-		font-size: @fontSize;
-		padding: 10px;
-		min-height: 100px;
-		white-space: pre-line;
-		text-align: center;
-		line-height: 1.5;
+		text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 	}
   .weather {
+  	padding: 1em;
     .weatherIcons {
       display: flex;
-			font-size: @fontSize;
-			color: @EventInfoWeatherText;
+			font-size: @fontSize * 0.9;
+			color: @secondaryAccent;
       justify-content:space-around;
-      padding-top: 0.75em;
-			padding-bottom: 0.75em;
+      padding: 1em;
     }
   }
 

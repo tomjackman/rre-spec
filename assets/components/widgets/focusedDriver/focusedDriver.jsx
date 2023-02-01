@@ -142,10 +142,17 @@ UI.widgets.FocusedDriver = React.createClass({
 		}
 		return null;
 	},
-	fixName: function(str) {
+	getFirstName: function(str) {
 		str = UI.fixName(str);
 		var parts = str.split(' ');
 		parts[parts.length-1] = parts[parts.length-1].toUpperCase();
+		return parts[0];
+	},
+	getLastName: function(str) {
+		str = UI.fixName(str);
+		var parts = str.split(' ');
+		parts[parts.length-1] = parts[parts.length-1].toUpperCase();
+		parts.shift();
 		return parts.join(' ');
 	},
 	getSectorItem: function(name) {
@@ -180,11 +187,11 @@ UI.widgets.FocusedDriver = React.createClass({
 		}
 		if (sector.finished && sector.time-globalBest !== 0) {
 			return <li className={classes}>
-				{sectorMap[name] + " - " + UI.formatTime(sector.time, {ignoreSign: true})} ({UI.formatTime(sector.time-globalBest)})
+				{UI.formatTime(sector.time, {ignoreSign: true})} ({UI.formatTime(sector.time-globalBest)})
 			</li>
 		} else {
 			return <li className={classes}>
-				{sectorMap[name] + " - " + UI.formatTime(sector.time, {ignoreSign: true})}
+				{UI.formatTime(sector.time, {ignoreSign: true})}
 			</li>;
 		}
 	},
@@ -200,17 +207,22 @@ UI.widgets.FocusedDriver = React.createClass({
 			</div>
 		}
 	},
-	getClassPosition: function(classId) {
+	getClassPosition: function(performanceIndex) {
 		var self = this;
 		var classColour = "rgba(38, 50, 56, 0.8)";
 		var driverInfo = self.state.driverInfo;
 
-		if (UI.getClassColour(classId) != null) {
-			classColour = UI.getClassColour(classId);
+		if (UI.getClassColour(performanceIndex) != null) {
+
+	    var b = -performanceIndex * 11000 & 0xFF,
+        g = (-performanceIndex * 11000 & 0xFF00) >>> 8,
+        r = (-performanceIndex * 111000 & 0xFF0000) >>> 16,
+        a = ( (-performanceIndex * 10000 & 0xFF000000) >>> 24 ) / 255 ;
+	    classColour = "rgba(" + [r, g, b, a].join(",") + ")";
 		}
 
 		const divStyle = {
-				background: classColour
+				color: classColour
 		};
 
 		return <div className="positionInClass" style={divStyle}>P{driverInfo.scoreInfo.positionClass}</div>
@@ -236,14 +248,6 @@ UI.widgets.FocusedDriver = React.createClass({
 		}
 
 		return teamName;
-	},
-	getPtpState: function() {
-		var self = this;
-		if (self.state.pushToPassInfo.active) {
-			return <div className="icon animated infinite flash">{UI.getStringTranslation("focusedDriverWidget", "ptp")}</div>
-		} else {
-			return <div className="icon">{UI.getStringTranslation("focusedDriverWidget", "ptp")}</div>
-		}
 	},
 	getPersonalBestTime: function(driverInfo) {
 		if(driverInfo.scoreInfo.bestLapInfo.sector3 !== -1) {
@@ -283,18 +287,27 @@ UI.widgets.FocusedDriver = React.createClass({
 			return null;
 		}
 
+		const gearBackground = {width: self.state.vehicleInfo.rpm/90, minWidth: '7.5em'};
+		const speedBackground = {width: self.state.vehicleInfo.speed/1.8, minWidth: '7.5em'};
+
+
 		return (
 			<div className={focusedDriverClasses} key={self.state.driverInfo.portalId}>
-				<div className="inner animated fadeIn delay-1s">
+
+				<div className="bottom animated fadeInUp delay-5s">
+					{self.getExtraInfo()}
+				</div>
+
+				<div className="inner animated fadeInUp delay-3s">
 					<div className="top">
 						{self.state.pushToPassInfo.allowed && UI.state.sessionInfo.type.match(/^race/i) ?
-							<div className="ptpRemaining">{UI.getStringTranslation("focusedDriverWidget", "ptp")}: {self.state.pushToPassInfo.amountLeft}</div>
+							<div className="ptpRemaining">{self.state.pushToPassInfo.amountLeft} {UI.getStringTranslation("focusedDriverWidget", "ptp")}</div>
 							:
 							null
 						}
 						{self.getPersonalBestTime(driverInfo)}
 						{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-							self.getClassPosition(driverInfo.classId)
+							self.getClassPosition(driverInfo.performanceIndex)
 						:
 							null
 						}
@@ -303,7 +316,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					<div className="positionContainer"><div className="position">{driverInfo.scoreInfo.positionOverall}</div></div>
 					<div className="flag-container">
 					{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
-						<img className="flag" src={UI.getUserInfo(driverInfo.portalId).avatar} />
+						<img className="avatar" src={UI.getUserInfo(driverInfo.portalId).avatar} />
 					:
 						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.png'} />
 					}
@@ -312,19 +325,16 @@ UI.widgets.FocusedDriver = React.createClass({
 					  { window.settings.teamEvent ?
 							<div className="teamEventName">{driverInfo.name.substr(driverInfo.name.indexOf(" ") + 1).toUpperCase()}</div>
 						:
-							<div className="name">{self.fixName(driverInfo.name)}</div>
+							<div>
+								<div className="firstName">{self.getFirstName(driverInfo.name)}</div>
+								<div className="lastName">{self.getLastName(driverInfo.name)}</div>
+							</div>
 						}
 						<div className="team">{self.getTeamName(driverInfo.teamId, driverInfo.portalId)}</div>
 					</div>
-					{UI.state.controllerOptions.options.showTyreCompound.value === "true" && r3eTyreDB.classes[driverInfo.classId] != null ?
-						<div className="tyre">
-							<img src={'/img/tyres/'+pitInfo.tyreType+'.png'} />
-						</div>
-							:
 							<div className="manufacturer">
-								<img src={'/render/'+driverInfo.manufacturerId+'/small/?type=manufacturer'}/>
+								<img src={'/img/manufacturers/'+driverInfo.manufacturerId+'.png'} />
 							</div>
-						}
 						{UI.state.controllerOptions.options.showLiveryPreview.value === "true" ?
 						<div className="vehicle">
 							<img src={`/render/${driverInfo.liveryId}/small/?type=livery`} />
@@ -336,29 +346,36 @@ UI.widgets.FocusedDriver = React.createClass({
 
 					<div className="assists">
 						{
-							self.state.pushToPassInfo.allowed && false ?
-							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active && UI.state.sessionInfo.type.match(/^race/i)})}>
-								{self.getPtpState()}
-								{ UI.state.sessionInfo.type === 'PRACTICE' ?
-									<div className="text">{UI.getStringTranslation("focusedDriverWidget", "remaining")} - ∞</div>
+							true ?
+							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active})}>
+								<div className="icon">{UI.getStringTranslation("focusedDriverWidget", "ptp")}</div>
+
+								{ !UI.state.sessionInfo.type.match(/^race/i) ?
+									null
 								:
-									<div className="text">{UI.getStringTranslation("focusedDriverWidget", "remaining")} - {self.state.pushToPassInfo.amountLeft}</div>
+									<div className={cx({'text': true, 'active': self.state.pushToPassInfo.active})}>{self.state.pushToPassInfo.amountLeft} {UI.getStringTranslation("focusedDriverWidget", "remaining")}</div>
 								}
 							</div>
 							:
 							null
 						}
 
-						<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled && UI.state.sessionInfo.type.match(/^race/i)})}>
-							<div className={cx({'icon animated infinite flash': true, 'active': self.state.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("focusedDriverWidget", "drs")}</div>
-							<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("focusedDriverWidget", "remaining")} - {self.state.vehicleInfo.drsLeft}</div>
+						<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled})}>
+							<div className={cx({'icon': true})}>{UI.getStringTranslation("focusedDriverWidget", "drs")}</div>
+								{ !UI.state.sessionInfo.type.match(/^race/i) ?
+									null
+								:
+									<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>{self.state.vehicleInfo.drsLeft} {UI.getStringTranslation("focusedDriverWidget", "remaining")}</div>
+								}
+							
 						</div>
 
+								
 						{UI.state.controllerOptions.options.showVehicleInfo.value === "true" ?
-							<div className={cx({'params': self.state.vehicleInfo.speed > 0})}>
+							<div className={cx({'params': true})}>
 								<div className={cx({'gearContainer': true})}><div className="gear">{self.state.vehicleInfo.gear}</div></div>
-								<div className={cx({'rpmContainer': true})}><div className="rpm">{self.state.vehicleInfo.rpm} RPM</div></div>
-								<div className={cx({'speedContainer': true})}><div className="speed">{self.state.vehicleInfo.speed} KM/H</div></div>
+								<div className={cx({'rpmContainer': true})}><div className={cx({'rpm': true})} style={gearBackground}>{self.state.vehicleInfo.rpm} RPM</div></div>
+								<div className={cx({'speedContainer': true})}><div className={cx({'speed': true})} style={speedBackground}>{self.state.vehicleInfo.speed} KM/H</div></div>
 							</div>
 							:
 							null
@@ -366,9 +383,7 @@ UI.widgets.FocusedDriver = React.createClass({
 					</div>
 				</div>
 
-				<div className="bottom">
-					{self.getExtraInfo()}
-				</div>
+
 
 			</div>
 		);

@@ -12,6 +12,19 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* ---- Roboto ---- */
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto-Regular'),
+  local('Roboto-Regular'),
+  local('Roboto-Regular'),
+  url(/fonts/Roboto-Regular.ttf) format('ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ---- Oswald ---- */
 
 /* cyrillic */
@@ -67,8 +80,7 @@ select {
     background-position: center right;
     background-repeat: no-repeat;
     border: 2px solid #76ff03;
-    background: #15202b;
-    border-radius: 35px;
+    background: #212934;
     text-align: center;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     color: #fff;
@@ -117,13 +129,13 @@ select {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: #15202b;
-	font-family: Abel;
+	background: #212934;
+	font-family: Formula1-Regular;
 
 	.title {
 		.toggle-track-map {
 			float: right;
-			height: 30px;
+			height: 20px;
 			margin: -5px 0 0 10px;
 			&:hover {
 				opacity: 0.8;
@@ -149,7 +161,7 @@ select {
     }
     .toggleControlPanel {
         float: left;
-        height: 30px;
+        height: 25px;
         margin: -5px 0 0;
       	&:hover {
       		opacity: 0.8;
@@ -165,14 +177,13 @@ select {
 		overflow: hidden;
 		text-overflow: ellipsis;
     text-align: center;
-		height: 40px;
+		height: 35px;
 		left: 0px;
 		right: 0;
 		padding: 10px;
-		font-size: 25px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+		font-size: 17px;
 		color: white;
-    background: #15202b;
+    background: #ff0000;
     z-index: 2;
 	}
 
@@ -183,15 +194,15 @@ select {
         height: auto;
         background: #0e0e0e;
         color: white;
-        font-family: Oswald;
+        font-family: Formula1-Regular;
         border-top: 2px solid #37474F;
-        background: #15202b;
+        background: #212934;
         width: 100%;
         z-index: 4;
         .controlPanelOption {
           float: left;
     			position: relative;
-          font-size: 20px;
+          font-size: 15px;
           .option {
             text-align: center;
             margin: 15px;
@@ -208,6 +219,8 @@ select {
           input {
             margin-left: 10px;
             display:inline;
+            background: #43474d;
+    				color: white;
           }
         }
       }
@@ -305,10 +318,8 @@ select {
         bottom: 50%;
         opacity: 1.0;
 				font-size: 22px;
-        font-weight: bold;
-				 
         padding: 4px 6px;
-        background: @StandingsDriverNameClassColour;
+        border-left: 0.5em solid white;
 			}
 			img.livery {
 				width: 100%;
@@ -325,10 +336,11 @@ select {
     color: white;
     bottom: 0;
 		font-size: 16px;
-    background: #15202b;
+    background: #212934;
 		select {
 			margin: 10px 5%;
 			width: 90%;
+			font-family: Formula1-Regular;
 		}
 		.widget-buttons, .holder {
 			position: absolute;
@@ -347,13 +359,11 @@ select {
 				opacity: 1;
 				background: rgba(0, 0, 0, 0.1);
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
-				border: 5px solid rgba(255, 255, 255, 0.2);
 				cursor: pointer;
 				position: relative;
 				text-align: center;
-        border-top: 4px solid;
-        box-shadow: 1px 1px 3px #222222;
-        font-family: Oswald;
+        border-left: 4px solid;
+        font-family: Formula1-Regular;
 				.text {
 					position: absolute;
 					top: 50%;
@@ -361,7 +371,7 @@ select {
 					right: 0;
 					-webkit-transform: translate(0, -50%);
 					padding: 0 10px;
-					font-size: 18px;
+					font-size: 13px;
 					line-height: 1.4;
 				}
 				&:hover {
@@ -369,14 +379,14 @@ select {
 				}
 				&.active {
 					box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-					color: #fff;
-          border-top-color: #76FF03;
+					color: #76ff03;
           border-left-color: #76FF03;
 				}
 				&.inactive {
 					.gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
           border-top-color: rgba(226, 29, 56, 1);
           border-left-color: rgba(226, 29, 56, 1);
+          color: red;
 					&.warning {
 						background: rgba(200, 0, 0, 0.3);
 						color: rgba(255,255,255,0.45);
@@ -441,7 +451,6 @@ select {
 			position: absolute;
 			text-align: center;
 			font-size: 30px;
-			border-radius: 50%;
 			&.top {
 				left: -25%;
 				bottom: 100%;
@@ -510,7 +519,6 @@ select {
 		height: 40px;
 		font-size: 30px;
 		margin: -20px 0 0 -20px;
-		font-weight: bold;
 		line-height: 38px;
 		text-align: center;
 		color: #fff;
@@ -584,7 +592,7 @@ select {
   flex-direction: column;
   height: 100%;
   color: white;
-  font-family: Oswald;
+  font-family: Formula1-Regular;
   border-bottom: 1px solid white;
   filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
 }
@@ -602,7 +610,7 @@ select {
   color: white;
   overflow:hidden;
   overflow-y:scroll;
-  font-family: Arial;
+  font-family: Formula1-Regular;
 }
 
 .tabled-driver-entry:nth-child(odd) {
@@ -616,50 +624,64 @@ select {
   float: left;
   position: relative;
   opacity: 1;
-  height: 1.3em;
-  font-size: 17px;
+  height: 1.6em;
+  font-size: 15px;
   color: white;
   &.idle {
     opacity: 0.4;
   }
+  &.striped {
+		background: #1c232c;
+	}
   &.focused {
     opacity: 1;
   }
 
-  .position, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .currentSpeed, .pit, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .frontCam, .rearCam, .wingCam, .tyre, .tyreWear, .damage, .flags, .ptp, .drs, .best-lap-s1, .best-lap-s2, .best-lap-time, .last-lap-time, .action {
+  .position, .positionIncrease, .lap, .interesting, .name, .flag, .manufacturer, .livery, .cameras, .currentSpeed, .pit, .mandatoryPit, .tvCam, .dashCam, .cockpitCam, .actionCam, .heliCam, .staticCam, .wingCam, .tyre, .tyreWear, .damage, .flags, .ptp, .drs, .best-lap-s1, .best-lap-s2, .best-lap-time, .last-lap-time, .action {
     vertical-align: top;
     display: inline-block;
     height: 1.3em;
     line-height: 1.2em;
     text-align: center;
-    border-right: 1px dashed grey;
   }
   .position {
     width: 3%;
     color: #fff;
     opacity: 1.0;
   }
+   .positionIncrease {
+    width: 3%;
+    color: #fff;
+    opacity: 1.0;
+  }
+  .gained {
+  	color: #76FF03;
+   }
+   .level {
+  	color: cyan;
+   }
+   .lost {
+  	color: red;
+   }
   .lap {
-    width: 2.5%;
+    width: 3%;
     color: #5CC4FF;
     opacity: 1.0;
   }
   .flag {
     border: 0px;
     width: 2%;
-    padding: 0;
     img {
-      padding: 0;
+      padding: 0.3em;
     }
   }
   .name {
-    width: 11%;
+    width: 13%;
     white-space: nowrap;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     &.focused {
-      border: 1px solid #76FF03;
       background: #76FF03;
       color: black;
     }
@@ -667,67 +689,39 @@ select {
   .manufacturer {
     border: 0px;
     width: 1.5%;
-    padding: 0;
+    padding: 0.1em;
     img {
       padding: 0;
     }
   }
   .livery {
     border: 0px;
-    width: 3%;
-    padding: 0;
-    img {
-      padding: 0;
-    }
+    width: 2.5%;
+    padding: 0.1em;
   }
   .cameras {
-    color: #4CAF50;
-    width: 12%;
+    color: #76ff03;
+    width: 10.5%;
     opacity: 1.0;
   }
-  .tvCam {
-    color: #4CAF50;
-    width: 2%;
-    opacity: 1.0;
-  }
-  .cockpitCam {
-    color: #4CAF50;
-    min-width: 2%;
-    opacity: 1.0;
-  }
-  .dashCam {
-    color: #4CAF50;
-    min-width: 2%;
-    opacity: 1.0;
-  }
-  .frontCam {
-    color: #4CAF50;
-    min-width: 2%;
-    opacity: 1.0;
-  }
-  .rearCam {
-    color: #4CAF50;
-    min-width: 2%;
-    opacity: 1.0;
-  }
-  .wingCam {
-    color: #4CAF50;
-    min-width: 2%;
+  .tvCam, .cockpitCam, .dashCam, .wingCam, .actionCam, .staticCam, .heliCam {
+    color: #76ff03;
+    width: 1.7%;
     opacity: 1.0;
   }
   .pit {
-    width: 3%;
-    color: #7E57C2;
+    width: 5%;
+    color: #00b8ff;
     opacity: 1.0;
   }
   .currentSpeed {
-    width: 3%;
+    width: 4%;
     color: #FF9800;
     opacity: 1.0;
   }
   .mandatoryPit {
-    width: 4%;
-    color: #7E57C2;
+    width: 7%;
+    color: #fb00ff;
     opacity: 1.0;
   }
   .tyre {
@@ -735,6 +729,7 @@ select {
     width: 3%;
     padding: 0;
     color: yellow;
+    padding: 0.1em;
     img {
       width: 45%;
       padding: 0;
@@ -747,13 +742,13 @@ select {
     color: white;
   }
   .damage {
-    width: 4%;
-    color: #8BC34A;
+    width: 5%;
+    color: #ff8100;
     opacity: 1.0;
     background: transparent;
   }
   .flags {
-    width: 5%;
+    width: 4%;
     opacity: 1.0;
     color: white;
     background: transparent;
@@ -788,14 +783,14 @@ select {
   }
   .best-lap-s1 {
     width: 5%;
-    color: #4DB6AC;
+    color: #00ffe7;
     &.invalid {
       color: #F44336;
     }
   }
   .best-lap-s2 {
     width: 5%;
-    color: #26A69A;
+    color: #F44336;
     &.invalid {
       color: #F44336;
     }
@@ -803,7 +798,7 @@ select {
   .best-lap-time {
     width: 7%;
     opacity: 1.0;
-    color: #009688;
+    color: #00ffa1;
     &.invalid {
       color: #F44336;
     }
@@ -811,7 +806,7 @@ select {
   .last-lap-time {
     width: 7%;
     opacity: 1.0;
-    color: #76ff03;
+    color: #ffe003;
     &.invalid {
       color: #F44336;
     }
@@ -820,13 +815,13 @@ select {
     width: 3%;
     opacity: 1.0;
     .actionIcon {
-      background: #000;
+      background: #ffeb00;
+      color: black;
       margin: 0 10px;
-      font-weight:bold;
       cursor: pointer;
-      border-radius: 5px;
       &:hover {
-        color: yellow;
+      	background: red;
+        color: white;
       }
     }
   }
@@ -841,7 +836,7 @@ select {
   .ptp {
     width: 2.5%;
     opacity: 1.0;
-    color: #1976D2;
+    color: #ff0076;
     &.active {
       color: #00BCD4;
     }
@@ -851,14 +846,10 @@ select {
     color: white;
 
     &.close {
-      border: 1px solid #FF9800;
-      border-radius: 25px;
-      background: #FF9800;
+      background: #fbff00;
       color: black;
     }
     &.veryClose {
-      border: 1px solid red;
-      border-radius: 25px;
       background: red;
       color: white;
     }
@@ -878,20 +869,18 @@ select {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #15202b;
+    background: #212934;
 
     textarea {
       width: 400px;
       padding: 10px;
-      font-size: 20px;
-      border-radius: 5px;
+      font-size: 15px;
       border: 0;
     }
     input {
       width: 100px;
       padding: 10px;
       font-size: 40px;
-      border-radius: 5px;
       border: 0;
       text-align: center;
     }
@@ -900,28 +889,25 @@ select {
         color: #fff;
         background: transparent;
         text-transform: uppercase;
-        font-family: Oswald;
+        font-family: Formula1-Regular;
         margin: 5px 5px 5px 10px;
         padding: 13px 20px;
         font-size: 20px;
         background: rgba(0,0,0,0.2);
-        border-radius: 5px;
     }
     .optionContainer {
       display: flex;
       padding: 5px;
-      border: 2px solid #76ff03;
-      border-radius: 10px;
+      border: 2px solid #ff0000;
     }
     .close {
       position: absolute;
       bottom: 110%;
       right: -2px;
-      border: 2px solid rgba(255,255,255,0.2);
-      border-radius: 10px;
+      border: 2px solid rgb(118, 255, 3);
       padding: 10px;
       cursor: pointer;
-      background: #15202b;
+      background: #212934;
       &:hover {
         background: rgba(255,255,255,0.1);
       }
@@ -941,7 +927,6 @@ select {
       font-size: 25px;
       padding: 30px;
       border: 2px solid rgba(255,255,255,0.9);
-      border-radius: 10px;
       margin: 5px;
       cursor: pointer;
       text-transform: uppercase;

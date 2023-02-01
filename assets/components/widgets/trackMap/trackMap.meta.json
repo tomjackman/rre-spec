@@ -3,7 +3,7 @@
 	"elementName": "TrackMap",
 	"name": "Track map",
 	"keepOnSessionChange": false,
-	"activeInSessions": ["Practice", "Qualifying", "Race", "Warmup"],
+	"activeInSessions": [],
 	"defaultActive": false,
 	"translationLabel": "trackMapLabel",
 	"translationDescription": "trackMapDescription"

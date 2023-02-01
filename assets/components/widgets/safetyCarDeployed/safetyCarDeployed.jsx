@@ -3,8 +3,11 @@ UI.widgets.SafetyCarDeployed = React.createClass({
 		var self = this;
 		return (
 			<div className="safetyCarDeployedContainer">
-				<div className="safetyCarDeployed animated flash infinite">{UI.getStringTranslation("safetyCarDeployedWidget", "safetyCar")}</div>
+			<div className="safetyCarDeployed animated flash infinite">{UI.getStringTranslation("safetyCarDeployedWidget", "safetyCar")}</div>
+				<div className="raceControl">{UI.getStringTranslation("safetyCarInWidget", "raceControl")}</div>
+	  			
 			</div>
+
 		);
 	}
 });

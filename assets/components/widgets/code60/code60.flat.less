@@ -4,29 +4,36 @@
   font-size: @fontSize;
   position: fixed;
   top: 7em;
-  background: @Code60Background;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
-  border: 1px solid  @Code60Background;
-  border-bottom-right-radius: 10px;
-  display: inline-block;
-  .code60Img {
-    float: left;
-    font-family: Oswald;
-  	text-transform: uppercase;
-  	height: 2em;
-  	width: 3em;
+  left: 45%;
+  width: 15em;
+  line-height: 1.7em;
+  text-align: center;
+  filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
+
+  .raceControl {
+    border-top: yellow 3px solid;
+    background: #212934;
+    color: yellow;
+    font-size: @fontSize * 1.1;
+    padding: 0.05em;
+    top: 0.1em;
+    z-index: 0;
+
   }
-  .code60 {
-    border: 1px solid  @Code60Background;
-    border-bottom-right-radius: 10px;
-    font-family: Oswald;
-  	background: @Code60Background;
-  	text-transform: uppercase;
-  	color: @Code60Text;
-  	height: 2em;
-  	width: 8em;
-  	line-height: 2em;
-  	text-align: center;
-  }
+  .vscDeployed {
+    background: yellow;
+    color: black;
+    font-size: @fontSize * 1.1;
+    padding: 0.15em;
+    text-transform: capitalize;
+    z-index: -1;
+    animation: glow 2s infinite;
 }
+
+@-webkit-keyframes glow { 
+    0% { background-color:yellow; }
+    50% { background-color:white; }
+    100% { background-color:yellow; } 
+  } 
+}
+

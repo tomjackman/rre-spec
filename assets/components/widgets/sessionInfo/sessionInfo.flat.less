@@ -1,9 +1,10 @@
 @import '../theme/z';
 
 .session-info {
+filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
 .inner {
-	font-size: @fontSize * 1.1;
-	font-family: Oswald;
+	font-size: @fontSize;
+	font-family: Formula1-Regular;
 	position: fixed;
 	top: 2em;
 	left: 50%;
@@ -11,32 +12,29 @@
 	text-align: center;
 
 
-.sessionInfoFlag, .sessionName, .checkered, .serverName, .countdown, .yellowFlag, .timer {
+.sessionInfoFlag, .sessionName, .timer, .checkered, .serverName, .countdown, .yellowFlag {
 	display: inline-block;
 	vertical-align: top;
 	height: 2em;
 	padding: 0em 1em;
-	transform: skew(-15deg, 0deg);
-	line-height: 1.8em;
+	line-height: 2em;
 	margin: 0px;
 }
 
 .sessionName {
 	min-width: 4em;
-	background: @SessionInfoPhaseBackground;
+	background: @primaryAccentBackground;
 	text-transform: uppercase;
-	border-top: 0.20em solid @SessionInfoPhaseBorderTop;
-	color: @SessionInfoPhaseTextColor;
+	color: #76FF03;
 }
 
 .timer {
 	min-width: 5em;
-	border-top: 0.20em solid @SessionInfoPhaseBorderTop;
-	background: @SessionInfoTimerBackground;
+	border-left: 0.20em solid #76FF03;
+	background: @primaryAccentBackground;
 	text-transform: uppercase;
-	color: @SessionInfoTimerTextColor;
+	color: white;
 	z-index: 2;
-	border-bottom-right-radius: 10px;
 }
 
 .yellowFlag {
@@ -45,9 +43,6 @@
 	background-color: yellow;
 	top: 1.8em;
 	left: 50%;
-	-webkit-transform: translate(-50%, 0);
-	border-bottom-left-radius: 1em;
-	border-bottom-right-radius: 1em;
 	height: 2em;
 	width: 9em;
 	z-index: 2;
@@ -56,16 +51,15 @@
 .countdown {
 	padding: 0em 0.3em;
 	min-width: 4em;
-	border-top: 0.20em solid @SessionInfoPhaseBorderTop;
-	background: @SessionInfoTimerBackground;
+	border-left: 0.20em solid #76FF03;
+	background: @primaryAccentBackground;
 	text-transform: uppercase;
-	color: @SessionInfoTimerTextColor;
-	line-height: 1.6em;
+	color: red;
 	z-index: -2;
 	.countdownIndicatorsRed {
 		z-index: -1;
 		font-size: @fontSize * 1.5;
-		color: rgba(226, 29, 56, 1);
+		color: red;
 	}
 }
 
@@ -75,7 +69,6 @@
 	height: 2em;
 	width: 3em;
 	img {
-		border-top-left-radius: 10px;
 		height: 2em;
 		width: 3em;
 		opacity: 1;
@@ -85,24 +78,20 @@
 .checkered {
 		margin: 0;
 		padding: 0;
-		width: 4em;
+		width: 5em;
 		font-size: @fontSize;
-		img {
-			border-top: 0.20em solid @SessionInfoPhaseBorderTop;
-			height: 2em;
-			width: 4em;
-			z-index: 2;
-	}
+		background: @primaryAccentBackground;
+		color: #76FF03;
+		border-left: 0.2em solid #76FF03;
 }
 
 .serverName{
 	margin: 0;
 	min-width: 4em;
-	border-top: 0.20em solid @SessionInfoPhaseBorderTop;
-	border-left: 0.1em solid @SessionInfoPhaseBorderTop;
-	background: @SessionInfoTimerBackground;
+	border-right: 0.2em solid #76FF03;
+	background: #212934;
 	text-transform: uppercase;
-	color: @SessionInfoTimerTextColor;
+	color: white;
 	z-index: 2;
 }
 
