@@ -25,7 +25,7 @@ As used by:
 
 ## Getting Started
 1. Install https://nodejs.org/download/release/v8.10.0/ (Recommended Nodejs v8.10.0, choose the .MSI file for Windows).
-2. Run `start.bat` before starting RaceRoom.
+2. Run `start.bat`.
 3. Add `-broadcastUrl=http://localhost:9090` in Steam Game launch options.
 4. Open http://localhost:9090 in a browser.
 5. Join a server.
