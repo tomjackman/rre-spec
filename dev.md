@@ -1,18 +1,23 @@
 ## Dev Checklist
 ### Game Updates
 #### New Car
-* If the vehicle(s) has a tyre choice, add the new class in `assets\deps\tyres.js` with the Class ID. If the tyres compounds are also new, add the images to `public\img\tyres` named after the tyre type.
+* If new manufacturer, add the logo to `public\img\manufacturers` in `.png` format.
 
 #### New Track
-* Add the new track overlay to `public\img\trackmaps` named after the Track ID in `SVG` format.
 * Added the country code of the tracks country to `assets\deps\tracks.js`.
 
 #### New Class / Class Modifications
 * Add the Class colour to `assets\deps\classColours.js` named after the Class ID.
-* If the vehicle(s) has a tyre choice, add the new class in `assets\deps\tyres.js` with the Class ID. If the tyres compounds are also new, add the images to `public\img\tyres` named after the tyre type.
+
+#### New Tyre Type
+* If new compound, add to list in controller.jsx - ["Soft", "Hard", "Primary", "Alternate", "Medium", "Prime", "Slicks"]. 
+* If the tyres compound is new, add the images to `public\img\tyres` named after the tyre type.
 
 ### New Content
-* Update `r3e-data.min.js` with the new data.
+* Update `r3e-data.min.js` with the new data from https://raw.githubusercontent.com/sector3studios/r3e-spectator-overlay/master/r3e-data.min.js 
+
+### Broadcast Settings are put back to default.
+* Make you revert any changes in the settings menu in the broadcast controller to use the default settings. These can be checked by hovering over the option and reading the tooltip text.
 
 ### Dev Updates
 * Bump the package.json version.
