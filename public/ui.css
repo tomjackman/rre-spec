@@ -110,107 +110,424 @@ a {
   outline: none;
   -webkit-user-select: none;
 }
-.session-info .inner {
-  font-size: 17.6px;
-  font-family: Oswald;
-  position: fixed;
-  top: 2em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
+.animated.delay-10s {
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
+}
+/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
+.assists .params {
+  position: relative;
+  height: 3.9em;
+  background: #212934;
+  top: -5em;
+}
+.assists .params .gear {
+  font-size: 52.5px;
+  line-height: 1.15em;
+  color: red;
+}
+.assists .params .rpm {
+  background: red;
+  font-size: 15px;
+  line-height: 1.7em;
+  text-align: right;
+  padding-right: 0.4em;
+  color: white;
+}
+.assists .params .speed {
+  background: #76FF03;
+  color: black;
+  font-size: 15px;
+  line-height: 1.7em;
+  text-align: right;
+  padding-right: 0.4em;
+}
+.assists .params .gearContainer {
+  background: #212934;
+  color: #212121;
+  position: absolute;
+  bottom: 133.5px;
+  right: 12em;
+  height: 4em;
+  width: 3.5em;
+  border-left: 0.1em solid red;
+}
+.assists .params .rpmContainer {
+  padding: 0.3em;
+  position: absolute;
+  bottom: 165px;
+  right: -2em;
+  height: 2.1em;
+  width: 14em;
+}
+.assists .params .speedContainer {
+  padding: 0.3em;
+  position: absolute;
+  bottom: 133.5px;
+  right: -2em;
+  height: 2em;
+  width: 14em;
+}
+.assists .drs {
+  position: relative;
+  height: 5em;
+}
+.assists .drs .icon {
+  background: #76FF03;
+  position: absolute;
+  top: -5.5em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+}
+.assists .drs .text {
+  background: #212934;
+  position: absolute;
+  top: -3em;
+  left: -1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+}
+.assists .drs.active .icon {
+  background: #76FF03;
+  color: black;
+  position: absolute;
+  top: -10em;
+  left: 5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 8.5em;
+  font-size: 15px;
+  animation: drsGlow 1s infinite;
+}
+@-webkit-keyframes drsGlow {
+  0% {
+    background-color: #76FF03;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: #76FF03;
+  }
+}
+.assists .drs.active .text {
+  background: #212934;
+  position: absolute;
+  top: -7.5em;
+  left: 5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 8.5em;
+  font-size: 15px;
+}
+.assists .ptp {
+  position: relative;
+  height: 5em;
+}
+.assists .ptp .icon {
+  background: #212934;
+  position: absolute;
+  top: -5.5em;
+  left: 5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+}
+.assists .ptp .text {
+  background: #212934;
+  position: absolute;
+  top: -3em;
+  left: 5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 0;
+  font-size: 0;
+}
+.assists .ptp.active .icon {
+  background: #00b8ff;
+  color: black;
+  position: absolute;
+  top: -5em;
+  left: 5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 15px;
+  animation: ptpGlow 1s infinite;
+}
+@-webkit-keyframes ptpGlow {
+  0% {
+    background-color: #00b8ff;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: #00b8ff;
+  }
+}
+.assists .ptp.active .text {
+  background: #212934;
+  position: absolute;
+  top: -2.5em;
+  left: 5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 7.5em;
+  font-size: 15px;
+}
+.focused-driver-info {
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
   text-align: center;
-}
-.session-info .inner .sessionInfoFlag,
-.session-info .inner .sessionName,
-.session-info .inner .checkered,
-.session-info .inner .serverName,
-.session-info .inner .countdown,
-.session-info .inner .yellowFlag,
-.session-info .inner .timer {
-  display: inline-block;
-  vertical-align: top;
-  height: 2em;
-  padding: 0em 1em;
-  transform: skew(-15deg, 0deg);
-  line-height: 1.8em;
-  margin: 0px;
-}
-.session-info .inner .sessionName {
-  min-width: 4em;
-  background: rgba(0, 45, 68, 0.8);
-  text-transform: uppercase;
-  border-top: 0.2em solid cyan;
-  color: white;
-}
-.session-info .inner .timer {
-  min-width: 5em;
-  border-top: 0.2em solid cyan;
-  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  text-transform: uppercase;
-  color: white;
-  z-index: 2;
-  border-bottom-right-radius: 10px;
-}
-.session-info .inner .yellowFlag {
-  font-size: 16px;
+  font-family: Formula1-Regular;
+  color: #fff;
   position: fixed;
-  background-color: yellow;
-  top: 1.8em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  height: 2em;
-  width: 9em;
-  z-index: 2;
+  bottom: 135px;
+  left: 0;
+  right: 0;
 }
-.session-info .inner .countdown {
-  padding: 0em 0.3em;
-  min-width: 4em;
-  border-top: 0.2em solid cyan;
-  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  text-transform: uppercase;
+.focused-driver-info.hide-flags .flag-container {
+  display: none;
+}
+.focused-driver-info .inner {
+  font-size: 15px;
+  height: 3.5em;
+  display: inline-block;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  -webkit-transform: translate(0, -50%);
+}
+.focused-driver-info .extra-info {
+  vertical-align: top;
+  display: inline-block;
+}
+.focused-driver-info .bottom .extra-info {
+  left: 25em;
+  height: 5em;
+  position: relative;
+  top: -1.5em;
+  z-index: -1;
+  margin-top: 0em;
+  font-family: Formula1-Regular;
+}
+.focused-driver-info .bottom .extra-info .currentLap {
+  background: #212934;
+  color: #76FF03;
+  font-size: 16.5px;
+  text-align: right;
+  padding: 0.5em;
+}
+.focused-driver-info .bottom .extra-info ul {
+  margin: 0;
+  padding: 0.05em;
+  height: 3em;
+}
+.focused-driver-info .bottom .extra-info ul li {
+  background: #212934;
+  float: left;
+  padding: 0.5em;
   color: white;
-  line-height: 1.6em;
+  position: relative;
+  min-width: 10em;
+  font-size: 13.5px;
+}
+.focused-driver-info .bottom .extra-info ul li.active {
+  color: white;
+}
+.focused-driver-info .bottom .extra-info ul li.finished {
+  animation: none;
+  color: white;
+}
+.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
+  animation: none;
+  color: #76FF03;
+}
+.focused-driver-info .bottom .extra-info ul li.finished.global-best {
+  animation: none;
+  color: #fb00ff;
+}
+@-webkit-keyframes sectorGlow {
+  0% {
+    background-color: #76FF03;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: #76FF03;
+  }
+}
+.focused-driver-info .positionContainer,
+.focused-driver-info .flag-container,
+.focused-driver-info .driverInfoDetails,
+.focused-driver-info .tyre,
+.focused-driver-info .manufacturer,
+.focused-driver-info .vehicle {
+  vertical-align: top;
+  display: inline-block;
+  height: 4em;
+  line-height: 3.25em;
+}
+.focused-driver-info .ptpRemaining,
+.focused-driver-info .best-time,
+.focused-driver-info .positionInClass {
+  vertical-align: top;
+  display: inline-block;
+  border-left: 2px solid;
+}
+.focused-driver-info .top {
+  position: relative;
+  height: 1.75em;
+  bottom: -0.25em;
   z-index: -2;
 }
-.session-info .inner .countdown .countdownIndicatorsRed {
-  z-index: -1;
-  font-size: 24px;
-  color: #e21d38;
+.focused-driver-info .top .ptpRemaining {
+  line-height: 0.5em;
+  background: #212934;
+  padding: 0.5em 0.5em;
+  color: cyan;
+  width: 5em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
 }
-.session-info .inner .sessionInfoFlag {
-  margin: 0;
-  padding: 0;
-  height: 2em;
+.focused-driver-info .top .best-time {
+  line-height: 0.5em;
+  background: #212934;
+  padding: 0.5em 0.5em;
+  color: #76FF03;
+  width: 7em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
+}
+.focused-driver-info .top .positionInClass {
+  line-height: 0.5em;
+  background: #212934;
+  padding: 0.5em 0.5em;
+  color: black;
   width: 3em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
 }
-.session-info .inner .sessionInfoFlag img {
-  border-top-left-radius: 10px;
-  height: 2em;
-  width: 3em;
-  opacity: 1;
+.focused-driver-info .top .fastest {
+  color: #fb00ff;
+  background: #212934;
 }
-.session-info .inner .checkered {
-  margin: 0;
-  padding: 0;
-  width: 4em;
-  font-size: 16px;
-}
-.session-info .inner .checkered img {
-  border-top: 0.2em solid cyan;
-  height: 2em;
-  width: 4em;
-  z-index: 2;
-}
-.session-info .inner .serverName {
-  margin: 0;
-  min-width: 4em;
-  border-top: 0.2em solid cyan;
-  border-left: 0.1em solid cyan;
-  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  text-transform: uppercase;
+.focused-driver-info .main .positionContainer {
+  background: red;
   color: white;
-  z-index: 2;
+  width: 5.5em;
+  left: 0.5em;
+  position: relative;
+  padding-left: 0.1em;
+  text-align: center;
+  padding-right: 0.5em;
+  line-height: 3.7em;
+  border-left: 0.1em solid red;
+}
+.focused-driver-info .main .positionContainer .position {
+  font-size: 49.5px;
+}
+.focused-driver-info .main .driverInfoDetails {
+  background: #212934;
+  text-transform: uppercase;
+  border-bottom: 0.1em solid red;
+  transform: skew(-10deg);
+  width: 24em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: right;
+}
+.focused-driver-info .main .driverInfoDetails .firstName {
+  line-height: 0.5em;
+  color: white;
+  font-size: 16.5px;
+  transform: skew(10deg);
+  display: inline-block;
+}
+.focused-driver-info .main .driverInfoDetails .lastName {
+  padding: 0.2em;
+  line-height: 0.5em;
+  color: #76ff03;
+  font-size: 22.5px;
+  transform: skew(10deg);
+  display: inline-block;
+}
+.focused-driver-info .main .driverInfoDetails .teamEventName {
+  margin-top: 0.5em;
+  line-height: 2em;
+  color: #76ff03;
+  font-size: 19.5px;
+}
+.focused-driver-info .main .driverInfoDetails .team {
+  font-size: 13.5px;
+  line-height: 0em;
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+  text-align: right;
+}
+.focused-driver-info .main .vehicle {
+  width: 1.75em;
+  position: relative;
+  left: -11em;
+}
+.focused-driver-info .main .vehicle img {
+  position: absolute;
+  top: -4.7em;
+  left: -0.5em;
+  height: 6.5em;
+}
+.focused-driver-info .main .manufacturer {
+  background: #212934;
+  width: 4em;
+  position: relative;
+  left: 0em;
+  border-bottom: 0.1em solid red;
+  transform: skew(-10deg);
+  border-bottom-right-radius: 5px;
+}
+.focused-driver-info .main .manufacturer img {
+  position: absolute;
+  transform: skew(10deg);
+  top: 0.4em;
+  left: 0.4em;
+  height: 3em;
+}
+.focused-driver-info .main .flag-container {
+  width: 3em;
+  left: 0.5em;
+  position: relative;
+  background: #212934;
+  border-bottom: 0.1em solid red;
+  margin: 1;
+  z-index: 5;
+}
+.focused-driver-info .main .flag-container .flag {
+  background: #212934;
+  position: absolute;
+  display: block;
+  top: 0.7em;
+  width: 3.5em;
+  left: 0.5em;
+}
+.focused-driver-info .main .flag-container .avatar {
+  background: #212934;
+  position: absolute;
+  display: block;
+  top: 0.15em;
+  width: 3.5em;
+  left: 0.5em;
 }
 @font-face {
   font-family: 'Hel';
@@ -218,11 +535,17 @@ a {
   font-weight: 400;
   src: local('Hel'), local('Hel'), url(/fonts/hel.woff) format('woff');
 }
+@font-face {
+  font-family: 'Formula1-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Formula1-Regular'), url(/fonts/Formula1-Regular.woff2) format('woff2');
+}
 /* ---------------------------------------------------------------------------------------- */
 html,
 body {
   background: transparent;
-  font: 14px/1 Helvetica, verdana, arial, sans-serif;
+  font: 14px/1 Formula1-Regular, Helvetica, verdana, arial, sans-serif;
   color: #000;
 }
 body {
@@ -304,7 +627,7 @@ body {
   color: white;
   background: #15202b;
   z-index: 2;
-  font-family: Abel;
+  font-family: Formula1-Regular;
   line-height: 0.9;
 }
 .commentator-dashboard .title.isLastLaps {
@@ -316,7 +639,7 @@ body {
   opacity: 0.5;
 }
 .commentator-dashboard .estimated .values {
-  font-family: arial;
+  font-family: Formula1-Regular;
 }
 .commentator-dashboard .content {
   padding: 60px 20px 20px;
@@ -334,7 +657,7 @@ body {
   font-size: 25px;
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.3);
-  font-family: Abel;
+  font-family: Formula1-Regular;
 }
 .commentator-dashboard .row-entries {
   padding: 5px;
@@ -388,6 +711,14 @@ body {
   src: local('Abel'), local('Abel Regular'), local('Abel-Regular'), url(/fonts/Abel.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/* ---- Roboto ---- */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto-Regular'), local('Roboto-Regular'), local('Roboto-Regular'), url(/fonts/Roboto-Regular.ttf) format('ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 /* ---- Oswald ---- */
 /* cyrillic */
 @font-face {
@@ -434,8 +765,7 @@ select {
   background-position: center right;
   background-repeat: no-repeat;
   border: 2px solid #76ff03;
-  background: #15202b;
-  border-radius: 35px;
+  background: #212934;
   text-align: center;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   color: #fff;
@@ -483,8 +813,8 @@ select {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #15202b;
-  font-family: Abel;
+  background: #212934;
+  font-family: Formula1-Regular;
 }
 .app-controller .title {
   position: absolute;
@@ -493,19 +823,18 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  height: 40px;
+  height: 35px;
   left: 0px;
   right: 0;
   padding: 10px;
-  font-size: 25px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+  font-size: 17px;
   color: white;
-  background: #15202b;
+  background: #ff0000;
   z-index: 2;
 }
 .app-controller .title .toggle-track-map {
   float: right;
-  height: 30px;
+  height: 20px;
   margin: -5px 0 0 10px;
 }
 .app-controller .title .toggle-track-map:hover {
@@ -531,7 +860,7 @@ select {
 }
 .app-controller .title .toggleControlPanel {
   float: left;
-  height: 30px;
+  height: 25px;
   margin: -5px 0 0;
 }
 .app-controller .title .toggleControlPanel:hover {
@@ -548,16 +877,16 @@ select {
   height: auto;
   background: #0e0e0e;
   color: white;
-  font-family: Oswald;
+  font-family: Formula1-Regular;
   border-top: 2px solid #37474F;
-  background: #15202b;
+  background: #212934;
   width: 100%;
   z-index: 4;
 }
 .app-controller .drivers-controls .controlPanel .controlPanelOption {
   float: left;
   position: relative;
-  font-size: 20px;
+  font-size: 15px;
 }
 .app-controller .drivers-controls .controlPanel .controlPanelOption .option {
   text-align: center;
@@ -575,6 +904,8 @@ select {
 .app-controller .drivers-controls .controlPanel .controlPanelOption input {
   margin-left: 10px;
   display: inline;
+  background: #43474d;
+  color: white;
 }
 .app-controller .drivers-container {
   position: fixed;
@@ -672,9 +1003,8 @@ select {
   bottom: 50%;
   opacity: 1.0;
   font-size: 22px;
-  font-weight: bold;
   padding: 4px 6px;
-  background: rgba(0, 45, 68, 0.8);
+  border-left: 0.5em solid white;
 }
 @-webkit-keyframes "ani_4" {
   0% {
@@ -697,12 +1027,13 @@ select {
   color: white;
   bottom: 0;
   font-size: 16px;
-  background: #15202b;
+  background: #212934;
 }
 .app-controller .widgets-list select,
 .app-controller .suggestions select {
   margin: 10px 5%;
   width: 90%;
+  font-family: Formula1-Regular;
 }
 .app-controller .widgets-list .widget-buttons,
 .app-controller .suggestions .widget-buttons,
@@ -732,13 +1063,11 @@ select {
   opacity: 1;
   background: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
-  border: 5px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   position: relative;
   text-align: center;
-  border-top: 4px solid;
-  box-shadow: 1px 1px 3px #222222;
-  font-family: Oswald;
+  border-left: 4px solid;
+  font-family: Formula1-Regular;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager .text,
 .app-controller .suggestions .widget-buttons .widget-manager .text,
@@ -754,7 +1083,7 @@ select {
   right: 0;
   -webkit-transform: translate(0, -50%);
   padding: 0 10px;
-  font-size: 18px;
+  font-size: 13px;
   line-height: 1.4;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager:hover,
@@ -776,8 +1105,7 @@ select {
 .app-controller .widgets-list .holder .suggestion.active,
 .app-controller .suggestions .holder .suggestion.active {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border-top-color: #76FF03;
+  color: #76ff03;
   border-left-color: #76FF03;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager.inactive,
@@ -795,6 +1123,7 @@ select {
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.2)), color-stop(1, rgba(0, 0, 0, 0.4)));
   border-top-color: #e21d38;
   border-left-color: #e21d38;
+  color: red;
 }
 .app-controller .widgets-list .widget-buttons .widget-manager.inactive.warning,
 .app-controller .suggestions .widget-buttons .widget-manager.inactive.warning,
@@ -859,7 +1188,6 @@ select {
   position: absolute;
   text-align: center;
   font-size: 30px;
-  border-radius: 50%;
 }
 .app-controller .camera-control .control:hover,
 .app-controller .camera-control .control.active {
@@ -932,7 +1260,6 @@ select {
   height: 40px;
   font-size: 30px;
   margin: -20px 0 0 -20px;
-  font-weight: bold;
   line-height: 38px;
   text-align: center;
   color: #fff;
@@ -1003,7 +1330,7 @@ select {
   flex-direction: column;
   height: 100%;
   color: white;
-  font-family: Oswald;
+  font-family: Formula1-Regular;
   border-bottom: 1px solid white;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
 }
@@ -1020,7 +1347,7 @@ select {
   color: white;
   overflow: hidden;
   overflow-y: scroll;
-  font-family: Arial;
+  font-family: Formula1-Regular;
 }
 .tabled-driver-entry:nth-child(odd) {
   opacity: 0.9;
@@ -1032,17 +1359,21 @@ select {
   float: left;
   position: relative;
   opacity: 1;
-  height: 1.3em;
-  font-size: 17px;
+  height: 1.6em;
+  font-size: 15px;
   color: white;
 }
 .tabled-driver-entry.idle {
   opacity: 0.4;
 }
+.tabled-driver-entry.striped {
+  background: #1c232c;
+}
 .tabled-driver-entry.focused {
   opacity: 1;
 }
 .tabled-driver-entry .position,
+.tabled-driver-entry .positionIncrease,
 .tabled-driver-entry .lap,
 .tabled-driver-entry .interesting,
 .tabled-driver-entry .name,
@@ -1056,8 +1387,9 @@ select {
 .tabled-driver-entry .tvCam,
 .tabled-driver-entry .dashCam,
 .tabled-driver-entry .cockpitCam,
-.tabled-driver-entry .frontCam,
-.tabled-driver-entry .rearCam,
+.tabled-driver-entry .actionCam,
+.tabled-driver-entry .heliCam,
+.tabled-driver-entry .staticCam,
 .tabled-driver-entry .wingCam,
 .tabled-driver-entry .tyre,
 .tabled-driver-entry .tyreWear,
@@ -1075,101 +1407,90 @@ select {
   height: 1.3em;
   line-height: 1.2em;
   text-align: center;
-  border-right: 1px dashed grey;
 }
 .tabled-driver-entry .position {
   width: 3%;
   color: #fff;
   opacity: 1.0;
 }
+.tabled-driver-entry .positionIncrease {
+  width: 3%;
+  color: #fff;
+  opacity: 1.0;
+}
+.tabled-driver-entry .gained {
+  color: #76FF03;
+}
+.tabled-driver-entry .level {
+  color: cyan;
+}
+.tabled-driver-entry .lost {
+  color: red;
+}
 .tabled-driver-entry .lap {
-  width: 2.5%;
+  width: 3%;
   color: #5CC4FF;
   opacity: 1.0;
 }
 .tabled-driver-entry .flag {
   border: 0px;
   width: 2%;
-  padding: 0;
 }
 .tabled-driver-entry .flag img {
-  padding: 0;
+  padding: 0.3em;
 }
 .tabled-driver-entry .name {
-  width: 11%;
+  width: 13%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 .tabled-driver-entry .name.focused {
-  border: 1px solid #76FF03;
   background: #76FF03;
   color: black;
 }
 .tabled-driver-entry .manufacturer {
   border: 0px;
   width: 1.5%;
-  padding: 0;
+  padding: 0.1em;
 }
 .tabled-driver-entry .manufacturer img {
   padding: 0;
 }
 .tabled-driver-entry .livery {
   border: 0px;
-  width: 3%;
-  padding: 0;
-}
-.tabled-driver-entry .livery img {
-  padding: 0;
+  width: 2.5%;
+  padding: 0.1em;
 }
 .tabled-driver-entry .cameras {
-  color: #4CAF50;
-  width: 12%;
+  color: #76ff03;
+  width: 10.5%;
   opacity: 1.0;
 }
-.tabled-driver-entry .tvCam {
-  color: #4CAF50;
-  width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .cockpitCam {
-  color: #4CAF50;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .dashCam {
-  color: #4CAF50;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .frontCam {
-  color: #4CAF50;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .rearCam {
-  color: #4CAF50;
-  min-width: 2%;
-  opacity: 1.0;
-}
-.tabled-driver-entry .wingCam {
-  color: #4CAF50;
-  min-width: 2%;
+.tabled-driver-entry .tvCam,
+.tabled-driver-entry .cockpitCam,
+.tabled-driver-entry .dashCam,
+.tabled-driver-entry .wingCam,
+.tabled-driver-entry .actionCam,
+.tabled-driver-entry .staticCam,
+.tabled-driver-entry .heliCam {
+  color: #76ff03;
+  width: 1.7%;
   opacity: 1.0;
 }
 .tabled-driver-entry .pit {
-  width: 3%;
-  color: #7E57C2;
+  width: 5%;
+  color: #00b8ff;
   opacity: 1.0;
 }
 .tabled-driver-entry .currentSpeed {
-  width: 3%;
+  width: 4%;
   color: #FF9800;
   opacity: 1.0;
 }
 .tabled-driver-entry .mandatoryPit {
-  width: 4%;
-  color: #7E57C2;
+  width: 7%;
+  color: #fb00ff;
   opacity: 1.0;
 }
 .tabled-driver-entry .tyre {
@@ -1177,6 +1498,7 @@ select {
   width: 3%;
   padding: 0;
   color: yellow;
+  padding: 0.1em;
 }
 .tabled-driver-entry .tyre img {
   width: 45%;
@@ -1189,13 +1511,13 @@ select {
   color: white;
 }
 .tabled-driver-entry .damage {
-  width: 4%;
-  color: #8BC34A;
+  width: 5%;
+  color: #ff8100;
   opacity: 1.0;
   background: transparent;
 }
 .tabled-driver-entry .flags {
-  width: 5%;
+  width: 4%;
   opacity: 1.0;
   color: white;
   background: transparent;
@@ -1230,14 +1552,14 @@ select {
 }
 .tabled-driver-entry .best-lap-s1 {
   width: 5%;
-  color: #4DB6AC;
+  color: #00ffe7;
 }
 .tabled-driver-entry .best-lap-s1.invalid {
   color: #F44336;
 }
 .tabled-driver-entry .best-lap-s2 {
   width: 5%;
-  color: #26A69A;
+  color: #F44336;
 }
 .tabled-driver-entry .best-lap-s2.invalid {
   color: #F44336;
@@ -1245,7 +1567,7 @@ select {
 .tabled-driver-entry .best-lap-time {
   width: 7%;
   opacity: 1.0;
-  color: #009688;
+  color: #00ffa1;
 }
 .tabled-driver-entry .best-lap-time.invalid {
   color: #F44336;
@@ -1253,7 +1575,7 @@ select {
 .tabled-driver-entry .last-lap-time {
   width: 7%;
   opacity: 1.0;
-  color: #76ff03;
+  color: #ffe003;
 }
 .tabled-driver-entry .last-lap-time.invalid {
   color: #F44336;
@@ -1263,14 +1585,14 @@ select {
   opacity: 1.0;
 }
 .tabled-driver-entry .action .actionIcon {
-  background: #000;
+  background: #ffeb00;
+  color: black;
   margin: 0 10px;
-  font-weight: bold;
   cursor: pointer;
-  border-radius: 5px;
 }
 .tabled-driver-entry .action .actionIcon:hover {
-  color: yellow;
+  background: red;
+  color: white;
 }
 .tabled-driver-entry .drs {
   width: 2.5%;
@@ -1283,7 +1605,7 @@ select {
 .tabled-driver-entry .ptp {
   width: 2.5%;
   opacity: 1.0;
-  color: #1976D2;
+  color: #ff0076;
 }
 .tabled-driver-entry .ptp.active {
   color: #00BCD4;
@@ -1293,14 +1615,10 @@ select {
   color: white;
 }
 .tabled-driver-entry .interesting.close {
-  border: 1px solid #FF9800;
-  border-radius: 25px;
-  background: #FF9800;
+  background: #fbff00;
   color: black;
 }
 .tabled-driver-entry .interesting.veryClose {
-  border: 1px solid red;
-  border-radius: 25px;
   background: red;
   color: white;
 }
@@ -1318,20 +1636,18 @@ select {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #15202b;
+  background: #212934;
 }
 .actionModal .inner textarea {
   width: 400px;
   padding: 10px;
-  font-size: 20px;
-  border-radius: 5px;
+  font-size: 15px;
   border: 0;
 }
 .actionModal .inner input {
   width: 100px;
   padding: 10px;
   font-size: 40px;
-  border-radius: 5px;
   border: 0;
   text-align: center;
 }
@@ -1340,28 +1656,25 @@ select {
   color: #fff;
   background: transparent;
   text-transform: uppercase;
-  font-family: Oswald;
+  font-family: Formula1-Regular;
   margin: 5px 5px 5px 10px;
   padding: 13px 20px;
   font-size: 20px;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
 }
 .actionModal .inner .optionContainer {
   display: flex;
   padding: 5px;
-  border: 2px solid #76ff03;
-  border-radius: 10px;
+  border: 2px solid #ff0000;
 }
 .actionModal .inner .close {
   position: absolute;
   bottom: 110%;
   right: -2px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  border: 2px solid #76ff03;
   padding: 10px;
   cursor: pointer;
-  background: #15202b;
+  background: #212934;
 }
 .actionModal .inner .close:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -1381,7 +1694,6 @@ select {
   font-size: 25px;
   padding: 30px;
   border: 2px solid rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
   margin: 5px;
   cursor: pointer;
   text-transform: uppercase;
@@ -1415,7 +1727,7 @@ select {
   color: white;
   background: #15202b;
   z-index: 2;
-  font-family: Abel;
+  font-family: Formula1-Regular;
   line-height: 0.9;
 }
 .overview .title.isLastLaps {
@@ -1427,7 +1739,7 @@ select {
   opacity: 0.5;
 }
 .overview .estimated .values {
-  font-family: arial;
+  font-family: Formula1-Regular;
 }
 .overview .content {
   padding: 0 20px 20px;
@@ -1456,7 +1768,7 @@ select {
   font-size: 25px;
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.3);
-  font-family: Abel;
+  font-family: Formula1-Regular;
 }
 .overview .row-title .flag {
   width: 25px;
@@ -1592,7 +1904,7 @@ select {
 .overview .info table tr th {
   font-size: 15px;
   background: rgba(0, 0, 0, 0.4);
-  font-family: Abel;
+  font-family: Formula1-Regular;
   white-space: nowrap;
 }
 .overview .info table tr.inactive {
@@ -1640,6 +1952,18 @@ select {
   src: local('DaimlerCS-Demi'), url(/fonts/DaimlerCS-Demi.woff2) format('woff2');
 }
 @font-face {
+  font-family: 'Formula1-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Formula1-Regular'), url(/fonts/Formula1-Regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('roboto-regular'), url(/fonts/roboto-regular.woff2) format('woff2');
+}
+@font-face {
   font-family: 'DaimlerCS-ExtraBoldItalic';
   font-style: normal;
   font-weight: 400;
@@ -1657,13 +1981,15 @@ select {
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: 0.2;
+  background-image: url('https://myrealdomain.com/images/vhs-effect-clipart-6.png');
 }
 .app-spectator .camera-fade.after {
   opacity: 1;
 }
 .app-spectator .pit-window-information {
   -webkit-animation: "ani_5" 0.5s ease, "ani_6" 0.2s ease;
-  font-family: Oswald;
+  font-family: Formula1-Regular;
   position: fixed;
   top: 120px;
   left: 50%;
@@ -1708,8 +2034,8 @@ select {
   opacity: 0;
 }
 .alert {
-  font-size: 17.6px;
-  font-family: Oswald;
+  font-size: 16.5px;
+  font-family: Formula1-Regular;
   position: fixed;
   top: 17em;
   right: 5em;
@@ -1724,80 +2050,87 @@ select {
   opacity: 0.5;
 }
 .alert .raceControlAlert {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-top: 3px solid cyan;
-  background: rgba(0, 45, 68, 0.8);
-  color: white;
-  font-size: 17.6px;
+  background: #212934;
+  color: yellow;
+  font-size: 15px;
   padding: 0.05em;
+  top: 0.1em;
+  z-index: 0;
 }
 .alert .alertMessage {
-  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  color: white;
+  background: yellow;
+  color: black;
+  font-size: 15px;
   padding: 0.15em;
-  font-size: 17.6px;
   text-transform: capitalize;
+  z-index: -1;
 }
 .code60Container {
-  font-size: 16px;
+  font-size: 15px;
   position: fixed;
   top: 7em;
-  background: #e12f82;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
-  border: 1px solid #e12f82;
-  border-bottom-right-radius: 10px;
-  display: inline-block;
-}
-.code60Container .code60Img {
-  float: left;
-  font-family: Oswald;
-  text-transform: uppercase;
-  height: 2em;
-  width: 3em;
-}
-.code60Container .code60 {
-  border: 1px solid #e12f82;
-  border-bottom-right-radius: 10px;
-  font-family: Oswald;
-  background: #e12f82;
-  text-transform: uppercase;
-  color: white;
-  height: 2em;
-  width: 8em;
-  line-height: 2em;
+  left: 45%;
+  width: 15em;
+  line-height: 1.7em;
   text-align: center;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+}
+.code60Container .raceControl {
+  border-top: yellow 3px solid;
+  background: #212934;
+  color: yellow;
+  font-size: 16.5px;
+  padding: 0.05em;
+  top: 0.1em;
+  z-index: 0;
+}
+.code60Container .vscDeployed {
+  background: yellow;
+  color: black;
+  font-size: 16.5px;
+  padding: 0.15em;
+  text-transform: capitalize;
+  z-index: -1;
+  animation: glow 2s infinite;
+}
+@-webkit-keyframes glow {
+  0% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: yellow;
+  }
 }
 .commentaryNameAlert {
-  font-size: 17.6px;
-  font-family: Oswald;
+  font-size: 15px;
+  font-family: Formula1-Regular;
   position: fixed;
-  bottom: 14em;
+  bottom: 15em;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   text-align: center;
   text-transform: uppercase;
   min-height: 1em;
-  width: 14em;
+  width: 25em;
   line-height: 1.7em;
   display: inline-block;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+  background: #212934;
+  border-left: 3px solid #76ff03;
 }
 .commentaryNameAlert .commentaryTitle {
-  -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid cyan;
-  background: rgba(0, 45, 68, 0.8);
-  color: white;
-  font-size: 17.6px;
+  color: #76ff03;
+  font-size: 13.5px;
   padding: 0.05em;
   top: 0.1em;
   z-index: 0;
 }
 .commentaryNameAlert .commentaryName {
-  -webkit-transform: skew(-10deg, 0deg);
-  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  font-size: 22.5px;
   color: white;
-  font-size: 17.6px;
   padding: 0.15em;
   text-transform: capitalize;
   z-index: -1;
@@ -1811,7 +2144,7 @@ select {
   text-align: center;
 }
 .compare-race .delta {
-  font-size: 16px;
+  font-size: 15px;
   text-transform: uppercase;
   color: white;
   padding: 0.25em 0.5em;
@@ -1821,26 +2154,22 @@ select {
 }
 .compare-race .delta .battle {
   text-transform: uppercase;
-  border-top: 0.25em solid cyan;
+  border-left: 0.25em solid #76ff03;
   color: white;
   padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
-  transform: skew(-10deg);
-  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  left: 0.3em;
+  background: #212934;
 }
 .compare-race .delta .value {
   text-transform: uppercase;
-  color: white;
+  color: #76ff03;
   padding: 0.4em 0.7em;
   width: inherit;
   position: relative;
   bottom: 0.25em;
-  left: -0.05em;
-  transform: skew(-10deg);
-  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: #212934;
 }
 .compare-race .delta .inner {
   position: absolute !important;
@@ -1860,14 +2189,14 @@ select {
   left: 0;
   right: 0;
   text-align: center;
-  font-family: Oswald;
+  font-family: Formula1-Regular;
   color: #fff;
-  /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
   position: fixed !important;
-  bottom: 144px;
+  bottom: 135px;
 }
 .compare-race .inner .inner {
-  font-size: 16px;
+  font-size: 15px;
   white-space: nowrap;
   width: auto;
   height: 4em;
@@ -1879,36 +2208,62 @@ select {
 }
 .compare-race .inner .top {
   position: relative;
-  bottom: -0.2em;
+  bottom: -0.3em;
   text-align: center;
   height: 1.75em;
   left: -4.5em;
   margin: 0;
 }
+.compare-race .inner .top .drs,
+.compare-race .inner .top .ptp,
 .compare-race .inner .top .speed,
 .compare-race .inner .top .best-time {
   vertical-align: top;
   display: inline-block;
 }
 .compare-race .inner .top .speed {
-  transform: skew(-10deg);
-  background: #ff9800;
+  background: #212934;
   line-height: 0.5em;
   padding: 0.5em 0.5em;
-  color: black;
-  width: 5em;
+  color: yellow;
+  width: 7em;
   z-index: 0;
   height: 1.5em;
+  border-left: 0.1em solid yellow;
+  text-align: right;
 }
 .compare-race .inner .top .best-time {
-  transform: skew(-10deg);
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.7) 90%);
+  background: #212934;
   line-height: 0.5em;
   padding: 0.5em 0.5em;
-  color: white;
-  width: 5em;
+  color: #76FF03;
+  width: 7em;
   z-index: 0;
-  height: 1.5em;
+  height: 1.4em;
+  border-left: 0.1em solid #76FF03;
+  bottom: 0.1em;
+}
+.compare-race .inner .top .drs.active .icon {
+  background: #76ff03;
+  color: black;
+  position: relative;
+  height: 1.4em;
+  line-height: 1.5em;
+  font-family: Formula1-Regular;
+  width: 4em;
+  font-size: 15px;
+  animation: drsGlow 1s infinite;
+}
+.compare-race .inner .top .ptp.active .icon {
+  background: #00b8ff;
+  color: black;
+  position: relative;
+  height: 1.4em;
+  line-height: 1.5em;
+  font-family: Formula1-Regular;
+  width: 4em;
+  font-size: 15px;
+  animation: ptpGlow 1s infinite;
 }
 .compare-race .inner .comparePositionContainer,
 .compare-race .inner .compareName,
@@ -1921,166 +2276,144 @@ select {
   line-height: 3.75em;
 }
 .compare-race .inner .main .comparePositionContainer {
-  background: linear-gradient(190deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: red;
   color: white;
-  width: 3.75em;
+  width: 5.5em;
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
   line-height: 3.5em;
-  border-bottom: 0.1em solid cyan;
-  border-top-left-radius: 10px;
-  transform: skew(-10deg);
 }
 .compare-race .inner .main .comparePositionContainer .comparePosition {
-  position: relative;
-  left: -0.075em;
-  font-size: 48px;
+  font-size: 45px;
 }
 .compare-race .inner .main .compareName {
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  background: #212934;
   color: white;
-  padding: 0 1em;
-  min-width: 12em;
-  border-bottom: 0.1em solid cyan;
+  padding: 0.1em;
+  min-width: 22em;
+  text-align: right;
+  border-bottom: 0.1em solid red;
 }
-.compare-race .inner .main .compareName .name {
-  font-size: 20.8px;
+.compare-race .inner .main .compareName .firstName {
+  line-height: 0.5em;
+  color: white;
+  font-size: 15px;
+  display: inline-block;
+}
+.compare-race .inner .main .compareName .lastName {
+  padding: 0.2em;
+  line-height: 0.5em;
+  color: #76ff03;
+  font-size: 21px;
+  display: inline-block;
 }
 .compare-race .inner .main .vehicle {
   width: 1.75em;
   position: fixed;
   border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
   z-index: 2;
 }
 .compare-race .inner .main .vehicle img {
   position: absolute;
-  top: -3.2em;
-  left: -4.2em;
-  height: 4.5em;
+  top: -4.2em;
+  left: -7.5em;
+  height: 6em;
 }
 .compare-race .inner .main .manufacturer {
-  background: white;
+  background: #212934;
   width: 4em;
   z-index: 1;
   position: relative;
   left: -0.3em;
-  transform: skew(-10deg);
-  border-bottom: 0.1em solid cyan;
-  border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 0.1em solid red;
 }
 .compare-race .inner .main .manufacturer img {
   position: absolute;
-  transform: skew(10deg);
   top: 0.25em;
   right: 0.5em;
   height: 3em;
 }
 .compare-race .inner .bottom {
   position: relative;
-  height: 1.5em;
-  width: 20em;
-  left: 1em;
-  z-index: -1;
+  height: 1.8em;
+  width: 25em;
+  left: 9.2em;
+  z-index: -3;
+  background: #212934;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .compare-race .inner .bottom .team {
-  border-bottom-left-radius: 10px;
-  transform: skew(-10deg);
-  border-bottom-right-radius: 10px;
-  background: rgba(0, 45, 68, 0.8);
+  font-size: 13.5px;
+  padding: 0.35em;
   color: white;
   height: 1.5em;
   text-transform: uppercase;
   top: 3.5em;
   line-height: 1.5em;
   border: 0.1em;
-}
-.compare-race .inner .compareAssists {
-  height: 1.5em;
-}
-.compare-race .inner .compareAssists .drs .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .drs.active .icon {
-  transform: skew(-10deg);
-  background: rgba(76, 175, 80, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 16px;
-  bottom: 0;
-}
-.compare-race .inner .compareAssists .ptp .icon {
-  width: 0;
-  font-size: 0;
-}
-.compare-race .inner .compareAssists .ptp.active .icon {
-  transform: skew(-10deg);
-  background: rgba(66, 165, 245, 0.7);
-  position: relative;
-  top: -6.5em;
-  left: 0.75em;
-  right: 0.5em;
-  height: 1.5em;
-  line-height: 1.75em;
-  font-family: Oswald;
-  width: 3em;
-  font-size: 16px;
-  bottom: 0;
+  text-align: right;
 }
 .compare-race .inner .compare-flag-container {
+  border-bottom: 0.1em solid red;
   width: 3em;
   position: relative;
-  margin-right: 0.25em;
-  transform: skew(-10deg);
+  background: #212934;
 }
 .compare-race .inner .compare-flag-container .compare-flag {
-  background: rgba(38, 50, 56, 0.8);
+  background: #212934;
   position: fixed;
   display: block;
   content: '';
   width: 4em;
-  height: 3.5em;
+  height: 2.5em;
   position: absolute;
-  left: -0.3em;
+  top: 0.5em;
+  left: 1em;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
+  z-index: 1;
+}
+.compare-race .inner .compare-flag-container .compare-avatar {
+  background: #212934;
+  position: fixed;
+  display: block;
+  content: '';
+  width: 3em;
+  height: 2.5em;
+  position: absolute;
+  top: 0.5em;
+  left: 1em;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
   z-index: 1;
 }
 .driverOfTheDayAlert {
-  font-size: 17.6px;
-  font-family: Oswald;
+  font-size: 15px;
+  font-family: Formula1-Regular;
   position: fixed;
-  bottom: 14em;
+  bottom: 15em;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   text-align: center;
   text-transform: uppercase;
   min-height: 1em;
-  width: 14em;
+  width: 25em;
   line-height: 1.7em;
   display: inline-block;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+  background: #212934;
+  border-left: 3px solid #76ff03;
 }
 .driverOfTheDayAlert .dotdTitle {
-  -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid cyan;
-  background: rgba(0, 45, 68, 0.8);
-  color: white;
-  font-size: 17.6px;
+  color: #76ff03;
+  font-size: 13.5px;
   padding: 0.05em;
   top: 0.1em;
   z-index: 0;
 }
 .driverOfTheDayAlert .dotdName {
-  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
+  font-size: 22.5px;
   color: white;
-  -webkit-transform: skew(-10deg, 0deg);
-  font-size: 17.6px;
   padding: 0.15em;
   text-transform: capitalize;
   z-index: -1;
@@ -2104,7 +2437,7 @@ select {
   padding: 0.5em;
   background-color: green;
   white-space: pre;
-  font-family: Oswald;
+  font-family: Formula1-Regular;
   width: 70%;
   max-height: 20em;
   filter: drop-shadow(9px 9px 9px #000000);
@@ -2127,7 +2460,7 @@ select {
   float: left;
   position: relative;
   height: 2em;
-  font-size: 16px;
+  font-size: 15px;
   color: black;
 }
 .entries-driver .entrySlot,
@@ -2179,11 +2512,11 @@ select {
   right: 0;
   bottom: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
 }
 .event-info {
-  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 45, 68, 0.5));
-  font-size: 16px;
+  background: #212934;
+  font-size: 15px;
   width: 50em;
   position: fixed;
   top: 15em;
@@ -2191,17 +2524,16 @@ select {
   transform: translate(-50%, 0);
   z-index: -1;
   padding: 0em;
-  color: #fff;
+  color: white;
   white-space: pre;
-  font-family: Oswald;
-  border-top: 0.3em solid cyan;
-  border-bottom: 0.3em solid cyan;
+  font-family: Formula1-Regular;
 }
 .event-info .serverName {
   color: white;
-  text-align: center;
-  font-size: 24px;
-  padding: 20px;
+  text-align: right;
+  font-size: 18px;
+  padding: 1.5em;
+  border-left: 0.3em solid #76ff03;
 }
 .event-info .trackImage img {
   display: block;
@@ -2223,1159 +2555,26 @@ select {
   width: 100px;
   background-color: white;
 }
-.event-info .countryFlag {
-  text-align: center;
-  padding-top: 15px;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
-.event-info .countryFlag img {
-  position: relative;
-  opacity: 1;
-  height: 50px;
-  width: 70px;
-}
 .event-info .serverTrackName {
-  -webkit-transform: skew(-10deg, 0deg);
-  color: white;
+  color: #76ff03;
   text-align: center;
-  font-size: 24px;
-  padding: 15px;
-  border-bottom: 1px solid white;
+  font-size: 22.5px;
+  padding-top: 1em;
   width: 80%;
   margin: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
-.event-info .trackDescription {
-  color: white;
-  display: block;
-  width: 100%;
-  font-size: 16px;
-  padding: 10px;
-  min-height: 100px;
-  white-space: pre-line;
-  text-align: center;
-  line-height: 1.5;
+.event-info .weather {
+  padding: 1em;
 }
 .event-info .weather .weatherIcons {
   display: flex;
-  font-size: 16px;
+  font-size: 13.5px;
   color: white;
   justify-content: space-around;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-}
-.animated.delay-10s {
-  -webkit-animation-delay: 10s;
-  animation-delay: 10s;
-}
-/* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
-.assists .params {
-  position: relative;
-  height: 4em;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
-}
-.assists .params .gear {
-  font-size: 64px;
-  line-height: 0.95em;
-}
-.assists .params .rpm {
-  font-size: 24px;
-  line-height: 1.2em;
-  text-align: right;
-  padding-right: 0.2em;
-}
-.assists .params .speed {
-  font-size: 24px;
-  line-height: 1.2em;
-  text-align: right;
-  padding-right: 0.2em;
-}
-.assists .params .gearContainer {
-  background: linear-gradient(135deg, #ffffff 10%, rgba(255, 255, 255, 0.9) 90%);
-  color: #212121;
-  position: absolute;
-  bottom: 142.4px;
-  right: 12em;
-  height: 4em;
-  width: 3em;
-  transform: skew(-10deg);
-}
-.assists .params .rpmContainer {
-  background: linear-gradient(135deg, rgba(226, 29, 56, 0.8) 20%, rgba(226, 29, 56, 0.3) 80%);
-  position: absolute;
-  bottom: 176px;
-  right: 4.3em;
-  height: 1.9em;
-  width: 7em;
-  transform: skew(-10deg);
-}
-.assists .params .speedContainer {
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.8) 20%, rgba(0, 200, 83, 0.3) 80%);
-  position: absolute;
-  bottom: 142.4px;
-  right: 4.7em;
-  height: 1.9em;
-  width: 7em;
-  transform: skew(-10deg);
-}
-.assists .drs {
-  position: relative;
-  height: 5em;
-}
-.assists .drs .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .drs .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .drs.active .icon {
-  background: rgba(76, 175, 80, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 16px;
-  transform: skew(-10deg);
-}
-.assists .drs.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 16px;
-  transform: skew(-10deg);
-}
-.assists .ptp {
-  position: relative;
-  height: 5em;
-}
-.assists .ptp .icon {
-  background: rgba(66, 165, 245, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .ptp .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 0;
-  font-size: 0;
-  transform: skew(-10deg);
-}
-.assists .ptp.active .icon {
-  background: rgba(66, 165, 245, 0.7);
-  position: absolute;
-  top: -5.5em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 16px;
-  transform: skew(-10deg);
-}
-.assists .ptp.active .text {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  top: -3em;
-  left: -1em;
-  height: 2.5em;
-  line-height: 2.5em;
-  width: 7.5em;
-  font-size: 16px;
-  transform: skew(-10deg);
-}
-.focused-driver-info {
-  text-align: center;
-  font-family: Oswald;
-  color: #fff;
-  position: fixed;
-  bottom: 160px;
-  left: 0;
-  right: 0;
-}
-.focused-driver-info.hide-flags .flag-container {
-  display: none;
-}
-.focused-driver-info .inner {
-  font-size: 16px;
-  height: 3.5em;
-  display: inline-block;
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-}
-.focused-driver-info .extra-info {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .bottom .extra-info {
-  height: 1em;
-  position: relative;
-  top: -0.5em;
-  z-index: -1;
-  margin-top: 0em;
-  font-family: Oswald;
-}
-.focused-driver-info .bottom .extra-info ul {
-  margin: 0;
-  padding: 0.25em;
-  transform: skew(-10deg);
-}
-.focused-driver-info .bottom .extra-info ul li {
-  float: left;
-  background: rgba(38, 50, 56, 0.8);
-  padding: 0.5em;
-  margin-right: 0.5em;
-  border: 0.1em;
-  color: white;
-  position: relative;
-  min-width: 8em;
-  font-size: 16px;
-}
-.focused-driver-info .bottom .extra-info ul li.active {
-  top: 6em;
-}
-.focused-driver-info .bottom .extra-info ul li.finished {
-  color: #ffffff;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.personal-best {
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.7) 90%);
-  color: white;
-}
-.focused-driver-info .bottom .extra-info ul li.finished.global-best {
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-  color: white;
-}
-.focused-driver-info .positionContainer,
-.focused-driver-info .flag-container,
-.focused-driver-info .driverInfoDetails,
-.focused-driver-info .tyre,
-.focused-driver-info .manufacturer,
-.focused-driver-info .vehicle {
-  vertical-align: top;
-  display: inline-block;
-  height: 4em;
-  line-height: 3.25em;
-}
-.focused-driver-info .ptpRemaining,
-.focused-driver-info .best-time,
-.focused-driver-info .positionInClass {
-  vertical-align: top;
-  display: inline-block;
-}
-.focused-driver-info .top {
-  position: relative;
-  left: -5.2em;
-  height: 1.75em;
-  bottom: -0.25em;
-  z-index: -2;
-}
-.focused-driver-info .top .ptpRemaining {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: rgba(66, 165, 245, 0.7);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 4em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .best-time {
-  transform: skew(-15deg);
-  line-height: 0.5em;
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.7) 90%);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 6em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .positionInClass {
-  transform: skew(-10deg);
-  line-height: 0.5em;
-  background: rgba(38, 50, 56, 0.5);
-  padding: 0.5em 0.5em;
-  color: white;
-  width: 3em;
-  z-index: 0;
-  margin-bottom: 0px;
-  height: 1.5em;
-}
-.focused-driver-info .top .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-}
-.focused-driver-info .main .positionContainer {
-  background: linear-gradient(190deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  color: white;
-  width: 5em;
-  position: relative;
-  padding-left: 0.1em;
-  text-align: center;
-  padding-right: 0.5em;
-  line-height: 3.7em;
-  transform: skew(-10deg);
-  border-top: 0.1em solid cyan;
-  border-top-left-radius: 10px;
-}
-.focused-driver-info .main .positionContainer .position {
-  font-size: 56px;
-  font-family: Oswald;
-  transform: skew(10deg);
-}
-.focused-driver-info .main .driverInfoDetails {
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  text-transform: uppercase;
-  padding: 0px 1em;
-  min-width: 19em;
-  border-bottom: 0.1em solid cyan;
-  transform: skew(-10deg);
-}
-.focused-driver-info .main .driverInfoDetails .name {
-  line-height: 2em;
-  color: white;
-  font-size: 20.8px;
-  transform: skew(10deg);
-}
-.focused-driver-info .main .driverInfoDetails .teamEventName {
-  margin-top: 0.5em;
-  line-height: 2em;
-  color: white;
-  font-size: 20.8px;
-  transform: skew(10deg);
-}
-.focused-driver-info .main .driverInfoDetails .team {
-  font-size: 15.2px;
-  line-height: 0.7em;
-  position: relative;
-  color: white;
-  transform: skew(10deg);
-  text-transform: uppercase;
-}
-.focused-driver-info .main .vehicle {
-  width: 1.75em;
-  position: relative;
-  left: -11.5em;
-}
-.focused-driver-info .main .vehicle img {
-  position: absolute;
-  top: -4em;
-  left: 1.5em;
-  height: 5.5em;
-}
-.focused-driver-info .main .tyre {
-  background: rgba(0, 45, 68, 0.8);
-  width: 4em;
-  position: relative;
-  border-bottom: 0.1em solid cyan;
-  left: 0em;
-  transform: skew(-10deg);
-  border-bottom-right-radius: 10px;
-}
-.focused-driver-info .main .tyre img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.5em;
-  left: 0.5em;
-  height: 3em;
-}
-.focused-driver-info .main .manufacturer {
-  background: white;
-  width: 4em;
-  position: relative;
-  left: 0em;
-  border-bottom: 0.1em solid cyan;
-  transform: skew(-10deg);
-  border-bottom-right-radius: 10px;
-}
-.focused-driver-info .main .manufacturer img {
-  position: absolute;
-  transform: skew(10deg);
-  top: 0.4em;
-  left: 0.4em;
-  height: 3em;
-}
-.focused-driver-info .main .flag-container {
-  width: 3em;
-  position: relative;
-  background: #263238;
-  border-bottom: 0.1em solid #ff5252;
-  transform: skew(-10deg);
-  margin: 1;
-  z-index: 5;
-}
-.focused-driver-info .main .flag-container .flag {
-  background: rgba(38, 50, 56, 0.8);
-  position: absolute;
-  display: block;
-  left: -0.4em;
-  width: 4.5em;
-  height: 4em;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
-}
-.logo-overlay {
-  font-size: 16px;
-  position: absolute;
-  top: 4em;
-  right: 5em;
-  z-index: 5;
-  -webkit-animation: "ani_7" 0.5s ease;
-}
-@-webkit-keyframes "ani_7" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.logo-overlay img {
-  width: 12em;
-}
-.sponsorLogo {
-  position: fixed;
-  top: 5em;
-  left: 6.5em;
-  max-height: 4.7em;
-  max-width: 24em;
-  content: url(img/sponsors/raceroom.jpg);
-}
-.multiclass-standings {
-  position: fixed;
-  top: 10em;
-  color: #fff;
-  left: 6.5em;
-  -webkit-animation: "ani_8" 0.1s ease;
-}
-.multiclass-standings.hide-flags .driver .flag-container {
-  display: none;
-}
-@-webkit-keyframes "ani_8" {
-  0% {
-    -webkit-transform: translate(-10em, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver {
-  font-size: 16px;
-  -webkit-animation: "ani_9" 0.2s ease;
-  position: absolute;
-  top: 0;
-  height: 1.7em;
-  z-index: 1;
-  -webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
-  white-space: nowrap;
-}
-@-webkit-keyframes "ani_9" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.multiclass-standings .driver .inner {
-  height: 1.6em;
-  position: relative;
-  z-index: 1;
-  transform: skew(-15deg, 0deg);
-}
-.multiclass-standings .driver .inner > div {
-  vertical-align: top;
-  height: 100%;
-  line-height: 1.6em;
-}
-.multiclass-standings .driver .classIndicator {
-  background: transparent;
-  display: inline-block;
-  font-size: 1em;
-  text-align: center;
-  width: 0.8em;
-  height: 80%;
-  font-family: Oswald;
-}
-.multiclass-standings .driver .classIndicator .position {
-  transform: skew(15deg, 0deg);
-}
-.multiclass-standings .driver .positionContainer {
-  margin: 0;
-  font-size: 16px;
-  background: linear-gradient(190deg, rgba(0, 45, 68, 0.6), rgba(0, 188, 212, 0.6));
-  display: inline-block;
-  color: white;
-  font-size: 1em;
-  text-align: center;
-  width: 2em;
-  height: 80%;
-  font-family: Oswald;
-  border-top-left-radius: 10px;
-}
-.multiclass-standings .driver .positionContainer .position {
-  transform: skew(15deg, 0deg);
-}
-.multiclass-standings .driver .flagContainer {
-  background: rgba(0, 45, 68, 0.8);
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  z-index: 1;
-}
-.multiclass-standings .driver .flagContainer .standingsFlag {
-  height: 100%;
-  padding: 0.05em;
-}
-.multiclass-standings .driver .flagContainer .standingsFlag img {
-  height: 100%;
-}
-.multiclass-standings .driver .manufacturerContainer {
-  background: white;
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  z-index: 1;
-}
-.multiclass-standings .driver .manufacturerContainer .manufacturerFlag {
-  position: relative;
-  left: 0.2em;
-  height: 100%;
-}
-.multiclass-standings .driver .manufacturerContainer .manufacturerFlag img {
-  transform: skew(15deg, 0deg);
-  height: 100%;
-}
-.multiclass-standings .driver .nameContainer {
-  font-size: 16px;
-  background-color: #b71c1c;
-  font-family: Oswald;
-  display: inline-block;
-  color: white;
-  background: rgba(0, 45, 68, 0.8);
-  width: 4em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  line-height: inherit;
-  text-align: center;
-  z-index: 1;
-}
-.multiclass-standings .driver .nameContainer .name {
-  transform: skew(15deg, 0deg);
-}
-.multiclass-standings .driver .meta-info-container {
-  font-size: 16px;
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.6), rgba(0, 188, 212, 0.6));
-  color: white;
-  font-family: Oswald;
-  display: inline-block;
-  height: 1.2em;
-  text-align: center;
-  line-height: 1em;
-  min-width: 5em;
-  z-index: -1;
-  -webkit-animation: "ani_10" 0.1s ease;
-  border-bottom-right-radius: 10px;
-}
-@-webkit-keyframes "ani_10" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver .meta-info-container .meta-info {
-  transform: skew(15deg, 0deg);
-}
-.multiclass-standings .driver .meta-info-container .fastest {
-  color: white;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 10%, rgba(156, 39, 176, 0.7) 90%);
-  border-bottom-right-radius: 10px;
-  transform: skew(0deg, 0deg);
-}
-.multiclass-standings .driver .pit-info {
-  -webkit-animation: "ani_11" 0.5s ease;
-  margin: 0;
-  display: inline-block;
-  width: 1.5em;
-  text-align: center;
-}
-@-webkit-keyframes "ani_11" {
-  0% {
-    -webkit-transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-.multiclass-standings .driver .pit-info .pitted {
-  font-size: 19.2px;
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.7) 10%, rgba(0, 200, 83, 0.7) 90%);
-}
-.multiclass-standings .driver .pit-info .unpitted {
-  font-size: 19.2px;
-  background: #e21d38;
-}
-.race-results-bg {
-  font-size: 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
-}
-.race-results .entries-outer {
-  max-height: 40em;
-  overflow: hidden;
-}
-.race-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
-}
-.race-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.race-results {
-  filter: drop-shadow(9px 9px 9px #000000);
-  position: fixed;
-  top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0px;
-  color: white;
-  white-space: pre;
-  font-family: Oswald;
-  width: 60%;
-}
-.race-results .title .text {
-  position: inherit;
-  height: 3.8em;
-  text-align: right;
-  padding: 0 0.75em 0 0;
-  line-height: 5em;
-  font-size: 24px;
-  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  border-top: 0.25em solid cyan;
-  text-transform: uppercase;
-  padding-bottom: 0.5em;
-  z-index: 0;
-}
-.race-results .title .text .logo {
-  position: absolute;
-  content: url(results/logos/mercedes.png);
-  height: 2.2em;
-  top: 0.9em;
-  left: 1em;
-  z-index: 1;
-}
-.race-results .race-results-entry {
-  height: 2em;
-  line-height: 2em;
-  color: white;
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry.striped {
-  opacity: 0.85;
-}
-.race-results .race-results-entry.title {
-  padding: 0 0 0 0em;
-  font-size: 17.6px;
-}
-.race-results .race-results-entry.fastest .fastest-time {
-  color: #a3229a;
-}
-.race-results .race-results-entry > div {
-  height: 37px;
-  padding: 0 0 0 5px;
-  float: left;
-}
-.race-results .race-results-entry.title .classPosition {
-  color: white;
-  -ms-transform: skew(0deg, 0deg);
-  -webkit-transform: skew(0deg, 0deg);
-  transform: skew(0deg, 0deg);
-}
-.race-results .race-results-entry .position {
-  text-align: center;
-  width: 7%;
-  position: relative;
-}
-.race-results .race-results-entry .classPosition {
-  width: 10%;
-  position: relative;
-  text-align: center;
-  color: white;
-  right: 0.5em;
-  -ms-transform: skew(-15deg, 0deg);
-  -webkit-transform: skew(-15deg, 0deg);
-  transform: skew(-15deg, 0deg);
-}
-.race-results .race-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
-}
-.race-results .race-results-entry .manufacturer .manufacturerFlag {
-  position: absolute;
-  top: 0.1em;
-  height: 100%;
-}
-.race-results .race-results-entry .manufacturer .manufacturerFlag img {
-  height: 100%;
-}
-.race-results .race-results-entry .manufacturer .standingsFlag {
-  height: 80%;
-  position: absolute;
-  top: 0.2em;
-}
-.race-results .race-results-entry .manufacturer .standingsFlag img {
-  transform: skew(-15deg, 0deg);
-  height: 100%;
-}
-.race-results .race-results-entry .penaltyTime {
-  width: 10%;
-  position: relative;
-  text-align: center;
-}
-.race-results .race-results-entry .longName {
-  position: relative;
-  width: 27%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry .shortName {
-  position: relative;
-  width: 17%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry .raceResultTeam {
-  position: relative;
-  width: 20%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.race-results .race-results-entry .livery {
-  width: 10%;
-  position: relative;
-}
-.race-results .race-results-entry .livery img {
-  position: relative;
-  height: 3em;
-  right: 1.5em;
-  top: -0.5em;
-}
-.race-results .race-results-entry .fastest-time,
-.race-results .race-results-entry .lap-time {
-  width: 10%;
-  text-align: center;
-  position: relative;
-}
-.winnerColumn {
-  position: fixed;
-  font-size: 16px;
-  font-family: Oswald;
-  width: 14.5em;
-  background: black;
-  left: 2em;
-  height: 13em;
-  top: 40%;
-  -webkit-transform: translate(0, -40%);
-  z-index: 2;
-  border-radius: 0.5em;
-  background: linear-gradient(80deg, rgba(38, 50, 56, 0) 10%, rgba(0, 188, 212, 0.8) 90%);
-}
-.winnerColumn .winnerTitle {
-  font-size: 24px;
-  color: white;
-  height: 2em;
-  text-align: center;
-  line-height: 2em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.winnerColumn .winnerImageContainer {
-  left: 7em;
-  width: 7em;
-  z-index: 2;
-}
-.winnerColumn .winnerImageContainer img {
-  width: 7em;
-  filter: drop-shadow(13px 13px 13px #000000);
-}
-.winnerColumn .winner {
-  font-size: 19.2px;
-  text-align: center;
-  line-height: 1.5em;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  width: 100%;
-  height: 1.5em;
-  color: white;
-}
-.winnerColumn .livery {
-  position: fixed;
-  left: 2em;
-  top: 90%;
-  -webkit-transform: translate(0, -90%);
-  z-index: 1;
-}
-.winnerColumn .livery img {
-  width: 12.5em;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
-}
-.winnerColumn .driverFlagContainer {
-  position: fixed;
-  content: url(results/logos/mercedes.png);
-  width: 5em;
-  top: 35%;
-  -webkit-transform: translate(0, -35%);
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-  left: 9em;
-  z-index: 1;
-}
-.winnerColumn .driverName {
-  font-size: 14.4px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 2em;
-  top: 7%;
-  line-height: 1.5em;
-  color: white;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0.25em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn {
-  position: fixed;
-  font-size: 16px;
-  width: 14.5em;
-  background: black;
-  right: 2em;
-  top: 40%;
-  -webkit-transform: translate(0, -40%);
-  z-index: 2;
-  border-radius: 0.5em;
-  background: linear-gradient(240deg, rgba(38, 50, 56, 0) 10%, #71229a 90%);
-}
-.fastestDriverColumn .fastestTitle {
-  font-size: 24px;
-  color: white;
-  height: 2em;
-  text-align: center;
-  line-height: 2em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn .fastestDriverImageContainer {
-  left: 7em;
-  width: 7em;
-  z-index: 2;
-}
-.fastestDriverColumn .fastestDriverImageContainer img {
-  width: 7em;
-  filter: drop-shadow(13px 13px 13px #000000);
-}
-.fastestDriverColumn .fastestDriverLogo {
-  font-size: 19.2px;
-  text-align: center;
-  line-height: 1.5em;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  width: 100%;
-  height: 1.5em;
-  color: white;
-}
-.fastestDriverColumn .fastestDriverLivery {
-  position: fixed;
-  left: 2em;
-  top: 90%;
-  -webkit-transform: translate(0, -90%);
-  z-index: 1;
-}
-.fastestDriverColumn .fastestDriverLivery img {
-  width: 12.5em;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.9));
-}
-.fastestDriverColumn .fastestDriverFlagContainer {
-  position: fixed;
-  content: url(results/logos/mercedes.png);
-  width: 5em;
-  top: 35%;
-  -webkit-transform: translate(0, -35%);
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-  left: 9em;
-  z-index: 1;
-}
-.fastestDriverColumn .fastestDriverName {
-  font-size: 14.4px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 2em;
-  top: 7%;
-  line-height: 1.5em;
-  color: white;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0.25em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
-}
-.overallQuai {
-  font-size: 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
-}
-.qualify-results .entries-outer {
-  max-height: 40em;
-  overflow: hidden;
-}
-.qualify-results .entries-outer .entries-inner {
-  top: 0;
-  position: relative;
-  -webkit-transition: top 15s linear;
-}
-.qualify-results .livery {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.qualify-results {
-  position: fixed;
-  top: 50%;
-  left: 20%;
-  right: 20%;
-  -webkit-transform: translate(0, -50%);
-  z-index: -1;
-  padding: 0px;
-  color: white;
-  white-space: pre;
-  font-family: Oswald;
-  width: 60%;
-  filter: drop-shadow(9px 9px 9px #000000);
-}
-.qualify-results .title .text {
-  position: inherit;
-  height: 3.8em;
-  text-align: right;
-  padding: 0 0.75em 0 0;
-  line-height: 5em;
-  font-size: 24px;
-  background: linear-gradient(186deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  border-top: 0.25em solid cyan;
-  text-transform: uppercase;
-  padding-bottom: 0.5em;
-  z-index: 0;
-}
-.qualify-results .title .text .logo {
-  position: absolute;
-  content: url(results/logos/mercedes.png);
-  height: 2.2em;
-  top: 0.9em;
-  left: 1em;
-  z-index: 1;
-}
-.qualify-results .qualify-results-entry {
-  height: 2em;
-  line-height: 2em;
-  color: white;
-  background: linear-gradient(386deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry.striped {
-  opacity: 0.85;
-}
-.qualify-results .qualify-results-entry.title {
-  padding: 0 0 0 0em;
-  font-size: 17.6px;
-}
-.qualify-results .qualify-results-entry.title .classPosition {
-  color: white;
-  -ms-transform: skew(0deg, 0deg);
-  -webkit-transform: skew(0deg, 0deg);
-  transform: skew(0deg, 0deg);
-}
-.qualify-results .qualify-results-entry > div {
-  height: 2em;
-  padding: 0 0 0 0.25em;
-  float: left;
-}
-.qualify-results .qualify-results-entry .position {
-  text-align: center;
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .classPosition {
-  width: 10%;
-  position: relative;
-  text-align: center;
-  color: white;
-  right: 0.5em;
-  -ms-transform: skew(-15deg, 0deg);
-  -webkit-transform: skew(-15deg, 0deg);
-  transform: skew(-15deg, 0deg);
-}
-.qualify-results .qualify-results-entry .manufacturer {
-  width: 5%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .manufacturer .manufacturerFlag {
-  position: absolute;
-  top: 0.1em;
-  height: 100%;
-}
-.qualify-results .qualify-results-entry .manufacturer .manufacturerFlag img {
-  height: 100%;
-}
-.qualify-results .qualify-results-entry .manufacturer .standingsFlag {
-  height: 80%;
-  position: absolute;
-  top: 0.2em;
-}
-.qualify-results .qualify-results-entry .manufacturer .standingsFlag img {
-  transform: skew(-15deg, 0deg);
-  height: 100%;
-}
-.qualify-results .qualify-results-entry .longName {
-  position: relative;
-  width: 30%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .shortName {
-  position: relative;
-  width: 20%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .resultTeam {
-  position: relative;
-  width: 25%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.qualify-results .qualify-results-entry .livery {
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .livery img {
-  position: relative;
-  height: 3em;
-  right: 1.5em;
-  top: -0.5em;
-}
-.qualify-results .qualify-results-entry .fastest-time,
-.qualify-results .qualify-results-entry .lap-time {
-  width: 10%;
-  position: relative;
-}
-.qualify-results .qualify-results-entry .fastest-time.fastest,
-.qualify-results .qualify-results-entry .lap-time.fastest {
-  color: #f500f5;
-}
-.safetyCarDeployedContainer {
-  font-size: 16px;
-  position: fixed;
-  top: 7em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0) skew(-15deg, 0deg);
-}
-.safetyCarDeployedContainer .safetyCarDeployed {
-  font-family: Oswald;
-  background: rgba(255, 152, 0, 0.7);
-  text-transform: uppercase;
-  color: white;
-  height: 2em;
-  padding: 0.1em;
-  line-height: 2em;
-  text-align: center;
-}
-.safetyAlert {
-  font-size: 17.6px;
-  font-family: Oswald;
-  position: fixed;
-  top: 12em;
-  right: 5em;
-  text-transform: uppercase;
-  min-height: 1em;
-  width: 11em;
-  line-height: 1.7em;
-  text-align: center;
-  display: inline-block;
-}
-.safetyAlert .raceControl {
-  -webkit-transform: skew(-10deg, 0deg);
-  border-top: 3px solid cyan;
-  background: rgba(0, 45, 68, 0.8);
-  color: white;
-  font-size: 17.6px;
-  padding: 0.05em;
-  top: 0.1em;
-  z-index: 0;
-}
-.safetyAlert .safetyCarIn {
-  background: linear-gradient(180deg, rgba(0, 45, 68, 0.8), rgba(0, 188, 212, 0.8));
-  color: white;
-  -webkit-transform: skew(-10deg, 0deg);
-  font-size: 17.6px;
-  padding: 0.15em;
-  text-transform: capitalize;
-  z-index: -1;
+  padding: 1em;
 }
 .error-screen {
   z-index: 2147483627;
@@ -3403,6 +2602,830 @@ pre.preview {
   font-family: 'Inconsolata';
   padding: 20px;
 }
+.logo-overlay {
+  font-size: 15px;
+  position: absolute;
+  top: 3em;
+  right: 5em;
+  z-index: 5;
+  filter: contrast(180%);
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.9));
+  -webkit-animation: "ani_7" 0.5s ease;
+}
+@-webkit-keyframes "ani_7" {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.logo-overlay img {
+  width: 12em;
+}
+.sponsorLogo {
+  position: fixed;
+  top: 4em;
+  left: 6.5em;
+  max-height: 4.9em;
+  max-width: 24em;
+  content: url(img/sponsors/raceroom.jpg);
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+}
+.multiclass-standings {
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+  position: fixed;
+  top: 10em;
+  color: #fff;
+  left: 6.5em;
+  -webkit-animation: "ani_8" 0.1s ease;
+}
+.multiclass-standings.hide-flags .driver .flag-container {
+  display: none;
+}
+@-webkit-keyframes "ani_8" {
+  0% {
+    -webkit-transform: translate(-10em, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+.multiclass-standings .driver {
+  font-size: 15px;
+  position: absolute;
+  top: 0;
+  height: 1.7em;
+  z-index: 1;
+  background: #212934;
+  -webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
+  white-space: nowrap;
+}
+.multiclass-standings .driver .inner {
+  height: 1.6em;
+  position: relative;
+  z-index: 1;
+}
+.multiclass-standings .driver .inner > div {
+  vertical-align: top;
+  height: 100%;
+  line-height: 1.6em;
+}
+.multiclass-standings .driver .classIndicator {
+  background: transparent;
+  display: inline-block;
+  font-size: 1em;
+  text-align: center;
+  width: 0.4em;
+  margin-right: 0.3em;
+  height: 90%;
+  font-family: Formula1-Regular;
+}
+.multiclass-standings .driver .positionContainer {
+  margin: 0;
+  font-size: 15px;
+  background: red;
+  display: inline-block;
+  color: white;
+  font-size: 1em;
+  text-align: center;
+  width: 2em;
+  height: 80%;
+  font-family: Formula1-Regular;
+}
+.multiclass-standings .driver .flagContainer {
+  display: inline-block;
+  position: absolute;
+  top: 0.2em;
+  width: 1.5em;
+  height: 2em;
+  z-index: 1;
+}
+.multiclass-standings .driver .flagContainer .standingsFlag {
+  height: 85%;
+}
+.multiclass-standings .driver .flagContainer .standingsFlag img {
+  height: 85%;
+}
+.multiclass-standings .driver .manufacturerContainer {
+  display: inline-block;
+  width: 1.7em;
+  height: 3em;
+  z-index: 1;
+  top: 0.2em;
+}
+.multiclass-standings .driver .manufacturerContainer .manufacturerFlag {
+  position: relative;
+  left: 0.3em;
+  top: 0.2em;
+  height: 90%;
+}
+.multiclass-standings .driver .manufacturerContainer .manufacturerFlag img {
+  height: 90%;
+}
+.multiclass-standings .driver .manufacturerContainer .standingsFlag {
+  position: relative;
+  top: 0.2em;
+  height: 90%;
+  left: 0.4em;
+}
+.multiclass-standings .driver .manufacturerContainer .standingsFlag img {
+  height: 85%;
+}
+.multiclass-standings .driver .manufacturerContainer .positionsChange {
+  position: relative;
+  height: 90%;
+  left: 0.5em;
+  text-align: center;
+}
+.multiclass-standings .driver .manufacturerContainer .positionsChange .gained {
+  color: cyan;
+}
+.multiclass-standings .driver .manufacturerContainer .positionsChange .level {
+  color: cyan;
+}
+.multiclass-standings .driver .manufacturerContainer .positionsChange .lost {
+  color: red;
+}
+.multiclass-standings .driver .nameContainer {
+  font-size: 12.75px;
+  font-family: Formula1-Regular;
+  display: inline-block;
+  color: white;
+  background: #212934;
+  width: 6.5em;
+  padding-top: 0.2em;
+  padding-left: 1.5em;
+  padding-right: 0.5em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1em;
+  z-index: 1;
+}
+.multiclass-standings .driver .nameContainer .firstname {
+  font-size: 12px;
+  color: white;
+  display: inline-block;
+}
+.multiclass-standings .driver .nameContainer .surname {
+  padding-left: 0.3em;
+  color: #76ff03;
+  display: inline-block;
+}
+.multiclass-standings .driver .meta-info-container {
+  font-size: 12px;
+  background: #212934;
+  color: white;
+  font-family: Formula1-Regular;
+  padding-top: 0.3em;
+  display: inline-block;
+  height: 1.2em;
+  text-align: center;
+  line-height: 1.2em;
+  min-width: 6.5em;
+  z-index: -1;
+  -webkit-animation: "ani_9" 0.1s ease;
+}
+@-webkit-keyframes "ani_9" {
+  0% {
+    -webkit-transform: translate(-100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+.multiclass-standings .driver .meta-info-container .fastest {
+  color: #fb00ff;
+}
+.multiclass-standings .driver .meta-info-container .yellow {
+  background: yellow;
+  color: black;
+}
+.multiclass-standings .driver .meta-info-container .grey {
+  color: grey;
+}
+.multiclass-standings .driver .pit-info {
+  -webkit-animation: "ani_10" 0.5s ease;
+  margin: 0;
+  display: inline-block;
+  width: 2em;
+  text-align: center;
+  background: #212934;
+}
+@-webkit-keyframes "ani_10" {
+  0% {
+    -webkit-transform: translate(-100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+.multiclass-standings .driver .pit-info .pitted {
+  font-size: 12px;
+  color: #76FF03;
+}
+.multiclass-standings .driver .pit-info .unpitted {
+  font-size: 12px;
+  color: #F44336;
+}
+.qrCode {
+  font-size: 15px;
+  font-family: Formula1-Regular;
+  position: fixed;
+  top: 44em;
+  right: 5em;
+  text-transform: uppercase;
+  min-height: 1em;
+  width: 15em;
+  line-height: 1.7em;
+  text-align: center;
+  display: inline-block;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+}
+.qrCode .title {
+  border-left: 3px solid #76ff03;
+  background: #212934;
+  color: white;
+  font-size: 16.5px;
+  padding: 0.05em;
+  top: 0.1em;
+  z-index: 0;
+}
+.qrCode .qrContainer {
+  background: white;
+  font-size: 16.5px;
+  padding: 1em;
+  text-transform: capitalize;
+  z-index: -1;
+  height: 9.5em;
+}
+.qrCode .qrContainer img {
+  height: 7.5em;
+}
+.race-results-bg {
+  font-size: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+.race-results .entries-outer {
+  max-height: 40em;
+  overflow: hidden;
+}
+.race-results .entries-outer .entries-inner {
+  top: 0;
+  position: relative;
+  -webkit-transition: top 15s linear;
+}
+.race-results .livery {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.race-results {
+  position: fixed;
+  top: 50%;
+  left: 17.5%;
+  right: 20%;
+  z-index: -1;
+  padding: 0px;
+  color: #76ff03;
+  white-space: pre;
+  font-family: Formula1-Regular;
+  width: 65%;
+  -webkit-transform: translate(0, -80%);
+  filter: drop-shadow(9px 9px 9px #000000);
+}
+.race-results .title .text {
+  position: inherit;
+  height: 3.8em;
+  text-align: right;
+  padding: 0 0.75em 0 0;
+  line-height: 5em;
+  font-size: 19.5px;
+  background: #212934;
+  text-transform: uppercase;
+  padding-bottom: 0.5em;
+  z-index: 0;
+}
+.race-results .title .text .logo {
+  position: absolute;
+  content: url(results/logos/base.png);
+  height: 3.5em;
+  top: 1em;
+  left: 1em;
+  z-index: 1;
+}
+.race-results .title .trackName {
+  position: inherit;
+  height: 2.8em;
+  color: white;
+  text-align: right;
+  padding: 0 0.75em 0 0;
+  line-height: 1em;
+  font-size: 18px;
+  background: #212934;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+  z-index: 0;
+}
+.race-results .race-results-entry {
+  height: 2em;
+  line-height: 2em;
+  color: white;
+  background: #212934;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.race-results .race-results-entry.striped {
+  opacity: 0.95;
+}
+.race-results .race-results-entry.title {
+  padding: 0 0 0 0em;
+  font-size: 16.5px;
+}
+.race-results .race-results-entry.fastest .fastest-time {
+  color: #a3229a;
+}
+.race-results .race-results-entry > div {
+  height: 37px;
+  padding: 0 0 0 5px;
+  float: left;
+}
+.race-results .race-results-entry.title .classPosition {
+  color: white;
+}
+.race-results .race-results-entry .overallPosition {
+  text-align: center;
+  width: 10%;
+  position: relative;
+  border-left: 0.5em solid #76ff03;
+  color: white;
+}
+.race-results .race-results-entry .classPosition {
+  width: 10%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.race-results .race-results-entry .classPositionWhenHidden {
+  width: 10%;
+  position: relative;
+}
+.race-results .race-results-entry .first {
+  color: gold;
+}
+.race-results .race-results-entry .second {
+  color: silver;
+}
+.race-results .race-results-entry .third {
+  color: #CD7F32;
+}
+.race-results .race-results-entry .manufacturer {
+  width: 5%;
+  position: relative;
+}
+.race-results .race-results-entry .manufacturer .manufacturerFlag {
+  position: absolute;
+  height: 80%;
+}
+.race-results .race-results-entry .manufacturer .manufacturerFlag img {
+  height: 80%;
+}
+.race-results .race-results-entry .manufacturer .standingsFlag {
+  height: 80%;
+  position: absolute;
+  top: 0.2em;
+}
+.race-results .race-results-entry .manufacturer .standingsFlag img {
+  height: 80%;
+}
+.race-results .race-results-entry .penaltyTime {
+  width: 10%;
+  position: relative;
+  text-align: center;
+}
+.race-results .race-results-entry .raceResultFirstName {
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 2%;
+}
+.race-results .race-results-entry .raceResultLastName {
+  color: #76ff03;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 22%;
+}
+.race-results .race-results-entry .raceResultTeam {
+  color: white;
+  position: relative;
+  width: 25%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.race-results .race-results-entry .fastest-time,
+.race-results .race-results-entry .lap-time {
+  color: white;
+  text-align: center;
+  padding-left: 0.5em;
+  width: 12%;
+  position: relative;
+}
+.race-results .race-results-entry .fastest-time.fastest,
+.race-results .race-results-entry .lap-time.fastest {
+  color: #fb00ff;
+}
+.winnerColumn {
+  filter: drop-shadow(9px 9px 9px #000000);
+  position: fixed;
+  font-size: 15px;
+  font-family: Formula1-Regular;
+  width: 18em;
+  background: #212934;
+  left: 2em;
+  height: 6em;
+  top: 40%;
+  -webkit-transform: translate(0, -40%);
+  z-index: 2;
+  border-left: gold solid 0.5em;
+  text-align: center;
+}
+.winnerColumn .winnerTitle {
+  font-size: 16.5px;
+  color: gold;
+  height: 2em;
+  text-align: center;
+  line-height: 1em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+}
+.winnerColumn .driverName {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 2em;
+  font-size: 22.5px;
+  color: white;
+  padding: 0.15em;
+  text-transform: capitalize;
+  z-index: -1;
+}
+.fastestDriverColumn {
+  filter: drop-shadow(9px 9px 9px #000000);
+  position: fixed;
+  font-size: 15px;
+  font-family: Formula1-Regular;
+  width: 18em;
+  background: #212934;
+  right: 2em;
+  height: 6em;
+  text-align: center;
+  top: 40%;
+  -webkit-transform: translate(0, -40%);
+  z-index: 2;
+  border-right: #fb00ff solid 0.5em;
+}
+.fastestDriverColumn .fastestTitle {
+  font-size: 16.5px;
+  color: #fb00ff;
+  height: 2em;
+  text-align: center;
+  line-height: 1em;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.9));
+}
+.fastestDriverColumn .fastestDriverName {
+  line-height: 2em;
+  font-size: 22.5px;
+  color: white;
+  padding: 0.15em;
+  text-transform: capitalize;
+  z-index: -1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.overallQuai {
+  font-size: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.7));
+}
+.qualify-results .entries-outer {
+  max-height: 40em;
+  overflow: hidden;
+}
+.qualify-results .entries-outer .entries-inner {
+  top: 0;
+  position: relative;
+  -webkit-transition: top 15s linear;
+}
+.qualify-results {
+  position: fixed;
+  top: 50%;
+  left: 20%;
+  right: 20%;
+  z-index: -1;
+  color: #76ff03;
+  white-space: pre;
+  font-family: Formula1-Regular;
+  -webkit-transform: translate(0, -80%);
+  width: 60%;
+}
+.qualify-results .title .text {
+  position: inherit;
+  height: 3.8em;
+  text-align: right;
+  padding: 0 0.75em 0 0;
+  line-height: 5em;
+  font-size: 19.5px;
+  background: #212934;
+  text-transform: uppercase;
+  padding-bottom: 0.5em;
+  z-index: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.qualify-results .title .text .logo {
+  position: absolute;
+  content: url(results/logos/base.png);
+  height: 3.5em;
+  top: 1em;
+  left: 1em;
+  z-index: 1;
+}
+.qualify-results .title .trackName {
+  position: inherit;
+  height: 2.8em;
+  color: white;
+  text-align: right;
+  padding-right: 1em;
+  line-height: 1em;
+  font-size: 18px;
+  background: #212934;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+  z-index: 0;
+}
+.qualify-results .qualify-results-entry {
+  height: 2em;
+  line-height: 2em;
+  color: white;
+  background: #212934;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry.striped {
+  opacity: 0.9;
+}
+.qualify-results .qualify-results-entry.title {
+  padding: 0 0 0 0em;
+  font-size: 16.5px;
+}
+.qualify-results .qualify-results-entry.title .classPosition {
+  color: white;
+}
+.qualify-results .qualify-results-entry > div {
+  height: 2em;
+  float: left;
+}
+.qualify-results .qualify-results-entry .overallPosition {
+  text-align: center;
+  width: 10%;
+  position: relative;
+  border-left: 0.5em solid #76ff03;
+  color: white;
+}
+.qualify-results .qualify-results-entry .classPosition {
+  width: 10%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.qualify-results .qualify-results-entry .classPositionWhenHidden {
+  width: 10%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .first {
+  color: gold;
+}
+.qualify-results .qualify-results-entry .second {
+  color: silver;
+}
+.qualify-results .qualify-results-entry .third {
+  color: #CD7F32;
+}
+.qualify-results .qualify-results-entry .manufacturer {
+  width: 5%;
+  position: relative;
+}
+.qualify-results .qualify-results-entry .manufacturer .manufacturerFlag {
+  position: absolute;
+  height: 80%;
+}
+.qualify-results .qualify-results-entry .manufacturer .manufacturerFlag img {
+  height: 80%;
+}
+.qualify-results .qualify-results-entry .manufacturer .standingsFlag {
+  height: 80%;
+  position: absolute;
+  top: 0.2em;
+}
+.qualify-results .qualify-results-entry .manufacturer .standingsFlag img {
+  height: 80%;
+}
+.qualify-results .qualify-results-entry .resultsFirstName {
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 15%;
+}
+.qualify-results .qualify-results-entry .resultsLastName {
+  color: #76ff03;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 16%;
+}
+.qualify-results .qualify-results-entry .resultTeam {
+  color: white;
+  position: relative;
+  width: 35%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.qualify-results .qualify-results-entry .fastest-time,
+.qualify-results .qualify-results-entry .lap-time {
+  padding-left: 0.5em;
+  text-align: center;
+  width: 9%;
+  position: relative;
+  color: white;
+}
+.qualify-results .qualify-results-entry .fastest-time.fastest,
+.qualify-results .qualify-results-entry .lap-time.fastest {
+  color: #fb00ff;
+}
+.safetyCarDeployedContainer {
+  font-size: 15px;
+  position: fixed;
+  top: 7em;
+  left: 45%;
+  width: 15em;
+  line-height: 1.7em;
+  text-align: center;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+}
+.safetyCarDeployedContainer .raceControl {
+  background: #212934;
+  color: yellow;
+  font-size: 15px;
+  padding: 0.05em;
+  top: 0.1em;
+  z-index: 0;
+}
+.safetyCarDeployedContainer .safetyCarDeployed {
+  background: yellow;
+  color: black;
+  font-size: 19.5px;
+  padding: 0.15em;
+  text-transform: capitalize;
+  z-index: -1;
+}
+.safetyAlert {
+  font-size: 15px;
+  font-family: Formula1-Regular;
+  position: fixed;
+  top: 12em;
+  right: 5em;
+  text-transform: uppercase;
+  min-height: 1em;
+  width: 15em;
+  line-height: 1.7em;
+  text-align: center;
+  display: inline-block;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+}
+.safetyAlert .raceControl {
+  background: #212934;
+  color: yellow;
+  font-size: 15px;
+  padding: 0.05em;
+  top: 0.1em;
+  z-index: 0;
+}
+.safetyAlert .safetyCarIn {
+  background: yellow;
+  color: black;
+  font-size: 19.5px;
+  padding: 0.15em;
+  text-transform: capitalize;
+  z-index: -1;
+}
+.session-info {
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+}
+.session-info .inner {
+  font-size: 15px;
+  font-family: Formula1-Regular;
+  position: fixed;
+  top: 2em;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  text-align: center;
+}
+.session-info .inner .sessionInfoFlag,
+.session-info .inner .sessionName,
+.session-info .inner .timer,
+.session-info .inner .checkered,
+.session-info .inner .serverName,
+.session-info .inner .countdown,
+.session-info .inner .yellowFlag {
+  display: inline-block;
+  vertical-align: top;
+  height: 2em;
+  padding: 0em 1em;
+  line-height: 2em;
+  margin: 0px;
+}
+.session-info .inner .sessionName {
+  min-width: 4em;
+  background: #212934;
+  text-transform: uppercase;
+  color: #76FF03;
+}
+.session-info .inner .timer {
+  min-width: 5em;
+  border-left: 0.20em solid #76FF03;
+  background: #212934;
+  text-transform: uppercase;
+  color: white;
+  z-index: 2;
+}
+.session-info .inner .yellowFlag {
+  font-size: 15px;
+  position: fixed;
+  background-color: yellow;
+  top: 1.8em;
+  left: 50%;
+  height: 2em;
+  width: 9em;
+  z-index: 2;
+}
+.session-info .inner .countdown {
+  padding: 0em 0.3em;
+  min-width: 4em;
+  border-left: 0.20em solid #76FF03;
+  background: #212934;
+  text-transform: uppercase;
+  color: red;
+  z-index: -2;
+}
+.session-info .inner .countdown .countdownIndicatorsRed {
+  z-index: -1;
+  font-size: 22.5px;
+  color: red;
+}
+.session-info .inner .sessionInfoFlag {
+  margin: 0;
+  padding: 0;
+  height: 2em;
+  width: 3em;
+}
+.session-info .inner .sessionInfoFlag img {
+  height: 2em;
+  width: 3em;
+  opacity: 1;
+}
+.session-info .inner .checkered {
+  margin: 0;
+  padding: 0;
+  width: 5em;
+  font-size: 15px;
+  background: #212934;
+  color: #76FF03;
+  border-left: 0.2em solid #76FF03;
+}
+.session-info .inner .serverName {
+  margin: 0;
+  min-width: 4em;
+  border-right: 0.2em solid #76FF03;
+  background: #212934;
+  text-transform: uppercase;
+  color: white;
+  z-index: 2;
+}
 .track-map-bg {
   position: fixed;
   top: 0;
@@ -3410,10 +3433,10 @@ pre.preview {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  -webkit-animation: "ani_12" 0.3s ease;
+  -webkit-animation: "ani_11" 0.3s ease;
   z-index: 0;
 }
-@-webkit-keyframes "ani_12" {
+@-webkit-keyframes "ani_11" {
   0% {
     opacity: 0;
   }
@@ -3423,7 +3446,7 @@ pre.preview {
 }
 .track-map {
   position: fixed;
-  font-size: 16px;
+  font-size: 15px;
   width: 25em;
   height: 25em;
   top: 50%;
@@ -3466,12 +3489,12 @@ pre.preview {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   color: white;
-  background: rgba(0, 45, 68, 0.8);
+  background: #212121;
 }
 .track-map .dot .driverName {
   position: relative;
   top: -3.5em;
-  background-color: rgba(38, 50, 56, 0.8);
+  background-color: #212121;
   width: 6em;
 }
 .track-map .dot .manufacturer {
@@ -3520,7 +3543,42 @@ pre.preview {
   z-index: 1;
 }
 .track-map .dot.active {
-  background: #4caf50;
+  background: #ffd113;
   color: #4caf50;
   z-index: 2;
+}
+.tyreChoice {
+  font-size: 15px;
+  font-family: Formula1-Regular;
+  position: fixed;
+  top: 28em;
+  right: 5em;
+  text-transform: uppercase;
+  min-height: 1em;
+  width: 15em;
+  line-height: 1.7em;
+  text-align: center;
+  display: inline-block;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
+}
+.tyreChoice .title {
+  border-left: 3px solid #76ff03;
+  background: #212934;
+  color: white;
+  font-size: 16.5px;
+  padding: 0.05em;
+  top: 0.1em;
+  z-index: 0;
+}
+.tyreChoice .tyreContainer {
+  background: linear-gradient(to bottom, #212934, cyan);
+  font-size: 16.5px;
+  padding: 1em;
+  text-transform: capitalize;
+  z-index: -1;
+  height: 10.5em;
+}
+.tyreChoice .tyreContainer img {
+  height: 9em;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
 }

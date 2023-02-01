@@ -16,30 +16,6 @@
       "translationDisplayName": "multiclass",
       "translationDescription": "multiclassDescription"
     },
-    "showStandingsManufacturer": {
-      "displayName": "Show Standings Manufacturer",
-      "value": "true",
-      "tooltip": "Show the manufacturer logo in the standings tower. A use case to disable this would be in single car cup classes like NSU or Porsche GT3 Cup (Default: true).",
-      "type": "checkbox",
-      "translationDisplayName": "showStandingsManufacturer",
-      "translationDescription": "showStandingsManufacturerDescription"
-    },
-    "showStandingsFlag": {
-      "displayName": "Show Driver Country Flags",
-      "value": "true",
-      "tooltip": "Show the driver country flag in the standings tower and results tables, replacing the manufacturer logo. (Default: true).",
-      "type": "checkbox",
-      "translationDisplayName": "showStandingsFlag",
-      "translationDescription": "showStandingsFlagDescription"
-    },
-    "showTyreCompound": {
-      "displayName": "Show Tyre Compound",
-      "value": "true",
-      "tooltip": "Show the tyre compound in the driver info widget for applicable classes. (Default: True)",
-      "type": "checkbox",
-      "translationDisplayName": "showTyreCompound",
-      "translationDescription": "showTyreCompoundDescription"
-    },
     "indentFocusedDriver": {
       "displayName": "Indent Focused Driver",
       "value": "false",
@@ -137,12 +113,28 @@
       "translationDescription": "showServerNameInTimerDescription"
     },
     "commentaryNames": {
-      "displayName": "Show Commentary Name(s)",
-      "value": "Commentary Name",
+      "displayName": "Commentary Name",
+      "value": "Murray Walker",
       "tooltip": "Show commentary names (Default: 'Blank').",
       "type": "text",
       "translationDisplayName": "commentaryNames",
       "translationDescription": "commentaryNamesDescription"
+    },
+    "qrCodeURL": {
+      "displayName": "QR Code URL",
+      "value": "https://game.raceroom.com/competitions",
+      "tooltip": "Enter the URL for the QR Code. (Default: 'Blank').",
+      "type": "text",
+      "translationDisplayName": "qrCodeUrl",
+      "translationDescription": "qrCodeUrlDescription"
+    },
+    "qrCodeText": {
+      "displayName": "QR Code Text",
+      "value": "Vote for your driver of the day",
+      "tooltip": "Enter the Text for the QR Code. (Default: 'Blank').",
+      "type": "text",
+      "translationDisplayName": "qrCodeText",
+      "translationDescription": "qrCodeTextDescription"
     },
     "dediManager": {
       "displayName": "Dedi url(s)",
@@ -153,8 +145,8 @@
       "translationDescription": "dediManagerDescription"
     },
     "driverOfTheDay": {
-      "displayName": "Show Driver of the Day",
-      "value": "Driver of the Day",
+      "displayName": "Driver of the Day",
+      "value": "JF Chardon",
       "tooltip": "Driver of the Day (Default: 'Blank').",
       "type": "text",
       "translationDisplayName": "driverOfTheDay",
@@ -162,7 +154,7 @@
     },
     "alertLength": {
       "displayName": "Steward Message Display Time (Seconds)",
-      "value": "15",
+      "value": "25",
       "tooltip": "Specify how long steward alerts should be shown on screen in seconds (Default: 15 Seconds).",
       "type": "number",
       "translationDisplayName": "alertLength",
