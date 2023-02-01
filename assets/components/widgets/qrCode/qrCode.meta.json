@@ -1,0 +1,10 @@
+{
+	"version": "1.0.0",
+	"elementName": "QrCode",
+	"name": "QR Code",
+	"keepOnSessionChange": false,
+	"activeInSessions": ["Practice", "Qualifying", "Race"],
+	"defaultActive": false,
+	"translationLabel": "qrCodeLabel",
+	"translationDescription": "qrCodeDescription"
+}
