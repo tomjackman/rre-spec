@@ -1,3 +1,34 @@
+### Version 2.0
+[Feature] Add pit indicator in standings tower when a car is pitting.
+[Feature] Added static, heli (aerial) and action cams to broadcast controller.
+[Feature] Update the standings tower to automatically sweep between vehicle logo, driver country flag and positions gained/lost.
+[Feature] Highlight 1st, 2nd, 3rd on the results screens with gold, silver and bronze.
+[Feature] Show yellow flag causer in standings tower - highlights their timer yellow if they spun out etc.
+[Feature] Show the gained positions in the broadcast controller.
+[Feature] Added a QR code widget to allow a user to show a QR code to link to a website, event, competition page.
+[Feature] Added a new tyre choice widget which shows the current tyre choice.
+[Feature] Show FINISHED, DNF, DNQ, DNS, DQ status in standings tower and broadcast controller where applicable.
+[Performance] Increased polling rate for quicker UI updates.
+[UI] Removed prefixed 0's on timing tower and reduced decimal places to 1 in race mode.
+[UI] Updated broadcast controller UI.
+[UI] Enhanced shadowing and contrast of corner logo to pop more.
+[UI] Enhanced all UI widgets.
+[UI] Added new weather and temperature icons in event widget.
+[UI] Added new tyre icons - Hankook Primes, Pirelli P Zeros and Firestone Primary/Alternate.
+[UI] Added new manufacturer icons.
+[Auto Director] Improved how it identifies yellow flag causers.
+[Tooling] Auto generate multi-class colours based on performance index of the class.
+[Bug Fix] Show raceroom logo as a default if no country flag can be displayed.
+[Bug Fix] Fix for the auto director overly focusing on P4 in some scenarios. Thanks to NikolaiVChr.
+[Bug Fix] Fix for the red screen error when joining a race midway.
+[Documentation] Updated Readme to be more user friendly.
+[Data] Updated r3e data file to include all new cars.
+[Data] Updated r3e tracks file to include all new tracks.
+[Disabled] Track map and director suggestions.
+[Languages] Updated French translations. Special thanks to Denis Gicquel.
+[Themes] Removed majority of old themes.
+[Themes] Added a simpler, quicker theme maker with a lower number of variables to change.
+
 ### Version 1.9.5
  [Sector3] Added ability to give a driver a warning (through chat) and penalty integration with local dedicated server.
  [Sector3] Added new dashboard page to see interesting info for commentators.
