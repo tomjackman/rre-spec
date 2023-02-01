@@ -9,6 +9,8 @@ var bodyParser = require('body-parser')
 
 var app = express();
 var serverHttp = http.createServer(app);
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 
 var io = socketIo.listen(serverHttp);
 require('./websocketServer')(io);
@@ -98,11 +100,12 @@ module.exports = function(assetsDir) {
 		}
 
         waitingFor++;
-		console.log('Fetching user data for', id, ', in que: ' + waitingFor);
-		request('http://game.raceroom.com/utils/user-info/' + id, {
+		//console.log('Fetching user data for portal ID - ', id, ', in que: ' + waitingFor);
+		request('http://game.raceroom.com/users/' + id + '/?json', {
 			'json': true
 		}, function(err, r, json) {
 			if (err) {
+				console.log(err);
 				return res.json({
 					error: err
 				});
@@ -115,20 +118,21 @@ module.exports = function(assetsDir) {
 			}
 
 			if (r.statusCode !== 200) {
+				console.log('Non 200 status code', r.statusCode);
 				return res.json({
 					error: r.statusCode
 				});
 			}
 
-			var userInfo = json;
+			var userInfo = json.context.c;
 			userInfoCache[id] = {
-                country: userInfo.country.code,
-								countryName: userInfo.country.name,
+                country: userInfo.overview.country.code,
+				countryName: userInfo.overview.country.name,
                 avatar: userInfo.avatar,
-								team: userInfo.team
+				team: userInfo.team
             };
             waitingFor--;
-            console.log('Fetch done for ' + userInfo.name + ', in que: ' + waitingFor);
+            //console.log('User profile retrieved for portal ID - ' + id + ', in que: ' + waitingFor);
 			res.json(userInfoCache[id]);
 		});
 	});
@@ -293,8 +297,8 @@ module.exports = function(assetsDir) {
 	var port = parseInt(process.env.PORT, 10);
 	port = Number.isInteger(port) ? process.env.PORT : 9090;
 	serverHttp.listen(port, function() {
-		console.log((' > R3E Reality Broadcast Overlay').cyan+'\n');
-		console.log((' > Server is running on http://localhost:'+port).green+'\n');
+		console.log(('\n'+' > R3E Reality Broadcast Overlay').white+'\n');
+		console.log((' > Running in browser on http://localhost:'+port).green+'\n');
 	});
 
 	return {

@@ -48,8 +48,8 @@ function updateWidgets(widgetsPath, globalState, callback) {
 		}
 
 		async.parallel(jobs, function() {
-			console.log('> Loaded Widgets:'.green);
-			console.log(('- '+Object.keys(globalState.activeWidgets).join('\n- ')).green+'\n');
+			// console.log('> Loaded Widgets:'.green);
+			// console.log(('- '+Object.keys(globalState.activeWidgets).join('\n- ')).green+'\n');
 			callback();
 		});
 	}
@@ -80,9 +80,9 @@ module.exports = function(io) {
 		'camera': 'trackside',
 		'activeWidgets': {},
 		'themes': {
-			'raceroom-base': true
+			'reality-gt': true
 		},
-		'activeTheme': 'raceroom-base',
+		'activeTheme': 'reality-gt',
 		'languages': {},
 		'controllerOptions': {}
 	};
@@ -121,15 +121,15 @@ module.exports = function(io) {
 			}
 		});
 
-		// set default theme on start: raceroom-red.less
-		var defaultTheme = 'raceroom-base';
+		// set default theme on start: reality-gt.less
+		var defaultTheme = 'reality-gt';
 		var themeLessFile = themesDir + '/z.less';
 		var activeThemeLessFile = themesDir + '/' + defaultTheme + '.less';
 		replaceContents(themeLessFile, activeThemeLessFile, err => {
 			if (err) {
 				console.log(('Error setting default theme: ' + err).red);
 			}
-			console.log(("> Loaded Default Theme: " + defaultTheme).green);
+			//console.log(("> Loaded Default Theme: " + defaultTheme).green);
 		});
 	}
 	loadThemes();
@@ -146,7 +146,7 @@ module.exports = function(io) {
 				try {
 					 JSON.parse(JSON.stringify(languageConfig));
 					 globalState.languages[languageName] = languageConfig;
-					 console.log(('> Successfully Loaded Language File - ' + languageName).green);
+					 // console.log(('> Successfully Loaded Language File - ' + languageName).green);
 				} catch (e) {
 					console.log(('Failed to Parse Language JSON File: ' + languageName + ".json - " + e).yellow);
 				}
@@ -177,14 +177,14 @@ module.exports = function(io) {
 	function clearWidgets() {
 		// Assume a new session has started when spectator joins
 		// and disable all overlays
-		console.log("clearWidgets")
+		console.log("Clearing Widgets")
 		Object.keys(globalState.activeWidgets).forEach(function(key) {
 			var widget = globalState.activeWidgets[key];
-			console.log(" widget", key)
+			//console.log(" widget", key)
 			if (widget.active) {
 				var shouldBeActive = widget.keepOnSessionChange || widget.defaultActive;
 				widget.active = shouldBeActive;
-				console.log("  widget active", widget.active, shouldBeActive)
+				//console.log("widget active", widget.active, shouldBeActive)
 			}
 		});
 
@@ -195,7 +195,7 @@ module.exports = function(io) {
 	var lastIpToSendTimeout = null;
 	io.sockets.on('connection', function(socket) {
 		var ip = socket.handshake.address;
-		console.log((getTimestamp() + ' Connected ' + ip).grey);
+		console.log((getTimestamp() + ' Connected ' + ip).green);
 
 		socket.on('updatedCamera', function(opts) {
 			opts = opts || {};
@@ -226,7 +226,7 @@ module.exports = function(io) {
 		});
 
 		socket.on('disconnect', function() {
-			console.log((getTimestamp() + ' Disconnected ' + ip).grey);
+			console.log((getTimestamp() + ' Disconnected ' + ip).green);
 		});
 
 		socket.on('driversInfo', function(driversInfo) {

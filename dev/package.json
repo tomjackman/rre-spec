@@ -6,19 +6,23 @@
   "dependencies": {
     "async": "^1.0.0",
     "babel-core": "^6.26.3",
+    "body-parser": "^1.19.0",
     "chokidar": "^1.0.1",
     "colors": "^1.1.0",
     "compression": "^1.7.3",
     "dive": "^0.4.0",
+    "excel4node": "^1.7.2",
     "express": "^4.12.4",
     "jade": "^1.10.0",
     "less": "^2.5.1",
     "react-tools": "^0.13.3",
     "semantic-ui-less": "^2.4.1",
-    "socket.io": "^1.7.4",
-    "excel4node": "^1.7.2"
+    "socket.io": "^2.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1"
+  },
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
