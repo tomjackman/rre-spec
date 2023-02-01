@@ -23,6 +23,7 @@
 * Bump the package.json version.
 * Bump the version.json file in the public folder.
 * Export to .zip and upload to forum.
+* Push the version changes to github.
 
 ### Dev Dependencies
 * Published node_modules are available [here](https://mega.nz/#!M85kHAxA!GSNKuIGWp7ZZBM7R9AB4jqhdyob1P7kdz4VYH4cJfAs). (Place the modules in `\dev\node_modules`)

@@ -1,6 +1,6 @@
 # RRE TV Overlay
 
-![alt text](public/img/vw.jpg "Logo Title Text 1")
+![alt text](public/img/overlay2.jpg "Logo Title Text 1")
 
 As used by:
 
@@ -39,7 +39,7 @@ The `resolutionScaler.less` file contains a config value which allow you to manu
 Setting the px value to a higher number will increase scaling and setting a lower number will decrease scaling.
 
 ### Creating Your Own Theme
-To create your own theme, its recommended to create a copy of the `raceroom-red.less` file with your theme name. Then start the tool, select the theme from the dropdown and start modifying the less variables.
+To create your own theme, its recommended to create a copy of the `reality-gt.less` file with your theme name. Then start the tool, select the theme from the dropdown and start modifying the less variables.
 
 Select the theme from the dropdown to view the results on screen.
 
