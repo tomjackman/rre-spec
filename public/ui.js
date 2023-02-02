@@ -112461,7 +112461,13 @@ UI.widgets.CompareRace = React.createClass({
 				drivers[0].scoreInfo.timeDiff !== -1 ? React.createElement(
 					'div',
 					{ className: 'delta' },
-					React.createElement(
+					UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+						'div',
+						{ className: 'battle' },
+						UI.getStringTranslation("compareRaceWidget", "battleFor"),
+						' P',
+						drivers[0].scoreInfo.positionClass - 1
+					) : React.createElement(
 						'div',
 						{ className: 'battle' },
 						UI.getStringTranslation("compareRaceWidget", "battleFor"),
@@ -112566,7 +112572,15 @@ UI.widgets.CompareRaceDriver = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'main' },
-				React.createElement(
+				UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+					'div',
+					{ className: 'comparePositionContainer' },
+					React.createElement(
+						'div',
+						{ className: 'comparePosition' },
+						driver.scoreInfo.positionClass
+					)
+				) : React.createElement(
 					'div',
 					{ className: 'comparePositionContainer' },
 					React.createElement(
@@ -113349,13 +113363,20 @@ UI.widgets.FocusedDriver = React.createClass({
 						' ',
 						UI.getStringTranslation("focusedDriverWidget", "ptp")
 					) : null,
-					self.getPersonalBestTime(driverInfo),
-					UI.state.controllerOptions.options.multiclass.value === "true" ? self.getClassPosition(driverInfo.performanceIndex) : null
+					self.getPersonalBestTime(driverInfo)
 				),
 				React.createElement(
 					'div',
 					{ className: 'main' },
-					React.createElement(
+					UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+						'div',
+						{ className: 'positionContainer' },
+						React.createElement(
+							'div',
+							{ className: 'position' },
+							driverInfo.scoreInfo.positionClass
+						)
+					) : React.createElement(
 						'div',
 						{ className: 'positionContainer' },
 						React.createElement(
@@ -115652,7 +115673,7 @@ UI.components.Controller = React.createClass({
 			const localVersion = await local.json();
 
 			if (publishedVersion.version > localVersion.version) {
-				var confirmText = "A New Update (v" + publishedVersion.version + ") is now available in the Sector 3 Forums (forum.sector3studios.com), visit download page?";
+				var confirmText = "A New Update (v" + publishedVersion.version + ") is now available in the KW Studios Forum (forum.kw-studios.com/), visit download page?";
 				if (confirm(confirmText)) {
 					// Overlay thread on S3 forum
 					let base64ForumUrl = "aHR0cHM6Ly9mb3J1bS5zZWN0b3Izc3R1ZGlvcy5jb20vaW5kZXgucGhwP3RocmVhZHMvcjNlLXJlYWxpdHktbW9kZXJuLWJyb2FkY2FzdC1vdmVybGF5LjEyMDYxLw==";
@@ -115844,11 +115865,6 @@ UI.components.Controller = React.createClass({
 					'a',
 					{ onClick: this.toggleControlPanel },
 					this.state.showControlPanel ? React.createElement('img', { className: 'toggleControlPanel', src: '/img/close.png' }) : React.createElement('img', { className: 'toggleControlPanel', src: '/img/cog.png' })
-				),
-				React.createElement(
-					'a',
-					{ onClick: this.toggleTrackMap },
-					window.location.hash.match(/trackmap/) && self.state.driversInfo.length ? React.createElement('img', { className: 'toggle-track-map', src: '/img/close.svg' }) : React.createElement('img', { className: 'toggle-track-map', src: '/img/map.svg' })
 				),
 				React.createElement(
 					'a',
@@ -118320,6 +118336,13 @@ UI.widgets.MulticlassStandings = React.createClass({
 					'Lap ',
 					driver.scoreInfo.laps + 1
 				);
+			} else if (UI.state.controllerOptions.options.multiclass.value === "true" && driver.scoreInfo.positionClass === 1) {
+				return React.createElement(
+					'div',
+					{ className: cx({ 'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow }) },
+					'Lap ',
+					driver.scoreInfo.laps + 1
+				);
 			} else if (driver.scoreInfo.status > 1) {
 				return React.createElement(
 					'div',
@@ -118555,7 +118578,15 @@ UI.widgets.MulticlassStandings = React.createClass({
 								'div',
 								{ className: 'inner animated fadeIn delay-1s' },
 								self.getClassIndicator(driversLookup[i].performanceIndex),
-								React.createElement(
+								UI.state.controllerOptions.options.multiclass.value === "true" ? React.createElement(
+									'div',
+									{ className: 'positionContainer' },
+									React.createElement(
+										'div',
+										{ className: 'position' },
+										driversLookup[i].scoreInfo.positionClass
+									)
+								) : React.createElement(
 									'div',
 									{ className: 'positionContainer' },
 									React.createElement(

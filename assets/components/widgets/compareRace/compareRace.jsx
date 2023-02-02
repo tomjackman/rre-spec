@@ -97,7 +97,11 @@ UI.widgets.CompareRace = React.createClass({
 				<div className="inner">
 					{drivers[0].scoreInfo.timeDiff !== -1 ?
 						<div className="delta">
-							<div className="battle">{UI.getStringTranslation("compareRaceWidget", "battleFor")} P{drivers[0].scoreInfo.positionOverall - 1}</div>
+							{ UI.state.controllerOptions.options.multiclass.value === "true" ?
+									<div className="battle">{UI.getStringTranslation("compareRaceWidget", "battleFor")} P{drivers[0].scoreInfo.positionClass - 1}</div>
+								:
+									<div className="battle">{UI.getStringTranslation("compareRaceWidget", "battleFor")} P{drivers[0].scoreInfo.positionOverall - 1}</div>
+							}
 							<div className="value">{self.formatTime(Math.max(0, drivers[0].scoreInfo.timeDiff))}</div>
 							<UI.widgets.CompareRaceDriver position="first" driver={drivers[1]}/>
 							<UI.widgets.CompareRaceDriver position="second" driver={drivers[0]}/>
@@ -189,7 +193,11 @@ UI.widgets.CompareRaceDriver = React.createClass({
 				}
 				</div>
 			<div className="main">
-				<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionOverall}</div></div>
+					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
+							<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionClass}</div></div>
+						:
+							<div className="comparePositionContainer"><div className="comparePosition">{driver.scoreInfo.positionOverall}</div></div>
+					}
 				<div className="compare-flag-container">
 				{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
 					<img className="compare-avatar" src={UI.getUserInfo(driver.portalId).avatar} />

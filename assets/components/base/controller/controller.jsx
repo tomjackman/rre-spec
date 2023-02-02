@@ -601,13 +601,6 @@ UI.components.Controller = React.createClass({
 					}
 					</a>
 
-					<a onClick={this.toggleTrackMap}>
-					{window.location.hash.match(/trackmap/) && self.state.driversInfo.length ?
-						<img className="toggle-track-map" src="/img/close.svg" />
-						:
-						<img className="toggle-track-map" src="/img/map.svg" />
-					}
-					</a>
 					<a className="dashboard" href="/dashboard">
 						Dashboard
 					</a>

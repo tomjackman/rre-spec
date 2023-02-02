@@ -104,6 +104,8 @@ function updateInfo() {
 			// Leader should show lap count
 			if (driver.scoreInfo.positionOverall === 1) {
 					return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}>Lap {driver.scoreInfo.laps + 1}</div>;
+			} else if (UI.state.controllerOptions.options.multiclass.value === "true" && driver.scoreInfo.positionClass === 1) {
+					return <div className={cx({'meta-info': true, 'yellow': driver.scoreInfo.flagInfo.causedYellow})}>Lap {driver.scoreInfo.laps + 1}</div>;
 			} else if (driver.scoreInfo.status > 1) {
 		    		return <div className={cx({'meta-info': true, 'grey': true})}>{statusNames[driver.scoreInfo.status]}</div>
 			}
@@ -289,7 +291,13 @@ function updateInfo() {
 							<div className={cx({'driver': true, 'active': (driversLookup[i].slotId === UI.state.focusedSlot)})} key={driversLookup[i].slotId} style={self.getDriverStyle(driversLookup[i])}>
 								<div className="inner animated fadeIn delay-1s">
 								{self.getClassIndicator(driversLookup[i].performanceIndex)}
-									<div className="positionContainer"><div className="position">{driversLookup[i].scoreInfo.positionOverall}</div></div>
+
+									{ UI.state.controllerOptions.options.multiclass.value === "true" ?
+											<div className="positionContainer"><div className="position">{driversLookup[i].scoreInfo.positionClass}</div></div>
+										:
+											<div className="positionContainer"><div className="position">{driversLookup[i].scoreInfo.positionOverall}</div></div>
+									}
+									
 									
 									<div className="manufacturerContainer">
 										{ UI.formatSessionTime(Math.max(0, UI.state.sessionInfo.timeLeft)).slice(-2) > 30 || UI.state.sessionInfo.timeLeft < 60 || UI.state.sessionInfo.phase === 'CHECKERED' ?

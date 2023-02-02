@@ -1,4 +1,13 @@
-### Version 2.0
+Compare car behind.
+
+
+### Version 2.0.1
+[Bug Fix] Fixed a bug where the race results would not center on screen for larger grids.
+[Disabled] Track map icon in boradcast controller.
+[Feature] Updated standings tower, driver info and compare info widget to show class positions when multiclass mode is enabled.
+
+
+### Version 2.0.0
 [Feature] Add pit indicator in standings tower when a car is pitting.
 [Feature] Added static, heli (aerial) and action cams to broadcast controller.
 [Feature] Update the standings tower to automatically sweep between vehicle logo, driver country flag and positions gained/lost.

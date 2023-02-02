@@ -306,14 +306,13 @@ UI.widgets.FocusedDriver = React.createClass({
 							null
 						}
 						{self.getPersonalBestTime(driverInfo)}
-						{ UI.state.controllerOptions.options.multiclass.value === "true" ?
-							self.getClassPosition(driverInfo.performanceIndex)
-						:
-							null
-						}
 					</div>
 					<div className="main">
-					<div className="positionContainer"><div className="position">{driverInfo.scoreInfo.positionOverall}</div></div>
+					{ UI.state.controllerOptions.options.multiclass.value === "true" ?
+							<div className="positionContainer"><div className="position">{driverInfo.scoreInfo.positionClass}</div></div>
+						:
+							<div className="positionContainer"><div className="position">{driverInfo.scoreInfo.positionOverall}</div></div>
+					}
 					<div className="flag-container">
 					{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
 						<img className="avatar" src={UI.getUserInfo(driverInfo.portalId).avatar} />
