@@ -1,10 +1,8 @@
-Compare car behind.
-
-
 ### Version 2.0.1
-[Bug Fix] Fixed a bug where the race results would not center on screen for larger grids.
-[Disabled] Track map icon in boradcast controller.
 [Feature] Updated standings tower, driver info and compare info widget to show class positions when multiclass mode is enabled.
+[Bug Fix] Fixed a bug where the race results would not center on screen for larger grids.
+[Disabled] Track map icon in broadcast controller.
+[UI] Reduced font size in broadcast controller table by 10/15%.
 
 
 ### Version 2.0.0

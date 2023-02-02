@@ -975,7 +975,7 @@ select {
   position: relative;
   opacity: 1;
   height: 1.6em;
-  font-size: 15px;
+  font-size: 13px;
   color: white;
 }
 .tabled-driver-entry.idle {
