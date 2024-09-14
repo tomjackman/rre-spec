@@ -26,7 +26,7 @@
     },
     "showPortalTeam": {
       "displayName": "Show Portal Team Names",
-      "value": "false",
+      "value": "true",
       "tooltip": "Show a drivers portal team name if they have added one (Default: False).",
       "type": "checkbox",
       "translationDisplayName": "showPortalTeam",
@@ -162,7 +162,7 @@
     },
     "qualifyingResultsDisplayTime": {
       "displayName": "Qualifying Results Display Time (Seconds)",
-      "value": "25",
+      "value": "20",
       "tooltip": "The amount of seconds before the end of qualifying to display the results on screen (Default: 25 Seconds)",
       "type": "number",
       "translationDisplayName": "qualifyingResultsDisplayTime",

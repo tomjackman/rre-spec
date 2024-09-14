@@ -101,6 +101,7 @@
 		.comparePosition {
 			font-size: @fontSize * 3;
 		}
+		border-radius: 0em 0em 0em 1em;
 	}
 	.compareName {
   		background: @primaryAccentBackground;
@@ -182,13 +183,12 @@
 			position: fixed;
 			display: block;
 			content: '';
-			width: 4em;
-			height: 2.5em;
+			width: 6em;
+			height: 3.6em;
 			position: absolute;
-			top: 0.5em;
-			left: 1em;
 			filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.9));
 			z-index: 1;
+			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0)));
 		}
 		.compare-avatar {
 			background: @primaryAccentBackground;

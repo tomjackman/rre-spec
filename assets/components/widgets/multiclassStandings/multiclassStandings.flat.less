@@ -30,7 +30,10 @@
 		background: @primaryAccentBackground;
 		-webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
 		white-space: nowrap;
-
+		border-radius: 0em 0em 0em 0.6em;
+		.out {
+			opacity: 0.5;
+		}
 		.inner {
 			height: 1.6em;
 			position: relative;
@@ -53,6 +56,7 @@
 		}
 		.positionContainer {
 			margin: 0;
+			border-radius: 0em 0em 0em 0.4em;
 			font-size: @fontSize;
 			background: @secondaryAccentBackground;
 			display: inline-block;
@@ -83,6 +87,7 @@
 			height: 3em;
 			z-index: 1;
 			top: 0.2em;
+			background: @primaryAccentBackground;
 			.manufacturerFlag {
 				position: relative;
 				left: 0.3em;
@@ -99,6 +104,7 @@
 				left: 0.4em;
 				img {
 					height: 85%;
+					-webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.8)));
 				}
 			}
 			.positionsChange {
@@ -107,7 +113,7 @@
 				left: 0.5em;
 				text-align: center;
 			   .gained {
-			  	color: cyan;
+			  	color: #76FF03;
 			   }
 			   .level {
 			  	color: cyan;
@@ -142,6 +148,9 @@
 				color: @primaryAccent;
 				display: inline-block;
 			}
+			.grey {
+				color: grey;
+			}
 		}
 		.meta-info-container {
 			font-size: @fontSize * 0.8;
@@ -157,7 +166,7 @@
 			z-index: -1;
 			.onCreation(-webkit-transform, translate(-100%, 0), translate(0, 0), 0.1s);
 			.fastest {
-				color: #fb00ff;
+				background: #fb00ff;
 			}
 			.yellow {
 				background: yellow;

@@ -1,3 +1,11 @@
+### Version 2.0.2
+[UI] Various UI tweaks across widgets.
+[UI] Changed sector time styling and show only the split difference, not the sector time.
+[Data] Updated r3e data file.
+[Bug Fix] Fixed some missing theme variables across widgets.
+[UI] Reduced transparency of default theme.
+
+
 ### Version 2.0.1
 [Feature] Updated standings tower, driver info and compare info widget to show class positions when multiclass mode is enabled.
 [Bug Fix] Fixed a bug where the race results would not center on screen for larger grids.

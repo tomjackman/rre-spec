@@ -126,7 +126,7 @@ a {
 }
 .qrCode .title {
   border-left: 3px solid #76ff03;
-  background: #212934;
+  background: black;
   color: white;
   font-size: 16.5px;
   padding: 0.05em;
@@ -1665,7 +1665,7 @@ select {
   opacity: 0.5;
 }
 .alert .raceControlAlert {
-  background: #212934;
+  background: black;
   color: yellow;
   font-size: 15px;
   padding: 0.05em;
@@ -1733,7 +1733,7 @@ select {
   line-height: 1.7em;
   display: inline-block;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
-  background: #212934;
+  background: black;
   border-left: 3px solid #76ff03;
 }
 .commentaryNameAlert .commentaryTitle {
@@ -1775,7 +1775,7 @@ select {
   width: inherit;
   position: relative;
   bottom: 0.25em;
-  background: #212934;
+  background: black;
 }
 .compare-race .delta .value {
   text-transform: uppercase;
@@ -1784,7 +1784,7 @@ select {
   width: inherit;
   position: relative;
   bottom: 0.25em;
-  background: #212934;
+  background: black;
 }
 .compare-race .delta .inner {
   position: absolute !important;
@@ -1837,7 +1837,7 @@ select {
   display: inline-block;
 }
 .compare-race .inner .top .speed {
-  background: #212934;
+  background: black;
   line-height: 0.5em;
   padding: 0.5em 0.5em;
   color: yellow;
@@ -1848,7 +1848,7 @@ select {
   text-align: right;
 }
 .compare-race .inner .top .best-time {
-  background: #212934;
+  background: black;
   line-height: 0.5em;
   padding: 0.5em 0.5em;
   color: #76FF03;
@@ -1897,12 +1897,13 @@ select {
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
   text-align: center;
   line-height: 3.5em;
+  border-radius: 0em 0em 0em 1em;
 }
 .compare-race .inner .main .comparePositionContainer .comparePosition {
   font-size: 45px;
 }
 .compare-race .inner .main .compareName {
-  background: #212934;
+  background: black;
   color: white;
   padding: 0.1em;
   min-width: 22em;
@@ -1935,7 +1936,7 @@ select {
   height: 6em;
 }
 .compare-race .inner .main .manufacturer {
-  background: #212934;
+  background: black;
   width: 4em;
   z-index: 1;
   position: relative;
@@ -1955,7 +1956,7 @@ select {
   width: 25em;
   left: 9.2em;
   z-index: -3;
-  background: #212934;
+  background: black;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -1974,23 +1975,22 @@ select {
   border-bottom: 0.1em solid red;
   width: 3em;
   position: relative;
-  background: #212934;
+  background: black;
 }
 .compare-race .inner .compare-flag-container .compare-flag {
-  background: #212934;
+  background: black;
   position: fixed;
   display: block;
   content: '';
-  width: 4em;
-  height: 2.5em;
+  width: 6em;
+  height: 3.6em;
   position: absolute;
-  top: 0.5em;
-  left: 1em;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
   z-index: 1;
+  -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0)));
 }
 .compare-race .inner .compare-flag-container .compare-avatar {
-  background: #212934;
+  background: black;
   position: fixed;
   display: block;
   content: '';
@@ -2016,7 +2016,7 @@ select {
   line-height: 1.7em;
   display: inline-block;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
-  background: #212934;
+  background: black;
   border-left: 3px solid #76ff03;
 }
 .driverOfTheDayAlert .dotdTitle {
@@ -2130,7 +2130,7 @@ select {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
 }
 .event-info {
-  background: #212934;
+  background: black;
   font-size: 15px;
   width: 50em;
   position: fixed;
@@ -2197,41 +2197,43 @@ select {
 }
 /* Hide DRS inactive state on all cars to not show on cars that don't have drs. Height, Font size for inactive is invisible */
 .assists .params {
-  position: relative;
-  height: 3.9em;
-  background: #212934;
-  top: -5em;
+  position: absolute;
+  height: 4em;
+  background: transparent;
+  top: 10.8em;
+  right: -1em;
 }
 .assists .params .gear {
   font-size: 52.5px;
   line-height: 1.15em;
-  color: red;
+  color: #76ff03;
 }
 .assists .params .rpm {
-  background: red;
+  background: black;
   font-size: 15px;
   line-height: 1.7em;
   text-align: right;
   padding-right: 0.4em;
-  color: white;
+  color: #76ff03;
 }
 .assists .params .speed {
-  background: #76FF03;
-  color: black;
+  background: black;
+  color: #76ff03;
   font-size: 15px;
   line-height: 1.7em;
   text-align: right;
   padding-right: 0.4em;
 }
 .assists .params .gearContainer {
-  background: #212934;
+  background: black;
   color: #212121;
   position: absolute;
   bottom: 133.5px;
   right: 12em;
   height: 4em;
-  width: 3.5em;
-  border-left: 0.1em solid red;
+  width: 4.5em;
+  border-left: 0.3em solid #76ff03;
+  border-radius: 0em 0em 0em 1em;
 }
 .assists .params .rpmContainer {
   padding: 0.3em;
@@ -2264,7 +2266,7 @@ select {
   font-size: 0;
 }
 .assists .drs .text {
-  background: #212934;
+  background: black;
   position: absolute;
   top: -3em;
   left: -1em;
@@ -2285,19 +2287,8 @@ select {
   font-size: 15px;
   animation: drsGlow 1s infinite;
 }
-@-webkit-keyframes drsGlow {
-  0% {
-    background-color: #76FF03;
-  }
-  50% {
-    background-color: white;
-  }
-  100% {
-    background-color: #76FF03;
-  }
-}
 .assists .drs.active .text {
-  background: #212934;
+  background: black;
   position: absolute;
   top: -7.5em;
   left: 5em;
@@ -2311,7 +2302,7 @@ select {
   height: 5em;
 }
 .assists .ptp .icon {
-  background: #212934;
+  background: black;
   position: absolute;
   top: -5.5em;
   left: 5em;
@@ -2321,7 +2312,7 @@ select {
   font-size: 0;
 }
 .assists .ptp .text {
-  background: #212934;
+  background: black;
   position: absolute;
   top: -3em;
   left: 5em;
@@ -2354,7 +2345,7 @@ select {
   }
 }
 .assists .ptp.active .text {
-  background: #212934;
+  background: black;
   position: absolute;
   top: -2.5em;
   left: 5em;
@@ -2369,7 +2360,7 @@ select {
   font-family: Formula1-Regular;
   color: #fff;
   position: fixed;
-  bottom: 135px;
+  bottom: 165px;
   left: 0;
   right: 0;
 }
@@ -2390,49 +2381,53 @@ select {
   display: inline-block;
 }
 .focused-driver-info .bottom .extra-info {
-  left: 25em;
   height: 5em;
   position: relative;
-  top: -1.5em;
+  top: -0.1em;
   z-index: -1;
   margin-top: 0em;
   font-family: Formula1-Regular;
 }
 .focused-driver-info .bottom .extra-info .currentLap {
-  background: #212934;
+  background: black;
   color: #76FF03;
   font-size: 16.5px;
   text-align: right;
   padding: 0.5em;
 }
 .focused-driver-info .bottom .extra-info ul {
-  margin: 0;
+  margin-right: 0.8em;
   padding: 0.05em;
   height: 3em;
 }
 .focused-driver-info .bottom .extra-info ul li {
-  background: #212934;
+  background: black;
   float: left;
-  padding: 0.5em;
+  padding: 0.7em;
+  margin: 0.5em;
   color: white;
   position: relative;
-  min-width: 10em;
+  min-width: 8em;
   font-size: 13.5px;
+  border-radius: 0em 0em 1em 1em;
+  border-bottom: 0.2em solid red;
 }
 .focused-driver-info .bottom .extra-info ul li.active {
   color: white;
 }
 .focused-driver-info .bottom .extra-info ul li.finished {
   animation: none;
-  color: white;
+  color: grey;
 }
 .focused-driver-info .bottom .extra-info ul li.finished.personal-best {
   animation: none;
-  color: #76FF03;
+  color: white;
+  border-bottom: 0.2em solid #76FF03;
 }
 .focused-driver-info .bottom .extra-info ul li.finished.global-best {
   animation: none;
-  color: #fb00ff;
+  color: white;
+  border-bottom: 0.2em solid #fb00ff;
 }
 @-webkit-keyframes sectorGlow {
   0% {
@@ -2453,12 +2448,16 @@ select {
 .focused-driver-info .vehicle {
   vertical-align: top;
   display: inline-block;
-  height: 4em;
+  height: 4.3em;
   line-height: 3.25em;
+}
+.focused-driver-info .positionContainer {
+  border-radius: 0em 0em 0em 1em;
 }
 .focused-driver-info .ptpRemaining,
 .focused-driver-info .best-time,
-.focused-driver-info .positionInClass {
+.focused-driver-info .positionInClass,
+.focused-driver-info .drs {
   vertical-align: top;
   display: inline-block;
   border-left: 2px solid;
@@ -2471,7 +2470,7 @@ select {
 }
 .focused-driver-info .top .ptpRemaining {
   line-height: 0.5em;
-  background: #212934;
+  background: black;
   padding: 0.5em 0.5em;
   color: cyan;
   width: 5em;
@@ -2479,9 +2478,31 @@ select {
   margin-bottom: 0px;
   height: 1.5em;
 }
+.focused-driver-info .top .drs {
+  line-height: 0.5em;
+  background: black;
+  padding: 0.5em 0.5em;
+  color: black;
+  width: 5em;
+  z-index: 0;
+  margin-bottom: 0px;
+  height: 1.5em;
+  animation: drsGlow 1s infinite;
+}
+@-webkit-keyframes drsGlow {
+  0% {
+    background-color: green;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: #76FF03;
+  }
+}
 .focused-driver-info .top .best-time {
   line-height: 0.5em;
-  background: #212934;
+  background: black;
   padding: 0.5em 0.5em;
   color: #76FF03;
   width: 7em;
@@ -2490,8 +2511,8 @@ select {
   height: 1.5em;
 }
 .focused-driver-info .top .positionInClass {
-  line-height: 0.5em;
-  background: #212934;
+  line-height: 0.7em;
+  background: black;
   padding: 0.5em 0.5em;
   color: black;
   width: 3em;
@@ -2500,30 +2521,28 @@ select {
   height: 1.5em;
 }
 .focused-driver-info .top .fastest {
-  color: #fb00ff;
-  background: #212934;
+  background: #fb00ff;
+  color: white;
 }
 .focused-driver-info .main .positionContainer {
   background: red;
   color: white;
-  width: 5.5em;
-  left: 0.5em;
+  width: 5.7em;
   position: relative;
-  padding-left: 0.1em;
+  padding-left: 0.5em;
   text-align: center;
   padding-right: 0.5em;
-  line-height: 3.7em;
+  line-height: 4.3em;
   border-left: 0.1em solid red;
 }
 .focused-driver-info .main .positionContainer .position {
-  font-size: 49.5px;
+  font-size: 51px;
 }
 .focused-driver-info .main .driverInfoDetails {
-  background: #212934;
+  background: black;
   text-transform: uppercase;
   border-bottom: 0.1em solid red;
-  transform: skew(-10deg);
-  width: 24em;
+  width: 25em;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -2532,23 +2551,25 @@ select {
 .focused-driver-info .main .driverInfoDetails .firstName {
   line-height: 0.5em;
   color: white;
-  font-size: 16.5px;
-  transform: skew(10deg);
+  font-size: 18px;
   display: inline-block;
+  z-index: 10;
 }
 .focused-driver-info .main .driverInfoDetails .lastName {
   padding: 0.2em;
   line-height: 0.5em;
   color: #76ff03;
   font-size: 22.5px;
-  transform: skew(10deg);
+  transform: skew(-10deg);
   display: inline-block;
+  z-index: 10;
 }
 .focused-driver-info .main .driverInfoDetails .teamEventName {
   margin-top: 0.5em;
   line-height: 2em;
   color: #76ff03;
   font-size: 19.5px;
+  z-index: 10;
 }
 .focused-driver-info .main .driverInfoDetails .team {
   font-size: 13.5px;
@@ -2557,6 +2578,7 @@ select {
   color: white;
   text-transform: uppercase;
   text-align: right;
+  z-index: 10;
 }
 .focused-driver-info .main .vehicle {
   width: 1.75em;
@@ -2570,45 +2592,44 @@ select {
   height: 6.5em;
 }
 .focused-driver-info .main .manufacturer {
-  background: #212934;
+  background: black;
   width: 4em;
   position: relative;
   left: 0em;
   border-bottom: 0.1em solid red;
-  transform: skew(-10deg);
   border-bottom-right-radius: 5px;
 }
 .focused-driver-info .main .manufacturer img {
   position: absolute;
-  transform: skew(10deg);
   top: 0.4em;
   left: 0.4em;
   height: 3em;
 }
 .focused-driver-info .main .flag-container {
-  width: 3em;
-  left: 0.5em;
+  width: 5em;
   position: relative;
-  background: #212934;
+  background: black;
   border-bottom: 0.1em solid red;
   margin: 1;
-  z-index: 5;
+  z-index: 9;
 }
 .focused-driver-info .main .flag-container .flag {
-  background: #212934;
+  background: black;
   position: absolute;
   display: block;
-  top: 0.7em;
-  width: 3.5em;
-  left: 0.5em;
+  width: 15em;
+  height: 4.2em;
+  z-index: 10;
+  -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
 }
 .focused-driver-info .main .flag-container .avatar {
-  background: #212934;
   position: absolute;
   display: block;
-  top: 0.15em;
-  width: 3.5em;
+  top: 0.1em;
+  width: 3.8em;
   left: 0.5em;
+  z-index: 11;
+  border-radius: 1em;
 }
 .logo-overlay {
   font-size: 15px;
@@ -2665,9 +2686,13 @@ select {
   top: 0;
   height: 1.7em;
   z-index: 1;
-  background: #212934;
+  background: black;
   -webkit-transition: -webkit-transform 0.3s linear, left 0.1s linear;
   white-space: nowrap;
+  border-radius: 0em 0em 0em 0.6em;
+}
+.multiclass-standings .driver .out {
+  opacity: 0.5;
 }
 .multiclass-standings .driver .inner {
   height: 1.6em;
@@ -2691,6 +2716,7 @@ select {
 }
 .multiclass-standings .driver .positionContainer {
   margin: 0;
+  border-radius: 0em 0em 0em 0.4em;
   font-size: 15px;
   background: red;
   display: inline-block;
@@ -2721,6 +2747,7 @@ select {
   height: 3em;
   z-index: 1;
   top: 0.2em;
+  background: black;
 }
 .multiclass-standings .driver .manufacturerContainer .manufacturerFlag {
   position: relative;
@@ -2739,6 +2766,7 @@ select {
 }
 .multiclass-standings .driver .manufacturerContainer .standingsFlag img {
   height: 85%;
+  -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000000), to(rgba(0, 0, 0, 0.8)));
 }
 .multiclass-standings .driver .manufacturerContainer .positionsChange {
   position: relative;
@@ -2747,7 +2775,7 @@ select {
   text-align: center;
 }
 .multiclass-standings .driver .manufacturerContainer .positionsChange .gained {
-  color: cyan;
+  color: #76FF03;
 }
 .multiclass-standings .driver .manufacturerContainer .positionsChange .level {
   color: cyan;
@@ -2760,7 +2788,7 @@ select {
   font-family: Formula1-Regular;
   display: inline-block;
   color: white;
-  background: #212934;
+  background: black;
   width: 6.5em;
   padding-top: 0.2em;
   padding-left: 1.5em;
@@ -2781,9 +2809,12 @@ select {
   color: #76ff03;
   display: inline-block;
 }
+.multiclass-standings .driver .nameContainer .grey {
+  color: grey;
+}
 .multiclass-standings .driver .meta-info-container {
   font-size: 12px;
-  background: #212934;
+  background: black;
   color: white;
   font-family: Formula1-Regular;
   padding-top: 0.3em;
@@ -2804,7 +2835,7 @@ select {
   }
 }
 .multiclass-standings .driver .meta-info-container .fastest {
-  color: #fb00ff;
+  background: #fb00ff;
 }
 .multiclass-standings .driver .meta-info-container .yellow {
   background: yellow;
@@ -2819,7 +2850,7 @@ select {
   display: inline-block;
   width: 2em;
   text-align: center;
-  background: #212934;
+  background: black;
 }
 @-webkit-keyframes "ani_10" {
   0% {
@@ -2904,7 +2935,7 @@ pre.preview {
   text-align: right;
   padding: 0 0.75em 0 0;
   line-height: 5em;
-  font-size: 19.5px;
+  font-size: 18px;
   background: #212934;
   text-transform: uppercase;
   padding-bottom: 0.5em;
@@ -2947,7 +2978,7 @@ pre.preview {
   font-size: 16.5px;
 }
 .race-results .race-results-entry.fastest .fastest-time {
-  color: #a3229a;
+  background: #a3229a;
 }
 .race-results .race-results-entry > div {
   height: 37px;
@@ -3039,7 +3070,7 @@ pre.preview {
 }
 .race-results .race-results-entry .fastest-time.fastest,
 .race-results .race-results-entry .lap-time.fastest {
-  color: #fb00ff;
+  background: #fb00ff;
 }
 .winnerColumn {
   filter: drop-shadow(9px 9px 9px #000000);
@@ -3146,7 +3177,7 @@ pre.preview {
   padding: 0 0.75em 0 0;
   line-height: 5em;
   font-size: 19.5px;
-  background: #212934;
+  background: black;
   text-transform: uppercase;
   padding-bottom: 0.5em;
   z-index: 0;
@@ -3170,7 +3201,7 @@ pre.preview {
   padding-right: 1em;
   line-height: 1em;
   font-size: 18px;
-  background: #212934;
+  background: black;
   text-transform: uppercase;
   padding-bottom: 1em;
   z-index: 0;
@@ -3179,7 +3210,7 @@ pre.preview {
   height: 2em;
   line-height: 2em;
   color: white;
-  background: #212934;
+  background: black;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -3274,7 +3305,7 @@ pre.preview {
 }
 .qualify-results .qualify-results-entry .fastest-time.fastest,
 .qualify-results .qualify-results-entry .lap-time.fastest {
-  color: #fb00ff;
+  background: #fb00ff;
 }
 .safetyCarDeployedContainer {
   font-size: 15px;
@@ -3287,7 +3318,7 @@ pre.preview {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
 }
 .safetyCarDeployedContainer .raceControl {
-  background: #212934;
+  background: black;
   color: yellow;
   font-size: 15px;
   padding: 0.05em;
@@ -3317,7 +3348,7 @@ pre.preview {
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
 }
 .safetyAlert .raceControl {
-  background: #212934;
+  background: black;
   color: yellow;
   font-size: 15px;
   padding: 0.05em;
@@ -3360,14 +3391,14 @@ pre.preview {
 }
 .session-info .inner .sessionName {
   min-width: 4em;
-  background: #212934;
+  background: black;
   text-transform: uppercase;
   color: #76FF03;
 }
 .session-info .inner .timer {
   min-width: 5em;
   border-left: 0.20em solid #76FF03;
-  background: #212934;
+  background: black;
   text-transform: uppercase;
   color: white;
   z-index: 2;
@@ -3386,7 +3417,7 @@ pre.preview {
   padding: 0em 0.3em;
   min-width: 4em;
   border-left: 0.20em solid #76FF03;
-  background: #212934;
+  background: black;
   text-transform: uppercase;
   color: red;
   z-index: -2;
@@ -3412,15 +3443,15 @@ pre.preview {
   padding: 0;
   width: 5em;
   font-size: 15px;
-  background: #212934;
+  background: black;
   color: #76FF03;
   border-left: 0.2em solid #76FF03;
 }
 .session-info .inner .serverName {
+  background: black;
   margin: 0;
   min-width: 4em;
   border-right: 0.2em solid #76FF03;
-  background: #212934;
   text-transform: uppercase;
   color: white;
   z-index: 2;
@@ -3562,7 +3593,7 @@ pre.preview {
 }
 .tyreChoice .title {
   border-left: 3px solid #76ff03;
-  background: #212934;
+  background: black;
   color: white;
   font-size: 16.5px;
   padding: 0.05em;
@@ -3570,7 +3601,7 @@ pre.preview {
   z-index: 0;
 }
 .tyreChoice .tyreContainer {
-  background: linear-gradient(to bottom, #212934, cyan);
+  background: linear-gradient(to bottom, black, cyan);
   font-size: 16.5px;
   padding: 1em;
   text-transform: capitalize;

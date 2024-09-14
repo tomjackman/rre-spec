@@ -226,7 +226,7 @@ function updateInfo() {
 		if(value === 0) {
 			return '-';
 		} else if (value > 0) {
-			return '+' + value;
+			return '^' + value;
 		} else if (value < 0) {
 			return value;
 		}
@@ -288,7 +288,7 @@ function updateInfo() {
 				{self.looper.map(function(non, i) {
 					return <div key={i}>
 						{self.shouldShow(driversLookup[i]) ?
-							<div className={cx({'driver': true, 'active': (driversLookup[i].slotId === UI.state.focusedSlot)})} key={driversLookup[i].slotId} style={self.getDriverStyle(driversLookup[i])}>
+							<div className={cx({'driver': true, 'out': true, 'active': (driversLookup[i].slotId === UI.state.focusedSlot)})} key={driversLookup[i].slotId} style={self.getDriverStyle(driversLookup[i])}>
 								<div className="inner animated fadeIn delay-1s">
 								{self.getClassIndicator(driversLookup[i].performanceIndex)}
 

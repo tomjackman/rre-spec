@@ -22,6 +22,8 @@
 ### Dev Updates
 * Bump the package.json version.
 * Bump the version.json file in the public folder.
+* Make a new folder.
+* Remove .git folder and copy the rest of the contents to the new folder.
 * Export to .zip and upload to forum.
 * Push the version changes to github.
 

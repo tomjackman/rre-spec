@@ -187,7 +187,7 @@ UI.widgets.FocusedDriver = React.createClass({
 		}
 		if (sector.finished && sector.time-globalBest !== 0) {
 			return <li className={classes}>
-				{UI.formatTime(sector.time, {ignoreSign: true})} ({UI.formatTime(sector.time-globalBest)})
+				{UI.formatTime(sector.time-globalBest)}
 			</li>
 		} else {
 			return <li className={classes}>
@@ -287,22 +287,23 @@ UI.widgets.FocusedDriver = React.createClass({
 			return null;
 		}
 
-		const gearBackground = {width: self.state.vehicleInfo.rpm/90, minWidth: '7.5em'};
-		const speedBackground = {width: self.state.vehicleInfo.speed/1.8, minWidth: '7.5em'};
+		const gearBackground = {width:'8.5em'};
+		const speedBackground = {width:'8.5em'};
 
 
 		return (
 			<div className={focusedDriverClasses} key={self.state.driverInfo.portalId}>
 
-				<div className="bottom animated fadeInUp delay-5s">
-					{self.getExtraInfo()}
-				</div>
-
-				<div className="inner animated fadeInUp delay-3s">
+				<div className="inner animated fadeInUp delay-2s">
 					<div className="top">
 						{self.state.pushToPassInfo.allowed && UI.state.sessionInfo.type.match(/^race/i) ?
 							<div className="ptpRemaining">{self.state.pushToPassInfo.amountLeft} {UI.getStringTranslation("focusedDriverWidget", "ptp")}</div>
 							:
+							null
+						}
+						{self.state.vehicleInfo.drsEnabled && UI.state.sessionInfo.type.match(/^race/i) ?
+						<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>{UI.getStringTranslation("focusedDriverWidget", "drs")}</div>
+						:
 							null
 						}
 						{self.getPersonalBestTime(driverInfo)}
@@ -317,8 +318,9 @@ UI.widgets.FocusedDriver = React.createClass({
 					{window.settings.offline === true || UI.state.controllerOptions.options.showPortalAvatar.value === "true" ?
 						<img className="avatar" src={UI.getUserInfo(driverInfo.portalId).avatar} />
 					:
-						<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.png'} />
+						null
 					}
+					<img className="flag" src={'/img/flags/'+UI.getUserInfo(driverInfo.portalId).country+'.png'} />
 					</div>
 					<div className="driverInfoDetails">
 					  { window.settings.teamEvent ?
@@ -343,32 +345,12 @@ UI.widgets.FocusedDriver = React.createClass({
 						}
 					</div>
 
+
+				<div className="bottom animated fadeIn delay-3s">
+					{self.getExtraInfo()}
+				</div>
+
 					<div className="assists">
-						{
-							true ?
-							<div className={cx({'ptp': true, 'active': self.state.pushToPassInfo.active})}>
-								<div className="icon">{UI.getStringTranslation("focusedDriverWidget", "ptp")}</div>
-
-								{ !UI.state.sessionInfo.type.match(/^race/i) ?
-									null
-								:
-									<div className={cx({'text': true, 'active': self.state.pushToPassInfo.active})}>{self.state.pushToPassInfo.amountLeft} {UI.getStringTranslation("focusedDriverWidget", "remaining")}</div>
-								}
-							</div>
-							:
-							null
-						}
-
-						<div className={cx({'drs': true, 'active': self.state.vehicleInfo.drsEnabled})}>
-							<div className={cx({'icon': true})}>{UI.getStringTranslation("focusedDriverWidget", "drs")}</div>
-								{ !UI.state.sessionInfo.type.match(/^race/i) ?
-									null
-								:
-									<div className={cx({'text': true, 'active': self.state.vehicleInfo.drsEnabled})}>{self.state.vehicleInfo.drsLeft} {UI.getStringTranslation("focusedDriverWidget", "remaining")}</div>
-								}
-							
-						</div>
-
 								
 						{UI.state.controllerOptions.options.showVehicleInfo.value === "true" ?
 							<div className={cx({'params': true})}>
